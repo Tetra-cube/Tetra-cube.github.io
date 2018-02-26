@@ -1,6 +1,6 @@
 html
 {
-	background-image: url("Images/dndbkg.jpg");
+	background-image: url("images/dndbkg.jpg");
 	background-attachment: fixed;
 	background-size: cover; 
 }
@@ -13,7 +13,7 @@ body
     margin: 0px auto;
 	background-color: white;
 	line-height: 125%;
-	background-image: url("Images/papyr.jpg");
+	background-image: url("images/papyr.jpg");
 	border-style: solid;
 }
 
