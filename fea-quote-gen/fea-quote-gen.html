@@ -1,7 +1,7 @@
 <link rel='stylesheet' type='text/css' href='quotegen-style.css'>
 <!DOCTYPE html>
 <html>
-<link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
+<link rel='shortcut icon' type='image/x-icon' href='feimages/favicon.ico' />
 <title>FE:A Quote Generator</title>
 <body>
 	<h1>Fire Emblem: Awakening Quote Generator</h1>
@@ -11,7 +11,7 @@
 		<table id='normalOptions' align="center">
 			<tr id='lpOptions'>
 				<th class='leftalign'>
-					<img src='images/remove.png' id='lpremove' title='Remove Portrait' />
+					<img src='feimages/remove.png' id='lpremove' title='Remove Portrait' />
 					Left Portrait: <input type='file' id='lp' />
 				</th>
 				<th class='rightalign'>
@@ -22,7 +22,7 @@
 			<tr id='rpOptions'>
 				<th class='leftalign'>
 					Right Portrait: <input type='file' id='rp' />
-					<img src='images/remove.png' id='rpremove' title='Remove Portrait' />
+					<img src='feimages/remove.png' id='rpremove' title='Remove Portrait' />
 				</th>
 				<th class='rightalign'>
 					Flip<input type='checkbox' id='rpflip' />
@@ -57,14 +57,14 @@
 			Additional Options:<br>
 			<tr id='bkgOptions'>
 				<th colspan="2">
-					<img src='images/remove.png' id='removebkg' title='Restore Default Background' />
+					<img src='feimages/remove.png' id='removebkg' title='Restore Default Background' />
 					Background Image: <input type='file' id='bkg' /><br>
 				</th>
 			</tr>
 			<tr id='lp2Options'>
 				<th class='leftalign'>
 					Left Portrait 2: <input type='file' id='lp2' />
-					<img src='images/remove.png' id='lp2remove' title='Remove Portrait' />
+					<img src='feimages/remove.png' id='lp2remove' title='Remove Portrait' />
 				</th>
 				<th class='rightalign'>
 					Flip<input type='checkbox' id='lp2flip' />
@@ -74,7 +74,7 @@
 			<tr id='rp2Options'>
 				<th class='leftalign'>
 					Right Portrait 2: <input type='file' id='rp2' />
-					<img src='images/remove.png' id='rp2remove' title='Remove Portrait' />
+					<img src='feimages/remove.png' id='rp2remove' title='Remove Portrait' />
 				</th>
 				<th class='rightalign'>
 					Flip<input type='checkbox' id='rp2flip' />
@@ -205,7 +205,7 @@ bkg.addEventListener('change',function(e){
 		removebkg.style.display = 'inline';
 	},false);
 removebkg.addEventListener('click',function(){
-		images[bkgnum].src = 'images/defaultbkg.png';
+		images[bkgnum].src = 'feimages/defaultbkg.png';
 		removebkg.style.display = 'none';
 		reloadCanvas();
 		bkg.value = '';
@@ -265,27 +265,27 @@ for(var a = 0; a < 5; a++){
 }
 ctx.font = '15px "Chiaro"';
 textBoxTypeRadioButtons[0].checked=true;
-textBoximages[0].src = 'images/tboxC.png';
-textBoximages[1].src = 'images/tbox1L.png';
-textBoximages[2].src = 'images/tbox1R.png';
-textBoximages[3].src = 'images/tbox2L.png';
-textBoximages[4].src = 'images/tbox2R.png';
-textBoximages[5].src = 'images/tbox3L.png';
-textBoximages[6].src = 'images/tbox3R.png';
-textBoximages[7].src = 'images/tbox4L.png';
-textBoximages[8].src = 'images/tbox4R.png';
-textBoximages[9].src = 'images/tbox5L.png';
-textBoximages[10].src = 'images/tbox5R.png';
+textBoximages[0].src = 'feimages/tboxC.png';
+textBoximages[1].src = 'feimages/tbox1L.png';
+textBoximages[2].src = 'feimages/tbox1R.png';
+textBoximages[3].src = 'feimages/tbox2L.png';
+textBoximages[4].src = 'feimages/tbox2R.png';
+textBoximages[5].src = 'feimages/tbox3L.png';
+textBoximages[6].src = 'feimages/tbox3R.png';
+textBoximages[7].src = 'feimages/tbox4L.png';
+textBoximages[8].src = 'feimages/tbox4R.png';
+textBoximages[9].src = 'feimages/tbox5L.png';
+textBoximages[10].src = 'feimages/tbox5R.png';
 nameplate = new Image();
-nameplate.src='images/nameplate.png';
+nameplate.src='feimages/nameplate.png';
 talkCursor = new Image();
-talkCursor.src='images/talkCursor.png';
+talkCursor.src='feimages/talkCursor.png';
 // for shading
 var offscreenCanvas = document.createElement('canvas');
 var offscreenCtx = offscreenCanvas.getContext('2d');
 offscreenCanvas.width = canvasWidth;
 offscreenCanvas.height = canvasHeight;
-images[drk].src = 'images/darken.png';
+images[drk].src = 'feimages/darken.png';
 // reset to defaults
 bkg.value = '';
 charName.value = '';
@@ -423,5 +423,5 @@ function getSpriteOff(num,scale){
 	return 0;
 }
 // set the default background
-images[bkgnum].src = 'images/defaultbkg.png';
+images[bkgnum].src = 'feimages/defaultbkg.png';
 </script>
