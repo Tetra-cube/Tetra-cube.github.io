@@ -1,83 +1,131 @@
 <link rel='stylesheet' type='text/css' href='quotegen-style.css'>
 <!DOCTYPE html>
 <html>
-<title>Quote Generator</title>
-<body background="Images/pagebackground.png">
-	<canvas id='imageCanvas'></canvas><br><br>
+<link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
+<title>FE:A Quote Generator</title>
+<body>
+	<h1>Fire Emblem: Awakening Quote Generator</h1>
+	<hr>
+	<br><canvas id='imageCanvas'></canvas><br><br>
 	<form id='optionsForm'>
-		<div id='normalOptions'>
-			<div id='lpOptions'>
-				<img src='Images/remove.png' id='lpremove' title='Remove Portrait' />
-				Left Portrait: <input type='file' id='lp' />
-				Flip<input type='checkbox' id='lpflip' />
-				Sprite Index: <input type='number' id='lpindex' min='1' value='1' disabled /><br>
-			</div>
-			<div id='rpOptions'>
-				<img src='Images/remove.png' id='rpremove' title='Remove Portrait' />
-				Right Portrait: <input type='file' id='rp' />
-				Flip<input type='checkbox' id='rpflip' />
-				Sprite Index: <input type='number' id='rpindex' min='1' value='1' disabled /><br>
-			</div>
-			<div id='nameOption'>
-				Name: <input type='text' id='name' /><br>
-			</div>
-			<div id='dialogueOption1'>
-				Line 1: <input type='text' id='dialogue1' /><br>
-			</div>
-			<div id='dialogueOption2'>
-				Line 2: <input type='text' id='dialogue2' /><br>
-			</div>
-			<div id='boxLocationOption'>
-				Left<input type='radio' name='boxLocation' id='lBoxRadio'>
-				Right<input type='radio' name='boxLocation' id='rBoxRadio'>
-				No Textbox<input type='radio' name='boxLocation' id='noBoxRadio'>
-			<br>
-			</div>
-		</div>
-		<br><br><br><br>
-		<div id='advancedOptions'>
-			Additional Options:<br><br>
-			<div id='bkgOptions'>
-				<img src='Images/remove.png' id='removebkg' title='Restore Default Background' />
-				Background Image: <input type='file' id='bkg' /><br>
-			</div>
-			<div id='lp2Options'>
-				<img src='Images/remove.png' id='lp2remove' title='Remove Portrait' />
-				Left Portrait 2: <input type='file' id='lp2' />
-				Flip<input type='checkbox' id='lp2flip' />
-				Sprite Index: <input type='number' id='lp2index' min='1' value='1' disabled /><br>
-			</div>
-			<div id='rp2Options'>
-				<img src='Images/remove.png' id='rp2remove' title='Remove Portrait' />
-				Right Portrait 2: <input type='file' id='rp2' />
-				Flip<input type='checkbox' id='rp2flip' />
-				Sprite Index: <input type='number' id='rp2index' min='1' value='1' disabled /><br>
-			</div>
-			<div id='boxTypeOption'>
-				Box Type 1<input type='radio' name='boxType' id='type1Radio'>
-				Box Type 2<input type='radio' name='boxType' id='type2Radio'>
-				Box Type 3<input type='radio' name='boxType' id='type3Radio'>
-				Box Type 4<input type='radio' name='boxType' id='type4Radio'>
-				Box Type 5<input type='radio' name='boxType' id='type5Radio'>
-			<br>
-			<div id='darkenPortraitOptions'>
-				Darken:
-				Left<input type='checkbox' id='lpdarken' />
-				Right<input type='checkbox' id='rpdarken' />
-				Left 2<input type='checkbox' id='lp2darken' />
-				Right 2<input type='checkbox' id='rp2darken' />
-			</div>
-			<div id='darkenBkgOption'>
-				Add Black Bars to Background <input type='checkbox' id='darkenBkg' />
-			</div>
-		</div>
+		<table id='normalOptions' align="center">
+			<tr id='lpOptions'>
+				<th class='leftalign'>
+					<img src='images/remove.png' id='lpremove' title='Remove Portrait' />
+					Left Portrait: <input type='file' id='lp' />
+				</th>
+				<th class='rightalign'>
+					Flip<input type='checkbox' id='lpflip' />
+					Sprite Index: <input type='number' id='lpindex' min='1' value='1' disabled /><br>
+				</th>
+			</tr>
+			<tr id='rpOptions'>
+				<th class='leftalign'>
+					Right Portrait: <input type='file' id='rp' />
+					<img src='images/remove.png' id='rpremove' title='Remove Portrait' />
+				</th>
+				<th class='rightalign'>
+					Flip<input type='checkbox' id='rpflip' />
+					Sprite Index: <input type='number' id='rpindex' min='1' value='1' disabled /><br>
+				</th>
+			</tr>
+			<tr>
+				<th id='nameOption' colspan="2">
+					Name: <input type='text' id='name' /><br>
+				</th>
+			</tr>
+			<tr>
+				<th id='dialogueOption1' colspan="2">
+					Line 1: <input type='text' id='dialogue1' size="50" /><br>
+				</th>
+			</tr>
+			<tr>
+				<th id='dialogueOption2' colspan="2">
+					Line 2: <input type='text' id='dialogue2' size="50" /><br>
+				</th>
+			</tr>
+			<tr>
+				<th id='boxLocationOption' colspan="2">
+					Left<input type='radio' name='boxLocation' id='lBoxRadio'>
+					Right<input type='radio' name='boxLocation' id='rBoxRadio'>
+					No Textbox<input type='radio' name='boxLocation' id='noBoxRadio'>
+				</th>
+			</tr>
+		</table>
+		<br><br>
+		<table id='advancedOptions' align="center">
+			Additional Options:<br>
+			<tr id='bkgOptions'>
+				<th colspan="2">
+					<img src='images/remove.png' id='removebkg' title='Restore Default Background' />
+					Background Image: <input type='file' id='bkg' /><br>
+				</th>
+			</tr>
+			<tr id='lp2Options'>
+				<th class='leftalign'>
+					Left Portrait 2: <input type='file' id='lp2' />
+					<img src='images/remove.png' id='lp2remove' title='Remove Portrait' />
+				</th>
+				<th class='rightalign'>
+					Flip<input type='checkbox' id='lp2flip' />
+					Sprite Index: <input type='number' id='lp2index' min='1' value='1' disabled /><br>
+				</th>
+			</tr>
+			<tr id='rp2Options'>
+				<th class='leftalign'>
+					Right Portrait 2: <input type='file' id='rp2' />
+					<img src='images/remove.png' id='rp2remove' title='Remove Portrait' />
+				</th>
+				<th class='rightalign'>
+					Flip<input type='checkbox' id='rp2flip' />
+					Sprite Index: <input type='number' id='rp2index' min='1' value='1' disabled /><br>
+				</th>
+			</tr>
+			<tr>
+				<th colspan="2">
+					Box Type:
+				</th>
+			</tr>
+			<tr id='boxTypeOption'>
+				<th colspan="2">
+					Type 1<input type='radio' name='boxType' id='type1Radio'>&nbsp;&nbsp;
+					Type 2<input type='radio' name='boxType' id='type2Radio'>&nbsp;&nbsp;
+					Type 3<input type='radio' name='boxType' id='type3Radio'>&nbsp;&nbsp;
+					Type 4<input type='radio' name='boxType' id='type4Radio'>&nbsp;&nbsp;
+					Type 5<input type='radio' name='boxType' id='type5Radio'>&nbsp;&nbsp;
+				</th>
+			</tr>
+			<tr>
+				<th colspan="2">
+					Darken:
+				</th>
+			</tr>
+			<tr id='darkenPortraitOptions'>
+				<th colspan="2">
+					Left<input type='checkbox' id='lpdarken' />&nbsp;&nbsp;
+					Right<input type='checkbox' id='rpdarken' />&nbsp;&nbsp;
+					Left 2<input type='checkbox' id='lp2darken' />&nbsp;&nbsp;
+					Right 2<input type='checkbox' id='rp2darken' />
+				</th>
+			</tr>
+			<tr id='darkenBkgOption'>
+				<th colspan="2">
+					Background <input type='checkbox' id='darkenBkg' />
+				</th>
+			</tr>
+		</table>
 	</form>
+	<br>
+	<div class=footer>
+	  By <a href="http://chickenwraith.tumblr.com/">Chickenwraith</a> | Resources from <a href="http://incorrectfeaquotes.tumblr.com/tagged/resources">here</a> | <a href="https://github.com/Tetra-cube/Tetra-cube.github.io">GitHub repository</a> | Version 1.4
+	</div>
 </body>
-<footer>
-  <br><br><br><br>By <a href="http://chickenwraith.tumblr.com/">Chickenwraith</a> | Resources from <a href="http://incorrectfeaquotes.tumblr.com/tagged/resources">here</a> | <a href="https://github.com/Tetra-cube/Tetra-cube.github.io">GitHub repository</a> | Version 1.3
-</footer>
+</html>
 
 <script>
+
+// This hell code is a great example of how not to javascript. I'd fix it but a) it works somehow and b) I don't want to touch it ever again
+
 const lp=0, rp=1, lp2=2, rp2=3, bkgnum=4, drk=5, canvasWidth=400, canvasHeight=240, spriteWidth=256, spriteHeight=256, spriteOff=28, spriteOff2=-28, darkenConst=0.25;
 var offset = [0, canvasWidth-spriteWidth, 0, canvasWidth-spriteWidth];			// for drawing sprites
 var flipOffset = [-spriteWidth, -canvasWidth, -spriteWidth, -canvasWidth];		// for drawing flipped sprites
@@ -157,7 +205,7 @@ bkg.addEventListener('change',function(e){
 		removebkg.style.display = 'inline';
 	},false);
 removebkg.addEventListener('click',function(){
-		images[bkgnum].src = 'Images/defaultbkg.png';
+		images[bkgnum].src = 'images/defaultbkg.png';
 		removebkg.style.display = 'none';
 		reloadCanvas();
 		bkg.value = '';
@@ -169,13 +217,13 @@ darkenBkg.addEventListener('click',reloadCanvas,false);
 canvas.width = canvasWidth;
 canvas.height = canvasHeight;
 // for dialogue
-var textBoxImages = [], textBoxRadioButtons = [], textBoxTypeRadioButtons = [];
+var textBoximages = [], textBoxRadioButtons = [], textBoxTypeRadioButtons = [];
 var namePlate,talkCursor,textBoxType=0;
 textBoxRadioButtons[0] = document.getElementById('lBoxRadio');
 textBoxRadioButtons[1] = document.getElementById('rBoxRadio');
 textBoxRadioButtons[2] = document.getElementById('noBoxRadio');
 for(var a = 0; a < 3; a++){
-	textBoxImages[a] = new Image();
+	textBoximages[a] = new Image();
 }
 textBoxRadioButtons[0].addEventListener('click',function(){
 	darkBoxes[0].checked = false;
@@ -204,7 +252,7 @@ textBoxTypeRadioButtons[2] = document.getElementById('type3Radio');
 textBoxTypeRadioButtons[3] = document.getElementById('type4Radio');
 textBoxTypeRadioButtons[4] = document.getElementById('type5Radio');
 for(var a = 0; a < 11; a++){
-	textBoxImages[a] = new Image();
+	textBoximages[a] = new Image();
 }
 for(var a = 0; a < 5; a++){
 	textBoxTypeRadioButtons[a].checked=false;
@@ -217,27 +265,27 @@ for(var a = 0; a < 5; a++){
 }
 ctx.font = '15px "Chiaro"';
 textBoxTypeRadioButtons[0].checked=true;
-textBoxImages[0].src = 'Images/tboxC.png';
-textBoxImages[1].src = 'Images/tbox1L.png';
-textBoxImages[2].src = 'Images/tbox1R.png';
-textBoxImages[3].src = 'Images/tbox2L.png';
-textBoxImages[4].src = 'Images/tbox2R.png';
-textBoxImages[5].src = 'Images/tbox3L.png';
-textBoxImages[6].src = 'Images/tbox3R.png';
-textBoxImages[7].src = 'Images/tbox4L.png';
-textBoxImages[8].src = 'Images/tbox4R.png';
-textBoxImages[9].src = 'Images/tbox5L.png';
-textBoxImages[10].src = 'Images/tbox5R.png';
+textBoximages[0].src = 'images/tboxC.png';
+textBoximages[1].src = 'images/tbox1L.png';
+textBoximages[2].src = 'images/tbox1R.png';
+textBoximages[3].src = 'images/tbox2L.png';
+textBoximages[4].src = 'images/tbox2R.png';
+textBoximages[5].src = 'images/tbox3L.png';
+textBoximages[6].src = 'images/tbox3R.png';
+textBoximages[7].src = 'images/tbox4L.png';
+textBoximages[8].src = 'images/tbox4R.png';
+textBoximages[9].src = 'images/tbox5L.png';
+textBoximages[10].src = 'images/tbox5R.png';
 nameplate = new Image();
-nameplate.src='Images/nameplate.png';
+nameplate.src='images/nameplate.png';
 talkCursor = new Image();
-talkCursor.src='Images/talkCursor.png';
+talkCursor.src='images/talkCursor.png';
 // for shading
 var offscreenCanvas = document.createElement('canvas');
 var offscreenCtx = offscreenCanvas.getContext('2d');
 offscreenCanvas.width = canvasWidth;
 offscreenCanvas.height = canvasHeight;
-images[drk].src = 'Images/darken.png';
+images[drk].src = 'images/darken.png';
 // reset to defaults
 bkg.value = '';
 charName.value = '';
@@ -323,26 +371,26 @@ function drawTextBox(){
 	if(!(textBoxRadioButtons[0].checked || textBoxRadioButtons[1].checked))
 		return;
 	var alignLeft=textBoxRadioButtons[0].checked;
-	var edgeWidth=textBoxImages[type].width+textBoxImages[type+1].width;
+	var edgeWidth=textBoximages[type].width+textBoximages[type+1].width;
 	var textBoxWidth = Math.floor((Math.max(ctx.measureText(dialogue1.value).width,ctx.measureText(dialogue2.value).width)
-						-edgeWidth+140-leftOffArray[textBoxType]*2)/textBoxImages[0].width);
+						-edgeWidth+140-leftOffArray[textBoxType]*2)/textBoximages[0].width);
 	if(textBoxWidth<1)
 		textBoxWidth=1;
 	else if(textBoxWidth>widthMax[textBoxType])
 		textBoxWidth=widthMax[textBoxType];
-	var centerWidth=textBoxImages[0].width*textBoxWidth;
+	var centerWidth=textBoximages[0].width*textBoxWidth;
 	var drawx;
 	if(alignLeft)
 		drawx=leftOff;
 	else
 		drawx=canvasWidth-leftOff-edgeWidth-centerWidth;
-	ctx.drawImage(textBoxImages[type],drawx,topy);
-	drawx+=textBoxImages[type].width;
+	ctx.drawImage(textBoximages[type],drawx,topy);
+	drawx+=textBoximages[type].width;
 	for(var a = 0; a < textBoxWidth; a++){
-		ctx.drawImage(textBoxImages[0],drawx,topy)
-		drawx+=textBoxImages[0].width;
+		ctx.drawImage(textBoximages[0],drawx,topy)
+		drawx+=textBoximages[0].width;
 	}
-	ctx.drawImage(textBoxImages[type+1],drawx,topy);
+	ctx.drawImage(textBoximages[type+1],drawx,topy);
 	ctx.drawImage(talkCursor,drawx+leftOff+78,216);
 	ctx.fillStyle = '#4e3d29';
 	ctx.textAlign = 'left';
@@ -375,5 +423,5 @@ function getSpriteOff(num,scale){
 	return 0;
 }
 // set the default background
-images[bkgnum].src = 'Images/defaultbkg.png';
+images[bkgnum].src = 'images/defaultbkg.png';
 </script>

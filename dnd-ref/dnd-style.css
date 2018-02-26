@@ -11,10 +11,9 @@ body
 	text-align: left;
     max-width: 1000px;
     margin: 0px auto;
-	background-color: white;
 	line-height: 125%;
 	background-image: url("images/papyr.jpg");
-	border-style: solid;
+	border-style: none solid;
 }
 
 .content
@@ -24,7 +23,7 @@ body
 
 h1, h2
 {
-	font-family: Tahoma;
+	font-family: Tahoma, Georgia, Arial, sans-serif;
 }
 
 a
