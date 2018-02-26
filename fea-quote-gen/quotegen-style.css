@@ -1,18 +1,55 @@
+html
+{
+	background-image: url("images/pagebackground.jpg");
+	background-attachment: fixed;
+	background-size: cover; 
+	font-family: Arial, sans-serif;
+	height: 100%;
+}
+
 body
 {
-	font-family: Arial, sans-serif;
-	margin: 30px;
+    max-width: 800px;
+    margin: 0px auto;
 	text-align: center;
-	background-size: cover; 
+	border-style: none solid;
+	background-color: #f3dab1;
+	position: relative;
+	height: auto;
+	min-height: 100%;
 }
-footer
+
+.footer
 {
 	font-family: Arial, sans-serif;
 	font-size: 10px;
+	padding: 10px;
 }
+
 @font-face
 {
     font-family: 'Chiaro';
-	src: url('Chiaro.otf'),
-    url('Chiaro.otf');
+	src: url('Chiaro.otf');
+}
+
+h1
+{
+	padding-top: 15px;
+	font-family: Chiaro;
+}
+
+.leftalign
+{
+	text-align: left;
+}
+
+.rightalign
+{
+	text-align: right;
+}
+
+#imagecanvas
+{
+	border-color: white;
+	border-style: solid;
 }
