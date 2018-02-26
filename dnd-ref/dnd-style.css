@@ -1,0 +1,38 @@
+html
+{
+	background-image: url("Images/dndbkg.jpg");
+	background-attachment: fixed;
+	background-size: cover; 
+}
+
+body
+{
+	font-family: Georgia, Arial, sans-serif;
+	text-align: left;
+    max-width: 1000px;
+    margin: 0px auto;
+	background-color: white;
+	line-height: 125%;
+	background-image: url("Images/papyr.jpg");
+	border-style: solid;
+}
+
+.content
+{
+    padding: 25px 50px;
+}
+
+h1, h2
+{
+	font-family: Tahoma;
+}
+
+a
+{
+    color: darkred;
+	text-decoration: none;
+}
+.spacedlist>li
+{
+	margin: 0 0 1% 0;
+}

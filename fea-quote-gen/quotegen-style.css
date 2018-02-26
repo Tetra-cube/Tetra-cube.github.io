@@ -1,14 +1,17 @@
-body{
+body
+{
 	font-family: Arial, sans-serif;
 	margin: 30px;
 	text-align: center;
 	background-size: cover; 
 }
-footer {
+footer
+{
 	font-family: Arial, sans-serif;
 	font-size: 10px;
 }
-@font-face {
+@font-face
+{
     font-family: 'Chiaro';
 	src: url('Chiaro.otf'),
     url('Chiaro.otf');
