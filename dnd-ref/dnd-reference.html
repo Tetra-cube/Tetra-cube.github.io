@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <html>
 <link rel='shortcut icon' type='image/x-icon' href='dndimages/favicon.ico' />
+	<head>
+		<meta charset="utf-8"/>
+	</head>
 	<title>D&D 5e Content Reference</title>
 	<body>
 		<div class="content">
@@ -10,16 +13,16 @@
 			<br>
 			<br>
 			<h2>Rulebooks</h2>
-			<ul class="spacedlist">
-				<li><b>Player's Handbook</b></li>
-				<li><b>Elemental Evil Player's Companion</b></li>
-				<li><b>Sword Coast Adventurer's Guide</b></li>
-				<li><b>Volo's Guide to Monsters</b></li>
-				<li><b>Xanathar's Guide to Everything</b></li>
-				<li><b>The Tortle Package</b>, <b>One Grung Above</b>, and <b>Blood Hunter Class</b> are extremely short books detailing a single race/class each.</li>
-				<li><b>Dungeon Master's Guide</b> has a few options for player characters that require DM approval.</li>
-				<li><b>Mordenkainen's Tome of Foes</b> is an upcoming book scheduled for release in May.</li>
-				<li><b>Unearthed Arcana</b> is not a rulebook, but playtest material found on Wizards of the Coast's website. This content may be unbalanced, be careful when using it.</li>
+			<ul class="booklist">
+				<li><b><input id="phbbox" type="checkbox" onclick="UpdateList()" checked> Player's Handbook</b> is the corebook which contains all of the base content.</li>
+				<li><b><input id="eebox" type="checkbox" onclick="UpdateList()" checked> <a href='http://dnd.wizards.com/articles/features/elementalevil_playerscompanion'>Elemental Evil Player's Companion</a></b> is a short online supplement, containing a few races and some spells.</li>
+				<li><b><input id="scagbox" type="checkbox" onclick="UpdateList()" checked> Sword Coast Adventurer's Guide</b> is primarily about the Sword Coast setting, but contains new subraces, subclasses, backgrounds, and a couple of spells.</li>
+				<li><b><input id="vgtmbox" type="checkbox" onclick="UpdateList()" checked> Volo's Guide to Monsters</b> contains 13(!) additional races, including playable monster races.</li>
+				<li><b><input id="xgtebox" type="checkbox" onclick="UpdateList()" checked> Xanathar's Guide to Everything</b> has a tremendous amount of new subclasses, as well as spells and racial feats.</li>
+				<li><b><input id="dmgbox" type="checkbox" onclick="UpdateList()" checked> Dungeon Master's Guide</b> has a few options for player characters that require DM approval.</li>
+				<li><b><input id="otherbox" type="checkbox" onclick="UpdateList()" checked> The Tortle Package</b> contains the Tortle race, and <b><a href='https://www.dndbeyond.com/characters/classes/blood-hunter'>Blood Hunter Class</a></b> contains the Blood Hunter, the only official class outside of the Player's Handbook.</li>
+				<li><b><input id="mtofbox" type="checkbox" disabled> Mordenkainen's Tome of Foes</b> is an upcoming book scheduled for release in May.</li>
+				<li><b><input id="uabox" type="checkbox" onclick="UpdateList()"> <a href='http://dnd.wizards.com/articles/unearthed-arcana'>Unearthed Arcana</a></b> is not a rulebook, but playtest material found on the Wizards of the Coast website. This content may be unbalanced, be careful when using it.</li>
 			</ul>
 			<b>Spells</b> can be found in the Player's Handbook, Elemental Evil Player's Companion, Sword Coast Adventurer's Guide, and Xanathar's Guide to Everything.
 			<br>
@@ -29,318 +32,331 @@
 			<br>
 			<h2>Races</h2>
 			<ul class="spacedlist">
-				<li><b>Aarakocra</b> (Elemental Evil Player's Companion)</li>
-				<li>
+				<li class="eeitem" ><b>Aarakocra</b> (Elemental Evil Player's Companion)</li>
+				<li class="vgtmitem">
 					<b>Aasimar</b> (Volo's Guide to Monsters)
 					<ul>
 						<li>
 						Subraces:
 						<ul>
-							<li>Protector Aasimar, Scourage Aasimar, Fallen Aasimar (Volo's Guide to Monsters)</li>
+							<li class="vgtmitem">Protector Aasimar, Scourage Aasimar, Fallen Aasimar (Volo's Guide to Monsters)</li>
 						</ul>
 					</ul>
 				</li>
-				<li><b>Bugbear</b> (Volo's Guide to Monsters)</li>
-				<li><b>Changeling</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>Unearthed Arcana: Eberron</a>)</li>
-				<li>
+				<li class="vgtmitem"><b>Bugbear</b> (Volo's Guide to Monsters)</li>
+				<li class="uaitem"><b>Changeling</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>Unearthed Arcana: Eberron</a>)</li>
+				<li class="phbitem">
 					<b>Dragonborn</b> (Player's Handbook)
 					<ul>
 						<li>
 							Draconic Ancestry:
-							<ul><li> Black, Blue, Brass, Bronze, Copper, Gold, Green, Red, Silver, White (Player's Handbook)</li></ul>
+							<ul>
+								<li class="phbitem">Black, Blue, Brass, Bronze, Copper, Gold, Green, Red, Silver, White (Player's Handbook)</li>
+							</ul>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Dwarf</b> (Player's Handbook)
 					<ul>
 						<li>
 						Subraces:
 						<ul>
-							<li>Hill Dwarf, Mountain Dwarf (Player's Handbook)</li>
-							<li>Gray Dwarf/Duergar (Sword Coast Adventurer's Guide)</li>
-							<li>Gold Dwarf, Shield Dwarf (Sword Coast Adventurer's Guide)</li>
-							<ul>
-								<li>Racial traits are identical to hill dwarves and mountain dwarves, respectively.</li>
-							</ul>
+							<li class="phbitem">Hill Dwarf, Mountain Dwarf (Player's Handbook)</li>
+							<li class="scagitem">Gray Dwarf/Duergar (Sword Coast Adventurer's Guide)</li>
+							<li class="scagitem">Gold Dwarf, Shield Dwarf (Sword Coast Adventurer's Guide)
+								<ul>
+									<li>Racial traits are identical to hill dwarves and mountain dwarves, respectively.</li>
+								</ul>
+							</li>
 						</ul>
 					</ul>
 				</li>
-				<li><b>Eladrin</b> (Dungeon Master's Guide, <a href='http://dnd.wizards.com/articles/unearthed-arcana/race-options-eladrin-and-gith'>Unearthed Arcana: Eladrin and Gith</a>)</li>
-				<li>
+				<li class="phbitem">
 					<b>Elf</b> (Player's Handbook)
 					<ul>
 						<li>
 						Subraces:
 						<ul>
-							<li>High Elf, Wood Elf, Drow/Dark Elf (Player's Handbook)</li>
-							<li>Moon Elves, Sun Elves (Sword Coast Adventurer's Guide)</li>
-							<ul>
-								<li>Racial traits are identical to high elves.</li>
-							</ul>
-							<li>Avariel, Lythari, Sea Elves, Star Elves, Wild Elves (Sword Coast Adventurer's Guide)</li>
-							<ul>
-								<li>No racial traits are provided for these elves (save Avariel, see below), so you will need to homebrew some racial traits if you want to play one of these subraces.</li>
-							</ul>
-							<li>Avariel, Grugach, Sea Elf, Shadar-kai (<a href='http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces'>Unearthed Arcana: Elf Subraces</a>)</li>
+							<li class="phbitem">High Elf, Wood Elf, Drow/Dark Elf (Player's Handbook)</li>
+							<li class="scagitem">Moon Elves, Sun Elves (Sword Coast Adventurer's Guide)
+								<ul>
+									<li>Racial traits are identical to high elves.</li>
+								</ul>
+							</li>
+							<li class="scagitem">Avariel, Lythari, Sea Elves, Star Elves, Wild Elves (Sword Coast Adventurer's Guide)
+								<ul>
+									<li>No racial traits are provided for these elves (save Avariel, see below), so you will need to homebrew some racial traits if you want to play one of these subraces.</li>
+								</ul>
+							</li>
+							<li class="dmgitem">Eladrin(DMG) (Dungeon Master's Guide)</li>
+							<li class="uaitem">Eladrin(UA) (<a href='http://dnd.wizards.com/articles/unearthed-arcana/race-options-eladrin-and-gith'>Unearthed Arcana: Eladrin and Gith</a>)</li>
+							<li class="uaitem">Avariel, Grugach, Sea Elf, Shadar-kai (<a href='http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces'>Unearthed Arcana: Elf Subraces</a>)</li>
 						</ul>
 					</ul>
 				</li>
-				<li><b>Firbolg</b> (Volo's Guide to Monsters)</li>
-				<li>
+				<li class="vgtmitem"><b>Firbolg</b> (Volo's Guide to Monsters)</li>
+				<li class="eeitem">
 					<b>Genasi</b> (Elemental Evil Player's Companion)
 					<ul>
 						<li>
 						Subraces:
 						<ul>
-							<li>Air Genasi, Earth Genasi, Fire Genasi, Water Genasi (Elemental Evil Player's Companion)</li>
+							<li class="eeitem">Air Genasi, Earth Genasi, Fire Genasi, Water Genasi (Elemental Evil Player's Companion)</li>
 						</ul>
 					</ul>
 				</li>
-				<li>
+				<li class="uaitem">
 					<b>Gith</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/race-options-eladrin-and-gith'>Unearthed Arcana: Eladrin and Gith</a>)
 					<ul>
 						<li>
-						Subraces:
-						<ul>
-							<li>Githyanki, Githzerai (<a href='http://dnd.wizards.com/articles/unearthed-arcana/race-options-eladrin-and-gith'>Unearthed Arcana: Eladrin and Gith</a>)</li>
-						</ul>
+							Subraces:
+							<ul>
+								<li class="uaitem">Githyanki, Githzerai (<a href='http://dnd.wizards.com/articles/unearthed-arcana/race-options-eladrin-and-gith'>Unearthed Arcana: Eladrin and Gith</a>)</li>
+							</ul>
+						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Gnome</b> (Player's Handbook)
 					<ul>
 						<li>
 						Subraces:
 						<ul>
-							<li>Forest Gnome, Rock Gnome (Player's Handbook)</li>
-							<li>Deep Gnome/Svirfneblin (Elemental Evil Player's Companion)</li>
+							<li class="phbitem">Forest Gnome, Rock Gnome (Player's Handbook)</li>
+							<li class="eeitem">Deep Gnome/Svirfneblin (Elemental Evil Player's Companion)</li>
 						</ul>
 					</ul>
 				</li>
-				<li><b>Goblin</b> (Volo's Guide to Monsters)</li>
-				<li><b>Goliath</b> (Elemental Evil Player's Companion, Volo's Guide to Monsters)</li>
-				<li><b>Grung</b> (One Grung Above)</li>
-				<li>
+				<li class="vgtmitem"><b>Goblin</b> (Volo's Guide to Monsters)</li>
+				<li id="goliath">
+					<b>Goliath</b> (Elemental Evil Player's Companion, Volo's Guide to Monsters)
+					<ul>
+						<li>Both books feature an identical version of the Goliath.</li>
+					</ul>
+				</li>
+				<li class="phbitem">
 					<b>Halfling</b> (Player's Handbook)
 					<ul>
 						<li>
 						Subraces:
 						<ul>
-							<li>Lightfoot Halfling, Stout Halfling (Player's Handbook)</li>
-							<li>Ghostwise halfling (Sword Coast Adventurer's Guide)</li>
-							<li>Stoneheart halfling (Sword Coast Adventurer's Guide)</li>
-							<ul>
-								<li>Racial traits are identical to stout halflings</li>
-							</ul>
+							<li class="phbitem">Lightfoot Halfling, Stout Halfling (Player's Handbook)</li>
+							<li class="scagitem">Ghostwise halfling (Sword Coast Adventurer's Guide)</li>
+							<li class="scagitem">Stoneheart halfling (Sword Coast Adventurer's Guide)
+								<ul>
+									<li>Racial traits are identical to stout halflings</li>
+								</ul>
+							</li>
 						</ul>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Half-Elf</b> (Player's Handbook)
 					<ul>
 						<li>
 						Variants:
 						<ul>
-							<li>Wood Elf descent, High Elf/Moon Elf/Sun Elf descent, Drow descent, Aquatic heritage (Sword Coast Adventurer's Guide)</li>
+							<li class="scagitem">Wood Elf descent, High Elf/Moon Elf/Sun Elf descent, Drow descent, Aquatic heritage (Sword Coast Adventurer's Guide)</li>
 						</ul>
 					</ul>
 				</li>
-				<li><b>Half-Orc</b> (Player's Handbook)</li>
-				<li>
+				<li class="phbitem"><b>Half-Orc</b> (Player's Handbook)</li>
+				<li class="phbitem">
 					<b>Human</b> (Player's Handbook)
 					<ul>
 						<li>
 						Ethnicities (Lore only, traits are identical):
 						<ul>
-							<li>Calishite, Chondathan, Damaran, Illuskan, Mulan, Rashemi, Shou, Tethyrian, Turami (Player's Handbook)</li>
-							<li>Arkaiun, Bedine, Ffolk, Gur, Halruaan, Imaskari, Nar, Shaaran, Tuigan, Ulutiun (Sword Coast Adventurer's Guide)</li>
+							<li class="phbitem">Calishite, Chondathan, Damaran, Illuskan, Mulan, Rashemi, Shou, Tethyrian, Turami (Player's Handbook)</li>
+							<li class="scagitem">Arkaiun, Bedine, Ffolk, Gur, Halruaan, Imaskari, Nar, Shaaran, Tuigan, Ulutiun (Sword Coast Adventurer's Guide)</li>
 						</ul>
 					</ul>
 				</li>
-				<li><b>Hobgoblin</b> (Volo's Guide to Monsters)</li>
-				<li><b>Kenku</b> (Volo's Guide to Monsters)</li>
-				<li><b>Kobold</b> (Volo's Guide to Monsters)</li>
-				<li><b>Lizardfolk</b> (Volo's Guide to Monsters)</li>
-				<li><b>Minotaur</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-waterborne-adventures'>Unearthed Arcana: Waterborne Adventures</a>)</li>
-				<li><b>Orc</b> (Volo's Guide to Monsters)</li>
-				<li><b>Shifter</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>Unearthed Arcana: Eberron</a>)</li>
-				<li><b>Tabaxi</b> (Volo's Guide to Monsters)</li>
-				<li>
+				<li class="vgtmitem"><b>Hobgoblin</b> (Volo's Guide to Monsters)</li>
+				<li class="vgtmitem"><b>Kenku</b> (Volo's Guide to Monsters)</li>
+				<li class="vgtmitem"><b>Kobold</b> (Volo's Guide to Monsters)</li>
+				<li class="vgtmitem"><b>Lizardfolk</b> (Volo's Guide to Monsters)</li>
+				<li class="uaitem"><b>Minotaur</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-waterborne-adventures'>Unearthed Arcana: Waterborne Adventures</a>)</li>
+				<li class="vgtmitem"><b>Orc</b> (Volo's Guide to Monsters)</li>
+				<li class="uaitem"><b>Shifter</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>Unearthed Arcana: Eberron</a>)</li>
+				<li class="vgtmitem"><b>Tabaxi</b> (Volo's Guide to Monsters)</li>
+				<li class="phbitem">
 					<b>Tiefling</b> (Player's Handbook)
 					<ul>
 						<li>
 							Variants:
 							<ul>
-								<li>Alternate Appearance, Feral, Devil's Tongue, Hellfire, Winged (Sword Coast Adventurer's Guide)</li>
+								<li class="scagitem">Alternate Appearance, Feral, Devil's Tongue, Hellfire, Winged (Sword Coast Adventurer's Guide)</li>
 							</ul>
 						</li>
 						<li>
 							Subraces:
 							<ul>
-								<li>Infernal/Asmodeous (Default Tieflings, as featured in the Player's Handbook)</li>
-								<li>Abyssal (<a href='http://dnd.wizards.com/articles/unearthed-arcana/old-black-magic'>Unearthed Arcana: That Old Black Magic</a>)</li>
-								<li>Baalzebul, Dispater, Fierna, Glasya, Levistus, Mammon, Mephistopheles, Zariel (<a href='http://dnd.wizards.com/articles/unearthed-arcana/fiendish-options'>Unearthed Arcana: Fiendish Options</a>)</li>
+								<li class="phbitem">Infernal/Asmodeous (Default Tieflings, as featured in the Player's Handbook)</li>
+								<li class="uaitem">Abyssal (<a href='http://dnd.wizards.com/articles/unearthed-arcana/old-black-magic'>Unearthed Arcana: That Old Black Magic</a>)</li>
+								<li class="uaitem">Baalzebul, Dispater, Fierna, Glasya, Levistus, Mammon, Mephistopheles, Zariel (<a href='http://dnd.wizards.com/articles/unearthed-arcana/fiendish-options'>Unearthed Arcana: Fiendish Options</a>)</li>
 							</ul>
 						</li>
 					</ul>
 				</li>
-				<li><b>Tortle</b> (The Tortle Package)</li>
-				<li><b>Triton</b> (Volo's Guide to Monsters)</li>
-				<li><b>Warforged</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>Unearthed Arcana: Eberron</a>)</li>
-				<li><b>Yuan-Ti Pureblood</b> (Volo's Guide to Monsters)</li>
+				<li class="otheritem"><b>Tortle</b> (The Tortle Package)</li>
+				<li class="vgtmitem"><b>Triton</b> (Volo's Guide to Monsters)</li>
+				<li class="uaitem"><b>Warforged</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>Unearthed Arcana: Eberron</a>)</li>
+				<li class="vgtmitem"><b>Yuan-Ti Pureblood</b> (Volo's Guide to Monsters)</li>
 			</ul>
 			<br>
 			<h2>Classes</h2>
 			<ul class="spacedlist">
-				<li>
+				<li class="uaitem">
 					<b>Artificer</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>Unearthed Arcana Update</a>)
 					<ul>
 						<li>
 							Artificer Specialists:
 							<ul>
-								<li>Alchemist, Gunsmith (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>Unearthed Arcana Update</a>)</li>
+								<li class="uaitem">Alchemist, Gunsmith (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>Unearthed Arcana Update</a>)</li>
 							</ul>
 						</li>
 						<li>The Artificer and the Mystic have been more thoroughly playtested than most other Unearthed Arcana. According to Mike Mearls, they will be released in an official D&D publication.</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Barbarian</b> (Player's Handbook)
 					<ul>
 						<li>
 							Primal Paths:
 							<ul>
-								<li>Path of the Berserker, Path of the Totem Warrior (Player's Handbook)</li>
-								<ul>
-									<li>
-										The Sword Coast Adventurer's Guide contains additional options for the Path of the Totem Warrior.
-									</li>
-								</ul>
-								<li>Path of the Battlerager (Sword Coast Adventurer's Guide)</li>
-								<li>Path of the Ancestral Guardian, Path of the Storm Herald, Path of the Zealot (Xanathar's Guide to Everything)</li>
+								<li class="phbitem">Path of the Berserker, Path of the Totem Warrior (Player's Handbook)
+									<ul>
+										<li class="scagitem">
+											The Sword Coast Adventurer's Guide contains additional options for the Path of the Totem Warrior.
+										</li>
+									</ul>
+								</li>
+								<li class="scagitem">Path of the Battlerager (Sword Coast Adventurer's Guide)</li>
+								<li class="xgteitem">Path of the Ancestral Guardian, Path of the Storm Herald, Path of the Zealot (Xanathar's Guide to Everything)</li>
 							</ul>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Bard</b> (Player's Handbook)
 					<ul>
 						<li>
 							Bard colleges:
 							<ul>
-								<li>College of Lore, College of Valor (Player's Handbook)</li>
-								<li>College of Glamour, College of Swords, College of Whispers (Xanathar's Guide to Everything)</li>
-								<li>College of Satire (<a href='http://dnd.wizards.com/articles/unearthed-arcana/kits-old'>Unearthed Arcana: Kits of Old</a>)</li>
+								<li class="phbitem">College of Lore, College of Valor (Player's Handbook)</li>
+								<li class="xgteitem">College of Glamour, College of Swords, College of Whispers (Xanathar's Guide to Everything)</li>
+								<li class="uaitem">College of Satire (<a href='http://dnd.wizards.com/articles/unearthed-arcana/kits-old'>Unearthed Arcana: Kits of Old</a>)</li>
 							</ul>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="otheritem">
 					<b>Blood Hunter</b> (<a href='http://geekandsundry.com/wp-content/uploads/2015/12/Blood-Hunter-Class-1.3.pdf'>Blood Hunter Class</a>)
 					<ul>
 						<li>
 							Blood Hunter Orders:
 							<ul>
-								<li>Order of the Ghostslayer, Order of the Profane Soul, Order of the Mutant (<a href='http://geekandsundry.com/wp-content/uploads/2015/12/Blood-Hunter-Class-1.3.pdf'>Blood Hunter Class</a>)</li>
+								<li class="otheritem">Order of the Ghostslayer, Order of the Profane Soul, Order of the Mutant (<a href='http://geekandsundry.com/wp-content/uploads/2015/12/Blood-Hunter-Class-1.3.pdf'>Blood Hunter Class</a>)</li>
 							</ul>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Cleric</b> (Player's Handbook)
 					<ul>
 						<li>
 							Divine Domains:
 							<ul>
-								<li>Knowledge Domain, Life Domain, Light Domain, Nature Domain, Tempest Domain, Trickery Domain, War Domain (Player's Handbook)</li>
-								<li>Death Domain (Dungeon Master's Guide)</li>
-								<li>Arcane Domain (Sword Coast Adventurer's Guide)</li>
-								<li>Forge Domain, Grave Domain (Xanathar's Guide to Everything)</li>
-								<li>Protection Domain (<a href='http://dnd.wizards.com/articles/unearthed-arcana/cleric-divine-domains'>Unearthed Arcana: Cleric: Divine Domains</a>)</li>
+								<li class="phbitem">Knowledge Domain, Life Domain, Light Domain, Nature Domain, Tempest Domain, Trickery Domain, War Domain (Player's Handbook)</li>
+								<li class="dmgitem">Death Domain (Dungeon Master's Guide)</li>
+								<li class="scagitem">Arcane Domain (Sword Coast Adventurer's Guide)</li>
+								<li class="xgteitem">Forge Domain, Grave Domain (Xanathar's Guide to Everything)</li>
+								<li class="uaitem">Protection Domain (<a href='http://dnd.wizards.com/articles/unearthed-arcana/cleric-divine-domains'>Unearthed Arcana: Cleric: Divine Domains</a>)</li>
 							</ul>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Druid</b> (Player's Handbook)
 					<ul>
 						<li>
 							Druid Circles:
 							<ul>
-								<li>Circle of the Land, Circle of the Moon (Player's Handbook)</li>
-								<li>Circle of Dreams, Circle of the Shepherd (Xanathar's Guide to Everything)</li>
-								<li>Circle of Twilight (<a href='http://dnd.wizards.com/articles/unearthed-arcana/druid-circles-and-wild-shape'>Unearthed Arcana: Druid Circles and Wild Shape</a>)</li>
-								<li>Circle of Spores (<a href='http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses'>Unearthed Arcana: Three Subclasses</a>)</li>
+								<li class="phbitem">Circle of the Land, Circle of the Moon (Player's Handbook)</li>
+								<li class="xgteitem">Circle of Dreams, Circle of the Shepherd (Xanathar's Guide to Everything)</li>
+								<li class="uaitem">Circle of Twilight (<a href='http://dnd.wizards.com/articles/unearthed-arcana/druid-circles-and-wild-shape'>Unearthed Arcana: Druid Circles and Wild Shape</a>)</li>
+								<li class="uaitem">Circle of Spores (<a href='http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses'>Unearthed Arcana: Three Subclasses</a>)</li>
 							</ul>
 						</li>
-						<li>
+						<li class="xgteitem">
 							Xanathar's Guide to Everything contains additional rules for learning beast shapes.
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Fighter</b> (Player's Handbook)
 					<ul>
 						<li>
 							Martial Archetypes:
 							<ul>
-								<li>Champion, Battle Master, Eldritch Knight (Player's Handbook)</li>
-								<li>Purple Dragon Knight (Sword Coast Adventurer's Guide)</li>
-								<li>Arcane Archer, Cavalier, Samurai (Xanathar's Guide to Everything)</li>
-								<li>Scout (<a href='http://dnd.wizards.com/articles/unearthed-arcana/kits-old'>Unearthed Arcana: Kits of Old</a>)</li>
-								<li>Monster Hunter (<a href='http://dnd.wizards.com/articles/features/gothic-heroes'>Unearthed Arcana: Gothic Heroes</a>)</li>
-								<li>Sharpshooter (<a href='http://dnd.wizards.com/articles/unearthed-arcana/fighter'>Unearthed Arcana: Fighter: Martial Archetypes</a>)</li>
-								<li>Brute (<a href='http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses'>Unearthed Arcana: Three Subclasses</a>)</li>
+								<li class="phbitem">Champion, Battle Master, Eldritch Knight (Player's Handbook)</li>
+								<li class="scagitem">Purple Dragon Knight (Sword Coast Adventurer's Guide)</li>
+								<li class="xgteitem">Arcane Archer, Cavalier, Samurai (Xanathar's Guide to Everything)</li>
+								<li class="uaitem">Scout (<a href='http://dnd.wizards.com/articles/unearthed-arcana/kits-old'>Unearthed Arcana: Kits of Old</a>)</li>
+								<li class="uaitem">Monster Hunter (<a href='http://dnd.wizards.com/articles/features/gothic-heroes'>Unearthed Arcana: Gothic Heroes</a>)</li>
+								<li class="uaitem">Sharpshooter (<a href='http://dnd.wizards.com/articles/unearthed-arcana/fighter'>Unearthed Arcana: Fighter: Martial Archetypes</a>)</li>
+								<li class="uaitem">Brute (<a href='http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses'>Unearthed Arcana: Three Subclasses</a>)</li>
 							</ul>
 						</li>
 						<li>
 							Fighting Styles:
 							<ul>
-								<li>Default Fighting Styles (Player's Handbook)</li>
-								<li>Mariner (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>Unearthed Arcana: Eberron</a>)</li>
-								<li>Close Quarters Shooter, Tunnel Fighter (<a href='http://dnd.wizards.com/articles/unearthed-arcana/light-dark-underdark'>Unearthed Arcana: Light, Dark, Underdark!</a>)</li>
+								<li class="phbitem">Default Fighting Styles (Player's Handbook)</li>
+								<li class="uaitem">Mariner (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>Unearthed Arcana: Eberron</a>)</li>
+								<li class="uaitem">Close Quarters Shooter, Tunnel Fighter (<a href='http://dnd.wizards.com/articles/unearthed-arcana/light-dark-underdark'>Unearthed Arcana: Light, Dark, Underdark!</a>)</li>
 							</ul>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Monk</b> (Player's Handbook)
 					<ul>
 						<li>
 							Monastic Traditions:
 							<ul>
-								<li>Way of the Open Hand, Way of Shadow, Way of the Four Elements (Player's Handbook)</li>
-								<li>Way of the Long Death, Way of the Sun Soul (Sword Coast Adventurer's Guide)</li>
-								<li>Way of the Drunken Master, Way of the Kensei, Way of the Sun Soul (Xanathar's Guide to Everything)</li>
-								<li>Way of Tranquility (<a href='http://dnd.wizards.com/articles/unearthed-arcana/monk-monastic-traditions'>Unearthed Arcana: Monk: Monastic Traditions</a>)</li>
+								<li class="phbitem">Way of the Open Hand, Way of Shadow, Way of the Four Elements (Player's Handbook)</li>
+								<li class="scagitem">Way of the Long Death, Way of the Sun Soul (Sword Coast Adventurer's Guide)</li>
+								<li class="xgteitem">Way of the Drunken Master, Way of the Kensei, Way of the Sun Soul (Xanathar's Guide to Everything)</li>
+								<li class="uaitem">Way of Tranquility (<a href='http://dnd.wizards.com/articles/unearthed-arcana/monk-monastic-traditions'>Unearthed Arcana: Monk: Monastic Traditions</a>)</li>
 							</ul>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="uaitem">
 					<b>Mystic</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>Unearthed Arcana Update</a>)
 					<ul>
 						<li>
 							Mystic Orders:
 							<ul>
-								<li>Order of the Avatar, Order of the Awakened, Order of the Immortal, Order of the Nomad, Order of the Soul Knife, Order of the Wu Jen (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>Unearthed Arcana Update</a>)</li>
+								<li class="uaitem">Order of the Avatar, Order of the Awakened, Order of the Immortal, Order of the Nomad, Order of the Soul Knife, Order of the Wu Jen (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>Unearthed Arcana Update</a>)</li>
 							</ul>
 						</li>
 						<li>The Artificer and the Mystic have been more thoroughly playtested than most other Unearthed Arcana. According to Mike Mearls, they will be released in an official D&D publication.</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Paladin</b> (Player's Handbook)
 					<ul>
 						<li>
 							Sacred Oaths:
 							<ul>
-								<li>Oath of Devotion, Oath of the Ancients, Oath of Vengeance (Player's Handbook)</li>
-								<li>Oathbreaker (Dungeon Master's Guide)</li>
-								<li>Oath of the Crown (Sword Coast Adventurer's Guide)</li>
-								<li>Oath of Conquest, Oath of Redemption (Xanathar's Guide to Everything)</li>
-								<li>Oath of Treachery (<a href='http://dnd.wizards.com/articles/unearthed-arcana/paladin-sacred-oaths'>Unearthed Arcana: Paladin: Sacred Oaths</a>)</li>
+								<li class="phbitem">Oath of Devotion, Oath of the Ancients, Oath of Vengeance (Player's Handbook)</li>
+								<li class="dmgitem">Oathbreaker (Dungeon Master's Guide)</li>
+								<li class="scagitem">Oath of the Crown (Sword Coast Adventurer's Guide)</li>
+								<li class="xgteitem">Oath of Conquest, Oath of Redemption (Xanathar's Guide to Everything)</li>
+								<li class="uaitem">Oath of Treachery (<a href='http://dnd.wizards.com/articles/unearthed-arcana/paladin-sacred-oaths'>Unearthed Arcana: Paladin: Sacred Oaths</a>)</li>
 							</ul>
 						</li>
 						<li>
@@ -351,15 +367,15 @@
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Ranger</b> (Player's Handbook)
 					<ul>
 						<li>
 							Ranger Archetypes:
 							<ul>
-								<li>Hunter, Beast Master (Player's Handbook)</li>
-								<li>Gloom Stalker, Horizon Walker, Monster Slayer (Xanathar's Guide to Everything)</li>
-								<li>Primeval Guardian (<a href='http://dnd.wizards.com/articles/unearthed-arcana/ranger-and-rogue'>Unearthed Arcana: Ranger and Rogue</a>)</li>
+								<li class="phbitem">Hunter, Beast Master (Player's Handbook)</li>
+								<li class="xgteitem">Gloom Stalker, Horizon Walker, Monster Slayer (Xanathar's Guide to Everything)</li>
+								<li class="uaitem">Primeval Guardian (<a href='http://dnd.wizards.com/articles/unearthed-arcana/ranger-and-rogue'>Unearthed Arcana: Ranger and Rogue</a>)</li>
 							</ul>
 						</li>
 						<li>
@@ -368,58 +384,57 @@
 								<li>See <i>Fighter</i>.</li>
 							</ul>
 						</li>
-						<li>
+						<li class="uaitem">
 							Alternate Ranger Class: <a href='http://dnd.wizards.com/articles/features/unearthed-arcana-ranger-revised'>Unearthed Arcana: The Ranger, Revised</a>
 						</li>
 					</ul>
 				</li>
-				
-				<li>
+				<li class="phbitem">
 					<b>Rogue</b> (Player's Handbook)
 					<ul>
 						<li>
 							Rougish Archetypes:
 							<ul>
-								<li>Thief, Assassin, Arcane Trickster (Player's Handbook)</li>
-								<li>Mastermind, Swashbuckler (Sword Coast Adventurer's Guide)</li>
-								<li>Inquisitive, Mastermind, Scout, Swashbuckler (Xanathar's Guide to Everything)</li>
+								<li class="phbitem">Thief, Assassin, Arcane Trickster (Player's Handbook)</li>
+								<li class="scagitem">Mastermind, Swashbuckler (Sword Coast Adventurer's Guide)</li>
+								<li class="xgteitem">Inquisitive, Mastermind, Scout, Swashbuckler (Xanathar's Guide to Everything)</li>
 							</ul>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Sorcerer</b> (Player's Handbook)
 					<ul>
 						<li>
 							Sorcerous Origins:
 							<ul>
-								<li>Draconic Bloodline, Wild Magic (Player's Handbook)</li>
-								<li>Storm Sorcery (Sword Coast Adventurer's Guide)</li>
-								<li>Divine Soul, Shadow Magic, Storm Sorcery (Xanathar's Guide to Everything)</li>
-								<li>Phoenix Sorcery, Sea Sorcery, Stone Sorcery (<a href='http://dnd.wizards.com/articles/unearthed-arcana/sorcerer'>Unearthed Arcana: Sorcerer</a>)</li>
+								<li class="phbitem">Draconic Bloodline, Wild Magic (Player's Handbook)</li>
+								<li class="scagitem">Storm Sorcery (Sword Coast Adventurer's Guide)</li>
+								<li class="xgteitem">Divine Soul, Shadow Magic, Storm Sorcery (Xanathar's Guide to Everything)</li>
+								<li class="uaitem">Phoenix Sorcery, Sea Sorcery, Stone Sorcery (<a href='http://dnd.wizards.com/articles/unearthed-arcana/sorcerer'>Unearthed Arcana: Sorcerer</a>)</li>
 							</ul>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Warlock</b> (Player's Handbook)
 					<ul>
 						<li>
 							Otherworldly Patrons:
 							<ul>
-								<li>The Archfey, The Fiend, The Great Old One (Player's Handbook)</li>
-								<li>The Undying (Sword Coast Adventurer's Guide)</li>
-								<li>The Celestial, The Hexblade (Xanathar's Guide to Everything)</li>
-								<li>The Seeker (<a href='http://dnd.wizards.com/articles/features/faithful'>Unearthed Arcana: The Faithful</a>)</li>
-								<li>The Raven Queen (<a href='http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard'>Unearthed Arcana: Warlock and Wizard</a>)</li>
+								<li class="phbitem">The Archfey, The Fiend, The Great Old One (Player's Handbook)</li>
+								<li class="scagitem">The Undying (Sword Coast Adventurer's Guide)</li>
+								<li class="xgteitem">The Celestial, The Hexblade (Xanathar's Guide to Everything)</li>
+								<li class="uaitem">The Seeker (<a href='http://dnd.wizards.com/articles/features/faithful'>Unearthed Arcana: The Faithful</a>)</li>
+								<li class="uaitem">The Raven Queen (<a href='http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard'>Unearthed Arcana: Warlock and Wizard</a>)</li>
 							</ul>
 						</li>
 						<li>
 							Eldritch Invocations:
 							<ul>
-								<li>Default Eldritch Invocations (Player's Handbook)</li>
-								<li>Additional Eldritch Invocations (Xanathar's Guide to Everything)</li>
-								<li>
+								<li class="phbitem">Default Eldritch Invocations (Player's Handbook)</li>
+								<li class="xgteitem">Additional Eldritch Invocations (Xanathar's Guide to Everything)</li>
+								<li class="uaitem">
 									Unearthed Arcana Invocations
 									<ul>
 										<li><a href='http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard'>Unearthed Arcana: Warlock and Wizard</a></li>
@@ -430,18 +445,18 @@
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Wizard</b> (Player's Handbook)
 					<ul>
 						<li>
 							Arcane Traditions:
 							<ul>
-								<li>School of Abjuration, School of Conjuration, School of Divination, School of Enchantment, School of Evocation, School of Illusion, School of Necromancy, School of Transmutation (Player's Handbook)</li>
-								<li>Bladesinging (Sword Coast Adventurer's Guide)</li>
-								<li>War Magic (Xanathar's Guide to Everything)</li>
-								<li>Lore Mastery (<a href='http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard'>Unearthed Arcana: Warlock and Wizard</a>)</li>
-								<li>Theurgy (<a href='http://dnd.wizards.com/articles/unearthed-arcana/wizard-revisited'>Unearthed Arcana: Wizard Revisited</a>)</li>
-								<li>School of Invention (<a href='http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses'>Unearthed Arcana: Three Subclasses</a>)</li>
+								<li class="phbitem">School of Abjuration, School of Conjuration, School of Divination, School of Enchantment, School of Evocation, School of Illusion, School of Necromancy, School of Transmutation (Player's Handbook)</li>
+								<li class="scagitem">Bladesinging (Sword Coast Adventurer's Guide)</li>
+								<li class="xgteitem">War Magic (Xanathar's Guide to Everything)</li>
+								<li class="uaitem">Lore Mastery (<a href='http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard'>Unearthed Arcana: Warlock and Wizard</a>)</li>
+								<li class="uaitem">Theurgy (<a href='http://dnd.wizards.com/articles/unearthed-arcana/wizard-revisited'>Unearthed Arcana: Wizard Revisited</a>)</li>
+								<li class="uaitem">School of Invention (<a href='http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses'>Unearthed Arcana: Three Subclasses</a>)</li>
 							</ul>
 						</li>
 					</ul>
@@ -450,71 +465,71 @@
 			<br>
 			<h2>Backgrounds</h2>
 			<ul class="spacedlist">
-				<li><b>Acolyte</b> (Player's Handbook)</li>
-				<li><b>Charlatan</b> (Player's Handbook)
-				<li>
+				<li class="phbitem"><b>Acolyte</b> (Player's Handbook)</li>
+				<li class="phbitem"><b>Charlatan</b> (Player's Handbook)
+				<li class="scagitem">
 					<b>City Watch</b> (Sword Coast Adventurer's Guide)
-					<ul>
+					<ul class="scagitem">
 						<li>Variant: <b>Investigator</b> (Sword Coast Adventurer's Guide)</li>
 					</ul>
 				</li>
-				<li><b>Clan Crafter</b> (Sword Coast Adventurer's Guide)</li>
-				<li><b>Cloistered Scholar</b> (Sword Coast Adventurer's Guide)</li>
-				<li><b>Courtier</b> (Sword Coast Adventurer's Guide)</li>
-				<li>
+				<li class="scagitem"><b>Clan Crafter</b> (Sword Coast Adventurer's Guide)</li>
+				<li class="scagitem"><b>Cloistered Scholar</b> (Sword Coast Adventurer's Guide)</li>
+				<li class="scagitem"><b>Courtier</b> (Sword Coast Adventurer's Guide)</li>
+				<li class="phbitem">
 					<b>Criminal</b> (Player's Handbook)
-					<ul>
+					<ul class="phbitem">
 						<li>Variant: <b>Spy</b> (Player's Handbook)</li>
 					</ul>
 				</li>
-				<li>
+				<li class="phbitem">
 					<b>Entertainer</b> (Player's Handbook)
-					<ul>
+					<ul class="phbitem">
 						<li>Variant: <b>Gladiator</b> (Player's Handbook)</li>
 					</ul>
 				</li>
-				<li><b>Faction Agent</b> (Sword Coast Adventurer's Guide)</li>
-				<li><b>Far Traveler</b> (Sword Coast Adventurer's Guide)</li>
-				<li><b>Folk Hero</b> (Player's Handbook)</li>
-				<li>
+				<li class="scagitem"><b>Faction Agent</b> (Sword Coast Adventurer's Guide)</li>
+				<li class="scagitem"><b>Far Traveler</b> (Sword Coast Adventurer's Guide)</li>
+				<li class="phbitem"><b>Folk Hero</b> (Player's Handbook)</li>
+				<li class="phbitem">
 					<b>Guild Artisan</b> (Player's Handbook)
 					<ul>
 						<li>Variant: <b>Guild Merchant</b> (Player's Handbook)</li>
 					</ul>
 				</li>
-				<li><b>Hermit</b> (Player's Handbook)</li>
-				<li><b>Inheritor</b> (Sword Coast Adventurer's Guide)</li>
-				<li><b>Knight of the Order</b> (Sword Coast Adventurer's Guide)</li>
-				<li><b>Mercenary Veteran</b> (Sword Coast Adventurer's Guide)</li>
-				<li>
+				<li class="phbitem"><b>Hermit</b> (Player's Handbook)</li>
+				<li class="scagitem"><b>Inheritor</b> (Sword Coast Adventurer's Guide)</li>
+				<li class="scagitem"><b>Knight of the Order</b> (Sword Coast Adventurer's Guide)</li>
+				<li class="scagitem"><b>Mercenary Veteran</b> (Sword Coast Adventurer's Guide)</li>
+				<li class="phbitem">
 					<b>Noble</b> (Player's Handbook)
 					<ul>
 						<li>Variant: <b>Knight</b> (Player's Handbook)</li>
 					</ul>
 				</li>
-				<li><b>Outlander</b> (Player's Handbook)</li>
-				<li><b>Sage</b> (Player's Handbook)</li>
-				<li>
+				<li class="phbitem"><b>Outlander</b> (Player's Handbook)</li>
+				<li class="phbitem"><b>Sage</b> (Player's Handbook)</li>
+				<li class="phbitem">
 					<b>Sailor</b> (Player's Handbook)
-					<ul>
+					<ul class="phbitem">
 						<li>Variant: <b>Pirate</b> (Player's Handbook)</li>
 					</ul>
 				</li>
-				<li><b>Soldier</b> (Player's Handbook)</li>
-				<li><b>Urban Bounty Hunter</b> (Sword Coast Adventurer's Guide)</li>
-				<li><b>Urchin</b> (Player's Handbook)</li>
-				<li><b>Uthgardt Tribe Member</b> (Sword Coast Adventurer's Guide)</li>
-				<li><b>Waterdhavian Noble</b> (Sword Coast Adventurer's Guide)</li>
+				<li class="phbitem"><b>Soldier</b> (Player's Handbook)</li>
+				<li class="scagitem"><b>Urban Bounty Hunter</b> (Sword Coast Adventurer's Guide)</li>
+				<li class="phbitem"><b>Urchin</b> (Player's Handbook)</li>
+				<li class="scagitem"><b>Uthgardt Tribe Member</b> (Sword Coast Adventurer's Guide)</li>
+				<li class="scagitem"><b>Waterdhavian Noble</b> (Sword Coast Adventurer's Guide)</li>
 			</ul>
 			<br>
 			<h2>Additional Content</h2>
 			<b>Additional Feats</b>
 			<ul class="spacedlist">
-				<li>Deep Gnome Racial Feat: <b>Svirfneblin Magic</b> (Sword Coast Adventurer's Guide)</li>
-				<li>Feat: <b>Dragonmark</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>Unearthed Arcana: Eberron</a>)</li>
-				<li><b>Weapon Mastery</b> & <b>Tool Feats</b> (<a href='http://dnd.wizards.com/articles/features/feats'>Unearthed Arcana: Feats</a>)</li>
-				<li><b>Skill Feats</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/feats-skills'>Unearthed Arcana: Feats for Skills</a>)</li>
-				<li>
+				<li class="scagitem">Deep Gnome Racial Feat: <b>Svirfneblin Magic</b> (Sword Coast Adventurer's Guide)</li>
+				<li class="uaitem">Feat: <b>Dragonmark</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>Unearthed Arcana: Eberron</a>)</li>
+				<li class="uaitem"><b>Weapon Mastery</b> & <b>Tool Feats</b> (<a href='http://dnd.wizards.com/articles/features/feats'>Unearthed Arcana: Feats</a>)</li>
+				<li class="uaitem"><b>Skill Feats</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/feats-skills'>Unearthed Arcana: Feats for Skills</a>)</li>
+				<li class="uaitem">
 					<b>Race Feats</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/feats-races'>Unearthed Arcana: Feats for Races</a>)
 					<ul>
 						<li>Many but not all of these feats made it into Xanathar's Guide to Everything.</li>
@@ -523,15 +538,61 @@
 			</ul>
 			<b>Additional Spells</b>
 			<ul class="spacedlist">
-				<li><b>Demon Conjuring</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/old-black-magic'>Unearthed Arcana: That Old Black Magic</a>)</li>
-				<li><b>Cantrips and 1st level spells</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/starter-spells'>Unearthed Arcana: Starter Spells</a>)</li>
+				<li class="uaitem"><b>Demon Conjuring</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/old-black-magic'>Unearthed Arcana: That Old Black Magic</a>)</li>
+				<li class="uaitem"><b>Cantrips and 1st level spells</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/starter-spells'>Unearthed Arcana: Starter Spells</a>)</li>
 			</ul>
 			<b>Other Content</b>
 			<ul class="spacedlist">
-				<li><a href='http://dnd.wizards.com/articles/features/gothic-heroes'>Unearthed Arcana: Gothic Heroes</a> contains the <b>Revenant</b> subrace, which can be applied to any race.</li>
-				<li><a href='http://dnd.wizards.com/articles/unearthed-arcana/modern-magic'>Unearthed Arcana: Modern Magic</a> contains magic spells and subclasses and other things for campaigns in a modern setting.</li>
-				<li><a href='http://dnd.wizards.com/articles/features/prestige-classes-and-rune-magic'>Unearthed Arcana: Prestige Classes and Rune Magic</a> contains rules for <b>prestige classes</b> and the <b>rune scribe</b> prestige class.</li>
+				<li class="uaitem">The <b>Grung</b> race features in the unofficial content One Grung Above (Technically not Unearthed Arcana).</li>
+				<li class="uaitem"><a href='http://dnd.wizards.com/articles/features/gothic-heroes'>Unearthed Arcana: Gothic Heroes</a> contains the <b>Revenant</b> subrace, which can be applied to any race.</li>
+				<li class="uaitem"><a href='http://dnd.wizards.com/articles/unearthed-arcana/modern-magic'>Unearthed Arcana: Modern Magic</a> contains magic spells and subclasses and other things for campaigns in a modern setting.</li>
+				<li class="uaitem"><a href='http://dnd.wizards.com/articles/features/prestige-classes-and-rune-magic'>Unearthed Arcana: Prestige Classes and Rune Magic</a> contains rules for <b>prestige classes</b> and the <b>rune scribe</b> prestige class.</li>
 			</ul>
 		</div>
 	</body>
+	<script>
+		function UpdateList()
+		{
+			ShowHide("phbbox", "phbitem");
+			ShowHide("dmgbox", "dmgitem");
+			ShowHide("eebox", "eeitem");
+			ShowHide("scagbox", "scagitem");
+			ShowHide("vgtmbox", "vgtmitem");
+			ShowHide("xgtebox", "xgteitem");
+			ShowHide("otherbox", "otheritem");
+			ShowHide("uabox", "uaitem");
+			
+			// Goliath is a special case
+			if(document.getElementById("eebox").checked || document.getElementById("vgtmbox").checked)
+			{
+				var goliath = document.getElementById("goliath");
+				if(goliath.hasAttribute("style"))
+					goliath.removeAttributeNode(goliath.getAttributeNode("style"));
+			}
+			else
+				document.getElementById("goliath").style.display = "none";
+		}
+		
+		function ShowHide(boxid, itemclass)
+		{
+			if (document.getElementById(boxid).checked)
+			{
+				var classitems = document.getElementsByClassName(itemclass);
+				for (var i = 0; i < classitems.length; i++)
+				{
+					var classitem = classitems[i];
+					if(classitem.hasAttribute("style"))
+						classitem.removeAttributeNode(classitem.getAttributeNode("style"));
+				}
+			}
+			else
+			{
+				var classitems = document.getElementsByClassName(itemclass);
+				for (var i = 0; i < classitems.length; i++) 
+					classitems[i].style.display = "none";
+			}
+		}
+		
+		UpdateList();
+	</script>
 </html>

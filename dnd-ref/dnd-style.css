@@ -31,7 +31,13 @@ a
     color: darkred;
 	text-decoration: none;
 }
-.spacedlist>li
+.spacedlist>li, .booklist>li
 {
 	margin: 0 0 1% 0;
+}
+
+.booklist
+{
+	list-style-type: none;
+	padding: 0px 18px;
 }
