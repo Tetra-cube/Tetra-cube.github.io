@@ -1,7 +1,7 @@
 <link rel='stylesheet' type='text/css' href='dnd-style.css'>
 <!DOCTYPE html>
-<html>
-<link rel='shortcut icon' type='image/x-icon' href='dndimages/favicon.ico' />
+<html style="background-image: url('dndimages/refbkg.jpg'">
+	<link rel='shortcut icon' type='image/x-icon' href='dndimages/favicon.ico' />
 	<head>
 		<meta charset="utf-8"/>
 	</head>
@@ -9,19 +9,19 @@
 	<body>
 		<div class="content">
 			<h1>D&D 5e Content Reference</h1>
-			There's a lot of content for this game spread out across a bunch of different rulebooks. I made a quick reference to keep track of all the content that pertains to player characters, mostly for purposes of character creation.
-			<br>
+			<div>There's a lot of content for this game spread out across a bunch of different rulebooks. I made a quick reference to keep track of all the content that pertains to player characters, mostly for purposes of character creation.</div>
 			<br>
 			<h2>Rulebooks</h2>
 			<ul class="booklist">
 				<li><b><input id="phbbox" type="checkbox" disabled checked> Player's Handbook</b> is the corebook which contains all of the base content.</li>
 				<li><b><input id="eebox" type="checkbox" onclick="UpdateList()" checked> <a href='http://dnd.wizards.com/articles/features/elementalevil_playerscompanion'>Elemental Evil Player's Companion</a></b> is a short online supplement, containing a few races and some spells.</li>
-				<li><b><input id="scagbox" type="checkbox" onclick="UpdateList()" checked> Sword Coast Adventurer's Guide</b> is primarily about the Sword Coast setting, but contains new subraces, subclasses, backgrounds, and a couple of spells.</li>
+				<li><b><input id="scagbox" type="checkbox" onclick="UpdateList()" checked> Sword Coast Adventurer's Guide</b> is primarily about the Sword Coast setting, but contains new subraces, subclasses, backgrounds, and a couple of cantrips.</li>
 				<li><b><input id="vgtmbox" type="checkbox" onclick="UpdateList()" checked> Volo's Guide to Monsters</b> contains 13(!) additional races, including playable monster races.</li>
 				<li><b><input id="xgtebox" type="checkbox" onclick="UpdateList()" checked> Xanathar's Guide to Everything</b> has a tremendous amount of new subclasses, as well as spells and racial feats.</li>
 				<li><b><input id="dmgbox" type="checkbox" onclick="UpdateList()" checked> Dungeon Master's Guide</b> has a few options for player characters that require DM approval.</li>
-				<li><b><input id="otherbox" type="checkbox" onclick="UpdateList()" checked> Other Content:</b> <b><a href='http://geekandsundry.com/wp-content/uploads/2015/12/Blood-Hunter-Class-1.3.pdf'>Blood Hunter Class</a></b> contains the Blood Hunter, the only official class outside of the Player's Handbook. <b>The Tortle Package</b> contains the Tortle race. <b>Adventure Modules</b> sometimes contain a small amount of usable content.</li>
-				<li><b><input id="mtofbox" type="checkbox" disabled> Mordenkainen's Tome of Foes</b> is an upcoming book scheduled for release in May.</li>
+				<li><b><input id="otherbox" type="checkbox" onclick="UpdateList()" checked> Other Content:</b> <b>The Tortle Package</b> contains the tortle race. <b>Adventure Modules</b> sometimes contain a small amount of usable content.</li>
+				<li><b><input id="mtofbox" type="checkbox" disabled> Mordenkainen's Tome of Foes</b> is an upcoming book scheduled for release in may.</li>
+				<li><b><input id="ufbox" type="checkbox"onclick="UpdateList()" > Notable Unofficial Content</b> includes popular unofficial content such as the <a href='http://geekandsundry.com/wp-content/uploads/2015/12/Blood-Hunter-Class-1.3.pdf'>Blood Hunter</a>.</li>
 				<li><b><input id="uabox" type="checkbox" onclick="UpdateList()"> <a href='http://dnd.wizards.com/articles/unearthed-arcana'>Unearthed Arcana</a></b> is not a rulebook, but playtest material found on the Wizards of the Coast website. This content may be unbalanced, be careful when using it.</li>
 			</ul>
 			<br>
@@ -119,7 +119,7 @@
 						Subraces:
 						<ul>
 							<li class="phbitem">Forest Gnome, Rock Gnome <sup>(PHB)</sup></li>
-							<li class="eeitem">Deep Gnome/Svirfneblin <sup>(EE)</sup></li>
+							<li id="deepgnome">Deep Gnome/Svirfneblin <sup>(EE, SCAG)</sup></li>
 						</ul>
 					</ul>
 				</li>
@@ -130,6 +130,7 @@
 						<li>Both books feature an identical version of the goliath.</li>
 					</ul>
 				</li>
+				<li class="ufitem"><b>Grung</b> <sup>(One Grung Above)</sup></li>
 				<li class="phbitem">
 					<b>Halfling</b> <sup>(PHB)</sup>
 					<ul>
@@ -137,8 +138,8 @@
 						Subraces:
 						<ul>
 							<li class="phbitem">Lightfoot Halfling, Stout Halfling <sup>(PHB)</sup></li>
-							<li class="scagitem">Ghostwise halfling <sup>(SCAG)</sup></li>
-							<li class="scagitem">Stoneheart halfling <sup>(SCAG)</sup>
+							<li class="scagitem">Ghostwise Halfling <sup>(SCAG)</sup></li>
+							<li class="scagitem">Stoneheart Halfling <sup>(SCAG)</sup>
 								<ul>
 									<li>Racial traits are identical to stout halflings</li>
 								</ul>
@@ -207,7 +208,7 @@
 			<h2>Classes</h2>
 			<ul class="spacedlist">
 				<li class="uaitem">
-					<b>Artificer</b> <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>UA Update</a></sup>)
+					<b>Artificer</b> <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>UA Update</a>)</sup>
 					<ul>
 						<li>
 							Artificer Specialists:
@@ -215,7 +216,6 @@
 								<li class="uaitem">Alchemist, Gunsmith <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>UA Update</a>)</sup></li>
 							</ul>
 						</li>
-						<li> According to Mike Mearls, the Artificer and Mystic will be released in an official D&D publication.</li>
 					</ul>
 				</li>
 				<li class="phbitem">
@@ -232,7 +232,7 @@
 									</ul>
 								</li>
 								<li class="scagitem">Path of the Battlerager <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Path of the Ancestral Guardian, Path of the Storm Herald, Path of the Zealot <sup>(XGTE)</sup></li>
+								<li class="xgteitem">Path of the Ancestral Guardian, Path of the Storm Herald, Path of the Zealot <sup>(XGtE)</sup></li>
 							</ul>
 						</li>
 					</ul>
@@ -241,22 +241,22 @@
 					<b>Bard</b> <sup>(PHB)</sup>
 					<ul>
 						<li>
-							Bard colleges:
+							Bard Colleges:
 							<ul>
 								<li class="phbitem">College of Lore, College of Valor <sup>(PHB)</sup></li>
-								<li class="xgteitem">College of Glamour, College of Swords, College of Whispers <sup>(XGTE)</sup></li>
+								<li class="xgteitem">College of Glamour, College of Swords, College of Whispers <sup>(XGtE)</sup></li>
 								<li class="uaitem">College of Satire <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/kits-old'>UA: Kits of Old</a>)</sup></li>
 							</ul>
 						</li>
 					</ul>
 				</li>
-				<li class="otheritem">
+				<li class="ufitem">
 					<b>Blood Hunter</b> <sup>(Blood Hunter Class)</sup>
 					<ul>
 						<li>
 							Blood Hunter Orders:
 							<ul>
-								<li class="otheritem">Order of the Ghostslayer, Order of the Profane Soul, Order of the Mutant <sup>(Blood Hunter Class)</sup></li>
+								<li class="ufitem">Order of the Ghostslayer, Order of the Profane Soul, Order of the Mutant <sup>(Blood Hunter Class)</sup></li>
 							</ul>
 						</li>
 					</ul>
@@ -270,7 +270,7 @@
 								<li class="phbitem">Knowledge Domain, Life Domain, Light Domain, Nature Domain, Tempest Domain, Trickery Domain, War Domain <sup>(PHB)</sup></li>
 								<li class="dmgitem">Death Domain <sup>(DMG)</sup></li>
 								<li class="scagitem">Arcane Domain <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Forge Domain, Grave Domain <sup>(XGTE)</sup></li>
+								<li class="xgteitem">Forge Domain, Grave Domain <sup>(XGtE)</sup></li>
 								<li class="uaitem">Protection Domain <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/cleric-divine-domains'>UA: Cleric: Divine Domains</a>)</sup></li>
 							</ul>
 						</li>
@@ -283,7 +283,7 @@
 							Druid Circles:
 							<ul>
 								<li class="phbitem">Circle of the Land, Circle of the Moon <sup>(PHB)</sup></li>
-								<li class="xgteitem">Circle of Dreams, Circle of the Shepherd <sup>(XGTE)</sup></li>
+								<li class="xgteitem">Circle of Dreams, Circle of the Shepherd <sup>(XGtE)</sup></li>
 								<li class="uaitem">Circle of Twilight <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/druid-circles-and-wild-shape'>UA: Druid Circles and Wild Shape</a>)</sup></li>
 								<li class="uaitem">Circle of Spores <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses'>UA: Three Subclasses</a>)</sup></li>
 							</ul>
@@ -301,7 +301,7 @@
 							<ul>
 								<li class="phbitem">Champion, Battle Master, Eldritch Knight <sup>(PHB)</sup></li>
 								<li class="scagitem">Purple Dragon Knight/Banneret <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Arcane Archer, Cavalier, Samurai <sup>(XGTE)</sup></li>
+								<li class="xgteitem">Arcane Archer, Cavalier, Samurai <sup>(XGtE)</sup></li>
 								<li class="uaitem">Scout <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/kits-old'>UA: Kits of Old</a>)</sup></li>
 								<li class="uaitem">Monster Hunter <sup>(<a href='http://dnd.wizards.com/articles/features/gothic-heroes'>UA: Gothic Heroes</a>)</sup></li>
 								<li class="uaitem">Sharpshooter <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/fighter'>UA: Fighter: Martial Archetypes</a>)</sup></li>
@@ -326,7 +326,7 @@
 							<ul>
 								<li class="phbitem">Way of the Open Hand, Way of Shadow, Way of the Four Elements <sup>(PHB)</sup></li>
 								<li class="scagitem">Way of the Long Death, Way of the Sun Soul <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Way of the Drunken Master, Way of the Kensei, Way of the Sun Soul <sup>(XGTE)</sup></li>
+								<li class="xgteitem">Way of the Drunken Master, Way of the Kensei, Way of the Sun Soul <sup>(XGtE)</sup></li>
 								<li class="uaitem">Way of Tranquility <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/monk-monastic-traditions'>UA: Monk: Monastic Traditions</a>)</sup></li>
 							</ul>
 						</li>
@@ -341,7 +341,6 @@
 								<li class="uaitem">Order of the Avatar, Order of the Awakened, Order of the Immortal, Order of the Nomad, Order of the Soul Knife, Order of the Wu Jen <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>UA Update</a>)</sup></li>
 							</ul>
 						</li>
-						<li> According to Mike Mearls, the Artificer and Mystic will be released in an official D&D publication.</li>
 					</ul>
 				</li>
 				<li class="phbitem">
@@ -353,7 +352,7 @@
 								<li class="phbitem">Oath of Devotion, Oath of the Ancients, Oath of Vengeance <sup>(PHB)</sup></li>
 								<li class="dmgitem">Oathbreaker <sup>(DMG)</sup></li>
 								<li class="scagitem">Oath of the Crown <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Oath of Conquest, Oath of Redemption <sup>(XGTE)</sup></li>
+								<li class="xgteitem">Oath of Conquest, Oath of Redemption <sup>(XGtE)</sup></li>
 								<li class="uaitem">Oath of Treachery <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/paladin-sacred-oaths'>UA: Paladin: Sacred Oaths</a>)</sup></li>
 							</ul>
 						</li>
@@ -372,7 +371,7 @@
 							Ranger Archetypes:
 							<ul>
 								<li class="phbitem">Hunter, Beast Master <sup>(PHB)</sup></li>
-								<li class="xgteitem">Gloom Stalker, Horizon Walker, Monster Slayer <sup>(XGTE)</sup></li>
+								<li class="xgteitem">Gloom Stalker, Horizon Walker, Monster Slayer <sup>(XGtE)</sup></li>
 								<li class="uaitem">Primeval Guardian <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/ranger-and-rogue'>UA: Ranger and Rogue</a>)</sup></li>
 							</ul>
 						</li>
@@ -393,7 +392,7 @@
 							<ul>
 								<li class="phbitem">Thief, Assassin, Arcane Trickster <sup>(PHB)</sup></li>
 								<li class="scagitem">Mastermind, Swashbuckler <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Inquisitive, Mastermind, Scout, Swashbuckler <sup>(XGTE)</sup></li>
+								<li class="xgteitem">Inquisitive, Mastermind, Scout, Swashbuckler <sup>(XGtE)</sup></li>
 							</ul>
 						</li>
 					</ul>
@@ -406,7 +405,7 @@
 							<ul>
 								<li class="phbitem">Draconic Bloodline, Wild Magic <sup>(PHB)</sup></li>
 								<li class="scagitem">Storm Sorcery <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Divine Soul, Shadow Magic, Storm Sorcery <sup>(XGTE)</sup></li>
+								<li class="xgteitem">Divine Soul, Shadow Magic, Storm Sorcery <sup>(XGtE)</sup></li>
 								<li class="uaitem">Phoenix Sorcery, Sea Sorcery, Stone Sorcery <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/sorcerer'>UA: Sorcerer</a>)</sup></li>
 							</ul>
 						</li>
@@ -420,7 +419,7 @@
 							<ul>
 								<li class="phbitem">The Archfey, The Fiend, The Great Old One <sup>(PHB)</sup></li>
 								<li class="scagitem">The Undying <sup>(SCAG)</sup></li>
-								<li class="xgteitem">The Celestial, The Hexblade <sup>(XGTE)</sup></li>
+								<li class="xgteitem">The Celestial, The Hexblade <sup>(XGtE)</sup></li>
 								<li class="uaitem">The Seeker <sup>(<a href='http://dnd.wizards.com/articles/features/faithful'>UA: The Faithful</a>)</sup></li>
 								<li class="uaitem">The Raven Queen <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard'>UA: Warlock and Wizard</a>)</sup></li>
 							</ul>
@@ -429,7 +428,7 @@
 							Eldritch Invocations:
 							<ul>
 								<li class="phbitem">Default Eldritch Invocations <sup>(PHB)</sup></li>
-								<li class="xgteitem">Additional Eldritch Invocations <sup>(XGTE)</sup></li>
+								<li class="xgteitem">Additional Eldritch Invocations <sup>(XGtE)</sup></li>
 								<li class="uaitem">
 									Unearthed Arcana Invocations
 									<ul>
@@ -449,7 +448,7 @@
 							<ul>
 								<li class="phbitem">School of Abjuration, School of Conjuration, School of Divination, School of Enchantment, School of Evocation, School of Illusion, School of Necromancy, School of Transmutation <sup>(PHB)</sup></li>
 								<li class="scagitem">Bladesinging <sup>(SCAG)</sup></li>
-								<li class="xgteitem">War Magic <sup>(XGTE)</sup></li>
+								<li class="xgteitem">War Magic <sup>(XGtE)</sup></li>
 								<li class="uaitem">Lore Mastery <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard'>UA: Warlock and Wizard</a>)</sup></li>
 								<li class="uaitem">Theurgy <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/wizard-revisited'>UA: Wizard Revisited</a>)</sup></li>
 								<li class="uaitem">School of Invention <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses'>UA: Three Subclasses</a>)</sup></li>
@@ -546,10 +545,9 @@
 			</ul>
 			<b>Other Content</b>
 			<ul class="spacedlist">
-				<li class="otheritem">The <b>Grung</b> race features in the unofficial content One Grung Above.</li>
-				<li class="uaitem"><a href='http://dnd.wizards.com/articles/features/gothic-heroes'>UA: Gothic Heroes</a> contains the <b>Revenant</b> subrace, which can be applied to any race.</li>
+				<li class="uaitem"><a href='http://dnd.wizards.com/articles/features/gothic-heroes'>UA: Gothic Heroes</a> contains the revenant subrace, which can be applied to any race.</li>
 				<li class="uaitem"><a href='http://dnd.wizards.com/articles/unearthed-arcana/modern-magic'>UA: Modern Magic</a> contains magic spells and subclasses and other things for campaigns in a modern setting.</li>
-				<li class="uaitem"><a href='http://dnd.wizards.com/articles/features/prestige-classes-and-rune-magic'>UA: Prestige Classes and Rune Magic</a> contains rules for <b>prestige classes</b> and the <b>rune scribe</b> prestige class.</li>
+				<li class="uaitem"><a href='http://dnd.wizards.com/articles/features/prestige-classes-and-rune-magic'>UA: Prestige Classes and Rune Magic contains rules for prestige classes and the rune scribe prestige class.</li>
 			</ul>
 		</div>
 	</body>
@@ -563,10 +561,12 @@
 			ShowHide("vgtmbox", "vgtmitem");
 			ShowHide("xgtebox", "xgteitem");
 			ShowHide("otherbox", "otheritem");
+			ShowHide("ufbox", "ufitem");
 			ShowHide("uabox", "uaitem");
 			
 			// Special cases
 			TwoBooks("goliath", "eebox", "vgtmbox");
+			TwoBooks("deepgnome", "eebox", "scagbox");
 			TwoBooks("svirfneblinmagic", "eebox", "scagbox");
 		}
 		
