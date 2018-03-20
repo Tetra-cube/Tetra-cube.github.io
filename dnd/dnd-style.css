@@ -1,0 +1,95 @@
+html
+{
+	background-attachment: fixed;
+	background-size: cover; 
+}
+
+body
+{
+	font-family: Georgia, Arial, sans-serif;
+	text-align: left;
+    max-width: 1000px;
+    margin: 0px auto;
+	line-height: 125%;
+	background-image: url("dndimages/papyr.jpg");
+	border-style: none solid;
+}
+
+.content
+{
+    padding: 25px 50px;
+}
+
+h1, h2
+{
+	font-family: Tahoma, Georgia, Arial, sans-serif;
+}
+
+a
+{
+    color: darkred;
+	text-decoration: none;
+}
+.spacedlist>li, .booklist>li
+{
+	margin: 0 0 1% 0;
+}
+
+.booklist
+{
+	list-style-type: none;
+	padding: 0px 18px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    color: darkred;
+	text-decoration: none;
+	cursor: help;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 400px;
+	background-image: url("dndimages/paper.jpg");
+	background-size: cover;
+	background-position: center; 
+    color: #000000;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -200px;
+	border-style: solid;
+	border-radius: 5px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* http://css3buttongenerator.com/ */
+
+.buttoncontainer
+{
+    text-align: center;
+}
+
+button {
+	-webkit-border-radius: 3;
+	-moz-border-radius: 3;
+	border-radius: 3px;
+	color: #ffffff;
+	font-size: 16px;
+	background: #91ab8e;
+	padding: 2px 6px 2px 6px;
+	text-decoration: none;
+	width: 25%;
+}
+
+button:hover {
+	background: #a5c791;
+	text-decoration: none;
+}
