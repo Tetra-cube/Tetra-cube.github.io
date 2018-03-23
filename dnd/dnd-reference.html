@@ -1,4 +1,5 @@
 <link rel='stylesheet' type='text/css' href='dnd-style.css'>
+<script type="text/javascript" src="dnd-data.txt"></script>
 <!DOCTYPE html>
 <html style="background-image: url('dndimages/refbkg.jpg'">
 	<link rel='shortcut icon' type='image/x-icon' href='dndimages/favicon.ico' />
@@ -9,599 +10,512 @@
 	<body>
 		<div class="content">
 			<h1>D&D 5e Content Reference</h1>
-			<div>There's a lot of content for this game spread out across a bunch of different rulebooks. I made a quick reference to keep track of all the content that pertains to player characters, mostly for purposes of character creation.</div>
+			<div>There's a lot of content for this game spread out across a bunch of different rulebooks. I made a quick reference to keep track of all the content that pertains to player characters, mostly for purposes of character creation. Also check out the <a href='dnd-char-gen.html'>random character generator</a>, based on the same data.</div>
 			<br>
 			<h2>Rulebooks</h2>
 			<ul class="booklist">
-				<li><b><input id="phbbox" type="checkbox" disabled checked> Player's Handbook</b> is the corebook which contains all of the base content.</li>
-				<li><b><input id="eebox" type="checkbox" onclick="UpdateList()" checked> <a href='http://dnd.wizards.com/articles/features/elementalevil_playerscompanion'>Elemental Evil Player's Companion</a></b> is a short online supplement, containing a few races and some spells.</li>
-				<li><b><input id="scagbox" type="checkbox" onclick="UpdateList()" checked> Sword Coast Adventurer's Guide</b> is primarily about the Sword Coast setting, but contains new subraces, subclasses, backgrounds, and a couple of cantrips.</li>
-				<li><b><input id="vgtmbox" type="checkbox" onclick="UpdateList()" checked> Volo's Guide to Monsters</b> contains 13(!) additional races, including playable monster races.</li>
-				<li><b><input id="xgtebox" type="checkbox" onclick="UpdateList()" checked> Xanathar's Guide to Everything</b> has a tremendous amount of new subclasses, as well as spells and racial feats.</li>
-				<li><b><input id="dmgbox" type="checkbox" onclick="UpdateList()" checked> Dungeon Master's Guide</b> has a few options for player characters that require DM approval.</li>
-				<li><b><input id="otherbox" type="checkbox" onclick="UpdateList()" checked> Other Content:</b> <b>The Tortle Package</b> contains the tortle race. <b>Adventure Modules</b> sometimes contain a small amount of usable content.</li>
-				<li><b><input id="mtofbox" type="checkbox" disabled> Mordenkainen's Tome of Foes</b> is an upcoming book scheduled for release in may.</li>
-				<li><b><input id="ufbox" type="checkbox"onclick="UpdateList()" > Notable Unofficial Content</b> includes popular unofficial content such as the <a href='http://geekandsundry.com/wp-content/uploads/2015/12/Blood-Hunter-Class-1.3.pdf'>Blood Hunter</a>.</li>
-				<li><b><input id="uabox" type="checkbox" onclick="UpdateList()"> <a href='http://dnd.wizards.com/articles/unearthed-arcana'>Unearthed Arcana</a></b> is not a rulebook, but playtest material found on the Wizards of the Coast website. This content may be unbalanced, be careful when using it.</li>
+				<li><b><input id="PHBbox" type="checkbox" disabled checked> Player's Handbook</b> is the corebook which contains all of the base content.</li>
+				<li><b><input id="EEbox" type="checkbox" onclick="UpdateList()" checked> <a href='http://dnd.wizards.com/articles/features/elementalevil_playerscompanion'>Elemental Evil Player's Companion</a></b> is a short online supplement, containing a few races and some spells.</li>
+				<li><b><input id="SCAGbox" type="checkbox" onclick="UpdateList()" checked> Sword Coast Adventurer's Guide</b> is primarily about the Sword Coast setting, but contains new subraces, subclasses, backgrounds, and a couple of cantrips.</li>
+				<li><b><input id="VGtMbox" type="checkbox" onclick="UpdateList()" checked> Volo's Guide to Monsters</b> contains 13(!) additional races, including playable monster races.</li>
+				<li><b><input id="XGtEbox" type="checkbox" onclick="UpdateList()" checked> Xanathar's Guide to Everything</b> has a tremendous amount of new subclasses, as well as spells and racial feats.</li>
+				<li><b><input id="DMGbox" type="checkbox" onclick="UpdateList()" checked> Dungeon Master's Guide</b> has a few options for player characters that require DM approval.</li>
+				<li><b><input id="Otherbox" type="checkbox" onclick="UpdateList()" checked> Other Content:</b> <b>The Tortle Package</b> contains the tortle race. <b>Adventure Modules</b> sometimes contain a small amount of usable content.</li>
+				<li><b><input id="MToFbox" type="checkbox" disabled> Mordenkainen's Tome of Foes</b> is an upcoming book scheduled for release in may.</li>
+				<li><b><input id="UAbox" type="checkbox" onclick="UpdateList()"> <a href='http://dnd.wizards.com/articles/unearthed-arcana'>Unearthed Arcana</a></b> is not a rulebook, but playtest material found on the Wizards of the Coast website. This content may be unbalanced, be careful when using it. See the bottom of the page for a list of Unearthed Arcana content.</li>
+				<li><b><input id="Unofficialbox" type="checkbox"onclick="UpdateList()" > Notable Unofficial Content</b> includes popular unofficial content such as the <a href='http://geekandsundry.com/wp-content/uploads/2015/12/Blood-Hunter-Class-1.3.pdf'>Blood Hunter</a>.</li>
 			</ul>
+			<hr>
 			<br>
-			<h2>Races</h2>
-			<ul class="spacedlist">
-				<li class="eeitem" ><b>Aarakocra</b> <sup>(EE)</sup></li>
-				<li class="vgtmitem">
-					<b>Aasimar</b> <sup>(VGtM)</sup>
-					<ul>
-						<li>
-						Subraces:
-						<ul>
-							<li class="vgtmitem">Protector Aasimar, Scourage Aasimar, Fallen Aasimar <sup>(VGtM)</sup></li>
-						</ul>
-					</ul>
-				</li>
-				<li class="vgtmitem"><b>Bugbear</b> <sup>(VGtM)</sup></li>
-				<li class="uaitem"><b>Changeling</b> <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>UA: Eberron</a>)</sup></li>
-				<li class="phbitem">
-					<b>Dragonborn</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Draconic Ancestry:
-							<ul>
-								<li class="phbitem">Black, Blue, Brass, Bronze, Copper, Gold, Green, Red, Silver, White <sup>(PHB)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Dwarf</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-						Subraces:
-						<ul>
-							<li class="phbitem">Hill Dwarf, Mountain Dwarf <sup>(PHB)</sup></li>
-							<li class="scagitem">Gray Dwarf/Duergar <sup>(SCAG)</sup></li>
-							<li class="scagitem">Gold Dwarf, Shield Dwarf <sup>(SCAG)</sup>
-								<ul>
-									<li>Racial traits are identical to hill dwarves and mountain dwarves, respectively.</li>
-								</ul>
-							</li>
-						</ul>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Elf</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-						Subraces:
-						<ul>
-							<li class="phbitem">High Elf, Wood Elf, Drow/Dark Elf <sup>(PHB)</sup></li>
-							<li class="scagitem">Moon Elves, Sun Elves <sup>(SCAG)</sup>
-								<ul>
-									<li>Racial traits are identical to high elves.</li>
-								</ul>
-							</li>
-							<li class="scagitem">Avariel, Lythari, Sea Elves, Star Elves, Wild Elves <sup>(SCAG)</sup>
-								<ul>
-									<li>No racial traits are provided for these elves (save Avariel, see UA content below), so you will need to homebrew some racial traits if you want to play one of these subraces.</li>
-								</ul>
-							</li>
-							<li class="dmgitem">Eladrin(DMG) <sup>(DMG)</sup></li>
-							<li class="uaitem">Eladrin(UA) <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/race-options-eladrin-and-gith'>UA: Eladrin and Gith</a>)</sup></li>
-							<li class="uaitem">Avariel, Grugach, Sea Elf, Shadar-kai <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces'>UA: Elf Subraces</a>)</sup></li>
-						</ul>
-					</ul>
-				</li>
-				<li class="vgtmitem"><b>Firbolg</b> <sup>(VGtM)</sup></li>
-				<li class="eeitem">
-					<b>Genasi</b> <sup>(EE)</sup>
-					<ul>
-						<li>
-						Subraces:
-						<ul>
-							<li class="eeitem">Air Genasi, Earth Genasi, Fire Genasi, Water Genasi <sup>(EE)</sup></li>
-						</ul>
-					</ul>
-				</li>
-				<li class="uaitem">
-					<b>Gith</b> <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/race-options-eladrin-and-gith'>UA: Eladrin and Gith</a>)</sup>
-					<ul>
-						<li>
-							Subraces:
-							<ul>
-								<li class="uaitem">Githyanki, Githzerai <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/race-options-eladrin-and-gith'>UA: Eladrin and Gith</a>)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Gnome</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-						Subraces:
-						<ul>
-							<li class="phbitem">Forest Gnome, Rock Gnome <sup>(PHB)</sup></li>
-							<li id="deepgnome">Deep Gnome/Svirfneblin <sup>(EE, SCAG)</sup></li>
-						</ul>
-					</ul>
-				</li>
-				<li class="vgtmitem"><b>Goblin</b> <sup>(VGtM)</sup></li>
-				<li id="goliath">
-					<b>Goliath</b> <sup>(EE, VGtM)</sup>
-					<ul>
-						<li>Both books feature an identical version of the goliath.</li>
-					</ul>
-				</li>
-				<li class="ufitem"><b>Grung</b> <sup>(One Grung Above)</sup></li>
-				<li class="phbitem">
-					<b>Halfling</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-						Subraces:
-						<ul>
-							<li class="phbitem">Lightfoot Halfling, Stout Halfling <sup>(PHB)</sup></li>
-							<li class="scagitem">Ghostwise Halfling <sup>(SCAG)</sup></li>
-							<li class="scagitem">Stoneheart Halfling <sup>(SCAG)</sup>
-								<ul>
-									<li>Racial traits are identical to stout halflings</li>
-								</ul>
-							</li>
-						</ul>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Half-Elf</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-						Variants:
-						<ul>
-							<li class="scagitem">Wood Elf descent, High Elf/Moon Elf/Sun Elf descent, Drow descent, Aquatic heritage <sup>(SCAG)</sup></li>
-						</ul>
-					</ul>
-				</li>
-				<li class="phbitem"><b>Half-Orc</b> <sup>(PHB)</sup></li>
-				<li class="phbitem">
-					<b>Human</b> <sup>(PHB)</sup>
-					<ul>
-						<li class="phbitem">Variant Human <sup>(PHB)</sup></li>
-					</ul>
-					<ul>
-						<li>
-						Ethnicities (Lore only, traits are identical):
-						<ul>
-							<li class="phbitem">Calishite, Chondathan, Damaran, Illuskan, Mulan, Rashemi, Shou, Tethyrian, Turami <sup>(PHB)</sup></li>
-							<li class="scagitem">Arkaiun, Bedine, Ffolk, Gur, Halruaan, Imaskari, Nar, Shaaran, Tuigan, Ulutiun <sup>(SCAG)</sup></li>
-						</ul>
-					</ul>
-				</li>
-				<li class="vgtmitem"><b>Hobgoblin</b> <sup>(VGtM)</sup></li>
-				<li class="vgtmitem"><b>Kenku</b> <sup>(VGtM)</sup></li>
-				<li class="vgtmitem"><b>Kobold</b> <sup>(VGtM)</sup></li>
-				<li class="vgtmitem"><b>Lizardfolk</b> <sup>(VGtM)</sup></li>
-				<li class="uaitem"><b>Minotaur</b> <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-waterborne-adventures'>UA: Waterborne Adventures</a>)</sup></li>
-				<li class="vgtmitem"><b>Orc</b> <sup>(VGtM)</sup></li>
-				<li class="uaitem"><b>Shifter</b> <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>UA: Eberron</a>)</sup></li>
-				<li class="vgtmitem"><b>Tabaxi</b> <sup>(VGtM)</sup></li>
-				<li class="phbitem">
-					<b>Tiefling</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Variants:
-							<ul>
-								<li class="scagitem">Alternate Appearance, Feral, Devil's Tongue, Hellfire, Winged <sup>(SCAG)</sup></li>
-							</ul>
-						</li>
-						<li>
-							Subraces:
-							<ul>
-								<li class="phbitem">Infernal/Asmodeous (Default Tieflings, as featured in the Player's Handbook)</li>
-								<li class="uaitem">Abyssal <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/old-black-magic'>UA: That Old Black Magic</a>)</sup></li>
-								<li class="uaitem">Baalzebul, Dispater, Fierna, Glasya, Levistus, Mammon, Mephistopheles, Zariel <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/fiendish-options'>UA: Fiendish Options</a>)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="otheritem"><b>Tortle</b> (The Tortle Package)</li>
-				<li class="vgtmitem"><b>Triton</b> <sup>(VGtM)</sup></li>
-				<li class="uaitem"><b>Warforged</b> <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>UA: Eberron</a>)</sup></li>
-				<li class="vgtmitem"><b>Yuan-Ti Pureblood</b> <sup>(VGtM)</sup></li>
-			</ul>
-			<br>
+			<b><span class='expandretracttext' onclick="ExpandAll()">Expand All</span><span class='expandretracttext' onclick="RetractAll()">Retract All</span></b>
+			<br><br><hr>
 			<h2>Classes</h2>
-			<ul class="spacedlist">
-				<li class="uaitem">
-					<b>Artificer</b> <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>UA Update</a>)</sup>
-					<ul>
-						<li>
-							Artificer Specialists:
-							<ul>
-								<li class="uaitem">Alchemist, Gunsmith <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>UA Update</a>)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Barbarian</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Primal Paths:
-							<ul>
-								<li class="phbitem">Path of the Berserker, Path of the Totem Warrior <sup>(PHB)</sup>
-									<ul>
-										<li class="scagitem">
-											The Sword Coast Adventurer's Guide contains additional options for the Path of the Totem Warrior.
-										</li>
-									</ul>
-								</li>
-								<li class="scagitem">Path of the Battlerager <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Path of the Ancestral Guardian, Path of the Storm Herald, Path of the Zealot <sup>(XGtE)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Bard</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Bard Colleges:
-							<ul>
-								<li class="phbitem">College of Lore, College of Valor <sup>(PHB)</sup></li>
-								<li class="xgteitem">College of Glamour, College of Swords, College of Whispers <sup>(XGtE)</sup></li>
-								<li class="uaitem">College of Satire <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/kits-old'>UA: Kits of Old</a>)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="ufitem">
-					<b>Blood Hunter</b> <sup>(Blood Hunter Class)</sup>
-					<ul>
-						<li>
-							Blood Hunter Orders:
-							<ul>
-								<li class="ufitem">Order of the Ghostslayer, Order of the Profane Soul, Order of the Mutant <sup>(Blood Hunter Class)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Cleric</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Divine Domains:
-							<ul>
-								<li class="phbitem">Knowledge Domain, Life Domain, Light Domain, Nature Domain, Tempest Domain, Trickery Domain, War Domain <sup>(PHB)</sup></li>
-								<li class="dmgitem">Death Domain <sup>(DMG)</sup></li>
-								<li class="scagitem">Arcane Domain <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Forge Domain, Grave Domain <sup>(XGtE)</sup></li>
-								<li class="uaitem">Protection Domain <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/cleric-divine-domains'>UA: Cleric: Divine Domains</a>)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Druid</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Druid Circles:
-							<ul>
-								<li class="phbitem">Circle of the Land, Circle of the Moon <sup>(PHB)</sup></li>
-								<li class="xgteitem">Circle of Dreams, Circle of the Shepherd <sup>(XGtE)</sup></li>
-								<li class="uaitem">Circle of Twilight <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/druid-circles-and-wild-shape'>UA: Druid Circles and Wild Shape</a>)</sup></li>
-								<li class="uaitem">Circle of Spores <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses'>UA: Three Subclasses</a>)</sup></li>
-							</ul>
-						</li>
-						<li class="xgteitem">
-							Xanathar's Guide to Everything contains additional rules for learning beast shapes.
-						</li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Fighter</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Martial Archetypes:
-							<ul>
-								<li class="phbitem">Champion, Battle Master, Eldritch Knight <sup>(PHB)</sup></li>
-								<li class="scagitem">Purple Dragon Knight/Banneret <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Arcane Archer, Cavalier, Samurai <sup>(XGtE)</sup></li>
-								<li class="uaitem">Scout <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/kits-old'>UA: Kits of Old</a>)</sup></li>
-								<li class="uaitem">Monster Hunter <sup>(<a href='http://dnd.wizards.com/articles/features/gothic-heroes'>UA: Gothic Heroes</a>)</sup></li>
-								<li class="uaitem">Sharpshooter <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/fighter'>UA: Fighter: Martial Archetypes</a>)</sup></li>
-								<li class="uaitem">Brute <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses'>UA: Three Subclasses</a>)</sup></li>
-							</ul>
-						</li>
-						<li>
-							Fighting Styles:
-							<ul>
-								<li class="phbitem">Default Fighting Styles <sup>(PHB)</sup></li>
-								<li class="uaitem">Mariner <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>UA: Eberron</a>)</sup></li>
-								<li class="uaitem">Close Quarters Shooter, Tunnel Fighter <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/light-dark-underdark'>UA: Light, Dark, Underdark!</a>)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Monk</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Monastic Traditions:
-							<ul>
-								<li class="phbitem">Way of the Open Hand, Way of Shadow, Way of the Four Elements <sup>(PHB)</sup></li>
-								<li class="scagitem">Way of the Long Death, Way of the Sun Soul <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Way of the Drunken Master, Way of the Kensei, Way of the Sun Soul <sup>(XGtE)</sup></li>
-								<li class="uaitem">Way of Tranquility <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/monk-monastic-traditions'>UA: Monk: Monastic Traditions</a>)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="uaitem">
-					<b>Mystic</b> <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>UA Update</a>)</sup>
-					<ul>
-						<li>
-							Mystic Orders:
-							<ul>
-								<li class="uaitem">Order of the Avatar, Order of the Awakened, Order of the Immortal, Order of the Nomad, Order of the Soul Knife, Order of the Wu Jen <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update'>UA Update</a>)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Paladin</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Sacred Oaths:
-							<ul>
-								<li class="phbitem">Oath of Devotion, Oath of the Ancients, Oath of Vengeance <sup>(PHB)</sup></li>
-								<li class="dmgitem">Oathbreaker <sup>(DMG)</sup></li>
-								<li class="scagitem">Oath of the Crown <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Oath of Conquest, Oath of Redemption <sup>(XGtE)</sup></li>
-								<li class="uaitem">Oath of Treachery <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/paladin-sacred-oaths'>UA: Paladin: Sacred Oaths</a>)</sup></li>
-							</ul>
-						</li>
-						<li>
-							Fighting Styles:
-							<ul>
-								<li>See <i>Fighter</i>.</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Ranger</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Ranger Archetypes:
-							<ul>
-								<li class="phbitem">Hunter, Beast Master <sup>(PHB)</sup></li>
-								<li class="xgteitem">Gloom Stalker, Horizon Walker, Monster Slayer <sup>(XGtE)</sup></li>
-								<li class="uaitem">Primeval Guardian <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/ranger-and-rogue'>UA: Ranger and Rogue</a>)</sup></li>
-							</ul>
-						</li>
-						<li>
-							Fighting Styles:
-							<ul>
-								<li>See <i>Fighter</i>.</li>
-							</ul>
-						</li>
-						<li class="uaitem">Alternate Ranger Class <sup>(<a href='http://dnd.wizards.com/articles/features/unearthed-arcana-ranger-revised'>UA: The Ranger, Revised)</a></sup></li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Rogue</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Rougish Archetypes:
-							<ul>
-								<li class="phbitem">Thief, Assassin, Arcane Trickster <sup>(PHB)</sup></li>
-								<li class="scagitem">Mastermind, Swashbuckler <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Inquisitive, Mastermind, Scout, Swashbuckler <sup>(XGtE)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Sorcerer</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Sorcerous Origins:
-							<ul>
-								<li class="phbitem">Draconic Bloodline, Wild Magic <sup>(PHB)</sup></li>
-								<li class="scagitem">Storm Sorcery <sup>(SCAG)</sup></li>
-								<li class="xgteitem">Divine Soul, Shadow Magic, Storm Sorcery <sup>(XGtE)</sup></li>
-								<li class="uaitem">Phoenix Sorcery, Sea Sorcery, Stone Sorcery <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/sorcerer'>UA: Sorcerer</a>)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Warlock</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Otherworldly Patrons:
-							<ul>
-								<li class="phbitem">The Archfey, The Fiend, The Great Old One <sup>(PHB)</sup></li>
-								<li class="scagitem">The Undying <sup>(SCAG)</sup></li>
-								<li class="xgteitem">The Celestial, The Hexblade <sup>(XGtE)</sup></li>
-								<li class="uaitem">The Seeker <sup>(<a href='http://dnd.wizards.com/articles/features/faithful'>UA: The Faithful</a>)</sup></li>
-								<li class="uaitem">The Raven Queen <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard'>UA: Warlock and Wizard</a>)</sup></li>
-							</ul>
-						</li>
-						<li>
-							Eldritch Invocations:
-							<ul>
-								<li class="phbitem">Default Eldritch Invocations <sup>(PHB)</sup></li>
-								<li class="xgteitem">Additional Eldritch Invocations <sup>(XGtE)</sup></li>
-								<li class="uaitem">
-									Unearthed Arcana Invocations
-									<ul>
-										<li><a href='http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard'>UA: Warlock and Wizard</a></li>
-										<li><a href='http://dnd.wizards.com/articles/unearthed-arcana/revised-class-options'>UA: Revised Class Options</a></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Wizard</b> <sup>(PHB)</sup>
-					<ul>
-						<li>
-							Arcane Traditions:
-							<ul>
-								<li class="phbitem">School of Abjuration, School of Conjuration, School of Divination, School of Enchantment, School of Evocation, School of Illusion, School of Necromancy, School of Transmutation <sup>(PHB)</sup></li>
-								<li class="scagitem">Bladesinging <sup>(SCAG)</sup></li>
-								<li class="xgteitem">War Magic <sup>(XGtE)</sup></li>
-								<li class="uaitem">Lore Mastery <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard'>UA: Warlock and Wizard</a>)</sup></li>
-								<li class="uaitem">Theurgy <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/wizard-revisited'>UA: Wizard Revisited</a>)</sup></li>
-								<li class="uaitem">School of Invention <sup>(<a href='http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses'>UA: Three Subclasses</a>)</sup></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-			</ul>
-			<br>
+			<span id="classes"></span>
+			<br><hr>
+			<h2>Races</h2>
+			<span id="races"></span>
+			<br><hr>
 			<h2>Backgrounds</h2>
-			<ul class="spacedlist">
-				<li class="phbitem"><b>Acolyte</b> <sup>(PHB)</sup></li>
-				<li class="otheritem"><b>Anthropologist</b> <sup>(Tomb of Annihilation)</sup></li>
-				<li class="otheritem"><b>Archaeologist</b> <sup>(Tomb of Annihilation)</sup></li>
-				<li class="phbitem"><b>Charlatan</b> <sup>(PHB)</sup>
-				<li class="scagitem">
-					<b>City Watch</b> <sup>(SCAG)</sup>
-					<ul class="scagitem">
-						<li>Variant: <b>Investigator</b> <sup>(SCAG)</sup></li>
-					</ul>
-				</li>
-				<li class="scagitem"><b>Clan Crafter</b> <sup>(SCAG)</sup></li>
-				<li class="scagitem"><b>Cloistered Scholar</b> <sup>(SCAG)</sup></li>
-				<li class="scagitem"><b>Courtier</b> <sup>(SCAG)</sup></li>
-				<li class="phbitem">
-					<b>Criminal</b> <sup>(PHB)</sup>
-					<ul class="phbitem">
-						<li>Variant: <b>Spy</b> <sup>(PHB)</sup></li>
-					</ul>
-				</li>
-				<li class="phbitem">
-					<b>Entertainer</b> <sup>(PHB)</sup>
-					<ul class="phbitem">
-						<li>Variant: <b>Gladiator</b> <sup>(PHB)</sup></li>
-					</ul>
-				</li>
-				<li class="scagitem"><b>Faction Agent</b> <sup>(SCAG)</sup></li>
-				<li class="scagitem"><b>Far Traveler</b> <sup>(SCAG)</sup></li>
-				<li class="phbitem"><b>Folk Hero</b> <sup>(PHB)</sup></li>
-				<li class="phbitem">
-					<b>Guild Artisan</b> <sup>(PHB)</sup>
-					<ul>
-						<li>Variant: <b>Guild Merchant</b> <sup>(PHB)</sup></li>
-					</ul>
-				</li>
-				<li class="otheritem"><b>Haunted One</b> <sup>(Curse of Strahd)</sup></li>
-				<li class="phbitem"><b>Hermit</b> <sup>(PHB)</sup></li>
-				<li class="scagitem"><b>Inheritor</b> <sup>(SCAG)</sup></li>
-				<li class="scagitem"><b>Knight of the Order</b> <sup>(SCAG)</sup></li>
-				<li class="scagitem"><b>Mercenary Veteran</b> <sup>(SCAG)</sup></li>
-				<li class="phbitem">
-					<b>Noble</b> <sup>(PHB)</sup>
-					<ul>
-						<li>Variant: <b>Knight</b> <sup>(PHB)</sup></li>
-					</ul>
-				</li>
-				<li class="phbitem"><b>Outlander</b> <sup>(PHB)</sup></li>
-				<li class="phbitem"><b>Sage</b> <sup>(PHB)</sup></li>
-				<li class="phbitem">
-					<b>Sailor</b> <sup>(PHB)</sup>
-					<ul class="phbitem">
-						<li>Variant: <b>Pirate</b> <sup>(PHB)</sup></li>
-					</ul>
-				</li>
-				<li class="phbitem"><b>Soldier</b> <sup>(PHB)</sup></li>
-				<li class="scagitem"><b>Urban Bounty Hunter</b> <sup>(SCAG)</sup></li>
-				<li class="phbitem"><b>Urchin</b> <sup>(PHB)</sup></li>
-				<li class="scagitem"><b>Uthgardt Tribe Member</b> <sup>(SCAG)</sup></li>
-				<li class="scagitem"><b>Waterdhavian Noble</b> <sup>(SCAG)</sup></li>
-			</ul>
-			<br>
-			<h2>Additional Content</h2>
-			<b>Additional Feats</b>
-			<ul class="spacedlist">
-				<li id="svirfneblinmagic">Deep Gnome Racial Feat: <b>Svirfneblin Magic</b> <sup>(SCAG, EE)</sup>
-					<ul>
-						<li>Both books feature an identical version of the feat.</li>
-					</ul>
-				</li>
-				<li class="uaitem">Feat: <b>Dragonmark</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron'>UA: Eberron</a>)</li>
-				<li class="uaitem"><b>Weapon Mastery</b> & <b>Tool Feats</b> (<a href='http://dnd.wizards.com/articles/features/feats'>UA: Feats</a>)</li>
-				<li class="uaitem"><b>Skill Feats</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/feats-skills'>UA: Feats for Skills</a>)</li>
-				<li class="uaitem">
-					<b>Race Feats</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/feats-races'>UA: Feats for Races</a>)
-					<ul>
-						<li>Many but not all of these feats made it into Xanathar's Guide to Everything.</li>
-					</ul>
-				</li>
-			</ul>
-			<b>Additional Spells</b>
-			<ul class="spacedlist">
-				<li class="uaitem"><b>Demon Conjuring</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/old-black-magic'>UA: That Old Black Magic</a>)</li>
-				<li class="uaitem"><b>Cantrips and 1st level spells</b> (<a href='http://dnd.wizards.com/articles/unearthed-arcana/starter-spells'>UA: Starter Spells</a>)</li>
-			</ul>
-			<b>Other Content</b>
-			<ul class="spacedlist">
-				<li class="uaitem"><a href='http://dnd.wizards.com/articles/features/gothic-heroes'>UA: Gothic Heroes</a> contains the revenant subrace, which can be applied to any race.</li>
-				<li class="uaitem"><a href='http://dnd.wizards.com/articles/unearthed-arcana/modern-magic'>UA: Modern Magic</a> contains magic spells and subclasses and other things for campaigns in a modern setting.</li>
-				<li class="uaitem"><a href='http://dnd.wizards.com/articles/features/prestige-classes-and-rune-magic'>UA: Prestige Classes and Rune Magic contains rules for prestige classes and the rune scribe prestige class.</li>
-			</ul>
+			<span id="backgrounds"></span>
+			<br><hr>
+			<h2>Names</h2>
+			<span id="names"></span>
+			<br><hr>
+			<div id="uacontent">
+				<h2>Unearthed Arcana Index</h2>
+				<h3><span class="collapsiblebutton" onclick="CollapseExpand(this)">[+]</span> UA Classes & Subclasses</h3>
+				<ul id="uaclasses" style="display: none"></ul>
+				<h3><span class="collapsiblebutton" onclick="CollapseExpand(this)">[+]</span> UA Races & Subraces</h3>
+				<ul id="uaraces" style="display: none"></ul>
+				<h3><span class="collapsiblebutton" onclick="CollapseExpand(this)">[+]</span> UA Other</h3>
+				<ul id="uaother" style="display: none"></ul>
+			</div>
 		</div>
 	</body>
 	<script>
+	
+		var book;
+	
 		function UpdateList()
 		{
-			//ShowHide("phbbox", "phbitem");
-			ShowHide("dmgbox", "dmgitem");
-			ShowHide("eebox", "eeitem");
-			ShowHide("scagbox", "scagitem");
-			ShowHide("vgtmbox", "vgtmitem");
-			ShowHide("xgtebox", "xgteitem");
-			ShowHide("otherbox", "otheritem");
-			ShowHide("ufbox", "ufitem");
-			ShowHide("uabox", "uaitem");
+			GetBooks();
 			
-			// Special cases
-			TwoBooks("goliath", "eebox", "vgtmbox");
-			TwoBooks("deepgnome", "eebox", "scagbox");
-			TwoBooks("svirfneblinmagic", "eebox", "scagbox");
+			var racesList = GetContent(races), classesList = GetContent(classes), backgroundsList = GetContent(backgrounds), namesList = GetNames(names);
+			document.getElementById('races').innerHTML = MakeHTMLStringStart(racesList);
+			document.getElementById('classes').innerHTML = MakeHTMLStringStart(classesList);
+			document.getElementById('backgrounds').innerHTML = MakeHTMLStringStart(backgroundsList);
+			document.getElementById('names').innerHTML = MakeHTMLStringNamesStart(namesList);
+			document.getElementById('uaraces').innerHTML = GetUAStuff(UARaces);
+			document.getElementById('uaclasses').innerHTML = GetUAStuff(UAClasses);
+			document.getElementById('uaother').innerHTML = GetUAStuff(UAOther);
 		}
 		
-		function ShowHide(boxid, itemclass)
+		function GetBooks()
 		{
-			if (document.getElementById(boxid).checked)
+			books = [ 'PHB' ];
+			for(var bookNum in availableBooks)
 			{
-				var classitems = document.getElementsByClassName(itemclass);
-				for (var i = 0; i < classitems.length; i++)
+				var book = availableBooks[bookNum];
+				if(book == 'MR')
+					continue;
+				if(document.getElementById(book + 'box').checked)
+					books.push(book);
+			}
+			if(books.indexOf('VGtM') >= 0)
+				books.push('MR');
+		}
+		
+		function MakeHTMLStringStart(arr)
+		{
+			var stringBuffer = [];
+			for(var index in arr)
+			{
+				if(arr[index] == 'discarditem')
+					continue;
+				var item = arr[index], isName = false;
+				for(var index2 in item)
 				{
-					var classitem = classitems[i];
-					if(classitem.hasAttribute("style"))
-						classitem.removeAttributeNode(classitem.getAttributeNode("style"));
+					var item2 = item[index2];
+					if(item2.name == '_name')
+					{
+						stringBuffer.push('<h3>', NewCollapsible(), item2.content, ' <sup>(', GetBookId(item2.book), ')</sup>', '</h3>');
+						break;
+					}
+				}
+				stringBuffer.push(MakeHTMLString(item));
+			}
+			return stringBuffer.join('');
+		}
+		
+		function MakeHTMLString(item)
+		{
+			var stringBuffer = [];
+			// If an object or an array
+			if(typeof item == 'object')
+			{
+				// If an array
+				if(Array.isArray(item))
+				{
+					// Make a new list to hold the contents
+					stringBuffer.push('<ul style="display: none">');
+					for(var index in item)
+					{
+						var element = item[index];
+						// For array elements we don't want to show
+						if((typeof element == 'string' && element.charAt(0) == '_') || (typeof element == 'object' && element.name == '_name'))
+							continue;
+						if(element.hasOwnProperty('content') && element.content == 'discarditem')
+							continue;
+							
+						stringBuffer.push('<li>', MakeHTMLString(element), '</li>');
+					}
+					stringBuffer.push('</ul>');
+				}
+				else
+				{
+					// If we don't want to show the name
+					if(item.name.charAt(0) == '_')
+					{
+						if(item.hasOwnProperty('book'))
+							stringBuffer.push(MakeHTMLString(item.content), ' <sup>(', GetBookId(item.book), ')</sup>');
+						else
+							stringBuffer.push(MakeHTMLString(item.content));
+					}
+					else
+					{
+						if(typeof item.content == 'object')
+							stringBuffer.push(NewCollapsible());
+						stringBuffer.push('<b>', item.name, '</b>: ', MakeHTMLString(item.content))
+					}
 				}
 			}
 			else
 			{
-				var classitems = document.getElementsByClassName(itemclass);
-				for (var i = 0; i < classitems.length; i++) 
-					classitems[i].style.display = "none";
+				// For tooltips
+				while(item.indexOf('[[') >= 0)
+				{
+					var startIndex = item.indexOf('[['), lineIndex = item.indexOf('|'), endIndex = item.indexOf(']]');
+					
+					stringBuffer.push(
+						item.substring(0, startIndex),
+						'<span class="tooltip">',
+						item.substring(startIndex + 2, lineIndex),
+						'<span class="tooltiptext"> ',
+						tooltips[item.substring(lineIndex + 1, endIndex)],
+						'</span></span>');
+					item = item.substring(endIndex + 2);
+				}
+				
+				// For sub-properties
+				if(item.indexOf('**') >= 0)
+				{
+					var starIndex = item.indexOf('**');
+					stringBuffer.push(item.substring(0, starIndex), '<ul><li>');
+					item = item.substring(starIndex + 2);
+					starIndex = item.indexOf('**');
+					while(starIndex >= 0)
+					{
+						stringBuffer.push(item.substring(0, starIndex), '</li><li>')
+						item = item.substring(starIndex + 2);
+						starIndex = item.indexOf('**');
+					}
+					stringBuffer.push(item, '</li></ul>');
+				}
+				stringBuffer.push(item);
+			}
+			return stringBuffer.join('');
+		}
+		
+		function MakeHTMLStringNamesStart(item)
+		{
+			return '<ul>' + MakeHTMLStringNames(item) + '</ul>';
+		}
+		
+		function MakeHTMLStringNames(item)
+		{
+			if(typeof item == 'object')
+			{
+				var stringBuffer = [];
+				if(Array.isArray(item))
+				{
+					for(var index in item)
+					{
+						if(item[index] == 'discarditem')
+							continue;
+						var element = item[index];
+						stringBuffer.push(MakeHTMLStringNames(element));
+					}
+				}
+				else
+				{
+					if(Array.isArray(item.content))
+						stringBuffer.push('<li>', NewCollapsible(), '<b>', item.name, '</b>: <ul style="display: none">', MakeHTMLStringNames(item.content), '</ul></li>');
+					else
+						stringBuffer.push('<li>', '<b>', item.name, '</b>: ', MakeHTMLStringNames(item.content), '</li>');
+				}
+				return stringBuffer.join('');
+			}
+			return item;
+		}
+
+		function GetContent(item, book)
+		{
+			if(typeof item == 'object')
+			{
+				if(Array.isArray(item))
+				{	
+					var elements = [];
+					for(var index in item)
+						elements.push(GetContent(item[index], book));
+					return elements;
+				}
+				else
+				{
+					if(item.hasOwnProperty('_special'))
+						return SpecialCase(item);
+					return PushAllProperties(item);
+				}
+			}
+			//if(book == null)
+				return item;
+			//return { 'name' : '_none', 'content' : item, 'book' : book };
+		}
+		
+		function PushAllProperties(item, book)
+		{
+			var properties = [];
+			for(var propertyName in item)
+			{
+				if(propertyName != '_special')
+				{
+					if(book == null)
+						properties.push( { 'name' : propertyName, 'content' : GetContent(item[propertyName]) } );
+					else
+						properties.push( { 'name' : propertyName, 'content' : GetContent(item[propertyName]), 'book' : book } );
+				}
+			}
+			return properties;
+		}
+		
+		function CheckHasBook(book)
+		{
+			for(var index in books)
+			{
+				if(book.indexOf(books[index]) >= 0)
+					return true;
+			}
+			return false;
+		}
+		
+		function GetBookString(string)
+		{
+			if(string.substring(0, 5) != 'book-')
+				return null;
+			var spaceIndex = string.indexOf(' ');
+			if(spaceIndex < 0)
+				bookString = string.substring(5);
+			else
+				bookString = string.substring(5, spaceIndex);
+			return bookString;
+		}
+		
+		function SpecialCase(item)
+		{
+			var special, bookString = GetBookString(item._special);
+			if(bookString == null)
+				special = item._special;
+			else
+			{
+				if(!CheckHasBook(bookString))
+					return 'discarditem';
+				var spaceIndex = item._special.indexOf(' ');
+				if(spaceIndex < 0)
+					return PushAllProperties(item, bookString);
+				special = item._special.substring(spaceIndex + 1);
+			}
+			if (special.substring(0, 6) == "traits")
+			{
+				var personality = GetContent(backgrounds[parseInt(special.substring(7)) - 1].Personality);
+				return personality.slice(0, 4);
+			}
+			switch(special)
+			{
+				case 'booksort' :
+					var newArr = [];
+					for(var bookNum in books)
+					{
+						var bookId = books[bookNum];
+						if(item.hasOwnProperty(bookId))
+						{
+							var content = GetContent(item[bookId], bookId);
+							//if(typeof content == 'string')
+							newArr.push(content.join(', ') + ' <sup>(' + GetBookId(bookId) + ')</sup>');	// Lazy but it works and I'm tired
+						}
+					}
+					return FlattenArray(newArr);
+				case 'characteristics' :
+					var newArr = [];
+					newArr.push( { 'name' : 'Base Height', 'content' : Math.floor(item.baseheight / 12) + '\'' + (item.baseheight % 12) + '"' } );
+					newArr.push( { 'name' : 'Height Mod', 'content' : '+' + item.heightmod } );
+					newArr.push( { 'name' : 'Base Weight', 'content' : item.baseweight + ' lb.' } );
+					newArr.push( { 'name' : 'Weight Mod', 'content' : 'x (' + item.weightmod + ') lb.' } );
+					for(var otherItemName in item.other)
+					{
+						var otherItem = item.other[otherItemName];			
+						if(otherItem.hasOwnProperty('_special'))
+							newArr.push( { 'name' : otherItemName, 'content' : SpecialCase(otherItem) } );
+						else if(typeof otherItem == 'object')
+						{
+							if(Array.isArray(otherItem))
+							{
+								var otherArray = [];
+								for(var index in otherItem)
+								{
+									if(otherItem[index] != '_none')
+										otherArray.push(otherItem[index]);
+								}
+								newArr.push( { 'name' : otherItemName, 'content' : otherArray.join(', ') } );
+							}
+							else
+								newArr.push( { 'name' : otherItemName, 'content' : GetContent(otherItem) } );
+						}
+						else
+							newArr.push( { 'name' : otherItemName, 'content' : otherItem } );
+					}
+					return newArr;
+				case 'subracetraitsort' :
+				case 'subracephyssort' :
+					return PushAllProperties(item);
+				case 'gendersort' :
+					return [ { 'name' : 'Male' , 'content' : item.Male.join(', ') }, { 'name' : 'Female', 'content' : item.Female.join(', ') } ]
+				case 'halfethnicity' :
+					return 'discarditem';
+				
+				// Race stuff
+				case 'draconicancestry' :
+					var newArr = [];
+					for(var ancestryIndex in item._array)
+					{
+						var ancestry = item._array[ancestryIndex];
+						var info = ancestry._info;
+						newArr.push( { 'name' : ancestry.Type, 'content' : GetContent(info) } );
+					}
+					return newArr;
+				case 'dragonbornnickname' :
+					return item._array.join(', ');
+				case 'halfelfvarianttraits' : 
+					if(books.indexOf('SCAG') >= 0)
+					{
+						var newArr = [];
+						for(var propertyName in item._list)
+						{
+							if(propertyName == '_any')
+								newArr.push( { 'name' : '_Note', 'content' : item._list[propertyName]._Note }, { 'name' : 'Keen Senses' , 'content' : item._list[propertyName]['Keen Senses'] } );
+							else
+								newArr.push( { 'name' : propertyName, 'content' : GetContent(item._list[propertyName]) } );
+						}
+						return newArr;
+					}
+					return 'discarditem';
+				case 'halfelfvariantphys' : 
+					return PushAllProperties(item);
+				case 'halforcsubraces' :
+					return 'discarditem';
+				case 'tieflingappearance' :
+					var newArr = [];
+					for(var index in item._array)
+						newArr.push(item._array[index]);
+					return newArr.join(', ');
+				case 'scagtiefling' :
+					return [ 'Feral, Devil\'s Tongue, Hellfire, Winged', { 'name' : 'Note', 'content' : 'The Devil\'s Tongue, Hellfire, and Winged variants are mutually exclusive' } ];
+				case 'tieflingvariant' :
+					if(books.indexOf('SCAG') >= 0)
+						return PushAllProperties(item._list);
+					return 'discarditem';
+				case 'monstrousorigin' :
+					return monstrousOrigins;
+			}
+			return { 'name' : 'placeholder', 'content' : 'placeholder' };
+		}
+		
+		function GetBookId(id)
+		{
+			if(id == 'MR')
+				return 'VGtM';
+			return id;
+		}
+		
+		function FlattenArray(arr)
+		{
+			var newArr = [];
+			for(var itemName in arr)
+			{
+				var item = arr[itemName];
+				if(Array.isArray(item))
+				{
+					item = FlattenArray(item);
+					for(var subItemName in item)
+						newArr.push(item[subItemName]);
+				}
+				else
+					newArr.push(item);
+			}
+			return newArr;
+		}
+		
+		function GetNames(list)
+		{
+			var nameArr = [];
+			for(var propName in list)
+			{
+				var prop = list[propName];
+				if(Array.isArray(prop))
+					nameArr.push( { 'name' : propName, 'content' : prop.join(', ') } );
+				else
+					nameArr.push( { 'name' : propName, 'content' : GetNames(prop) } );
+			}
+			return nameArr;
+		}
+		
+		function NewCollapsible()
+		{
+			return '<span class="collapsiblebutton" onclick="CollapseExpand(this)">[+]</span> '
+		}
+		
+		function CollapseExpand(collapsibleButton)
+		{
+			var collapsibleItem = GetCollapseExpandItem(collapsibleButton);
+			
+			if(collapsibleItem.hasAttribute("style"))
+			{
+				collapsibleItem.removeAttributeNode(collapsibleItem.getAttributeNode("style"));
+				collapsibleButton.innerHTML = '[-]';
+			}
+			else
+			{
+				collapsibleItem.style.display = 'none';
+				collapsibleButton.innerHTML = '[+]';
 			}
 		}
 		
-		function TwoBooks(id, box1, box2)
+		function GetCollapseExpandItem(collapsibleButton)
 		{
-			if(document.getElementById(box1).checked || document.getElementById(box2).checked)
+			if(collapsibleButton.parentElement.nodeName == 'H3')
 			{
-				var item = document.getElementById(id);
-				if(item.hasAttribute("style"))
-					item.removeAttributeNode(item.getAttributeNode("style"));
+				var collapsibleItem = collapsibleButton.parentElement;
+				while(collapsibleItem.nodeName != 'UL')
+					collapsibleItem = collapsibleItem.nextSibling;
+				return collapsibleItem;
 			}
 			else
-				document.getElementById(id).style.display = "none";
+			{
+				var collapsibleItem = collapsibleButton.nextSibling;
+				while(collapsibleItem.nodeName != 'UL')
+					collapsibleItem = collapsibleItem.nextSibling;
+				return collapsibleItem;
+			}
+		}
+		
+		function ExpandAll()
+		{
+			var buttons = document.getElementsByClassName('collapsiblebutton');
+			for(var buttonId = 0; buttonId < buttons.length; buttonId++)
+			{
+				var collapsibleButton = buttons[buttonId], collapsibleItem = GetCollapseExpandItem(collapsibleButton);
+				if(collapsibleItem.hasAttribute("style"))
+				{
+					collapsibleItem.removeAttributeNode(collapsibleItem.getAttributeNode("style"));
+					collapsibleButton.innerHTML = '[-]';
+				}
+			}
+		}
+		
+		function RetractAll()
+		{
+			var buttons = document.getElementsByClassName('collapsiblebutton');
+			for(var buttonId = 0; buttonId < buttons.length; buttonId++)
+			{
+				var collapsibleButton = buttons[buttonId], collapsibleItem = GetCollapseExpandItem(collapsibleButton);
+				if(!collapsibleItem.hasAttribute("style"))
+				{
+					collapsibleItem.style.display = 'none';
+					collapsibleButton.innerHTML = '[+]';
+				}
+			}
+		}
+		
+		function GetUAStuff(arr)
+		{
+			var stringBuffer = []
+			for(var index in arr)
+			{
+				var item = arr[index];
+				stringBuffer.push('<li><b>', item.name, ':</b> <a href="', item.link, '">', item.source, '</a>');
+			}
+			return stringBuffer.join('');
 		}
 		
 		UpdateList();
+		
 	</script>
 </html>
