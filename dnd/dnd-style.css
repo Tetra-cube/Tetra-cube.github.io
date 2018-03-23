@@ -30,7 +30,7 @@ a
     color: darkred;
 	text-decoration: none;
 }
-.spacedlist>li, .booklist>li
+.booklist>li
 {
 	margin: 0 0 1% 0;
 }
@@ -92,4 +92,21 @@ button {
 button:hover {
 	background: #a5c791;
 	text-decoration: none;
+}
+
+.collapsiblebutton {
+	cursor: pointer;
+	font-size: 15px;
+    color: darkred;
+}
+
+.expandretracttext
+{
+	text-align: center;
+	cursor: pointer;
+	font-size: 15px;
+    color: darkred;
+	width: 50%;
+    display: inline-block;
+	font-size: 18px;
 }
