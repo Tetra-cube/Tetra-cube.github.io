@@ -394,6 +394,13 @@
 					return 'discarditem';
 				case 'monstrousorigin' :
 					return monstrousOrigins;
+					
+				// Do this later
+				case 'skip' :
+					return '';
+				// Do this because this isn't the char gen
+				case 'ignoreinchargen' :
+					return PushAllProperties(item);
 			}
 			return { 'name' : 'placeholder', 'content' : 'placeholder' };
 		}

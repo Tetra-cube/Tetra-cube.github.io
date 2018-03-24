@@ -322,9 +322,13 @@
 				// Monster origins
 				case 'monstrousorigin' :
 					return RandomFromArray(monstrousOrigins);
+					
 				// Do this later
 				case 'skip' :
 					return '';
+				// Do this never
+				case 'ignoreinchargen' :
+					return '_none';
 			}
 			return special;
 		}
