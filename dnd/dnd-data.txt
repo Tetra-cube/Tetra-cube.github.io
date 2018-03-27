@@ -21,101 +21,72 @@ var races =
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Dragonborn',
+		'Subraces and Variants' :
+		{
+			'Draconic Ancestry' : [ 'Black', 'Blue', 'Brass', 'Bronze', 'Copper', 'Gold', 'Green', 'Red', 'Silver', 'White' ]
+		},
 		'Racial Traits' :
 		{
 			'Ability Score Increase' : 'Your Strength score increases by 2, and your Charisma score increases by 1.',
 			'Size' : 'Medium',
 			'Speed' : '30 feet',
-			'Draconic Ancestry' :
-			{
-				'_special' : 'draconicancestry',
-				'_array' :
-				[
-					{
-						'Type' : 'Black',
-						'_info' :
-						{
-							'Damage' : 'Acid',
-							'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
-						}
-					},
-					{
-						'Type' : 'Blue',
-						'_info' :
-						{
-							'Damage' : 'Lightning',
-							'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
-						}
-					},
-					{
-						'Type' : 'Brass',
-						'_info' :
-						{
-							'Damage' : 'Fire',
-							'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
-						}
-					},
-					{
-						'Type' : 'Bronze',
-						'_info' :
-						{
-							'Damage' : 'Lightning',
-							'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
-						}
-					},
-					{
-						'Type' : 'Copper',
-						'_info' :
-						{
-							'Damage' : 'Acid',
-							'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
-						}
-					},
-					{
-						'Type' : 'Gold',
-						'_info' :
-						{
-							'Damage' : 'Fire',
-							'Breath Weapon' : '15 ft. cone (Dex. save)'
-						}
-					},
-					{
-						'Type' : 'Green',
-						'_info' :
-						{
-							'Damage' : 'Poison',
-							'Breath Weapon' : '15 ft. cone (Con. save)'
-						}
-					},
-					{
-						'Type' : 'Red',
-						'_info' :
-						{
-							'Damage' : 'Fire',
-							'Breath Weapon' : '15 ft. cone (Dex. save)'
-						}
-					},
-					{
-						'Type' : 'Silver',
-						'_info' :
-						{
-							'Damage' : 'Cold',
-							'Breath Weapon' : '15 ft. cone (Con. save)'
-						}
-					},
-					{
-						'Type' : 'White',
-						'_info' :
-						{
-							'Damage' : 'Cold',
-							'Breath Weapon' : '15 ft. cone  (Con. save)'
-						}
-					}
-				]
-			},
 			'Breath Weapon' : 'You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation. When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After you use your breath weapon, you can\'t use it again until you complete a short or long rest.',
 			'Damage Resistance' : 'You have resistance to the damage type associated with your draconic ancestry.',
-			'Languages' : 'You can speak, read, and write Common and Draconic.'
+			'Languages' : 'You can speak, read, and write Common and Draconic.',
+			'Ancestry Traits' :
+			{
+				'_special' : 'draconicancestry',
+				'Black' :
+				{
+					'Damage' : 'Acid',
+					'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
+				},
+				'Blue' :
+				{
+					'Damage' : 'Lightning',
+					'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
+				},
+				'Brass' :
+				{
+					'Damage' : 'Fire',
+					'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
+				},
+				'Bronze' :
+				{
+					'Damage' : 'Lightning',
+					'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
+				},
+				'Copper' :
+				{
+					'Damage' : 'Acid',
+					'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
+				},
+				'Gold' :
+				{
+					'Damage' : 'Fire',
+					'Breath Weapon' : '15 ft. cone (Dex. save)'
+				},
+				'Green' :
+				{
+					'Damage' : 'Poison',
+					'Breath Weapon' : '15 ft. cone (Con. save)'
+				},
+				'Red' :
+				{
+					'Damage' : 'Fire',
+					'Breath Weapon' : '15 ft. cone (Dex. save)'
+				},
+				'Silver' :
+				{
+					'Damage' : 'Cold',
+					'Breath Weapon' : '15 ft. cone (Con. save)'
+				},
+				'White' :
+				{
+					'Damage' : 'Cold',
+					'Breath Weapon' : '15 ft. cone  (Con. save)'
+				}
+			}
 		},
 		'Physical Characteristics' :
 		{
@@ -627,7 +598,7 @@ var races =
 				'Ghostwise Halfling' :
 				{
 					'_special' : 'book-SCAG',
-					'Ability Score Increase' : 'Your Wisdom score in-creases by 1.',
+					'Ability Score Increase' : 'Your Wisdom score increases by 1.',
 					'Silent Speech' : 'You can speak telepathically to any creature within 30 feet of you. The creature understands you only if the two of you share a language. You can speak telepathically in this way to one creature at a time.'
 				}
 			}
@@ -859,7 +830,7 @@ var races =
 			},
 			'Variant' :
 			{
-				'_special' : 'book-SCAG scagtiefling',
+				'_special' : 'book-SCAG tieflingvarianttype',
 				'_array' : [ '_none', 'Devil\'s Tongue', 'Hellfire', 'Winged', 'Feral', 'Feral, Devil\'s Tongue', 'Feral, Hellfire', 'Feral, Winged' ]
 			},
 			'Human Heritage' : { '_special' : 'halfethnicity' }
@@ -942,12 +913,12 @@ var races =
 			},
 			'Variant Traits' :
 			{
-				'_special' : 'book-SCAG tieflingvariant',
+				'_special' : 'book-SCAG tieflingvarianttraits',
 				'_list' : 
 				{
 					'Feral' : 'Your Intelligence score increases by l , and your Dexterity score increases by 2. This trait replaces the Ability Score Increase trait.',
 					'Devil\'s Tongue' : 'You know the vicious mockery cantrip. When you reach 3rd level, you can cast the charm person spell as a 2nd-level spell once with this trait. When you reach 5th level, you can cast the enthrall spell once with this trait. You must finish a long rest to cast these spells once again with this trait. Charisma is your spellcasting ability for them. This trait replaces the Infernal Legacy trait.',
-					'Hellfire' : 'Once you reach 3rd level, you can cast the burn-ing hands spell once per day as a 2nd-level spell. This trait replaces the hellish rebuke spell of the Infernal Legacy trait.',
+					'Hellfire' : 'Once you reach 3rd level, you can cast the burning hands spell once per day as a 2nd-level spell. This trait replaces the hellish rebuke spell of the Infernal Legacy trait.',
 					'Winged' : 'You have bat-like wings sprouting from your shoulder blades. You have a flying speed of 30 feet. This trait replaces the Infernal Legacy trait.'
 				}
 			}
@@ -1299,7 +1270,7 @@ var races =
 		'_name' : 'Lizardfolk',
 		'Racial Traits' :
 		{
-			'Ability Score Increase' : 'Your Constitution score in-creases by 2, and your Wisdom score increases by 1.',
+			'Ability Score Increase' : 'Your Constitution score increases by 2, and your Wisdom score increases by 1.',
 			'Size' : 'Medium',
 			'Speed' : 'Your base walking speed is 30 feet, and you have a swimming speed of 30 feet.',
 			'Bite' : 'Your fanged maw is a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.',
@@ -1561,7 +1532,7 @@ var races =
 		'_name' : 'Orc',
 		'Racial Traits' :
 		{
-			'Ability Score Increase' : 'Your Strength score in-creases by 2, your Constitution score increases by 1, and your Intelligence score is reduced by 2',
+			'Ability Score Increase' : 'Your Strength score increases by 2, your Constitution score increases by 1, and your Intelligence score is reduced by 2',
 			'Size' : 'Medium',
 			'Speed' : 'Your base walking speed is 30 feet.',
 			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',

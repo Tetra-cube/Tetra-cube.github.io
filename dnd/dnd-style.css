@@ -30,6 +30,7 @@ a
     color: darkred;
 	text-decoration: none;
 }
+
 .booklist>li
 {
 	margin: 0 0 1% 0;
@@ -109,4 +110,14 @@ button:hover {
 	width: 50%;
     display: inline-block;
 	font-size: 18px;
+}
+
+.buttonmenucontainer
+{
+	text-align: center;
+}
+
+button
+{
+	width: 25%;
 }

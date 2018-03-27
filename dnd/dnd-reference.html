@@ -343,6 +343,7 @@
 							newArr.push( { 'name' : otherItemName, 'content' : otherItem } );
 					}
 					return newArr;
+				case 'draconicancestry' :
 				case 'subracetraitsort' :
 				case 'subracephyssort' :
 					return PushAllProperties(item);
@@ -352,15 +353,6 @@
 					return 'discarditem';
 				
 				// Race stuff
-				case 'draconicancestry' :
-					var newArr = [];
-					for(var ancestryIndex in item._array)
-					{
-						var ancestry = item._array[ancestryIndex];
-						var info = ancestry._info;
-						newArr.push( { 'name' : ancestry.Type, 'content' : GetContent(info) } );
-					}
-					return newArr;
 				case 'dragonbornnickname' :
 					return item._array.join(', ');
 				case 'halfelfvarianttraits' : 
@@ -386,9 +378,9 @@
 					for(var index in item._array)
 						newArr.push(item._array[index]);
 					return newArr.join(', ');
-				case 'scagtiefling' :
+				case 'tieflingvarianttype' :
 					return [ 'Feral, Devil\'s Tongue, Hellfire, Winged', { 'name' : 'Note', 'content' : 'The Devil\'s Tongue, Hellfire, and Winged variants are mutually exclusive' } ];
-				case 'tieflingvariant' :
+				case 'tieflingvarianttraits' :
 					if(books.indexOf('SCAG') >= 0)
 						return PushAllProperties(item._list);
 					return 'discarditem';
