@@ -14,21 +14,27 @@
 			<div>Select which books to use:</div>
 			<ul class="booklist">
 				<li><b><input id="PHBbox" type="checkbox" disabled checked> Player's Handbook</b></li>
-				<li><b><input id="EEbox" type="checkbox"> Elemental Evil Player's Companion</a></b></li>
-				<li><b><input id="SCAGbox" type="checkbox"> Sword Coast Adventurer's Guide</b></li>
-				<li><b><input id="VGtMbox" type="checkbox"> Volo's Guide to Monsters</b></li>
-				<li><b><input id="MRbox" type="checkbox"> Volo's Guide (Monstrous Races)</b></li>
-				<li><b><input id="XGtEbox" type="checkbox"> Xanathar's Guide to Everything</b></li>
-				<li><b><input id="DMGbox" type="checkbox"> Dungeon Master's Guide</b></li>
-				<li><b><input id="Otherbox" type="checkbox"> Other Content</b></li>
-				<li><b><input id="UAbox" type="checkbox" > Unearthed Arcana</b></li>
-				<li><b><input id="Unofficialbox" type="checkbox"> Notable Unofficial Content</b></li>
+				<li><b><input id="EEbox" type="checkbox" onclick="UpdateAllDropdowns()" checked> Elemental Evil Player's Companion</a></b></li>
+				<li><b><input id="SCAGbox" type="checkbox" onclick="UpdateAllDropdowns()" checked> Sword Coast Adventurer's Guide</b></li>
+				<li><b><input id="VGtMbox" type="checkbox" onclick="UpdateAllDropdowns()" checked> Volo's Guide to Monsters</b></li>
+				<li><b><input id="MRbox" type="checkbox" onclick="UpdateAllDropdowns()" checked> Volo's Guide (Monstrous Races)</b></li>
+				<li><b><input id="XGtEbox" type="checkbox" onclick="UpdateAllDropdowns()" checked> Xanathar's Guide to Everything</b></li>
+				<li><b><input id="DMGbox" type="checkbox" onclick="UpdateAllDropdowns()" checked> Dungeon Master's Guide</b></li>
+				<li><b><input id="Otherbox" type="checkbox" onclick="UpdateAllDropdowns()" checked> Other Content</b></li>
+				<li><b><input id="UAbox" type="checkbox" onclick="UpdateAllDropdowns()"> Unearthed Arcana</b></li>
+				<li><b><input id="Unofficialbox" type="checkbox" onclick="UpdateAllDropdowns()"> Notable Unofficial Content</b></li>
 			</ul>
 			<div>More information on these books and their content can be found on the <a href='dnd-reference.html'>reference page.</a></div>
 			<br>
-			<div class="buttoncontainer"><button type="button" onclick="RandomizeAll()">Random Character</button></div>
+			<span class="buttonmenucontainer">
+				<div class="randombuttoncontainer"><button type="button" onclick="RandomizeAll()">Randomize Character</button></div>
+				<br>
+				<div class="dropdowncontainer"><b>Gender: </b><select class="dropdown" id="gendermenu"></select></div>
+			</span>
 			<br><hr><br>
-			<div class="buttoncontainer"><button type="button" onclick="RandomizeName()">Random Name</button></div>
+			<span class="buttonmenucontainer">
+				<div class="randombuttoncontainer"><button type="button" onclick="RandomizeName()">Randomize Name</button></div>
+			</span>
 			<h2><span id="name"></span></h2>
 			<ul>
 				<li><b>Class:</b> <span class="randomfield" id="class"></span></li>
@@ -37,29 +43,41 @@
 				<li><b>Gender:</b> <span class="randomfield" id="gender"></span></li>
 			</ul>
 			<br><hr><br>
-			<div class="buttoncontainer"><button type="button" onclick="RandomizeClass()">Random Class</button></div>
-			<h3>Class: <span id="classheader"></span></h3>
+			<span class="buttonmenucontainer">
+				<div class="randombuttoncontainer"><button type="button" onclick="RandomizeClass()">Randomize Class</button></div>
+				<br>
+				<div class="dropdowncontainer"><b>Select: </b><select class="dropdown" id="classmenu"></select></div>
+			</span>
+			<h3>Class: <span id="classheader"></h3>
 			<ul>
-				<span id='classsection'></span>
+				<span id="classsection"></span>
 			</ul>
 			<br><hr><br>
-			<div class="buttoncontainer"><button type="button" onclick="RandomizeRace()">Random Race</button></div>
-			<h3>Race: <span id="raceheader"></span></h3>
+			<span class="buttonmenucontainer">
+				<div class="randombuttoncontainer"><button type="button" onclick="RandomizeRace()">Randomize Race</button></div>
+				<br>
+				<div class="dropdowncontainer"><b>Select: </b><select class="dropdown" id="racemenu"></select></div>
+			</span>
+			<h3>Race: <span id="raceheader"></h3>
 			<ul>
-				<span id='racesection'></span>
+				<span id="racesection"></span>
 			</ul>
 			<br><hr><br>
-			<div class="buttoncontainer"><button type="button" onclick="RandomizeBackground()">Random Background</button></div>
-			<h3>Background: <span id="backgroundheader"></span></h3>
+			<span class="buttonmenucontainer">
+				<div class="randombuttoncontainer"><button type="button" onclick="RandomizeBackground()">Randomize Background</button></div>
+				<br>
+				<div class="dropdowncontainer"><b>Select: </b><select class="dropdown" id="backgroundmenu"></select></div>
+			</span>
+			<h3>Background: <span id="backgroundheader"></h3>
 			<ul>
-			<span id='backgroundsection'></span>
+			<span id="backgroundsection"></span>
 			</ul>
 			<br><hr><br>
-			<div class="buttoncontainer"><button type="button" onclick="RandomizeLife()">Random Life</button></div>
+			<div class="buttoncontainer"><button type="button" onclick="RandomizeLife()">Randomize Life</button></div>
 			<h3>Life</h3>
 			<ul>
-				<li><b>Note:</b> This section is randomized suggestions at best. Features should be changed or removed as appropriate. It is dependent on the other three fields and will randomize when any of these three are changes.</li>
-				<span id='lifesection'></span>
+				<li><b>Note:</b> This section is randomized suggestions at best. Features should be changed or removed as appropriate. It is dependent on the other three fields and will randomize when any of these three are changed.</li>
+				<span id="lifesection"></span>
 				<br>
 				<sub>Refer to Xanathar's Guide (starting on page 61) for supplementary tables.</sub>
 			</ul>
@@ -69,57 +87,66 @@
 		
 		var character, books, subraceVariants;
 		
+		function UpdateAllDropdowns()
+		{
+			document.getElementById('gendermenu').innerHTML ='<option value="0">Random</option><option value="1">Male</option><option value="2">Female</option><option value="3">Nonbinary or Unknown</option>'
+			
+			SetDropdownOptions(races, 'racemenu');
+			SetDropdownOptions(classes, 'classmenu');
+			SetDropdownOptions(backgrounds, 'backgroundmenu');
+		}
+		
+		function SetDropdownOptions(arr, id)
+		{
+			GetBooks();
+			var optionsArray = [ '<option value="0">Random</option>' ];
+				optionsArray.push();
+			for(var index in arr)
+			{
+				var item = arr[index];
+				if(typeof item == 'object')
+				{
+					if(item.hasOwnProperty('_special'))
+					{
+						if(!CheckHasBook(GetBookString(item._special)))
+							continue;
+					}
+				}
+				optionsArray.push('<option value="' + (parseInt(index) + 1) + '">' + item._name + '</option>');
+			}
+			document.getElementById(id).innerHTML = optionsArray.join('');
+		}
+		
+		<!-- function SetRace(menu) -->
+		<!-- { -->
+			<!-- subraceVariants = []; -->
+			<!-- character.Race = GetProperties(races[menu.value]); -->
+			<!-- if(character.Race._name == 'Warforged') -->
+				<!-- character.Gender = 'Genderless Construct'; -->
+			<!-- SubraceVariantCheck(); -->
+			<!-- document.getElementById('race').innerHTML = character.Race._name; -->
+			<!-- document.getElementById('raceheader').innerHTML = character.Race._name; -->
+			<!-- document.getElementById('racesection').innerHTML = MakeHTMLString(character.Race); -->
+		<!-- } -->
+		
 		function RandomizeAll()
 		{
 			GetBooks();
 			character = {};
 			subraceVariants = [];
 			
-			character.Gender = RandomFromArray(genders);
-			character.Race = GetProperties(races);
-			if(character.Race._name == 'Warforged')
-				character.Gender = 'Genderless Construct';
-			SubraceVariantCheck();
-			character.Class = GetProperties(classes);
-			character.Background = GetProperties(backgrounds);
-			character.Name = GetName(character.Race._name, character);
-			character.Life = GetProperties(life);
-			FinishLife();
-			
-			// Set stuff
-			
-			document.getElementById('name').innerHTML = character.Name;
-			
-			document.getElementById('race').innerHTML = character.Race._name;
-			document.getElementById('class').innerHTML = character.Class._name;
-			document.getElementById('background').innerHTML = character.Background._name;
-			
-			document.getElementById('raceheader').innerHTML = character.Race._name;
-			document.getElementById('racesection').innerHTML = MakeHTMLString(character.Race);
-			
-			document.getElementById('classheader').innerHTML = character.Class._name;
-			document.getElementById('classsection').innerHTML = MakeHTMLString(character.Class);
-			
-			document.getElementById('backgroundheader').innerHTML = character.Background._name;
-			document.getElementById('backgroundsection').innerHTML = MakeHTMLString(character.Background);
-			
-			document.getElementById('lifesection').innerHTML = MakeHTMLString(character.Life);
-			
-			document.getElementById('gender').innerHTML = character.Gender;
-		}
-		
-		function RandomizeName()
-		{
-			GetBooks();
-			character.Name = GetName(character.Race._name, character);
-			document.getElementById('name').innerHTML = character.Name;
+			RandomizeRace();
+			RandomizeClass();
+			RandomizeBackground();
+			RandomizeGender();
+			RandomizeName();
 			RandomizeLife();
 		}
 		
 		function RandomizeClass()
 		{
 			GetBooks();
-			character.Class = GetProperties(classes);
+			character.Class = GetPropertiesStart(classes, 'classmenu');
 			document.getElementById('class').innerHTML = character.Class._name;
 			document.getElementById('classheader').innerHTML = character.Class._name;
 			document.getElementById('classsection').innerHTML = MakeHTMLString(character.Class);
@@ -130,9 +157,11 @@
 		{
 			GetBooks();
 			subraceVariants = [];
-			character.Race = GetProperties(races);
+			character.Race = GetPropertiesStart(races, 'racemenu');
 			if(character.Race._name == 'Warforged')
 				character.Gender = 'Genderless Construct';
+			else if(character.Gender == 'Genderless Construct')
+				RandomizeGender();
 			SubraceVariantCheck();
 			document.getElementById('race').innerHTML = character.Race._name;
 			document.getElementById('raceheader').innerHTML = character.Race._name;
@@ -143,10 +172,28 @@
 		function RandomizeBackground()
 		{
 			GetBooks();
-			character.Background = GetProperties(backgrounds);
+			character.Background = GetPropertiesStart(backgrounds, 'backgroundmenu');
 			document.getElementById('background').innerHTML = character.Background._name;
 			document.getElementById('backgroundheader').innerHTML = character.Background._name;
 			document.getElementById('backgroundsection').innerHTML = MakeHTMLString(character.Background);
+			RandomizeLife();
+		}
+		
+		function RandomizeGender()
+		{
+			var genderMenu = document.getElementById('gendermenu'), index = parseInt(genderMenu.value) - 1;
+			if(index < 0)
+				character.Gender = RandomFromArray(genders);
+			else
+				character.Gender = genderMenu[genderMenu.selectedIndex].text;
+			document.getElementById('gender').innerHTML = character.Gender;
+		}
+		
+		function RandomizeName()
+		{
+			GetBooks();
+			character.Name = GetName(character.Race._name, character);
+			document.getElementById('name').innerHTML = character.Name;
 			RandomizeLife();
 		}
 		
@@ -170,6 +217,14 @@
 			}
 		}
 		
+		function GetPropertiesStart(propObj, dropdown)	// Set all properties in an object
+		{
+			var index = parseInt(document.getElementById(dropdown).value) - 1;
+			if(index < 0)
+				index = RandomFromArrayCheckBooks(propObj);
+			return GetProperties(propObj[index], true);
+		}
+		
 		function GetProperties(propObj, allowSpecial)	// Set all properties in an object
 		{
 			// Special case
@@ -180,7 +235,7 @@
 				return propObj;
 			// Array
 			if(Array.isArray(propObj))
-				return GetProperties(RandomFromArrayCheckBooks(propObj), true);
+				return GetProperties(propObj[RandomFromArrayCheckBooks(propObj)], true);
 			// Another object
 			var newPropObj = {};
 			for(var propertyName in propObj)
@@ -262,16 +317,11 @@
 				// Pick from available sourcebooks
 				case 'booksort' : 
 					return GetProperties(RandomFromBookArray(propObj), true);
+					
 				// Compute characteristics for some races with subraces
 				case 'characteristics' :
 					return GetCharacteristics(propObj);
-				// Stuff that can't be done without other info, and has to be computed after everything else
-				case 'subracetraitsort' :
-					subraceVariants.push({ 'obj': propObj, 'propname' : 'Subrace', 'get' : 'trait' });
-					return null;
-				case 'subracephyssort' :
-					subraceVariants.push({ 'obj': propObj, 'propname' : 'Subrace', 'get' : 'phys'  });
-					return null;
+					
 				// Get property according to gender
 				case 'gendersort' :
 					if(character.Gender == 'Male')
@@ -279,11 +329,13 @@
 					if(character.Gender == 'Female')
 						return GetProperties(propObj.Female, true);
 					return GetProperties(propObj[RandomFromArray(['Male', 'Female'])], true);
+					
 				// For half-human races
 				case 'halfethnicity' :
 					if(RandomNum(5) > 0)
 						return RandomEthnicity();
 					return 'Unknown';
+					
 				// Determine parents, if a mixed race
 				case 'mixedparents' :
 					var parents = life.Origin.Parents;
@@ -292,40 +344,58 @@
 					return '_none';
 					
 				// Race stuff
-				// This is for the reference, ignore it
+				
+				case 'subracetraitsort' :
+					subraceVariants.push({ 'obj': propObj, 'propname' : 'Subrace', 'get' : 'trait' });
+					return null;
+				
+				case 'subracephyssort' :
+					subraceVariants.push({ 'obj': propObj, 'propname' : 'Subrace', 'get' : 'phys'  });
+					return null;
+				
 				case 'draconicancestry' :
-					return GetProperties(propObj._array, true);
+					subraceVariants.push({ 'obj': propObj, 'propname' : 'Draconic Ancestry', 'get' : 'trait' });
+					return null;
+				
 				case 'dragonbornnickname' :
 					return RandomFromArray(propObj._array);
+				
 				// Half-elf variant stuff from scag
 				case 'halfelfvarianttraits' : 
 					subraceVariants.push({ 'obj': propObj, 'propname' : 'Elven Ancestry', 'get' : 'halfelf' });
 					return null;
+				
 				case 'halfelfvariantphys' : 
 					subraceVariants.push({ 'obj': propObj, 'propname' : 'Elven Ancestry', 'get' : 'phys' });
 					return null;
+				
 				case 'halforcsubraces' :
 					return GetProperties(propObj, false);
+				
 				// Weird-looking tieflings
 				case 'tieflingappearance' :
 				if(RandomNum(3) == 0)
 					return '_none';
 				return RandomFromArrayMultiple(propObj._array, DiceRoll('1d4') + 1);
+				
 				// Variant tieflings from scag
-				case 'scagtiefling' :
+				case 'tieflingvarianttype' :
 					if(books.indexOf('SCAG') < 0)
 						return '_none';
 					return RandomFromArray(propObj._array);
-				case 'tieflingvariant' :
+				
+				case 'tieflingvarianttraits' :
 					subraceVariants.push({ 'obj': propObj, 'propname' : 'Variant', 'get' : 'tiefling' });
 					return null;
+				
 				// Monster origins
 				case 'monstrousorigin' :
 					return RandomFromArray(monstrousOrigins);
-					
+				
 				// Do this later
 				case 'skip' :
 					return '';
+				
 				// Do this never
 				case 'ignoreinchargen' :
 					return '_none';
@@ -858,10 +928,18 @@
 				return 'Warlock';
 			if(rand < 100)
 				return 'Wizard';
-			if(rand < 105 && books.indexOf('Unofficial' >= 0))
-				return 'Blood Hunter';
-			if(rand < 110 && books.indexOf('UA' >= 0))
-				return 'Artificer';
+			if(rand < 105)
+			{
+				if (books.indexOf('Unofficial' >= 0))
+					return 'Blood Hunter';
+				return GetClassWeighted();
+			}
+			if(rand < 110)
+			{
+				if(books.indexOf('UA' >= 0))
+					return 'Artificer';
+				return GetClassWeighted();
+			}
 			if(books.indexOf('UA' >= 0))
 				return 'Mystic';
 			return GetClassWeighted();
@@ -1015,7 +1093,7 @@
 							continue;
 					}
 				}
-				returnArray.push(item);
+				returnArray.push(index);
 			}
 			return RandomFromArray(returnArray);
 		}
@@ -1094,6 +1172,8 @@
 			return bookString;
 		}
 	
+		UpdateAllDropdowns();
+		
 		RandomizeAll();
 	
 	</script>
