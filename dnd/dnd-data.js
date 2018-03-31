@@ -1144,8 +1144,6 @@ var races =
 		'Subraces and Variants' :
 		{
 			'Subrace' : [ 'Protector Aasimar', 'Scourge Aasimar', 'Fallen Aasimar' ],
-			'Guide Name' : [ 'Tadriel', 'Myllandra', 'Seraphina', 'Galladia', 'Mykiel', 'Valandras' ],
-			'Guide Nature' : [ 'Bookish and lecturing', 'Compassionate and hopeful', 'Practical and lighthearted', 'Fierce and vengeful', 'Stern and judgmental', 'Kind and parental' ],
 			'Human Heritage' : { '_special' : 'halfethnicity' }
 		},
 		'Racial Traits' :
@@ -1193,7 +1191,9 @@ var races =
 				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown', 'Emerald', 'Gold', 'Silver', 'Emerald', 'Gold', 'Silver' ],
 				'Hair' : [ 'Black', 'Brown', 'Blond', 'Silver', 'Red' ]
 			}
-		}
+		},
+		'Guide Name' : [ 'Tadriel', 'Myllandra', 'Seraphina', 'Galladia', 'Mykiel', 'Valandras' ],
+		'Guide Nature' : [ 'Bookish and lecturing', 'Compassionate and hopeful', 'Practical and lighthearted', 'Fierce and vengeful', 'Stern and judgmental', 'Kind and parental' ]
 	},
 	{
 		'_special' : 'book-VGtM',
@@ -1875,7 +1875,8 @@ var races =
 			{
 				'Skin' : [ 'Green', 'Blue', 'Purple', 'Red', 'Orange', 'Gold' ],
 			}
-		}
+		},
+		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
 	}
 ]
 
@@ -2036,12 +2037,12 @@ var classes =
 			],
 			'Embarassment' :
 			[
-				'The time when your comedic song, “Big Tom\'s Hijinks”- which, by the way, you thought was brilliant- did not go over well with Big Tom',
+				'The time when your comedic song, "Big Tom\'s Hijinks”- which, by the way, you thought was brilliant- did not go over well with Big Tom',
 				'The matinee performance when a circus\'s owlbear got loose and terrorized the crowd',
-				'When your opening song was your enthusiastic but universally hated rendition of “Song of the Froghemoth”',
-				'The first and last public performance of “Mirt, Man about Town"',
+				'When your opening song was your enthusiastic but universally hated rendition of "Song of the Froghemoth”',
+				'The first and last public performance of "Mirt, Man about Town"',
 				'The time on stage when your wig caught fire and you threw it down- which set fire to the stage',
-				'When you sat on your lute by mistake during the final stanza of “Starlight Serenade”',
+				'When you sat on your lute by mistake during the final stanza of "Starlight Serenade”',
 				'_none',
 				'_none',
 				'_none'
@@ -2087,7 +2088,7 @@ var classes =
 			'Equipment' :
 			{
 				'_1' : '(a) A mace or (b) a Warhammer (if proficient)',
-				'_2' : '(a) [[Scale Mail|scalemailarmor]], (b) [[Leather Armor|leatherarmor]], or (c) [[Chain Mail|chainmailarmor]] (if proficient)',
+				'_2' : '(a) [[Scale Mail|scalemailarmor]], (b) [[Leather Armor|leatherarmor]], or (c) [[Chain Mail|chainmail]] (if proficient)',
 				'_3' : '(a) A Light Crossbow and 20 bolts or (b) any simple weapon',
 				'_4' : '(a) A [[Priest\'s Pack|priestspack]] or (b) an [[Explorer\'s Pack|explorerspack]]',
 				'_5' : 'A [[Shield|shield]] and a holy Symbol'
@@ -2264,7 +2265,7 @@ var classes =
 			},
 			'Equipment' :
 			{
-				'_1' : '(a) [[Chain Mail|chainmailarmor]] or (b) [[leather|leatherarmor]], Longbow, and 20 Arrows',
+				'_1' : '(a) [[Chain Mail|chainmail]] or (b) [[leather|leatherarmor]], Longbow, and 20 Arrows',
 				'_2' : '(a) A martial weapon and a [[shield|Shield]] or (b) two martial Weapons',
 				'_3' : '(a) A Light Crossbow and 20 bolts or (b) two handaxes',
 				'_4' : '(a) A [[Dungeoneer\'s Pack|dungeoneerspack]] or (b) an [[Explorer\'s Pack|explorerspack]]'
@@ -2407,7 +2408,7 @@ var classes =
 			[
 				'I was chosen to study at a secluded monastery. There, I was taught the fundamental techniques required to eventually master a tradition.',
 				'I sought instruction to gain a deeper understanding of existence and my place in the world.',
-				'I stumbled into a portal to the Shadowfell and took refuge ina strange monastery, where I learned how to defend myself against the forces of darkness.',
+				'I stumbled into a portal to the Shadowfell and took refuge in a strange monastery, where I learned how to defend myself against the forces of darkness.',
 				'I was overwhelmed with grief after losing someone close to me, and I sought the advice of philosophers to help me cope with my loss.',
 				'I could feel that a special sort of power lay within me, so I sought out those who could help me call it forth and master it.',
 				'I was wild and undisciplined as a youngster, but then I realized the error of my ways. I applied to a monastery and became a monk as a way to live a life of discipline.'
@@ -2607,7 +2608,7 @@ var classes =
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Rogue',
-		'Rougish Archetype' :
+		'Roguish Archetype' :
 		{
 			'_special' : 'booksort',
 			'PHB' : [ 'Thief', 'Assassin', 'Arcane Trickster' ],
@@ -3162,7 +3163,7 @@ var backgrounds =
 			'Bond' :
 			[
 				'I fleeced the wrong person and must work to ensure that this individual never crosses paths with me or those I care about.',
-				'I owe everything to my mentor— a horrible person who\'s probably rotting in jail somewhere.',
+				'I owe everything to my mentor- a horrible person who\'s probably rotting in jail somewhere.',
 				'Somewhere out there, I have a child who doesn\'t know me. I\'m making the world better for him or her.',
 				'I come from a noble family, and one day I\'ll reclaim my lands and title from those who stole them from me.',
 				'A powerful person killed someone I love. Some day soon, I\'ll have my revenge.',
@@ -3268,7 +3269,7 @@ var backgrounds =
 			'Equipment' : 'A musical instrument (one of your choice), the favor of an admirer (love letter, lock of hair, or trinket), a costume, and a belt pouch containing 15 gp',
 			'By Popular Demand' : 'You can always find a place to perform, usually in an inn or tavern but possibly with a circus, at a theater, or even in a noble\'s court. At such a place, you receive free lodging and food of a modest or comfortable standard (depending on the quality of the establishment), as long as you perform each night. In addition, your performance makes you something of a local figure. When strangers recognize you in a town where you have performed, they typically take a liking to you.'
 		},
-		'Optional Variant' : 'Gladiator**Using your By Popular Demand feature, you can find a place to perform in any place that features combat for entertainment—perhaps a gladiatorial arena or secret pit fighting club. You can replace the musical instrument in your equipment package with an inexpensive but unusual weapon, such as a trident or net.',
+		'Optional Variant' : 'Gladiator**Using your By Popular Demand feature, you can find a place to perform in any place that features combat for entertainment- perhaps a gladiatorial arena or secret pit fighting club. You can replace the musical instrument in your equipment package with an inexpensive but unusual weapon, such as a trident or net.',
 		'Personality' :
 		{
 			'Trait' :
@@ -3349,7 +3350,7 @@ var backgrounds =
 				'Respect. People deserve to be treated with dignity and respect. (Good)',
 				'Fairness. No one should get preferential treatment before the law, and no one is above the law. (Lawful)',
 				'Freedom. Tyrants must not be allowed to oppress the people.  (Chaotic)',
-				'Might. If I become strong, I can take what I want— what I deserve. (Evil)',
+				'Might. If I become strong, I can take what I want- what I deserve. (Evil)',
 				'Sincerity. There\'s no good in pretending to be something I\'m not. (Neutral)',
 				'Destiny. Nothing and no one can steer me away from my higher calling. (Any)'
 			],
@@ -3411,7 +3412,7 @@ var backgrounds =
 		{
 			'Trait' :
 			[
-				'I believe that anything worth doing is worth doing right. I can\'t help it— I\'m a perfectionist.',
+				'I believe that anything worth doing is worth doing right. I can\'t help it- I\'m a perfectionist.',
 				'I\'m a snob who looks down on those who can\'t appreciate fine art.',
 				'I always want to know how things work and what makes people tick.',
 				'I\'m full of witty aphorisms and have a proverb for every occasion.',
@@ -3443,7 +3444,7 @@ var backgrounds =
 				'I\'ll do anything to get my hands on something rare or priceless.',
 				'I\'m quick to assume that someone is trying to cheat me.',
 				'No one must ever learn that I once stole money from guild coffers.',
-				'I\'m never satisfied with what I have— I always want more.',
+				'I\'m never satisfied with what I have- I always want more.',
 				'I would kill to acquire a noble title.',
 				'I\'m horribly jealous of anyone who can outshine my handiwork. Everywhere I go, I\'m surrounded by rivals.'
 			],
@@ -3674,7 +3675,7 @@ var backgrounds =
 			'Trait' :
 			[
 				'I use polysyllabic words that convey the impression of great erudition.',
-				'I\'ve read every book in the world\'s greatest libraries— or I like to boast that I have.',
+				'I\'ve read every book in the world\'s greatest libraries - or I like to boast that I have.',
 				'I\'m used to helping out those who aren\'t as smart as I am, and I patiently explain anything and everything to others.',
 				'There\'s nothing I like more than a good mystery.',
 				'I\'m willing to listen to every side of an argument before I make my own judgment.',
@@ -3751,7 +3752,7 @@ var backgrounds =
 			[
 				'Respect. The thing that keeps a ship together is mutual respect between captain and crew. (Good)',
 				'Fairness. We all do the work, so we all share in the rewards.  (Lawful)',
-				'Freedom. The sea is freedom—the freedom to go anywhere and do anything. (Chaotic)',
+				'Freedom. The sea is freedom- the freedom to go anywhere and do anything. (Chaotic)',
 				'Mastery. I\'m a predator, and the other ships on the sea are my prey. (Evil)',
 				'People. I\'m committed to my crewmates, not to ideals. (Neutral)',
 				'Aspiration. Someday I\'ll own my own ship and chart my own destiny. (Any)'
@@ -3759,7 +3760,7 @@ var backgrounds =
 			'Bond' :
 			[
 				'I\'m loyal to my captain first, everything else second.',
-				'The ship is most important—crewmates and captains come and go.',
+				'The ship is most important- crewmates and captains come and go.',
 				'I\'ll always remember my first ship.',
 				'In a harbor town, I have a paramour whose eyes nearly stole me from the sea.',
 				'I was cheated out of my fair share of the profits, and I want to get my due.',
@@ -3830,7 +3831,7 @@ var backgrounds =
 			[
 				'The monstrous enemy we faced in battle still leaves me quivering with fear.',
 				'I have little respect for anyone who is not a proven warrior.',
-				'I made a terrible mistake in battle cost many lives— and I would do anything to keep that mistake secret.',
+				'I made a terrible mistake in battle cost many lives- and I would do anything to keep that mistake secret.',
 				'My hatred of my enemies is blind and unreasoning.',
 				'I obey the law, even if the law causes misery.',
 				'I\'d rather eat my armor than admit when I\'m wrong.'
@@ -3876,7 +3877,7 @@ var backgrounds =
 				'Community. We have to take care of each other, because no one else is going to do it.  (Lawful)',
 				'Change. The low are lifted up, and the high and mighty are brought down. Change is the nature of things. (Chaotic)',
 				'Retribution. The rich need to be shown what life and death are like in the gutters. (Evil)',
-				'People. I help the people who help me—that\'s what keeps us alive. (Neutral)',
+				'People. I help the people who help me- that\'s what keeps us alive. (Neutral)',
 				'Aspiration. I\'m going to prove that I\'m worthy of a better life. (Any)'
 			],
 			'Bond' :
@@ -4879,6 +4880,110 @@ var names =
 	}
 }
 
+var trinkets =
+[
+	'A mummified goblin hand',
+	'A piece of crystal that faintly glows in the moonlight',
+	'A gold coin minted in an unknown land',
+	'A diary written in a language you don’t know',
+	'A brass ring that never tarnishes',
+	'An old chess piece made from glass',
+	'A pair of knucklebone dice, each with a skull symbol on the side that would normally show six pips',
+	'A small idol depicting a nightmarish creature that gives you unsettling dreams when you sleep near it',
+	'A rope necklace from which dangles four mummified elf fingers',
+	'The deed for a parcel of land in a realm unknown to you',
+	'A 1-ounce block made from an unknown material',
+	'A small cloth doll skewered with needles',
+	'A tooth from an unknown beast',
+	'An enormous scale, perhaps from a dragon',
+	'A bright green feather',
+	'An old divination card bearing your likeness',
+	'A glass orb filled with moving smoke',
+	'A 1-pound egg with a bright red shell',
+	'A pipe that blows bubbles',
+	'A glass jar containing a weird bit of flesh floating in pickling fluid',
+	'A tiny gnome-crafted music box that plays a song you dimly remember from your childhood',
+	'A small wooden statuette of a smug halfling',
+	'A brass orb etched with strange runes',
+	'A multicolored stone disk',
+	'A tiny silver icon of a raven',
+	'A bag containing forty-seven humanoid teeth, one of which is rotten',
+	'A shard of obsidian that always feels warm to the touch',
+	'A dragon\'s bony talon hanging from a plain leather necklace',
+	'A pair of old socks',
+	'A blank book whose pages refuse to hold ink, chalk, graphite, or any other substance or marking',
+	'A silver badge in the shape of a five-pointed star',
+	'A knife that belonged to a relative',
+	'A glass vial filled with nail clippings',
+	'A rectangular metal device with two tiny metal cups on one end that throws sparks when wet',
+	'A white, sequined glove sized for a human',
+	'A vest with one hundred tiny pockets',
+	'A small, weightless stone block',
+	'A tiny sketch portrait of a goblin',
+	'An empty glass vial that smells of perfume when opened',
+	'A gemstone that looks like a lump of coal when examined by anyone but you',
+	'A scrap of cloth from an old banner',
+	'A rank insignia from a lost legionnaire',
+	'A tiny silver bell without a clapper',
+	'A mechanical canary inside a gnomish lamp',
+	'A tiny chest carved to look like it has numerous feet on the bottom',
+	'A dead sprite inside a clear glass bottle',
+	'A metal can that has no opening but sounds as if it is filled with liquid, sand, spiders, or broken glass (your choice)',
+	'A glass orb filled with water, in which swims a clockwork goldfish',
+	'A silver spoon with an M engraved on the handle',
+	'A whistle made from gold-colored wood',
+	'A dead scarab beetle the size of your hand',
+	'Two toy soldiers, one with a missing head',
+	'A small box filled with different-sized buttons',
+	'A candle that can’t be lit',
+	'A tiny cage with no door',
+	'An old key',
+	'An indecipherable treasure map',
+	'A hilt from a broken sword',
+	'A rabbit’s foot',
+	'A glass eye',
+	'A cameo carved in the likeness of a hideous person',
+	'A silver skull the size of a coin',
+	'An alabaster mask',
+	'A pyramid of sticky black incense that smells very bad',
+	'A nightcap that, when worn, gives you pleasant dreams',
+	'A single caltrop made from bone',
+	'A gold monocle frame without the lens',
+	'A 1-inch cube, each side painted a different color',
+	'A crystal knob from a door',
+	'A small packet filled with pink dust',
+	'A fragment of a beautiful song, written as musical notes on two pieces of parchment',
+	'A silver teardrop earring made from a real teardrop',
+	'The shell of an egg painted with scenes of human misery in disturbing detail',
+	'A fan that, when unfolded, shows a sleeping cat',
+	'A set of bone pipes',
+	'A four-leaf clover pressed inside a book discussing manners and etiquette',
+	'A sheet of parchment upon which is drawn a complex mechanical contraption',
+	'An ornate scabbard that fits no blade you have found so far',
+	'An invitation to a party where a murder happened',
+	'A bronze pentacle with an etching of a rat\'s head in its center',
+	'A purple handkerchief embroidered with the name of a powerful archmage',
+	'Half of a floorplan for a temple, castle, or some other structure',
+	'A bit of folded cloth that, when unfolded, turns into a stylish cap',
+	'A receipt of deposit at a bank in a far-flung city',
+	'A diary with seven missing pages',
+	'An empty silver snuffbox bearing an inscription on the surface that says "dreams"',
+	'An iron holy symbol devoted to an unknown god',
+	'A book that tells the story of a legendary hero\'s rise and fall, with the last chapter missing',
+	'A vial of dragon blood',
+	'An ancient arrow of elven design',
+	'A needle that never bends',
+	'An ornate brooch of dwarven design',
+	'An empty wine bottle bearing a pretty label that says, "The Wizard of Wines Winery, Red Dragon Crush, 331422-W"',
+	'A mosaic tile with a multicolored, glazed surface',
+	'A petrified mouse',
+	'A black pirate flag adorned with a dragon\'s skull and crossbones',
+	'A tiny mechanical crab or spider that moves about when it’s not being observed',
+	'A glass jar containing lard with a label that reads, "Griffon Grease”',
+	'A wooden box with a ceramic bottom that holds a living worm with a head on each end of its body',
+	'A metal urn containing the ashes of a hero'
+]
+
 var UARaces =
 [
 	{ 'name' : 'Changeling, Shifter, and Warforged', 'source' : 'Eberron', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron' },
@@ -4971,8 +5076,8 @@ var tooltips =
 	'breastplatearmor' : 'Breast Plate. Medium. AC: 14 + Dex modifier (max 2).',
 	'halfplatearmor' : 'Half Plate. Medium. AC: 15 + Dex modifier (max 2). Disadvantage on stealth rolls.',
 	
-	'ringmailarmor' : 'Ring Mail. Heavy. AC: 14. Disadvantage on stealth rolls.',
-	'chainmailarmor' : 'Chain Mail. Heavy. AC: 15. Disadvantage on stealth rolls.',
+	'ringmail' : 'Ring Mail. Heavy. AC: 14. Disadvantage on stealth rolls.',
+	'chainmail' : 'Chain Mail. Heavy. AC: 15. Disadvantage on stealth rolls.',
 	'splintarmor' : 'Split Armor. Heavy. AC: 16. Disadvantage on stealth rolls.',
 	'platearmor' : 'Plate Armor. Heavy. AC: 17. Disadvantage on stealth rolls.',
 	'shield' : 'Shield. AC: +2.',
