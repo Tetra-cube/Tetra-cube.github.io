@@ -443,11 +443,11 @@ var sources =
 	},
 	'warforged' :
 	{
-		'Melee' : 'https://www.artstation.com/artwork/JZZ1R',
-		'Holy' : 'http://gauntes.tumblr.com/post/159679426082/warforged-gunslinger',
-		'Tricky' : 'https://www.pinterest.com/pin/424393964866342420/',
-		'Wild' : 'https://www.reddit.com/r/characterdrawing/comments/439x5c/one_of_my_pcs_drew_their_warforged_druid/',
-		'Mage' : 'https://olieart.deviantart.com/art/Sketch-no-332-Warforged-Wizard-665784658'
+		'melee' : 'https://www.artstation.com/artwork/JZZ1R',
+		'holy' : 'http://gauntes.tumblr.com/post/159679426082/warforged-gunslinger',
+		'tricky' : 'https://www.pinterest.com/pin/424393964866342420/',
+		'wild' : 'https://www.reddit.com/r/characterdrawing/comments/439x5c/one_of_my_pcs_drew_their_warforged_druid/',
+		'mage' : 'https://olieart.deviantart.com/art/Sketch-no-332-Warforged-Wizard-665784658'
 	},
 	'grung' :
 	{
