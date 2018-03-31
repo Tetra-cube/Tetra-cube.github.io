@@ -11,7 +11,7 @@ body
     max-width: 1000px;
     margin: 0px auto;
 	line-height: 125%;
-	background-image: url("dndimages/papyr.jpg");
+	background-image: url('./dndimages/papyr.jpg');
 	border-style: none solid;
 }
 
@@ -112,12 +112,20 @@ button:hover {
 	font-size: 18px;
 }
 
-.buttonmenucontainer
+.centeredcontainer
 {
+	display: block;
 	text-align: center;
 }
 
-button
+hr
 {
-	width: 25%;
+	border-style: solid;
+	border-color: black;
+}
+
+#imagecanvas
+{
+	border-color: white;
+	border-style: solid;
 }
