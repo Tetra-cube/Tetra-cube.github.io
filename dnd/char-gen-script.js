@@ -56,17 +56,19 @@ function RandomizeRace(allRandom)
 	document.getElementById('race').innerHTML = character.Race._name;
 	document.getElementById('raceheader').innerHTML = character.Race._name;
 	document.getElementById('racesection').innerHTML = MakeHTMLString(character.Race);
-	if(!allRandom)
-	{
-		RandomizeName(true);	// Randomizes both name and life
-		MakeCard();
-	}
+
 	// Weird special case
 	if(character.Race._name == 'Warforged')
 	{
 		character.Gender = 'Genderless Construct';
 		document.getElementById('gender').innerHTML = character.Gender;
 		return;
+	}
+	
+	if(!allRandom)
+	{
+		RandomizeName(true);	// Randomizes both name and life
+		MakeCard();
 	}
 }
 
@@ -80,7 +82,7 @@ function RandomizeClass(allRandom)
 	document.getElementById('classsection').innerHTML = MakeHTMLString(character.Class);
 	if(!allRandom)
 	{
-		RandomizeLife();
+		RandomizeLife(allRandom);
 		MakeCard();
 	}
 }
@@ -95,7 +97,7 @@ function RandomizeBackground(allRandom)
 	document.getElementById('backgroundsection').innerHTML = MakeHTMLString(character.Background);
 	if(!allRandom)
 	{
-		RandomizeLife();
+		RandomizeLife(allRandom);
 		MakeCard();
 	}
 }
@@ -118,7 +120,7 @@ function RandomizeName(allRandom)
 	document.getElementById('name').innerHTML = character._name;
 	if(!allRandom)
 	{
-		RandomizeLife();
+		RandomizeLife(allRandom);
 		MakeCard();
 	}
 }
@@ -140,8 +142,6 @@ function RandomizeLife(allRandom)
 	character.Life = Object.assign( { 'Trinket' : RandomFromArray(trinkets) }, GetProperties(life, true));
 	FinishLife();
 	document.getElementById('lifesection').innerHTML = MakeHTMLString(character.Life);
-	if(!allRandom)
-		MakeCard();
 }
 
 function GetBooks()
