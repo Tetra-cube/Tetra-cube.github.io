@@ -6,26 +6,27 @@ function MakeCard()
 	var canvas = document.getElementById('canvas'), ctx = canvas.getContext("2d");
 	
 	// Background
-	var backgroundImage = new Image();
+	var backgroundImage = new Image(), characterImage = new Image(),
+		raceName = GetRaceName(character.Race._name),
+		fileName = GetCardFileName(raceName);
 	backgroundImage.src = './dndimages/cardimages/cardbackgrounds/' + CardName(character.Class._name) + '.jpg';
+	characterImage.src = './dndimages/cardimages/characters/' + raceName + '/' + fileName + '.jpg';
+	document.getElementById('sourcelink').href = sources[raceName][fileName];
+		
+	// This is shitty code but if it works it works
+		
 	backgroundImage.onload = function()
 	{ 
 		ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-		
-		// This is shitty code but if it works it works
-		var characterImage = new Image();
-		
-		characterImage.onload = function()
-		{
-			ctx.drawImage(characterImage, padding, padding, canvas.width - paddingx2, canvas.height / 2 - paddingx2);	// 572 x 356
-			ctx.lineWidth = 1;
-			ctx.rect(padding, padding, canvas.width - paddingx2, canvas.height / 2 - paddingx2);
-			ctx.stroke();
-			MakeCardText(canvas, ctx);
-		}
-		var raceName = GetRaceName(character.Race._name), fileName = GetCardFileName(raceName);
-		characterImage.src = './dndimages/cardimages/characters/' + raceName + '/' + fileName + '.jpg';
-		document.getElementById('sourcelink').href = sources[raceName][fileName];
+		MakeCardText(canvas, ctx);
+	}
+	
+	characterImage.onload = function()
+	{
+		ctx.drawImage(characterImage, padding, padding, canvas.width - paddingx2, canvas.height / 2 - paddingx2);	// 572 x 356
+		ctx.lineWidth = 1;
+		ctx.rect(padding, padding, canvas.width - paddingx2, canvas.height / 2 - paddingx2);
+		ctx.stroke();
 	}
 }
 

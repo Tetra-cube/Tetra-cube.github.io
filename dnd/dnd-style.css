@@ -99,6 +99,15 @@ button:hover {
 	cursor: pointer;
 	font-size: 15px;
     color: darkred;
+	
+	/* Make Unselectable */
+	
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .expandretracttext
@@ -110,6 +119,15 @@ button:hover {
 	width: 50%;
     display: inline-block;
 	font-size: 18px;
+	
+	/* Make Unselectable */
+	
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .centeredcontainer
