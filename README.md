@@ -1,12 +1,12 @@
 # D&D 5e Stuff
 
-[Random Character Generator](dnd/dnd-char-gen.html)
+[Random Character Generator](https://tetra-cube.github.io/dnd/dnd-char-gen.html)
 
-[Content Reference](dnd/dnd-reference.html)
+[Content Reference](https://tetra-cube.github.io/dnd/dnd-reference.html)
 
 # FE:A Quote Generator
 
-[Quotr Generator](fea-quote-gen/fea-quote-gen.html)
+[Quotr Generator](https://tetra-cube.github.io/fea-quote-gen/fea-quote-gen.html)
 
 Useful resources can be found here: http://incorrectfeaquotes.tumblr.com/post/148251320246/fea-quote-generator-masterpost
 
