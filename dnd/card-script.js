@@ -6,11 +6,10 @@ function MakeCard()
 	var canvas = document.getElementById('canvas'), ctx = canvas.getContext("2d");
 	
 	// Background
-	var backgroundImage = new Image(), characterImage = new Image(),
+	var backgroundImage = new Image(), characterImage,
 		raceName = GetRaceName(character.Race._name),
 		fileName = GetCardFileName(raceName);
 	backgroundImage.src = './dndimages/cardimages/cardbackgrounds/' + CardName(character.Class._name) + '.jpg';
-	characterImage.src = './dndimages/cardimages/characters/' + raceName + '/' + fileName + '.jpg';
 	document.getElementById('sourcelink').href = sources[raceName][fileName];
 		
 	// This is shitty code but if it works it works
@@ -18,6 +17,8 @@ function MakeCard()
 	backgroundImage.onload = function()
 	{ 
 		ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+		characterImage = new Image();
+		characterImage.src = './dndimages/cardimages/characters/' + raceName + '/' + fileName + '.jpg';
 		MakeCardText(canvas, ctx);
 	}
 	
