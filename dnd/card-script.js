@@ -19,15 +19,15 @@ function MakeCard()
 		ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 		characterImage = new Image();
 		characterImage.src = './dndimages/cardimages/characters/' + raceName + '/' + fileName + '.jpg';
-		MakeCardText(canvas, ctx);
-	}
 	
-	characterImage.onload = function()
-	{
-		ctx.drawImage(characterImage, padding, padding, canvas.width - paddingx2, canvas.height / 2 - paddingx2);	// 572 x 356
-		ctx.lineWidth = 1;
-		ctx.rect(padding, padding, canvas.width - paddingx2, canvas.height / 2 - paddingx2);
-		ctx.stroke();
+		characterImage.onload = function()
+		{
+			ctx.drawImage(characterImage, padding, padding, canvas.width - paddingx2, canvas.height / 2 - paddingx2);	// 572 x 356
+			ctx.lineWidth = 1;
+			ctx.rect(padding, padding, canvas.width - paddingx2, canvas.height / 2 - paddingx2);
+			ctx.stroke();
+		}
+		MakeCardText(canvas, ctx);
 	}
 }
 
