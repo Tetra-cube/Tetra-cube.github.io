@@ -246,16 +246,29 @@ function SpecialCase(item)
 	{
 		case 'booksort' :
 			var newArr = [];
-			for(var bookNum in books)
+			for(var bookListPropName in item)
 			{
-				var bookId = books[bookNum];
-				if(item.hasOwnProperty(bookId))
+				for(var bookNum in books)
 				{
-					var content = GetContent(item[bookId], bookId);
-					//if(typeof content == 'string')
-					newArr.push(content.join(', ') + ' <sup>(' + GetBookId(bookId) + ')</sup>');	// Lazy but it works and I'm tired
+					var bookId = books[bookNum];
+					if(bookListPropName.indexOf(bookId) >= 0)
+					{
+						var content = GetContent(item[bookListPropName], bookId);
+						newArr.push(content.join(', ') + ' <sup>(' + bookListPropName + ')</sup>');
+						break;
+					}
 				}
 			}
+		
+			// for(var bookNum in books)
+			// {
+				// var bookId = books[bookNum];
+				// if(item.hasOwnProperty(bookId))
+				// {
+					// var content = GetContent(item[bookId], bookId);
+					// newArr.push(content.join(', ') + ' <sup>(' + GetBookId(bookId) + ')</sup>');
+				// }
+			// }
 			return FlattenArray(newArr);
 		case 'characteristics' :
 			var newArr = [];
