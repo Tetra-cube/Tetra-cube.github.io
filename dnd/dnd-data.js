@@ -878,7 +878,7 @@ var races =
 				{
 					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
 					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Wisdom score increases by 1.',
-					'Legacy of Phlegethos' : 'You know the friendscantrip. When you reach 3rd level, you can cast the charm personspell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the suggestion spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
+					'Legacy of Phlegethos' : 'You know the friends cantrip. When you reach 3rd level, you can cast the charm person spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the suggestion spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
 				},
 				'Glasya Tiefling' :
 				{
@@ -2892,7 +2892,7 @@ var classes =
 			'PHB' : [ 'School of Abjuration', 'School of Conjuration', 'School of Divination', 'School of Enchantment', 'School of Evocation', 'School of Illusion', 'School of Necromancy', 'School of Transmutation' ],
 			'SCAG' : [ 'Bladesinging' ],
 			'XGtE' : [ 'War Magic' ],
-			'UA' : [ 'Lore Mastery', 'Theurgy', 'School of Invention' ]
+			'UA' : [ 'Theurgy', 'School of Invention' ]
 		},
 		'Starting Stats' :
 		{
@@ -4998,7 +4998,7 @@ var UARaces =
 var UAClasses =
 [
 	{ 'name' : 'Alternative Ranger Class', 'source' : 'Ranger', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/ranger' },
-	{ 'name' : 'Bard: College of Swords, Fighter: Scout', 'source' : 'Kits of Old', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/kits-old' },
+	{ 'name' : 'Bard: College of Satire, Fighter: Scout', 'source' : 'Kits of Old', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/kits-old' },
 	{ 'name' : 'Fighter: Monster Hunter, Rogue: Inquisitive', 'source' : 'Gothic Heroes', 'link' : 'http://dnd.wizards.com/articles/features/gothic-heroes' },
 	{ 'name' : 'Warlock: Seeker', 'source' : 'The Faithful', 'link' : 'http://dnd.wizards.com/articles/features/faithful' },
 	{ 'name' : 'Another Alternative Ranger Class', 'source' : 'The Ranger, Revised', 'link' : 'http://dnd.wizards.com/articles/features/unearthed-arcana-ranger-revised' },
@@ -5009,7 +5009,7 @@ var UAClasses =
 	{ 'name' : 'Paladin: Oath of Treachery', 'source' : 'Paladin: Sacred Oaths', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/paladin-sacred-oaths' },
 	{ 'name' : 'Ranger: Primeval Guardian', 'source' : 'Ranger and Rogue', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/ranger-and-rogue' },
 	{ 'name' : 'Sorcerer: Phoenix Sorcery, Sea Sorcery, Stone Sorcery', 'source' : 'Sorcerer', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/sorcerer' },
-	{ 'name' : 'Warlock: The Raven Queen, Wizard: Lore Mastery', 'source' : 'Warlock and Wizard', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard' },
+	{ 'name' : 'Warlock: The Raven Queen', 'source' : 'Warlock and Wizard', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard' },
 	{ 'name' : 'Wizard: Theurgy', 'source' : 'Wizard Revisited', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/wizard-revisited' },
 	{ 'name' : 'Mystic, Artificer', 'source' : 'Unearthed Arcana Update', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update' },
 	{ 'name' : 'Druid: Circle of Spores, Fighter: Brute, Wizard: School of Invention', 'source' : 'Three Subclasses', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses' },
