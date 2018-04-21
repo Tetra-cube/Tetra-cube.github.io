@@ -152,10 +152,10 @@ function MakeHTMLStringNames(item)
 		}
 		else
 		{
-			if(Array.isArray(item.content))
+			//if(Array.isArray(item.content))
 				stringBuffer.push('<li>', NewCollapsible(), '<b>', item.name, '</b>: <ul style="display: none">', MakeHTMLStringNames(item.content), '</ul></li>');
-			else
-				stringBuffer.push('<li>', '<b>', item.name, '</b>: ', MakeHTMLStringNames(item.content), '</li>');
+			//else
+				//stringBuffer.push('<li>', '<b>', item.name, '</b>: ', MakeHTMLStringNames(item.content), '</li>');
 		}
 		return stringBuffer.join('');
 	}
