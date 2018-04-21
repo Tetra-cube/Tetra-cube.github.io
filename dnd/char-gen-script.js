@@ -1,4 +1,4 @@
-var character, books, subraceVariants;
+var character, books, subraceVariants, ethnicityOption;
 
 function UpdateAllDropdowns()
 {
@@ -48,6 +48,14 @@ function RandomizeAll()
 
 function RandomizeRace(allRandom)
 {
+	var radioButtons = document.getElementById('ethnicityRadioButtons').children;
+	if(radioButtons[0].checked)
+		ethnicityOption = 'standard';
+	else if(radioButtons[2].checked)
+		ethnicityOption = 'real';
+	else
+		ethnicityOption = RandomFromArray([ 'standard', 'real' ]);
+	
 	if(!allRandom)
 		GetBooks();
 	subraceVariants = [];
@@ -283,6 +291,11 @@ function SpecialCase(propObj, special)	// Weird stuff
 			
 		// Race stuff
 		
+		case 'humanethnicity' :
+			if(ethnicityOption == 'standard')
+				return GetProperties(RandomFromBookArray(propObj), true);
+			return RandomFromArray(propObj.Real)
+		
 		case 'subracetraitsort' :
 			subraceVariants.push({ 'obj': propObj, 'propname' : 'Subrace', 'get' : 'trait' });
 			return null;
@@ -349,7 +362,15 @@ function SubraceVariantCheck()
 		var subraceVariant = subraceVariants[counter],
 			subraceName = character.Race['Subraces and Variants'][subraceVariant.propname];
 		if(subraceVariant.get == 'trait')
-			character.Race['Racial Traits']['Subrace Traits'] = subraceVariant.obj[subraceName];
+		{
+			var raceObj = subraceVariant.obj[subraceName], newRaceObj = {};
+			for(var propertyName in raceObj)
+			{
+				if(propertyName != '_special')
+					newRaceObj[propertyName] = raceObj[propertyName];
+			}
+			character.Race['Racial Traits']['Subrace Traits'] = newRaceObj;
+		}
 		else if(subraceVariant.get == 'phys')
 			character.Race['Physical Characteristics'] = GetCharacteristics(subraceVariant.obj[subraceName]);
 		else if(subraceVariant.get == 'halfelf')
@@ -521,28 +542,38 @@ function GetHumanName(ethnicity, gender)
 
 function HumanFirstName(ethnicity, gender)
 {
-	if(ethnicity == 'Tethyrian')
-		return GetGenderedName(names.Human.Chondathan, gender);
-	return GetGenderedName(names.Human[ethnicity], gender);
+	if(ethnicityOption == 'standard')
+	{
+		if(ethnicity == 'Tethyrian')
+			return GetGenderedName(names.Human.Chondathan, gender);
+		return GetGenderedName(names.Human[ethnicity], gender);
+	}
+	return GetGenderedName(names['Human (Real)'][ethnicity], gender);
 }
 
 function HumanLastName(ethnicity)
 {
-	if(ethnicity == 'Bedine')
-		return RandomFromArray(names.Human.Bedine.Tribe);
-	if(ethnicity == 'Tethyrian')
-		return RandomFromArray(names.Human.Chondathan.Surname);
-	if(ethnicity == 'Tuigan' || ethnicity == 'Ulutiun')
-		return '';
-	return RandomFromArray(names.Human[ethnicity].Surname);
+	if(ethnicityOption == 'standard')
+	{
+		if(ethnicity == 'Bedine')
+			return RandomFromArray(names.Human.Bedine.Tribe);
+		if(ethnicity == 'Tethyrian')
+			return RandomFromArray(names.Human.Chondathan.Surname);
+		if(ethnicity == 'Tuigan' || ethnicity == 'Ulutiun')
+			return '';
+		return RandomFromArray(names.Human[ethnicity].Surname);
+	}
+	return '';
 }
 
 function RandomEthnicity()
 {
-	return GetProperties(races[7]['Subraces and Variants'].Ethnicity, true);
+	if(ethnicityOption == 'standard')
+		return GetProperties(races[7]['Subraces and Variants'].Ethnicity, true);
+	return GetProperties(races[7]['Subraces and Variants'].Ethnicity.Real);
 }
 
-// For half-elves and half-orcs
+// For half-elves, half-orcs, tieflings, aasimar, and genasi
 function GetHumanEthnicity()
 {
 	var ethnicity = character.Race['Subraces and Variants']['Human Heritage'];

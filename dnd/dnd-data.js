@@ -781,9 +781,10 @@ var races =
 		{
 			'Ethnicity' :
 			{
-				'_special' : 'booksort',
+				'_special' : 'humanethnicity',
 				'PHB' : [ 'Calishite', 'Chondathan', 'Damaran', 'Illuskan', 'Mulan', 'Rashemi', 'Shou', 'Tethyrian', 'Turami' ],
-				'SCAG' : [ 'Arkaiun', 'Bedine', 'Ffolk', 'Gur', 'Halruaan', 'Imaskari', 'Nar', 'Shaaran', 'Tuigan', 'Ulutiun' ]
+				'SCAG' : [ 'Arkaiun', 'Bedine', 'Ffolk', 'Gur', 'Halruaan', 'Imaskari', 'Nar', 'Shaaran', 'Tuigan', 'Ulutiun' ],
+				'Real' : [ 'Arabic', 'Celtic', 'Chinese', 'Egyptian', 'English', 'French', 'German', 'Greek', 'Indian', 'Japanese', 'Mesoamerican', 'Niger-Congo', 'Norse', 'Polynesian', 'Roman', 'Slavic', 'Spanish' ]
 			}
 		},
 		'Racial Traits' :
@@ -2643,7 +2644,7 @@ var classes =
 		{
 			'_special' : 'ignoreinchargen',
 			'Prerequisite' : 'Dexterity 13',
-			'Proficiencies' : 'Light armor, one skill from the class’s skill list, thieves\' tools'
+			'Proficiencies' : 'Light armor, one skill from the class\'s skill list, thieves\' tools'
 		},
 		'Personality' :
 		{
@@ -4612,31 +4613,31 @@ var names =
 	// http://enneadgames.com/
 	'Bugbear' :
 	{
-		'Male' : [ 'Bao\'or\'et', 'Cretin', 'Gregek', 'Kugruet', 'Malka\'vec', 'Thimdul' ],
-		'Female' : [ 'An\'hek', 'Gretru', 'Lungra', 'Sept', 'Um\'ra', 'Zel' ]
+		'Female' : [ 'An\'hek', 'Gretru', 'Lungra', 'Sept', 'Um\'ra', 'Zel' ],
+		'Male' : [ 'Bao\'or\'et', 'Cretin', 'Gregek', 'Kugruet', 'Malka\'vec', 'Thimdul' ]
 	},
 	'Changeling' : [ 'Bin', 'Dox', 'Fie', 'Hars', 'Jin', 'Lam', 'Nit', 'Ot', 'Paik', 'Ruz', 'Sim', 'Toox', 'Yog' ],
 	'Deep Gnome' :
 	{
-		'Male' : [ 'Belwar', 'Brickers', 'Durthmeck', 'Firble', 'Krieger', 'Kronthud', 'Schneltheck', 'Schnicktick', 'Thulwar', 'Walschud' ],
 		'Female' : [ 'Beliss', 'Durthee', 'Fricknarti', 'Ivridda', 'Krivi', 'Lulthiss', 'Nalvarti', 'Schnella', 'Thulmarra', 'Wirsidda' ],
-		'Clan' : [ 'Crystalfist', 'Gemcutter', 'Ironfoot', 'Rockhewer', 'Seamfinder', 'Stonecutter' ],
+		'Male' : [ 'Belwar', 'Brickers', 'Durthmeck', 'Firble', 'Krieger', 'Kronthud', 'Schneltheck', 'Schnicktick', 'Thulwar', 'Walschud' ],
+		'Clan' : [ 'Crystalfist', 'Gemcutter', 'Ironfoot', 'Rockhewer', 'Seamfinder', 'Stonecutter' ]
 	},
 	'Dragonborn' :
 	{
-		'Male' :
-			[ 'Adrex', 'Arjhan', 'Azzakh', 'Balasar', 'Baradad', 'Bharash', 'Bidreked', 'Dadalan', 'Dazzazn', 'Direcris', 'Donaar', 'Fax', 'Gargax', 'Ghesh', 'Gorbundus', 'Greethen', 'Heskan', 'Hirrathak', 'Ildrex', 'Kaladan', 'Kerkad', 'Kiirith', 'Kriv', 'Maagog', 'Medrash', 'Mehen', 'Mozikth', 'Mreksh', 'Mugrunden', 'Nadarr', 'Nithther', 'Norkruuth', 'Nykkan', 'Pandjed', 'Patrin', 'Pijjirik', 'Quarethon', 'Rathkran', 'Rhogar', 'Rivaan', 'Sethrekar', 'Shamash', 'Shedinn', 'Srorthen', 'Tarhun', 'Torinn', 'Trynnicus', 'Valorean', 'Vrondiss', 'Zedaar' ],
 		'Female' :
 			[ 'Akra', 'Aasathra', 'Antrara', 'Arava', 'Biri', 'Blendaeth', 'Burana', 'Chassath', 'Daar', 'Dentratha', 'Doudra', 'Driindar', 'Eggren', 'Farideh', 'Findex', 'Furrele', 'Gesrethe', 'Gilkass', 'Harann', 'Havilar', 'Hethress', 'Hillanot', 'Jaxi', 'Jezean', 'Jheri', 'Kadana', 'Kava', 'Korinn', 'Megren', 'Mijira', 'Mishann', 'Nala', 'Nuthra', 'Perra', 'Pogranix', 'Pyxrin', 'Quespa', 'Raiann', 'Rezena', 'Ruloth', 'Saphara', 'Savaran', 'Sora', 'Surina', 'Synthrin', 'Tatyan', 'Thava', 'Uadjit', 'Vezera', 'Zykrof' ],
+		'Male' :
+			[ 'Adrex', 'Arjhan', 'Azzakh', 'Balasar', 'Baradad', 'Bharash', 'Bidreked', 'Dadalan', 'Dazzazn', 'Direcris', 'Donaar', 'Fax', 'Gargax', 'Ghesh', 'Gorbundus', 'Greethen', 'Heskan', 'Hirrathak', 'Ildrex', 'Kaladan', 'Kerkad', 'Kiirith', 'Kriv', 'Maagog', 'Medrash', 'Mehen', 'Mozikth', 'Mreksh', 'Mugrunden', 'Nadarr', 'Nithther', 'Norkruuth', 'Nykkan', 'Pandjed', 'Patrin', 'Pijjirik', 'Quarethon', 'Rathkran', 'Rhogar', 'Rivaan', 'Sethrekar', 'Shamash', 'Shedinn', 'Srorthen', 'Tarhun', 'Torinn', 'Trynnicus', 'Valorean', 'Vrondiss', 'Zedaar' ],
 		'Clan' :
 			[ 'Akambherylliax', 'Argenthrixus', 'Baharoosh', 'Beryntolthropal', 'Bhenkumbyrznaax', 'Caavylteradyn', 'Chumbyxirinnish', 'Clethtinthiallor', 'Daardendrian', 'Delmirev', 'Dhyrktelonis', 'Ebynichtomonis', 'Esstyrlynn', 'Fharngnarthnost', 'Ghaallixirn', 'Grrrmmballhyst', 'Gygazzylyshrift', 'Hashphronyxadyn', 'Hshhsstoroth', 'Imbixtellrhyst', 'Jerynomonis', 'Jharthraxyn', 'Kerrhylon', 'Kimbatuul', 'Lhamboldennish', 'Linxakasendalor', 'Mohradyllion', 'Mystan', 'Nemmonis', 'Norixius', 'Ophinshtalajiir', 'Orexijandilin', 'Pfaphnyrennish', 'Phrahdrandon', 'Pyraxtallinost', 'Qyxpahrgh', 'Raghthroknaar', 'Shestendeliath', 'Skaarzborroosh', 'Sumnarghthrysh', 'Tiammanthyllish', 'Turnuroth', 'Umbyrphrael', 'Vangdondalor', 'Verthisathurgiesh', 'Wivvyrholdalphiax', 'Wystongjiir', 'Xephyrbahnor', 'Yarjerit', 'Zzzxaaxthroth' ]
 	},
 	'Dwarf' :
 	{
-		'Male' :
-			[ 'Adrik', 'Alberich', 'Baern', 'Barendd', 'Beloril', 'Brottor', 'Dain', 'Dalgal', 'Darrak', 'Delg', 'Duergath', 'Dworic', 'Eberk', 'Einkil', 'Elaim', 'Erias', 'Fallond', 'Fargrim', 'Gardain', 'Gilthur', 'Gimgen', 'Gimurt', 'Harbek', 'Kildrak', 'Kilvar', 'Morgran', 'Morkral', 'Nalral', 'Nordak', 'Nuraval', 'Oloric', 'Olunt', 'Orsik', 'Oskar', 'Rangrim', 'Reirak', 'Rurik', 'Taklinn', 'Thoradin', 'Thorin', 'Thradal', 'Tordek', 'Traubon', 'Travok', 'Ulfgar', 'Uraim', 'Veit', 'Vonbin', 'Vondal', 'Whurbin' ],
 		'Female' :
 			[ 'Anbera', 'Artin', 'Audhild', 'Balifra', 'Barbena', 'Bardryn', 'Bolhild', 'Dagnal', 'Dariff', 'Delre', 'Diesa', 'Eldeth', 'Eridred', 'Falkrunn', 'Fallthra', 'Finellen', 'Gillydd', 'Gunnloda', 'Gurdis', 'Helgret', 'Helja', 'Hlin', 'Ilde', 'Jarana', 'Kathra', 'Kilia', 'Kristryd', 'Liftrasa', 'Marastyr', 'Mardred', 'Morana', 'Nalaed', 'Nora', 'Nurkara', 'Oriff', 'Ovina', 'Riswynn', 'Sannl', 'Therlin', 'Thodris', 'Torbera', 'Tordrid', 'Torgga', 'Urshar', 'Valida', 'Vistra', 'Vonana', 'Werydd', 'Whurdred', 'Yurgunn' ],
+		'Male' :
+			[ 'Adrik', 'Alberich', 'Baern', 'Barendd', 'Beloril', 'Brottor', 'Dain', 'Dalgal', 'Darrak', 'Delg', 'Duergath', 'Dworic', 'Eberk', 'Einkil', 'Elaim', 'Erias', 'Fallond', 'Fargrim', 'Gardain', 'Gilthur', 'Gimgen', 'Gimurt', 'Harbek', 'Kildrak', 'Kilvar', 'Morgran', 'Morkral', 'Nalral', 'Nordak', 'Nuraval', 'Oloric', 'Olunt', 'Orsik', 'Oskar', 'Rangrim', 'Reirak', 'Rurik', 'Taklinn', 'Thoradin', 'Thorin', 'Thradal', 'Tordek', 'Traubon', 'Travok', 'Ulfgar', 'Uraim', 'Veit', 'Vonbin', 'Vondal', 'Whurbin' ],
 		'Clan' :
 			[ 'Aranore', 'Balderk', 'Battlehammer', 'Bigtoe', 'Bloodkith', 'Bofdann', 'Brawnanvil', 'Brazzik', 'Broodfist', 'Burrowfound', 'Caebrek', 'Daerdahk', 'Dankil', 'Daraln', 'Deepdelver', 'Durthane', 'Eversharp', 'Fallack', 'Fireforge', 'Foamtankard', 'Frostbeard', 'Glanhig', 'Goblinbane', 'Goldfinder', 'Gorunn', 'Graybeard', 'Hammerstone', 'Helcral', 'Holderhek', 'Ironfist', 'Loderr', 'Lutgehr', 'Morigak', 'Orcfoe', 'Rakankrak', 'Ruby-Eye', 'Rumnaheim', 'Silveraxe', 'Silverstone', 'Steelfist', 'Stoutale', 'Strakeln', 'Strongheart', 'Thrahak', 'Torevir', 'Torunn', 'Trollbleeder', 'Trueanvil', 'Trueblood', 'Ungart' ]
 	},
@@ -4644,24 +4645,24 @@ var names =
 	{
 		'Child' :
 			[ 'Ael', 'Ang', 'Ara', 'Ari', 'Arn', 'Aym', 'Broe', 'Bryn', 'Cael', 'Cy', 'Dae', 'Del', 'Eli', 'Eryn', 'Faen', 'Fera', 'Gael', 'Gar', 'Innil', 'Jar', 'Kan', 'Koeth', 'Lael', 'Lue', 'Mai', 'Mara', 'Mella', 'Mya', 'Naeris', 'Naill', 'Nim', 'Phann', 'Py', 'Rael', 'Raer', 'Ren', 'Rinn', 'Rua', 'Sael', 'Sai', 'Sumi', 'Syllin', 'Ta', 'Thia', 'Tia', 'Traki', 'Vall', 'Von', 'Wil', 'Za' ],
-		'Male' :
-			[ 'Adran', 'Aelar', 'Aerdeth', 'Ahvain', 'Aramil', 'Arannis', 'Aust', 'Azaki', 'Beiro', 'Berrian', 'Caeldrim', 'Carric', 'Dayereth', 'Dreali', 'Efferil', 'Eiravel', 'Enialis', 'Erdan', 'Erevan', 'Fivin', 'Galinndan', 'Gennal', 'Hadarai', 'Halimath', 'Heian', 'Himo', 'Immeral', 'Ivellios', 'Korfel', 'Lamlis', 'Laucian', 'Lucan', 'Mindartis', 'Naal', 'Nutae', 'Paelias', 'Peren', 'Quarion', 'Riardon', 'Rolen', 'Soveliss', 'Suhnae', 'Thamior', 'Tharivol', 'Theren', 'Theriatis', 'Thervan', 'Uthemar', 'Vanuath', 'Varis' ],
 		'Female' :
 			[ 'Adrie', 'Ahinar', 'Althaea', 'Anastrianna', 'Andraste', 'Antinua', 'Arara', 'Baelitae', 'Bethrynna', 'Birel', 'Caelynn', 'Chaedi', 'Claira', 'Dara', 'Drusilia', 'Elama', 'Enna', 'Faral', 'Felosial', 'Hatae', 'Ielenia', 'Ilanis', 'Irann', 'Jarsali', 'Jelenneth', 'Keyleth', 'Leshanna', 'Lia', 'Maiathah', 'Malquis', 'Meriele', 'Mialee', 'Myathethin', 'Naivara', 'Quelenna', 'Quillathe', 'Ridaro', 'Sariel', 'Shanairra', 'Shava', 'Silaqui', 'Summes', 'Theirastra', 'Thiala', 'Tiaathque', 'Traulam', 'Vadania', 'Valanthe', 'Valna', 'Xanaphia' ],
+		'Male' :
+			[ 'Adran', 'Aelar', 'Aerdeth', 'Ahvain', 'Aramil', 'Arannis', 'Aust', 'Azaki', 'Beiro', 'Berrian', 'Caeldrim', 'Carric', 'Dayereth', 'Dreali', 'Efferil', 'Eiravel', 'Enialis', 'Erdan', 'Erevan', 'Fivin', 'Galinndan', 'Gennal', 'Hadarai', 'Halimath', 'Heian', 'Himo', 'Immeral', 'Ivellios', 'Korfel', 'Lamlis', 'Laucian', 'Lucan', 'Mindartis', 'Naal', 'Nutae', 'Paelias', 'Peren', 'Quarion', 'Riardon', 'Rolen', 'Soveliss', 'Suhnae', 'Thamior', 'Tharivol', 'Theren', 'Theriatis', 'Thervan', 'Uthemar', 'Vanuath', 'Varis' ],
 		'Family' :
 			[ 'Aloro', 'Amakiir', 'Amastacia', 'Ariessus', 'Aruanna', 'Berevan', 'Caerdonel', 'Caphaxath', 'Casilltenirra', 'Cithreth', 'Dalanthan', 'Eathalena', 'Erenaeth', 'Ethanasath', 'Fasharash', 'Firahel', 'Floshem', 'Galanodel', 'Goltorah', 'Hanali', 'Holimion', 'Horineth', 'Iathrana', 'Ilphelkiir', 'Iranapha', 'Koehlanna', 'Lathalas', 'Liadon', 'Meliamne', 'Mellerelel', 'Mystralath', 'Naïlo', 'Netyoive', 'Ofandrus', 'Ostoroth', 'Othronus', 'Qualanthri', 'Raethran', 'Rothenel', 'Selevarun', 'Siannodel', 'Suithrasas', 'Sylvaranth', 'Teinithra', 'Tiltathana', 'Wasanthi', 'Withrethin', 'Xiloscient', 'Xistsrith', 'Yaeldrin' ]
 	},
 	'Gith' :
 	{
-		'Male' : [ 'Baarya', 'Dak', 'Fiden', 'Greth', 'Kalla', 'Klavya', 'Saath', 'Shraak', 'Zith', 'Zomm' ],
-		'Female' : [ 'Amith', 'Adaka', 'Ezhelya', 'Immilzin', 'Iliss', 'Izera', 'Olavya', 'Ummon', 'Usamm', 'Uweya', 'Ysviden' ]
+		'Female' : [ 'Amith', 'Adaka', 'Ezhelya', 'Immilzin', 'Iliss', 'Izera', 'Olavya', 'Ummon', 'Usamm', 'Uweya', 'Ysviden' ],
+		'Male' : [ 'Baarya', 'Dak', 'Fiden', 'Greth', 'Kalla', 'Klavya', 'Saath', 'Shraak', 'Zith', 'Zomm' ]
 	},
 	'Gnome' :
 	{
-		'Male' :
-			[ 'Alston', 'Alvyn', 'Anverth', 'Arumawann', 'Bilbron', 'Boddynock', 'Brocc', 'Burgell', 'Cockaby', 'Crampernap', 'Dabbledob', 'Delebean', 'Dimble', 'Eberdeb', 'Eldon', 'Erky', 'Fablen', 'Fibblestib', 'Fonkin', 'Frouse', 'Frug', 'Gerbo', 'Gimble', 'Glim', 'Igden', 'Jabble', 'Jebeddo', 'Kellen', 'Kipper', 'Namfoodle', 'Oppleby', 'Orryn', 'Paggen', 'Pallabar', 'Pog', 'Qualen', 'Ribbles', 'Rimple', 'Roondar', 'Sapply', 'Seebo', 'Senteq', 'Sindri', 'Umpen', 'Warryn', 'Wiggens', 'Wobbles', 'Wrenn', 'Zaffrab', 'Zook' ],
 		'Female' :
 			[ 'Abalaba', 'Bimpnottin', 'Breena', 'Buvvie', 'Callybon', 'Caramip', 'Carlin', 'Cumpen', 'Dalaba', 'Donella', 'Duvamil', 'Ella', 'Ellyjoybell', 'Ellywick', 'Enidda', 'Lilli', 'Loopmottin', 'Lorilla', 'Luthra', 'Mardnab', 'Meena', 'Menny', 'Mumpena', 'Nissa', 'Numba', 'Nyx', 'Oda', 'Oppah', 'Orla', 'Panana', 'Pyntle', 'Quilla', 'Ranala', 'Reddlepop', 'Roywyn', 'Salanop', 'Shamil', 'Siffress', 'Symma', 'Tana', 'Tenena', 'Tervaround', 'Tippletoe', 'Ulla', 'Unvera', 'Veloptima', 'Virra', 'Waywocket', 'Yebe', 'Zanna' ],
+		'Male' :
+			[ 'Alston', 'Alvyn', 'Anverth', 'Arumawann', 'Bilbron', 'Boddynock', 'Brocc', 'Burgell', 'Cockaby', 'Crampernap', 'Dabbledob', 'Delebean', 'Dimble', 'Eberdeb', 'Eldon', 'Erky', 'Fablen', 'Fibblestib', 'Fonkin', 'Frouse', 'Frug', 'Gerbo', 'Gimble', 'Glim', 'Igden', 'Jabble', 'Jebeddo', 'Kellen', 'Kipper', 'Namfoodle', 'Oppleby', 'Orryn', 'Paggen', 'Pallabar', 'Pog', 'Qualen', 'Ribbles', 'Rimple', 'Roondar', 'Sapply', 'Seebo', 'Senteq', 'Sindri', 'Umpen', 'Warryn', 'Wiggens', 'Wobbles', 'Wrenn', 'Zaffrab', 'Zook' ],
 		'Clan' :
 			[ 'Albaratie', 'Bafflestone', 'Beren', 'Boondiggles', 'Cobblelob', 'Daergel', 'Dunben', 'Fabblestabble', 'Fapplestamp', 'Fiddlefen', 'Folkor', 'Garrick', 'Gimlen', 'Glittergem', 'Gobblefirn', 'Gummen', 'Horcusporcus', 'Humplebumple', 'Ironhide', 'Leffery', 'Lingenhall', 'Loofollue', 'Maekkelferce', 'Miggledy', 'Munggen', 'Murnig', 'Musgraben', 'Nackle', 'Ningel', 'Nopenstallen', 'Nucklestamp', 'Offund', 'Oomtrowl', 'Pilwicken', 'Pingun', 'Quillsharpener', 'Raulnor', 'Reese', 'Rofferton', 'Scheppen', 'Shadowcloak', 'Silverthread', 'Sympony', 'Tarkelby', 'Timbers', 'Turen', 'Umbodoben', 'Waggletop', 'Welber', 'Wildwander' ],
 		'Nickname' :
@@ -4670,8 +4671,8 @@ var names =
 	// http://www.eberron5e.com/
 	'Goblin' :
 	{
-		'Male' : [ 'Chetiin', 'Griz', 'Gobber', 'Toby', 'Berk', 'Btas', 'Dnuzeg', 'Dten', 'Fooraak', 'Gras', 'Keevan', 'Nbus', 'Noregz', 'Rath', 'Sgaz', 'Vuus', 'Xoganm' ],
-		'Female' : [ 'Vuura', 'Ciisa', 'Jaaraas Larr', 'Flara', 'Catlona', 'Silonda', 'Hillin', 'Jebi', 'Sazza' ]
+		'Female' : [ 'Vuura', 'Ciisa', 'Jaaraas Larr', 'Flara', 'Catlona', 'Silonda', 'Hillin', 'Jebi', 'Sazza' ],
+		'Male' : [ 'Chetiin', 'Griz', 'Gobber', 'Toby', 'Berk', 'Btas', 'Dnuzeg', 'Dten', 'Fooraak', 'Gras', 'Keevan', 'Nbus', 'Noregz', 'Rath', 'Sgaz', 'Vuus', 'Xoganm' ]
 	},
 	'Goliath' :
 	{
@@ -4689,20 +4690,20 @@ var names =
 	],
 	'Halfling' :
 	{
-		'Male' :
-			[ 'Alton', 'Ander', 'Bernie', 'Bobbin', 'Cade', 'Callus', 'Corrin', 'Dannad', 'Danniel', 'Eddie', 'Egart', 'Eldon', 'Errich', 'Fildo', 'Finnan', 'Franklin', 'Garret', 'Garth', 'Gilbert', 'Gob', 'Harol', 'Igor', 'Jasper', 'Keith', 'Kevin', 'Lazam', 'Lerry', 'Lindal', 'Lyle', 'Merric', 'Mican', 'Milo', 'Morrin', 'Nebin', 'Nevil', 'Osborn', 'Ostran', 'Oswalt', 'Perrin', 'Poppy', 'Reed', 'Roscoe', 'Sam', 'Shardon', 'Tye', 'Ulmo', 'Wellby', 'Wendel', 'Wenner', 'Wes' ],
 		'Female' :
 			[ 'Alain', 'Andry', 'Anne', 'Bella', 'Blossom', 'Bree', 'Callie', 'Chenna', 'Cora', 'Dee', 'Dell', 'Eida', 'Eran', 'Euphemia', 'Georgina', 'Gynnie', 'Harriet', 'Jasmine', 'Jillian', 'Jo', 'Kithri', 'Lavinia', 'Lidda', 'Maegan', 'Marigold', 'Merla', 'Myria', 'Nedda', 'Nikki', 'Nora', 'Olivia', 'Paela', 'Pearl', 'Pennie', 'Philomena', 'Portia', 'Robbie', 'Rose', 'Saral', 'Seraphina', 'Shaena', 'Stacee', 'Tawna', 'Thea', 'Trym', 'Tyna', 'Vani', 'Verna', 'Wella', 'Willow' ],
+		'Male' :
+			[ 'Alton', 'Ander', 'Bernie', 'Bobbin', 'Cade', 'Callus', 'Corrin', 'Dannad', 'Danniel', 'Eddie', 'Egart', 'Eldon', 'Errich', 'Fildo', 'Finnan', 'Franklin', 'Garret', 'Garth', 'Gilbert', 'Gob', 'Harol', 'Igor', 'Jasper', 'Keith', 'Kevin', 'Lazam', 'Lerry', 'Lindal', 'Lyle', 'Merric', 'Mican', 'Milo', 'Morrin', 'Nebin', 'Nevil', 'Osborn', 'Ostran', 'Oswalt', 'Perrin', 'Poppy', 'Reed', 'Roscoe', 'Sam', 'Shardon', 'Tye', 'Ulmo', 'Wellby', 'Wendel', 'Wenner', 'Wes' ],
 		'Family' : 
 			[ 'Appleblossom', 'Bigheart', 'Brightmoon', 'Brushgather', 'Cherrycheeks', 'Copperkettle', 'Deephollow', 'Elderberry', 'Fastfoot', 'Fatrabbit', 'Glenfellow', 'Goldfound', 'Goodbarrel', 'Goodearth', 'Greenbottle', 'Greenleaf', 'High-hill', 'Hilltopple', 'Hogcollar', 'Honeypot', 'Jamjar', 'Kettlewhistle', 'Leagallow', 'Littlefoot', 'Nimblefingers', 'Porridgepot', 'Quickstep', 'Reedfellow', 'Shadowquick', 'Silvereyes', 'Smoothhands', 'Stonebridge', 'Stoutbridge', 'Stoutman', 'Strongbones', 'Sunmeadow', 'Swiftwhistle', 'Tallfellow', 'Tealeaf', 'Tenpenny', 'Thistletop', 'Thorngage', 'Tosscobble', 'Underbough', 'Underfoot', 'Warmwater', 'Whispermouse', 'Wildcloak', 'Wildheart', 'Wiseacre' ]
 	},
 	// http://www.eberron5e.com/
 	'Hobgoblin' :
 	{
-		'Male' :
-			[ 'Aruget', 'Biish', 'Daavan', 'Dagii', 'Duulun', 'Fenic', 'Haruuc', 'Iizan', 'Jhezon', 'Krakuul', 'Kurac', 'Lhurusk', 'Mazaan', 'Muuka', 'Munta', 'Nasaar', 'Oraan', 'Okaat', 'Ruus', 'Saabak', 'Tasaam', 'Taak', 'Tariic', 'Thuun', 'Vanii', 'Vanon', 'Woshar' ],
 		'Female' :
 			[ 'Diitesh', 'Ekhaas', 'Jhazaal', 'Khaar', 'Kitaas', 'Mekiis', 'Razu', 'Reirie', 'Riila', 'Senen', 'Shaardat', 'Tuura' ],
+		'Male' :
+			[ 'Aruget', 'Biish', 'Daavan', 'Dagii', 'Duulun', 'Fenic', 'Haruuc', 'Iizan', 'Jhezon', 'Krakuul', 'Kurac', 'Lhurusk', 'Mazaan', 'Muuka', 'Munta', 'Nasaar', 'Oraan', 'Okaat', 'Ruus', 'Saabak', 'Tasaam', 'Taak', 'Tariic', 'Thuun', 'Vanii', 'Vanon', 'Woshar' ],
 		'Clan' :
 			[ 'Baaz', 'Draet', 'Draguus', 'Gan\'duur', 'Gantii Vus', 'Ghaal Sehn', 'Kuun', 'Mbar\'ost', 'Mur Talaan', 'Nasaar', 'Rhukaan Taash', 'Shaart', 'Thaar', 'Uhl', 'Volaar' ],
 	},
@@ -4710,143 +4711,265 @@ var names =
 	{
 		'Arkaiun' :
 		{
-			'Male' : [ 'Houn', 'Rhivaun', 'Umbril', 'Xaemar', 'Zeltaebar' ],
 			'Female' : [ 'Glouris', 'Maeve', 'Sevaera', 'Xaemarra', 'Zraela' ],
+			'Male' : [ 'Houn', 'Rhivaun', 'Umbril', 'Xaemar', 'Zeltaebar' ],
 			'Surname' : [ 'Lharaendo', 'Mristar', 'Wyndael']
 		},
 		'Bedine' :
 		{
-			'Male' : [ 'Aali', 'Rashid', 'Tahnon', 'Tanzim', 'Whalide' ],
 			'Female' : [ 'Aisha', 'Farah', 'Nura', 'Rashida', 'Zalebyeh' ],
+			'Male' : [ 'Aali', 'Rashid', 'Tahnon', 'Tanzim', 'Whalide' ],
 			'Tribe' : [ 'Alaii', 'Bordjia', 'Clelarra', 'Desai', 'Dakawa', 'Dursalai', 'Goldor', 'Iriphawa', 'Kellordrai', 'Lalajar', 'Qahtan', 'Yethtai', 'Zazalaar' ]
 		},
 		'Calishite' :
 		{
-			'Male' : [ 'Aseir', 'Bardeid', 'Haseid', 'Khemed', 'Mehmen', 'Sudeiman', 'Zasheir' ],
 			'Female' : [ 'Atala', 'Ceidil', 'Hama', 'Jasmal', 'Meilil', 'Seipora', 'Yasheira', 'Zasheida' ],
+			'Male' : [ 'Aseir', 'Bardeid', 'Haseid', 'Khemed', 'Mehmen', 'Sudeiman', 'Zasheir' ],
 			'Surname' : [ 'Basha', 'Dumein', 'Jassan', 'Khalid', 'Mostana', 'Pashar', 'Rein' ]
 		},
 		'Chondathan' :
 		{
-			'Male' : [ 'Darvin', 'Dorn', 'Evendur', 'Gorstag', 'Grim', 'Helm', 'Malark', 'Morn', 'Randal', 'Stedd' ],
 			'Female' : [ 'Arveene', 'Esvele', 'Jhessail', 'Kerri', 'Lureene', 'Miri', 'Rowan', 'Shandri', 'Tessele' ],
+			'Male' : [ 'Darvin', 'Dorn', 'Evendur', 'Gorstag', 'Grim', 'Helm', 'Malark', 'Morn', 'Randal', 'Stedd' ],
 			'Surname' : [ 'Amblecrown', 'Buckman', 'Dundragon', 'Evenwood', 'Greycastle', 'Tallstag' ]
 		},
 		'Damaran' :
 		{
-			'Male' : [ 'Bor', 'Fodel', 'Glar', 'Grigor', 'Igan', 'Ivor', 'Kosef', 'Mival', 'Orel', 'Pavel', 'Sergor' ],
 			'Female' : [ 'Alethra', 'Kara', 'Katernin', 'Mara', 'Natali', 'Olma', 'Tana', 'Zora' ],
+			'Male' : [ 'Bor', 'Fodel', 'Glar', 'Grigor', 'Igan', 'Ivor', 'Kosef', 'Mival', 'Orel', 'Pavel', 'Sergor' ],
 			'Surname' : [ 'Bersk', 'Chernin', 'Dotsk', 'Kulenov', 'Marsk', 'Nemetsk', 'Shemov', 'Starag' ]
 		},
 		'Ffolk' :
 		{
-			'Male' : [ 'Artur', 'Bern', 'Colin', 'Manfred', 'Tristan' ],
 			'Female' : [ 'Alicia', 'Gennifer', 'Meridith', 'Elaine', 'Olivia' ],
+			'Male' : [ 'Artur', 'Bern', 'Colin', 'Manfred', 'Tristan' ],
 			'Surname' : [ 'Archer', 'Gareth', 'Leed', 'Kendrick', 'Morgan', 'Waters' ]
 		},
 		'Gur' :
 		{
-			'Male' : [ 'Boriv', 'Gardar', 'Madevik', 'Vlad' ],
 			'Female' : [ 'Varra', 'Ulmarra', 'Imza', 'Navarra', 'Yuldra' ],
+			'Male' : [ 'Boriv', 'Gardar', 'Madevik', 'Vlad' ],
 			'Surname' : [ 'Chergoba', 'Drazlad', 'Tazyara', 'Vargoba', 'Stayankina' ]
 		},
 		'Halruaan' :
 		{
-			'Male' : [ 'Aldym', 'Chand', 'Meleghost', 'Presmer', 'Sandrue', 'Uregaunt' ],
 			'Female' : [ 'Aithe', 'Chalan', 'Oloma', 'Phaele', 'Sarade' ],
+			'Male' : [ 'Aldym', 'Chand', 'Meleghost', 'Presmer', 'Sandrue', 'Uregaunt' ],
 			'Surname' : [ 'Avhoste', 'Darante', 'Maurmeril', 'Stamaraster' ]
 		},
 		'Illuskan' :
 		{
-			'Male' : [ 'Ander', 'Blath', 'Bran', 'Frath', 'Geth', 'Lander', 'Luth', 'Malcer', 'Stor', 'Taman', 'Urth' ],
 			'Female' : [ 'Amafrey', 'Betha', 'Cefrey', 'Kethra', 'Mara', 'Olga', 'Silifrey', 'Westra' ],
+			'Male' : [ 'Ander', 'Blath', 'Bran', 'Frath', 'Geth', 'Lander', 'Luth', 'Malcer', 'Stor', 'Taman', 'Urth' ],
 			'Surname' : [ 'Brightwood', 'Helder', 'Hornraven', 'Lackman', 'Stormwind', 'Windrivver' ]
 		},
 		'Imaskari' :
 		{
-			'Male' : [ 'Charva', 'Duma', 'Hukir', 'Jama', 'Pradir', 'Sikhil' ],
 			'Female' : [ 'Apret', 'Bask', 'Fanul', 'Mokat', 'Nismet', 'Ril' ],
+			'Male' : [ 'Charva', 'Duma', 'Hukir', 'Jama', 'Pradir', 'Sikhil' ],
 			'Surname' : [ 'Datharathi', 'Melpurvatta', 'Nalambar', 'Tiliputakas' ]
 		},
 		'Mulan' :
 		{
-			'Male' : [ 'Aoth', 'Bareris', 'Ehput-Ki', 'Kethoth', 'Mumed', 'Ramas', 'So-Kehur', 'Thazar-De', 'Urhur' ],
 			'Female' : [ 'Arizima', 'Chathi', 'Nephis', 'Nulara', 'Murithi', 'Sefris', 'Thola', 'Umara', 'Zolis' ],
+			'Male' : [ 'Aoth', 'Bareris', 'Ehput-Ki', 'Kethoth', 'Mumed', 'Ramas', 'So-Kehur', 'Thazar-De', 'Urhur' ],
 			'Surname' : [ 'Ankhalab', 'Anskuld', 'Fezim', 'Hahpet', 'Nathandem', 'Sepret', 'Uuthrakt' ]
 		},
 		'Nar' :
 		{
-			'Male' : [ 'Avan', 'Ostaram', 'Petro', 'Stor', 'Taman', 'Thalaman', 'Urth' ],
 			'Female' : [ 'Anva', 'Dasha', 'Dima', 'Olga', 'Westra', 'Zlatara' ],
+			'Male' : [ 'Avan', 'Ostaram', 'Petro', 'Stor', 'Taman', 'Thalaman', 'Urth' ],
 			'Surname' : [ 'Dashkev', 'Hargroth', 'Laboda', 'Lackman', 'Stonar', 'Stormwind', 'Sulyma' ]
 		},
 		'Rashemi' :
 		{
-			'Male' : [ 'Borivik', 'Faurgar', 'Jandar', 'Kanithar', 'Madislak', 'Ralmevik', 'Shaumar', 'Vladislak' ],
 			'Female' : [ 'Fyevarra', 'Hulmarra', 'Immith', 'Imzel', 'Navarra', 'Shevarra', 'Tammith. Yuldra' ],
+			'Male' : [ 'Borivik', 'Faurgar', 'Jandar', 'Kanithar', 'Madislak', 'Ralmevik', 'Shaumar', 'Vladislak' ],
 			'Surname' : [ 'Chergoba', 'Dyernina', 'Iltazyara', 'Murnyethara', 'Stayanoga', 'Ulmokina' ]
 		},
 		'Shaaran' :
 		{
-			'Male' : [ 'Awar', 'Cohis', 'Damota', 'Gewar', 'Hapah', 'Laskaw', 'Senesaw', 'Tokhis' ],
 			'Female' : [ 'Anet', 'Bes', 'Idim', 'Lenet', 'Moqem', 'Neghet', 'Sihvet' ],
+			'Male' : [ 'Awar', 'Cohis', 'Damota', 'Gewar', 'Hapah', 'Laskaw', 'Senesaw', 'Tokhis' ],
 			'Surname' : [ 'Cor', 'Marak', 'Laumee', 'Harr', 'Moq', 'Qo', 'Harr', 'Woraw', 'Tarak' ]
 		},
 		'Shou' :
 		{
-			'Male' : [ 'An', 'Chen', 'Chi', 'Fai', 'Jiang', 'Jun', 'Lian', 'Long', 'Meng', 'On', 'Shan', 'Shui', 'Wen' ],
 			'Female' : [ 'Bai', 'Chao', 'Jia', 'Lei', 'Mei', 'Qiao', 'Shui', 'Tai' ],
+			'Male' : [ 'An', 'Chen', 'Chi', 'Fai', 'Jiang', 'Jun', 'Lian', 'Long', 'Meng', 'On', 'Shan', 'Shui', 'Wen' ],
 			'Surname' : [ 'Chien', 'Huang', 'Kao', 'Kung', 'Lao', 'Ling', 'Mei', 'Pin', 'Shin', 'Sum', 'Tan', 'Wan' ]
 		},
 		'Tuigan' :
 		{
-			'Male' : [ 'Atlan', 'Bayar', 'Chingis', 'Chinua', 'Mongke', 'Temur' ],
-			'Female' : [ 'Bolormaa', 'Bortai', 'Erdene', 'Naran', 'Ulutiun' ]
+			'Female' : [ 'Bolormaa', 'Bortai', 'Erdene', 'Naran', 'Ulutiun' ],
+			'Male' : [ 'Atlan', 'Bayar', 'Chingis', 'Chinua', 'Mongke', 'Temur' ]
 		},
 		'Turami' :
 		{
-			'Male' : [ 'Anton', 'Diero', 'Marcon', 'Pieron', 'Rimardo', 'Romero', 'Salazar', 'Umbero' ],
 			'Female' : [ 'Balama', 'Dona', 'Faila', 'Jalana', 'Luisa', 'Marta', 'Quara', 'Selise', 'Vonda' ],
+			'Male' : [ 'Anton', 'Diero', 'Marcon', 'Pieron', 'Rimardo', 'Romero', 'Salazar', 'Umbero' ],
 			'Surname' : [ 'Agosto', 'Astorio', 'Calabra', 'Domine', 'Falone', 'Marivaldi', 'Pisacar', 'Ramondo' ]
 		},
 		'Ulutiun' :
 		{
-			'Male' : [ 'Amak', 'Chu', 'Imnek', 'Kanut', 'Siku' ],
-			'Female' : [ 'Akna', 'Chena', 'Kaya', 'Sedna', 'Ublereak' ]
+			'Female' : [ 'Akna', 'Chena', 'Kaya', 'Sedna', 'Ublereak' ],
+			'Male' : [ 'Amak', 'Chu', 'Imnek', 'Kanut', 'Siku' ]
+		}
+	},
+	'Human (Real)' :
+	{
+		'Arabic' :
+		{
+			'Female' :
+				[ 'Aaliyah', 'Aida', 'Akilah', 'Alia', 'Amina', 'Atefeh', 'Chaima', 'Dalia', 'Ehsan', 'Elham', 'Farah', 'Fatemah', 'Gamila', 'Iesha', 'Inbar', 'Kamaria', 'Khadija', 'Layla', 'Lupe', 'Nabila', 'Nadine', 'Naima', 'Najila', 'Najwa', 'Nakia', 'Nashwa', 'Nawra', 'Nuha', 'Nura', 'Oma', 'Qadira', 'Qamar', 'Qistina', 'Rahima', 'Rihanna', 'Saadia', 'Sabah', 'Sada', 'Saffron', 'Sahar', 'Salma', 'Shatha', 'Tahira', 'Takisha', 'Thana', 'Yadira', 'Zahra', 'Zaida', 'Zaina', 'Zeinab' ],
+			'Male' :
+				[ 'Abbad', 'Abdul', 'Achmed', 'Akeem', 'Alif', 'Amir', 'Asim', 'Bashir', 'Bassam', 'Fahim', 'Farid', 'Farouk', 'Fayez', 'Fayyaad', 'Fazil', 'Hakim', 'Halil', 'Hamid', 'Hazim', 'Heydar', 'Hussein', 'Jabari', 'Jafar', 'Jahid', 'Jamal', 'Kalim', 'Karim', 'Kazim', 'Khadim', 'Khalid', 'Mahmud', 'Mansour', 'Musharraf', 'Mustafa', 'Nadir', 'Nazim', 'Omar', 'Qadir', 'Qusay', 'Rafiq', 'Rakim', 'Rashad', 'Rauf', 'Saladin', 'Sami', 'Samir', 'Talib', 'Tamir', 'Tariq', 'Yazid' ]
+		},
+		'Celtic' :
+		{
+			'Female' :
+				[' Aife', 'Aina', 'Alane', 'Ardena', 'Arienh', 'Beatha', 'Birgit', 'Briann', 'Caomh', 'Cara', 'Cinnia', 'Cordelia', 'Deheune', 'Divone', 'Donia', 'Doreena', 'Elsha', 'Enid', 'Ethne', 'Evelina', 'Fianna', 'Genevieve', 'Gilda', 'Gitta', 'Grania', 'Gwyndolin', 'Idelisa', 'Isolde', 'Keelin', 'Kennocha', 'Lavena', 'Lesley', 'Linnette', 'Lyonesse', 'Mabina', 'Marvina', 'Mavis', 'Mima', 'Morgan', 'Muriel', 'Nareena', 'Oriana', 'Regan', 'Ronat', 'Rowena', 'Selma', 'Ula', 'Venetia', 'Wynne', 'Yseult' ],
+			'Male' :
+				[ 'Airell', 'Airic', 'Alan', 'Anghus', 'Aodh', 'Bardon', 'Bearacb', 'Bevyn', 'Boden', 'Bran', 'Brasil', 'Bredon', 'Brian', 'Bricriu', 'Bryant', 'Cadman', 'Caradoc', 'Cedric', 'Conalt', 'Conchobar', 'Condon', 'Darcy', 'Devin', 'Dillion', 'Donaghy', 'Donall', 'Duer', 'Eghan', 'Ewyn', 'Ferghus', 'Galvyn', 'Gildas', 'Guy', 'Harvey', 'Iden', 'Irven', 'Karney', 'Kayne', 'Kelvyn', 'Kunsgnos', 'Leigh', 'Maccus', 'Moryn', 'Neale', 'Owyn', 'Pryderi', 'Reaghan', 'Taliesin', 'Tiernay', 'Turi' ]
+		},
+		'Chinese' :
+		{
+			'Female' : 
+				[ 'Ai', 'Anming', 'Baozhai', 'Bei', 'Caixia', 'Changchang', 'Chen', 'Chou', 'Chunhua', 'Daianna', 'Daiyu', 'Die', 'Ehuang', 'Fenfang', 'Ge', 'Hong', 'Huan', 'Huifang', 'Jia', 'Jiao', 'Jiaying', 'Jingfei', 'Jinjing', 'Lan', 'Li', 'Lihua', 'Lin', 'Ling', 'Liu', 'Meili', 'Ning', 'Qi', 'Qiao', 'Rong', 'Shu', 'Shuang', 'Song', 'Ting', 'Wen', 'Xia', 'Xiaodan', 'Xiaoli', 'Xingjuan', 'Xue', 'Ya', 'Yan', 'Ying', 'Yuan', 'Yue', 'Yun' ],
+			'Male' :
+				[ 'Bingwen', 'Bo', 'Bolin', 'Chang', 'Chao', 'Chen', 'Cheng', 'Da', 'Dingxiang', 'Fang', 'Feng', 'Fu', 'Gang', 'Guang', 'Hai', 'Heng', 'Hong', 'Huan', 'Huang', 'Huiliang', 'Huizhong', 'Jian', 'Jiayi', 'Junjie', 'Kang', 'Lei', 'Liang', 'Ling', 'Liwei', 'Meilin', 'Niu', 'Peizhi', 'Peng', 'Ping', 'Qiang', 'Qiu', 'Quan', 'Renshu', 'Rong', 'Ru', 'Shan', 'Shen', 'Tengfei', 'Wei', 'Xiaobo', 'Xiaoli', 'Xin', 'Yang', 'Ying', 'Zhong' ]
+		},
+		'Egyptian' :
+		{
+			'Female' :
+				[ 'A\'at', 'Ahset', 'Amunet', 'Aneski', 'Atet', 'Baketamon', 'Betrest', 'Bunefer', 'Dedyet', 'Hatshepsut', 'Hentie', 'Herit', 'Hetepheres', 'Intakaes', 'Ipwet', 'Itet', 'Joba', 'Kasmut', 'Kemanub', 'Khemut', 'Kiya', 'Maia', 'Menhet', 'Merit', 'Meritamen', 'Merneith', 'Merseger', 'Muyet', 'Nebet', 'Nebetah', 'Nedjemmut', 'Nefertiti', 'Neferu', 'Neithotep', 'Nit', 'Nofret', 'Nubemiunu', 'Peseshet', 'Pypuy', 'Qalhata', 'Rai', 'Redji', 'Sadeh', 'Sadek', 'Sitamun', 'Sitre', 'Takhat', 'Tarset', 'Taweret', 'Werenro' ],
+			'Male' :
+				[ 'Ahmose', 'Akhoim', 'Amasis', 'Amenemhet', 'Anen', 'Banefre', 'Bek', 'Djedefre', 'Djoser', 'Hekaib', 'Henenu', 'Horemheb', 'Horwedja', 'Huya', 'Ibebi', 'Idu', 'Imhotep', 'Ineni', 'Ipuki', 'Irsu', 'Kagemni', 'Kawab', 'Kenamon', 'Kewap', 'Khaemwaset', 'Khafra', 'Khusebek', 'Masaharta', 'Meketre', 'Menkhaf', 'Merenre', 'Metjen', 'Nebamun', 'Nebetka', 'Nehi', 'Nekure', 'Nessumontu', 'Pakhom', 'Pawah', 'Pawero', 'Ramose', 'Rudjek', 'Sabaf', 'Sebek-khu', 'Sebni', 'Senusret', 'Shabaka', 'Somintu', 'Thaneni', 'Thethi' ]
+		},
+		'English' :
+		{
+			'Female' :
+				[ 'Adelaide', 'Agatha', 'Agnes', 'Alice', 'Aline', 'Anne', 'Avelina', 'Avice', 'Beatrice', 'Cecily', 'Egelina', 'Eleanor', 'Elizabeth', 'Ella', 'Eloise', 'Elysande', 'Emeny', 'Emma', 'Emmeline', 'Ermina', 'Eva', 'Galiena', 'Geva', 'Giselle', 'Griselda', 'Hadwisa', 'Helen', 'Herleva', 'Hugolina', 'Ida', 'Isabella', 'Jacoba', 'Jane', 'Joan', 'Juliana', 'Katherine', 'Margery', 'Mary', 'Matilda', 'Maynild', 'Millicent', 'Oriel', 'Rohesia', 'Rosalind', 'Rosamund', 'Sarah', 'Susannah', 'Sybil', 'Williamina', 'Yvonne' ],
+			'Male' : 
+				[ 'Adam', 'Adelard', 'Aldous', 'Anselm', 'Arnold', 'Bernard', 'Bertram', 'Charles', 'Clerebold', 'Conrad', 'Diggory', 'Drogo', 'Everard', 'Frederick', 'Geoffrey', 'Gerald', 'Gilbert', 'Godfrey', 'Gunter', 'Guy', 'Henry', 'Heward', 'Hubert', 'Hugh', 'Jocelyn', 'John', 'Lance', 'Manfred', 'Miles', 'Nicholas', 'Norman', 'Odo', 'Percival', 'Peter', 'Ralf', 'Randal', 'Raymond', 'Reynard', 'Richard', 'Robert', 'Roger', 'Roland', 'Rolf', 'Simon', 'Theobald', 'Theodoric', 'Thomas', 'Timm', 'William', 'Wymar' ]
+		},
+		'French' :
+		{
+			'Female' : 
+				[ 'Aalis', 'Agatha', 'Agnez', 'Alberea', 'Alips', 'Amee', 'Amelot', 'Anne', 'Avelina', 'Blancha', 'Cateline', 'Cecilia', 'Claricia', 'Collette', 'Denisete', 'Dorian', 'Edelina', 'Emelina', 'Emmelot', 'Ermentrudis', 'Gibelina', 'Gila', 'Gillette', 'Guiburgis', 'Guillemette', 'Guoite', 'Hecelina', 'Heloysis', 'Helyoudis', 'Hodeardis', 'Isabellis', 'Jaquette', 'Jehan', 'Johanna', 'Juliote', 'Katerine', 'Luciana', 'Margot', 'Marguerite', 'Maria', 'Marie', 'Melisende', 'Odelina', 'Perrette', 'Petronilla', 'Sedilia', 'Stephana', 'Sybilla', 'Ysabeau', 'Ysabel' ],
+			'Male' :
+				[ 'Ambroys', 'Ame', 'Andri', 'Andriet', 'Anthoine', 'Bernard', 'Charles', 'Chariot', 'Colin', 'Denis', 'Durant', 'Edouart', 'Eremon', 'Ernault', 'Ethor', 'Felix', 'Floquart', 'Galleren', 'Gaultier', 'Gilles', 'Guy', 'Henry', 'Hugo', 'Imbert', 'Jacques', 'Jacquot', 'Jean', 'Jehannin', 'Louis', 'Louys', 'Loys', 'Martin', 'Michel', 'Mille', 'Morelet', 'Nicolas', 'Nicolle', 'Oudart', 'Perrin', 'Phillippe', 'Pierre', 'Regnault', 'Richart', 'Robert', 'Robinet', 'Sauvage', 'Simon', 'Talbot', 'Tanguy', 'Vincent' ],
+		},
+		'German' :
+		{
+			'Female' :
+				[ 'Adelhayt', 'Affra', 'Agatha', 'Allet', 'Angnes', 'Anna', 'Apell', 'Applonia', 'Barbara', 'Brida', 'Brigita', 'Cecilia', 'Clara', 'Cristina', 'Dorothea', 'Duretta', 'Ella', 'Els', 'Elsbeth', 'Engel', 'Enlein', 'Enndlin', 'Eva', 'Fela', 'Fronicka', 'Genefe', 'Geras', 'Gerhauss', 'Gertrudt', 'Guttel', 'Helena', 'Irmel', 'Jonata', 'Katerina', 'Kuen', 'Kungund', 'Lucia', 'Madalena', 'Magdalen', 'Margret', 'Marlein', 'Martha', 'Otilia', 'Ottilg', 'Peternella', 'Reusin', 'Sibilla', 'Ursel', 'Vrsula', 'Walpurg' ],
+			'Male' :
+				[ 'Albrecht', 'Allexander', 'Baltasar', 'Benedick', 'Berhart', 'Caspar', 'Clas', 'Cristin', 'Cristoff', 'Dieterich', 'Engelhart', 'Erhart', 'Felix', 'Frantz', 'Fritz', 'Gerhart', 'Gotleib', 'Hans', 'Hartmann', 'Heintz', 'Herman', 'Jacob', 'Jeremias', 'Jorg', 'Karll', 'Kilian', 'Linhart', 'Lorentz', 'Ludwig', 'Marx', 'Melchor', 'Mertin', 'Michel', 'Moritz', 'Osswald', 'Ott', 'Peter', 'RudolfF', 'Ruprecht', 'Sewastian', 'Sigmund', 'Steffan', 'Symon', 'Thoman', 'Ulrich', 'Vallentin', 'Wendel', 'Wilhelm', 'Wolff', 'Wolfgang' ],
+		},
+		'Greek' :
+		{
+			'Female' :
+				[ 'Acantha', 'Aella', 'Alektos', 'Alkippe', 'Andromeda', 'Antigone', 'Ariadne', 'Astraea', 'Chloros', 'Chryseos', 'Daphne', 'Despoina', 'Dione', 'Eileithyia', 'Elektra', 'Euadne', 'Eudora', 'Eunomia', 'Hekabe', 'Helene', 'Hermoione', 'Hippolyte', 'Ianthe', 'Iokaste', 'Iole', 'Iphigenia', 'Ismene', 'Kalliope', 'Kallisto', 'Kalypso', 'Karme', 'Kassandra', 'Kassiopeia', 'Kirke', 'Kleio', 'Klotho', 'Klytie', 'Kynthia', 'Leto', 'Megaera', 'Melaina', 'Melpomene', 'Nausikaa', 'Nemesis', 'Niobe', 'Ourania', 'Phaenna', 'Polymnia', 'Semele', 'Theia' ],
+			'Male' :
+				[ 'Adonis', 'Adrastos', 'Aeson', 'Aias', 'Aineias', 'Aiolos', 'Alekto', 'Alkeides', 'Argos', 'Brontes', 'Damazo', 'Dardanos', 'Deimos', 'Diomedes', 'Endymion', 'Epimetheus', 'Erebos', 'Euandros', 'Ganymedes', 'Glaukos', 'Hektor', 'Heros', 'Hippolytos', 'Iacchus', 'Iason', 'Kadmos', 'Kastor', 'Kephalos', 'Kepheus', 'Koios', 'Kreios', 'Laios', 'Leandros', 'Linos', 'Lykos', 'Melanthios', 'Menelaus', 'Mentor', 'Neoptolemus', 'Okeanos', 'Orestes', 'Pallas', 'Patroklos', 'Philandros', 'Phoibos', 'Phrixus', 'Priamos', 'Pyrrhos', 'Xanthos', 'Zephyros' ]
+		},
+		'Indian' :
+		{
+			'Female' :
+				[ 'Abha', 'Aishwarya', 'Amala', 'Ananda', 'Ankita', 'Archana', 'Avani', 'Chandana', 'Chandrakanta', 'Chetan', 'Darshana', 'Devi', 'Dipti', 'Esha', 'Gauro', 'Gita', 'Indira', 'Indu', 'Jaya', 'Kala', 'Kalpana', 'Kamala', 'Kanta', 'Kashi', 'Kishori', 'Lalita', 'Lina', 'Madhur', 'Manju', 'Meera', 'Mohana', 'Mukta', 'Nisha', 'Nitya', 'Padma', 'Pratima', 'Priya', 'Rani', 'Sarala', 'Shakti', 'Shanta', 'Shobha', 'Sima', 'Sonal', 'Sumana', 'Sunita', 'Tara', 'Valli', 'Vijaya', 'Vimala' ],
+			'Male' :
+				[ 'Abhay', 'Ahsan', 'Ajay', 'Ajit', 'Akhil', 'Amar', 'Amit', 'Ananta', 'Aseem', 'Ashok', 'Bahadur', 'Basu', 'Chand', 'Chandra', 'Damodar', 'Darhsan', 'Devdan', 'Dinesh', 'Dipak', 'Gopal', 'Govind', 'Harendra', 'Harsha', 'Ila', 'Isha', 'Johar', 'Kalyan', 'Kiran', 'Kumar', 'Lakshmana', 'Mahavir', 'Narayan', 'Naveen', 'Nirav', 'Prabhakar', 'Prasanna', 'Raghu', 'Rajanikant', 'Rakesh', 'Ranjeet', 'Rishi', 'Sanjay', 'Sekar', 'Shandar', 'Sumantra', 'Vijay', 'Vikram', 'Vimal', 'Vishal', 'Yash' ]
+		},
+		'Japanese' :
+		{
+			'Female' : 
+				[ 'Aika', 'Akemi', 'Akiko', 'Amaya', 'Asami', 'Ayumi', 'Bunko', 'Chieko', 'Chika', 'Chiyo', 'Cho', 'Eiko', 'Emiko', 'Eri', 'Etsuko', 'Gina', 'Hana', 'Haruki', 'Hideko', 'Hikari', 'Hiroko', 'Hisoka', 'Hishi', 'Hotaru', 'Izumi', 'Kameyo', 'Kasumi', 'Kimiko', 'Kotone', 'Kyoko', 'Maiko', 'Masako', 'Mi', 'Minori', 'Mizuki', 'Naoki', 'Natsuko', 'Noriko', 'Rei', 'Ren', 'Saki', 'Shigeko', 'Shinju', 'Sumiko', 'Toshiko', 'Tsukiko', 'Ume', 'Usagi', 'Yasuko', 'Yuriko' ],
+			'Male' :
+				[ 'Akio', 'Atsushi', 'Daichi', 'Daiki', 'Daisuke', 'Eiji', 'Fumio', 'Hajime', 'Haru', 'Hideaki', 'Hideo', 'Hikaru', 'Hiro', 'Hiroki', 'Hisao', 'Hitoshi', 'Isamu', 'Isao', 'Jun', 'Katashi', 'Katsu', 'Kei', 'Ken', 'Kenshin', 'Kenta', 'Kioshi', 'Makoto', 'Mamoru', 'Masato', 'Masumi', 'Noboru', 'Norio', 'Osamu', 'Ryota', 'Sadao', 'Satoshi', 'Shigeo', 'Shin', 'Sora', 'Tadao', 'Takehiko', 'Takeo', 'Takeshi', 'Takumi', 'Tamotsu', 'Tatsuo', 'Toru', 'Toshio', 'Yasio', 'Yukio' ]
+		},
+		'Mesoamerican' :
+		{
+			'Female' :
+				[ 'Ahuiliztli', 'Atl', 'Centehua', 'Chalchiuitl', 'Chipahua', 'Cihuaton', 'Citlali', 'Citlalmina', 'Coszcatl', 'Cozamalotl', 'Cuicatl', 'Eluia', 'Eloxochitl', 'Eztli', 'Ichtaca', 'Icnoyotl', 'Ihuicatl', 'Ilhuitl', 'Itotia', 'Iuitl', 'Ixcatzin', 'Izel', 'Malinalxochitl', 'Mecatl', 'Meztli', 'Miyaoaxochitl', 'Mizquixaual', 'Moyolehuani', 'Nahuatl', 'Necahual', 'Nenetl', 'Nochtli', 'Noxochicoztli', 'Ohtli', 'Papan', 'Patli', 'Quetzalxochitl', 'Sacnite', 'Teicui', 'Tepin', 'Teuicui', 'Teyacapan', 'Tlaco', 'Tlacoehua', 'Tlacotl', 'Tlalli', 'Tlanextli', 'Xihuitl', 'Xiuhcoatl', 'Xiuhtonal' ],
+			'Male' :
+				[ 'Achcauhtli', 'Amoxtli', 'Chicahua', 'Chimalli', 'Cipactli', 'Coaxoch', 'Coyotl', 'Cualli', 'Cuauhtémoc', 'Cuetlachtilo', 'Cuetzpalli', 'Cuixtli', 'Ehecatl', 'Etalpalli', 'Huemac', 'Huitzillihuitl', 'Iccauhtli', 'Illhicamina', 'Itzli', 'Ixtli', 'Mahuizoh', 'Manauia', 'Matlal', 'Matlalihuitl', 'Milintica', 'Mictlantecuhtli', 'Milintica', 'Momoztli', 'Namacuix', 'Necalli', 'Necuametl', 'Nezahualcoyotl', 'Nexahualpilli', 'Nochehuatl', 'Nopaltzin', 'Ollin', 'Quauhtli', 'Tenoch', 'Teoxihuitl', 'Tepiltzin', 'Tezacoatl', 'Tlacaelel', 'Tlacelel', 'Tlaloc', 'Tlanextic', 'Tlazohtlaloni', 'Tlazopillo', 'Uetzcayotl', 'Xipilli', 'Yaotl' ]
+		},
+		'Niger-Congo' :
+		{
+			'Female' :
+				[ 'Abebi', 'Abena', 'Abimbola', 'Akoko', 'Akachi', 'Alaba', 'Anuli', 'Ayo', 'Bolanle', 'Bosede', 'Chiamaka', 'Chidi', 'Chidimma', 'Chinyere', 'Chioma', 'Dada', 'Ebele', 'Efemena', 'Ejiro', 'Ekundayo', 'Enitan', 'Funanya', 'Ifunanya', 'Ige', 'Ime', 'Kunto', 'Lesedi', 'Lumusi', 'Mojisola', 'Monifa', 'Nakato', 'Ndidi', 'Ngozi', 'Nkiruka', 'Nneka', 'Ogechi', 'Olamide', 'Oluchi', 'Omolara', 'Onyeka', 'Simisola', 'Temitope', 'Thema', 'Titlayo', 'Udo', 'Uduak', 'Ufuoma', 'Yaa', 'Yejide', 'Yewande' ],
+			'Male' :
+				[ 'Abebe', 'Abel', 'Abidemi', 'Abrafo', 'Adisa', 'Amadi', 'Amara', 'Anyim', 'Azubuike', 'Bapoto', 'Baraka', 'Bohlale', 'Bongani', 'Bujune', 'Buziba', 'Chakide', 'Chibuzo', 'Chika', 'Chimola', 'Chiratidzo', 'Dabulamanzi', 'Dumisa', 'Dwanh', 'Emeka', 'Folami', 'Gatura', 'Gebhuza', 'Gero', 'Isoba', 'Kagiso', 'Kamau', 'Katlego', 'Masego', 'Matata', 'Nthanda', 'Ogechi', 'Olwenyo', 'Osumare', 'Paki', 'Qinisela', 'Quanda', 'Samanya', 'Shanika', 'Sibonakaliso', 'Tapiwa', 'Thabo', 'Themba', 'Uzoma', 'Zuberi', 'Zuri' ]
+		},
+		'Norse' :
+		{
+			'Female' :
+				[ 'Alfhild', 'Arnbjorg', 'Ase', 'Aslog', 'Astrid', 'Auda', 'Audhid', 'Bergljot', 'Birghild', 'Bodil', 'Brenna', 'Brynhild', 'Dagmar', 'Eerika', 'Eira', 'Gudrun', 'Gunborg', 'Gunhild', 'Gunvor', 'Helga', 'Hertha', 'Hilde', 'Hillevi', 'Ingrid', 'Iona', 'Jorunn', 'Kari', 'Kenna', 'Magnhild', 'Nanna', 'Olga', 'Ragna', 'Ragnhild', 'Ranveig', 'Runa', 'Saga', 'Sigfrid', 'Signe', 'Sigrid', 'Sigwjnn', 'Solveg', 'Svanhild', 'Thora', 'Torborg', 'Torunn', 'Tove', 'Unn', 'Vigdis', 'Ylva', 'Yngvild' ],
+			'Male' :
+				[ 'Agni', 'Alaric', 'Anvindr', 'Arvid', 'Asger', 'Asmund', 'Bjarte', 'Bjorg', 'Bjorn', 'Brandr', 'Brandt', 'Brynjar', 'Calder', 'Colborn', 'Cuyler', 'Egil', 'Einar', 'Eric', 'Erland', 'Fiske', 'Folkvar', 'Fritjof', 'Frode', 'Geir', 'Halvar', 'Hemming', 'Hjalmar', 'Hjortr', 'Ingimarr', 'Ivar', 'Knud', 'Leif', 'Liufr', 'Manning', 'Oddr', 'Olin', 'Ormr', 'Ove', 'Rannulfr', 'Sigurd', 'Skari', 'Snorri', 'Sten', 'Stigandr', 'Stigr', 'Sven', 'Trygve', 'Ulf', 'Vali', 'Vidar' ]
+		},
+		'Polynesian' :
+		{
+			'Female' :
+				[ 'Ahulani', 'Airini', 'Alani', 'Aluala', 'Anahera', 'Anuhea', 'Aolani', 'Elenoa', 'Emele', 'Fetia', 'Fiva', 'Halona', 'Hi\'ilei', 'Hina', 'Hinatea', 'Huali', 'Inia', 'Inina', 'Iolani', 'Isa', 'Ka\'ana\'ana', 'Ka\'ena', 'Kaamia', 'Kahula', 'Kailani', 'Kamaile', 'Kamakani', 'Kamea', 'Latai', 'Liona', 'Lokelani', 'Marva', 'Mehana', 'Millawa', 'Moana', 'Ngana', 'Nohea', 'Pelika', 'Sanoe', 'Satina', 'Tahia', 'Tasi', 'Tiaho', 'Tihani', 'Toroa', 'Ulanni', 'Uluwehi', 'Vaina', 'Waiola', 'Waitara' ],
+			'Male' :
+				[ 'Afa', 'Ahohako', 'Aisake', 'Aleki', 'Anewa', 'Anitelu', 'Aputi', 'Ariki', 'Butat', 'Enele', 'Fef', 'Fuifui', 'Ha\'aheo', 'Hanohano', 'Haunui', 'Hekili', 'Hiapo', 'Hikawera', 'Hanano', 'Ho\'onani', 'Hoku', 'Hu\'eu', 'Ina', 'Itu', 'Ka\'aukai', 'Ka\'eo', 'Kaelani', 'Kahale', 'Kaiea', 'Kaikoa', 'Kana\'l', 'Koamalu', 'Ka', 'Laki', 'Makai', 'Manu', 'Manuka', 'Nui', 'Pono', 'Popoki', 'Ruru', 'Tahu', 'Taurau', 'Tuala', 'Turoa', 'Tusitala', 'Uaine', 'Waata', 'Waipuna', 'Zamar' ]
+		},
+		'Roman' :
+		{
+			'Female' :
+				[ 'Aelia', 'Aemilia', 'Agrippina', 'Alba', 'Antonia', 'Aquila', 'Augusta', 'Aurelia', 'Balbina', 'Blandina', 'Caelia', 'Camilla', 'Casia', 'Claudia', 'Cloelia', 'Domitia', 'Drusa', 'Fabia', 'Fabricia', 'Fausta', 'Flavia', 'Floriana', 'Fulvia', 'Germana', 'Glaucia', 'Gratiana', 'Hadriana', 'Hermina', 'Horatia', 'Hortensia', 'Iovita', 'Iulia', 'Laelia', 'Laurentia', 'Livia', 'Longina', 'Lucilla', 'Lucretia', 'Marcella', 'Marcia', 'Maxima', 'Nona', 'Octavia', 'Paulina', 'Petronia', 'Porcia', 'Tacita', 'Tullia', 'Verginia', 'Vita' ],
+			'Male' :
+				[ 'Aelius', 'Aetius', 'Agrippa', 'Albanus', 'Albus', 'Antonius', 'Appius', 'Aquilinus', 'Atilus', 'Augustus', 'Aurelius', 'Avitus', 'Balbus', 'Blandus', 'Blasius', 'Brutus', 'Caelius', 'Caius', 'Casian', 'Cassius', 'Cato', 'Celsus', 'Claudius', 'Cloelius', 'Cnaeus', 'Crispus', 'Cyprianus', 'Diocletianus', 'Egnatius', 'Ennius', 'Fabricius', 'Faustus', 'Gaius', 'Germanus', 'Gnaeus', 'Horatius', 'Iovianus', 'Iulius', 'Lucilius', 'Manius', 'Marcus', 'Marius', 'Maximus', 'Octavius', 'Paulus', 'Quintilian', 'Regulus', 'Servius', 'Tacitus', 'Varius' ]
+		},
+		'Slavic' :
+		{
+			'Female' :
+				[ 'Agripina', 'Anastasiya', 'Bogdana', 'Boleslava', 'Bozhena', 'Danica', 'Darya', 'Desislava', 'Dragoslava', 'Dunja', 'Efrosinia', 'Ekaterina', 'Elena', 'Faina', 'Galina', 'Irina', 'Iskra', 'Jasna', 'Katarina', 'Katya', 'Kresimira', 'Lyudmila', 'Magda', 'Mariya', 'Militsa', 'Miloslava', 'Mira', 'Miroslava', 'Mokosh', 'Morana', 'Natasha', 'Nika', 'Olga', 'Rada', 'Radoslava', 'Raisa', 'Slavitsa', 'Sofiya', 'Stanislava', 'Svetlana', 'Tatyana', 'Tomislava', 'Veronika', 'Vesna', 'Vladimira', 'Yaroslava', 'Yelena', 'Zaria', 'Zarya', 'Zoria' ],
+			'Male' :
+				[ 'Aleksandru', 'Berislav', 'Blazh', 'Bogumir', 'Boguslav', 'Borislav', 'Bozhidar', 'Bratomil', 'Bratoslav', 'Bronislav', 'Chedomir', 'Chestibor', 'Chestirad', 'Chestislav', 'Desilav', 'Dmitrei', 'Dobromil', 'Dobroslav', 'Dragomir', 'Dragutin', 'Drazhan', 'Gostislav', 'Kazimir', 'Kyrilu', 'Lyubomir', 'Mechislav', 'Milivoj', 'Milosh', 'Mstislav', 'Nikola', 'Ninoslav', 'Premislav', 'Radomir', 'Radovan', 'Ratimir', 'Rostislav', 'Slavomir', 'Stanislav', 'Svetoslav', 'Tomislav', 'Vasili', 'Velimir', 'Vladimir', 'Vlastimir', 'Volodimeru', 'Vratislav', 'Yarognev', 'Yaromir', 'Zbignev' ]
+		},
+		'Spanish' :
+		{
+			'Female' :
+				[ 'Abella', 'Adalina', 'Adora', 'Adriana', 'Ana', 'Antonia', 'Basilia', 'Beatriz', 'Bonita', 'Camila', 'Cande', 'Carmen', 'Catlina', 'Dolores', 'Dominga', 'Dorotea', 'Elena', 'Elicia', 'Esmerelda', 'Felipina', 'Francisca', 'Gabriela', 'Imelda', 'Ines', 'Isabel', 'Juana', 'Leocadia', 'Leonor', 'Leta', 'Lucinda', 'Maresol', 'Maria', 'Maricela', 'Matilde', 'Melania', 'Monica', 'Neva', 'Nilda', 'Petrona', 'Rafaela', 'Ramira', 'Rosario', 'Sofia', 'Suelo', 'Teresa', 'Tomasa', 'Valentia', 'Veronica', 'Ynes', 'Ysabel' ],
+			'Male' :
+				[ 'Alexandre', 'Alfonso', 'Alonso', 'Anthon', 'Arcos', 'Arnaut', 'Arturo', 'Bartoleme', 'Benito', 'Bernat', 'Blasco', 'Carlos', 'Damian', 'Diego', 'Domingo', 'Enrique', 'Escobar', 'Ettor', 'Fernando', 'Franciso', 'Gabriel', 'Garcia', 'Gaspar', 'Gil', 'Gomes', 'Goncalo', 'Gostantin', 'Jayme', 'Joan', 'Jorge', 'Jose', 'Juan', 'Machin', 'Martin', 'Mateu', 'Miguel', 'Nicolas', 'Pascual', 'Pedro', 'Porico', 'Ramiro', 'Ramon', 'Rodrigo', 'Sabastian', 'Salvador', 'Simon', 'Tomas', 'Tristan', 'Valeriano', 'Ynigo' ]
 		}
 	},
 	'Infernal' :
 	{
-		'Male' :
-			[ 'Abad', 'Ahrim', 'Akmen', 'Amnon', 'Andram', 'Balam', 'Barakas', 'Bathin', 'Caim', 'Chem', 'Cimer', 'Cressel', 'Damakos', 'Ekemon', 'Euron', 'Fenriz', 'Forcas', 'Habor', 'Iados', 'Kairon', 'Leucis', 'Mamnen', 'Mantus', 'Marbas', 'Melech', 'Merihim', 'Modean', 'Mordai', 'Mormo', 'Morthos', 'Nicor', 'Nirgel', 'Oriax', 'Paymon', 'Pelaios', 'Purson', 'Qemuel', 'Raam', 'Rimmon', 'Sammal', 'Skamos', 'Tethren', 'Thamuz', 'Therai', 'Valafar', 'Vassago', 'Xappan', 'Zepar', 'Zephan' ],
 		'Female' :
-			[ 'Akta', 'Anakis', 'Armara', 'Astaro', 'Aym', 'Beleth', 'Bryseis', 'Bune',  'Criella', 'Damaia', 'Decarabia', 'Ea', 'Gadreel', 'Gomory', 'Hecat', 'Ishte', 'Jezebeth', 'Kali', 'Kallista', 'Kasdeya', 'Lerissa', 'Lilith', 'Makaria', 'Manea', 'Markosian', 'Mastema', 'Naamah', 'Nemeia', 'Nija', 'Orianna', 'Osah', 'Phelaia', 'Prosperine', 'Purah', 'Pyra', 'Rieta', 'Ronobe', 'Ronwe', 'Seddit', 'Seere', 'Sekhmet', 'Semyaza', 'Shava', 'Shax', 'Sorath', 'Uzza', 'Vapula', 'Vepar', 'Verin' ]
+			[ 'Akta', 'Anakis', 'Armara', 'Astaro', 'Aym', 'Beleth', 'Bryseis', 'Bune',  'Criella', 'Damaia', 'Decarabia', 'Ea', 'Gadreel', 'Gomory', 'Hecat', 'Ishte', 'Jezebeth', 'Kali', 'Kallista', 'Kasdeya', 'Lerissa', 'Lilith', 'Makaria', 'Manea', 'Markosian', 'Mastema', 'Naamah', 'Nemeia', 'Nija', 'Orianna', 'Osah', 'Phelaia', 'Prosperine', 'Purah', 'Pyra', 'Rieta', 'Ronobe', 'Ronwe', 'Seddit', 'Seere', 'Sekhmet', 'Semyaza', 'Shava', 'Shax', 'Sorath', 'Uzza', 'Vapula', 'Vepar', 'Verin' ],
+		'Male' :
+			[ 'Abad', 'Ahrim', 'Akmen', 'Amnon', 'Andram', 'Balam', 'Barakas', 'Bathin', 'Caim', 'Chem', 'Cimer', 'Cressel', 'Damakos', 'Ekemon', 'Euron', 'Fenriz', 'Forcas', 'Habor', 'Iados', 'Kairon', 'Leucis', 'Mamnen', 'Mantus', 'Marbas', 'Melech', 'Merihim', 'Modean', 'Mordai', 'Mormo', 'Morthos', 'Nicor', 'Nirgel', 'Oriax', 'Paymon', 'Pelaios', 'Purson', 'Qemuel', 'Raam', 'Rimmon', 'Sammal', 'Skamos', 'Tethren', 'Thamuz', 'Therai', 'Valafar', 'Vassago', 'Xappan', 'Zepar', 'Zephan' ]
 	},
 	'Kenku' :
 		[ 'Smasher', 'Clanger', 'Slicer', 'Basher', 'Rat Scratch', 'Whistler', 'Mouser', 'Growler', 'Sail Snap', 'Hammerer', 'Cutter' ],
 	'Kobold' :
 	{
-		'Male' : [ 'Draahzin', 'Eadoo', 'Ipmeerk', 'Jamada', 'Kib', 'Makroo', 'Olp', 'Yraalik', 'Zornesk' ],
-		'Female' : [ 'Adriaak', 'Harkail', 'Neeral', 'Ozula', 'Poro', 'Saassraa', 'Tarka' ]
+		'Female' : [ 'Adriaak', 'Harkail', 'Neeral', 'Ozula', 'Poro', 'Saassraa', 'Tarka' ],
+		'Male' : [ 'Draahzin', 'Eadoo', 'Ipmeerk', 'Jamada', 'Kib', 'Makroo', 'Olp', 'Yraalik', 'Zornesk' ]
 	},
 	'Lizardfolk' :
 		[ 'Achuak (Green)', 'Aryte (War)', 'Bae-shra (Animal)', 'Darastrix (Dragon)', 'Garurt (Axe)', 'Irhtos (Secret)', 'Jhank (Hammer)', 'Kepesk (Storm)', 'Kethend (Gem)', 'Korth (Danger)', 'Kosj (Small)', 'Kothar (Demon)', 'Li-trix (Armor)', 'Mirik (Song)', 'Othokent (Smart)', 'Sauriv (Eye)', 'Throden (Many)', 'Thurkear (Night)', 'Usk (Iron)', 'Valignat (Burn)', 'Vargach (Battle)', 'Verthica (Mountain)', 'Vutha (Black)', 'Vyth (Steel)' ],
 	'Minotaur' :
 	{
-		'Male': [ 'Asteron', 'Bjorkus', 'Codrus', 'Foostus', 'Goeban', 'Jak', 'Minron', 'Noostoron', 'Podrus', 'Terios' ],
-		'Female' : [ 'Duula', 'Esteru', 'Hester', 'Kuonu', 'Loodra', 'Oestra', 'Raastred', 'Seestra', 'Uovana', 'Weoren' ]
+		'Female' : [ 'Duula', 'Esteru', 'Hester', 'Kuonu', 'Loodra', 'Oestra', 'Raastred', 'Seestra', 'Uovana', 'Weoren' ],
+		'Male': [ 'Asteron', 'Bjorkus', 'Codrus', 'Foostus', 'Goeban', 'Jak', 'Minron', 'Noostoron', 'Podrus', 'Terios' ]
 	},
 	'Orc' :
 	{
-		'Male' :
-			[ 'Agran', 'Braak', 'Brug', 'Cagak', 'Dench', 'Dorn', 'Dren', 'Druuk', 'Feng', 'Gell', 'Gnarsh', 'Grumbar', 'Hagren', 'Henk', 'Hogar', 'Holg', 'Imsh', 'Karash', 'Karg', 'Keth', 'Korag', 'Krusk', 'Lubash', 'Megged', 'Mhurren', 'Mord', 'Morg', 'Nil', 'Nybarg', 'Odorr', 'Ohr', 'Rendar', 'Resh', 'Ront', 'Rrath', 'Sark', 'Scrag', 'Sheggen', 'Shump', 'Tanglar', 'Tarak', 'Thar', 'Thokk', 'Trag', 'Ugarth', 'Varg', 'Vilberg', 'Yurk', 'Zed' ],
 		'Female' :
-			[ 'Arha', 'Baggi', 'Bendoo', 'Bilga', 'Brakka', 'Creega', 'Drenna', 'Ekk', 'Ernen', 'Engong', 'Fistula', 'Caaki', 'Gorga', 'Grai', 'Greeba', 'Grigi', 'Gynk', 'Hrathy', 'Huru', 'Ilga', 'Kabbarg', 'Kansif', 'Lagazi', 'Lezre', 'Murgen', 'Murook', 'Myev', 'Nagrette', 'Neega', 'Nella', 'Nogu', 'Oolah', 'Ootah', 'Ovak', 'Ownka', 'Puyet', 'Reeza', 'Shautha', 'Silgre', 'Sutha', 'Tagga', 'Tawar', 'Tomph', 'Ubada', 'Vanchu', 'Vola', 'Volen', 'Vorka', 'Yevelda', 'Zagga' ]
+			[ 'Arha', 'Baggi', 'Bendoo', 'Bilga', 'Brakka', 'Creega', 'Drenna', 'Ekk', 'Ernen', 'Engong', 'Fistula', 'Caaki', 'Gorga', 'Grai', 'Greeba', 'Grigi', 'Gynk', 'Hrathy', 'Huru', 'Ilga', 'Kabbarg', 'Kansif', 'Lagazi', 'Lezre', 'Murgen', 'Murook', 'Myev', 'Nagrette', 'Neega', 'Nella', 'Nogu', 'Oolah', 'Ootah', 'Ovak', 'Ownka', 'Puyet', 'Reeza', 'Shautha', 'Silgre', 'Sutha', 'Tagga', 'Tawar', 'Tomph', 'Ubada', 'Vanchu', 'Vola', 'Volen', 'Vorka', 'Yevelda', 'Zagga' ],
+		'Male' :
+			[ 'Agran', 'Braak', 'Brug', 'Cagak', 'Dench', 'Dorn', 'Dren', 'Druuk', 'Feng', 'Gell', 'Gnarsh', 'Grumbar', 'Hagren', 'Henk', 'Hogar', 'Holg', 'Imsh', 'Karash', 'Karg', 'Keth', 'Korag', 'Krusk', 'Lubash', 'Megged', 'Mhurren', 'Mord', 'Morg', 'Nil', 'Nybarg', 'Odorr', 'Ohr', 'Rendar', 'Resh', 'Ront', 'Rrath', 'Sark', 'Scrag', 'Sheggen', 'Shump', 'Tanglar', 'Tarak', 'Thar', 'Thokk', 'Trag', 'Ugarth', 'Varg', 'Vilberg', 'Yurk', 'Zed' ]
 	},
 	'Shifter' :
 	{
-		'Male' : [ 'Ash', 'Brook', 'Claw', 'Cliff', 'Flint', 'Frost', 'River', 'Rock', 'Storm', 'Thorn', 'Torn' ],
-		'Female' : [ 'Aurora', 'Autumn', 'Dawn', 'Hazel', 'Iris', 'Lily', 'Rain', 'Rose', 'Summer' ]
+		'Female' : [ 'Aurora', 'Autumn', 'Dawn', 'Hazel', 'Iris', 'Lily', 'Rain', 'Rose', 'Summer' ],
+		'Male' : [ 'Ash', 'Brook', 'Claw', 'Cliff', 'Flint', 'Frost', 'River', 'Rock', 'Storm', 'Thorn', 'Torn' ]
 	},
 	'Tabaxi' :
 	{
@@ -4859,10 +4982,10 @@ var names =
 		[ 'Baka', 'Damu', 'Gar', 'Gura', 'Ini', 'Jappa', 'Kinlek', 'Krull', 'Lim', 'Lop', 'Nortle', 'Nulka', 'Olo', 'Ploqwat', 'Quee', 'Queg', 'Quott', 'Sunny', 'Tibor', 'Ubo', 'Uhok', 'Wabu', 'Xelbuk', 'Xopa', 'Yog' ],
 	'Triton' :
 	{
-		'Male' :
-			[ 'Corus', 'Delnis', 'Jhimas', 'Keros', 'Mo-los', 'Nalos', 'Vodos', 'Zunis' ],
 		'Female' :
 			[ 'Aryn', 'Belthyn', 'Duthyn', 'Feloren', 'Otanyn', 'Shalryn', 'Vlaryn', 'Wolyn' ],
+		'Male' :
+			[ 'Corus', 'Delnis', 'Jhimas', 'Keros', 'Mo-los', 'Nalos', 'Vodos', 'Zunis' ],
 		'Surname' :
 			[ 'Ahlorsath', 'Pumanath', 'Vuuvaxath' ]
 	},
@@ -4873,10 +4996,10 @@ var names =
 		[ 'Azm', 'Book', 'Bulwark', 'Cart', 'Charger', 'Cutter', 'Falchion', 'Graven', 'Hammer', 'Mark', 'Morg', 'Nameless', 'Pierce', 'Pious', 'Relic', 'Rune', 'Steeple', 'Sword', 'Three', 'Titan', 'Unsung', 'Victor', 'Watcher', 'Zealot' ],
 	'Yuan-Ti' :
 	{
-		'Male' : 
-			[ 'Akris', 'Athanos', 'Daziss', 'Ischyros', 'Kress', 'Mariss', 'Oshphim', 'Salethar', 'Sarek', 'Selanu', 'Sellak', 'Shanastar', 'Shiraal', 'Silass', 'Thaxos', 'Tithian', 'Xamres', 'Xutan', 'Zorai', 'Zureth.' ],
 		'Female' :
-			[ 'Ashissa', 'Caress', 'Daïsha', 'Deryssa', 'Ibisis', 'Ivaniss', 'Lalassu', 'Nassirah', 'Nessa', 'Nysia', 'Pyrrha', 'Saaveed', 'Sadai', 'Salah', 'Shallia', 'Suehra', 'Thassia', 'Veeshis', 'Ydriss', 'Zivlil.' ]
+			[ 'Ashissa', 'Caress', 'Daïsha', 'Deryssa', 'Ibisis', 'Ivaniss', 'Lalassu', 'Nassirah', 'Nessa', 'Nysia', 'Pyrrha', 'Saaveed', 'Sadai', 'Salah', 'Shallia', 'Suehra', 'Thassia', 'Veeshis', 'Ydriss', 'Zivlil.' ],
+		'Male' : 
+			[ 'Akris', 'Athanos', 'Daziss', 'Ischyros', 'Kress', 'Mariss', 'Oshphim', 'Salethar', 'Sarek', 'Selanu', 'Sellak', 'Shanastar', 'Shiraal', 'Silass', 'Thaxos', 'Tithian', 'Xamres', 'Xutan', 'Zorai', 'Zureth.' ]
 	}
 }
 
@@ -4885,7 +5008,7 @@ var trinkets =
 	'A mummified goblin hand',
 	'A piece of crystal that faintly glows in the moonlight',
 	'A gold coin minted in an unknown land',
-	'A diary written in a language you don’t know',
+	'A diary written in a language you don\'t know',
 	'A brass ring that never tarnishes',
 	'An old chess piece made from glass',
 	'A pair of knucklebone dice, each with a skull symbol on the side that would normally show six pips',
@@ -4935,12 +5058,12 @@ var trinkets =
 	'A dead scarab beetle the size of your hand',
 	'Two toy soldiers, one with a missing head',
 	'A small box filled with different-sized buttons',
-	'A candle that can’t be lit',
+	'A candle that can\'t be lit',
 	'A tiny cage with no door',
 	'An old key',
 	'An indecipherable treasure map',
 	'A hilt from a broken sword',
-	'A rabbit’s foot',
+	'A rabbit\'s foot',
 	'A glass eye',
 	'A cameo carved in the likeness of a hideous person',
 	'A silver skull the size of a coin',
@@ -4978,7 +5101,7 @@ var trinkets =
 	'A mosaic tile with a multicolored, glazed surface',
 	'A petrified mouse',
 	'A black pirate flag adorned with a dragon\'s skull and crossbones',
-	'A tiny mechanical crab or spider that moves about when it’s not being observed',
+	'A tiny mechanical crab or spider that moves about when it\'s not being observed',
 	'A glass jar containing lard with a label that reads, "Griffon Grease”',
 	'A wooden box with a ceramic bottom that holds a living worm with a head on each end of its body',
 	'A metal urn containing the ashes of a hero'

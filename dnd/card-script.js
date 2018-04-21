@@ -169,10 +169,10 @@ function MakeCardText(canvas, ctx)
 	
 	// Other stuff
 	ctx.textAlign = "left";
-	var radioButtons = document.getElementsByName('showButton');
+	var radioButtons = document.getElementById('cardTypeRadioButtons').children;
 	if(radioButtons[0].checked)
 		SetPersonalityCard(ctx, yPos);
-	else if(radioButtons[1].checked)
+	else if(radioButtons[2].checked)
 		SetCharacteristicsCard(ctx, yPos);
 }
 
