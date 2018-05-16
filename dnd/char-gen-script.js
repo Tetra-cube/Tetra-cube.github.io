@@ -412,6 +412,8 @@ function GetName(raceName, characterOrSib)
 			return RandomFromArray(names.Aarakocra);
 		case 'Bugbear' :
 			return GetGenderedName(names.Bugbear, characterOrSib.Gender);
+		case 'Centaur' :
+			return GetGenderedName(names.Centaur, characterOrSib.Gender);
 		case 'Changeling' :
 			return RandomFromArray(names.Changeling);
 		case 'Dragonborn' :
