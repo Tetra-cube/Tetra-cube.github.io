@@ -4649,7 +4649,7 @@ var names =
 	// https://www.dandwiki.com/wiki/Centaur_(5e_Race)#Centaur_Names
 	'Centaur' :
 	{
-		'Female' : [ 'Carystus', 'Cybel', 'Dawn', 'Endeis', 'Euippe', 'Mae', 'Hippe', 'Hylonome', 'Melanippe', 'Ocyrhoe' ] ,
+		'Female' : [ 'Carystus', 'Cybel', 'Dawn', 'Endeis', 'Euippe', 'Mae', 'Hippe', 'Hylonome', 'Melanippe', 'Ocyrhoe' ],
 		'Male' : [ 'Apis', 'Bane', 'Centaurus', 'Chiron', 'Cloudbirth', 'Cyllerus', 'Dantares', 'Elatus', 'Eurytion', 'Firenze', 'Gadfort', 'Glenstorm', 'Hylaeus', 'Ironhoof', 'Jaro', 'Kashing', 'Latreus', 'Magorian', 'Nessus', 'Oreus', 'Pai', 'Pelle', 'Pholus', 'Polkan', 'Rainstone', 'Rhaecus', 'Ronan', 'Roonwit', 'Sajacks', 'Suncloud', 'Vankar', 'Varios', 'Windmane' ]
 	},
 	'Changeling' : [ 'Bin', 'Dox', 'Fie', 'Hars', 'Jin', 'Lam', 'Nit', 'Ot', 'Paik', 'Ruz', 'Sim', 'Toox', 'Yog' ],

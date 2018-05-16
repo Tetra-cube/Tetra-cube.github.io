@@ -88,6 +88,7 @@ function GetCardFileName(raceName)
 		case 'tortle' :
 		case 'warforged' :
 			return FileNameByType(classNm)
+		case 'centaur' :
 		case 'changeling' :
 		case 'gith' :
 		case 'minotaur' :

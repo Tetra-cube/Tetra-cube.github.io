@@ -421,6 +421,11 @@ var sources =
 		'wild' : 'https://www.artstation.com/artwork/bVDWk',
 		'mage' : 'https://www.pinterest.com/pin/836473330762253908/'
 	},
+	'centaur' :
+	{
+		'male' : 'https://benwootten.deviantart.com/art/Centaur-Cavalier-295683168',
+		'female' : 'https://www.artstation.com/artwork/0aGkV'
+	},
 	'changeling' :
 	{
 		'male' : 'https://www.reddit.com/r/characterdrawing/comments/71o94g/changeling_bard_commission/',
