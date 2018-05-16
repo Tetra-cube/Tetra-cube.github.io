@@ -1625,12 +1625,43 @@ var races =
 	},
 	{
 		'_special' : 'book-UA',
+		'_name' : 'Centaur',
+		'Racial Traits' :
+		{
+			'Ability Score Increase' : 'Your Strength score increases by 2, and your Wisdom score increases by 1..',
+			'Size' : 'Medium',
+			'Speed' : '40 feet',
+			'Charge' : 'If you move at least 20 feet straight toward a target and then hit it with a melee weapon attack on the same turn, roll the weapon’s damage dice twice and add them together. Once you use this ability, you can’t use it again until you finish a short or long rest.',
+			'Hooves' : 'Your hooves are natural melee weapons, with which you’re proficient. If you hit with a hoof, the target takes bludgeoning damage equal to 1d6 + your Strength modifier.',
+			'Survivor' : 'You have proficiency in the Survival skill.',
+			'Hybrid Nature' : 'You have two creature types: humanoid and monstrosity. You can be affected by a game effect if it works on either of your creature types.',
+			'Languages' : 'You can speak, read, and write Common and Sylvan.'
+		},
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 60,
+			'baseheight' : 84,
+			'heightmod' : '2d10',
+			'baseweight' : 2000,
+			'weightmod' : '2d10',
+			'other' : 
+			{
+				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
+				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
+				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
+			}
+		}
+	},
+	{
+		'_special' : 'book-UA',
 		'_name' : 'Changeling',
 		'Racial Traits' :
 		{
 			'Ability Score Increase' : 'Your Dexterity and Charisma scores increase by 1.',
 			'Size' : 'Medium',
-			'Speed' : 'Your base walking speed is 30 feet.',
+			'Speed' : '30 feet',
 			'Duplicity' : 'You gain proficiency in the Deception skill.',
 			'Shapechanger' : 'As an action, you can polymorph into any humanoid of your size that you have seen, or back into your true form. However, your equipment does not change with you. If you die, you revert to your natural appearance',
 			'Languages' : 'You can speak, read, and write Common and two other languages of your choice.'
@@ -1725,16 +1756,15 @@ var races =
 		'_name' : 'Minotaur',
 		'Racial Traits' :
 		{
-			'Ability Score Increase' : 'Your Strength score increases by 1.',
-			'Conqueror\'s Virtue' : 'From a young age, you focused on one of the three virtues of strength, cunning, or intellect. Your choice of your Strength, Intelligence, or Wisdom score increases by 1.',
+			'Ability Score Increase' : 'Your Strength score increases by 2, and your constitution score increases by 1.',
 			'Size' : 'Medium',
 			'Speed' : '30 feet',
-			'Horns' : 'You are never unarmed. You are proficient with your horns, which are a melee weapon that deals 1d10 piercing damage. Your horns grant you advantage on all checks made to shove a creature, but not to avoid being shoved yourself.',
-			'Goring Rush' : 'When you use the Dash action during your turn, you can make a melee attack with your horns as a bonus action.',
-			'Hammering Horns' : 'When you use the Attack action during your turn to make a melee attack, you can attempt to shove a creature with your horns as a bonus action. You cannot use this shove attempt to knock a creature prone.',
-			'Labyrinthine Recall' : 'You can perfectly recall any path you have traveled.',
-			'Sea Reaver' : 'You gain proficiency with navigator\'s tools and vehicles (water).',
-			'Languages' : 'You can speak, read, and write Common.'
+			'Horns' : 'Your horns are natural melee weapons, with which you’re proficient. When you hit with them, the target takes piercing damage equal to 1d6 + your Strength modifier.',
+			'Goring Rush' : 'Immediately after you use the Dash action on your turn and move at least as far as your speed, you can make one melee attack with your horns as a bonus action.',
+			'Hammering Horns' : 'Immediately after you hit a creature with a melee attack as part of the Attack action on your turn, you can attempt to shove that creature with your horns using your reaction. The creature must be no more than one size larger than you and within 5 feet of you. It must make a Strength saving throw against a DC equal to 8 + your proficiency bonus + your Strength modifier. If it fails, you push it up to 5 feet away from you.',
+			'Menacing' : 'You have proficiency in the Intimidation skill.',
+			'Hybrid Nature' : 'You have two creature types: humanoid and monstrosity. You can be affected by a game effect if it works on either of your creature types.',
+			'Languages' : 'You can speak, read, and write Common and Minotaur.'
 		},
 		'Physical Characteristics' :
 		{
@@ -1827,7 +1857,7 @@ var races =
 		{
 			'Ability Score Increase' : 'Your Strength and Constitution scores increase by 1.',
 			'Size' : 'Medium',
-			'Speed' : 'Your base walking speed is 30 feet.',
+			'Speed' : '30 feet',
 			'Composite Plating' : 'Your construction incorporates wood and metal, granting you a +1 bonus to Armor Class',
 			'Living Construct' : 'Even though you were constructed, you are a living creature. You are immune to disease. You do not need to eat or breathe, but you can ingest food and drink if you wish. Instead of sleeping, you enter an inactive state for 4 hours each day. You do not dream in this state; you are fully aware of your surroundings and notice approaching enemies and other events as normal.',
 			'Languages' : 'You can speak, read, and write Common and one other language of your choice.'
@@ -2069,7 +2099,7 @@ var classes =
 			'DMG' : [ 'Death Domain' ],
 			'SCAG' : [ 'Arcane Domain' ],
 			'XGtE' : [ 'Forge Domain', 'Grave Domain' ],
-			'UA' : [ 'Protection Domain' ]
+			'UA' : [ 'Order Domain', 'Protection Domain' ]
 		},
 		'Starting Stats' :
 		{
@@ -4616,6 +4646,12 @@ var names =
 		'Female' : [ 'An\'hek', 'Gretru', 'Lungra', 'Sept', 'Um\'ra', 'Zel' ],
 		'Male' : [ 'Bao\'or\'et', 'Cretin', 'Gregek', 'Kugruet', 'Malka\'vec', 'Thimdul' ]
 	},
+	// https://www.dandwiki.com/wiki/Centaur_(5e_Race)#Centaur_Names
+	'Centaur' :
+	{
+		'Female' : [ 'Carystus', 'Cybel', 'Dawn', 'Endeis', 'Euippe', 'Mae', 'Hippe', 'Hylonome', 'Melanippe', 'Ocyrhoe' ] ,
+		'Male' : [ 'Apis', 'Bane', 'Centaurus', 'Chiron', 'Cloudbirth', 'Cyllerus', 'Dantares', 'Elatus', 'Eurytion', 'Firenze', 'Gadfort', 'Glenstorm', 'Hylaeus', 'Ironhoof', 'Jaro', 'Kashing', 'Latreus', 'Magorian', 'Nessus', 'Oreus', 'Pai', 'Pelle', 'Pholus', 'Polkan', 'Rainstone', 'Rhaecus', 'Ronan', 'Roonwit', 'Sajacks', 'Suncloud', 'Vankar', 'Varios', 'Windmane' ]
+	},
 	'Changeling' : [ 'Bin', 'Dox', 'Fie', 'Hars', 'Jin', 'Lam', 'Nit', 'Ot', 'Paik', 'Ruz', 'Sim', 'Toox', 'Yog' ],
 	'Deep Gnome' :
 	{
@@ -4783,7 +4819,7 @@ var names =
 		},
 		'Rashemi' :
 		{
-			'Female' : [ 'Fyevarra', 'Hulmarra', 'Immith', 'Imzel', 'Navarra', 'Shevarra', 'Tammith. Yuldra' ],
+			'Female' : [ 'Fyevarra', 'Hulmarra', 'Immith', 'Imzel', 'Navarra', 'Shevarra', 'Tammith', 'Yuldra' ],
 			'Male' : [ 'Borivik', 'Faurgar', 'Jandar', 'Kanithar', 'Madislak', 'Ralmevik', 'Shaumar', 'Vladislak' ],
 			'Surname' : [ 'Chergoba', 'Dyernina', 'Iltazyara', 'Murnyethara', 'Stayanoga', 'Ulmokina' ]
 		},
@@ -5110,12 +5146,12 @@ var trinkets =
 var UARaces =
 [
 	{ 'name' : 'Changeling, Shifter, and Warforged', 'source' : 'Eberron', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron' },
-	{ 'name' : 'Minotaur', 'source' : 'Waterborne Adventures', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-waterborne-adventures' },
 	{ 'name' : 'Abyssal Tiefling', 'source' : 'That Old Black Magic', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/old-black-magic' },
 	{ 'name' : 'Revenant Subrace', 'source' : 'Gothic Heroes', 'link' : 'http://dnd.wizards.com/articles/features/gothic-heroes' },
-	{ 'name' : 'Gith, Eladrin Elf', 'source' : 'Race Options: Eladrin and Gith', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/race-options-eladrin-and-gith' },
+	{ 'name' : 'Gith and Eladrin Elf', 'source' : 'Race Options: Eladrin and Gith', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/race-options-eladrin-and-gith' },
 	{ 'name' : 'Tiefling Subraces', 'source' : 'Fiendish Options', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/fiendish-options' },
 	{ 'name' : 'Elf Subraces', 'source' : 'Elf Subraces', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces' },
+	{ 'name' : 'Centaur and Minotaur', 'source' : 'Centaurs and Minotaurs', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/centaurs-and-minotaurs' },
 ]
 
 var UAClasses =
@@ -5136,6 +5172,7 @@ var UAClasses =
 	{ 'name' : 'Wizard: Theurgy', 'source' : 'Wizard Revisited', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/wizard-revisited' },
 	{ 'name' : 'Mystic, Artificer', 'source' : 'Unearthed Arcana Update', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update' },
 	{ 'name' : 'Druid: Circle of Spores, Fighter: Brute, Wizard: School of Invention', 'source' : 'Three Subclasses', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses' },
+	{ 'name' : 'Cleric: Order Domain', 'source' : 'Order Domain', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/order-domain' },
 ]
 
 var UAOther =
