@@ -1,4 +1,4 @@
-var availableBooks = [ 'EE', 'SCAG', 'VGtM', 'MR', 'XGtE', 'DMG', 'Other', 'Unofficial', 'UA' ];
+var availableBooks = [ 'EE', 'SCAG', 'VGtM', 'MR', 'XGtE', 'MToF', 'DMG', 'Other', 'Unofficial', 'UA' ];
 
 var bookNames = 
 {
@@ -8,6 +8,7 @@ var bookNames =
 	'VGtM' : 'Volo\'s Guide to Monsters',
 	'MR' : 'Volo\'s Guide (Monstrous Races)',
 	'XGtE' : 'Xanathar\'s Guide to Everything',
+	'MToF' : 'Mordenkainen\'s Tome of Foes',
 	'DMG' : 'Dungeon Master\'s Guide',
 	'Other' : 'Other Content',
 	'UA' : 'Unearthed Arcana',
@@ -118,7 +119,7 @@ var races =
 			{
 				'_special' : 'booksort',
 				'PHB' : [ 'Hill Dwarf', 'Mountain Dwarf' ],
-				'SCAG' : [ 'Duergar' ]
+				'SCAG/MToF' : [ 'Duergar' ]
 			}
 		},
 		'Racial Traits' :
@@ -147,7 +148,7 @@ var races =
 				},
 				'Duergar' :
 				{
-					'_special' : 'book-SCAG',
+					'_special' : 'book-SCAG/MToF',
 					'Ability Score Increase' : 'Your Strength score increases by 1.',
 					'Superior Darkvision' : 'Your darkvision has a radius of 120 feet.',
 					'Extra Language' : 'You can speak, read, and write Undercommon.',
@@ -194,7 +195,7 @@ var races =
 			},
 			'Duergar' : 
 			{
-				'_special' : 'book-SCAG characteristics',
+				'_special' : 'book-SCAG/MToF characteristics',
 				'minage' : 13,
 				'maxage' : 200,
 				'baseheight' : 46,
@@ -219,8 +220,8 @@ var races =
 			{
 				'_special' : 'booksort',
 				'PHB' : [ 'High Elf', 'Wood Elf', 'Drow' ],
-				'DMG' : [ 'Eladrin (DMG version)' ],
-				'UA' : [ 'Eladrin (UA version)', 'Avariel', 'Grugach', 'Sea Elf', 'Shadar-kai' ]
+				'MToF' : [ 'Eladrin', 'Sea Elf', 'Shadar-kai' ],
+				'UA' : [ 'Avariel', 'Grugach' ]
 			}
 		},
 		'Racial Traits' :
@@ -256,19 +257,34 @@ var races =
 					'Drow Magic' : 'You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie firespell once per day. When you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells.',
 					'Drow Weapon Training' : 'You have proficiency with rapiers, shortswords, and hand crossbows.'
 				},
-				'Eladrin (DMG version)' :
+				'Eladrin' :
 				{
-					'_special' : 'book-DMG',
-					'Ability Score Increase' : 'Your Intelligence score increases by 1',
-					'Elf Weapon Training' : 'You have proficiency with the longsword, shortsword, shortbow, and longbow.',
-					'Fey Step' : 'You can cast the misty step spell once using this trait. You regain the ability to do so when you finish a short or long rest.'
+					'_special' : 'book-MToF',
+					'Ability Score Increase' : 'Your Charisma score increases by 1.',
+					'Fey Step' :
+					{
+						'_note' : 'As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can\'t do so again until you finish a short or long rest. When you reach 3rd level, your Fey Step gains an additional effect based on your season; if the effect requires a saving throw, the DC equals 8 + your proficiency bonus+ your Charisma modifier.',
+						'Autumn' : 'Immediately after you use your Fey Step, up to two creatures of your choice that you can see within 10 feet of you must succeed on a Wisdom saving throw or be charmed by you for 1 minute, or until you or your companions deal any damage to it.',
+						'Winter' : 'When you use your Fey Step, one creature of your choice that you can see within 5 feet of you before you teleport must succeed on a Wisdom saving throw or be frightened of you until the end of your next turn.',
+						'Spring' : 'When you use your Fey Step, you can touch one willing creature within 5 feet of you. That creature then teleports instead of you, appearing in an unoccupied space of your choice that you can see within 30 feet of you.',
+						'Summer' : 'Immediately after you use your Fey Step, each creature of your choice that you can see within 5 feet of you takes fire damage equal to your Charisma modifier (minimum of 1 damage). '
+					}
 				},
-				'Eladrin (UA version)' :
+				'Sea Elf' :
 				{
-					'_special' : 'book-UA',
-					'Ability Score Increase' : 'Your Intelligence or Charisma score increases by 1 (your choice).',
-					'Fey Step' : 'As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can\'t do so again until you finish a short or long rest.',
-					'Shifting Seasons' : 'At the end of each short or long rest, you can align yourself with the magic of one season, regardless of the season that is dominating your personality. Doing so allows you to cast a certain cantrip (Autumn: Friends, Winter: Chill touch, Spring: Minor illusion, Summer: Fire bolt). When you align yourself with a season\'s magic, you lose the cantrip associated with the previous season and gain the cantrip associated with the new season. Your spellcasting ability for these cantrips is Intelligence or Charisma, whichever is higher.'
+					'_special' : 'book-MToF',
+					'Ability Score Increase' : 'Your Constitution score increases by 1',
+					'Sea Elf Training' : 'You have proficiency with the spear, trident, light crossbow, and net.',
+					'Child of the Sea' : 'You have a swimming speed of 30 feet, and you can breathe air and water.',
+					'Friend of the Sea' : 'Using gestures and sounds, you can communicate simple ideas with any beast that has an innate swimming speed.',
+					'Languages' : 'You can speak, read, and write Aquan.'
+				},
+				'Shadar-kai' :
+				{
+					'_special' : 'book-MToF',
+					'Ability Score Increase' : 'Your Constitution score increases by 1.',
+					'Necrotic Resistance' : 'You have resistance to necrotic damage.', 
+					'Blessing of the Raven Queen' : 'Blessing of the Raven Queen. As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can\'t do so again until you finish a long rest. Starting at 3rd level, you also gain resistance to all damage when you teleport using this trait. The resistance lasts until the start of your next turn. During that time, you appear ghostly and translucent.'
 				},
 				'Avariel' :
 				{
@@ -283,22 +299,6 @@ var races =
 					'Grugach Weapon Training' : 'You have proficiency with the spear, shortbow, longbow, and net.',
 					'Cantrip' : 'You know one cantrip of your choice from the druid spell list. Wisdom is your spellcasting ability for it.',
 					'Languages' : 'Unlike other elves, you don\'t speak, read, or write Common. You instead speak, read, and write Sylvan.'
-				},
-				'Sea Elf' :
-				{
-					'_special' : 'book-UA',
-					'Ability Score Increase' : 'Your Constitution  score increases by 1',
-					'Sea Elf Weapon Training' : 'You have proficiency with the spear, trident, light crossbow, and net.',
-					'Child of the Sea' : 'You have a swimming speed of 30 feet, and you can breathe air and water.',
-					'Friend of the Sea' : 'Using gestures and sounds, you can communicate simple ideas with Small or smaller beasts that have an inborn swimming speed.',
-					'Languages' : 'You can speak, read, and write Aquan.'
-				},
-				'Shadar-kai' :
-				{
-					'_special' : 'book-UA',
-					'Ability Score Increase' : 'Your Charisma score increases by 1.',
-					'Cantrip' : 'You know one of the following cantrips of your choice: chill touch, spare the dying, or thaumaturgy. Charisma is your spellcasting ability for it.',
-					'Blessing of the Raven Queen' : 'As a bonus action, you can magically teleport up to 15 feet to an unoccupied space you can see, and you gain resistance to all damage until the start of your next turn. During that time, you appear ghostly and translucent. Once you use this ability, you can\'t use it again until you finish a short or long rest.'
 				}
 			}
 		},
@@ -353,9 +353,9 @@ var races =
 					'Hair' : [ 'White', 'Pale Yellow' ]
 				}
 			},
-			'Eladrin (DMG version)' : 
+			'Eladrin' : 
 			{
-				'_special' : 'book-DMG characteristics',
+				'_special' : 'book-MToF characteristics',
 				'minage' : 13,
 				'maxage' : 600,
 				'baseheight' : 54,
@@ -369,20 +369,36 @@ var races =
 					'Hair' : [ 'White', 'Silver', 'Pale Gold' ]
 				}
 			},
-			'Eladrin (UA version)' : 
+			'Sea Elf' : 
 			{
-				'_special' : 'book-UA characteristics',
+				'_special' : 'book-MToF characteristics',
 				'minage' : 13,
-				'maxage' : 600,
+				'maxage' : 500,
 				'baseheight' : 54,
-				'heightmod' : '2d12',
+				'heightmod' : '2d8',
 				'baseweight' : 90,
 				'weightmod' : '1d4',
 				'other' : 
 				{
-					'Eyes' : [ 'Blue', 'Violet', 'Green' ],
-					'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
-					'Hair' : [ 'White', 'Silver', 'Pale Gold' ]
+					'Eyes' : [ 'Blue', 'Gold', 'White-Silver' ],
+					'Skin' : [ 'Deep Green with brown stripes', 'Blue with white stripes' ],
+					'Hair' : [ 'Blue', 'Black', 'Silver', 'Red' ]
+				}
+			},
+			'Shadar-kai' : 
+			{
+				'_special' : 'book-MToF characteristics',
+				'minage' : 13,
+				'maxage' : 500,
+				'baseheight' : 56,
+				'heightmod' : '2d8',
+				'baseweight' : 90,
+				'weightmod' : '1d4',
+				'other' : 
+				{
+					'Eyes' : [ 'Black' ],
+					'Skin' : [ 'Alabaster', 'Light Gray', 'Gray', 'Dark Gray' ],
+					'Hair' : [ 'Gray', 'Black' ]
 				}
 			},
 			'Avariel' : 
@@ -417,38 +433,6 @@ var races =
 					'Skin' : [ 'Light Copper', 'Copper', 'Dark Copper', 'Greenish-copper' ],
 					'Hair' : [ 'Black', 'Brown', 'Blond', 'Copper' ]
 				}
-			},
-			'Sea Elf' : 
-			{
-				'_special' : 'book-UA characteristics',
-				'minage' : 13,
-				'maxage' : 500,
-				'baseheight' : 54,
-				'heightmod' : '2d8',
-				'baseweight' : 90,
-				'weightmod' : '1d4',
-				'other' : 
-				{
-					'Eyes' : [ 'Blue', 'Gold', 'White-Silver' ],
-					'Skin' : [ 'Deep Green with brown stripes', 'Blue with white stripes' ],
-					'Hair' : [ 'Blue', 'Black', 'Silver', 'Red' ]
-				}
-			},
-			'Shadar-kai' : 
-			{
-				'_special' : 'book-UA characteristics',
-				'minage' : 13,
-				'maxage' : 500,
-				'baseheight' : 56,
-				'heightmod' : '2d8',
-				'baseweight' : 90,
-				'weightmod' : '1d4',
-				'other' : 
-				{
-					'Eyes' : [ 'Black' ],
-					'Skin' : [ 'Alabaster', 'Light Gray', 'Gray', 'Dark Gray' ],
-					'Hair' : [ 'Gray', 'Black' ]
-				}
 			}
 		}
 	},
@@ -461,7 +445,7 @@ var races =
 			{
 				'_special' : 'booksort',
 				'PHB' : [ 'Forest Gnome', 'Rock Gnome' ],
-				'EE/SCAG' : [ 'Deep Gnome' ]
+				'EE/SCAG/MToF' : [ 'Deep Gnome' ]
 			}
 		},
 		'Racial Traits' :
@@ -495,7 +479,7 @@ var races =
 				},
 				'Deep Gnome' :
 				{
-					'_special' : 'book-EE/SCAG',
+					'_special' : 'book-EE/SCAG/MToF',
 					'Ability Score Increase' : 'Your Dexterity score increases by 1.',
 					'Superior Darkvision' : 'Your darkvision has a radius of 120 feet.',
 					'Stone Camouflage' : 'You have advantage on Dexterity (Stealth) checks to hide in rocky terrain.',
@@ -540,7 +524,7 @@ var races =
 			},
 			'Deep Gnome' :
 			{
-				'_special' : 'book-EE/SCAG characteristics',
+				'_special' : 'book-EE/SCAG/MToF characteristics',
 				'minage' : 13,
 				'maxage' : 150,
 				'baseheight' : 35,
@@ -827,7 +811,8 @@ var races =
 			{
 				'_special' : 'booksort',
 				'PHB' : [ 'Asmodeous Tiefling' ],
-				'UA' : [ 'Abyssal Tiefling', 'Baalzebul Tiefling', 'Dispater Tiefling', 'Fierna Tiefling', 'Glasya Tiefling', 'Levistus Tiefling', 'Mammon Tiefling', 'Mephistopheles Tiefling', 'Zariel Tiefling' ]
+				'MToF' : [ 'Baalzebul Tiefling', 'Dispater Tiefling', 'Fierna Tiefling', 'Glasya Tiefling', 'Levistus Tiefling', 'Mammon Tiefling', 'Mephistopheles Tiefling', 'Zariel Tiefling' ],
+				'UA' : [ 'Abyssal Tiefling' ]
 			},
 			'Variant' :
 			{
@@ -847,10 +832,67 @@ var races =
 			'Languages' : 'You can speak, read, and write Common and Infernal.',
 			'Subrace Traits' :
 			{
-				'_special' : 'book-UA subracetraitsort',
+				'_special' : 'book-MToF/UA subracetraitsort',
 				'Asmodeous Tiefling' : 'Standard Tiefling traits.',
+				'Baalzebul Tiefling' :
+				{
+					'_special' : 'book-MToF',
+					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
+					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Intelligence score increases by 1.',
+					'Legacy of Maladomini' : 'You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the ray of sickness spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the crown of madness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
+				},
+				'Dispater Tiefling' :
+				{
+					'_special' : 'book-MToF',
+					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
+					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Dexterity score increases by 1',
+					'Legacy of Dis' : 'You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the disguise self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the invisibility spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
+				},
+				'Fierna Tiefling' :
+				{
+					'_special' : 'book-MToF',
+					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
+					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Wisdom score increases by 1.',
+					'Legacy of Phlegethos' : 'You know the friends cantrip. When you reach 3rd level, you can cast the charm person spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the suggestion spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
+				},
+				'Glasya Tiefling' :
+				{
+					'_special' : 'book-MToF',
+					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
+					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Dexterity score increases by 1.',
+					'Legacy of Malbolge' : 'You know the minor illusion cantrip. When you reach 3rd level, you can cast the disguise self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the invisibility spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
+				},
+				'Levistus Tiefling' :
+				{
+					'_special' : 'book-MToF',
+					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
+					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Constitution score increases by 1.',
+					'Legacy of Stygia' : 'You know the ray of frost cantrip. When you reach 3rd level, you can cast the armor of Agathys spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
+				},
+				'Mammon Tiefling' :
+				{
+					'_special' : 'book-MToF',
+					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
+					'Ability Score Increase.' : 'Your Charisma score increases by 2, and your Intelligence score increases by 1.',
+					'Legacy of Minauros' : 'You know the mage hand cantrip. When you reach 3rd level, you can cast the Tenser\'s floating disk spell once with this trait and regain the ability to do so when you finish a short or long rest. When you reach 5th level, you can cast the arcane lock spell once with this trait, requiring no material component, and regain the ability to do so when you finish a long rest.'
+				},
+				'Mephistopheles Tiefling' :
+				{
+					'_special' : 'book-MToF',
+					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
+					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Intelligence score increases by 1.',
+					'Legacy of Cania' : 'You know the mage handcantrip. When you reach 3rd level, you can cast the magic missile spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the web spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
+				},
+				'Zariel Tiefling' :
+				{
+					'_special' : 'book-MToF',
+					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
+					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Strength score increases by 1.',
+					'Legacy of Avernus' : 'You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the searing smite spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the branding smite spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
+				},
 				'Abyssal Tiefling' :
 				{
+					'_special' : 'book-UA',
 					'_Note' : 'You lose the Ability Score Increase, Hellish Resistance, Infernal Legacy, and ability to speak Infernal from the tiefling racial traits.',
 					'Ability Score Increase' : 'Your Constitution score increases by 1, and your Charisma score increases by 2',
 					'Abyssal Arcana' : 'Each time you finish a long rest, you gain the ability to cast cantrips and spells randomly determined from a short list. At 1st level, you can cast a cantrip. When you reach 3rd level, you can also casta 1st-level spell. At 5th level, you can cast a 2nd‑level spell. You can cast a spell gained from this trait only once until you complete your next long rest. You can cast a cantrip gained from this trait at will, as normal. For 1st‑level spells whose effect changes if cast using a spell slot of 2nd level or higher, you cast the spell as if using a 2nd‑level slot. Spells of 2nd level are cast as if using a 2nd-level slot. At the end of each long rest, you lose the cantrips and spells previously granted by this feature, even if you did not cast them. You replace those cantrips and spells by rolling for new ones on the Abyssal Arcana Spells table. Roll separately for each cantrip and spell. If you roll the same spell or cantrip you gained at the end of your previous long rest, roll again until you get a different result.',
@@ -862,54 +904,6 @@ var races =
 					},
 					'Abyssal Fortitude' : 'Your hit point maximum increases by half your level (minimum 1)',
 					'Languages' : 'You can speak, read, and write Abyssal.'
-				},
-				'Baalzebul Tiefling' :
-				{
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Intelligence score increases by 1.',
-					'Legacy of Maladomini' : 'You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the ray of sickness spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the crown of madness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
-				},
-				'Dispater Tiefling' :
-				{
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Dexterity score increases by 1',
-					'Legacy of Dis' : 'You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the disguise self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the invisibility spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
-				},
-				'Fierna Tiefling' :
-				{
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Wisdom score increases by 1.',
-					'Legacy of Phlegethos' : 'You know the friends cantrip. When you reach 3rd level, you can cast the charm person spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the suggestion spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
-				},
-				'Glasya Tiefling' :
-				{
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Dexterity score increases by 1.',
-					'Legacy of Malbolge' : 'You know the minor illusion cantrip. When you reach 3rd level, you can cast the disguise self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the invisibility spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
-				},
-				'Levistus Tiefling' :
-				{
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Constitution score increases by 1.',
-					'Legacy of Stygia' : 'You know the ray of frost cantrip. When you reach 3rd level, you can cast the armor of Agathys spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
-				},
-				'Mammon Tiefling' :
-				{
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase.' : 'Your Charisma score increases by 2, and your Intelligence score increases by 1.',
-					'Legacy of Minauros' : 'You know the mage hand cantrip. When you reach 3rd level, you can cast the Tenser\'s floating disk spell once with this trait and regain the ability to do so when you finish a short or long rest. When you reach 5th level, you can cast the arcane lock spell once with this trait, requiring no material component, and regain the ability to do so when you finish a long rest.'
-				},
-				'Mephistopheles Tiefling' :
-				{
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Intelligence score increases by 1.',
-					'Legacy of Cania' : 'You know the mage handcantrip. When you reach 3rd level, you can cast the magic missile spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the web spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
-				},
-				'Zariel Tiefling' :
-				{
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Strength score increases by 1.',
-					'Legacy of Avernus' : 'You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the searing smite spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the branding smite spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
 				}
 			},
 			'Variant Traits' :
@@ -1593,6 +1587,74 @@ var races =
 		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
 	},
 	{
+		'_special' : 'book-MToF',
+		'_name' : 'Gith',
+		'Subraces and Variants' :
+		{
+			'Subrace' : [ 'Githyanki', 'Githzerai' ]
+		},
+		'Racial Traits' :
+		{
+			'Ability Score Increase' : 'Your Intelligence score increases by 1',
+			'Size' : 'Medium',
+			'Speed' : '30 feet',
+			'Languages' : 'You can speak, read, and write Common and Gith.',
+			'Subrace Traits' :
+			{
+				'_special' : 'subracetraitsort',
+				'Githyanki' :
+				{
+					'Ability Score Increase' : 'Your Strength score increases by 2',
+					'Decadent Mastery' : 'You learn one language of your choice, and you are proficient with one skill or tool of your choice.',
+					'Martial Prodigy' : 'You are proficient with light and medium armor and with shortswords, longswords, and greatswords.',
+					'Githyanki Psionics' : ' You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait. When you reach 3rd level, you can cast the jump spell once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the misty step spell once with this trait, and you regain the ability to do so when you finish a long rest. Intelligence is your spellcasting ability for these spells. When you cast them with this trait, they don\'t require components.'
+				},
+				'Githzerai' :
+				{
+					'Ability Score Increase' : 'Your Wisdom score increases by 2.',
+					'Mental Discipline' : 'You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait. When you reach 3rd level, you can cast the shield spell once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the detect thoughts spell once with this trait, and you regain the ability to do so when you finish a long rest. Wisdom is your spellcasting ability for these spells. When you cast them with this trait, they don\'t require components.'
+				}
+			}
+		},
+		'Physical Characteristics' :
+		{
+			'_special' : 'subracephyssort',
+			'Githyanki' : 
+			{
+				'_special' : 'characteristics',
+				'minage' : 13,
+				'maxage' : 80,
+				'baseheight' : 60,
+				'heightmod' : '2d12',
+				'baseweight' : 100,
+				'weightmod' : '2d4',
+				'other' : 
+				{
+					'Eyes' : [ 'Yellow' ],
+					'Skin' : [ 'Green', 'Yellow', 'Orange', 'Spotted brown' ],
+					'Hair' : [ 'Brown' ],
+					'Note on age' : [ 'While githyanki bodies live for about a century, they are ageless while on the astral plane.' ]
+				}
+			},
+			'Githzerai' : 
+			{
+				'_special' : 'characteristics',
+				'minage' : 13,
+				'maxage' : 80,
+				'baseheight' : 59,
+				'heightmod' : '2d12',
+				'baseweight' : 90,
+				'weightmod' : '1d4',
+				'other' : 
+				{
+					'Eyes' : [ 'Yellow' ],
+					'Skin' : [ 'Green', 'Yellow', 'Orange', 'Spotted brown' ],
+					'Hair' : [ 'Brown' ]
+				}
+			}
+		}
+	},
+	{
 		'_special' : 'book-Other',
 		'_name' : 'Tortle',
 		'Racial Traits' :
@@ -1680,74 +1742,6 @@ var races =
 				'Eyes' : [ 'White' ],
 				'Skin' : [ 'Pale', 'Light Gray' ],
 				'Hair' : [ 'Silver', 'Platinum', 'Blonde' ]
-			}
-		}
-	},
-	{
-		'_special' : 'book-UA',
-		'_name' : 'Gith',
-		'Subraces and Variants' :
-		{
-			'Subrace' : [ 'Githyanki', 'Githzerai' ]
-		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Intelligence score increases by 1',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Languages' : 'You can speak, read, and write Common and Gith.',
-			'Subrace Traits' :
-			{
-				'_special' : 'subracetraitsort',
-				'Githyanki' :
-				{
-					'Ability Score Increase' : 'Your Strength score increases by 2',
-					'Decadent Mastery' : 'You learn one languageof your choice, and you are proficient with one skill or tool of your choice.',
-					'Martial Prodigy' : 'You are proficient with light and medium armor.',
-					'Githyanki Psionics' : 'You know the mage handcantrip. When you reach 3rd level, you can cast jump once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the misty step spell once with this trait, and you regain the ability to do so when you finish a long rest. Intelligence is your spellcasting ability for these spells. You can cast all of them without components.'
-				},
-				'Githzerai' :
-				{
-					'Ability Score Increase' : 'Your Wisdom score increases by 2.',
-					'Monastic Training' : 'You gain a +1 bonus to AC while you aren\'t wearing medium or heavy armor and aren\'t using a shield.',
-					'Githzerai Psionics' : 'You know the mage hand cantrip. When you reach 3rd level, you can cast shield once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the detect thoughts spell once with this trait, and you regain the ability to do so when you finish a long rest. Wisdom is your spellcasting ability for these spells. You can cast all of them without components.'
-				}
-			}
-		},
-		'Physical Characteristics' :
-		{
-			'_special' : 'subracephyssort',
-			'Githyanki' : 
-			{
-				'_special' : 'characteristics',
-				'minage' : 13,
-				'maxage' : 80,
-				'baseheight' : 60,
-				'heightmod' : '2d12',
-				'baseweight' : 100,
-				'weightmod' : '2d4',
-				'other' : 
-				{
-					'Eyes' : [ 'Yellow' ],
-					'Skin' : [ 'Green', 'Yellow', 'Orange', 'Spotted brown' ],
-					'Hair' : [ 'Brown' ]
-				}
-			},
-			'Githzerai' : 
-			{
-				'_special' : 'characteristics',
-				'minage' : 13,
-				'maxage' : 80,
-				'baseheight' : 59,
-				'heightmod' : '2d12',
-				'baseweight' : 90,
-				'weightmod' : '1d4',
-				'other' : 
-				{
-					'Eyes' : [ 'Yellow' ],
-					'Skin' : [ 'Green', 'Yellow', 'Orange', 'Spotted brown' ],
-					'Hair' : [ 'Brown' ]
-				}
 			}
 		}
 	},
@@ -4688,10 +4682,15 @@ var names =
 		'Family' :
 			[ 'Aloro', 'Amakiir', 'Amastacia', 'Ariessus', 'Aruanna', 'Berevan', 'Caerdonel', 'Caphaxath', 'Casilltenirra', 'Cithreth', 'Dalanthan', 'Eathalena', 'Erenaeth', 'Ethanasath', 'Fasharash', 'Firahel', 'Floshem', 'Galanodel', 'Goltorah', 'Hanali', 'Holimion', 'Horineth', 'Iathrana', 'Ilphelkiir', 'Iranapha', 'Koehlanna', 'Lathalas', 'Liadon', 'Meliamne', 'Mellerelel', 'Mystralath', 'Naïlo', 'Netyoive', 'Ofandrus', 'Ostoroth', 'Othronus', 'Qualanthri', 'Raethran', 'Rothenel', 'Selevarun', 'Siannodel', 'Suithrasas', 'Sylvaranth', 'Teinithra', 'Tiltathana', 'Wasanthi', 'Withrethin', 'Xiloscient', 'Xistsrith', 'Yaeldrin' ]
 	},
-	'Gith' :
+	'Githyanki' :
 	{
-		'Female' : [ 'Amith', 'Adaka', 'Ezhelya', 'Immilzin', 'Iliss', 'Izera', 'Olavya', 'Ummon', 'Usamm', 'Uweya', 'Ysviden' ],
-		'Male' : [ 'Baarya', 'Dak', 'Fiden', 'Greth', 'Kalla', 'Klavya', 'Saath', 'Shraak', 'Zith', 'Zomm' ]
+		'Female' : [ 'Aaryl', 'B\'noor', 'Fenelzi\'ir', 'Jen\'lig', 'Pah\'zel', 'Quorstyl', 'Sirruth', 'Vaira', 'Yessune', 'Zar\'ryth' ],
+		'Male' : [ 'Elirdain', 'Gaath', 'Ja\'adoc', 'Kar\'i\'nas', 'Lykus', 'Quith', 'Ris\'a\'an', 'Tropos', 'Viran', 'Xamodas' ]
+	},
+	'Githzerai' :
+	{
+		'Female' : [ 'Adaka', 'Adeya', 'Ella', 'Ezhelya', 'Immilzin', 'Izera', 'Janara', 'Loraya', 'Uweya', 'Vithka' ],
+		'Male' : [ 'Dak', 'Duurth', 'Ferzth', 'Greth', 'Hurm', 'Kalla', 'Muurg', 'Nurm', 'Shrakk', 'Xorm' ]
 	},
 	'Gnome' :
 	{
@@ -5148,19 +5147,16 @@ var UARaces =
 	{ 'name' : 'Changeling, Shifter, and Warforged', 'source' : 'Eberron', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron' },
 	{ 'name' : 'Abyssal Tiefling', 'source' : 'That Old Black Magic', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/old-black-magic' },
 	{ 'name' : 'Revenant Subrace', 'source' : 'Gothic Heroes', 'link' : 'http://dnd.wizards.com/articles/features/gothic-heroes' },
-	{ 'name' : 'Gith and Eladrin Elf', 'source' : 'Race Options: Eladrin and Gith', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/race-options-eladrin-and-gith' },
-	{ 'name' : 'Tiefling Subraces', 'source' : 'Fiendish Options', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/fiendish-options' },
-	{ 'name' : 'Elf Subraces', 'source' : 'Elf Subraces', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces' },
+	{ 'name' : 'Elf Subraces: Avariel and Grugach', 'source' : 'Elf Subraces', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces' },
 	{ 'name' : 'Centaur and Minotaur', 'source' : 'Centaurs and Minotaurs', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/centaurs-and-minotaurs' },
 ]
 
 var UAClasses =
 [
-	{ 'name' : 'Alternative Ranger Class', 'source' : 'Ranger', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/ranger' },
 	{ 'name' : 'Bard: College of Satire, Fighter: Scout', 'source' : 'Kits of Old', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/kits-old' },
 	{ 'name' : 'Fighter: Monster Hunter, Rogue: Inquisitive', 'source' : 'Gothic Heroes', 'link' : 'http://dnd.wizards.com/articles/features/gothic-heroes' },
 	{ 'name' : 'Warlock: Seeker', 'source' : 'The Faithful', 'link' : 'http://dnd.wizards.com/articles/features/faithful' },
-	{ 'name' : 'Another Alternative Ranger Class', 'source' : 'The Ranger, Revised', 'link' : 'http://dnd.wizards.com/articles/features/unearthed-arcana-ranger-revised' },
+	{ 'name' : 'Alternative Ranger Class', 'source' : 'The Ranger, Revised', 'link' : 'http://dnd.wizards.com/articles/features/unearthed-arcana-ranger-revised' },
 	{ 'name' : 'Cleric: Protection Domain', 'source' : 'Cleric: Divine Domains', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/cleric-divine-domains' },
 	{ 'name' : 'Druid: Circle of Twilight', 'source' : 'Druid Circles and Wild Shape', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/druid-circles-and-wild-shape' },
 	{ 'name' : 'Fighter: Sharpshooter', 'source' : 'Fighter: Martial Archetypes', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/fighter' },

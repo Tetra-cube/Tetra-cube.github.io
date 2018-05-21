@@ -429,7 +429,9 @@ function GetName(raceName, characterOrSib)
 		case 'Genasi' :
 			return GetHumanName(GetHumanEthnicity(), characterOrSib.Gender);
 		case 'Gith' :
-			return GetGenderedName(names.Gith, characterOrSib.Gender);
+			if(character.Race['Subraces and Variants'].Subrace == 'Githyanki')
+				return GetGenderedName(names.Githyanki, characterOrSib.Gender);
+			return GetGenderedName(names.Githzerai, characterOrSib.Gender);
 		case 'Gnome' :
 			if(character.Race['Subraces and Variants'].Subrace == 'Deep Gnome')
 				return FirstnameLastname(names['Deep Gnome'], 'Clan', characterOrSib.Gender);
