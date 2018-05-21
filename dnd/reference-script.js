@@ -3,7 +3,6 @@ var book;
 function UpdateList()
 {
 	GetBooks();
-	
 	var racesList = GetContent(races), classesList = GetContent(classes), backgroundsList = GetContent(backgrounds), namesList = GetNames(names);
 	document.getElementById('races').innerHTML = MakeHTMLStringStart(racesList);
 	document.getElementById('classes').innerHTML = MakeHTMLStringStart(classesList);
