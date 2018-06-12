@@ -518,7 +518,7 @@ function GetName(raceName, characterOrSib)
 		case 'Warforged' :
 			return RandomFromArray(names.Warforged);
 		case 'Yuan-Ti Pureblood' :
-			return GetGenderedName(names['Yuan-Ti'], characterOrSib.Gender);
+			return RandomFromArray(names['Yuan-Ti']);
 	}
 }
 

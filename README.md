@@ -6,7 +6,7 @@
 
 # FE:A Quote Generator
 
-[Quotr Generator](https://tetra-cube.github.io/fea-quote-gen/fea-quote-gen.html)
+[Quote Generator](https://tetra-cube.github.io/fea-quote-gen/fea-quote-gen.html)
 
 Useful resources can be found here: http://incorrectfeaquotes.tumblr.com/post/148251320246/fea-quote-generator-masterpost
 
