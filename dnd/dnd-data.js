@@ -2728,7 +2728,7 @@ var classes =
 			'PHB' : [ 'Draconic Bloodline', 'Wild Magic' ],
 			'XGtE' : [ 'Divine Soul', 'Shadow Magic' ],
 			'SCAG/XGtE' : [ 'Storm Sorcery' ],
-			'UA' : [ 'Phoenix Sorcery', 'Sea Sorcery', 'Stone Sorcery' ]
+			'UA' : [ 'Phoenix Sorcery', 'Sea Sorcery', 'Stone Sorcery', 'Giant Soul' ]
 		},
 		'Starting Stats' :
 		{
@@ -5030,12 +5030,7 @@ var names =
 	'Warforged' :
 		[ 'Azm', 'Book', 'Bulwark', 'Cart', 'Charger', 'Cutter', 'Falchion', 'Graven', 'Hammer', 'Mark', 'Morg', 'Nameless', 'Pierce', 'Pious', 'Relic', 'Rune', 'Steeple', 'Sword', 'Three', 'Titan', 'Unsung', 'Victor', 'Watcher', 'Zealot' ],
 	'Yuan-Ti' :
-	{
-		'Female' :
-			[ 'Ashissa', 'Caress', 'Daïsha', 'Deryssa', 'Ibisis', 'Ivaniss', 'Lalassu', 'Nassirah', 'Nessa', 'Nysia', 'Pyrrha', 'Saaveed', 'Sadai', 'Salah', 'Shallia', 'Suehra', 'Thassia', 'Veeshis', 'Ydriss', 'Zivlil.' ],
-		'Male' : 
-			[ 'Akris', 'Athanos', 'Daziss', 'Ischyros', 'Kress', 'Mariss', 'Oshphim', 'Salethar', 'Sarek', 'Selanu', 'Sellak', 'Shanastar', 'Shiraal', 'Silass', 'Thaxos', 'Tithian', 'Xamres', 'Xutan', 'Zorai', 'Zureth.' ]
-	}
+		[ 'Asutali', 'Eztli', 'Hessatal', 'Hitotee', 'Issahu', 'Itstli', 'Manuya', 'Meztli', 'Nesalli', 'Otleh', 'Shalkashlah', 'Sisava', 'Sitlali', 'Soakosh', 'Ssimalli', 'Suisatal', 'Talash', 'Teoshi', 'Yaotal', 'Zihu' ]
 }
 
 var trinkets =
@@ -5169,6 +5164,7 @@ var UAClasses =
 	{ 'name' : 'Mystic, Artificer', 'source' : 'Unearthed Arcana Update', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update' },
 	{ 'name' : 'Druid: Circle of Spores, Fighter: Brute, Wizard: School of Invention', 'source' : 'Three Subclasses', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses' },
 	{ 'name' : 'Cleric: Order Domain', 'source' : 'Order Domain', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/order-domain' },
+	{ 'name' : 'Sorcerer: Giant Soul', 'source' : 'Giant Soul Sorcerer', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/giant-soul-sorcerer' },
 ]
 
 var UAOther =
