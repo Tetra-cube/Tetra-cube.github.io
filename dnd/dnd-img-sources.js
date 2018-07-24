@@ -413,6 +413,34 @@ var sources =
 		'wild': 'https://www.pinterest.com/pin/480266747755215605/',
 		'mage': 'https://www.artstation.com/artwork/OZrGe'
 	},
+	'gith' :
+	{
+		'male' : 'http://forgottenrealms.wikia.com/wiki/File:Monster_Manual_5e_-_Githzerai_-_p161.jpg',
+		'female' : 'https://img.4plebs.org/boards/tg/image/1518/84/1518847007388.jpg'
+	},
+	'changeling' :
+	{
+		'male' : 'https://www.reddit.com/r/characterdrawing/comments/71o94g/changeling_bard_commission/',
+		'female' : 'https://www.pinterest.com/pin/439030663655179248/'
+	},
+	'shifter' :
+	{
+		'male' : 'https://dungeonmusings.wordpress.com/2017/08/26/dd-4th-edition-longrunner-shifter-ranger-hunter/',
+		'female' : 'https://vagelio.deviantart.com/art/Commission-Shifter-559485227'
+	},
+	'kalashtar' :
+	{
+		'male' : 'http://klubbsaga2015.wikidot.com/kalashtar',
+		'female' : 'https://www.dndbeyond.com/characters/races/3862-kalashtar'
+	},
+	'warforged' :
+	{
+		'melee' : 'https://www.artstation.com/artwork/JZZ1R',
+		'holy' : 'http://gauntes.tumblr.com/post/159679426082/warforged-gunslinger',
+		'tricky' : 'https://www.pinterest.com/pin/424393964866342420/',
+		'wild' : 'https://www.reddit.com/r/characterdrawing/comments/439x5c/one_of_my_pcs_drew_their_warforged_druid/',
+		'mage' : 'https://olieart.deviantart.com/art/Sketch-no-332-Warforged-Wizard-665784658'
+	},
 	'tortle' :
 	{
 		'melee' : 'https://toshi13go.deviantart.com/art/Uuya-the-tortle-725558319',
@@ -426,33 +454,10 @@ var sources =
 		'male' : 'https://benwootten.deviantart.com/art/Centaur-Cavalier-295683168',
 		'female' : 'https://www.artstation.com/artwork/0aGkV'
 	},
-	'changeling' :
-	{
-		'male' : 'https://www.reddit.com/r/characterdrawing/comments/71o94g/changeling_bard_commission/',
-		'female' : 'https://www.pinterest.com/pin/439030663655179248/'
-	},
-	'gith' :
-	{
-		'male' : 'http://forgottenrealms.wikia.com/wiki/File:Monster_Manual_5e_-_Githzerai_-_p161.jpg',
-		'female' : 'https://img.4plebs.org/boards/tg/image/1518/84/1518847007388.jpg'
-	},
-	'shifter' :
-	{
-		'male' : 'https://dungeonmusings.wordpress.com/2017/08/26/dd-4th-edition-longrunner-shifter-ranger-hunter/',
-		'female' : 'https://vagelio.deviantart.com/art/Commission-Shifter-559485227'
-	},
 	'minotaur' :
 	{
 		'male' : 'https://www.reddit.com/r/characterdrawing/comments/74lper/commission_grakus_minotaur_barbarian/',
 		'female': 'https://www.pinterest.com/pin/480266747755023568/'
-	},
-	'warforged' :
-	{
-		'melee' : 'https://www.artstation.com/artwork/JZZ1R',
-		'holy' : 'http://gauntes.tumblr.com/post/159679426082/warforged-gunslinger',
-		'tricky' : 'https://www.pinterest.com/pin/424393964866342420/',
-		'wild' : 'https://www.reddit.com/r/characterdrawing/comments/439x5c/one_of_my_pcs_drew_their_warforged_druid/',
-		'mage' : 'https://olieart.deviantart.com/art/Sketch-no-332-Warforged-Wizard-665784658'
 	},
 	'grung' :
 	{

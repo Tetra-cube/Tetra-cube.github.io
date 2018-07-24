@@ -93,39 +93,41 @@ function MakeHTMLString(item)
 		}
 	}
 	else
-	{
-		// For tooltips
-		while(item.indexOf('[[') >= 0)
-		{
-			var startIndex = item.indexOf('[['), lineIndex = item.indexOf('|'), endIndex = item.indexOf(']]');
-			
-			stringBuffer.push(
-				item.substring(0, startIndex),
-				'<span class="tooltip">',
-				item.substring(startIndex + 2, lineIndex),
-				'<span class="tooltiptext"> ',
-				tooltips[item.substring(lineIndex + 1, endIndex)],
-				'</span></span>');
-			item = item.substring(endIndex + 2);
-		}
-		
-		// For sub-properties
-		if(item.indexOf('**') >= 0)
-		{
-			var starIndex = item.indexOf('**');
-			stringBuffer.push(item.substring(0, starIndex), '<ul><li>');
-			item = item.substring(starIndex + 2);
-			starIndex = item.indexOf('**');
-			while(starIndex >= 0)
-			{
-				stringBuffer.push(item.substring(0, starIndex), '</li><li>')
-				item = item.substring(starIndex + 2);
-				starIndex = item.indexOf('**');
-			}
-			stringBuffer.push(item, '</li></ul>');
-		}
 		stringBuffer.push(item);
-	}
+	// else
+	// {
+		// // For tooltips
+		// while(item.indexOf('[[') >= 0)
+		// {
+			// var startIndex = item.indexOf('[['), lineIndex = item.indexOf('|'), endIndex = item.indexOf(']]');
+			
+			// stringBuffer.push(
+				// item.substring(0, startIndex),
+				// '<span class="tooltip">',
+				// item.substring(startIndex + 2, lineIndex),
+				// '<span class="tooltiptext"> ',
+				// tooltips[item.substring(lineIndex + 1, endIndex)],
+				// '</span></span>');
+			// item = item.substring(endIndex + 2);
+		// }
+		
+		// // For sub-properties
+		// if(item.indexOf('**') >= 0)
+		// {
+			// var starIndex = item.indexOf('**');
+			// stringBuffer.push(item.substring(0, starIndex), '<ul><li>');
+			// item = item.substring(starIndex + 2);
+			// starIndex = item.indexOf('**');
+			// while(starIndex >= 0)
+			// {
+				// stringBuffer.push(item.substring(0, starIndex), '</li><li>')
+				// item = item.substring(starIndex + 2);
+				// starIndex = item.indexOf('**');
+			// }
+			// stringBuffer.push(item, '</li></ul>');
+		// }
+		// stringBuffer.push(item);
+	// }
 	return stringBuffer.join('');
 }
 
@@ -238,8 +240,24 @@ function SpecialCase(item)
 	}
 	if (special.substring(0, 6) == "traits")
 	{
-		var personality = GetContent(backgrounds[parseInt(special.substring(7)) - 1].Personality);
-		return personality.slice(0, 4);
+		var background = GetContent(backgrounds[parseInt(special.substring(7)) - 1]);
+		var newItem =
+		[
+			{ 'name' : '_name', 'content' : item._name, 'book' : bookString },
+		];
+		for(var item2Name in background)
+		{
+			var item2 = background[item2Name];
+			if(item2.name == 'Trait' || item2.name == 'Ideal' || item2.name == 'Bond' || item2.name == 'Flaw' )
+				newItem.push(item2);
+		}
+		for(var item2Name in item)
+		{
+			var item2 = item[item2Name];
+			if(item2Name != '_name' && item2Name != '_special' )
+				newItem.push( { 'name' : item2Name, 'content' : item2} );
+		}
+		return newItem;
 	}
 	switch(special)
 	{
@@ -329,6 +347,8 @@ function SpecialCase(item)
 			return PushAllProperties(item);
 		case 'halforcsubraces' :
 			return 'discarditem';
+		case 'humanethnicity' :
+			return PushAllProperties(item);
 		case 'tieflingappearance' :
 			var newArr = [];
 			for(var index in item._array)
@@ -350,7 +370,7 @@ function SpecialCase(item)
 		case 'ignoreinchargen' :
 			return PushAllProperties(item);
 	}
-	return { 'name' : 'placeholder', 'content' : 'placeholder' };
+	return { 'name' : 'error', 'content' : 'error' };
 }
 
 function GetBookId(id)

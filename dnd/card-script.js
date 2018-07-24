@@ -91,6 +91,7 @@ function GetCardFileName(raceName)
 		case 'centaur' :
 		case 'changeling' :
 		case 'gith' :
+		case 'kalashtar' :
 		case 'minotaur' :
 		case 'shifter' :
 			return gender;
@@ -330,12 +331,7 @@ function GetBackgroundCard()
 {
 	var background = character.Background;
 	if(character.Background.hasOwnProperty('Optional Variant') && RandomNum(2) == 1)
-	{
-		var variant = character.Background['Optional Variant'], asteriskIndex = variant.indexOf('**');
-		if(asteriskIndex >= 0)
-			variant = variant.substring(0, asteriskIndex);
-		return variant;
-	}
+		return background._name + ' (' + character.Background['Optional Variant'] + ')';
 	return background._name;
 }
 
@@ -371,8 +367,12 @@ function GetVariantTraitsCard()
 function GetPersonalityCard()
 {
 	var allTraits = [];
-	for(var traitName in character.Background.Personality)
-		allTraits.push( { 'name' : traitName, 'content' : character.Background.Personality[traitName] } );
+	for(var traitName in character.Background)
+	{
+		if(traitName[0] == '_')
+			continue;
+		allTraits.push( { 'name' : traitName, 'content' : character.Background[traitName] } );
+	}
 	if(character.Race._name == 'Aasimar')
 		allTraits.push( { 'name' : 'Guide', 'content' : character.Race['Guide Name'] + ' (' + character.Race['Guide Nature'] + ')' } );
 	else
