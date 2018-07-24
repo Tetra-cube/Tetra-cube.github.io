@@ -1,4 +1,4 @@
-var availableBooks = [ 'EE', 'SCAG', 'VGtM', 'MR', 'XGtE', 'MToF', 'DMG', 'Other', 'Unofficial', 'UA' ];
+var availableBooks = [ 'EE', 'SCAG', 'VGtM', 'MR', 'XGtE', 'MToF', 'DMG', 'Other', 'WGtE', 'Unofficial', 'UA' ];
 
 var bookNames = 
 {
@@ -11,6 +11,7 @@ var bookNames =
 	'MToF' : 'Mordenkainen\'s Tome of Foes',
 	'DMG' : 'Dungeon Master\'s Guide',
 	'Other' : 'Other Content',
+	'WGtE' : 'Wayfinder\'s Guide to Eberron',
 	'UA' : 'Unearthed Arcana',
 	'Unofficial' : 'Unofficial Content'
 }
@@ -25,69 +26,6 @@ var races =
 		'Subraces and Variants' :
 		{
 			'Draconic Ancestry' : [ 'Black', 'Blue', 'Brass', 'Bronze', 'Copper', 'Gold', 'Green', 'Red', 'Silver', 'White' ]
-		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Strength score increases by 2, and your Charisma score increases by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Breath Weapon' : 'You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation. When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After you use your breath weapon, you can\'t use it again until you complete a short or long rest.',
-			'Damage Resistance' : 'You have resistance to the damage type associated with your draconic ancestry.',
-			'Languages' : 'You can speak, read, and write Common and Draconic.',
-			'Ancestry Traits' :
-			{
-				'_special' : 'draconicancestry',
-				'Black' :
-				{
-					'Damage' : 'Acid',
-					'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
-				},
-				'Blue' :
-				{
-					'Damage' : 'Lightning',
-					'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
-				},
-				'Brass' :
-				{
-					'Damage' : 'Fire',
-					'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
-				},
-				'Bronze' :
-				{
-					'Damage' : 'Lightning',
-					'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
-				},
-				'Copper' :
-				{
-					'Damage' : 'Acid',
-					'Breath Weapon' : '5 by 30 ft. line (Dex. save)'
-				},
-				'Gold' :
-				{
-					'Damage' : 'Fire',
-					'Breath Weapon' : '15 ft. cone (Dex. save)'
-				},
-				'Green' :
-				{
-					'Damage' : 'Poison',
-					'Breath Weapon' : '15 ft. cone (Con. save)'
-				},
-				'Red' :
-				{
-					'Damage' : 'Fire',
-					'Breath Weapon' : '15 ft. cone (Dex. save)'
-				},
-				'Silver' :
-				{
-					'Damage' : 'Cold',
-					'Breath Weapon' : '15 ft. cone (Con. save)'
-				},
-				'White' :
-				{
-					'Damage' : 'Cold',
-					'Breath Weapon' : '15 ft. cone  (Con. save)'
-				}
-			}
 		},
 		'Physical Characteristics' :
 		{
@@ -120,42 +58,6 @@ var races =
 				'_special' : 'booksort',
 				'PHB' : [ 'Hill Dwarf', 'Mountain Dwarf' ],
 				'SCAG/MToF' : [ 'Duergar' ]
-			}
-		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Constitution score increases by 2.',
-			'Size' : 'Medium',
-			'Speed' : '25 feet. Your speed is not reduced by wearing heavy armor.',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Dwarven Resilience' : 'You have advantage on saving throws against poison, and you have resistance against poison damage.',
-			'Dwarven Combat Training' : 'You have proficiency with the battleaxe, handaxe, throwing hammer, and warhammer.',
-			'Tool Proficiency' : 'You gain proficiency with the Artisan\'s tools of your choice: smith\'s tools, brewer\'s supplies, or mason\'s tools.',
-			'Stonecunning' : 'Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.',
-			'Languages' : 'You can speak, read, and write Common and Dwarvish.',
-			'Subrace Traits' :
-			{
-				'_special' : 'subracetraitsort',
-				'Hill Dwarf' :
-				{
-					'Ability Score Increase' : 'Your Wisdom score increases by 1.',
-					'Dwarven Toughness' : 'Your hit point maximum increases by 1, and it increases by 1  every time you gain a level.'
-				},
-				'Mountain Dwarf' :
-				{
-					'Ability Score Increase' : 'Your Strength score increases by 2.',
-					'Dwarven Armor Training' : 'You have proficiency with light and medium armor.'
-				},
-				'Duergar' :
-				{
-					'_special' : 'book-SCAG/MToF',
-					'Ability Score Increase' : 'Your Strength score increases by 1.',
-					'Superior Darkvision' : 'Your darkvision has a radius of 120 feet.',
-					'Extra Language' : 'You can speak, read, and write Undercommon.',
-					'Duergar Resilience' : 'You have advantage on saving throws against illusions and against being charmed or paralyzed.',
-					'Duergar Magic' : 'When you reach 3rd level, you can cast the enlarge/reduce spell on yourself once with this trait, using only the spell\'s enlarge option. When you reach 5th level, you can cast the invisibility spell on your self once with this trait. You don\'t need material components for either spell, and you can\'t cast them while you\'re in direct sunlight, although sunlight has no effect on them once cast. You regain the ability to cast these spells with this trait when you finish a long rest. Intelligence is your spell casting ability for these spells.',
-					'Sunlight Sensitivity' : 'You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight.'
-				}
 			}
 		},
 		'Physical Characteristics' :
@@ -221,85 +123,8 @@ var races =
 				'_special' : 'booksort',
 				'PHB' : [ 'High Elf', 'Wood Elf', 'Drow' ],
 				'MToF' : [ 'Eladrin', 'Sea Elf', 'Shadar-kai' ],
+				'WGtE' : [ 'Aereni High Elf', 'Aereni Wood Elf', 'Valenar High Elf', 'Valenar Wood Elf' ],
 				'UA' : [ 'Avariel', 'Grugach' ]
-			}
-		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Dexterity score increases by 2',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it  were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Keen Senses' : 'You have proficiency in the Perception skill.',
-			'Fey Ancestry' : 'You have advantage on saving throws against being charmed, and magic can\'t put you to sleep.',
-			'Trance' : 'Elves don\'t need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.',
-			'Languages' : 'You can speak, read, and write Common and Elvish.',
-			'Subrace Traits' :
-			{
-				'_special' : 'subracetraitsort',
-				'High Elf' :
-				{
-					'Ability Score Increase' : 'Your Intelligence score increases by 1.',
-					'Elf Weapon Training' : 'You have proficiency with the longsword, shortsword, shortbow, and longbow.'
-				},
-				'Wood Elf' :
-				{
-					'Ability Score Increase' : 'Your Wisdom score increases by 1',
-					'Elf Weapon Training' : 'You have proficiency with the longsword, shortsword, shortbow, and longbow.',
-					'Fleet of Foot' : 'Your base walking speed increases to 35 feet',
-					'Mask of the Wild' : 'You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.'
-				},
-				'Drow' :
-				{
-					'Ability Score Increase' : 'Your Charisma score increases by 1.',
-					'Superior Darkvision' : 'Your darkvision has a radius of 120 feet.',
-					'Sunlight Sensitivity' : 'You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight.',
-					'Drow Magic' : 'You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie firespell once per day. When you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells.',
-					'Drow Weapon Training' : 'You have proficiency with rapiers, shortswords, and hand crossbows.'
-				},
-				'Eladrin' :
-				{
-					'_special' : 'book-MToF',
-					'Ability Score Increase' : 'Your Charisma score increases by 1.',
-					'Fey Step' :
-					{
-						'_note' : 'As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can\'t do so again until you finish a short or long rest. When you reach 3rd level, your Fey Step gains an additional effect based on your season; if the effect requires a saving throw, the DC equals 8 + your proficiency bonus+ your Charisma modifier.',
-						'Autumn' : 'Immediately after you use your Fey Step, up to two creatures of your choice that you can see within 10 feet of you must succeed on a Wisdom saving throw or be charmed by you for 1 minute, or until you or your companions deal any damage to it.',
-						'Winter' : 'When you use your Fey Step, one creature of your choice that you can see within 5 feet of you before you teleport must succeed on a Wisdom saving throw or be frightened of you until the end of your next turn.',
-						'Spring' : 'When you use your Fey Step, you can touch one willing creature within 5 feet of you. That creature then teleports instead of you, appearing in an unoccupied space of your choice that you can see within 30 feet of you.',
-						'Summer' : 'Immediately after you use your Fey Step, each creature of your choice that you can see within 5 feet of you takes fire damage equal to your Charisma modifier (minimum of 1 damage). '
-					}
-				},
-				'Sea Elf' :
-				{
-					'_special' : 'book-MToF',
-					'Ability Score Increase' : 'Your Constitution score increases by 1',
-					'Sea Elf Training' : 'You have proficiency with the spear, trident, light crossbow, and net.',
-					'Child of the Sea' : 'You have a swimming speed of 30 feet, and you can breathe air and water.',
-					'Friend of the Sea' : 'Using gestures and sounds, you can communicate simple ideas with any beast that has an innate swimming speed.',
-					'Languages' : 'You can speak, read, and write Aquan.'
-				},
-				'Shadar-kai' :
-				{
-					'_special' : 'book-MToF',
-					'Ability Score Increase' : 'Your Constitution score increases by 1.',
-					'Necrotic Resistance' : 'You have resistance to necrotic damage.', 
-					'Blessing of the Raven Queen' : 'Blessing of the Raven Queen. As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can\'t do so again until you finish a long rest. Starting at 3rd level, you also gain resistance to all damage when you teleport using this trait. The resistance lasts until the start of your next turn. During that time, you appear ghostly and translucent.'
-				},
-				'Avariel' :
-				{
-					'_special' : 'book-UA',
-					'Flight' : 'You have a flying speed of 30 feet. To use this speed, you can\'t be wearing medium or heavy armor.',
-					'Languages' : 'You can speak, read, and write Auran.'
-				},
-				'Grugach' :
-				{
-					'_special' : 'book-UA',
-					'Ability Score Increase' : 'Your Strength score increases by 1.',
-					'Grugach Weapon Training' : 'You have proficiency with the spear, shortbow, longbow, and net.',
-					'Cantrip' : 'You know one cantrip of your choice from the druid spell list. Wisdom is your spellcasting ability for it.',
-					'Languages' : 'Unlike other elves, you don\'t speak, read, or write Common. You instead speak, read, and write Sylvan.'
-				}
 			}
 		},
 		'Physical Characteristics' :
@@ -401,6 +226,70 @@ var races =
 					'Hair' : [ 'Gray', 'Black' ]
 				}
 			},
+			'Aereni High Elf' : 
+			{
+				'_special' : 'book-WGtE characteristics',
+				'minage' : 13,
+				'maxage' : 500,
+				'baseheight' : 54,
+				'heightmod' : '2d10',
+				'baseweight' : 90,
+				'weightmod' : '1d4',
+				'other' : 
+				{
+					'Eyes' : [ 'Silver', 'Gold', 'Black', 'Gold-flecked Blue', 'Gold-flecked Green' ],
+					'Skin' : [ 'Bronze', 'Alabaster', 'Blue-Tinged Alabaster' ],
+					'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Silver-white', 'Blue', 'Copper' ]
+				}
+			},
+			'Aereni Wood Elf' : 
+			{
+				'_special' : 'book-WGtE characteristics',
+				'minage' : 13,
+				'maxage' : 500,
+				'baseheight' : 54,
+				'heightmod' : '2d10',
+				'baseweight' : 100,
+				'weightmod' : '1d4',
+				'other' : 
+				{
+					'Eyes' : [ 'Brown', 'Green', 'Hazel' ],
+					'Skin' : [ 'Light Copper', 'Copper', 'Dark Copper', 'Greenish-copper' ],
+					'Hair' : [ 'Black', 'Brown', 'Blond', 'Copper' ]
+				}
+			},
+			'Valenar High Elf' : 
+			{
+				'_special' : 'book-WGtE characteristics',
+				'minage' : 13,
+				'maxage' : 500,
+				'baseheight' : 54,
+				'heightmod' : '2d10',
+				'baseweight' : 90,
+				'weightmod' : '1d4',
+				'other' : 
+				{
+					'Eyes' : [ 'Silver', 'Gold', 'Black', 'Gold-flecked Blue', 'Gold-flecked Green' ],
+					'Skin' : [ 'Bronze', 'Alabaster', 'Blue-Tinged Alabaster' ],
+					'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Silver-white', 'Blue', 'Copper' ]
+				}
+			},
+			'Valenar Wood Elf' : 
+			{
+				'_special' : 'book-WGtE characteristics',
+				'minage' : 13,
+				'maxage' : 500,
+				'baseheight' : 54,
+				'heightmod' : '2d10',
+				'baseweight' : 100,
+				'weightmod' : '1d4',
+				'other' : 
+				{
+					'Eyes' : [ 'Brown', 'Green', 'Hazel' ],
+					'Skin' : [ 'Light Copper', 'Copper', 'Dark Copper', 'Greenish-copper' ],
+					'Hair' : [ 'Black', 'Brown', 'Blond', 'Copper' ]
+				}
+			},
 			'Avariel' : 
 			{
 				'_special' : 'book-UA characteristics',
@@ -446,45 +335,6 @@ var races =
 				'_special' : 'booksort',
 				'PHB' : [ 'Forest Gnome', 'Rock Gnome' ],
 				'EE/SCAG/MToF' : [ 'Deep Gnome' ]
-			}
-		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Intelligence score increases by 2.',
-			'Size' : 'Small',
-			'Speed' : '25 feet',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Gnome Cunning' : 'You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.',
-			'Languages' : 'You can speak, read, and write Common and Gnomish.',
-			'Subrace Traits' :
-			{
-				'_special' : 'subracetraitsort',
-				'Forest Gnome' :
-				{
-					'Ability Score Increase' : 'Your Dexterity score increases by 1.',
-					'Natural Illusionist' : 'You know the minor illusion cantrip. Intelligence is your spellcasting ability for it.',
-					'Speak with Small Beasts' : 'Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts.'
-				},
-				'Rock Gnome' :
-				{
-					'Ability Score Increase' : 'Your Constitution score increases by 1.',
-					'Artificer\'s Lore' : 'Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.',
-					'Tinker' :
-					{
-						'_Note' : 'You have proficiency with artisan\'s tools (tinker\'s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time. When you create a device, choose one of the following options:',
-						'Clockwork Toy' : 'This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.',
-						'Fire Starter' : 'The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.',
-						'Music Box' : 'When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song\'s end or when it is closed.'
-					}
-				},
-				'Deep Gnome' :
-				{
-					'_special' : 'book-EE/SCAG/MToF',
-					'Ability Score Increase' : 'Your Dexterity score increases by 1.',
-					'Superior Darkvision' : 'Your darkvision has a radius of 120 feet.',
-					'Stone Camouflage' : 'You have advantage on Dexterity (Stealth) checks to hide in rocky terrain.',
-					'Extra Language' : 'You can speak, read, and write Undercommon.'
-				}
 			}
 		},
 		'Physical Characteristics' :
@@ -557,36 +407,6 @@ var races =
 				'SCAG' : [ 'Ghostwise Halfling' ]
 			}
 		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Dexterity score increases by 2.',
-			'Size' : 'Small',
-			'Speed' : '25 feet',
-			'Lucky' : 'When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.',
-			'Brave' : 'You have advantage on saving throws against being frightened.',
-			'Halfling Nimbleness' : 'You can move through the space of any creature that is of a size larger than yours.',
-			'Languages' : 'You can speak, read, and write Common and Halfling.',
-			'Subrace Traits' :
-			{
-				'_special' : 'subracetraitsort',
-				'Lightfoot Halfling' :
-				{
-					'Ability Score Increase' : 'Your Charisma score increases by 1',
-					'Naturally Stealthy' : 'You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.'
-				},
-				'Stout Halfling' :
-				{
-					'Ability Score Increase' : 'Your Constitution score increases by 1.',
-					'Stout Resilience' : 'You have advantage on saving throws against poison, and you have resistance against poison damage.'
-				},
-				'Ghostwise Halfling' :
-				{
-					'_special' : 'book-SCAG',
-					'Ability Score Increase' : 'Your Wisdom score increases by 1.',
-					'Silent Speech' : 'You can speak telepathically to any creature within 30 feet of you. The creature understands you only if the two of you share a language. You can speak telepathically in this way to one creature at a time.'
-				}
-			}
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -611,47 +431,6 @@ var races =
 		{
 			'Elven Ancestry' : [ 'Wood Elf', 'High Elf', 'Drow', 'Aquatic Elf' ],
 			'Human Heritage' : { '_special' : 'halfethnicity' }
-		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Charisma score increases by 2, and two other ability scores of your choice increase by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Fey Ancestry' : 'You have advantage on saving throws against being charmed, and magic can\'t put you to sleep.',
-			'Skill Versatility' : 'You gain proficiency in two skills of your choice.',
-			'Languages' : 'You can speak, read, and write Common, Elvish, and one extra language of your choice.',
-			'Variant Traits' :
-			{
-				'_special' : 'book-SCAG halfelfvarianttraits',
-				'_list' :
-				{
-					'_any' :
-					{
-						'_Note' : 'You can replace Skill Versatility with any trait listed below: ',
-						'Keen Senses' : 'You have proficiency in the Perception skill.'
-					},
-					'Wood Elf' :
-					{
-						'Elf Weapon Training' : 'You have proficiency with the longsword, shortsword, shortbow, and longbow.',
-						'Fleet of Foot' : 'Your base walking speed increases to 35 feet.',
-						'Mask of the Wild' : 'You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.'
-					},
-					'High Elf' :
-					{
-						'Elf Weapon Training' : 'You have proficiency with the longsword, shortsword, shortbow, and longbow.',
-						'Cantrip' : 'You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.'
-					},
-					'Drow' :
-					{
-						'Drow Magic' : 'You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie fire spell once per day. When you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells.'
-					},
-					'Aquatic Elf' :
-					{
-						'Aquatic Elf Swimming' : 'A half-elf of aquatic heritage can choose a swimming speed of 30 feet.' 
-					}
-				}
-			}
 		},
 		'Physical Characteristics' :
 		{
@@ -730,17 +509,6 @@ var races =
 			'_special' : 'halforcsubraces',
 			'Human Heritage' : { '_special' : 'halfethnicity' }
 		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Strength score increases by 2, and your Constitution score increases by 1',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Menacing' : 'You gain proficiency in the Intimidation skill',
-			'Relentless Endurance' : 'When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can\'t use this feature again until you finish a long rest.',
-			'Savage Attacks' : 'When you score a critical hit with a melee weapon attack, you can roll one of the weapon\'s damage dice one additional time and add it to the extra damage of the critical hit',
-			'Languages' : 'You can speak, read, and write Common and Orc.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -769,20 +537,6 @@ var races =
 				'PHB' : [ 'Calishite', 'Chondathan', 'Damaran', 'Illuskan', 'Mulan', 'Rashemi', 'Shou', 'Tethyrian', 'Turami' ],
 				'SCAG' : [ 'Arkaiun', 'Bedine', 'Ffolk', 'Gur', 'Halruaan', 'Imaskari', 'Nar', 'Shaaran', 'Tuigan', 'Ulutiun' ],
 				'Real' : [ 'Arabic', 'Celtic', 'Chinese', 'Egyptian', 'English', 'French', 'German', 'Greek', 'Indian', 'Japanese', 'Mesoamerican', 'Niger-Congo', 'Norse', 'Polynesian', 'Roman', 'Slavic', 'Spanish' ]
-			}
-		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your ability scores each increase by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Languages' : 'You can speak, read, and write Common and one extra language of your choice.',
-			'Variant Human Traits' :
-			{
-				'_Note' : 'You can replace the standard Ability Score Increase with all three of these traits:',
-				'Ability Score Increase' : 'Two different ability scores of your choice increase by 1.',
-				'Skills' : 'You gain proficiency in one skill of your choice.',
-				'Feat' : 'You gain one feat of your choice.'
 			}
 		},
 		'Physical Characteristics' :
@@ -821,103 +575,6 @@ var races =
 			},
 			'Human Heritage' : { '_special' : 'halfethnicity' }
 		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Intelligence score increases by 1, and your Charisma score increases by 2',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Hellish Resistance' : 'You have resistance to fire damage.',
-			'Infernal Legacy' : 'You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell once per day as a 2nd-level spell. Once you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells.',
-			'Languages' : 'You can speak, read, and write Common and Infernal.',
-			'Subrace Traits' :
-			{
-				'_special' : 'book-MToF/UA subracetraitsort',
-				'Asmodeous Tiefling' : 'Standard Tiefling traits.',
-				'Baalzebul Tiefling' :
-				{
-					'_special' : 'book-MToF',
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Intelligence score increases by 1.',
-					'Legacy of Maladomini' : 'You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the ray of sickness spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the crown of madness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
-				},
-				'Dispater Tiefling' :
-				{
-					'_special' : 'book-MToF',
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Dexterity score increases by 1',
-					'Legacy of Dis' : 'You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the disguise self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the invisibility spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
-				},
-				'Fierna Tiefling' :
-				{
-					'_special' : 'book-MToF',
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Wisdom score increases by 1.',
-					'Legacy of Phlegethos' : 'You know the friends cantrip. When you reach 3rd level, you can cast the charm person spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the suggestion spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
-				},
-				'Glasya Tiefling' :
-				{
-					'_special' : 'book-MToF',
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Dexterity score increases by 1.',
-					'Legacy of Malbolge' : 'You know the minor illusion cantrip. When you reach 3rd level, you can cast the disguise self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the invisibility spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
-				},
-				'Levistus Tiefling' :
-				{
-					'_special' : 'book-MToF',
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Constitution score increases by 1.',
-					'Legacy of Stygia' : 'You know the ray of frost cantrip. When you reach 3rd level, you can cast the armor of Agathys spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
-				},
-				'Mammon Tiefling' :
-				{
-					'_special' : 'book-MToF',
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase.' : 'Your Charisma score increases by 2, and your Intelligence score increases by 1.',
-					'Legacy of Minauros' : 'You know the mage hand cantrip. When you reach 3rd level, you can cast the Tenser\'s floating disk spell once with this trait and regain the ability to do so when you finish a short or long rest. When you reach 5th level, you can cast the arcane lock spell once with this trait, requiring no material component, and regain the ability to do so when you finish a long rest.'
-				},
-				'Mephistopheles Tiefling' :
-				{
-					'_special' : 'book-MToF',
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Intelligence score increases by 1.',
-					'Legacy of Cania' : 'You know the mage handcantrip. When you reach 3rd level, you can cast the magic missile spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the web spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
-				},
-				'Zariel Tiefling' :
-				{
-					'_special' : 'book-MToF',
-					'_Note' : 'You lose the Ability Score Increase and Infernal Legacy tiefling racial traits.',
-					'Ability Score Increase' : 'Your Charisma score increases by 2, and your Strength score increases by 1.',
-					'Legacy of Avernus' : 'You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the searing smite spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the branding smite spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.'
-				},
-				'Abyssal Tiefling' :
-				{
-					'_special' : 'book-UA',
-					'_Note' : 'You lose the Ability Score Increase, Hellish Resistance, Infernal Legacy, and ability to speak Infernal from the tiefling racial traits.',
-					'Ability Score Increase' : 'Your Constitution score increases by 1, and your Charisma score increases by 2',
-					'Abyssal Arcana' : 'Each time you finish a long rest, you gain the ability to cast cantrips and spells randomly determined from a short list. At 1st level, you can cast a cantrip. When you reach 3rd level, you can also casta 1st-level spell. At 5th level, you can cast a 2nd‑level spell. You can cast a spell gained from this trait only once until you complete your next long rest. You can cast a cantrip gained from this trait at will, as normal. For 1st‑level spells whose effect changes if cast using a spell slot of 2nd level or higher, you cast the spell as if using a 2nd‑level slot. Spells of 2nd level are cast as if using a 2nd-level slot. At the end of each long rest, you lose the cantrips and spells previously granted by this feature, even if you did not cast them. You replace those cantrips and spells by rolling for new ones on the Abyssal Arcana Spells table. Roll separately for each cantrip and spell. If you roll the same spell or cantrip you gained at the end of your previous long rest, roll again until you get a different result.',
-					'Abyssal Arcana Spells' :
-					{
-						'1st level' : '1: Dancing Lights, 2: True Strike, 3: Light, 4: Message, 5: Spare the Dying, 6: Prestidigitation',
-						'3rd level' : '1: Burning Hands, 2: Charm Person, 3: Magic Missile, 4: Cure Wounds, 5: Tasha\'s Hideous Laughter, 6: Thunderwave',
-						'5th level' : '1: Alter Self, 2: Darkness, 3: Invisibility, 4: Levitate, 5: Mirror Image, 6: Spider Climb'
-					},
-					'Abyssal Fortitude' : 'Your hit point maximum increases by half your level (minimum 1)',
-					'Languages' : 'You can speak, read, and write Abyssal.'
-				}
-			},
-			'Variant Traits' :
-			{
-				'_special' : 'book-SCAG tieflingvarianttraits',
-				'_list' : 
-				{
-					'Feral' : 'Your Intelligence score increases by l , and your Dexterity score increases by 2. This trait replaces the Ability Score Increase trait.',
-					'Devil\'s Tongue' : 'You know the vicious mockery cantrip. When you reach 3rd level, you can cast the charm person spell as a 2nd-level spell once with this trait. When you reach 5th level, you can cast the enthrall spell once with this trait. You must finish a long rest to cast these spells once again with this trait. Charisma is your spellcasting ability for them. This trait replaces the Infernal Legacy trait.',
-					'Hellfire' : 'Once you reach 3rd level, you can cast the burning hands spell once per day as a 2nd-level spell. This trait replaces the hellish rebuke spell of the Infernal Legacy trait.',
-					'Winged' : 'You have bat-like wings sprouting from your shoulder blades. You have a flying speed of 30 feet. This trait replaces the Infernal Legacy trait.'
-				}
-			}
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -944,15 +601,6 @@ var races =
 	{
 		'_special' : 'book-EE',
 		'_name' : 'Aarakocra',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Dexterity score increases by 2, and your Wisdom score increases by 1.',
-			'Size' : 'Medium',
-			'Speed' : '25 feet',
-			'Flight' : 'You have a flying speed of 50 feet. To use this speed, you can\'t be wearing medium or heavy armor.',
-			'Talons' : 'You are proficient with your unarmed strikes, which deal 1d4 slashing damage on a hit.',
-			'Language' : 'You can speak, read, and write Common, Aarakocra, and Auran.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -981,44 +629,6 @@ var races =
 		{
 			'Subrace' : [ 'Air Genasi', 'Earth Genasi', 'Fire Genasi', 'Water Genasi' ],
 			'Human Heritage' : { '_special' : 'halfethnicity' }
-		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Constitution score increases by 2.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Languages' : 'You can speak, read, and write Common and Primordial. Primordial is a guttural language, filled with harsh syllables and hard consonants.',
-			'Subrace Traits' :
-			{
-				'_special' : 'subracetraitsort',
-				'Air Genasi' :
-				{
-					'Ability Score Increase' : 'Your Dexterity score increases by 1.',
-					'Unending Breath' : 'You can hold your breath indefinitely while you\'re not incapacitated.',
-					'Mingle with the Wind' : 'You can cast the levitate spell once with this trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell.'
-				},
-				'Earth Genasi' :
-				{
-					'Ability Score Increase' : 'Your Strength score increases by 1.',
-					'Earth Walk' : 'You can move across difficult terrain made of earth or stone without expending extra movement.',
-					'Merge with Stone' : 'You can cast the pass without trace spell once with this trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell.'
-				},
-				'Fire Genasi' :
-				{
-					'Ability Score Increase' : 'Your Intelligence score increases by 1.',
-					'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. Your ties to the Elemental Plane of Fire make your darkvision unusual: everything you see in darkness is in a shade of red.',
-					'Fire Resistance' : 'You have resistance to fire damage.',
-					'Reach to the Blaze' : 'You know the produce flame cantrip. Once you reach 3rd level, you can cast the burning hands spell once with this trait as a 1st-level spell, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells.'
-				},
-				'Water Genasi' :
-				{
-					'Ability Score Increase' : 'Your Wisdom score increases by 1.',
-					'Acid Resistance' : 'You have resistance to acid damage.',
-					'Amphibious' : 'You can breathe air and water.',
-					'Swim' : 'You have a swimming speed of 30 feet.',
-					'Call to the Wave' : 'You know the shape water cantrip (see chapter 2). When you reach 3rd level, you can cast the create or destroy water spell as a 2nd-level spell once with this trait, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells.'
-				}
-			}
 		},
 		'Physical Characteristics' :
 		{
@@ -1100,17 +710,6 @@ var races =
 	{
 		'_special' : 'book-EE/VGtM',
 		'_name' : 'Goliath',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Strength score increases by 2, and your Constitution score increases by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Natural Athlete' : 'You have proficiency in the Athletics skill.',
-			'Stone\'s Endurance' : 'You can focus yourself to occasionally shrug off injury. When you take damage, you can use your reaction to roll a d12. Add your Constitution modifier to the number rolled, and reduce the damage by that total. After you use this trait, you can\'t use it again until you finish a short or long rest.',
-			'Powerful Build' : 'You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.',
-			'Mountain Born' : 'You\'re acclimated to high altitude, including elevations above 20,000 feet. You\'re also naturally adapted to cold climates, as described in chapter 5 of the Dungeon Master\'s Guide.',
-			'Languages' : 'You can speak, read, and write Common and Giant.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1141,36 +740,6 @@ var races =
 			'Subrace' : [ 'Protector Aasimar', 'Scourge Aasimar', 'Fallen Aasimar' ],
 			'Human Heritage' : { '_special' : 'halfethnicity' }
 		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Charisma score increases by 2.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Celestial Resistance' : 'You have resistance to necrotic damage and radiant damage.',
-			'Healing Hands' : 'As an action, you can touch a creature and cause it to regain a number of hit points equal to your level. Once you use this trait, you can\'t use it again until you finish a long rest.',
-			'Light Bearer' : 'You know the light cantrip. Charisma is your spellcasting ability for it.',
-			'Languages' : 'You can speak, read, and write Common and Celestial.',
-			'Subrace Traits' :
-			{
-				'_special' : 'subracetraitsort',
-				'Protector Aasimar' :
-				{
-					'Ability Score Increase' : 'Your Wisdom score increases by 1.',
-					'Radiant Soul' : 'Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to glimmer and two luminous, incorporeal wings to sprout from your back. Your transformation lasts for 1 minute or until you end it as a bonus action. During it, you have a flying speed of 30 feet, and once on each of your turns, you can deal extra radiant damage to one target when you deal damage to it with an attack or a spell. The extra radiant damage equals your level. Once you use this trait, you can\'t use it again until you finish a long rest.'
-				},
-				'Scourge Aasimar' :
-				{
-					'Ability Score Increase' : 'Your Constitution score increases by 1.',
-					'Radiant Consumption' : 'Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing a searing light to radiate from you, pour out of your eyes and mouth, and threaten to char you. Your transformation lasts for 1 minute or until you end it as a bonus action. During it, you shed bright light in a 10-foot radius and dim light for an additional 10 feet, and at the end of each of your turns, you and each creature within 10 feet of you take radiant damage equal to half your level (rounded up). In addition, once on each of your turns, you can deal extra radiant damage to one target when you deal damage to it with an attack or a spell. The extra radiant damage equals your level. Once you use this trait, you can\'t use it again until you finish a long rest.'
-				},
-				'Fallen Aasimar' :
-				{
-					'Ability Score Increase' : 'Your Strength score increases by 1.',
-					'Necrotic Shroud' : 'Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to turn into pools of darkness and two skeletal, ghostly, flightless wings to sprout from your back. The instant you transform, other creatures within 10 feet of you that can see you must each succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or become frightened of you until the end of your next turn. Your transformation lasts for 1 minute or until you end it as a bonus action. During it, once on each of your turns, you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra necrotic damage equals your level. Once you use this trait, you can\'t use it again until you finish a long rest.'
-				}
-			}
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1193,17 +762,6 @@ var races =
 	{
 		'_special' : 'book-VGtM',
 		'_name' : 'Firbolg',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Wisdom score increases by 2, and your Strength score increases by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet.',
-			'Firbolg Magic' : 'You can cast detect magic and disguise self with this trait, using Wisdom as your spellcasting ability for them. Once you cast either spell, you can\'t cast it again with this trait until you finish a short or long rest. When you use this version of disguise self, you can seem up to 3 feet shorter than normal, allowing you to more easily blend in with humans and elves.',
-			'Hidden Step' : 'As a bonus action, you can magically turn invisible until the start of your next turn or until you attack, make a damage roll, or force someone to make a saving throw. Once you use this trait, you can\'t use it again until you finish a short or long rest.',
-			'Powerful Build' : 'You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.',
-			'Speech of Beast and Leaf' : 'You have the ability to communicate in a limited manner with beasts and plants. They can understand the meaning of your words, though you have no special ability to understand them in return. You have advantage on all Charisma checks you make to influence them.',
-			'Languages' : 'You can speak, read, and write Common, Elvish, and Giant.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1235,16 +793,6 @@ var races =
 	{
 		'_special' : 'book-VGtM',
 		'_name' : 'Kenku',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Dexterity score increases by 2, and your Wisdom score increases by 1.',
-			'Size' : 'Medium',
-			'Speed' : 'Your base walking speed is 30 feet.',
-			'Expert Forgery' : 'You can duplicate other creatures\' handwriting and craftwork. You have advantage on all checks made to produce forgeries or duplicates of existing objects.',
-			'Kenku Training' : 'You are proficient in your choice of two of the following skills: Acrobatics, Deception, Stealth, and Sleight of Hand.',
-			'Mimicry' : 'You can mimic sounds you have heard, including voices. A creature that hears the sounds you make can tell they are imitations with a successful Wisdom (Insight) check opposed by your Charisma (Deception) check.',
-			'Languages' : 'You can read and write Common and Auran, but you can speak only by using your Mimicry trait.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1263,19 +811,6 @@ var races =
 	{
 		'_special' : 'book-VGtM',
 		'_name' : 'Lizardfolk',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Constitution score increases by 2, and your Wisdom score increases by 1.',
-			'Size' : 'Medium',
-			'Speed' : 'Your base walking speed is 30 feet, and you have a swimming speed of 30 feet.',
-			'Bite' : 'Your fanged maw is a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.',
-			'Cunning Artisan' : 'As part of a short rest, you can harvest bone and hide from a slain beast, construct, dragon, monstrosity, or plant creature of size Small or larger to create one of the following items: a shield, a club, a javelin, or 1d4 darts or blowgun needles. To use this trait, you need a blade, such as a dagger, or appropriate artisan\'s tools, such as leatherworker\'s tools.',
-			'Hold Breath' : 'You can hold your breath for up to 15 minutes at a time.',
-			'Hunter\'s Lore' : 'You gain proficiency with two of the following skills of your choice: Animal Handling, Nature, Perception, Stealth, and Survival.',
-			'Natural Armor' : 'You have tough, scaly skin. When you aren\'t wearing armor, your AC is 13 + your Dexterity modifier. You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. A shield\'s benefits apply as normal while you use your natural armor.',
-			'Hungry Jaws' : 'In battle, you can throw yourself into a vicious feeding frenzy. As a bonus action, you can make a special attack with your bite. If the attack hits, it deals its normal damage, and you gain temporary hit points (minimum of 1) equal to your Constitution modifier, and you can\'t use this trait again until you finish a short or long rest.',
-			'Languages' : 'You can speak, read, and write Common and Draconic.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1306,17 +841,6 @@ var races =
 	{
 		'_special' : 'book-VGtM',
 		'_name' : 'Tabaxi',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Dexterity score increases by 2, and your Charisma score increases by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Feline Agility' : 'Your reflexes and agility allow you to meve with a burst of speed. When you move on your turn in combat, you can double your speed until the end of the turn. Once you use this trait, you can\'t use it again until you move O feet on one of your turns.',
-			'Cat\'s Claws' : 'Because of your claws, you have a climbing speed of 20 feet. In addition, your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.',
-			'Cat\'s Talent' : 'You have proficiency in the Perception and Stealth skills.',
-			'Languages' : 'You can speak, read, and write Common and one other language of your choice.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1360,17 +884,6 @@ var races =
 	{
 		'_special' : 'book-VGtM',
 		'_name' : 'Triton',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Strength, Constitution, and Charisma scores each increase by 1.',
-			'Size' : 'Medium',
-			'Speed' : 'Your base walking speed is 30 feet, and you have a swimming speed of 30 feet.',
-			'Amphibious' : 'You can breathe air and water.',
-			'Control Air and Water' : 'A child of the sea, you can call on the magic of elemental air and water. You can cast fog cloud with this trait. Starting at 3rd level, you can cast gust of wind with it, and starting at 5th level, you can also cast wall of water with it (see the spell in the sidebar). Once you cast a spell with this trait, you can\'t do so again until you finish a long rest. Charisma is your spellcasting ability for these spells.',
-			'Emissary of the Sea' : 'Aquatic beasts have an extraordinary affinity with your people. You can communicate simple ideas with beasts that can breathe water. They can understand the meaning of your words, though you have no special ability to understand them in return.',
-			'Guardians of the Depths' : 'Adapted to even the most extreme ocean depths, you have resistance to cold damage, and you ignore any of the drawbacks caused by a deep, underwater environment.',
-			'Lanuages' : 'You can speak, read, and write Common and Primordial.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1400,18 +913,6 @@ var races =
 	{
 		'_special' : 'book-MR',
 		'_name' : 'Bugbear',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Strength score increases by 2, and your Dexterity score increases by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet.',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Long-Limbed' : 'When you make a melee attack on your turn, your reach for it is 5 feet greater than normal.',
-			'Powerful Build' : 'You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.',
-			'Sneaky.' : 'You are proficient in the Stealth skill.',
-			'Surprise Attack' : 'If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra 2d6 damage to it. You can use this trait only once per combat.',
-			'Languages' : 'You can speak, read, and write Common and Goblin.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1433,16 +934,6 @@ var races =
 	{
 		'_special' : 'book-MR',
 		'_name' : 'Goblin',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Dexterity score increases by 2, and your Constitution score increases by 1',
-			'Size' : 'Small',
-			'Speed' : '30 feet.',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Fury of the Small' : 'When you damage a creature with an attack or a spell and the creature\'s size is larger than yours, you can cause the attack or spell to deal extra damage to the creature. The extra damage equals your level. Once you use this trait, you can\'t use it again until you finish a short or long rest.',
-			'Nimble Escape' : 'You can take the Disengage or Hide action as a bonus action on each of your turns.',
-			'Languages' : 'You can speak, read, and write Common and Goblin.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1463,16 +954,6 @@ var races =
 	{
 		'_special' : 'book-MR',
 		'_name' : 'Hobgoblin',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Constitution score increases by 2, and your Intelligence score increases by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Martial Training' : 'You are proficient with two martial weapons of your choice and with light armor.',
-			'Saving Face' : 'Hobgoblins are careful not to show weakness in front of their allies, for fear of losing status. If you miss with an attack roll or fail an ability check or a saving throw, you can gain a bonus to the roll equal to the number of allies you can see within 30 feet of you (maximum bonus of +5). Once you use this trait, you can\'t use it again until you finish a short or long rest.',
-			'Languages' : 'You can speak, read, and write Common and Goblin.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1494,17 +975,6 @@ var races =
 	{
 		'_special' : 'book-MR',
 		'_name' : 'Kobold',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Dexterity score increases by 2, and your Strength score is reduced by 2',
-			'Size' : 'Small',
-			'Speed' : '30 feet',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Grovel, Cower, and Beg.' : 'As an action on your tum, you can cower pathetically to distract nearby foes. Until the end of your next turn, your allies gain advantage on attack rolls against enemies within 10 feet of you that can see you. Once you use this trait, you can\'t use it again until you finish a short or long rest.',
-			'Pack Tactics' : 'You have advantage on an attack roll against a creature if at least one of your allies is within 5 feet of the creature and the ally isn\'t incapacitated.',
-			'Sunlight Sensitivity' : 'You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight.',
-			'Languages' : 'You can speak, read, and write Common and Draconic.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1525,17 +995,6 @@ var races =
 	{
 		'_special' : 'book-MR',
 		'_name' : 'Orc',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Strength score increases by 2, your Constitution score increases by 1, and your Intelligence score is reduced by 2',
-			'Size' : 'Medium',
-			'Speed' : 'Your base walking speed is 30 feet.',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Aggressive' : 'As a bonus action, you can move up to your speed toward an enemy of your choice that you can see or hear. You must end this move closer to the enemy than you started.',
-			'Menacing' : 'You are trained in the Intimidation skill.',
-			'Powerful Build' : 'You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.',
-			'Languages' : 'You can speak, read, and write Common and Orc.' 
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1557,17 +1016,6 @@ var races =
 	{
 		'_special' : 'book-MR',
 		'_name' : 'Yuan-Ti Pureblood',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Charisma score increases by 2, and your Intelligence score increases by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Innate Spellcasting' : 'You know the poison spray cantrip. You can cast animal friendship an unlimited number of times with this trait, but you can target only snakes with it. Starting at 3rd level, you can also cast suggestion with this trait. Once you cast it, you can\'t do so again until you finish a long rest. Charisma is your spellcasting ability for these spells.',
-			'Magic Resistance' : 'You have advantage on saving throws against spells and other magical effects.',
-			'Poison Immunity' : 'You are immune to poison damage and the poisoned condition.',
-			'Languages' : 'You can speak, read, and write Common, Abyssal, and Draconic.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1592,29 +1040,6 @@ var races =
 		'Subraces and Variants' :
 		{
 			'Subrace' : [ 'Githyanki', 'Githzerai' ]
-		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Intelligence score increases by 1',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Languages' : 'You can speak, read, and write Common and Gith.',
-			'Subrace Traits' :
-			{
-				'_special' : 'subracetraitsort',
-				'Githyanki' :
-				{
-					'Ability Score Increase' : 'Your Strength score increases by 2',
-					'Decadent Mastery' : 'You learn one language of your choice, and you are proficient with one skill or tool of your choice.',
-					'Martial Prodigy' : 'You are proficient with light and medium armor and with shortswords, longswords, and greatswords.',
-					'Githyanki Psionics' : ' You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait. When you reach 3rd level, you can cast the jump spell once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the misty step spell once with this trait, and you regain the ability to do so when you finish a long rest. Intelligence is your spellcasting ability for these spells. When you cast them with this trait, they don\'t require components.'
-				},
-				'Githzerai' :
-				{
-					'Ability Score Increase' : 'Your Wisdom score increases by 2.',
-					'Mental Discipline' : 'You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait. When you reach 3rd level, you can cast the shield spell once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the detect thoughts spell once with this trait, and you regain the ability to do so when you finish a long rest. Wisdom is your spellcasting ability for these spells. When you cast them with this trait, they don\'t require components.'
-				}
-			}
 		},
 		'Physical Characteristics' :
 		{
@@ -1657,18 +1082,6 @@ var races =
 	{
 		'_special' : 'book-Other',
 		'_name' : 'Tortle',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Strength score increases by 2, and your Wisdom score increases by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Claws' : 'Your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.',
-			'Hold Breath' : 'You can hold your breath for up to 1 hour at a time. Tortles aren\'t natural swimmers, but they can remain underwater for some time before needing to come up for air.',
-			'Natural Armor' : 'Due to your shell and the shape of your body, you are ill-suited to wearing armor. Your shell provides ample protection, however; it gives you a base AC of 17 (your Dexterity modifier doesn\'t affect this number). You gain no benefit from wearing armor, but if you are using a shield, you can apply the shield\'s bonus ar normal.',
-			'Shell Defense' : 'You can withdraw into your shell as an action. Until you emerge, you gain a +4 bonus to AC, and you have advantage on Strength and Constitution saving throws. While in your shell, you are prone, your speed is 0 and can\'t increase, you have disadvantage on Dexterity saving throws, you can\'t take reactions, and the only action you can take is a bonus action to emerge from your shell.',
-			'Survival Instinct' : 'You gain proficiency in the Survival skill. Tortles have finely honed survival instincts.',
-			'Languages' : 'You can speak, read, and write Common and Aquan.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1686,19 +1099,98 @@ var races =
 		}
 	},
 	{
+		'_special' : 'book-WGtE',
+		'_name' : 'Changeling',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 11,
+			'maxage' : 60,
+			'baseheight' : 58,
+			'heightmod' : '2d8',
+			'baseweight' : 120,
+			'weightmod' : '1d4',
+			'other' : 
+			{
+				'Eyes' : [ 'White' ],
+				'Skin' : [ 'Pale', 'Light Gray' ],
+				'Hair' : [ 'Silver', 'Platinum', 'Blonde' ]
+			}
+		}
+	},
+	{
+		'_special' : 'book-WGtE',
+		'_name' : 'Kalashtar',
+		'Subraces and Variants' :
+		{
+			'Human Heritage' : { '_special' : 'halfethnicity' }
+		},
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 60,
+			'baseheight' : 59,
+			'heightmod' : '2d10',
+			'baseweight' : 110,
+			'weightmod' : '2d4',
+			'other' : 
+			{
+				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
+				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
+				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
+			}
+		}
+	},
+	{
+		'_special' : 'book-WGtE',
+		'_name' : 'Shifter',
+		'Subraces and Variants' :
+		{
+			'Subrace' : [ 'Beasthide', 'Longtooth', 'Swiftstride', 'Wildhunt' ]
+		},
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 7,
+			'maxage' : 50,
+			'baseheight' : 60,
+			'heightmod' : '2d10',
+			'baseweight' : 130,
+			'weightmod' : '1d8',
+			'other' : 
+			{
+				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
+				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
+				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
+			}
+		}
+	},
+	{
+		'_special' : 'book-WGtE',
+		'_name' : 'Warforged',
+		'Subraces and Variants' :
+		{
+			'Subrace' : [ 'Envoy', 'Juggernaut', 'Skirmisher' ]
+		},
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 2,
+			'maxage' : 30,
+			'baseheight' : 60,
+			'heightmod' : '2d8',
+			'baseweight' : 270,
+			'weightmod' : '2d4',
+			'other' : 
+			{
+				'Composition' : [ 'Stone', 'Metal', 'Wood' ]
+			}
+		}
+	},
+	{
 		'_special' : 'book-UA',
 		'_name' : 'Centaur',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Strength score increases by 2, and your Wisdom score increases by 1..',
-			'Size' : 'Medium',
-			'Speed' : '40 feet',
-			'Charge' : 'If you move at least 20 feet straight toward a target and then hit it with a melee weapon attack on the same turn, roll the weapon’s damage dice twice and add them together. Once you use this ability, you can’t use it again until you finish a short or long rest.',
-			'Hooves' : 'Your hooves are natural melee weapons, with which you’re proficient. If you hit with a hoof, the target takes bludgeoning damage equal to 1d6 + your Strength modifier.',
-			'Survivor' : 'You have proficiency in the Survival skill.',
-			'Hybrid Nature' : 'You have two creature types: humanoid and monstrosity. You can be affected by a game effect if it works on either of your creature types.',
-			'Languages' : 'You can speak, read, and write Common and Sylvan.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1718,48 +1210,7 @@ var races =
 	},
 	{
 		'_special' : 'book-UA',
-		'_name' : 'Changeling',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Dexterity and Charisma scores increase by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Duplicity' : 'You gain proficiency in the Deception skill.',
-			'Shapechanger' : 'As an action, you can polymorph into any humanoid of your size that you have seen, or back into your true form. However, your equipment does not change with you. If you die, you revert to your natural appearance',
-			'Languages' : 'You can speak, read, and write Common and two other languages of your choice.'
-		},
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 15,
-			'maxage' : 60,
-			'baseheight' : 65,
-			'heightmod' : '2d4',
-			'baseweight' : 120,
-			'weightmod' : '1d4',
-			'other' : 
-			{
-				'Eyes' : [ 'White' ],
-				'Skin' : [ 'Pale', 'Light Gray' ],
-				'Hair' : [ 'Silver', 'Platinum', 'Blonde' ]
-			}
-		}
-	},
-	{
-		'_special' : 'book-UA',
 		'_name' : 'Minotaur',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Strength score increases by 2, and your constitution score increases by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Horns' : 'Your horns are natural melee weapons, with which you’re proficient. When you hit with them, the target takes piercing damage equal to 1d6 + your Strength modifier.',
-			'Goring Rush' : 'Immediately after you use the Dash action on your turn and move at least as far as your speed, you can make one melee attack with your horns as a bonus action.',
-			'Hammering Horns' : 'Immediately after you hit a creature with a melee attack as part of the Attack action on your turn, you can attempt to shove that creature with your horns using your reaction. The creature must be no more than one size larger than you and within 5 feet of you. It must make a Strength saving throw against a DC equal to 8 + your proficiency bonus + your Strength modifier. If it fails, you push it up to 5 feet away from you.',
-			'Menacing' : 'You have proficiency in the Intimidation skill.',
-			'Hybrid Nature' : 'You have two creature types: humanoid and monstrosity. You can be affected by a game effect if it works on either of your creature types.',
-			'Languages' : 'You can speak, read, and write Common and Minotaur.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1778,115 +1229,8 @@ var races =
 		}
 	},
 	{
-		'_special' : 'book-UA',
-		'_name' : 'Shifter',
-		'Subraces and Variants' :
-		{
-			'Subrace' : [ 'Beasthide', 'Cliffwalk', 'Longstride', 'Longtooth', 'Razorclaw', 'Wildhunt' ]
-		},
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Dexterity score increases by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Darkvision' : 'You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can\'t discern color in darkness, only shades of gray.',
-			'Shifting' : 'On your turn, you can shift as a bonus action. Shifting lasts for 1 minute or until you end it on your turn as a bonus action.  While shifting, you gain temporary hit points equal to your level + your Constitution bonus (minimum of 1). You also gain a feature that depends on your shifter subrace, described below. You must finish a short or long rest before you can shift again.',
-			'Languages' : 'You can speak, read, and write Common and Sylvan.',
-			'Subrace Traits' :
-			{
-				'_special' : 'subracetraitsort',
-				'Beasthide' :
-				{
-					'Ability Score Increase' : 'Your Constitution score increases by 1.',
-					'Shifting Feature' : 'While shifting, you gain a +1 bonus to AC.'
-				},
-				'Cliffwalk' :
-				{
-					'Ability Score Increase' : 'Your Dexterity score increases by 1.',
-					'Shifting Feature' : 'While shifting, you gain a climb speed of 30 feet.'
-				},
-				'Longstride' :
-				{
-					'Ability Score Increase' : 'Your Dexterity score increases by 1.',
-					'Shifting Feature' : 'While shifting, you can use the Dash action as a bonus action.'
-				},
-				'Longtooth' :
-				{
-					'Ability Score Increase' : 'Your Strength score increases by 1.',
-					'Shifting Feature' : 'While shifting, you can make a bite attack as an action. This is a melee weapon attack that uses Strength for its attack roll and damage bonus and deals 1d6 piercing damage. If this attack hits a target that is your size or smaller, the target is also grappled.'
-				},
-				'Razorclaw' :
-				{
-					'Ability Score Increase' : 'Your Dexterity score increases by 1.',
-					'Shifting Feature' : 'While shifting, you can make an unarmed strike as a bonus action. You can use your Dexterity for its attack roll and damage bonus, and this attack deals slashing damage.'
-				},
-				'Wildhunt' :
-				{
-					'Ability Score Increase' : 'Your Wisdom score increases by 1.',
-					'Shifting Feature' : 'While shifting, you gain advantage on all Wisdom-based checks and saving throws.'
-				}
-			}
-		},
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 15,
-			'maxage' : 60,
-			'baseheight' : 65,
-			'heightmod' : '2d4',
-			'baseweight' : 130,
-			'weightmod' : '1d8',
-			'other' : 
-			{
-				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
-				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
-				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
-			}
-		}
-	},
-	{
-		'_special' : 'book-UA',
-		'_name' : 'Warforged',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Strength and Constitution scores increase by 1.',
-			'Size' : 'Medium',
-			'Speed' : '30 feet',
-			'Composite Plating' : 'Your construction incorporates wood and metal, granting you a +1 bonus to Armor Class',
-			'Living Construct' : 'Even though you were constructed, you are a living creature. You are immune to disease. You do not need to eat or breathe, but you can ingest food and drink if you wish. Instead of sleeping, you enter an inactive state for 4 hours each day. You do not dream in this state; you are fully aware of your surroundings and notice approaching enemies and other events as normal.',
-			'Languages' : 'You can speak, read, and write Common and one other language of your choice.'
-		},
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 1,
-			'maxage' : 1000,
-			'baseheight' : 70,
-			'heightmod' : '2d6',
-			'baseweight' : 270,
-			'weightmod' : '2d4',
-			'other' : 
-			{
-				'Composition' : [ 'Stone', 'Metal', 'Wood' ]
-			}
-		}
-	},
-	{
 		'_special' : 'book-Unofficial',
 		'_name' : 'Grung',
-		'Racial Traits' :
-		{
-			'Ability Score Increase' : 'Your Dexterity score increases by 2 and your Constitution score increases by 1.',
-			'Arboreal Alertness' : 'You have proficiency in the Perception skill.',
-			'Size' : 'Small',
-			'Speed' : 'Your base walking speed is 25 feet, and you have a climbing speed of 25 feet.',
-			'Amphibious' : 'You can breathe air and water.',
-			'Poison Immunity' : 'You\'re immune to poison damage and the poisoned condition.',
-			'Poisonous Skin' : 'Any creature that grapples you or otherwise comes into direct contact with your skin must succeed on a DC 12 Constitution saving throw or become poisoned for 1 minute. A poisoned creature no longer in direct contact with you can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. You can also apply this poison to any piercing weapon as part of an attack with that weapon, though when you hit the poison reacts differently. The target must succeed on a DC 12 Constitution saving throw or take 2d4 poison damage.',
-			'Standing Leap' : 'Your long jump is up to 25 feet and your high jump is up to 15 feet, with or without a running start.',
-			'Water Dependency' : 'If you fail to immerse yourself in water for at least 1 hour during a day, you suffer one level of exhaustion at the end of that day. You can only recover from this exhaustion through magic or by immersing yourself in water for at least 1 hour.',
-			'Languages' : 'You can speak, read, and write Grung.'
-		},
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1916,34 +1260,6 @@ var classes =
 			'PHB' : [ 'Path of the Berserker', 'Path of the Totem Warrior' ],
 			'SCAG' : [ 'Path of the Battlerager' ],
 			'XGtE' : [ 'Path of the Ancestral Guardian', 'Path of the Storm Herald', 'Path of the Zealot' ],
-		},
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d12 per barbarian level',
-				'Hit Points at 1st Level' : '12 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d12 (or 7) + your Constitution modifier per barbarian level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Armor' : 'Light armor, medium armor, shields',
-				'Weapons' : 'Simple weapons, martial weapons',
-				'Saving Throws' : 'Strength, Constitution',
-				'Skills' : 'Choose two from Animal Handling, Athletics, Intimidation, Nature, Perception, and Survival'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) A greataxe or (b) any martial melee weapon',
-				'_2' : '(a) Two handaxes or (b) any simple weapon',
-				'_3' : 'An [[Explorer\'s Pack|explorerspack]] and four javelins'
-			}
-		},
-		'Multiclassing' :
-		{
-			'_special' : 'ignoreinchargen',
-			'Prerequisite' : 'Strength 13',
-			'Proficiencies' : 'Shields, simple weapons, martial weapons'
 		},
 		'Personality' :
 		{
@@ -2003,36 +1319,6 @@ var classes =
 			'PHB' : [ 'College of Lore', 'College of Valor' ],
 			'XGtE' : [ 'College of Glamour', 'College of Swords', 'College of Whispers' ],
 			'UA' : [ 'College of Satire' ],
-		},
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d8 per bard level',
-				'Hit Points at 1st Level' : '8 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d8 (or 5) + your Constitution modifier per bard level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Armor' : 'Light Armor',
-				'Weapons' : 'Simple Weapons, hand crossbows, longswords, rapiers, shortswords',
-				'Tools' : 'Three musical instruments of your choice',
-				'Saving Throws' : 'Dexterity, Charisma',
-				'Skills' : 'Choose any three.'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) A Rapier, (b) a Longsword, or (c) any simple weapon',
-				'_2' : '(a) A [[Diplomat\'s Pack|diplomatspack]] or (b) an [[Entertainer\'s Pack|entertainerspack]]',
-				'_3' : '(a) A lute or (b) any other musical instrument',
-				'_4' : '[[Leather Armor|leatherarmor]], and a Dagger'
-			}
-		},
-		'Multiclassing' :
-		{
-			'_special' : 'ignoreinchargen',
-			'Prerequisite' : 'Charisma 13',
-			'Proficiencies' : 'Light armor, one skill of your choice, one musical instrument of your choice'
 		},
 		'Personality' :
 		{
@@ -2095,36 +1381,6 @@ var classes =
 			'XGtE' : [ 'Forge Domain', 'Grave Domain' ],
 			'UA' : [ 'Order Domain', 'Protection Domain' ]
 		},
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d8 per cleric level',
-				'Hit Points at 1st Level' : '8 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d8 (or 5) + your Constitution modifier per cleric level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Armor' : 'Light Armor, Medium Armor, shields',
-				'Weapons' : 'Simple Weapons',
-				'Saving Throws' : 'Wisdom, Charisma',
-				'Skills' : 'Choose two from History, Insight, Medicine, Persuasion, and Religion'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) A mace or (b) a Warhammer (if proficient)',
-				'_2' : '(a) [[Scale Mail|scalemailarmor]], (b) [[Leather Armor|leatherarmor]], or (c) [[Chain Mail|chainmail]] (if proficient)',
-				'_3' : '(a) A Light Crossbow and 20 bolts or (b) any simple weapon',
-				'_4' : '(a) A [[Priest\'s Pack|priestspack]] or (b) an [[Explorer\'s Pack|explorerspack]]',
-				'_5' : 'A [[Shield|shield]] and a holy Symbol'
-			}
-		},
-		'Multiclassing' :
-		{
-			'_special' : 'ignoreinchargen',
-			'Prerequisite' : 'Wisdom 13',
-			'Proficiencies' : 'Light armor, medium armor, shields'
-		},
 		'Personality' :
 		{
 			'Temple' :
@@ -2183,35 +1439,6 @@ var classes =
 			'PHB' : [ 'Circle of the Land', 'Circle of the Moon' ],
 			'XGtE' : [ 'Circle of Dreams', 'Circle of the Shepherd' ],
 			'UA' : [ 'Circle of Twilight', 'Circle of Spores' ],
-		},
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d8 per druid level',
-				'Hit Points at 1st Level' : '8 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d8 (or 5) + your Constitution modifier per druid level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Armor' : 'Light Armor, Medium Armor, shields (druids will not wear armor or use shields made of metal)',
-				'Weapons' : 'Clubs, daggers, darts, javelins, maces, quarterstaffs, scimitars, sickles, slings, spears',
-				'Tools' : 'Herbalism kit',
-				'Saving Throws' : 'Intelligence, Wisdom',
-				'Skills' : 'Choose two from Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, and Survival'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) A wooden [[shield|shield]] or (b) any simple weapon',
-				'_2' : '(a) A Scimitar or (b) any simple melee weapon',
-				'_3' : '[[Leather Armor|leatherarmor]], an [[Explorer\'s Pack|explorerspack]], and a druidic focus'
-			}
-		},
-		'Multiclassing' :
-		{
-			'_special' : 'ignoreinchargen',
-			'Prerequisite' : 'Wisdom 13',
-			'Proficiencies' : 'Light armor, medium armor, shields (druids will not wear armor or use shields made of metal)'
 		},
 		'Personality' :
 		{
@@ -2272,35 +1499,6 @@ var classes =
 			'SCAG' : [ 'Banneret (Purple Dragon Knight)' ],
 			'XGtE' : [ 'Arcane Archer', 'Cavalier', 'Samurai' ],
 			'UA' : [ 'Scout', 'Monster Hunter', 'Sharpshooter', 'Brute' ]
-		},
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d10 per fighter level',
-				'Hit Points at 1st Level' : '10 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d10 (or 6) + your Constitution modifier per fighter level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Armor' : 'Light Armor, Medium Armor, Heavy Armor, shields',
-				'Weapons' : 'Simple Weapons, martial Weapons',
-				'Saving Throws' : 'Strength, Constitution',
-				'Skills' : 'Choose two skills from Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, and Survival'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) [[Chain Mail|chainmail]] or (b) [[leather|leatherarmor]], Longbow, and 20 Arrows',
-				'_2' : '(a) A martial weapon and a [[shield|Shield]] or (b) two martial Weapons',
-				'_3' : '(a) A Light Crossbow and 20 bolts or (b) two handaxes',
-				'_4' : '(a) A [[Dungeoneer\'s Pack|dungeoneerspack]] or (b) an [[Explorer\'s Pack|explorerspack]]'
-			}
-		},
-		'Multiclassing' :
-		{
-			'_special' : 'ignoreinchargen',
-			'Prerequisite' : 'Strength 13 or Dexterity 13',
-			'Proficiencies' : 'Light armor, medium armor, shields, simple weapons, martial weapons'
 		},
 		'Personality' :
 		{
@@ -2363,34 +1561,6 @@ var classes =
 			'SCAG/XGtE' : [ 'Way of the Sun Soul' ],
 			'UA' : [ 'Way of Tranquility' ]
 		},
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d8 per monk level',
-				'Hit Points at 1st Level' : '8 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d8 (or 5) + your Constitution modifier per monk level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Weapons' : 'Simple Weapons, shortswords',
-				'Tools' : 'Any one type of artisan\'s tools or any one musical instrument of your choice',
-				'Saving Throws' : 'Strength, Dexterity',
-				'Skills' : 'Choose two from Acrobatics, Athletics, History, Insight, Religion, and Stealth'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) A Shortsword or (b) any simple weapon',
-				'_2' : '(a) A [[Dungeoneer\'s Pack|dungeoneerspack]] or (b) an [[Explorer\'s Pack|explorerspack]]',
-				'_3' : '10 darts'
-			}
-		},
-		'Multiclassing' :
-		{
-			'_special' : 'ignoreinchargen',
-			'Prerequisite' : 'Dexterity 13 and Wisdom 13',
-			'Proficiencies' : 'Simple weapons, shortswords'
-		},
 		'Personality' :
 		{
 			'Monastery' :
@@ -2451,35 +1621,6 @@ var classes =
 			'SCAG' : [ 'Oath of the Crown' ],
 			'XGtE' : [ 'Oath of Conquest', 'Oath of Redemption' ],
 			'UA' : [ 'Oath of Treachery' ]
-		},
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d10 per paladin level',
-				'Hit Points at 1st Level' : '10 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d10 (or 6) + your Constitution modifier per paladin level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Armor' : 'Light Armor, Medium Armor, Heavy Armor, shields',
-				'Weapons' : 'Simple Weapons, martial Weapons',
-				'Saving Throws' : 'Wisdom, Charisma',
-				'Skills' : 'Choose two from Athletics, Insight, Intimidation, Medicine, Persuasion, and Religion'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) A martial weapon and a [[Shield|shield]] or (b) two martial Weapons',
-				'_2' : '(a) Five javelins or (b) any simple melee weapon',
-				'_3' : '(a) A [[Priest\'s Pack|priestspack]] or (b) an [[Explorer\'s Pack|explorerspack]]',
-				'_4' : '[[Chain Mail|chainmail]] and a holy Symbol'
-			}
-		},
-		'Multiclassing' :
-		{
-			'_special' : 'ignoreinchargen',
-			'Prerequisite' : 'Strength 13 and Charisma 13',
-			'Proficiencies' : 'Light armor, medium armor, shields, simple weapons, martial weapons'
 		},
 		'Personality' :
 		{
@@ -2552,35 +1693,6 @@ var classes =
 			'XGtE' : [ 'Gloom Stalker', 'Horizon Walker', 'Monster Slayer' ],
 			'UA' : [ 'Primeval Guardian' ]
 		},
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d10 per ranger level',
-				'Hit Points at 1st Level' : '10 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d10 (or 6) + your Constitution modifier per ranger level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Armor' : 'Light Armor, Medium Armor, shields',
-				'Weapons' : 'Simple Weapons, martial weapons',
-				'Saving Throws' : 'Strength, Dexterity',
-				'Skills' : 'Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) [[Scale Mail|scalemailarmor]] or (b) [[Leather Armor|leatherarmor]]',
-				'_2' : 'Two shortswords or (b) two simple Melee Weapons',
-				'_3' : 'A [[Dungeoneer\'s Pack|dungeoneerspack]] or (b) an [[Explorer\'s Pack|explorerspack]]',
-				'_4' : 'A Longbow and a Quiver of 20 Arrows'
-			}
-		},
-		'Multiclassing' :
-		{
-			'_special' : 'ignoreinchargen',
-			'Prerequisite' : 'Dexterity 13 and Wisdom 13',
-			'Proficiencies' : 'Light armor, medium armor, shields, simple weapons, martial weapons, one skill from the class\'s skill list'
-		},
 		'Personality' :
 		{
 			'View of the World' :
@@ -2623,7 +1735,7 @@ var classes =
 			[
 				'I found purpose while I honed my hunting skills by bringing down dangerous animals at the edge of civilization.',
 				'I always had a way with animals, able to calm them with a soothing word and a touch.',
-				'I suffer from terrible wanderlust, so being a ranger  gave me a reason not to remain in one place for too long.',
+				'I suffer from terrible wanderlust, so being a ranger gave me a reason not to remain in one place for too long.',
 				'I have seen what happens when the monsters come out from the dark. I took it upon myself to become the first line of defense against the evils that lie beyond civilization\'s borders.',
 				'I met a grizzled ranger who taught me woodcraft and the secrets of the wild lands.',
 				'I served in an army, learning the precepts of my profession while blazing trails and scouting enemy encampments.'
@@ -2639,36 +1751,6 @@ var classes =
 			'PHB' : [ 'Thief', 'Assassin', 'Arcane Trickster' ],
 			'XGtE' : [ 'Inquisitive', 'Scout' ],
 			'SCAG/XGtE' : [ 'Mastermind', 'Swashbuckler' ]
-		},
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d8 per rogue level',
-				'Hit Points at 1st Level' : '8 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d8 (or 5) + your Constitution modifier per rogue level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Armor' : 'Light Armor',
-				'Weapons' : 'Simple Weapons, hand crossbows, longswords, rapiers, shortswords',
-				'Tools' : 'Thieves\' Tools',
-				'Saving Throws' : 'Dexterity, Intelligence',
-				'Skills' : 'Choose four from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, and Stealth'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) A Rapier or (b) a Shortsword',
-				'_2' : '(a) A Shortbow and Quiver of 20 Arrows or (b) a Shortsword',
-				'_3' : '(a) A [[Burglar\'s Pack|burglarspack]], (b) a [[Dungeoneer\'s Pack|dungeoneerspack]], or (c) an [[Explorer\'s Pack|explorerspack]]',
-				'_4' : '[[Leather Armor|leatherarmor]], two daggers, and Thieves\' Tools'
-			}
-		},
-		'Multiclassing' :
-		{
-			'_special' : 'ignoreinchargen',
-			'Prerequisite' : 'Dexterity 13',
-			'Proficiencies' : 'Light armor, one skill from the class\'s skill list, thieves\' tools'
 		},
 		'Personality' :
 		{
@@ -2729,34 +1811,6 @@ var classes =
 			'XGtE' : [ 'Divine Soul', 'Shadow Magic' ],
 			'SCAG/XGtE' : [ 'Storm Sorcery' ],
 			'UA' : [ 'Phoenix Sorcery', 'Sea Sorcery', 'Stone Sorcery', 'Giant Soul' ]
-		},
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d6 per sorcerer level',
-				'Hit Points at 1st Level' : '6 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d6 (or 4) + your Constitution modifier per sorcerer level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Weapons' : 'Daggers, darts, slings, quarterstaffs, light crossbows',
-				'Saving Throws' : 'Constitution, Charisma',
-				'Skills' : 'Choose two from Arcana, Deception, Insight, Intimidation, Persuasion, and Religion'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) A Light Crossbow and 20 bolts or (b) any simple weapon',
-				'_2' : '(a) A Component pouch or (b) an arcane focus',
-				'_3' : '(a) A [[Dungeoneer\'s Pack|dungeoneerspack]] or (b) an [[Explorer\'s Pack|explorerspack]]',
-				'_4' : 'Two daggers'
-			}
-		},
-		'Multiclassing' :
-		{
-			'_special' : 'ignoreinchargen',
-			'Prerequisite' : 'Charisma 13',
-			'Proficiencies' : 'None'
 		},
 		'Personality' :
 		{
@@ -2830,35 +1884,6 @@ var classes =
 			'XGtE' : [ 'The Celestial', 'The Hexblade' ],
 			'UA' : [ 'The Seeker', 'The Raven Queen' ]
 		},
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d8 per warlock level',
-				'Hit Points at 1st Level' : '8 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d8 (or 5) + your Constitution modifier per warlock level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Armor' : 'Light Armor',
-				'Weapons' : 'Simple Weapons',
-				'Saving Throws' : 'Wisdom, Charisma',
-				'Skills' : 'Choose two skills from Arcana, Deception, History, Intimidation, Investigation, Nature, and Religion'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) A Light Crossbow and 20 bolts or (b) any simple weapon',
-				'_2' : '(a) A Component pouch or (b) an arcane focus',
-				'_3' : '(a) A [[Scholar\'s Pack|scholarspack]] or (b) a [[Dungeoneer\'s Pack|dungeoneerspack]]',
-				'_4' : '[[Leather Armor|leatherarmor]], any simple weapon, and two daggers'
-			}
-		},
-		'Multiclassing' :
-		{
-			'_special' : 'ignoreinchargen',
-			'Prerequisite' : 'Charisma 13',
-			'Proficiencies' : 'Light armor, simple weapons'
-		},
 		'Personality' :
 		{
 			'Patron Attitudes' :
@@ -2919,34 +1944,6 @@ var classes =
 			'XGtE' : [ 'War Magic' ],
 			'UA' : [ 'Theurgy', 'School of Invention' ]
 		},
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d6 per wizard level',
-				'Hit Points at 1st Level' :' 6 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d6 (or 4) + your Constitution modifier per wizard level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Weapons' : 'Daggers, darts, slings, quarterstaffs, light crossbows',
-				'Saving Throws' : 'Intelligence, Wisdom',
-				'Skills' : 'Choose two from Arcana, History, Insight, Investigation, Medicine, and Religion'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) A Quarterstaff or (b) a Dagger',
-				'_2' : '(a) A Component pouch or (b) an arcane focus',
-				'_3' : '(a) A [[Scholar\'s Pack|scholarspack]] or (b) an [[Explorer\'s Pack|explorerspack]]',
-				'_4' : 'A Spellbook'
-			}
-		},
-		'Multiclassing' :
-		{
-			'_special' : 'ignoreinchargen',
-			'Prerequisite' : 'Intelligence 13',
-			'Proficiencies' : 'None'
-		},
 		'Personality' :
 		{
 			'Spellbook' :
@@ -2999,94 +1996,17 @@ var classes =
 	{
 		'_special' : 'book-UA',
 		'_name' : 'Artificer',
-		'Artificer Specialty' : [ 'Alchemist', 'Gunsmith' ],
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d8 per artificer level',
-				'Hit Points at 1st Level' : '8 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d8 (or 5) + your Constitution modifier per artificer level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Armor' : 'Light and medium armor',
-				'Weapons' : 'Simple weapons',
-				'Tools' : 'Thieves tools, two other tools of your choice',
-				'Saving Throws' : 'Constitution, Intelligence',
-				'Skills' : 'Choose three from Arcana, Deception, History, Investigation, Medicine, Nature, Religion, Sleight of Hand'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) A handaxe and a light hammer or (b)any two simple weapons',
-				'_2' : 'A light crossbow and 20 bolts',
-				'_3' : '(a) [[Scale mail|scalemailarmor]] or (b) [[studded leather armor|studdedleatherarmor]]',
-				'_4' : 'Thieves\'tools and a [[Dungeoneer\'s Pack|dungeoneerspack]]'
-			}
-		},
+		'Artificer Specialty' : [ 'Alchemist', 'Gunsmith' ]
 	},
 	{
 		'_special' : 'book-UA',
 		'_name' : 'Mystic',
-		'Mystic Order' : [ 'Order of the Avatar', 'Order of the Awakened', 'Order of the Immortal', 'Order of the Nomad', 'Order of the Soul Knife', 'Order of the Wu Jen' ],
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d8 per mystic level',
-				'Hit Points at 1st Level' : '8 + your Constitution modifier',
-				'Hit Points at Higher Levels' : '1d8 (or 5) + your Constitution modifier per mystic level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Armor' : 'Light armor',
-				'Weapons' : 'Simple weapons',
-				'Saving Throws' : 'Intelligence, Wisdom',
-				'Skills' : 'Choose two skills from Arcana, History, Insight, Medicine, Nature, Perception, and Religion'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) A spear or (b) a mace',
-				'_2' : '(a) [[Leather armor|leatherarmor]] or (b) [[studded leather armor|studdedleatherarmor]]',
-				'_3' : '(a) A light crossbow and 20 bolts or (b) any simple weapon',
-				'_4' : '(a) A [[Scholar\'s Pack|scholarspack]] or (b) an [[Explorer\'s Pack|explorerspack]])'
-			}
-		},
+		'Mystic Order' : [ 'Order of the Avatar', 'Order of the Awakened', 'Order of the Immortal', 'Order of the Nomad', 'Order of the Soul Knife', 'Order of the Wu Jen' ]
 	},
 	{
 		'_special' : 'book-Unofficial',
 		'_name' : 'Blood Hunter',
-		'Blood Hunter Order' : [ 'Order of the Ghostslayer', 'Order of the Profane Soul', 'Order of the Mutant' ],
-		'Starting Stats' :
-		{
-			'Hit Points' :
-			{
-				'Hit Dice' : '1d10 per blood hunter level',
-				'Hit Points at 1st level' : '10 + your Constitution modifier per blood hunter level after 1st',
-				'Hit Points at Higher Levels' : '1d10 (or 6) + your Constitution modifier per blood hunter level after 1st'
-			},
-			'Proficiencies' :
-			{
-				'Armor' : 'Light Armor Medium Armor',
-				'Weapons' : 'Simple Weapons, Martial Weapons',
-				'Tools' : 'Alchemist\'s supplies',
-				'Saving Throws' : 'Strength, Wisdom',
-				'Skills' : 'Choose two from Athletics, Acrobatics, Arcana, Insight, Investigation, and Survival'
-			},
-			'Equipment' :
-			{
-				'_1' : '(a) A martial weapon or (b) two simple weapons',
-				'_2' : '(a) A light crossbow and 20 bolts or (b) hand crossbow and 20 bolts',
-				'_3' : '(a) [[Studded leather|studdedleatherarmor]] armor or (b) [[scale mail||scalemailarmor]] armor',
-				'_4' : 'An [[Explorer\'s Pack|explorerspack]]'
-			}
-		},
-		'Multiclassing' :
-		{
-			'_special' : 'ignoreinchargen',
-			'Prerequisite' : 'Strength 13 or Dexterity 13, and Wisdom 13',
-			'Proficiencies' : 'Light armor, medium armor, simple weapons, martial weapons, alchemical supplies'
-		}
+		'Blood Hunter Order' : [ 'Order of the Ghostslayer', 'Order of the Profane Soul', 'Order of the Mutant' ]
 	}
 ]
 
@@ -3095,988 +2015,779 @@ var backgrounds =
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Acolyte',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Insight, Religion',
-			'Languages' : 'Two of your choice',
-			'Equipment' : 'A holy symbol (a gift to you when you entered the priesthood), a prayer book or prayer wheel, 5 sticks of incense, vestments, a set of common clothes, and a belt pouch containing 15 gp',
-			'Shelter of the Faithful' : 'As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle. You might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple.'
-		},
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I idolize a particular hero of my faith, and constantly refer to that person\'s deeds and example.',
-				'I can find common ground between the fiercest enemies, empathizing with them and always working toward peace.',
-				'I see omens in every event and action. The gods try to speak to us, we just need to listen.',
-				'Nothing can shake my optimistic attitude.',
-				'I quote (or misquote) sacred texts and proverbs in almost every situation.',
-				'I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods.',
-				'I\'ve enjoyed fine food, drink, and high society among my temple\'s elite. Rough living grates on me.',
-				'I\'ve spent so long in the temple that I have little practical experience dealing with people in the outside world.'
-			],
-			'Ideal' :
-			[
-				'Tradition. The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)',
-				'Charity. I always try to help those in need, no matter what the personal cost. (Good)',
-				'Change. We must help bring about the changes the gods are constantly working in the world. (Chaotic)',
-				'Power. I hope to one day rise to the top of my faith\'s religious hierarchy. (Lawful)',
-				'Faith. I trust that my deity will guide my actions, I have faith that if I work hard, things will go well. (Lawful)',
-				'Aspiration. I seek to prove myself worthy of my god\'s favor by matching my actions against his or her teachings. (Any)'
-			],
-			'Bond' :
-			[
-				'I would die to recover an ancient relic of my faith that was lost long ago.',
-				'I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.',
-				'I owe my life to the priest who took me in when my parents died.',
-				'Everything I do is for the common people.',
-				'I will do anything to protect the temple where I served.',
-				'I seek to preserve a sacred text that my enemies consider heretical and seek to destroy.'
-			],
-			'Flaw' :
-			[
-				'I judge others harshly, and myself even more severely.',
-				'I put too much trust in those who wield power within my temple\'s hierarchy.',
-				'My piety sometimes leads me to blindly trust those that profess faith in my god.',
-				'I am inflexible in my thinking.',
-				'I am suspicious of strangers and expect the worst of them.',
-				'Once I pick a goal, I become obsessed with it to the detriment of everything else in my life.'
-			],
-			'Became an acolyte because' :
-			[
-				'I ran away from home at an early age and found refuge in a temple.',
-				'My family gave me to a temple, since they were unable or unwilling to care for me.',
-				'I grew up in a household with strong religious convictions. Entering the service of one or more gods seemed natural.',
-				'An impassioned sermon struck a chord deep in my soul and moved me to serve the faith.',
-				'I followed a childhood friend, a respected acquaintance, or someone I loved into religious service. ',
-				'After encountering a true servant of the gods, I was so inspired that I immediately entered the service of a religious group.'
-			]
-		}
+		'Trait' :
+		[
+			'I idolize a particular hero of my faith, and constantly refer to that person\'s deeds and example.',
+			'I can find common ground between the fiercest enemies, empathizing with them and always working toward peace.',
+			'I see omens in every event and action. The gods try to speak to us, we just need to listen.',
+			'Nothing can shake my optimistic attitude.',
+			'I quote (or misquote) sacred texts and proverbs in almost every situation.',
+			'I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods.',
+			'I\'ve enjoyed fine food, drink, and high society among my temple\'s elite. Rough living grates on me.',
+			'I\'ve spent so long in the temple that I have little practical experience dealing with people in the outside world.'
+		],
+		'Ideal' :
+		[
+			'Tradition. The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)',
+			'Charity. I always try to help those in need, no matter what the personal cost. (Good)',
+			'Change. We must help bring about the changes the gods are constantly working in the world. (Chaotic)',
+			'Power. I hope to one day rise to the top of my faith\'s religious hierarchy. (Lawful)',
+			'Faith. I trust that my deity will guide my actions, I have faith that if I work hard, things will go well. (Lawful)',
+			'Aspiration. I seek to prove myself worthy of my god\'s favor by matching my actions against his or her teachings. (Any)'
+		],
+		'Bond' :
+		[
+			'I would die to recover an ancient relic of my faith that was lost long ago.',
+			'I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.',
+			'I owe my life to the priest who took me in when my parents died.',
+			'Everything I do is for the common people.',
+			'I will do anything to protect the temple where I served.',
+			'I seek to preserve a sacred text that my enemies consider heretical and seek to destroy.'
+		],
+		'Flaw' :
+		[
+			'I judge others harshly, and myself even more severely.',
+			'I put too much trust in those who wield power within my temple\'s hierarchy.',
+			'My piety sometimes leads me to blindly trust those that profess faith in my god.',
+			'I am inflexible in my thinking.',
+			'I am suspicious of strangers and expect the worst of them.',
+			'Once I pick a goal, I become obsessed with it to the detriment of everything else in my life.'
+		],
+		'Became an acolyte because' :
+		[
+			'I ran away from home at an early age and found refuge in a temple.',
+			'My family gave me to a temple, since they were unable or unwilling to care for me.',
+			'I grew up in a household with strong religious convictions. Entering the service of one or more gods seemed natural.',
+			'An impassioned sermon struck a chord deep in my soul and moved me to serve the faith.',
+			'I followed a childhood friend, a respected acquaintance, or someone I loved into religious service. ',
+			'After encountering a true servant of the gods, I was so inspired that I immediately entered the service of a religious group.'
+		]
 	},
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Charlatan',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Deception, Sleight of Hand',
-			'Tool Proficiencies' : 'Disguise Kit, Forgery Kit',
-			'Equipment' : 'A set of fine clothes, a disguise kit, tools of the con of your choice (ten stoppered bottles filled with colored liquid, a set of weighted dice, a deck of marked cards, or a signet ring of an imaginary duke), and a belt pouch containing 15 gp',
-			'False Identity' : 'You have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona. Additionally, you can forge documents including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy.'
-		},
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I fall in and out of love easily, and am always pursuing someone.',
-				'I have a joke for every occasion, especially occasions where humor is inappropriate.',
-				'Flattery is my preferred trick for getting what I want.',
-				'I\'m a born gambler who can\'t resist taking a risk for a potential payoff.',
-				'I lie about almost everything, even when there\'s no good reason to.',
-				'Sarcasm and insults are my weapons of choice.',
-				'I keep multiple holy symbols on me and invoke whatever deity might come in useful at any given moment.',
-				'I pocket anything I see that might have some value.'
-			],
-			'Ideal' :
-			[
-				'Independence. I am a free spirit- no one tells me what to do. (Chaotic)',
-				'Fairness. I never target people who can\'t afford to lose a few coins. (Lawful)',
-				'Charity. I distribute the money I acquire to the people who really need it. (Good)',
-				'Creativity. I never run the same con twice. (Chaotic)',
-				'Friendship. Material goods come and go. Bonds of friendship last forever. (Good)',
-				'Aspiration. I\'m determined to make something of myself. (Any)'
-			],
-			'Bond' :
-			[
-				'I fleeced the wrong person and must work to ensure that this individual never crosses paths with me or those I care about.',
-				'I owe everything to my mentor- a horrible person who\'s probably rotting in jail somewhere.',
-				'Somewhere out there, I have a child who doesn\'t know me. I\'m making the world better for him or her.',
-				'I come from a noble family, and one day I\'ll reclaim my lands and title from those who stole them from me.',
-				'A powerful person killed someone I love. Some day soon, I\'ll have my revenge.',
-				'I swindled and ruined a person who didn\'t deserve it. I seek to atone for my misdeeds but might never be able to forgive myself.'
-			],
-			'Flaw' :
-			[
-				'I can\'t resist a pretty face.',
-				'I\'m always in debt. I spend my ill-gotten gains on decadent luxuries faster than I bring them in.',
-				'I\'m convinced that no one could ever fool me the way I fool others.',
-				'I\'m too greedy for my own good. I can\'t resist taking a risk if there\'s money involved.',
-				'I can\'t resist swindling people who are more powerful than me.',
-				'I hate to admit it and will hate myself for it, but I\'ll run and preserve my own hide if the going gets tough.'
-			],
-			'Scam' :
-			[
-				'I cheat at games of chance.',
-				'I shave coins or forge documents.',
-				'I insinuate myself into people\'s lives to prey on their weakness and secure their fortunes.',
-				'I put on new identities like clothes.',
-				'I run sleight-of-hand cons on street corners.',
-				'I convince people that worthless junk is worth their hard-earned money.'
-			],
-			'Became a charlatan because' :
-			[
-				'I was left to my own devices, and my knack for manipulating others helped me survive.',
-				'I learned early on that people are gullible and easy to exploit.',
-				'I often got in trouble, but I managed to talk my way out of it every time.',
-				'I took up with a confidence artist, from whom I learned my craft.',
-				'After a charlatan fleeced my family, I decided to learn the trade so I would never be fooled by such deception again.',
-				'I was poor or I feared becoming poor, so I learned the tricks I needed to keep myself out of poverty.'
-			]
-		}
+		'Trait' :
+		[
+			'I fall in and out of love easily, and am always pursuing someone.',
+			'I have a joke for every occasion, especially occasions where humor is inappropriate.',
+			'Flattery is my preferred trick for getting what I want.',
+			'I\'m a born gambler who can\'t resist taking a risk for a potential payoff.',
+			'I lie about almost everything, even when there\'s no good reason to.',
+			'Sarcasm and insults are my weapons of choice.',
+			'I keep multiple holy symbols on me and invoke whatever deity might come in useful at any given moment.',
+			'I pocket anything I see that might have some value.'
+		],
+		'Ideal' :
+		[
+			'Independence. I am a free spirit- no one tells me what to do. (Chaotic)',
+			'Fairness. I never target people who can\'t afford to lose a few coins. (Lawful)',
+			'Charity. I distribute the money I acquire to the people who really need it. (Good)',
+			'Creativity. I never run the same con twice. (Chaotic)',
+			'Friendship. Material goods come and go. Bonds of friendship last forever. (Good)',
+			'Aspiration. I\'m determined to make something of myself. (Any)'
+		],
+		'Bond' :
+		[
+			'I fleeced the wrong person and must work to ensure that this individual never crosses paths with me or those I care about.',
+			'I owe everything to my mentor- a horrible person who\'s probably rotting in jail somewhere.',
+			'Somewhere out there, I have a child who doesn\'t know me. I\'m making the world better for him or her.',
+			'I come from a noble family, and one day I\'ll reclaim my lands and title from those who stole them from me.',
+			'A powerful person killed someone I love. Some day soon, I\'ll have my revenge.',
+			'I swindled and ruined a person who didn\'t deserve it. I seek to atone for my misdeeds but might never be able to forgive myself.'
+		],
+		'Flaw' :
+		[
+			'I can\'t resist a pretty face.',
+			'I\'m always in debt. I spend my ill-gotten gains on decadent luxuries faster than I bring them in.',
+			'I\'m convinced that no one could ever fool me the way I fool others.',
+			'I\'m too greedy for my own good. I can\'t resist taking a risk if there\'s money involved.',
+			'I can\'t resist swindling people who are more powerful than me.',
+			'I hate to admit it and will hate myself for it, but I\'ll run and preserve my own hide if the going gets tough.'
+		],
+		'Scam' :
+		[
+			'I cheat at games of chance.',
+			'I shave coins or forge documents.',
+			'I insinuate myself into people\'s lives to prey on their weakness and secure their fortunes.',
+			'I put on new identities like clothes.',
+			'I run sleight-of-hand cons on street corners.',
+			'I convince people that worthless junk is worth their hard-earned money.'
+		],
+		'Became a charlatan because' :
+		[
+			'I was left to my own devices, and my knack for manipulating others helped me survive.',
+			'I learned early on that people are gullible and easy to exploit.',
+			'I often got in trouble, but I managed to talk my way out of it every time.',
+			'I took up with a confidence artist, from whom I learned my craft.',
+			'After a charlatan fleeced my family, I decided to learn the trade so I would never be fooled by such deception again.',
+			'I was poor or I feared becoming poor, so I learned the tricks I needed to keep myself out of poverty.'
+		]
 	},
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Criminal',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Deception, Stealth',
-			'Tool Proficiencies': 'One type of gaming set, thieves\' tools',
-			'Equipment': 'A crowbar, a set of dark common clothes including a hood, and a belt pouch containing 15 GP.',
-			'Criminal Contact' : 'You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals. You know how to get messages to and from your contact, even over great distances; specifically, you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you.'
-		},
-		'Optional Variant' : 'Spy',
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I always have a plan for what to do when things go wrong.',
-				'I am always calm, no matter what the situation. I never raise my voice or let emotions control me.',
-				'The first thing I do in a new place is note the locations of everything valuable- or where such things could be hidden.',
-				'I would rather make a new friend than a new enemy.',
-				'I am incredibly slow to trust. Those who seem the fairest often have the most to hide.',
-				'I don\'t pay attention to the risks in a situation. Never tell me the odds.',
-				'The best way to get me to do something is to tell me I can\'t do it.',
-				'I blow up at the slightest insult.'
-			],
-			'Ideal' :
-			[
-				'Honor.  I don\'t steal from others in the trade. (Lawful)',
-				'Freedom. Chains are meant to be broken, as are those who would forge them. (Chaotic)',
-				'Charity.  I steal from the wealthy so that I can help people in need. (Good)',
-				'Greed.  I will do whatever it takes to become wealthy. (Evil)',
-				'People. I\'m loyal to my friends, not to any ideals, and everyone else can take a trip down the Styx for all I care. (Neutral)',
-				'Redemption. There\'s a spark of good in everyone. (Good)'
-			],
-			'Bond' :
-			[
-				'I\'m trying to pay off an old debt I owe to a generous benefactor.',
-				'My ill-gotten gains go to support my family.',
-				'Something important was taken from me, and I aim to steal it back.',
-				'I will become the greatest thief that ever lived.',
-				'I\'m guilty of a terrible crime. I hope I can redeem myself for it.',
-				'Someone I loved died because of a mistake I made. That will never happen again.'
-			],
-			'Flaw' :
-			[
-				'When I see something valuable, I can\'t think about anything but how to steal it.',
-				'When faced with a choice between money and my friends, I usually choose the money.',
-				'If there\'s a plan, I\'ll forget it. If I don\'t forget it, I\'ll ignore it.',
-				'I have a "tell” that reveals when I\'m lying.',
-				'I turn tail and run when things look bad.',
-				'An innocent person is in prison for a crime that I committed. I\'m okay with that.'
-			],
-			'Became a criminal because' :
-			[
-				'I resented authority in my younger days and saw a life of crime as the best way to fight against tyranny and oppression',
-				'Necessity forced me to take up the life, since it was the only way I could survive.',
-				'I fell in with a gang of reprobates and ne\'er-do-wells, and I learned my specialty from them.',
-				'A parent or relative taught me my criminal specialty to prepare me for the family business.', 'I left home and found a place in a thieves\' guild or some other criminal organization.',
-				'I was always bored, so I turned to crime to pass the time and discovered I was quite good at it.'
-			]
-		}
+		'Trait' :
+		[
+			'I always have a plan for what to do when things go wrong.',
+			'I am always calm, no matter what the situation. I never raise my voice or let emotions control me.',
+			'The first thing I do in a new place is note the locations of everything valuable- or where such things could be hidden.',
+			'I would rather make a new friend than a new enemy.',
+			'I am incredibly slow to trust. Those who seem the fairest often have the most to hide.',
+			'I don\'t pay attention to the risks in a situation. Never tell me the odds.',
+			'The best way to get me to do something is to tell me I can\'t do it.',
+			'I blow up at the slightest insult.'
+		],
+		'Ideal' :
+		[
+			'Honor. I don\'t steal from others in the trade. (Lawful)',
+			'Freedom. Chains are meant to be broken, as are those who would forge them. (Chaotic)',
+			'Charity. I steal from the wealthy so that I can help people in need. (Good)',
+			'Greed. I will do whatever it takes to become wealthy. (Evil)',
+			'People. I\'m loyal to my friends, not to any ideals, and everyone else can take a trip down the Styx for all I care. (Neutral)',
+			'Redemption. There\'s a spark of good in everyone. (Good)'
+		],
+		'Bond' :
+		[
+			'I\'m trying to pay off an old debt I owe to a generous benefactor.',
+			'My ill-gotten gains go to support my family.',
+			'Something important was taken from me, and I aim to steal it back.',
+			'I will become the greatest thief that ever lived.',
+			'I\'m guilty of a terrible crime. I hope I can redeem myself for it.',
+			'Someone I loved died because of a mistake I made. That will never happen again.'
+		],
+		'Flaw' :
+		[
+			'When I see something valuable, I can\'t think about anything but how to steal it.',
+			'When faced with a choice between money and my friends, I usually choose the money.',
+			'If there\'s a plan, I\'ll forget it. If I don\'t forget it, I\'ll ignore it.',
+			'I have a "tell” that reveals when I\'m lying.',
+			'I turn tail and run when things look bad.',
+			'An innocent person is in prison for a crime that I committed. I\'m okay with that.'
+		],
+		'Became a criminal because' :
+		[
+			'I resented authority in my younger days and saw a life of crime as the best way to fight against tyranny and oppression',
+			'Necessity forced me to take up the life, since it was the only way I could survive.',
+			'I fell in with a gang of reprobates and ne\'er-do-wells, and I learned my specialty from them.',
+			'A parent or relative taught me my criminal specialty to prepare me for the family business.', 'I left home and found a place in a thieves\' guild or some other criminal organization.',
+			'I was always bored, so I turned to crime to pass the time and discovered I was quite good at it.'
+		],
+		'Optional Variant' : 'Spy'
 	},
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Entertainer',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Acrobatics, Performance',
-			'Tool Proficiencies' : 'Disguise kit, one type of musical instrument',
-			'Equipment' : 'A musical instrument (one of your choice), the favor of an admirer (love letter, lock of hair, or trinket), a costume, and a belt pouch containing 15 gp',
-			'By Popular Demand' : 'You can always find a place to perform, usually in an inn or tavern but possibly with a circus, at a theater, or even in a noble\'s court. At such a place, you receive free lodging and food of a modest or comfortable standard (depending on the quality of the establishment), as long as you perform each night. In addition, your performance makes you something of a local figure. When strangers recognize you in a town where you have performed, they typically take a liking to you.'
-		},
-		'Optional Variant' : 'Gladiator**Using your By Popular Demand feature, you can find a place to perform in any place that features combat for entertainment- perhaps a gladiatorial arena or secret pit fighting club. You can replace the musical instrument in your equipment package with an inexpensive but unusual weapon, such as a trident or net.',
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I know a story relevant to almost every situation.',
-				'Whenever I come to a new place, I collect local rumors and spread gossip.',
-				'I\'m a hopeless romantic, always searching for that "special someone.”',
-				'Nobody stays angry at me or around me for long, since I can defuse any amount of tension.',
-				'I love a good insult, even one directed at me.',
-				'I get bitter if I\'m not the center of attention.',
-				'I\'ll settle for nothing less than perfection.',
-				'I change my mood or my mind as quickly as I change key in a song.'
-			],
-			'Ideal' :
-			[
-				'Beauty. When I perform, I make the world better than it was. (Good)',
-				'Tradition. The stories, legends, and songs of the past must never be forgotten, for they teach us who we are. (Lawful)',
-				'Creativity. The world is in need of new ideas and bold action. (Chaotic)',
-				'Greed. I\'m only in it for the money and fame. (Evil)',
-				'People. I like seeing the smiles on people\'s faces when I perform. That\'s all that matters. (Neutral)',
-				'Honesty. Art should reflect the soul; it should come from within and reveal who we really are. (Any)'
-			],
-			'Bond' :
-			[
-				'My instrument is my most treasured possession, and it reminds me of someone I love.',
-				'Someone stole my precious instrument, and someday I\'ll get it back.',
-				'I want to be famous, whatever it takes.',
-				'I idolize a hero of the old tales and measure my deeds against that person\'s.',
-				'I will do anything to prove myself superior to my hated rival.',
-				'I would do anything for the other members of my old troupe.'
-			],
-			'Flaw' :
-			[
-				'I\'ll do anything to win fame and renown.',
-				'I\'m a sucker for a pretty face.',
-				'A scandal prevents me from ever going home again. That kind of trouble seems to follow me around.',
-				'I once satirized a noble who still wants my head. It was a mistake that I will likely repeat.',
-				'I have trouble keeping my true feelings hidden. My sharp tongue lands me in trouble.',
-				'Despite my best efforts, I am unreliable to my friends.'
-			],
-			'Routine' : [ 'Actor', 'Instrumentalist', 'Dancer', 'Poet', 'Fire-eater', 'Singer', 'Jester', 'Storyteller', 'Juggler', 'Tumbler' ],
-			'Became an entertainer because' :
-			[
-				'Members of my family made ends meet by performing, so it was fitting for me to follow their example.',
-				'I always had a keen insight into other people, enough so that I could make them laugh or cry with my stories or songs.',
-				'I ran away from home to follow a minstrel troupe.',
-				'I saw a bard perform once, and I knew from that moment on what I was born to do.',
-				'I earned coin by performing on street corners and eventually made a name for myself.',
-				'A traveling entertainer took me in and taught me the trade.'
-			]
-		}
+		'Trait' :
+		[
+			'I know a story relevant to almost every situation.',
+			'Whenever I come to a new place, I collect local rumors and spread gossip.',
+			'I\'m a hopeless romantic, always searching for that "special someone.”',
+			'Nobody stays angry at me or around me for long, since I can defuse any amount of tension.',
+			'I love a good insult, even one directed at me.',
+			'I get bitter if I\'m not the center of attention.',
+			'I\'ll settle for nothing less than perfection.',
+			'I change my mood or my mind as quickly as I change key in a song.'
+		],
+		'Ideal' :
+		[
+			'Beauty. When I perform, I make the world better than it was. (Good)',
+			'Tradition. The stories, legends, and songs of the past must never be forgotten, for they teach us who we are. (Lawful)',
+			'Creativity. The world is in need of new ideas and bold action. (Chaotic)',
+			'Greed. I\'m only in it for the money and fame. (Evil)',
+			'People. I like seeing the smiles on people\'s faces when I perform. That\'s all that matters. (Neutral)',
+			'Honesty. Art should reflect the soul; it should come from within and reveal who we really are. (Any)'
+		],
+		'Bond' :
+		[
+			'My instrument is my most treasured possession, and it reminds me of someone I love.',
+			'Someone stole my precious instrument, and someday I\'ll get it back.',
+			'I want to be famous, whatever it takes.',
+			'I idolize a hero of the old tales and measure my deeds against that person\'s.',
+			'I will do anything to prove myself superior to my hated rival.',
+			'I would do anything for the other members of my old troupe.'
+		],
+		'Flaw' :
+		[
+			'I\'ll do anything to win fame and renown.',
+			'I\'m a sucker for a pretty face.',
+			'A scandal prevents me from ever going home again. That kind of trouble seems to follow me around.',
+			'I once satirized a noble who still wants my head. It was a mistake that I will likely repeat.',
+			'I have trouble keeping my true feelings hidden. My sharp tongue lands me in trouble.',
+			'Despite my best efforts, I am unreliable to my friends.'
+		],
+		'Routine' : [ 'Actor', 'Instrumentalist', 'Dancer', 'Poet', 'Fire-eater', 'Singer', 'Jester', 'Storyteller', 'Juggler', 'Tumbler' ],
+		'Became an entertainer because' :
+		[
+			'Members of my family made ends meet by performing, so it was fitting for me to follow their example.',
+			'I always had a keen insight into other people, enough so that I could make them laugh or cry with my stories or songs.',
+			'I ran away from home to follow a minstrel troupe.',
+			'I saw a bard perform once, and I knew from that moment on what I was born to do.',
+			'I earned coin by performing on street corners and eventually made a name for myself.',
+			'A traveling entertainer took me in and taught me the trade.'
+		],
+		'Optional Variant' : 'Gladiator'
 	},
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Folk Hero',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Animal Handling, Survival',
-			'Tool Proficiencies' : 'One type of artisan\'s tools, vehicles (land)',
-			'Equipment' : 'A set of artisan\'s tools (one of your choice), a shovel, an iron pot, a set of common clothes, and a belt pouch containing 10 gp',
-			'Rustic Hospitality' : 'Since you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them. They will shield you from the law or anyone else searching for you, though they will not risk their lives for you.'
-		},
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I judge people by their actions, not their words.',
-				'If someone is in trouble, I\'m always ready to lend help.',
-				'When I set my mind to something, I follow through no matter what gets in my way.',
-				'I have a strong sense of fair play and always try to find the most equitable solution to arguments.',
-				'I\'m confident in my own abilities and do what I can to instill confidence in others.',
-				'Thinking is for other people. I prefer action.',
-				'I misuse long words in an attempt to sound smarter.',
-				'I get bored easily. When am I going to get on with my destiny?'
-			],
-			'Ideal' :
-			[
-				'Respect. People deserve to be treated with dignity and respect. (Good)',
-				'Fairness. No one should get preferential treatment before the law, and no one is above the law. (Lawful)',
-				'Freedom. Tyrants must not be allowed to oppress the people.  (Chaotic)',
-				'Might. If I become strong, I can take what I want- what I deserve. (Evil)',
-				'Sincerity. There\'s no good in pretending to be something I\'m not. (Neutral)',
-				'Destiny. Nothing and no one can steer me away from my higher calling. (Any)'
-			],
-			'Bond' :
-			[
-				'I have a family, but I have no idea where they are. One day, I hope to see them again.',
-				'I worked the land, I love the land, and I will protect the land.',
-				'A proud noble once gave me a horrible beating, and I will take my revenge on any bully I encounter.',
-				'My tools are symbols of my past life, and I carry them so that I will never forget my roots.',
-				'I protect those who cannot protect themselves.',
-				'I wish my childhood sweetheart had come with me to pursue my destiny.'
-			],
-			'Flaw' :
-			[
-				'The tyrant who rules my land will stop at nothing to see me killed.',
-				'I\'m convinced of the significance of my destiny, and blind to my shortcomings and the risk of failure.',
-				'The people who knew me when I was young know my shameful secret, so I can never go home again.',
-				'I have a weakness for the vices of the city, especially hard drink.',
-				'Secretly, I believe that things would be better if I were a tyrant lording over the land.',
-				'I have trouble trusting in my allies.'
-			],
-			'Defining Event' :
-			[
-				'I stood up to a tyrant\'s agents.',
-				'I saved people during a natural disaster.',
-				'I stood alone against a terrible monster.',
-				'I stole from a corrupt merchant to help the poor.',
-				'I led a militia to fight off an invading army.',
-				'I broke into a tyrant\'s castle and stole weapons to arm the people.',
-				'I trained the peasantry to use farm implements as weapons against a tyrant\'s soldiers.',
-				'A lord rescinded an unpopular decree after I led a symbolic act of protect against it.',
-				'A celestial, fey, or similar creature gave me a blessing or revealed my secret origin.',
-				'Recruited into a lord\'s army, I rose to leadership and was commended for my heroism.'
-			],
-			'Became a folk hero because' :
-			[
-				'I learned what was right and wrong from my family.',
-				'I was always enamored by tales of heroes and wished I could be something more than ordinary.',
-				'I hated my mundane life, so when it was time for someone to step up and do the right thing, I took my chance.',
-				'A parent or one of my relatives was an adventurer, and I was inspired by that person\'s courage.',
-				'A mad old hermit spoke a prophecy when I was born, saying that I would accomplish great things.',
-				'I have always stood up for those who are weaker than I am.'
-			]
-		}
+		'Trait' :
+		[
+			'I judge people by their actions, not their words.',
+			'If someone is in trouble, I\'m always ready to lend help.',
+			'When I set my mind to something, I follow through no matter what gets in my way.',
+			'I have a strong sense of fair play and always try to find the most equitable solution to arguments.',
+			'I\'m confident in my own abilities and do what I can to instill confidence in others.',
+			'Thinking is for other people. I prefer action.',
+			'I misuse long words in an attempt to sound smarter.',
+			'I get bored easily. When am I going to get on with my destiny?'
+		],
+		'Ideal' :
+		[
+			'Respect. People deserve to be treated with dignity and respect. (Good)',
+			'Fairness. No one should get preferential treatment before the law, and no one is above the law. (Lawful)',
+			'Freedom. Tyrants must not be allowed to oppress the people. (Chaotic)',
+			'Might. If I become strong, I can take what I want- what I deserve. (Evil)',
+			'Sincerity. There\'s no good in pretending to be something I\'m not. (Neutral)',
+			'Destiny. Nothing and no one can steer me away from my higher calling. (Any)'
+		],
+		'Bond' :
+		[
+			'I have a family, but I have no idea where they are. One day, I hope to see them again.',
+			'I worked the land, I love the land, and I will protect the land.',
+			'A proud noble once gave me a horrible beating, and I will take my revenge on any bully I encounter.',
+			'My tools are symbols of my past life, and I carry them so that I will never forget my roots.',
+			'I protect those who cannot protect themselves.',
+			'I wish my childhood sweetheart had come with me to pursue my destiny.'
+		],
+		'Flaw' :
+		[
+			'The tyrant who rules my land will stop at nothing to see me killed.',
+			'I\'m convinced of the significance of my destiny, and blind to my shortcomings and the risk of failure.',
+			'The people who knew me when I was young know my shameful secret, so I can never go home again.',
+			'I have a weakness for the vices of the city, especially hard drink.',
+			'Secretly, I believe that things would be better if I were a tyrant lording over the land.',
+			'I have trouble trusting in my allies.'
+		],
+		'Defining Event' :
+		[
+			'I stood up to a tyrant\'s agents.',
+			'I saved people during a natural disaster.',
+			'I stood alone against a terrible monster.',
+			'I stole from a corrupt merchant to help the poor.',
+			'I led a militia to fight off an invading army.',
+			'I broke into a tyrant\'s castle and stole weapons to arm the people.',
+			'I trained the peasantry to use farm implements as weapons against a tyrant\'s soldiers.',
+			'A lord rescinded an unpopular decree after I led a symbolic act of protect against it.',
+			'A celestial, fey, or similar creature gave me a blessing or revealed my secret origin.',
+			'Recruited into a lord\'s army, I rose to leadership and was commended for my heroism.'
+		],
+		'Became a folk hero because' :
+		[
+			'I learned what was right and wrong from my family.',
+			'I was always enamored by tales of heroes and wished I could be something more than ordinary.',
+			'I hated my mundane life, so when it was time for someone to step up and do the right thing, I took my chance.',
+			'A parent or one of my relatives was an adventurer, and I was inspired by that person\'s courage.',
+			'A mad old hermit spoke a prophecy when I was born, saying that I would accomplish great things.',
+			'I have always stood up for those who are weaker than I am.'
+		]
 	},
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Guild Artisan',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Insight, Persuasion',
-			'Tool Proficiencies' : 'One type of artisan\'s tools',
-			'Languages' : 'One of your choice',
-			'Equipment' : 'A set of artisan\'s tools (one of your choice), a letter of introduction from your guild, a set of traveler\'s clothes, and a belt pouch containing 15 gp',
-			'Guild Membership' : 'As an established and respected member of a guild, you can rely on certain benefits that membership provides. Your fellow guild members will provide you with lodging and food if necessary, and pay for your funeral if needed. In some cities and towns, a guildhall offers a central place to meet other members of your profession, which can be a good place to meet potential patrons, allies, or hirelings. Guilds often wield tremendous political power. If you are accused of a crime, your guild will support you if a good case can be made for your innocence or the crime is justifiable. You can also gain access to powerful political figures through the guild, if you are a member in good standing. Such connections might require the donation of money or magic items to the guild\'s coffers. You must pay dues of 5 gp per month to the guild. If you miss payments, you must make up back dues to remain in the guild\'s good graces.'
-		},
-		'Optional Variant' : 'Guild Merchant**Rather than proficiency with artisan\'s tools, you might be proficient with navigator\'s tools or an additional language. And instead of artisan\'s tools, you can start with a mule and a cart.',
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I believe that anything worth doing is worth doing right. I can\'t help it- I\'m a perfectionist.',
-				'I\'m a snob who looks down on those who can\'t appreciate fine art.',
-				'I always want to know how things work and what makes people tick.',
-				'I\'m full of witty aphorisms and have a proverb for every occasion.',
-				'I\'m rude to people who lack my commitment to hard work and fair play.',
-				'I like to talk at length about my profession.',
-				'I don\'t part with my money easily and will haggle tirelessly to get the best deal possible.',
-				'I\'m well known for my work, and I want to make sure everyone appreciates it. I\'m always taken aback when people haven\'t heard of me.'
-			],
-			'Ideal' :
-			[
-				'Community. It is the duty of all civilized people to strengthen the bonds of community and the security of civilization. (Lawful)',
-				'Generosity. My talents were given to me so that I could use them to benefit the world. (Good)',
-				'Freedom. Everyone should be free to pursue his or her own livelihood. (Chaotic)',
-				'Greed. I\'m only in it for the money. (Evil)',
-				'People. I\'m committed to the people I care about, not to ideals. (Neutral)',
-				'Aspiration. I work hard to be the best there is at my craft. (Any)'
-			],
-			'Bond' :
-			[
-				'The workshop where I learned my trade is the most important place in the world to me.',
-				'I created a great work for someone, and then found them unworthy to receive it. I\'m still looking for someone worthy.',
-				'I owe my guild a great debt for forging me into the person I am today.',
-				'I pursue wealth to secure someone\'s love.',
-				'One day I will return to my guild and prove that I am the greatest artisan of them all.',
-				'I will get revenge on the evil forces that destroyed my place of business and ruined my livelihood.'
-			],
-			'Flaw' :
-			[
-				'I\'ll do anything to get my hands on something rare or priceless.',
-				'I\'m quick to assume that someone is trying to cheat me.',
-				'No one must ever learn that I once stole money from guild coffers.',
-				'I\'m never satisfied with what I have- I always want more.',
-				'I would kill to acquire a noble title.',
-				'I\'m horribly jealous of anyone who can outshine my handiwork. Everywhere I go, I\'m surrounded by rivals.'
-			],
-			'Guild Business' :
-				[ 'Alchemists and apothecaries', 'Armorers, locksmiths, and finesmiths', 'Brewers, distillers, and vintners', 'Calligraphers, scribes, and scriveners', 'Carpenters, roofers, and plasterers', 'Cartographers, surveyors, and chart-makers', 'Cobblers and shoemakers', 'Cooks and bakers', 'Glassblowers and glaziers', 'Jewelers and gemcutters', 'Leatherworkers, skinners, and tanners', 'Masons and stonecutters', 'Painters, limners, and sign-makers', 'Potters and tile-makers', 'Shipwrights and sailmakers', 'Smiths and metal-forgers', 'Tinkers, pewterers, and casters', 'Wagon-makers and wheelwrights', 'Weavers and dyers', 'Woodcarvers, coopers, and bowyers' ],
-			'Became a guild artisan because' :
-			[
-				'I was apprenticed to a master who taught me the guild\'s business.',
-				'I helped a guild artisan keep a secret or complete a task, and in return I was taken on as an apprentice.',
-				'One of my family members who belonged to the guild made a place for me.',
-				'I was always good with my hands, so I took the opportunity to learn a trade.',
-				'I wanted to get away from my home situation and start a new life.',
-				'I learned the essentials of my craft from a mentor but had to join the guild to finish my training.'
-			]
-		}
+		'Trait' :
+		[
+			'I believe that anything worth doing is worth doing right. I can\'t help it- I\'m a perfectionist.',
+			'I\'m a snob who looks down on those who can\'t appreciate fine art.',
+			'I always want to know how things work and what makes people tick.',
+			'I\'m full of witty aphorisms and have a proverb for every occasion.',
+			'I\'m rude to people who lack my commitment to hard work and fair play.',
+			'I like to talk at length about my profession.',
+			'I don\'t part with my money easily and will haggle tirelessly to get the best deal possible.',
+			'I\'m well known for my work, and I want to make sure everyone appreciates it. I\'m always taken aback when people haven\'t heard of me.'
+		],
+		'Ideal' :
+		[
+			'Community. It is the duty of all civilized people to strengthen the bonds of community and the security of civilization. (Lawful)',
+			'Generosity. My talents were given to me so that I could use them to benefit the world. (Good)',
+			'Freedom. Everyone should be free to pursue his or her own livelihood. (Chaotic)',
+			'Greed. I\'m only in it for the money. (Evil)',
+			'People. I\'m committed to the people I care about, not to ideals. (Neutral)',
+			'Aspiration. I work hard to be the best there is at my craft. (Any)'
+		],
+		'Bond' :
+		[
+			'The workshop where I learned my trade is the most important place in the world to me.',
+			'I created a great work for someone, and then found them unworthy to receive it. I\'m still looking for someone worthy.',
+			'I owe my guild a great debt for forging me into the person I am today.',
+			'I pursue wealth to secure someone\'s love.',
+			'One day I will return to my guild and prove that I am the greatest artisan of them all.',
+			'I will get revenge on the evil forces that destroyed my place of business and ruined my livelihood.'
+		],
+		'Flaw' :
+		[
+			'I\'ll do anything to get my hands on something rare or priceless.',
+			'I\'m quick to assume that someone is trying to cheat me.',
+			'No one must ever learn that I once stole money from guild coffers.',
+			'I\'m never satisfied with what I have- I always want more.',
+			'I would kill to acquire a noble title.',
+			'I\'m horribly jealous of anyone who can outshine my handiwork. Everywhere I go, I\'m surrounded by rivals.'
+		],
+		'Guild Business' :
+			[ 'Alchemists and apothecaries', 'Armorers, locksmiths, and finesmiths', 'Brewers, distillers, and vintners', 'Calligraphers, scribes, and scriveners', 'Carpenters, roofers, and plasterers', 'Cartographers, surveyors, and chart-makers', 'Cobblers and shoemakers', 'Cooks and bakers', 'Glassblowers and glaziers', 'Jewelers and gemcutters', 'Leatherworkers, skinners, and tanners', 'Masons and stonecutters', 'Painters, limners, and sign-makers', 'Potters and tile-makers', 'Shipwrights and sailmakers', 'Smiths and metal-forgers', 'Tinkers, pewterers, and casters', 'Wagon-makers and wheelwrights', 'Weavers and dyers', 'Woodcarvers, coopers, and bowyers' ],
+		'Became a guild artisan because' :
+		[
+			'I was apprenticed to a master who taught me the guild\'s business.',
+			'I helped a guild artisan keep a secret or complete a task, and in return I was taken on as an apprentice.',
+			'One of my family members who belonged to the guild made a place for me.',
+			'I was always good with my hands, so I took the opportunity to learn a trade.',
+			'I wanted to get away from my home situation and start a new life.',
+			'I learned the essentials of my craft from a mentor but had to join the guild to finish my training.'
+		],
+		'Optional Variant' : 'Guild Merchant'
 	},
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Hermit',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Medicine, Religion',
-			'Tool Proficiencies' : 'Herbalism kit',
-			'Languages' : 'One of your choice',
-			'Equipment' : 'A scroll case stuffed full of notes from your studies or prayers, a winter blanket, a set of common clothes, a herbalism kit, and 5 gp',
-			'Discovery' : 'The quiet seclusion of your extended hermitage gave you access to a unique and powerful discovery. The exact nature of this revelation depends on the nature of your seclusion. It might be a great truth about the cosmos, the deities, the powerful beings of the outer planes, or the forces of nature. It could be a site that no one else has ever seen. You might have uncovered a fact that has long been forgotten, or unearthed some relic of the past that could rewrite history. It might be information that would be damaging to the people who consigned you to exile, and hence the reason for your return to society. Work with your DM to determine the details of your discovery and its impact on the campaign.'
-		},
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I\'ve been isolated for so long that I rarely speak, preferring gestures and the occasional grunt.',
-				'I am utterly serene, even in the face of disaster.',
-				'The leader of my community had something wise to say on every topic, and I am eager to share that wisdom.',
-				'I feel tremendous empathy for all who suffer.',
-				'I\'m oblivious to etiquette and social expectations.',
-				'I connect everything that happens to me to a grand, cosmic plan.',
-				'I often get lost in my own thoughts and contemplation, becoming oblivious to my surroundings.',
-				'I am working on a grand philosophical theory and love sharing my ideas.'
-			],
-			'Ideal' :
-			[
-				'Greater Good. My gifts are meant to be shared with all, not used for my own benefit. (Good)',
-				'Logic. Emotions must not cloud our sense of what is right and true, or our logical thinking. (Lawful)',
-				'Free Thinking. Inquiry and curiosity are the pillars of progress. (Chaotic)',
-				'Power. Solitude and contemplation are paths toward mystical or magical power. (Evil)',
-				'Live and Let Live. Meddling in the affairs of others only causes trouble.  (Neutral)',
-				'Self-Knowledge. If you know yourself, there\'s nothing left to know. (Any)'
-			],
-			'Bond' :
-			[
-				'Nothing is more important than the other members of my hermitage, order, or association.',
-				'I entered seclusion to hide from the ones who might still be hunting me. I must someday confront them.',
-				'I\'m still seeking the enlightenment I pursued in my seclusion, and it still eludes me.',
-				'I entered seclusion because I loved someone I could not have.',
-				'Should my discovery come to light, it could bring ruin to the world.',
-				'My isolation gave me great insight into a great evil that only I can destroy.'
-			],
-			'Flaw' :
-			[
-				'Now that I\'ve returned to the world, I enjoy its delights a little too much.',
-				'I harbor dark, bloodthirsty thoughts that my isolation and meditation failed to quell.',
-				'I am dogmatic in my thoughts and philosophy.',
-				'I let my need to win arguments overshadow friendships and harmony.',
-				'I\'d risk too much to uncover a lost bit of knowledge.',
-				'I like keeping secrets and won\'t share them with anyone.'
-			],
-			'Life of Seclusion' :
-			[
-				'I was searching for spiritual enlightenment.',
-				'I was partaking of communal living in accordance with the dictates of a religious order.',
-				'I was exiled for a crime I didn\'t commit.',
-				'I retreated from society after a life-altering event.',
-				'I needed a quiet place to work on my art, literature, music, or manifesto.',
-				'I needed to commune with nature, far from civilization.',
-				'I was the caretaker of an ancient ruin or relic.',
-				'I was a pilgrim in search of a person, place, or relic of spiritual significance.'
-			],
-			'Became a hermit because' :
-			[
-				'My enemies ruined my reputation, and I fled to the wilds to avoid further disparagement.',
-				'I am comfortable with being isolated, as I seek inner peace.',
-				'I never liked the people I called my friends, so it was easy for me to strike out on my own.',
-				'I felt compelled to forsake my past, but did so with great reluctance, and sometimes I regret making that decision.',
-				'I lost everything- my home, my family, my friends. Going it alone was all I could do.',
-				'Society\'s decadence disgusted me, so I decided to leave it behind.'
-			]
-		}
+		'Trait' :
+		[
+			'I\'ve been isolated for so long that I rarely speak, preferring gestures and the occasional grunt.',
+			'I am utterly serene, even in the face of disaster.',
+			'The leader of my community had something wise to say on every topic, and I am eager to share that wisdom.',
+			'I feel tremendous empathy for all who suffer.',
+			'I\'m oblivious to etiquette and social expectations.',
+			'I connect everything that happens to me to a grand, cosmic plan.',
+			'I often get lost in my own thoughts and contemplation, becoming oblivious to my surroundings.',
+			'I am working on a grand philosophical theory and love sharing my ideas.'
+		],
+		'Ideal' :
+		[
+			'Greater Good. My gifts are meant to be shared with all, not used for my own benefit. (Good)',
+			'Logic. Emotions must not cloud our sense of what is right and true, or our logical thinking. (Lawful)',
+			'Free Thinking. Inquiry and curiosity are the pillars of progress. (Chaotic)',
+			'Power. Solitude and contemplation are paths toward mystical or magical power. (Evil)',
+			'Live and Let Live. Meddling in the affairs of others only causes trouble. (Neutral)',
+			'Self-Knowledge. If you know yourself, there\'s nothing left to know. (Any)'
+		],
+		'Bond' :
+		[
+			'Nothing is more important than the other members of my hermitage, order, or association.',
+			'I entered seclusion to hide from the ones who might still be hunting me. I must someday confront them.',
+			'I\'m still seeking the enlightenment I pursued in my seclusion, and it still eludes me.',
+			'I entered seclusion because I loved someone I could not have.',
+			'Should my discovery come to light, it could bring ruin to the world.',
+			'My isolation gave me great insight into a great evil that only I can destroy.'
+		],
+		'Flaw' :
+		[
+			'Now that I\'ve returned to the world, I enjoy its delights a little too much.',
+			'I harbor dark, bloodthirsty thoughts that my isolation and meditation failed to quell.',
+			'I am dogmatic in my thoughts and philosophy.',
+			'I let my need to win arguments overshadow friendships and harmony.',
+			'I\'d risk too much to uncover a lost bit of knowledge.',
+			'I like keeping secrets and won\'t share them with anyone.'
+		],
+		'Life of Seclusion' :
+		[
+			'I was searching for spiritual enlightenment.',
+			'I was partaking of communal living in accordance with the dictates of a religious order.',
+			'I was exiled for a crime I didn\'t commit.',
+			'I retreated from society after a life-altering event.',
+			'I needed a quiet place to work on my art, literature, music, or manifesto.',
+			'I needed to commune with nature, far from civilization.',
+			'I was the caretaker of an ancient ruin or relic.',
+			'I was a pilgrim in search of a person, place, or relic of spiritual significance.'
+		],
+		'Became a hermit because' :
+		[
+			'My enemies ruined my reputation, and I fled to the wilds to avoid further disparagement.',
+			'I am comfortable with being isolated, as I seek inner peace.',
+			'I never liked the people I called my friends, so it was easy for me to strike out on my own.',
+			'I felt compelled to forsake my past, but did so with great reluctance, and sometimes I regret making that decision.',
+			'I lost everything- my home, my family, my friends. Going it alone was all I could do.',
+			'Society\'s decadence disgusted me, so I decided to leave it behind.'
+		]
 	},
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Noble',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'History, Persuasion',
-			'Tool Proficiencies' : 'One type of gaming set',
-			'Languages' : 'One of your choice',
-			'Equipment' : 'A set of fine clothes, a signet ring, a scroll of pedigree, and a purse containing 25 gp',
-			'Position of Privilege' : 'Thanks to your noble birth, people are inclined to think the best of you. You are welcome in high society, and people assume you have the right to be wherever you are. The common folk and merchants make every effort to accommodate you and avoid your displeasure, and other people of high birth treat you as a member of the same social sphere. You can secure an audience with a local noble if you need to.'
-		},
-		'Optional Variant' : 'Knight**Choose the Retainers feature instead of the Position of Privilege feature.',
-		'Variant Feature' : 'Retainers**If your character has a noble background, you may select this background feature instead of Position of Privilege. You have the service of three retainers loyal to your family. These retainers can be attendants or messengers, and one might be a majordomo. Your retainers are commoners who can perform mundane tasks for you, but they do not fight for you, will not follow you into obviously dangerous areas (such as dungeons), and will leave if they are frequently endangered or abused.',
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.',
-				'The common folk love me for my kindness and generosity.',
-				'No one could doubt by looking at my regal bearing that I am a cut above the unwashed masses.',
-				'I take great pains to always look my best and follow the latest fashions.',
-				'I don\'t like to get my hands dirty, and I won\'t be caught dead in unsuitable accommodations.',
-				'Despite my noble birth, I do not place myself above other folk. We all have the same blood.',
-				'My favor, once lost, is lost forever.',
-				'If you do me an injury, I will crush you, ruin your name, and salt your fields.'
-			],
-			'Ideal' :
-			[
-				'Respect. Respect is due to me because of my position, but all  people regardless of station deserve to be treated with dignity. (Good)',
-				'Responsibility. It is my duty to respect the authority of those above me, just as those below me must respect mine. (Lawful)',
-				'Independence. I must prove that I can handle myself without the coddling of my family. (Chaotic)',
-				'Power. If I can attain more power, no one will tell me what to do. (Evil)',
-				'Family. Blood runs thicker than water. (Any)',
-				'Noble Obligation. It is my duty to protect and care for the people beneath  me. (Good)'
-			],
-			'Bond' :
-			[
-				'I will face any challenge to win the approval of my family.',
-				'My house\'s alliance with another noble family must be sustained at all costs.',
-				'Nothing is more important than the other members of my family.',
-				'I am in love with the heir of a family that my family despises.',
-				'My loyalty to my sovereign is unwavering.',
-				'The common folk must see me as a hero of the people.'
-			],
-			'Flaw' :
-			[
-				'I secretly believe that everyone is beneath me.',
-				'I hide a truly scandalous secret that could ruin my family forever.',
-				'I too often hear veiled insults and threats in every word addressed to me, and I\'m quick to anger.',
-				'I have an insatiable desire for carnal pleasures.',
-				'In fact, the world does revolve around me.',
-				'By my words and actions, I often bring shame to my family.'
-			],
-			'Became a noble because' :
-			[
-				'I come from an old and storied family, and it fell to me to preserve the family name.',
-				'My family has been disgraced, and I intend to clear our name.',
-				'My family recently came by its title, and that elevation thrust us into a new and strange world.',
-				'My family has a title, but none of my ancestors have distinguished themselves since we gained it.',
-				'My family is filled with remarkable people. I hope to live up to their example.',
-				'I hope to increase my family\'s power and influence.'
-			]
-		}
+		'Trait' :
+		[
+			'My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.',
+			'The common folk love me for my kindness and generosity.',
+			'No one could doubt by looking at my regal bearing that I am a cut above the unwashed masses.',
+			'I take great pains to always look my best and follow the latest fashions.',
+			'I don\'t like to get my hands dirty, and I won\'t be caught dead in unsuitable accommodations.',
+			'Despite my noble birth, I do not place myself above other folk. We all have the same blood.',
+			'My favor, once lost, is lost forever.',
+			'If you do me an injury, I will crush you, ruin your name, and salt your fields.'
+		],
+		'Ideal' :
+		[
+			'Respect. Respect is due to me because of my position, but all people regardless of station deserve to be treated with dignity. (Good)',
+			'Responsibility. It is my duty to respect the authority of those above me, just as those below me must respect mine. (Lawful)',
+			'Independence. I must prove that I can handle myself without the coddling of my family. (Chaotic)',
+			'Power. If I can attain more power, no one will tell me what to do. (Evil)',
+			'Family. Blood runs thicker than water. (Any)',
+			'Noble Obligation. It is my duty to protect and care for the people beneath me. (Good)'
+		],
+		'Bond' :
+		[
+			'I will face any challenge to win the approval of my family.',
+			'My house\'s alliance with another noble family must be sustained at all costs.',
+			'Nothing is more important than the other members of my family.',
+			'I am in love with the heir of a family that my family despises.',
+			'My loyalty to my sovereign is unwavering.',
+			'The common folk must see me as a hero of the people.'
+		],
+		'Flaw' :
+		[
+			'I secretly believe that everyone is beneath me.',
+			'I hide a truly scandalous secret that could ruin my family forever.',
+			'I too often hear veiled insults and threats in every word addressed to me, and I\'m quick to anger.',
+			'I have an insatiable desire for carnal pleasures.',
+			'In fact, the world does revolve around me.',
+			'By my words and actions, I often bring shame to my family.'
+		],
+		'Became a noble because' :
+		[
+			'I come from an old and storied family, and it fell to me to preserve the family name.',
+			'My family has been disgraced, and I intend to clear our name.',
+			'My family recently came by its title, and that elevation thrust us into a new and strange world.',
+			'My family has a title, but none of my ancestors have distinguished themselves since we gained it.',
+			'My family is filled with remarkable people. I hope to live up to their example.',
+			'I hope to increase my family\'s power and influence.'
+		],
+		'Optional Variant' : 'Knight'
 	},
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Outlander',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Athletics, Survival',
-			'Tool Proficiencies' : 'One type of musical instrument',
-			'Languages' : 'One of your choice',
-			'Equipment' : 'A staff, a hunting trap, a trophy from an animal you killed, a set of traveler\'s clothes, and a belt pouch containing 10 gp',
-			'Wanderer' : 'You have an excellent memory for maps and geography, and you can always recall the general layout of terrain, settlements, and other features around you. In addition, you can find food and fresh water for yourself and up to five other people each day, provided that the land offers berries, small game, water, and so forth.'
-		},
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I\'m driven by a wanderlust that led me away from home.',
-				'I watch over my friends as if they were a litter of newborn pups.',
-				'I once ran twenty-five miles without stopping to warn to my clan of an approaching orc horde. I\'d do it again if I had to.',
-				'I have a lesson for every situation, drawn from observing nature.',
-				'I place no stock in wealthy or well-mannered folk. Money and manners won\'t save you from a hungry owlbear.',
-				'I\'m always picking things up, absently fiddling with them, and sometimes accidentally breaking them.',
-				'I feel far more comfortable around animals than people.',
-				'I was, in fact, raised by wolves.'
-			],
-			'Ideal' :
-			[
-				'Change. Life is like the seasons, in constant change, and we must change with it. (Chaotic)',
-				'Greater Good. It is each person\'s responsibility to make the most happiness for the whole tribe. (Good)',
-				'Honor. If I dishonor myself, I dishonor my whole clan. (Lawful)',
-				'Might. The strongest are meant to rule. (Evil)',
-				'Nature. The natural world is more important than all the constructs of civilization. (Neutral)',
-				'Glory. I must earn glory in battle, for myself and my clan. (Any)'
-			],
-			'Bond' :
-			[
-				'My family, clan, or tribe is the most important thing in my life, even when they are far from me.',
-				'An injury to the unspoiled wilderness of my home is an injury to me.',
-				'I will bring terrible wrath down on the evildoers who destroyed my homeland.',
-				'I am the last of my tribe, and it is up to me to ensure their names enter legend.',
-				'I suffer awful visions of a coming disaster and will do anything to prevent it.',
-				'It is my duty to provide children to sustain my tribe.'
-			],
-			'Flaw' :
-			[
-				'I am too enamored of ale, wine, and other intoxicants.',
-				'There\'s no room for caution in a life lived to the fullest.',
-				'I remember every insult I\'ve received and nurse a silent resentment toward anyone who\'s ever wronged me.',
-				'I am slow to trust members of other races, tribes, and societies.',
-				'Violence is my answer to almost any challenge.',
-				'Don\'t expect me to save those who can\'t save themselves. It is nature\'s way that the strong thrive and the weak perish.'
-			],
-			'Origin' : [ 'Forester', 'Bounty hunter', 'Trapper', 'Pilgrim', 'Homesteader', 'Tribal nomad', 'Guide', 'Hunter-gatherer', 'Exile or outcast', 'Tribal marauder' ],
-			'Became an outlander because' :
-			[
-				'I spent a lot of time in the wilderness as a youngster, and I came to love that way of life.',
-				'From a young age, I couldn\'t abide the stink of the cities and preferred to spend my time in nature.',
-				'I came to understand the darkness that lurks in the wilds, and I vowed to combat it.',
-				'My people lived on the edges of civilization, and I learned the methods of survival from my family.',
-				'After a tragedy I retreated to the wilderness, leaving my old life behind. My family moved away from civilization, and I learned to adapt to my new environment.'
-			]
-		}
+		'Trait' :
+		[
+			'I\'m driven by a wanderlust that led me away from home.',
+			'I watch over my friends as if they were a litter of newborn pups.',
+			'I once ran twenty-five miles without stopping to warn to my clan of an approaching orc horde. I\'d do it again if I had to.',
+			'I have a lesson for every situation, drawn from observing nature.',
+			'I place no stock in wealthy or well-mannered folk. Money and manners won\'t save you from a hungry owlbear.',
+			'I\'m always picking things up, absently fiddling with them, and sometimes accidentally breaking them.',
+			'I feel far more comfortable around animals than people.',
+			'I was, in fact, raised by wolves.'
+		],
+		'Ideal' :
+		[
+			'Change. Life is like the seasons, in constant change, and we must change with it. (Chaotic)',
+			'Greater Good. It is each person\'s responsibility to make the most happiness for the whole tribe. (Good)',
+			'Honor. If I dishonor myself, I dishonor my whole clan. (Lawful)',
+			'Might. The strongest are meant to rule. (Evil)',
+			'Nature. The natural world is more important than all the constructs of civilization. (Neutral)',
+			'Glory. I must earn glory in battle, for myself and my clan. (Any)'
+		],
+		'Bond' :
+		[
+			'My family, clan, or tribe is the most important thing in my life, even when they are far from me.',
+			'An injury to the unspoiled wilderness of my home is an injury to me.',
+			'I will bring terrible wrath down on the evildoers who destroyed my homeland.',
+			'I am the last of my tribe, and it is up to me to ensure their names enter legend.',
+			'I suffer awful visions of a coming disaster and will do anything to prevent it.',
+			'It is my duty to provide children to sustain my tribe.'
+		],
+		'Flaw' :
+		[
+			'I am too enamored of ale, wine, and other intoxicants.',
+			'There\'s no room for caution in a life lived to the fullest.',
+			'I remember every insult I\'ve received and nurse a silent resentment toward anyone who\'s ever wronged me.',
+			'I am slow to trust members of other races, tribes, and societies.',
+			'Violence is my answer to almost any challenge.',
+			'Don\'t expect me to save those who can\'t save themselves. It is nature\'s way that the strong thrive and the weak perish.'
+		],
+		'Origin' : [ 'Forester', 'Bounty hunter', 'Trapper', 'Pilgrim', 'Homesteader', 'Tribal nomad', 'Guide', 'Hunter-gatherer', 'Exile or outcast', 'Tribal marauder' ],
+		'Became an outlander because' :
+		[
+			'I spent a lot of time in the wilderness as a youngster, and I came to love that way of life.',
+			'From a young age, I couldn\'t abide the stink of the cities and preferred to spend my time in nature.',
+			'I came to understand the darkness that lurks in the wilds, and I vowed to combat it.',
+			'My people lived on the edges of civilization, and I learned the methods of survival from my family.',
+			'After a tragedy I retreated to the wilderness, leaving my old life behind. My family moved away from civilization, and I learned to adapt to my new environment.'
+		]
 	},
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Sage',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Arcana, History',
-			'Languages' : 'Two of your choice',
-			'Equipment' : 'A bottle of black ink, a quill, a small knife, a letter from a dead colleague posing a question you have not yet been able to answer, a set of common clothes, and a belt pouch containing 10 gp',
-			'Researcher' : 'When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Your DM might rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign.'
-		},
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I use polysyllabic words that convey the impression of great erudition.',
-				'I\'ve read every book in the world\'s greatest libraries - or I like to boast that I have.',
-				'I\'m used to helping out those who aren\'t as smart as I am, and I patiently explain anything and everything to others.',
-				'There\'s nothing I like more than a good mystery.',
-				'I\'m willing to listen to every side of an argument before I make my own judgment.',
-				'I . . . speak . . . slowly . . . when talking . . . to idiots, . . . which . . . almost . . . everyone . . . is . . . compared . . . to me.',
-				'I am horribly, horribly awkward in social situations.',
-				'I\'m convinced that people are always trying to steal my secrets.'
-			],
-			'Ideal' :
-			[
-				'Knowledge. The path to power and self-improvement is through knowledge. (Neutral)',
-				'Beauty. What is beautiful points us beyond itself toward what is true. (Good)',
-				'Logic. Emotions must not cloud our logical thinking. (Lawful)',
-				'No Limits. Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)',
-				'Power. Knowledge is the path to power and domination. (Evil)',
-				'Self-Improvement. The goal of a life of study is the betterment of oneself. (Any)'
-			],
-			'Bond' :
-			[
-				'It is my duty to protect my students.',
-				'I have an ancient text that holds terrible secrets that must not fall into the wrong hands.',
-				'I work to preserve a library, university, scriptorium, or monastery.',
-				'My life\'s work is a series of tomes related to a specific field of lore.',
-				'I\'ve been searching my whole life for the answer to a certain question.',
-				'I sold my soul for knowledge. I hope to do great deeds and win it back.'
-			],
-			'Flaw' :
-			[
-				'I am easily distracted by the promise of information.',
-				'Most people scream and run when they see a demon. I stop and take notes on its anatomy.',
-				'Unlocking an ancient mystery is worth the price of a civilization.',
-				'I overlook obvious solutions in favor of complicated ones.',
-				'I speak without really thinking through my words, invariably insulting others.',
-				'I can\'t keep a secret to save my life, or anyone else\'s.'
-			],
-			'Specialty' : [ 'Alchemist', 'Professor', 'Astronomer', 'Researcher', 'Discredited academic', 'Wizard\'s apprentice', 'Scribe', 'Librarian' ],
-			'Became a sage because' :
-			[
-				'I was naturally curious, so I packed up and went to a university to learn more about the world.',
-				'My mentor\'s teachings opened my mind to new possibilities in that field of study',
-				'I was always an avid reader, and I learned much about my favorite topic on my own.',
-				'I discovered an old library and pored over the texts I found there. That experience awakened a hunger for more knowledge.',
-				'I impressed a wizard who told me I was squandering my talents and should seek out an education to take advantage of my gifts.',
-				'One of my paretns or a relative gave me a basic education that whetted my appetite, and I left home to build on what I had learned.'
-				
-			]
-		}
+		'Trait' :
+		[
+			'I use polysyllabic words that convey the impression of great erudition.',
+			'I\'ve read every book in the world\'s greatest libraries - or I like to boast that I have.',
+			'I\'m used to helping out those who aren\'t as smart as I am, and I patiently explain anything and everything to others.',
+			'There\'s nothing I like more than a good mystery.',
+			'I\'m willing to listen to every side of an argument before I make my own judgment.',
+			'I . . . speak . . . slowly . . . when talking . . . to idiots, . . . which . . . almost . . . everyone . . . is . . . compared . . . to me.',
+			'I am horribly, horribly awkward in social situations.',
+			'I\'m convinced that people are always trying to steal my secrets.'
+		],
+		'Ideal' :
+		[
+			'Knowledge. The path to power and self-improvement is through knowledge. (Neutral)',
+			'Beauty. What is beautiful points us beyond itself toward what is true. (Good)',
+			'Logic. Emotions must not cloud our logical thinking. (Lawful)',
+			'No Limits. Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)',
+			'Power. Knowledge is the path to power and domination. (Evil)',
+			'Self-Improvement. The goal of a life of study is the betterment of oneself. (Any)'
+		],
+		'Bond' :
+		[
+			'It is my duty to protect my students.',
+			'I have an ancient text that holds terrible secrets that must not fall into the wrong hands.',
+			'I work to preserve a library, university, scriptorium, or monastery.',
+			'My life\'s work is a series of tomes related to a specific field of lore.',
+			'I\'ve been searching my whole life for the answer to a certain question.',
+			'I sold my soul for knowledge. I hope to do great deeds and win it back.'
+		],
+		'Flaw' :
+		[
+			'I am easily distracted by the promise of information.',
+			'Most people scream and run when they see a demon. I stop and take notes on its anatomy.',
+			'Unlocking an ancient mystery is worth the price of a civilization.',
+			'I overlook obvious solutions in favor of complicated ones.',
+			'I speak without really thinking through my words, invariably insulting others.',
+			'I can\'t keep a secret to save my life, or anyone else\'s.'
+		],
+		'Specialty' : [ 'Alchemist', 'Professor', 'Astronomer', 'Researcher', 'Discredited academic', 'Wizard\'s apprentice', 'Scribe', 'Librarian' ],
+		'Became a sage because' :
+		[
+			'I was naturally curious, so I packed up and went to a university to learn more about the world.',
+			'My mentor\'s teachings opened my mind to new possibilities in that field of study',
+			'I was always an avid reader, and I learned much about my favorite topic on my own.',
+			'I discovered an old library and pored over the texts I found there. That experience awakened a hunger for more knowledge.',
+			'I impressed a wizard who told me I was squandering my talents and should seek out an education to take advantage of my gifts.',
+			'One of my paretns or a relative gave me a basic education that whetted my appetite, and I left home to build on what I had learned.'
+			
+		]
 	},
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Sailor',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Athletics, Perception',
-			'Tool Proficiencies' : 'Navigator\'s tools, vehicles (water)',
-			'Equipment' : 'A belaying pin (club), 50 feet of silk rope, a lucky charm such as a rabbit foot or a small stone with a hole in the center (or you may roll for a random trinket on the Trinkets table in chapter 5), a set of common clothes, and a belt pouch containing 10 gp',
-			'Ship\'s Passage' : 'When you need to, you can secure free passage on a sailing ship for yourself and your adventuring companions. You might sail on the ship you served on, or another ship you have good relations with (perhaps one captained by a former crewmate). Because you\'re calling in a favor, you can\'t be certain of a schedule or route that will meet your every need. Your Dungeon Master will determine how long it takes to get where you need to go. In return for your free passage, you and your companions are expected to assist the crew during the voyage.'
-		},
-		'Optional Variant' : 'Pirate**If you decide that your sailing career involved piracy, you can choose the Bad Reputation feature instead of the Ship\'s Passage feature.',
-		'Variant Feature' : 'Bad Reputation**If your character has a sailor background, you may select this background feature instead of Ship\'s Passage. No matter where you go, people are afraid of you due to your reputation. When you are in a civilized settlement, you can get away with minor criminal offenses, such as refusing to pay for food at a tavern or breaking down doors at a local shop, since most people will not report your activity to the authorities.',
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'My friends know they can rely on me, no matter what.',
-				'I work hard so that I can play hard when the work is done.',
-				'I enjoy sailing into new ports and making new friends over a flagon of ale.',
-				'I stretch the truth for the sake of a good story.',
-				'To me, a tavern brawl is a nice way to get to know a new city.',
-				'I never pass up a friendly wager.',
-				'My language is as foul as an otyugh nest.',
-				'I like a job well done, especially if I can convince someone else to do it.'
-			],
-			'Ideal' :
-			[
-				'Respect. The thing that keeps a ship together is mutual respect between captain and crew. (Good)',
-				'Fairness. We all do the work, so we all share in the rewards.  (Lawful)',
-				'Freedom. The sea is freedom- the freedom to go anywhere and do anything. (Chaotic)',
-				'Mastery. I\'m a predator, and the other ships on the sea are my prey. (Evil)',
-				'People. I\'m committed to my crewmates, not to ideals. (Neutral)',
-				'Aspiration. Someday I\'ll own my own ship and chart my own destiny. (Any)'
-			],
-			'Bond' :
-			[
-				'I\'m loyal to my captain first, everything else second.',
-				'The ship is most important- crewmates and captains come and go.',
-				'I\'ll always remember my first ship.',
-				'In a harbor town, I have a paramour whose eyes nearly stole me from the sea.',
-				'I was cheated out of my fair share of the profits, and I want to get my due.',
-				'Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine.'
-			],
-			'Flaw' :
-			[
-				'I follow orders, even if I think they\'re wrong.',
-				'I\'ll say anything to avoid having to do extra work.',
-				'Once someone questions my courage, I never back down no matter how dangerous the situation.',
-				'Once I start drinking, it\'s hard for me to stop.',
-				'I can\'t help but pocket loose coins and other trinkets I come across.',
-				'My pride will probably lead to my destruction.'
-			],
-			'Became a sailor because' :
-			[
-				'I was pressganged by pirates and forced to serve on their ship until I finally escaped.',
-				'I wanted to see the world, so I signed on as a deckhand for a merchant ship.',
-				'One of my relatives was a sailor who took me to sea.',
-				'I needed to escape my community quickly, so I stowed away on a ship. When the crew found me, I was forced to work for my passage.',
-				'Reavers attacked my community, so I found refuge on a ship until I could seek vengeance.',
-				'I had few prospects where I was living, so I left to find my fortune elsewhere.'
-			]
-		}
+		'Trait' :
+		[
+			'My friends know they can rely on me, no matter what.',
+			'I work hard so that I can play hard when the work is done.',
+			'I enjoy sailing into new ports and making new friends over a flagon of ale.',
+			'I stretch the truth for the sake of a good story.',
+			'To me, a tavern brawl is a nice way to get to know a new city.',
+			'I never pass up a friendly wager.',
+			'My language is as foul as an otyugh nest.',
+			'I like a job well done, especially if I can convince someone else to do it.'
+		],
+		'Ideal' :
+		[
+			'Respect. The thing that keeps a ship together is mutual respect between captain and crew. (Good)',
+			'Fairness. We all do the work, so we all share in the rewards. (Lawful)',
+			'Freedom. The sea is freedom- the freedom to go anywhere and do anything. (Chaotic)',
+			'Mastery. I\'m a predator, and the other ships on the sea are my prey. (Evil)',
+			'People. I\'m committed to my crewmates, not to ideals. (Neutral)',
+			'Aspiration. Someday I\'ll own my own ship and chart my own destiny. (Any)'
+		],
+		'Bond' :
+		[
+			'I\'m loyal to my captain first, everything else second.',
+			'The ship is most important- crewmates and captains come and go.',
+			'I\'ll always remember my first ship.',
+			'In a harbor town, I have a paramour whose eyes nearly stole me from the sea.',
+			'I was cheated out of my fair share of the profits, and I want to get my due.',
+			'Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine.'
+		],
+		'Flaw' :
+		[
+			'I follow orders, even if I think they\'re wrong.',
+			'I\'ll say anything to avoid having to do extra work.',
+			'Once someone questions my courage, I never back down no matter how dangerous the situation.',
+			'Once I start drinking, it\'s hard for me to stop.',
+			'I can\'t help but pocket loose coins and other trinkets I come across.',
+			'My pride will probably lead to my destruction.'
+		],
+		'Became a sailor because' :
+		[
+			'I was pressganged by pirates and forced to serve on their ship until I finally escaped.',
+			'I wanted to see the world, so I signed on as a deckhand for a merchant ship.',
+			'One of my relatives was a sailor who took me to sea.',
+			'I needed to escape my community quickly, so I stowed away on a ship. When the crew found me, I was forced to work for my passage.',
+			'Reavers attacked my community, so I found refuge on a ship until I could seek vengeance.',
+			'I had few prospects where I was living, so I left to find my fortune elsewhere.'
+		],
+		'Optional Variant' : 'Pirate'
 	},
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Soldier',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Athletics, Intimidation',
-			'Tool Proficiencies' : 'One type of gaming set, vehicles (land)',
-			'Equipment' : 'An insignia of rank, a trophy taken from a fallen enemy (a dagger, broken blade, or piece of a banner), a set of bone dice or deck of cards, a set of common clothes, and a belt pouch containing 10 gp',
-			'Military Rank' : 'You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use. You can also usually gain access to friendly military encampments and fortresses where your rank is recognized.'
-		},
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I\'m always polite and respectful.',
-				'I\'m haunted by memories of war. I can\'t get the images of violence out of my mind.',
-				'I\'ve lost too many friends, and I\'m slow to make new ones.',
-				'I\'m full of inspiring and cautionary tales from my military experience relevant to almost every combat situation.',
-				'I can stare down a hell hound without flinching.',
-				'I enjoy being strong and like breaking things.',
-				'I have a crude sense of humor.',
-				'I face problems head-on. A simple, direct solution is the best path to success.'
-			],
-			'Ideal' :
-			[
-				'Greater Good. Our lot is to lay down our lives in defense of others. (Good)',
-				'Responsibility. I do what I must and obey just authority. (Lawful)',
-				'Independence. When people follow orders blindly, they embrace a kind of tyranny. (Chaotic)',
-				'Might. In life as in war, the stronger force wins. (Evil)',
-				'Live and Let Live. Ideals aren\'t worth killing over or going to war for. (Neutral)',
-				'Nation. My city, nation, or people are all that matter. (Any)'
-			],
-			'Bond' :
-			[
-				'I would still lay down my life for the people I served with.',
-				'Someone saved my life on the battlefield. To this day, I will never leave a friend behind.',
-				'My honor is my life.',
-				'I\'ll never forget the crushing defeat my company suffered or the enemies who dealt it.',
-				'Those who fight beside me are those worth dying for.',
-				'I fight for those who cannot fight for themselves.'
-			],
-			'Flaw' :
-			[
-				'The monstrous enemy we faced in battle still leaves me quivering with fear.',
-				'I have little respect for anyone who is not a proven warrior.',
-				'I made a terrible mistake in battle cost many lives- and I would do anything to keep that mistake secret.',
-				'My hatred of my enemies is blind and unreasoning.',
-				'I obey the law, even if the law causes misery.',
-				'I\'d rather eat my armor than admit when I\'m wrong.'
-			],
-			'Specialty' : [ 'Officer', 'Quartermaster', 'Scout', 'Standard bearer', 'Infantry', 'Support staff (cook, blacksmith, or the like)', 'Cavalry', 'Healer' ],
-			'Became a soldier because' :
-			[
-				'I joined the militia to help protect my community from monsters.',
-				'A relative of mine was a soldier, and I wanted to carry on the family tradition.',
-				'The local lord forced me to enlist in the army.',
-				'War ravaged my homeland while I was growing up. Fighting was the only life I ever knew.',
-				'I wanted fame and fortune, so I joined a mercenary company, selling my sword to the highest bidder.',
-				'Invaders attacked my homeland. It was my duty to take up arms in defense of my people.'
-			]
-		}
+		'Trait' :
+		[
+			'I\'m always polite and respectful.',
+			'I\'m haunted by memories of war. I can\'t get the images of violence out of my mind.',
+			'I\'ve lost too many friends, and I\'m slow to make new ones.',
+			'I\'m full of inspiring and cautionary tales from my military experience relevant to almost every combat situation.',
+			'I can stare down a hell hound without flinching.',
+			'I enjoy being strong and like breaking things.',
+			'I have a crude sense of humor.',
+			'I face problems head-on. A simple, direct solution is the best path to success.'
+		],
+		'Ideal' :
+		[
+			'Greater Good. Our lot is to lay down our lives in defense of others. (Good)',
+			'Responsibility. I do what I must and obey just authority. (Lawful)',
+			'Independence. When people follow orders blindly, they embrace a kind of tyranny. (Chaotic)',
+			'Might. In life as in war, the stronger force wins. (Evil)',
+			'Live and Let Live. Ideals aren\'t worth killing over or going to war for. (Neutral)',
+			'Nation. My city, nation, or people are all that matter. (Any)'
+		],
+		'Bond' :
+		[
+			'I would still lay down my life for the people I served with.',
+			'Someone saved my life on the battlefield. To this day, I will never leave a friend behind.',
+			'My honor is my life.',
+			'I\'ll never forget the crushing defeat my company suffered or the enemies who dealt it.',
+			'Those who fight beside me are those worth dying for.',
+			'I fight for those who cannot fight for themselves.'
+		],
+		'Flaw' :
+		[
+			'The monstrous enemy we faced in battle still leaves me quivering with fear.',
+			'I have little respect for anyone who is not a proven warrior.',
+			'I made a terrible mistake in battle cost many lives- and I would do anything to keep that mistake secret.',
+			'My hatred of my enemies is blind and unreasoning.',
+			'I obey the law, even if the law causes misery.',
+			'I\'d rather eat my armor than admit when I\'m wrong.'
+		],
+		'Specialty' : [ 'Officer', 'Quartermaster', 'Scout', 'Standard bearer', 'Infantry', 'Support staff (cook, blacksmith, or the like)', 'Cavalry', 'Healer' ],
+		'Became a soldier because' :
+		[
+			'I joined the militia to help protect my community from monsters.',
+			'A relative of mine was a soldier, and I wanted to carry on the family tradition.',
+			'The local lord forced me to enlist in the army.',
+			'War ravaged my homeland while I was growing up. Fighting was the only life I ever knew.',
+			'I wanted fame and fortune, so I joined a mercenary company, selling my sword to the highest bidder.',
+			'Invaders attacked my homeland. It was my duty to take up arms in defense of my people.'
+		]
 	},
 	{
 		'_special' : 'book-PHB',
 		'_name' : 'Urchin',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Sleight of Hand, Stealth',
-			'Tool Proficiencies' : 'Disguise kit, thieves\' tools',
-			'Equipment' : 'A small knife, a map of the city you grew up in, a pet mouse, a token to remember your parents by, a set of common clothes, and a belt pouch containing 10 gp',
-			'City Secrets' : 'You know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When you are not in combat, you (and companions you lead) can travel between any two locations in the city twice as fast as your speed would normally allow.'
-		},
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I hide scraps of food and trinkets away in my pockets.',
-				'I ask a lot of questions.',
-				'I like to squeeze into small places where no one else can get to me.',
-				'I sleep with my back to a wall or tree, with everything I own wrapped in a bundle in my arms.',
-				'I eat like a pig and have bad manners.',
-				'I think anyone who\'s nice to me is hiding evil intent.',
-				'I don\'t like to bathe.',
-				'I bluntly say what other people are hinting at or hiding.'
-			],
-			'Ideal' :
-			[
-				'Respect. All people, rich or poor, deserve respect. (Good)',
-				'Community. We have to take care of each other, because no one else is going to do it.  (Lawful)',
-				'Change. The low are lifted up, and the high and mighty are brought down. Change is the nature of things. (Chaotic)',
-				'Retribution. The rich need to be shown what life and death are like in the gutters. (Evil)',
-				'People. I help the people who help me- that\'s what keeps us alive. (Neutral)',
-				'Aspiration. I\'m going to prove that I\'m worthy of a better life. (Any)'
-			],
-			'Bond' :
-			[
-				'My town or city is my home, and I\'ll fight to defend it.',
-				'I sponsor an orphanage to keep others from enduring what I was forced to endure.',
-				'I owe my survival to another urchin who taught me tolive on the streets.',
-				'I owe a debt I can never repay to the person who took pity on me.',
-				'I escaped my life of poverty by robbing an important person, and I\'m wanted for it.',
-				'No one else should have to endure the hardships I\'ve been through.'
-			],
-			'Flaw' :
-			[
-				'If I\'m outnumbered, I will run away from a fight.',
-				'Gold seems like a lot of money to me, and I\'ll do just about anything for more of it.',
-				'I will never fully trust anyone other than myself.',
-				'I\'d rather kill someone in their sleep then fight fair.',
-				'It\'s not stealing if I need it more than someone else.',
-				'People who can\'t take care of themselves get what they deserve.'
-			],
-			'Became an urchin because' :
-			[
-				'Wanderlust caused me to leave my family to see the world. I look after myself.',
-				'I ran away from a bad situation at home and made my own way in the world.',
-				'Monsters wiped out my village, and I was the sole survivor. I had to find a way to survive.',
-				'A notorious thief looked after me and other orphans, and we spied and stole to earn our keep.',
-				'One day I woke up on the streets, alone and hungry, with no memory of my early childhood.',
-				'My parents died, leaving no one to look after me. I raised myself.'
-			]
-		}
+		'Trait' :
+		[
+			'I hide scraps of food and trinkets away in my pockets.',
+			'I ask a lot of questions.',
+			'I like to squeeze into small places where no one else can get to me.',
+			'I sleep with my back to a wall or tree, with everything I own wrapped in a bundle in my arms.',
+			'I eat like a pig and have bad manners.',
+			'I think anyone who\'s nice to me is hiding evil intent.',
+			'I don\'t like to bathe.',
+			'I bluntly say what other people are hinting at or hiding.'
+		],
+		'Ideal' :
+		[
+			'Respect. All people, rich or poor, deserve respect. (Good)',
+			'Community. We have to take care of each other, because no one else is going to do it. (Lawful)',
+			'Change. The low are lifted up, and the high and mighty are brought down. Change is the nature of things. (Chaotic)',
+			'Retribution. The rich need to be shown what life and death are like in the gutters. (Evil)',
+			'People. I help the people who help me- that\'s what keeps us alive. (Neutral)',
+			'Aspiration. I\'m going to prove that I\'m worthy of a better life. (Any)'
+		],
+		'Bond' :
+		[
+			'My town or city is my home, and I\'ll fight to defend it.',
+			'I sponsor an orphanage to keep others from enduring what I was forced to endure.',
+			'I owe my survival to another urchin who taught me tolive on the streets.',
+			'I owe a debt I can never repay to the person who took pity on me.',
+			'I escaped my life of poverty by robbing an important person, and I\'m wanted for it.',
+			'No one else should have to endure the hardships I\'ve been through.'
+		],
+		'Flaw' :
+		[
+			'If I\'m outnumbered, I will run away from a fight.',
+			'Gold seems like a lot of money to me, and I\'ll do just about anything for more of it.',
+			'I will never fully trust anyone other than myself.',
+			'I\'d rather kill someone in their sleep then fight fair.',
+			'It\'s not stealing if I need it more than someone else.',
+			'People who can\'t take care of themselves get what they deserve.'
+		],
+		'Became an urchin because' :
+		[
+			'Wanderlust caused me to leave my family to see the world. I look after myself.',
+			'I ran away from a bad situation at home and made my own way in the world.',
+			'Monsters wiped out my village, and I was the sole survivor. I had to find a way to survive.',
+			'A notorious thief looked after me and other orphans, and we spied and stole to earn our keep.',
+			'One day I woke up on the streets, alone and hungry, with no memory of my early childhood.',
+			'My parents died, leaving no one to look after me. I raised myself.'
+		]
 	},
 	{
-		'_special' : 'book-SCAG',
+		'_special' : 'book-SCAG traits-13',
 		'_name' : 'City Watch',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Athletics, Insight',
-			'Languages' : 'Two of your choice',
-			'Equipment' : 'A uniform in the style of your unit and indicative of your rank, a horn with which to summon help, a set of manacles, and a pouch containing 10 gp',
-			'Watcher\'s Eye' : 'Your experience in enforcing the law, and dealing with lawbreakers, gives you a feel for local laws and criminals. You can easily find the local outpost of the watch or a similar organization, and just as easily pick out the dens of criminal activity in a community, although you\'re more likely to be welcome in the former locations rather than the latter.'
-		},
-		'Optional Variant' : 'Investigator**If your prior experience is as an investigator, you have proficiency in Investigation rather than Athletics.',
-		'Personality' :
-		{
-			'_special' : 'traits-13'
-		}
+		'Optional Variant' : 'Investigator'
 	},
 	{
-		'_special' : 'book-SCAG',
-		'_name' : 'Clan Crafter',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'History, Insight',
-			'Tool Proficiencies' : 'One type of artisan\'s tools',
-			'Languages' : 'Dwarvish or one other of your choice if you already speak Dwarvish',
-			'Equipment' : 'A set of artisan\'s tools with which you are proficient, a maker\'s mark chisel used to mark your handiwork with the symbol of the clan of crafters you learned your skill from, a set of traveler\'s clothes, and a pouch containing 5 gp and a gem worth 10 gp',
-			'Respect of the Stout Folk' : 'As well respected as clan crafters are among outsiders, no one esteems them quite so highly as dwarves do. You always have free room and board in any place where shield dwarves or gold dwarves dwell, and the individuals in such a settlement might vie among themselves to determine who can offer you (and possibly your compatriots) the finest accommodations and assistance.'
-		},
-		'Personality' :
-		{
-			'_special' : 'traits-6'
-		}
+		'_special' : 'book-SCAG traits-6',
+		'_name' : 'Clan Crafter'
 	},
 	{
-		'_special' : 'book-SCAG',
-		'_name' : 'Cloistered Scholar',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'History, plus your choice of one from among Arcana, Nature, and Religion',
-			'Languages' : 'Two of your choice',
-			'Equipment' : 'The scholar\'s robes of your cloister, a writing kit (small pouch with a quill, ink, folded parchment, and a small penknife), a borrowed book on the subject of your current study, and a pouch containing 10 gp',
-			'Library Access' : 'Though others must often endure extensive interviews and significant fees to gain access to even the most common archives in your library, you have free and easy access to the majority of the library, though it might also have repositories of lore that are too valuable, magical,or secret to permit anyone immediate access.You have a working knowledge of your cloister\'s personnel and bureaucracy, and you know how to navigate those connections with some ease. Additionally, you are likely to gain preferential treatment at other libraries across the Realms, as professional courtesy shown to a fellow scholar.'
-		},
-		'Personality' :
-		{
-			'_special' : 'traits-10'
-		}
+		'_special' : 'book-SCAG traits-10',
+		'_name' : 'Cloistered Scholar'
 	},
 	{
-		'_special' : 'book-SCAG',
-		'_name' : 'Courtier',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Insight, Persuasion',
-			'Languages' : 'Two of your choice',
-			'Equipment' : 'A set of fine clothes and a pouch containing 5 gp',
-			'Court Functionary' : 'Your knowledge of how bureaucracies function lets you gain access to the records and inner workings of any noble court or government you encounter. You know who the movers and shakers are, whom to go to for the favors you seek, and what the current intrigues of interest in the group are.'
-		},
-		'Personality' :
-		{
-			'_special' : 'traits-6'
-		}
+		'_special' : 'book-SCAG traits-6',
+		'_name' : 'Courtier'
 	},
 	{
-		'_special' : 'book-SCAG',
+		'_special' : 'book-SCAG traits-1',
 		'_name' : 'Faction Agent',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Insight and one Intelligence, Wisdom, or Charisma skill of your choice, as appropriate to your faction',
-			'Languages' : 'Two of your choice',
-			'Equipment' : 'Badge or emblem of your faction, a copy of a seminal faction text (or a code-book for a covert faction), a set of common clothes, and a pouch containing 15 gp',
-			'Safe Haven' : 'As a faction agent, you have access to a secret network of supporters and operatives who can provide assistance on your adventures. You know a set of secret signs and passwords you can use to identify such operatives, who can provide you with access to a hidden safe house, free room and board, or assistance in finding information. These agents never risk their lives for you or risk revealing their true identities.'
-		},
-		'Personality' :
-		{
-			'_special' : 'traits-1'
-		}
+		'Faction' : [ 'The Harpers', 'The Order of the Gauntlet', 'The Emerald Enclave', 'The Lords\' Alliance', 'The Zhentarim' ]
 	},
 	{
 		'_special' : 'book-SCAG',
 		'_name' : 'Far Traveler',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Insight, Perception',
-			'Tool Proficiencies' : 'Any one musical instrument or gaming set of your choice, likely something native to your homeland',
-			'Languages' : 'Any one of your choice',
-			'Equipment' : 'One set of traveler\'s clothes, any one musical instrument or gaming set you are proficient with, poorly wrought maps from your homeland that depict where you are in Faerun, a small piece of jewelry worth 10 gp in the style of your homeland\'s craftsmanship, and a pouch containing 5 gp',
-			'All Eyes On You' : 'Your accent, mannerisms, figures of speech, and perhaps even your appearance all mark you as foreign. Curious glances are directed your way wherever you go, which can be a nuisance, but you also gain the friendly interest of scholars and others intrigued by far-off lands, to say nothing of everyday folk who are eager to hear stories of your homeland. You can parley this attention into access to people and places you might not otherwise have, for you and your traveling companions. Noble lords, scholars, and merchant princes, to name a few, might be interested in hearing about your distant homeland and people.'
-		},
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I have different assumptions from those around me concerning personal space, blithely invading others\' space in innocence, or reacting to ignorant invasion of my own.',
-				'I have my own ideas about what is and is not food, and I find the eating habits of those around me fascinating, confusing, or revolting.',
-				'I have a strong code of honor or sense of propriety that others don\'t comprehend.',
-				'I express affection or contempt in ways that are unfamiliar to others.',
-				'I honor my deities through practices that are foreign to this land.',
-				'I begin or end my day with small traditional rituals that are unfamiliar to those around me.'
-			],
-			'Ideal' :
-			[
-				'Open. I have much to learn from the kindly folk I meet along my way. (Good)',
-				'Reserved. As someone new to these strange lands, I am cautious and respectful in my dealings. (Lawful)',
-				'Adventure. I\'m far from home, and everything is strange and wonderful! (Chaotic)',
-				'Cunning. Though I may not know their ways, neither do they know mine, which can be to my advantage. (Evil)',
-				'Inquisitive. Everything is new, but I have a thirst to learn. (Neutral)',
-				'Suspicious. I must be careful, for I have no way of telling friend from foe here. (Any)'
-			],
-			'Bond' :
-			[
-				'So long as I have this token from my homeland, I can face any adversity in this strange land.',
-				'The gods of my people are a comfort to me so far from home.',
-				'I hold no greater cause than my service to my people.',
-				'My freedom is my most precious possession. I\'ll never let anyone take it from me again.',
-				'I\'m fascinated by the beauty and wonder of this new land.',
-				'Though I had no choice, I lament having to leave my loved one(s) behind. I hope to see them again one day.'
-			],
-			'Flaw' :
-			[
-				'I am secretly (or not so secretly) convinced of the superiority of my own culture over that of this foreign land.',
-				'I pretend not to understand the local language in order to avoid interactions I would rather not have.',
-				'I have a weakness for the new intoxicants and other pleasures of this land.',
-				'I don\'t take kindly to some of the actions and motivations of the people of this land, because these folk are different from me.',
-				'I consider the adherents of other gods to be deluded innocents at best, or ignorant fools at  worst.',
-				'I have a weakness for the exotic beauty of the people of these lands.'
-			],
-			'Why Are You Here?' : [ 'Emissary', 'Pilgrim', 'Exile', 'Sightseer', 'Fugitive', 'Wanderer' ]
-		}
+		'Trait' :
+		[
+			'I have different assumptions from those around me concerning personal space, blithely invading others\' space in innocence, or reacting to ignorant invasion of my own.',
+			'I have my own ideas about what is and is not food, and I find the eating habits of those around me fascinating, confusing, or revolting.',
+			'I have a strong code of honor or sense of propriety that others don\'t comprehend.',
+			'I express affection or contempt in ways that are unfamiliar to others.',
+			'I honor my deities through practices that are foreign to this land.',
+			'I begin or end my day with small traditional rituals that are unfamiliar to those around me.'
+		],
+		'Ideal' :
+		[
+			'Open. I have much to learn from the kindly folk I meet along my way. (Good)',
+			'Reserved. As someone new to these strange lands, I am cautious and respectful in my dealings. (Lawful)',
+			'Adventure. I\'m far from home, and everything is strange and wonderful! (Chaotic)',
+			'Cunning. Though I may not know their ways, neither do they know mine, which can be to my advantage. (Evil)',
+			'Inquisitive. Everything is new, but I have a thirst to learn. (Neutral)',
+			'Suspicious. I must be careful, for I have no way of telling friend from foe here. (Any)'
+		],
+		'Bond' :
+		[
+			'So long as I have this token from my homeland, I can face any adversity in this strange land.',
+			'The gods of my people are a comfort to me so far from home.',
+			'I hold no greater cause than my service to my people.',
+			'My freedom is my most precious possession. I\'ll never let anyone take it from me again.',
+			'I\'m fascinated by the beauty and wonder of this new land.',
+			'Though I had no choice, I lament having to leave my loved one(s) behind. I hope to see them again one day.'
+		],
+		'Flaw' :
+		[
+			'I am secretly (or not so secretly) convinced of the superiority of my own culture over that of this foreign land.',
+			'I pretend not to understand the local language in order to avoid interactions I would rather not have.',
+			'I have a weakness for the new intoxicants and other pleasures of this land.',
+			'I don\'t take kindly to some of the actions and motivations of the people of this land, because these folk are different from me.',
+			'I consider the adherents of other gods to be deluded innocents at best, or ignorant fools at worst.',
+			'I have a weakness for the exotic beauty of the people of these lands.'
+		],
+		'Why Are You Here?' : [ 'Emissary', 'Pilgrim', 'Exile', 'Sightseer', 'Fugitive', 'Wanderer' ],
+		'Where are you from?' : [ 'Evermeet', 'Halruaa', 'Kara-Tur', 'Mulhorand', 'Sossal', 'Zakhara', 'The Underdark' ]
 	},
 	{
-		'_special' : 'book-SCAG',
+		'_special' : 'book-SCAG traits-5',
 		'_name' : 'Inheritor',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Survival, plus one from among Arcana, History, and Religion',
-			'Tool Proficiencies' : 'Your choice of a gaming set or a musical instrument',
-			'Languages' : 'Any one of your choice',
-			'Equipment' : 'Your inheritance, a set of traveler\'s clothes, any items with which you are proficient, and a pouch containing 15 gp',
-			'Inheritance' : 'Choose or randomly determine your inheritance. Work with your Dungeon Master to come up with details: Why is your inheritance so important, and what is its full story?'
-		},
 		'Inheritance' :
 		[
-			'A document such as a  map, a letter, or a journal',
+			'A document such as a map, a letter, or a journal',
 			'A trinket (see "Trinkets" in chapter 5 of the Player\'s Handbook)',
 			'A trinket (see "Trinkets" in chapter 5 of the Player\'s Handbook)',
 			'An article of clothing',
@@ -4084,259 +2795,210 @@ var backgrounds =
 			'An arcane book or formulary',
 			'A written story, song, poem, or secret',
 			'A tattoo or other body marking'
-		],
-		'Personality' :
-		{
-			'_special' : 'traits-5'
-		}
+		]
 	},
 	{
-		'_special' : 'book-SCAG',
-		'_name' : 'Knight of the Order',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Persuasion, plus one from among Arcana, History, Nature, and Religion, as appropriate for your order',
-			'Tool Proficiencies' : 'One type of gaming set or musical instrument',
-			'Languages' : 'One of your choice',
-			'Equipment' : 'One set of traveler\'s clothes, a signet, banner or seal representing your place or rank in the order, and a pouch containing 10 gp',
-			'Knightly Regard' : 'You receive shelter and succor from members of your knightly order and those who are sympathetic to its aims. If your order is a religious one, you can gain aid from temples and other religious communities of your deity. Knights of civic orders can get help from the community- whether a lone settlement or a great nation that they serve, and knights of philosophical orders can find help from those they have aided in pursuit of their ideals, and those who share those ideals. This help comes in the form of shelter and meals, and healing when appropriate, as well as occasionally risky assistance, such as a band of local citizens rallying to aid a sorely pressed knight in a fight, or those who support the order helping to smuggle a knight out of town when he or she is being hunted unjustly.'
-		},
-		'Personality' :
-		{
-			'_special' : 'traits-13'
-		}
+		'_special' : 'book-SCAG traits-13',
+		'_name' : 'Knight of the Order'
 	},
 	{
-		'_special' : 'book-SCAG',
-		'_name' : 'Mercenary Veteran',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Athletics, Persuasion',
-			'Tool Proficiencies' : 'One type of gaming set, vehicles (land)',
-			'Equipment' : 'A uniform of your company (traveler\'s clothes in quality), an insignia of your rank, a gaming set of your choice, and a pouch containing the remainder of your last wages (10 gp)',
-			'Mercenary Life' : 'You know the mercenary life as only someone who has experienced it can. You are able to identify mercenary companies by their emblems, and you know a little about any such company, including the names and reputations of its commanders and leaders, and who has hired them recently. You can find the taverns and feast halls where mercenaries abide in any area, as long as you speak the language. You can find mercenary work between adventures sufficient to maintain a comfortable lifestyle (see "Practicing a Profession" under "Downtime Activities" in chapter 8 of the Player\'s Handbook)'
-		},
-		'Personality' :
-		{
-			'_special' : 'traits-13'
-		}
+		'_special' : 'book-SCAG traits-13',
+		'_name' : 'Mercenary Veteran'
 	},
 	{
-		'_special' : 'book-SCAG',
-		'_name' : 'Urban Bounty Hunter',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Choose two from among Deception, Insight, Persuasion, and Stealth.',
-			'Tool Proficiencies' : 'Choose two from among one type of gaming set, one musical instrument, and thieves\' tools.',
-			'Equipment' : 'A set of clothes appropriate to your duties and a pouch containing 20 gp.',
-			'Ear to the Ground' : 'You are in frequent contact with people in the segment of society that your chosen quarries move through. These people might be associated with the criminal underworld, the rough-and-tumble folk of the streets, or members of high society. This connection comes in the form of a contact in any city you visit, a person who provides information about the people and places of the local area.'
-		},
-		'Personality' :
-		{
-			'_special' : 'traits-3'
-		}
+		'_special' : 'book-SCAG traits-3',
+		'_name' : 'Urban Bounty Hunter'
 	},
 	{
-		'_special' : 'book-SCAG',
-		'_name' : 'Uthgardt Tribe Member',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Athletics, Survival',
-			'Tool Proficiencies' : 'One type of musical instrument or artisan\'s tools',
-			'Languages' : 'One of your choice',
-			'Equipment' : 'A hunting trap, a totemic token or set of tattoos marking your loyalty to Uthgar and your tribal totem, a set of traveler\'s clothes, and a pouch containing 10 gp',
-			'Uthgardt Heritage' : 'You have an excellent knowledge of not only your tribe\'s territory, but also the terrain and natural resources of the rest of the North. You are familiar enough with any wilderness area that you find twice as much food and water as you normally would when you forage there. Additionally, you can call upon the hospitality of your people, and those folk allied with your tribe, often including members of druid circles, tribes of nomadic elves, the Harpers, and the priesthoods devoted to the gods of the First Circle.'
-		},
-		'Personality' :
-		{
-			'_special' : 'traits-9'
-		}
+		'_special' : 'book-SCAG traits-9',
+		'_name' : 'Uthgardt Tribe Member'
 	},
 	{
-		'_special' : 'book-SCAG',
-		'_name' : 'Waterdhavian Noble',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'History, Persuasion',
-			'Tool Proficiencies' : 'One type of gaming set or one musical instrument',
-			'Languages' : 'One of your choice',
-			'Equipment' : 'A set of fine clothes, a signet ring or brooch, a scroll of pedigree, a skin of fine zzar or wine, and a purse containing 20 gp',
-			'Kept in Style' : 'While you are in Waterdeep or elsewhere in the North your house sees to your everyday needs. Your name and signet are sufficient to cover most of your expenses; the inns, taverns, and feast halls you frequent are glad to record your debt and send an accounting to your family\'s estate in Waterdeep to settle what you owe. This advantage enables you to live a comfortable lifestyle without having to pay 2 gp a day for it, or reduces the cost of a wealthy or aristocratic lifestyle by that amount. You may not maintain a less affluent lifestyle and use the difference as income-the benefit is a line of credit, not an actual monetary reward.'
-		},
-		'Personality' :
-		{
-			'_special' : 'traits-8'
-		}
+		'_special' : 'book-SCAG traits-8',
+		'_name' : 'Waterdhavian Noble'
 	},
 	{
 		'_special' : 'book-Other',
 		'_name' : 'Anthropologist',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiency' : 'Insight, Religion',
-			'Languages' : 'Two of your choice',
-			'Equipment' : 'A leather-bound diary, a bottle of ink, an ink pen, a set of traveler\'s clothes, one trinket of special significance, and a pouch containing 10 gp',
-			'Adept Linguist' : 'You can communicate with humanoids who don\'t speak any language you know. You must observe the humanoids interacting with one another for at least 1 day, after which you learn a handful of important words, expressions, and gestures-enough to communicate on a rudimentary level.'
-		},
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I prefer the company of those who aren\'t like me, including people of other races.',
-				'I\'m a stickler when it comes to observing proper etiquette and local customs.',
-				'I would rather observe than meddle.',
-				'By living among violent people, I have become desensitized to violence.',
-				'I would risk life and limb to discover a new culture or unravel the secrets of a dead one.',
-				'When l arrive at a ew settlement for the first time, l must learn all its customs. '
-			],
-			'Ideal' :
-			[
-				'Discovery. I want to be the first person to discover a lost culture. (Any)',
-				'Distance. One must not interfere with the affairs of another culture- even one in need of aid. (Lawful)',
-				'Knowledge. By understanding other races and cul-tures, we learn to understand ourselves. (Any)',
-				'Power. Common people crave strong leadership, and I do my utmost to provide it. (Lawful)',
-				'Protection. I must do everything possible to save a society facing extinction. (Good)',
-				'Indifferent. life is cruel. What\'s the point in saving people if they\'re going to die anyway? (Chaotic)'
-			],
-			'Bond' :
-			[
-				'My mentor gave me a journal filled with lore and wisdom. Losing it would devastate me.',
-				'Having lived among the people of a primeval tribe or clan, I long to return and see how they are faring.',
-				'Years ago, tragedy struck the members of an isolated society I befriended, and I will honor them.',
-				'I want to learn more about a particular humanoid culture that fascinates me.',
-				'I seek to avenge a clan, tribe, kingdom, or empire that was wiped out.',
-				'I have a trinket that I believe is the key to finding a long-lost society.'
-			],
-			'Flaw' :
-			[
-				'Boats make me seasick.',
-				'I talk to myself, and I don\'t make friends easily.',
-				'I believe that I\'m intellectually superior to people from other cultures and have much to teach them.',
-				'I\'ve picked up some unpleasant habits living among goblins, lizardfolk, or orcs.',
-				'I complain about everything.',
-				'I wear a tribal mask and never take it off. '
-			],
-			'Adopted Culture' : [ 'Aarakocra', 'Halfling', 'Dwarf', 'Human', 'Elf', 'Lizardfolk', 'Goblin', 'Orc' ]
-		}
+		'Trait' :
+		[
+			'I prefer the company of those who aren\'t like me, including people of other races.',
+			'I\'m a stickler when it comes to observing proper etiquette and local customs.',
+			'I would rather observe than meddle.',
+			'By living among violent people, I have become desensitized to violence.',
+			'I would risk life and limb to discover a new culture or unravel the secrets of a dead one.',
+			'When l arrive at a ew settlement for the first time, l must learn all its customs. '
+		],
+		'Ideal' :
+		[
+			'Discovery. I want to be the first person to discover a lost culture. (Any)',
+			'Distance. One must not interfere with the affairs of another culture- even one in need of aid. (Lawful)',
+			'Knowledge. By understanding other races and cul-tures, we learn to understand ourselves. (Any)',
+			'Power. Common people crave strong leadership, and I do my utmost to provide it. (Lawful)',
+			'Protection. I must do everything possible to save a society facing extinction. (Good)',
+			'Indifferent. life is cruel. What\'s the point in saving people if they\'re going to die anyway? (Chaotic)'
+		],
+		'Bond' :
+		[
+			'My mentor gave me a journal filled with lore and wisdom. Losing it would devastate me.',
+			'Having lived among the people of a primeval tribe or clan, I long to return and see how they are faring.',
+			'Years ago, tragedy struck the members of an isolated society I befriended, and I will honor them.',
+			'I want to learn more about a particular humanoid culture that fascinates me.',
+			'I seek to avenge a clan, tribe, kingdom, or empire that was wiped out.',
+			'I have a trinket that I believe is the key to finding a long-lost society.'
+		],
+		'Flaw' :
+		[
+			'Boats make me seasick.',
+			'I talk to myself, and I don\'t make friends easily.',
+			'I believe that I\'m intellectually superior to people from other cultures and have much to teach them.',
+			'I\'ve picked up some unpleasant habits living among goblins, lizardfolk, or orcs.',
+			'I complain about everything.',
+			'I wear a tribal mask and never take it off. '
+		],
+		'Adopted Culture' : [ 'Aarakocra', 'Halfling', 'Dwarf', 'Human', 'Elf', 'Lizardfolk', 'Goblin', 'Orc' ]
 	},
 	{
 		'_special' : 'book-Other',
 		'_name' : 'Archaeologist',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'History, Survival',
-			'Tool Proficiencies' : 'Cartographer\'s tools or Navigator\'s tools',
-			'Languages' : 'One of your choice',
-			'Equipment': 'A wooden case containing a map to a ruin or dungeon, a bullseye lantern, a miner\'s pick, a set of traveler\'s clothes, a shovel, a two-person tent, a trinket recovered from a dig site, and a pouch containing 25 gp',
-			'Historical Knowledge' : 'Few archaeologists can resist the lure of an unexplored ruin or dungeon, particularly if such a site is the source of legends or is rumored to contain the treasures and relics of wizards, warlords, or royalty. Some archaeologists plunder for wealth or fame, while others consider it their calling to illuminate the past or keep the world\'s greatest treasures from falling into the wrong hands. Whatever their motivations, archaeologists combine the qualities of a scrappy historian with the self-made heroism of a treasure-hunting scoundrel.'
-		},
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I love a good puzzle or mystery.',
-				'I\'m a pack rat who never throws anything away.',
-				'Fame is more important to me than money.',
-				'I have no qualms about stealing from the dead.',
-				'I\'m happier In a dusty old tomb than I am in the centers of civilization.',
-				'Traps don\'t make me nervous. Idiots who trigger traps make me nervous.',
-				'I might fail, but I will never give up.',
-				'You might think I\'m a scholar, but I love a good brawl. These fists were made for punching.'
-			],
-			'Ideal' :
-			[
-				'Preservation. That artifact belongs in a museum. (Good)',
-				'Greed. I won\'t risk my life for nothing. I expect some kind of payment. (Any)',
-				'Death Wish. Nothing is more exhilarating than a narrow escape from the jaws of death. (Chaotic)',
-				'Dignity. The dead and their belongings deserve to be treated with respect. (Lawful)',
-				'Immortality. All my exploring is part of a plan to find the secret of everlasting life. (Any)',
-				'Danger. With every great discovery comes grave danger. The two walk hand in hand. (Any) '
-			],
-			'Bond' :
-			[
-				'Ever since I was a child, I\'ve heard stories about a lost city. I aim to find it, learn its secrets, and earn my place in the history books.',
-				'I want to find my mentor, who disappeared on an expedition some time ago.',
-				'I have a friendly rival. Only one of us can be the best, and I aim to prove it\'s me.',
-				'I won\'t sell an art object or other treasure that has historical significance or is one of a kind.',
-				'I\'m secretly in love with the wealthy patron who sponsors my archaeological exploits.',
-				'I hope to bring prestige to a library, a museum, or a university. '
-			],
-			'Flaw' :
-			[
-				'I have a secret fear of some common wild animal- and In my work, I see them everywhere.',
-				'I can\'t leave a room without searching it for secret doors.',
-				'When I\'m not exploring dungeons or ruins, I get jittery and impatient.',
-				'I have no time for friends or family. I spend every waking moment thinking about and preparing for my next expedition.',
-				'When given the choice of going left or right, I always go left.',
-				'I can\'t sleep except in total darkness.'
-			],
-			'Signature Item' : [ '10-foot pole', 'Medallion', 'Crowbar', 'Shovel', 'Hat', 'Sledgehammer', 'Hooded lantern', 'Whip' ]
-		}
+		'Trait' :
+		[
+			'I love a good puzzle or mystery.',
+			'I\'m a pack rat who never throws anything away.',
+			'Fame is more important to me than money.',
+			'I have no qualms about stealing from the dead.',
+			'I\'m happier In a dusty old tomb than I am in the centers of civilization.',
+			'Traps don\'t make me nervous. Idiots who trigger traps make me nervous.',
+			'I might fail, but I will never give up.',
+			'You might think I\'m a scholar, but I love a good brawl. These fists were made for punching.'
+		],
+		'Ideal' :
+		[
+			'Preservation. That artifact belongs in a museum. (Good)',
+			'Greed. I won\'t risk my life for nothing. I expect some kind of payment. (Any)',
+			'Death Wish. Nothing is more exhilarating than a narrow escape from the jaws of death. (Chaotic)',
+			'Dignity. The dead and their belongings deserve to be treated with respect. (Lawful)',
+			'Immortality. All my exploring is part of a plan to find the secret of everlasting life. (Any)',
+			'Danger. With every great discovery comes grave danger. The two walk hand in hand. (Any) '
+		],
+		'Bond' :
+		[
+			'Ever since I was a child, I\'ve heard stories about a lost city. I aim to find it, learn its secrets, and earn my place in the history books.',
+			'I want to find my mentor, who disappeared on an expedition some time ago.',
+			'I have a friendly rival. Only one of us can be the best, and I aim to prove it\'s me.',
+			'I won\'t sell an art object or other treasure that has historical significance or is one of a kind.',
+			'I\'m secretly in love with the wealthy patron who sponsors my archaeological exploits.',
+			'I hope to bring prestige to a library, a museum, or a university. '
+		],
+		'Flaw' :
+		[
+			'I have a secret fear of some common wild animal- and In my work, I see them everywhere.',
+			'I can\'t leave a room without searching it for secret doors.',
+			'When I\'m not exploring dungeons or ruins, I get jittery and impatient.',
+			'I have no time for friends or family. I spend every waking moment thinking about and preparing for my next expedition.',
+			'When given the choice of going left or right, I always go left.',
+			'I can\'t sleep except in total darkness.'
+		],
+		'Signature Item' : [ '10-foot pole', 'Medallion', 'Crowbar', 'Shovel', 'Hat', 'Sledgehammer', 'Hooded lantern', 'Whip' ]
 	},
 	{
 		'_special' : 'book-Other',
 		'_name' : 'Haunted One',
-		'Skills and Equipment' :
-		{
-			'Skill Proficiencies' : 'Choose Two from among Arcana, Deception, Investigation, Religion, and Survival',
-			'Languages' : 'Choose one exotic language (Abyssal, Celestial, Deep Speech, Draconic, Infernal, Primordial, Sylvan, or Undercommon)',
-			'Equipment' : 'A monster hunter\'s pack, a set of common clothes, and two trinket of special significance (see below), and a belt pouch containing 15 gp.',
-			'Heart of Darkness' : 'Those who look into your eyes can see that you have faced unimaginable horror and that you are no stranger to darkness. Though they might fear you, commoners will extend you every courtesy and do their utmost to help you. Unless you have shown yourself to be a danger to them, they will even take up arms to fight alongside you, should you find yourself facing an enemy alone.'
-		},
-		'Personality' :
-		{
-			'Trait' :
-			[
-				'I don\'t run from evil. Evil runs from me.',
-				'I like to read and memorize poetry. It keeps me calm and brings me fleeting moments of happiness.',
-				'I spend money freely and live life to the fullest, knowing that tomorrow I might die.',
-				'I live for the thrill of the hunt.',
-				'I don\'t talk about the thing that torments me.  I\'d rather not burden others with my curse.',
-				'I expect danger around every corner.',
-				'I refuse to become a victim, and I will not allow others to be victimized.',
-				'I put no trust in divine beings.'
-			],
-			'Ideal' :
-			[
-				'I try to help those in need, no matter what the personal cost. (Good)',
-				'I\'ll stop the spirits that haunt me or die trying. (Any)',
-				'I kill monsters to make the world a safer place, and to exorcise my own demons. (Good).',
-				'I have a dark calling that puts me above the law. (Chaotic)',
-				'I like to know my enemy\'s capabilities and weaknesses before rushing into battle. (Lawful).',
-				'I\'m a monster that destroys other monsters, and anything else that gets in my way. (Evil).',
-			],
-			'Bond' :
-			[
-				'I keep my thoughts and discoveries in a journal. My journal is my legacy.',
-				'I would sacrifice my life and my soul to protect the innocent.',
-				'My torment drove away the person I love. I strive to win back the love I\'ve lost.',
-				'A terrible guilt consumes me. I hope that I can find redemption through my actions.',
-				'There\'s evil in me, I can feel it. It must never be set free.',
-				'I have a child to protect. I must make the world a safer place for him (or her).'
-			],
-			'Flaw' :
-			[
-				'I have certain rituals that I must follow every day. I can never break them.',
-				'I assume the worst in people.',
-				'I feel no compassion for the dead. They\'re the lucky ones.',
-				'I have an addiction.',
-				'I am a purveyor of doom and gloom who lives in a world without hope.',
-				'I talk to spirits that no one else can see.'
-			],
-			'Harrowing Event' :
-			[
-				'A monster that slaughtered dozens of innocent people spared your life, and you don\'t know why.',
-				'You were born under a dark star. You can feel it watching you, coldly and distantly. Sometimes it beckons you in the dead of night.',
-				'An apparition that has haunted your family for generations now haunts you. You don\'t know what it wants, and it won\'t leave you alone.',
-				'Your family has a history of practicing the dark arts. You dabbled once and felt something horrible clutch at your soul, whereupon you fled in terror.',
-				'An oni took your sibling one cold, dark night, and you were unable to stop it.',
-				'You were cursed with lycanthropy and later cured. You are now haunted by the innocents you slaughtered.',
-				'A hag kidnapped and raised you. You escaped, but the hag still has a magical hold over you and fills your mind with evil thoughts.',
-				'You opened an eldritch tome and saw things unfit for a sane mind. You burned the book, but its words and images are burned into your psyche.',
-				'A fiend possessed you as a child. You were locked away but escaped. The fiend is still inside you, but now you try to keep it locked away.',
-				'You did terrible things to avenge the murder of someone you loved. You became a monster, and it haunts your waking dreams.'
-			]
-		}
+		'Trait' :
+		[
+			'I don\'t run from evil. Evil runs from me.',
+			'I like to read and memorize poetry. It keeps me calm and brings me fleeting moments of happiness.',
+			'I spend money freely and live life to the fullest, knowing that tomorrow I might die.',
+			'I live for the thrill of the hunt.',
+			'I don\'t talk about the thing that torments me. I\'d rather not burden others with my curse.',
+			'I expect danger around every corner.',
+			'I refuse to become a victim, and I will not allow others to be victimized.',
+			'I put no trust in divine beings.'
+		],
+		'Ideal' :
+		[
+			'I try to help those in need, no matter what the personal cost. (Good)',
+			'I\'ll stop the spirits that haunt me or die trying. (Any)',
+			'I kill monsters to make the world a safer place, and to exorcise my own demons. (Good).',
+			'I have a dark calling that puts me above the law. (Chaotic)',
+			'I like to know my enemy\'s capabilities and weaknesses before rushing into battle. (Lawful).',
+			'I\'m a monster that destroys other monsters, and anything else that gets in my way. (Evil).',
+		],
+		'Bond' :
+		[
+			'I keep my thoughts and discoveries in a journal. My journal is my legacy.',
+			'I would sacrifice my life and my soul to protect the innocent.',
+			'My torment drove away the person I love. I strive to win back the love I\'ve lost.',
+			'A terrible guilt consumes me. I hope that I can find redemption through my actions.',
+			'There\'s evil in me, I can feel it. It must never be set free.',
+			'I have a child to protect. I must make the world a safer place for him (or her).'
+		],
+		'Flaw' :
+		[
+			'I have certain rituals that I must follow every day. I can never break them.',
+			'I assume the worst in people.',
+			'I feel no compassion for the dead. They\'re the lucky ones.',
+			'I have an addiction.',
+			'I am a purveyor of doom and gloom who lives in a world without hope.',
+			'I talk to spirits that no one else can see.'
+		],
+		'Harrowing Event' :
+		[
+			'A monster that slaughtered dozens of innocent people spared your life, and you don\'t know why.',
+			'You were born under a dark star. You can feel it watching you, coldly and distantly. Sometimes it beckons you in the dead of night.',
+			'An apparition that has haunted your family for generations now haunts you. You don\'t know what it wants, and it won\'t leave you alone.',
+			'Your family has a history of practicing the dark arts. You dabbled once and felt something horrible clutch at your soul, whereupon you fled in terror.',
+			'An oni took your sibling one cold, dark night, and you were unable to stop it.',
+			'You were cursed with lycanthropy and later cured. You are now haunted by the innocents you slaughtered.',
+			'A hag kidnapped and raised you. You escaped, but the hag still has a magical hold over you and fills your mind with evil thoughts.',
+			'You opened an eldritch tome and saw things unfit for a sane mind. You burned the book, but its words and images are burned into your psyche.',
+			'A fiend possessed you as a child. You were locked away but escaped. The fiend is still inside you, but now you try to keep it locked away.',
+			'You did terrible things to avenge the murder of someone you loved. You became a monster, and it haunts your waking dreams.'
+		]
+	},
+	{
+		'_special' : 'book-WGtE',
+		'_name' : 'House Agent',
+		'House' : [ 'Cannith', 'Deneith', 'Ghallanda', 'Jorasco', 'Kundarak', 'Lyrandar', 'Medani', 'Orien', 'Phiarlan', 'Sivis', 'Tharashk', 'Thuranni', 'Vadalis' ],
+		'House Agent Role' : [ 'Acquisition', 'Investigation', 'Research and Development', 'Security', 'Intimidation', 'Exploration', 'Negotiation', 'Covert Operations' ],
+		'Trait' :
+		[
+			'I never let emotion complicate work.',
+			'I\'m always looking to improve efficiency.',
+			'I share trivia about my house’s business (medicine, ships, warforged).',
+			'I holy myself and anyone I work with to extremely high standards.',
+			'I never forget an insult made against myself or my house.',
+			'I\'m excited and enthusiastic about everything my house does.',
+			'I\'m representing my house and take great pride in my personal appearance.',
+			'I\'m critical of monarchies and opposed to any restrictions on the houses.'
+		],
+		'Ideal' :
+		[
+			'Common Good. My house serves a vital function, and its prosperity will help everyone. (Good)',
+			'Tradition. I uphold traditions of my house and bring honor to my family. (Lawful)',
+			'Innovation. Abandon old traditions and find better ways to do things. (Chaotic)',
+			'Power. I want to ensure the prosperity of my house and wield its power myself. (Evil)',
+			'Discovery. I want to learn all I can, both for my house and my own curiosity. (Any)',
+			'Comfort. I want to ensure that me and mine enjoy the best things in life. (Any)'
+		],
+		'Bond' :
+		[
+			'My house is my family, and I would do anything for my family.',
+			'I love someone from another house, but such relationships are forbidden.',
+			'Someone I love was killed by a rival faction within my house, and I will have revenge.',
+			'I don\'t care about the house as a whole, but I would do anything for my old mentor.',
+			'I believe my house needs to evolve to survive, and I need to lead that charge.',
+			'I am determined to impress the leaders of my house, and to become a leader myself.'
+		],
+		'Flaw' :
+		[
+			'I\'m overly concerned with following established procedures and protocols.',
+			'I\'m obsessed with conspiracy theories and worried about secret societies and hidden demons.',
+			'I believe that my house and bloodline makes me better than everyone else.',
+			'I\'m concealing a secret that could get me driven from my house.',
+			'I have strong religious beliefs that aren\'t shared by others in my house.',
+			'I\'m working for a hidden faction in my house that gives me secret assignments.'
+		]
 	}
 ]
 
@@ -4646,7 +3308,8 @@ var names =
 		'Female' : [ 'Carystus', 'Cybel', 'Dawn', 'Endeis', 'Euippe', 'Mae', 'Hippe', 'Hylonome', 'Melanippe', 'Ocyrhoe' ],
 		'Male' : [ 'Apis', 'Bane', 'Centaurus', 'Chiron', 'Cloudbirth', 'Cyllerus', 'Dantares', 'Elatus', 'Eurytion', 'Firenze', 'Gadfort', 'Glenstorm', 'Hylaeus', 'Ironhoof', 'Jaro', 'Kashing', 'Latreus', 'Magorian', 'Nessus', 'Oreus', 'Pai', 'Pelle', 'Pholus', 'Polkan', 'Rainstone', 'Rhaecus', 'Ronan', 'Roonwit', 'Sajacks', 'Suncloud', 'Vankar', 'Varios', 'Windmane' ]
 	},
-	'Changeling' : [ 'Bin', 'Dox', 'Fie', 'Hars', 'Jin', 'Lam', 'Nit', 'Ot', 'Paik', 'Ruz', 'Sim', 'Toox', 'Yog' ],
+	'Changeling' :
+		[ 'Bin', 'Cas', 'Dox', 'Fie', 'Hars', 'Jin', 'Lam', 'Mas', 'Nix', 'Ot', 'Paik', 'Ruz', 'Sim', 'Toox', 'Vil', 'Yog' ],
 	'Deep Gnome' :
 	{
 		'Female' : [ 'Beliss', 'Durthee', 'Fricknarti', 'Ivridda', 'Krivi', 'Lulthiss', 'Nalvarti', 'Schnella', 'Thulmarra', 'Wirsidda' ],
@@ -4976,10 +3639,12 @@ var names =
 	'Infernal' :
 	{
 		'Female' :
-			[ 'Akta', 'Anakis', 'Armara', 'Astaro', 'Aym', 'Beleth', 'Bryseis', 'Bune',  'Criella', 'Damaia', 'Decarabia', 'Ea', 'Gadreel', 'Gomory', 'Hecat', 'Ishte', 'Jezebeth', 'Kali', 'Kallista', 'Kasdeya', 'Lerissa', 'Lilith', 'Makaria', 'Manea', 'Markosian', 'Mastema', 'Naamah', 'Nemeia', 'Nija', 'Orianna', 'Osah', 'Phelaia', 'Prosperine', 'Purah', 'Pyra', 'Rieta', 'Ronobe', 'Ronwe', 'Seddit', 'Seere', 'Sekhmet', 'Semyaza', 'Shava', 'Shax', 'Sorath', 'Uzza', 'Vapula', 'Vepar', 'Verin' ],
+			[ 'Akta', 'Anakis', 'Armara', 'Astaro', 'Aym', 'Beleth', 'Bryseis', 'Bune', 'Criella', 'Damaia', 'Decarabia', 'Ea', 'Gadreel', 'Gomory', 'Hecat', 'Ishte', 'Jezebeth', 'Kali', 'Kallista', 'Kasdeya', 'Lerissa', 'Lilith', 'Makaria', 'Manea', 'Markosian', 'Mastema', 'Naamah', 'Nemeia', 'Nija', 'Orianna', 'Osah', 'Phelaia', 'Prosperine', 'Purah', 'Pyra', 'Rieta', 'Ronobe', 'Ronwe', 'Seddit', 'Seere', 'Sekhmet', 'Semyaza', 'Shava', 'Shax', 'Sorath', 'Uzza', 'Vapula', 'Vepar', 'Verin' ],
 		'Male' :
 			[ 'Abad', 'Ahrim', 'Akmen', 'Amnon', 'Andram', 'Balam', 'Barakas', 'Bathin', 'Caim', 'Chem', 'Cimer', 'Cressel', 'Damakos', 'Ekemon', 'Euron', 'Fenriz', 'Forcas', 'Habor', 'Iados', 'Kairon', 'Leucis', 'Mamnen', 'Mantus', 'Marbas', 'Melech', 'Merihim', 'Modean', 'Mordai', 'Mormo', 'Morthos', 'Nicor', 'Nirgel', 'Oriax', 'Paymon', 'Pelaios', 'Purson', 'Qemuel', 'Raam', 'Rimmon', 'Sammal', 'Skamos', 'Tethren', 'Thamuz', 'Therai', 'Valafar', 'Vassago', 'Xappan', 'Zepar', 'Zephan' ]
 	},
+	'Kalashtar' :
+		[ 'Coratash', 'Dalavash', 'Dolishara', 'Halakosh', 'Khoratari', 'Koratana', 'Lanhareth', 'Molavakri', 'Nevitash', 'Sorashana', 'Torashtai', 'Valakhad', 'Vishara' ],
 	'Kenku' :
 		[ 'Smasher', 'Clanger', 'Slicer', 'Basher', 'Rat Scratch', 'Whistler', 'Mouser', 'Growler', 'Sail Snap', 'Hammerer', 'Cutter' ],
 	'Kobold' :
@@ -5001,11 +3666,15 @@ var names =
 		'Male' :
 			[ 'Agran', 'Braak', 'Brug', 'Cagak', 'Dench', 'Dorn', 'Dren', 'Druuk', 'Feng', 'Gell', 'Gnarsh', 'Grumbar', 'Hagren', 'Henk', 'Hogar', 'Holg', 'Imsh', 'Karash', 'Karg', 'Keth', 'Korag', 'Krusk', 'Lubash', 'Megged', 'Mhurren', 'Mord', 'Morg', 'Nil', 'Nybarg', 'Odorr', 'Ohr', 'Rendar', 'Resh', 'Ront', 'Rrath', 'Sark', 'Scrag', 'Sheggen', 'Shump', 'Tanglar', 'Tarak', 'Thar', 'Thokk', 'Trag', 'Ugarth', 'Varg', 'Vilberg', 'Yurk', 'Zed' ]
 	},
-	'Shifter' :
+	'Quori' :
 	{
-		'Female' : [ 'Aurora', 'Autumn', 'Dawn', 'Hazel', 'Iris', 'Lily', 'Rain', 'Rose', 'Summer' ],
-		'Male' : [ 'Ash', 'Brook', 'Claw', 'Cliff', 'Flint', 'Frost', 'River', 'Rock', 'Storm', 'Thorn', 'Torn' ]
+		'Female' :
+			[ 'Ashana', 'Ashtai', 'Ishara', 'Nari', 'Tana', 'Tari', 'Vakri' ],
+		'Male' :
+			[ 'Hareth', 'Khad', 'Kosh', 'Melk', 'Tash', 'Ulad', 'Vash' ]
 	},
+	'Shifter' :
+		[ 'Badger', 'Bear', 'Cat', 'Fang', 'Grace', 'Grim', 'Moon', 'Rain', 'Red', 'Scar', 'Stripe', 'Swift', 'Talon', 'Whiskers', 'Wolf' ],
 	'Tabaxi' :
 	{
 		'Name':
@@ -5026,9 +3695,8 @@ var names =
 	},
 	'Virtue' :
 		[ 'Ambition', 'Art', 'Carrion', 'Chant', 'Creed', 'Death', 'Debauchery', 'Despair', 'Doom', 'Doubt', 'Dread', 'Ecstacy', 'Ennui', 'Entropy', 'Excellence', 'Fear', 'Glory', 'Gluttony', 'Grief', 'Hate', 'Hope', 'Horror', 'Ideal', 'Ignominy', 'Laughter', 'Love', 'Lust', 'Mayhem', 'Mockery', 'Murder', 'Muse', 'Music', 'Mystery', 'Nowhere', 'Open', 'Pain', 'Passion', 'Poetry', 'Quest', 'Random', 'Reverence', 'Revulsion', 'Sorrow', 'Temerity', 'Torment', 'Tragedy', 'Vice', 'Virtue', 'Weary', 'Wit' ],
-	// http://www.enworld.org/forum/showthread.php?136448-Coming-up-with-Yuan-ti-names
 	'Warforged' :
-		[ 'Azm', 'Book', 'Bulwark', 'Cart', 'Charger', 'Cutter', 'Falchion', 'Graven', 'Hammer', 'Mark', 'Morg', 'Nameless', 'Pierce', 'Pious', 'Relic', 'Rune', 'Steeple', 'Sword', 'Three', 'Titan', 'Unsung', 'Victor', 'Watcher', 'Zealot' ],
+		[ 'Anchor', 'Banner', 'Bastion', 'Blade', 'Blue', 'Bow', 'Church', 'Crunch', 'Crystal', 'Dagger', 'Dent', 'Five', 'Glaive', 'Hammer', 'Iron', 'Lucky', 'Mace', 'Pants', 'Pierce', 'Red', 'Rusty', 'Scout', 'Seven', 'Shield', 'Slash', 'Smith', 'Spike', 'Stone', 'Temple', 'Vault', 'Wall', 'Wood' ],
 	'Yuan-Ti' :
 		[ 'Asutali', 'Eztli', 'Hessatal', 'Hitotee', 'Issahu', 'Itstli', 'Manuya', 'Meztli', 'Nesalli', 'Otleh', 'Shalkashlah', 'Sisava', 'Sitlali', 'Soakosh', 'Ssimalli', 'Suisatal', 'Talash', 'Teoshi', 'Yaotal', 'Zihu' ]
 }
@@ -5139,7 +3807,6 @@ var trinkets =
 
 var UARaces =
 [
-	{ 'name' : 'Changeling, Shifter, and Warforged', 'source' : 'Eberron', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron' },
 	{ 'name' : 'Abyssal Tiefling', 'source' : 'That Old Black Magic', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/old-black-magic' },
 	{ 'name' : 'Revenant Subrace', 'source' : 'Gothic Heroes', 'link' : 'http://dnd.wizards.com/articles/features/gothic-heroes' },
 	{ 'name' : 'Elf Subraces: Avariel and Grugach', 'source' : 'Elf Subraces', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces' },
@@ -5169,7 +3836,6 @@ var UAClasses =
 
 var UAOther =
 [
-	{ 'name' : 'Dragonmark Feats', 'source' : 'Eberron', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-eberron' },
 	{ 'name' : 'Fighting Style: Mariner', 'source' : 'Waterborne Adventures', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-waterborne-adventures' },
 	{ 'name' : 'Modern Campaign Content', 'source' : 'Modern Magic', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/modern-magic' },
 	{ 'name' : 'Prestige Classes and Rune Magic', 'source' : 'Prestige Classes and Rune Magic', 'link' : 'http://dnd.wizards.com/articles/features/prestige-classes-and-rune-magic' },
@@ -5179,8 +3845,6 @@ var UAOther =
 	{ 'name' : 'Eldritch Inovcations', 'source' : 'Warlock and Wizard', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard' },
 	{ 'name' : 'Cantrips & 1st Level Spells', 'source' : 'Starter Spells', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/starter-spells' },
 	{ 'name' : 'Skill Feats', 'source' : 'Feats for Skills', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/feats-skills' },
-	{ 'name' : 'Race Feats', 'source' : 'Feats for Races', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/feats-races' },
-	{ 'name' : 'More Eldritch Inovcations', 'source' : 'Revised Class Options', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/revised-class-options' },
 ]
 
 var raceWeights = 
@@ -5207,30 +3871,3 @@ var monstrousOrigins =
 	'An evil entity corrupted your people\'s society.',
 	'An injury or strange event caused you to lose all memory of your past, but occasional flashes of it return to you.'
 ];
-
-var tooltips =
-{
-	'burglarspack' : 'Burglar\'s Pack (16 gp). Includes a backpack, a bag of 1,000 ball bearings, 10 feet of string, a bell, 5 candles, a crowbar, a hammer, 10 pitons, a hooded lantern, 2 flasks of oil, 5 days rations, a tinderbox, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.',
-	'diplomatspack' : 'Diplomat\'s Pack (39 gp). Includes a chest, 2 cases for maps and scrolls, a set of fine clothes, a bottle of ink, an ink pen, a lamp, 2 flasks of oil, 5 sheets of paper, a vial of perfume, sealing wax, and soap.',
-	'dungeoneerspack' : 'Dungeoneer\'s Pack (12 gp). Includes a backpack, a crowbar, a hammer, 10 pitons, 10 torches, a tinderbox, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.',
-	'entertainerspack' : 'Entertainer\'s Pack (40 gp). Includes a backpack, a bedroll, 2 costumes, 5 candles, 5 days of rations, a waterskin, and a disguise kit.',
-	'explorerspack' : 'Explorer\'s Pack (10 gp). Includes a backpack, a bedroll, a mess kit, a tinderbox, 10 torches, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.',
-	'priestspack' : 'Priest\'s Pack (19 gp). Includes a backpack, a blanket, 10 candles, a tinderbox, an alms box, 2 blocks of incense, a censer, vestments, 2 days of rations, and a waterskin.',
-	'scholarspack' : 'Scholar\'s Pack (40 gp). Includes a backpack, a book of lore, a bottle of ink, an ink pen, 10 sheets of parchment, a little bag of sand, and a small knife.',
-	
-	'paddedarmor' : 'Padded Armor. Light. AC: 11 + Dex modifier. Disadvantage on stealth rolls.',
-	'leatherarmor' : 'Leather Armor. Light. AC: 11 + Dex modifier.',
-	'studdedleatherarmor' : 'Studded Leather Armor. Light. AC: 12 + Dex modifier.',
-	
-	'hidearmor' : 'Hide Armor. Medium. AC: 12 + Dex modifier (max 2).',
-	'chainshirtarmor' : 'Chain Shirt. Medium. AC: 13 + Dex modifier (max 2).',
-	'scalemailarmor' : 'Scale Mail. Medium. AC: 14 + Dex modifier (max 2). Disadvantage on stealth rolls.',
-	'breastplatearmor' : 'Breast Plate. Medium. AC: 14 + Dex modifier (max 2).',
-	'halfplatearmor' : 'Half Plate. Medium. AC: 15 + Dex modifier (max 2). Disadvantage on stealth rolls.',
-	
-	'ringmail' : 'Ring Mail. Heavy. AC: 14. Disadvantage on stealth rolls.',
-	'chainmail' : 'Chain Mail. Heavy. AC: 15. Disadvantage on stealth rolls.',
-	'splintarmor' : 'Split Armor. Heavy. AC: 16. Disadvantage on stealth rolls.',
-	'platearmor' : 'Plate Armor. Heavy. AC: 17. Disadvantage on stealth rolls.',
-	'shield' : 'Shield. AC: +2.',
-}

@@ -133,15 +133,15 @@ function RandomizeName(allRandom)
 	}
 }
 
-function RandomizeStats(allRandom)
-{
-	if(!allRandom)
-		GetBooks();
-	character.Stats = GetStats();
-	document.getElementById('statssection').innerHTML = MakeHTMLString(character.Stats);
-	if(!allRandom)
-		MakeCard();
-}
+// function RandomizeStats(allRandom)
+// {
+	// if(!allRandom)
+		// GetBooks();
+	// character.Stats = GetStats();
+	// document.getElementById('statssection').innerHTML = MakeHTMLString(character.Stats);
+	// if(!allRandom)
+		// MakeCard();
+// }
 
 function RandomizeLife(allRandom)
 {
@@ -227,22 +227,22 @@ function MakeHTMLString(charObj)	// Make the content that shows up on the page
 			}
 			// For sub-properties
 			
-			if(property.indexOf('**') >= 0)
-			{
-				var starIndex = property.indexOf('**');
-				stringBuffer.push(property.substring(0, starIndex), '<ul><li>');
-				property = property.substring(starIndex + 2);
-				starIndex = property.indexOf('**');
-				while(starIndex >= 0)
-				{
-					stringBuffer.push(property.substring(0, starIndex), '</li><li>')
-					property = property.substring(starIndex + 2);
-					starIndex = property.indexOf('**');
-				}
-				stringBuffer.push(property, '</li></ul></li>');
-			}
-			else
-				stringBuffer.push(property, '</li>');
+			// if(property.indexOf('**') >= 0)
+			// {
+				// var starIndex = property.indexOf('**');
+				// stringBuffer.push(property.substring(0, starIndex), '<ul><li>');
+				// property = property.substring(starIndex + 2);
+				// starIndex = property.indexOf('**');
+				// while(starIndex >= 0)
+				// {
+					// stringBuffer.push(property.substring(0, starIndex), '</li><li>')
+					// property = property.substring(starIndex + 2);
+					// starIndex = property.indexOf('**');
+				// }
+				// stringBuffer.push(property, '</li></ul></li>');
+			// }
+			// else
+			stringBuffer.push(property, '</li>');
 		}
 	}
 	return stringBuffer.join('');
@@ -484,6 +484,14 @@ function GetName(raceName, characterOrSib)
 			if(ethnicity == 'Unknown')
 				ethnicity = RandomEthnicity();
 			return GetHumanName(ethnicity, characterOrSib.Gender);
+		case 'Kalashtar' :
+			var quoriName;
+			var rand = RandomNum(2);
+			if(rand < 1)
+				quoriName = RandomFromArray(names.Quori.Female);
+			else
+				quoriName = RandomFromArray(names.Quori.Male);
+			return RandomFromArray(names.Kalashtar) + ' ' + quoriName;
 		case 'Kenku' :
 			return RandomFromArray(names.Kenku);
 		case 'Kobold' :
@@ -495,7 +503,7 @@ function GetName(raceName, characterOrSib)
 		case 'Orc' :
 			return GetGenderedName(names.Orc, characterOrSib.Gender);
 		case 'Shifter' :
-			return RandomFromArray([GetGenderedName(names.Shifter, characterOrSib.Gender), GetHumanName(RandomEthnicity(), characterOrSib.Gender)]);
+			return RandomFromArray(names.Shifter);
 		case 'Tabaxi' :
 			return RandomFromArray(names.Tabaxi.Name) + ' ' + RandomFromArray(names.Tabaxi.Clan);
 		case 'Tortle' :
@@ -609,10 +617,10 @@ function BackgroundTraits(propObj, num)	// Assign background traits
 	var traits = Object.assign( {}, GetProperties(newProp, true),
 	(
 		{
-			'Trait' : RandomFromArray(baseBackground.Personality.Trait),
-			'Ideal' : RandomFromArray(baseBackground.Personality.Ideal),
-			'Bond' : RandomFromArray(baseBackground.Personality.Bond),
-			'Flaw' : RandomFromArray(baseBackground.Personality.Flaw)
+			'Trait' : RandomFromArray(baseBackground.Trait),
+			'Ideal' : RandomFromArray(baseBackground.Ideal),
+			'Bond' : RandomFromArray(baseBackground.Bond),
+			'Flaw' : RandomFromArray(baseBackground.Flaw)
 		}
 	));
 	return traits;
