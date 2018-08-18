@@ -70,8 +70,9 @@ function RandomizeRace(allRandom)
 	{
 		character.Gender = 'Genderless Construct';
 		document.getElementById('gender').innerHTML = character.Gender;
-		return;
 	}
+	else if(character.Gender == 'Genderless Construct')
+		RandomizeGender(false);
 	
 	if(!allRandom)
 	{
@@ -527,6 +528,17 @@ function GetName(raceName, characterOrSib)
 			return RandomFromArray(names.Warforged);
 		case 'Yuan-Ti Pureblood' :
 			return RandomFromArray(names['Yuan-Ti']);
+		case 'Loxodon' :
+			return GetGenderedName(names.Loxodon, characterOrSib.Gender);
+		case 'Simic Hybrid' :
+			var raceNames = RandomFromArray([ names.Human, names.Elf, names.Vedalken ]);
+			if(raceNames == names.Human)
+				return GetHumanName(RandomEthnicity(), characterOrSib.Gender);
+			return GetGenderedName(raceNames, characterOrSib.Gender);
+		case 'Vedalken' :
+			return GetGenderedName(names.Vedalken, characterOrSib.Gender);
+		case 'Viashino' :
+			return RandomFromArray(names.Viashino);
 	}
 }
 

@@ -462,5 +462,21 @@ var sources =
 	'grung' :
 	{
 		'grung' : 'https://www.dandwiki.com/wiki/Grung_(5e_Race_Variant)'
+	},
+	'loxodon' :
+	{
+		'loxodon' : 'https://comicbook.com/gaming/2017/06/07/magic-the-gathering-mmorpg-in-development-from-cryptic-studios/'
+	},
+	'simic-hybrid' :
+	{
+		'simic-hybrid' : 'https://comicbook.com/gaming/2017/06/07/magic-the-gathering-mmorpg-in-development-from-cryptic-studios/'
+	},
+	'vedalken' :
+	{
+		'vedalken' : 'https://comicbook.com/gaming/2017/06/07/magic-the-gathering-mmorpg-in-development-from-cryptic-studios/'
+	},
+	'viashino' :
+	{
+		'viashino' : 'https://comicbook.com/gaming/2017/06/07/magic-the-gathering-mmorpg-in-development-from-cryptic-studios/'
 	}
 }

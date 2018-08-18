@@ -96,6 +96,10 @@ function GetCardFileName(raceName)
 		case 'shifter' :
 			return gender;
 		case 'grung' :
+		case 'loxodon' :
+		case 'simic-hybrid' :
+		case 'vedalken' :
+		case 'viashino' :
 			return raceName;
 	}
 }

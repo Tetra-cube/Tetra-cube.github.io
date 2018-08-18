@@ -4,7 +4,7 @@
 <script src="card-script.js"></script> 
 <script src="dnd-img-sources.js"></script> 
 <!DOCTYPE html>
-<html style="background-image: url('./dndimages/chargenbkg.jpg'">
+<html style="background-image: url('./dndimages/chargenbkg.jpg')">
 	<link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" />
 	<head>
 		<meta charset="utf-8"/>
@@ -12,6 +12,7 @@
 	<body>
 		<title>D&D 5e Character Generator</title>
 		<div class="content">
+			<div class="centeredcontainer"><a href="dnd-reference.html">Reference</a> - <b>Character Generator</b> - <a href="dnd-npc-gen.html">NPC Generator</a></div>
 			<h1>D&D 5e Random Character Generator</h1>
 			<br>
 			<div>Select which books to use:</div>
@@ -28,17 +29,9 @@
 				<li><b><input id="WGtEbox" type="checkbox" onclick="UpdateAllDropdowns()"> <label for="WGtEbox">Wayfinder's Guide to Eberron</label></b></li>
 				<li><b><input id="UAbox" type="checkbox" onclick="UpdateAllDropdowns()"> <label for="UAbox">Unearthed Arcana</label></b></li>
 				<li><b><input id="Unofficialbox" type="checkbox" onclick="UpdateAllDropdowns()"> <label for="Unofficialbox">Notable Unofficial Content</label></b></li>
+				<li><b><input id="MtGbox" type="checkbox" onclick="UpdateAllDropdowns()"> <label for="MtGbox">Magic: The Gathering Content</label></b></li>
 			</ul>
-			<div>Random generation options can be found on the <a href="dnd-reference.html">reference page.</a></div>
 			<br><hr><br>
-			
-			<div id="ethnicityRadioButtons" class="centeredcontainer" >
-				Human Ethnicities: &nbsp;
-				<input id="standardRadio" type="radio" name="ethnicityButton" value="standardRadio" checked> <label for="standardRadio"> Standard Ethnicities </label> &nbsp;
-				<input id="realRadio" type="radio" name="ethnicityButton" value="realRadio"> <label for="realRadio"> Real Ethnicities </label> &nbsp;
-				<input id="bothRadio" type="radio" name="ethnicityButton" value="bothRadio"> <label for="bothRadio"> Both </label>
-			</div>
-			<br>
 			
 			<div class="centeredcontainer">
 				<span class="randombuttoncontainer"><button type="button" onclick="RandomizeAll()">Randomize Character</button></span>
@@ -66,6 +59,15 @@
 			<div class="centeredcontainer">
 				<span class="dropdowncontainer"><b>Gender: </b><select class="dropdown" id="gendermenu"></select></span>
 			</div>
+			<br>
+			
+			<div id="ethnicityRadioButtons" class="centeredcontainer" >
+				Human Ethnicities: &nbsp;
+				<input id="standardRadio" type="radio" name="ethnicityButton" value="standardRadio" checked> <label for="standardRadio"> Standard Ethnicities </label> &nbsp;
+				<input id="realRadio" type="radio" name="ethnicityButton" value="realRadio"> <label for="realRadio"> Real Ethnicities </label> &nbsp;
+				<input id="bothRadio" type="radio" name="ethnicityButton" value="bothRadio"> <label for="bothRadio"> Both </label>
+			</div>
+			
 			<br><hr><br>
 			
 			<div class="centeredcontainer">
@@ -83,7 +85,7 @@
 			<span class="centeredcontainer">
 				<div class="randombuttoncontainer"><button type="button" onclick="RandomizeRace(false)">Randomize Race</button></div>
 				<br>
-				<div class="dropdowncontainer"><b>Select: </b><select class="dropdown" id="racemenu"></select></div>
+				<div class="dropdowncontainer"><b>Race: </b><select class="dropdown" id="racemenu"></select></div>
 			</span>
 			<h3>Race: <span id="raceheader"></h3>
 			<ul>
@@ -91,22 +93,22 @@
 			</ul>
 			<br><hr><br>
 			
-			<span class="centeredcontainer">
+			<div class="centeredcontainer">
 				<div class="randombuttoncontainer"><button type="button" onclick="RandomizeClass(false)">Randomize Class</button></div>
 				<br>
-				<div class="dropdowncontainer"><b>Select: </b><select class="dropdown" id="classmenu"></select></div>
-			</span>
+				<div class="dropdowncontainer"><b>Class: </b><select class="dropdown" id="classmenu"></select></div>
+			</div>
 			<h3>Class: <span id="classheader"></h3>
 			<ul>
 				<span id="classsection"></span>
 			</ul>
 			<br><hr><br>
 			
-			<span class="centeredcontainer">
+			<div class="centeredcontainer">
 				<div class="randombuttoncontainer"><button type="button" onclick="RandomizeBackground(false)">Randomize Background</button></div>
 				<br>
-				<div class="dropdowncontainer"><b>Select: </b><select class="dropdown" id="backgroundmenu"></select></div>
-			</span>
+				<div class="dropdowncontainer"><b>Background: </b><select class="dropdown" id="backgroundmenu"></select></div>
+			</div>
 			<h3>Background: <span id="backgroundheader"></h3>
 			<ul>
 			<span id="backgroundsection"></span>
