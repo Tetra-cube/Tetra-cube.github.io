@@ -1,4 +1,4 @@
-var availableBooks = [ 'EE', 'SCAG', 'VGtM', 'MR', 'XGtE', 'MToF', 'DMG', 'Other', 'WGtE', 'Unofficial', 'UA' ];
+var availableBooks = [ 'EE', 'SCAG', 'VGtM', 'MR', 'XGtE', 'MToF', 'DMG', 'Other', 'WGtE', 'Unofficial', 'UA', 'MtG' ];
 
 var bookNames = 
 {
@@ -13,7 +13,8 @@ var bookNames =
 	'Other' : 'Other Content',
 	'WGtE' : 'Wayfinder\'s Guide to Eberron',
 	'UA' : 'Unearthed Arcana',
-	'Unofficial' : 'Unofficial Content'
+	'Unofficial' : 'Unofficial Content',
+	'MtG' : 'Magic: The Gathering Content'
 }
 
 var genders = ['Male', 'Male', 'Male', 'Male', 'Male', 'Female', 'Female', 'Female', 'Female', 'Female', 'Nonbinary or Unknown' ];
@@ -1246,6 +1247,66 @@ var races =
 			}
 		},
 		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
+	},
+	{
+		'_special' : 'book-MtG',
+		'_name' : 'Loxodon',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 400,
+			'baseheight' : 68,
+			'heightmod' : '2d8',
+			'baseweight' : 280,
+			'weightmod' : '2d4',
+			'other' : { }
+		}
+	},
+	{
+		'_special' : 'book-MtG',
+		'_name' : 'Simic Hybrid',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 50,
+			'baseheight' : 56,
+			'heightmod' : '2d10',
+			'baseweight' : 110,
+			'weightmod' : '2d4',
+			'other' : { }
+		}
+	},
+	{
+		'_special' : 'book-MtG',
+		'_name' : 'Vedalken',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 350,
+			'baseheight' : 66,
+			'heightmod' : '2d4',
+			'baseweight' : 110,
+			'weightmod' : '2d4',
+			'other' : { }
+		}
+	},
+	{
+		'_special' : 'book-MtG',
+		'_name' : 'Viashino',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 10,
+			'maxage' : 40,
+			'baseheight' : 56,
+			'heightmod' : '2d10',
+			'baseweight' : 100,
+			'weightmod' : '1d6',
+			'other' : { }
+		}
 	}
 ]
 
@@ -3698,7 +3759,24 @@ var names =
 	'Warforged' :
 		[ 'Anchor', 'Banner', 'Bastion', 'Blade', 'Blue', 'Bow', 'Church', 'Crunch', 'Crystal', 'Dagger', 'Dent', 'Five', 'Glaive', 'Hammer', 'Iron', 'Lucky', 'Mace', 'Pants', 'Pierce', 'Red', 'Rusty', 'Scout', 'Seven', 'Shield', 'Slash', 'Smith', 'Spike', 'Stone', 'Temple', 'Vault', 'Wall', 'Wood' ],
 	'Yuan-Ti' :
-		[ 'Asutali', 'Eztli', 'Hessatal', 'Hitotee', 'Issahu', 'Itstli', 'Manuya', 'Meztli', 'Nesalli', 'Otleh', 'Shalkashlah', 'Sisava', 'Sitlali', 'Soakosh', 'Ssimalli', 'Suisatal', 'Talash', 'Teoshi', 'Yaotal', 'Zihu' ]
+		[ 'Asutali', 'Eztli', 'Hessatal', 'Hitotee', 'Issahu', 'Itstli', 'Manuya', 'Meztli', 'Nesalli', 'Otleh', 'Shalkashlah', 'Sisava', 'Sitlali', 'Soakosh', 'Ssimalli', 'Suisatal', 'Talash', 'Teoshi', 'Yaotal', 'Zihu' ],
+		
+	'Loxodon' :
+	{
+		'Female' :
+			[ 'Ajj', 'Boja', 'Dancu', 'Dooja', 'Elyuja', 'Fanoor', 'Irij', 'Jasoo', 'Katrun', 'Lyooda', 'Mayja', 'Radu', 'Shuja', 'Soofya', 'Totoor', 'Verij', 'Vesmova', 'Yoolna', 'Zarij', 'Zoorja' ],
+		'Male' :
+			[ 'Bayul', 'Berov', 'Brooj', 'Chedumov', 'Dobrun', 'Droozh', 'Golomov', 'Heruj', 'Ilromov', 'Kel', 'Nikoom', 'Ondros', 'Radomov', 'Svetel', 'Tamuj', 'Throom', 'Vasool' ],
+	},
+	'Vedalken' :
+	{
+		'Female' :
+			[ 'Azi', 'Barvisa', 'Brazia', 'Direll', 'Fainn', 'Griya', 'Hallia', 'Katrille', 'Kovel', 'Lilla', 'Mirela', 'Morai', 'Nedress', 'Ossya', 'Pierenn', 'Roya', 'Sestri', 'Triel', 'Uzana', 'Yaraghiya', 'Zlovol' ],
+		'Male' :
+			[ 'Aglar', 'Bellin', 'Dallid', 'Firellan', 'Kavin', 'Koplony', 'Lomar', 'Mathvan', 'Modar', 'Nebun', 'Nhillosh', 'Nitt', 'Otrovac', 'Ovlan', 'Pelener', 'Rill', 'Trivaz', 'Uldin', 'Yolov', 'Zataz' ],
+	},
+	'Viashino' :
+		[ 'Aun', 'Bay', 'Bassisk', 'Cresh', 'Din', 'Essek', 'Fiksh', 'Gyan', 'Hsiska', 'Illati', 'Izka', 'Kyri', 'Liszik', 'Maush', 'Nyoser', 'Ossanash', 'Shekess', 'Skellek', 'Szil', 'Tenk', 'Tzia', 'Villi', 'Wyoryn', 'Yom', 'Ztash' ]
 }
 
 var trinkets =
@@ -3811,6 +3889,7 @@ var UARaces =
 	{ 'name' : 'Revenant Subrace', 'source' : 'Gothic Heroes', 'link' : 'http://dnd.wizards.com/articles/features/gothic-heroes' },
 	{ 'name' : 'Elf Subraces: Avariel and Grugach', 'source' : 'Elf Subraces', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces' },
 	{ 'name' : 'Centaur and Minotaur', 'source' : 'Centaurs and Minotaurs', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/centaurs-and-minotaurs' },
+	{ 'name' : 'Races of Ravnica', 'source' : 'Races of Ravnica', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/races-ravnica' },
 ]
 
 var UAClasses =
@@ -3870,4 +3949,182 @@ var monstrousOrigins =
 	'Your sworn enemy is an ally of your people, forcing you to leave your tribe to gain vengeance.',
 	'An evil entity corrupted your people\'s society.',
 	'An injury or strange event caused you to lose all memory of your past, but occasional flashes of it return to you.'
+];
+
+var npcAppearances =
+[
+	'Distinctive jewelry: earrings, necklace, circlet, bracelets',
+	'Piercings',
+	'Flamboyant or outlandish clothes',
+	'Formal, clean clothes',
+	'Ragged, dirty clothes',
+	'Pronounced scar',
+	'Missing teeth',
+	'Missing fingers',
+	'Unusual eye color (or two different colors)',
+	'Tattoos',
+	'Birthmark',
+	'Unusual skin color',
+	'Bald',
+	'Braided beard or hair',
+	'Unusual hair color',
+	'Nervous eye twitch',
+	'Distinctive nose',
+	'Distinctive posture (crooked or rigid)',
+	'Exceptionally beautiful',
+	'Exceptionally ugly'
+];
+
+var npcHighAbilities = 
+[
+	'Strength-powerful, brawny, strong as an ox',
+	'Dexterity-lithe, agile, graceful',
+	'Constitution-hardy, hale, healthy',
+	'Intelligence-studious, learned, inquisitive',
+	'Wisdom-perceptive, spiritual, insightful',
+	'Charisma-persuasive, forceful, born leader'
+];
+
+var npcLowAbilities =
+[
+	'Strength-feeble, scrawny',
+	'Dexterity-clumsy, fumbling',
+	'Constitution-sickly, pale',
+	'Intelligence-dim-witted, slow',
+	'Wisdom-oblivious, absentminded',
+	'Charisma-dull, boring'
+];
+
+var npcTalents =
+[
+	'Plays a musical instrument',
+	'Speaks several languages fluently',
+	'Unbelievably lucky',
+	'Perfect memory',
+	'Great with animals',
+	'Great with children',
+	'Great at solving puzzles',
+	'Great at one game',
+	'Great at impersonations',
+	'Draws beautifully',
+	'Paints beautifully',
+	'Sings beautifully',
+	'Drinks everyone under the table',
+	'Expert carpenter',
+	'Expert cook',
+	'Expert dart thrower and rock skipper',
+	'Expert juggler',
+	'Skilled actor and master of disguise',
+	'Skilled dancer',
+	'Knows thieves\' cant'
+];
+
+var npcMannerisms =
+[
+	'Prone to singing, whistling, or humming quietly',
+	'Speaks in rhyme or some other peculiar way',
+	'Particularly low or high voice',
+	'Slurs words, lisps, or stutters',
+	'Enunciates overly clearly',
+	'Speaks loudly',
+	'Whispers',
+	'Uses flowery speech or long words',
+	'Frequently uses the wrong word',
+	'Uses colorful oaths and exclamations',
+	'Makes constant jokes or puns',
+	'Prone to predictions of doom',
+	'Fidgets',
+	'Squints',
+	'Stares into the distance',
+	'Chews something',
+	'Paces',
+	'Taps fingers',
+	'Bites fingernails',
+	'Twirls hair or tugs beard'
+];
+
+var npcInteractionTraits =
+[
+	'Argumentative',
+	'Arrogant',
+	'Blustering',
+	'Rude',
+	'Curious',
+	'Friendly',
+	'Honest',
+	'Hot tempered',
+	'Irritable',
+	'Ponderous',
+	'Quiet',
+	'Suspicious'
+];
+
+var npcIdeals =
+[
+	'Beauty (Good)',
+	'Charity (Good)',
+	'Greater Good (Good)',
+	'Life (Good)',
+	'Respect (Good)',
+	'Self-sacrifice (Good)',
+	'Domination (Evil)',
+	'Greed (Evil)',
+	'Might (Evil)',
+	'Pain (Evil)',
+	'Retribution (Evil)',
+	'Slaughter (Evil)',
+	'Community (Lawful)',
+	'Fairness (Lawful)',
+	'Honor (Lawful)',
+	'Logic (Lawful)',
+	'Responsibility (Lawful)',
+	'Tradition (Lawful)',
+	'Change (Chaotic)',
+	'Creativity (Chaotic)',
+	'Freedom (Chaotic)',
+	'Independence (Chaotic)',
+	'No limits (Chaotic)',
+	'Whimsy (Chaotic)',
+	'Balance (Neutral)',
+	'Knowledge (Neutral)',
+	'Live and let live (Neutral)',
+	'Moderation (Neutral)',
+	'Neutrality (Neutral)',
+	'People (Neutral)',
+	'Aspiration (Any)',
+	'Discovery (Any)',
+	'Glory (Any)',
+	'Nation (Any)',
+	'Redemption (Any)',
+	'Self-knowledge (Any)'
+];
+
+var npcBonds =
+[
+	'Dedicated to fulfilling a personal life goal',
+	'Protective of close family members',
+	'Protective of colleagues or compatriots',
+	'Loyal to a benefactor, patron, or employer',
+	'Captivated by a romantic interest',
+	'Drawn to a special place',
+	'Protective of a sentimental keepsake',
+	'Protective of a valuable possession',
+	'Out for revenge',
+	'Roll twice, ignoring results of 10'
+];
+
+var npcFlawsAndSecrets =
+[
+	'Forbidden love or susceptibility to romance',
+	'Enjoys decadent pleasures',
+	'Arrogance',
+	'Envies another creature\'s possessions or station',
+	'Overpowering greed',
+	'Prone to rage',
+	'Has a powerful enemy',
+	'Specific phobia',
+	'Shameful or scandalous history',
+	'Secret crime or misdeed',
+	'Possession of forbidden lore',
+	'Foolhardy bravery'
 ];

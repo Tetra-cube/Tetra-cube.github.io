@@ -1,8 +1,10 @@
 # D&D 5e Stuff
 
+[Content Reference](https://tetra-cube.github.io/dnd/dnd-reference.html)
+
 [Random Character Generator](https://tetra-cube.github.io/dnd/dnd-char-gen.html)
 
-[Content Reference](https://tetra-cube.github.io/dnd/dnd-reference.html)
+[Random NPC Generator](https://tetra-cube.github.io/dnd/dnd-npc-gen.html)
 
 # FE:A Quote Generator
 
