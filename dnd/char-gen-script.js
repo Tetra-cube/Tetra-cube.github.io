@@ -561,7 +561,10 @@ function GetGenderedName(nameObj, gender)
 
 function GetHumanName(ethnicity, gender)
 {
-	return HumanFirstName(ethnicity, gender) + ' ' + HumanLastName(ethnicity);
+	var lastName = HumanLastName(ethnicity);
+	if(lastName != '')
+		return HumanFirstName(ethnicity, gender) + ' ' + lastName;
+	return HumanFirstName(ethnicity, gender);
 }
 
 function HumanFirstName(ethnicity, gender)
