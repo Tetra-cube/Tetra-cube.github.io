@@ -2620,7 +2620,7 @@ var backgrounds =
 			'I was always an avid reader, and I learned much about my favorite topic on my own.',
 			'I discovered an old library and pored over the texts I found there. That experience awakened a hunger for more knowledge.',
 			'I impressed a wizard who told me I was squandering my talents and should seek out an education to take advantage of my gifts.',
-			'One of my paretns or a relative gave me a basic education that whetted my appetite, and I left home to build on what I had learned.'
+			'One of my parents or a relative gave me a basic education that whetted my appetite, and I left home to build on what I had learned.'
 			
 		]
 	},
