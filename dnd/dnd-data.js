@@ -1,4 +1,4 @@
-var availableBooks = [ 'EE', 'SCAG', 'VGtM', 'MR', 'XGtE', 'MToF', 'DMG', 'Other', 'WGtE', 'Unofficial', 'UA', 'MtG' ];
+var availableBooks = [ 'EE', 'SCAG', 'VGtM', 'MR', 'XGtE', 'MToF', 'GGtR', 'DMG', 'Other', 'WGtE', 'Unofficial', 'UA' ];
 
 var bookNames = 
 {
@@ -9,12 +9,12 @@ var bookNames =
 	'MR' : 'Volo\'s Guide (Monstrous Races)',
 	'XGtE' : 'Xanathar\'s Guide to Everything',
 	'MToF' : 'Mordenkainen\'s Tome of Foes',
+	'GGtR' : 'Guildmaster\'s Guide to Ravnica',
 	'DMG' : 'Dungeon Master\'s Guide',
 	'Other' : 'Other Content',
 	'WGtE' : 'Wayfinder\'s Guide to Eberron',
 	'UA' : 'Unearthed Arcana',
-	'Unofficial' : 'Unofficial Content',
-	'MtG' : 'Magic: The Gathering Content'
+	'Unofficial' : 'Unofficial Content'
 }
 
 var genders = ['Male', 'Male', 'Male', 'Male', 'Male', 'Female', 'Female', 'Female', 'Female', 'Female', 'Nonbinary or Unknown' ];
@@ -933,7 +933,7 @@ var races =
 		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
 	},
 	{
-		'_special' : 'book-MR',
+		'_special' : 'book-MR/GGtR',
 		'_name' : 'Goblin',
 		'Physical Characteristics' :
 		{
@@ -1081,6 +1081,93 @@ var races =
 		}
 	},
 	{
+		'_special' : 'book-GGtR',
+		'_name' : 'Centaur',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 60,
+			'baseheight' : 80,
+			'heightmod' : '2d10',
+			'baseweight' : 1500,
+			'weightmod' : '2d10',
+			'other' : 
+			{
+				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
+				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
+				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
+			}
+		}
+	},
+	{
+		'_special' : 'book-GGtR',
+		'_name' : 'Loxodon',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 400,
+			'baseheight' : 70,
+			'heightmod' : '2d8',
+			'baseweight' : 280,
+			'weightmod' : '2d4',
+			'other' : { }
+		}
+	},
+	{
+		'_special' : 'book-GGtR',
+		'_name' : 'Minotaur',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 120,
+			'baseheight' : 70,
+			'heightmod' : '2d4',
+			'baseweight' : 310,
+			'weightmod' : '1d6',
+			'other' : 
+			{
+				'Eyes' : [ 'Black', 'Dark Yellow' ],
+				'Skin' : [ 'Black', 'Brown', 'White' ],
+				'Hair' : [ 'Black', 'Brown', 'White', 'Red' ]
+			}
+		}
+	},
+	{
+		'_special' : 'book-GGtR',
+		'_name' : 'Simic Hybrid',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 50,
+			'baseheight' : 56,
+			'heightmod' : '2d10',
+			'baseweight' : 110,
+			'weightmod' : '2d4',
+			'other' : { }
+		},
+		'Animal Enhancement' : [ 'Manta Glide', 'Nimble Climber', 'Underwater Adaptation' ],
+		'Advanced Animal Enhancement' : [ 'Acid Spit', 'Carapace', 'Grappling Appendages' ]
+	},
+	{
+		'_special' : 'book-GGtR',
+		'_name' : 'Vedalken',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 30,
+			'maxage' : 400,
+			'baseheight' : 64,
+			'heightmod' : '2d4',
+			'baseweight' : 110,
+			'weightmod' : '2d4',
+			'other' : { }
+		}
+	},
+	{
 		'_special' : 'book-Other',
 		'_name' : 'Tortle',
 		'Physical Characteristics' :
@@ -1190,46 +1277,6 @@ var races =
 		}
 	},
 	{
-		'_special' : 'book-UA',
-		'_name' : 'Centaur',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 60,
-			'baseheight' : 84,
-			'heightmod' : '2d10',
-			'baseweight' : 2000,
-			'weightmod' : '2d10',
-			'other' : 
-			{
-				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
-				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
-				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
-			}
-		}
-	},
-	{
-		'_special' : 'book-UA',
-		'_name' : 'Minotaur',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 120,
-			'baseheight' : 70,
-			'heightmod' : '2d4',
-			'baseweight' : 310,
-			'weightmod' : '1d6',
-			'other' : 
-			{
-				'Eyes' : [ 'Black', 'Dark Yellow' ],
-				'Skin' : [ 'Black', 'Brown', 'White' ],
-				'Hair' : [ 'Black', 'Brown', 'White', 'Red' ]
-			}
-		}
-	},
-	{
 		'_special' : 'book-Unofficial',
 		'_name' : 'Grung',
 		'Physical Characteristics' :
@@ -1247,66 +1294,6 @@ var races =
 			}
 		},
 		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
-	},
-	{
-		'_special' : 'book-MtG',
-		'_name' : 'Loxodon',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 400,
-			'baseheight' : 68,
-			'heightmod' : '2d8',
-			'baseweight' : 280,
-			'weightmod' : '2d4',
-			'other' : { }
-		}
-	},
-	{
-		'_special' : 'book-MtG',
-		'_name' : 'Simic Hybrid',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 50,
-			'baseheight' : 56,
-			'heightmod' : '2d10',
-			'baseweight' : 110,
-			'weightmod' : '2d4',
-			'other' : { }
-		}
-	},
-	{
-		'_special' : 'book-MtG',
-		'_name' : 'Vedalken',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 350,
-			'baseheight' : 66,
-			'heightmod' : '2d4',
-			'baseweight' : 110,
-			'weightmod' : '2d4',
-			'other' : { }
-		}
-	},
-	{
-		'_special' : 'book-MtG',
-		'_name' : 'Viashino',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 10,
-			'maxage' : 40,
-			'baseheight' : 56,
-			'heightmod' : '2d10',
-			'baseweight' : 100,
-			'weightmod' : '1d6',
-			'other' : { }
-		}
 	}
 ]
 
@@ -1440,7 +1427,8 @@ var classes =
 			'DMG' : [ 'Death Domain' ],
 			'SCAG' : [ 'Arcane Domain' ],
 			'XGtE' : [ 'Forge Domain', 'Grave Domain' ],
-			'UA' : [ 'Order Domain', 'Protection Domain' ]
+			'GGtR' : [ 'Order Domain' ],
+			'UA' : [ 'Protection Domain' ]
 		},
 		'Personality' :
 		{
@@ -1499,7 +1487,8 @@ var classes =
 			'_special' : 'booksort',
 			'PHB' : [ 'Circle of the Land', 'Circle of the Moon' ],
 			'XGtE' : [ 'Circle of Dreams', 'Circle of the Shepherd' ],
-			'UA' : [ 'Circle of Twilight', 'Circle of Spores' ],
+			'GGtR' : [ 'Circle of Spores' ],
+			'UA' : [ 'Circle of Twilight' ]
 		},
 		'Personality' :
 		{
@@ -3715,6 +3704,13 @@ var names =
 	},
 	'Lizardfolk' :
 		[ 'Achuak (Green)', 'Aryte (War)', 'Bae-shra (Animal)', 'Darastrix (Dragon)', 'Garurt (Axe)', 'Irhtos (Secret)', 'Jhank (Hammer)', 'Kepesk (Storm)', 'Kethend (Gem)', 'Korth (Danger)', 'Kosj (Small)', 'Kothar (Demon)', 'Li-trix (Armor)', 'Mirik (Song)', 'Othokent (Smart)', 'Sauriv (Eye)', 'Throden (Many)', 'Thurkear (Night)', 'Usk (Iron)', 'Valignat (Burn)', 'Vargach (Battle)', 'Verthica (Mountain)', 'Vutha (Black)', 'Vyth (Steel)' ],
+	'Loxodon' :
+	{
+		'Female' :
+			[ 'Ajj', 'Boja', 'Dancu', 'Dooja', 'Elyuja', 'Fanoor', 'Irij', 'Jasoo', 'Katrun', 'Lyooda', 'Mayja', 'Radu', 'Shuja', 'Soofya', 'Totoor', 'Verij', 'Vesmova', 'Yoolna', 'Zarij', 'Zoorja' ],
+		'Male' :
+			[ 'Bayul', 'Berov', 'Brooj', 'Chedumov', 'Dobrun', 'Droozh', 'Golomov', 'Heruj', 'Ilromov', 'Kel', 'Nikoom', 'Ondros', 'Radomov', 'Svetel', 'Tamuj', 'Throom', 'Vasool' ],
+	},
 	'Minotaur' :
 	{
 		'Female' : [ 'Duula', 'Esteru', 'Hester', 'Kuonu', 'Loodra', 'Oestra', 'Raastred', 'Seestra', 'Uovana', 'Weoren' ],
@@ -3754,20 +3750,6 @@ var names =
 		'Surname' :
 			[ 'Ahlorsath', 'Pumanath', 'Vuuvaxath' ]
 	},
-	'Virtue' :
-		[ 'Ambition', 'Art', 'Carrion', 'Chant', 'Creed', 'Death', 'Debauchery', 'Despair', 'Doom', 'Doubt', 'Dread', 'Ecstacy', 'Ennui', 'Entropy', 'Excellence', 'Fear', 'Glory', 'Gluttony', 'Grief', 'Hate', 'Hope', 'Horror', 'Ideal', 'Ignominy', 'Laughter', 'Love', 'Lust', 'Mayhem', 'Mockery', 'Murder', 'Muse', 'Music', 'Mystery', 'Nowhere', 'Open', 'Pain', 'Passion', 'Poetry', 'Quest', 'Random', 'Reverence', 'Revulsion', 'Sorrow', 'Temerity', 'Torment', 'Tragedy', 'Vice', 'Virtue', 'Weary', 'Wit' ],
-	'Warforged' :
-		[ 'Anchor', 'Banner', 'Bastion', 'Blade', 'Blue', 'Bow', 'Church', 'Crunch', 'Crystal', 'Dagger', 'Dent', 'Five', 'Glaive', 'Hammer', 'Iron', 'Lucky', 'Mace', 'Pants', 'Pierce', 'Red', 'Rusty', 'Scout', 'Seven', 'Shield', 'Slash', 'Smith', 'Spike', 'Stone', 'Temple', 'Vault', 'Wall', 'Wood' ],
-	'Yuan-Ti' :
-		[ 'Asutali', 'Eztli', 'Hessatal', 'Hitotee', 'Issahu', 'Itstli', 'Manuya', 'Meztli', 'Nesalli', 'Otleh', 'Shalkashlah', 'Sisava', 'Sitlali', 'Soakosh', 'Ssimalli', 'Suisatal', 'Talash', 'Teoshi', 'Yaotal', 'Zihu' ],
-		
-	'Loxodon' :
-	{
-		'Female' :
-			[ 'Ajj', 'Boja', 'Dancu', 'Dooja', 'Elyuja', 'Fanoor', 'Irij', 'Jasoo', 'Katrun', 'Lyooda', 'Mayja', 'Radu', 'Shuja', 'Soofya', 'Totoor', 'Verij', 'Vesmova', 'Yoolna', 'Zarij', 'Zoorja' ],
-		'Male' :
-			[ 'Bayul', 'Berov', 'Brooj', 'Chedumov', 'Dobrun', 'Droozh', 'Golomov', 'Heruj', 'Ilromov', 'Kel', 'Nikoom', 'Ondros', 'Radomov', 'Svetel', 'Tamuj', 'Throom', 'Vasool' ],
-	},
 	'Vedalken' :
 	{
 		'Female' :
@@ -3775,8 +3757,14 @@ var names =
 		'Male' :
 			[ 'Aglar', 'Bellin', 'Dallid', 'Firellan', 'Kavin', 'Koplony', 'Lomar', 'Mathvan', 'Modar', 'Nebun', 'Nhillosh', 'Nitt', 'Otrovac', 'Ovlan', 'Pelener', 'Rill', 'Trivaz', 'Uldin', 'Yolov', 'Zataz' ],
 	},
-	'Viashino' :
-		[ 'Aun', 'Bay', 'Bassisk', 'Cresh', 'Din', 'Essek', 'Fiksh', 'Gyan', 'Hsiska', 'Illati', 'Izka', 'Kyri', 'Liszik', 'Maush', 'Nyoser', 'Ossanash', 'Shekess', 'Skellek', 'Szil', 'Tenk', 'Tzia', 'Villi', 'Wyoryn', 'Yom', 'Ztash' ]
+	'Virtue' :
+		[ 'Ambition', 'Art', 'Carrion', 'Chant', 'Creed', 'Death', 'Debauchery', 'Despair', 'Doom', 'Doubt', 'Dread', 'Ecstacy', 'Ennui', 'Entropy', 'Excellence', 'Fear', 'Glory', 'Gluttony', 'Grief', 'Hate', 'Hope', 'Horror', 'Ideal', 'Ignominy', 'Laughter', 'Love', 'Lust', 'Mayhem', 'Mockery', 'Murder', 'Muse', 'Music', 'Mystery', 'Nowhere', 'Open', 'Pain', 'Passion', 'Poetry', 'Quest', 'Random', 'Reverence', 'Revulsion', 'Sorrow', 'Temerity', 'Torment', 'Tragedy', 'Vice', 'Virtue', 'Weary', 'Wit' ],
+	'Warforged' :
+		[ 'Anchor', 'Banner', 'Bastion', 'Blade', 'Blue', 'Bow', 'Church', 'Crunch', 'Crystal', 'Dagger', 'Dent', 'Five', 'Glaive', 'Hammer', 'Iron', 'Lucky', 'Mace', 'Pants', 'Pierce', 'Red', 'Rusty', 'Scout', 'Seven', 'Shield', 'Slash', 'Smith', 'Spike', 'Stone', 'Temple', 'Vault', 'Wall', 'Wood' ],
+	'Yuan-Ti' :
+		[ 'Asutali', 'Eztli', 'Hessatal', 'Hitotee', 'Issahu', 'Itstli', 'Manuya', 'Meztli', 'Nesalli', 'Otleh', 'Shalkashlah', 'Sisava', 'Sitlali', 'Soakosh', 'Ssimalli', 'Suisatal', 'Talash', 'Teoshi', 'Yaotal', 'Zihu' ],
+	//'Viashino' :
+		//[ 'Aun', 'Bay', 'Bassisk', 'Cresh', 'Din', 'Essek', 'Fiksh', 'Gyan', 'Hsiska', 'Illati', 'Izka', 'Kyri', 'Liszik', 'Maush', 'Nyoser', 'Ossanash', 'Shekess', 'Skellek', 'Szil', 'Tenk', 'Tzia', 'Villi', 'Wyoryn', 'Yom', 'Ztash' ]
 }
 
 var trinkets =

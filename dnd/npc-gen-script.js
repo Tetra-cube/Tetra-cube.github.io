@@ -97,10 +97,10 @@ function RandomizeRaceNPC(allRandom)
 	// Weird special case
 	if(character.Race._name == 'Warforged')
 	{
-		character.Gender = 'Genderless Construct';
+		character.Gender = 'Genderless';
 		document.getElementById('gender').innerHTML = character.Gender;
 	}
-	else if(character.Gender == 'Genderless Construct')
+	else if(character.Gender == 'Genderless')
 		RandomizeGenderNPC(false);
 	
 	RandomizeNameNPC(allRandom);

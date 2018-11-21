@@ -418,6 +418,28 @@ var sources =
 		'male' : 'http://forgottenrealms.wikia.com/wiki/File:Monster_Manual_5e_-_Githzerai_-_p161.jpg',
 		'female' : 'https://img.4plebs.org/boards/tg/image/1518/84/1518847007388.jpg'
 	},
+	'centaur' :
+	{
+		'male' : 'https://www.dndbeyond.com/monsters/centaur',
+		'female' : 'https://www.pinterest.com/pin/480266747755011273/'
+	},
+	'minotaur' :
+	{
+		'male' : 'https://www.reddit.com/r/characterdrawing/comments/74lper/commission_grakus_minotaur_barbarian/',
+		'female': 'https://www.pinterest.com/pin/480266747755023568/'
+	},
+	'loxodon' :
+	{
+		'loxodon' : 'https://twitter.com/jeremyecrawford/status/1029074189926318080'
+	},
+	'simic-hybrid' :
+	{
+		'simic-hybrid' : 'http://www.belloflostsouls.net/2018/08/dd-ravnicas-simic-hybrids-are-bioengineered-mutant-horrors-gone-right.html'
+	},
+	'vedalken' :
+	{
+		'vedalken' : 'https://gamelore.wikia.com/wiki/File:Vedalken_Dismisser.jpg'
+	},
 	'changeling' :
 	{
 		'male' : 'https://www.reddit.com/r/characterdrawing/comments/71o94g/changeling_bard_commission/',
@@ -449,34 +471,8 @@ var sources =
 		'wild' : 'https://www.artstation.com/artwork/bVDWk',
 		'mage' : 'https://www.pinterest.com/pin/836473330762253908/'
 	},
-	'centaur' :
-	{
-		'male' : 'https://benwootten.deviantart.com/art/Centaur-Cavalier-295683168',
-		'female' : 'https://www.artstation.com/artwork/0aGkV'
-	},
-	'minotaur' :
-	{
-		'male' : 'https://www.reddit.com/r/characterdrawing/comments/74lper/commission_grakus_minotaur_barbarian/',
-		'female': 'https://www.pinterest.com/pin/480266747755023568/'
-	},
 	'grung' :
 	{
 		'grung' : 'https://www.dandwiki.com/wiki/Grung_(5e_Race_Variant)'
 	},
-	'loxodon' :
-	{
-		'loxodon' : 'https://comicbook.com/gaming/2017/06/07/magic-the-gathering-mmorpg-in-development-from-cryptic-studios/'
-	},
-	'simic-hybrid' :
-	{
-		'simic-hybrid' : 'https://comicbook.com/gaming/2017/06/07/magic-the-gathering-mmorpg-in-development-from-cryptic-studios/'
-	},
-	'vedalken' :
-	{
-		'vedalken' : 'https://comicbook.com/gaming/2017/06/07/magic-the-gathering-mmorpg-in-development-from-cryptic-studios/'
-	},
-	'viashino' :
-	{
-		'viashino' : 'https://comicbook.com/gaming/2017/06/07/magic-the-gathering-mmorpg-in-development-from-cryptic-studios/'
-	}
 }
