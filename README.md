@@ -6,6 +6,8 @@
 
 [Random NPC Generator](https://tetra-cube.github.io/dnd/dnd-npc-gen.html)
 
+[Statblock Generator](https://tetra-cube.github.io/dnd/dnd-statblock.html)
+
 # FE:A Quote Generator
 
 [Quote Generator](https://tetra-cube.github.io/fea-quote-gen/fea-quote-gen.html)
