@@ -27,12 +27,16 @@ textarea{
 }
 .indent
 {
+  text-indent: 1em;
+}
+.reverse-indent
+{
   text-indent: -1em;
   padding-left: 1em;
 }
 .box-note
 {
-	font-size: 13;
+  font-size: 10pt;
 }
 .removable-list-item:hover
 {
@@ -53,7 +57,7 @@ textarea{
   margin: 20px;
   display: inline-block;
   vertical-align: top;
-  max-width: 100%;
+  width: 400px;
   background: #FDF1DC;
   padding: 5px 10px 20px;
   box-sizing: border-box;
@@ -61,8 +65,7 @@ textarea{
   font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
 }
 .stat-block.wide{
-  width: 46.5%;
-  min-width: 560px;
+  width: 800px;
   text-align: center;
 }
 .stat-block.wide .section-left,
