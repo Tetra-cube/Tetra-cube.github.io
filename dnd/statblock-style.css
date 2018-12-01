@@ -1,55 +1,3 @@
-body {
-  text-align: center;
-}
-
-input[type=number]{
-    width: 60px;
-} 
-button {
-	width: auto;
-}
-table{
-  table-layout: fixed;
-  text-align: left;
-  width: 100%;
-}
-td{
-  text-align: left;
-  vertical-align: top;
-}
-ul{
-  text-align: left;
-  margin: 4px 4px 16px;
-  padding-left: 16px;
-}
-textarea{
-  width: 80%;
-}
-.indent
-{
-  text-indent: 1em;
-}
-.reverse-indent
-{
-  text-indent: -1em;
-  padding-left: 1em;
-}
-.box-note
-{
-  font-size: 10pt;
-}
-.removable-list-item:hover
-{
-  color: red;
-  text-decoration: line-through;
-  cursor: pointer;
-}
-#legendaries-descsection{
-  margin: 8px 0 0;
-}
-
-
-
 .stat-block {
   text-align: left;
   font-size: 13.5px;
@@ -216,31 +164,45 @@ textarea{
 }
 
 @media print{
-	.orange-border{
-		display: none;
+
+	@page {
+		margin: 10mm 5mm;
+	}
+	html{
+		background: none;
+	}
+	body
+	{
+		border-style: none;
+	}
+	.stat-block.wide{
+	  column-count: 2;
+	  -webkit-column-count: 2;
+	  -moz-column-count: 2;
 	}
 	.stat-block,
-	.stat-block.wide, 
+	.stat-block.wide{
+	  margin: 0;
+	  padding: 0;
+	  background-color: white;
+	  box-sizing: content-box;
+	  box-shadow: none;
+	}
+	.stat-block,
+	.stat-block.wide,
 	.stat-block.wide .section-left,
 	.stat-block.wide .section-right,
 	.property-line,
 	.property-block{
-		width: 100%;
-		display: block;
+	  width: 100%;
+	  display: block;
+	  vertical-align: center;
 	}
-	.stat-block.wide .section-left{
-	  margin: 0;
+	.orange-border{
+	  display: none;
 	}
-	.stat-block.wide .section-right{
-	  margin: 0;
-	}
-	.stat-block{
-		width: 40%;
-		display: inline-block;
-		vertical-align: top;
-	}
-	.stat-block.wide{
-		page-break-after: always;
+	.donotprint{
+	  display: none;
 	}
 }
 @media screen and (max-width: 575px){

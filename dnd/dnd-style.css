@@ -87,7 +87,7 @@ button {
 	background: #91ab8e;
 	padding: 2px 6px 2px 6px;
 	text-decoration: none;
-	width: 200px;
+	width: auto;
 }
 
 button:hover {
@@ -146,4 +146,47 @@ hr
 {
 	border-color: white;
 	border-style: solid;
+}
+
+input[type=number]{
+    width: 60px;
+}
+table{
+  table-layout: fixed;
+  text-align: left;
+  width: 100%;
+}
+td{
+  text-align: left;
+  vertical-align: top;
+}
+ul{
+  text-align: left;
+  margin: 4px 4px 16px;
+  padding-left: 16px;
+}
+textarea{
+  width: 80%;
+}
+.indent
+{
+  text-indent: 1em;
+}
+.reverse-indent
+{
+  text-indent: -1em;
+  padding-left: 1em;
+}
+.box-note
+{
+  font-size: 10pt;
+}
+.removable-list-item:hover
+{
+  color: red;
+  text-decoration: line-through;
+  cursor: pointer;
+}
+#legendaries-descsection{
+  margin: 8px 0 0;
 }

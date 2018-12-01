@@ -12,12 +12,16 @@
 		<script src="serialize.js"></script>
 		<script src="statblock-script.js"></script>
 	</head>
-	<body>
+	<body style="text-align: center;">
 		<div class="content">
-			<div class="centeredcontainer"><a href="dnd-reference.html">Reference</a> - <a href="dnd-char-gen.html">Character Generator</a> - <a href="dnd-npc-gen.html">NPC Generator</a> - <b>Statblock Generator</b></div>
-			<h1>D&D 5e Statblock Generator</h1>
-			Based on <a href="http://valloric.github.io/statblock5e/">Statblock5e</a> and <a href="https://open5e.com/">Open5e</a> 
-			<br><br><br>
+			<span class="donotprint">
+				<div class="centeredcontainer"><a href="dnd-reference.html">Reference</a> - <a href="dnd-char-gen.html">Character Generator</a> - <a href="dnd-npc-gen.html">NPC Generator</a> - <b>Statblock Generator</b></div>
+				<h1>D&D 5e Statblock Generator</h1>
+				Based on <a href="http://valloric.github.io/statblock5e/">Statblock5e</a> and <a href="https://open5e.com/">Open5e</a> 
+				<br><br>
+				<button onclick="TryPrint()">Print Statblock</button>
+				<br><br>
+			</span>
 			
 			<!-- The Actual Stat Block -->
 			<div id="stat-block" class="stat-block">
@@ -96,344 +100,344 @@
 				<hr class="orange-border bottom" />
 			</div> <!-- stat block -->
 			
-			<div class="options">
+			<div class="options donotprint">
 				<form>
-					<label for="1col-input"><input id="1col-input" type="radio" name="columns-input" value="1col"> One Column</label>
-					<label for="2col-input"><input id="2col-input" type="radio" name="columns-input" value="2col" checked> Two Columns</label>
+					<label for="1col-input"><input id="1col-input" type="radio" name="columns-input" value="1col" checked> One Column</label>
+					<label for="2col-input"><input id="2col-input" type="radio" name="columns-input" value="2col"> Two Columns</label>
 				</form>
 				<button id="left-separator-button" type="button" onclick="UpdateFormAndBlock(1)"><<</button> 
 				<button type="button" onclick="UpdateFormAndBlock(0)">Update Statblock</button> 
-				<button id="right-separator-button" type="button" onclick="UpdateFormAndBlock(-1)">>></button> 
-			</div>
-			<hr>
-			<div id="monster-select-form">Monster Presets: <select id="monster-select" onchange="GetPreset()"><option value="">-Select-</option></select></div>
-			<br>
-			<table id="type-form">
-				<tr>
-					<td>
-						<label for="name-input">Name: <br><input id="name-input" type="text" value="Monster"></label>
-					</td>
-					<td>
-						<label for="size-input">Size: <br>
-						<select id="size-input">
-							<option value="tiny">Tiny</option>
-							<option value="small">Small</option>
-							<option value="medium" selected="selected">Medium</option>
-							<option value="large">Large</option>
-							<option value="huge">Huge</option>
-							<option value="gargantuan">Gargantuan</option>
-						</select>
-						</label>
-					</td>
-					<td>
-						<label for="type-input">Type: <br>
-						<select id="type-input" onchange="ShowHideTypeOther()">
-							<option value="aberration">Aberration</option>
-							<option value="beast">Beast</option>
-							<option value="celestial">Celestial</option>
-							<option value="construct">Construct</option>
-							<option value="dragon">Dragon</option>
-							<option value="elemental">Elemental</option>
-							<option value="fey">Fey</option>
-							<option value="fiend">Fiend</option>
-							<option value="giant">Giant</option>
-							<option value="humanoid" selected>Humanoid</option>
-							<option value="monstrosity">Monstrosity</option>
-							<option value="ooze">Ooze</option>
-							<option value="plant">Plant</option>
-							<option value="undead">Undead</option>
-							<option value="*">Other</option>
-						</select>
-						</label>
-						<div><input id="other-type-input" type="text" value="swarm of Tiny beasts"></div>
-					</td>
-					<td>
-						<label for="tag-input">Tag: <br>
-						<input id="tag-input"></label>
-					</td>
-					<td>
-						<label for="alignment-input">Alignment: </label><br>
-						<input id="alignment-input" type="text" value="any alignment">
-					</td>
-				</tr>
-			</table>
-			<hr>
-			<table id="armor-hitdice-form">
-				<tr>
-					<td></td>
-					<td><label for="hitdice-input">Hit Dice: </label><br><input type="number" id="hitdice-input" min="1" max="99" value="5"></td>
-					<td>
-						<label for="armor-input">Armor Type: </label><br>
-						<select id="armor-input" onchange="ShowHideOtherArmor()">
-							<option value="none" selected>None</option>
-							<option value="natural armor">Natural Armor</option>
-							<option value="mage armor">Mage Armor</option>
-							<option value="padded armor">Padded</option>
-							<option value="leather armor">Leather</option>
-							<option value="studded leather">Studded Leather</option>
-							<option value="hide armor">Hide</option>
-							<option value="chain shirt">Chain Shirt</option>
-							<option value="scale mail">Scale Mail</option>
-							<option value="breastplate">Breastplate</option>
-							<option value="half plate">Half Plate</option>
-							<option value="ring mail">Ring Mail</option>
-							<option value="chain mail">Chain Mail</option>
-							<option value="splint">Splint</option>
-							<option value="plate">Plate</option>
-							<option value="other">Other</option>
-						</select><br>
-						<div id="shield-box-note" class="box-note"><label for="shield-input">(Shield: <input id="shield-input" type="checkbox">)</label></div>
-					</td>
-					<td>
-						<span id="natarmor-prompt"><label for="natarmor-input">Natural Armor Bonus: <input type="number" id="natarmor-input" min="1" max="99" value="3"></label></span>
-						<span id="otherarmor-prompt">
-							<label for="otherarmor-input">Description: <input id="otherarmor-input" type="text" value="10 (armor)"></label>
-							<div id="otherarmor-box-note" class="box-note"><i>Use * to italicize</i></div>
-						</span>
-					</td>
-					<td></td>
-				</tr>
-			</table>
-			<table id="monster-speed-form">
-				<tr>
-					<td><label for="speed-input">Speed: <br><input type="number" id="speed-input" min="0" max="995" value="30"> ft.</td>
-					<td><label for="burrow-speed-input">Burrow speed: <br><input type="number" id="burrow-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
-					<td><label for="climb-speed-input">Climb Speed: <br><input type="number" id="climb-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
-					<td>
-						<label for="fly-speed-input">Fly Speed: <br><input type="number" id="fly-speed-input" min="0" max="995" step="5" value="0" onchange="ShowHideHoverBox()"> ft.</label><br>
-						<span id="hover-box-note" class="box-note"><label for="hover-input">(Hover: <input type="checkbox" id="hover-input">)</label></span>
-					</td>
-					<td><label for="swim-speed-input">Swim Speed: <br><input type="number" id="swim-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
-				</tr>
-			</table>
-			<hr>
-			<table id="monster-stats-form">
-				<tr>
-					<td><label for="str-input">STR: <br><input type="number" id="str-input" min="1" max="30" value="10" onchange="ChangeBonus('Str')"> (<span id="strbonus"></span>)</label></td>
-					<td><label for="dex-input">DEX: <br><input type="number" id="dex-input" min="1" max="30" value="10" onchange="ChangeBonus('Dex')"> (<span id="dexbonus"></span>)</label></td>
-					<td><label for="con-input">CON: <br><input type="number" id="con-input" min="1" max="30" value="10" onchange="ChangeBonus('Con')"> (<span id="conbonus"></span>)</label></td>
-					<td><label for="int-input">INT: <br><input type="number" id="int-input" min="1" max="30" value="10" onchange="ChangeBonus('Int')"> (<span id="intbonus"></span>)</label></td>
-					<td><label for="wis-input">WIS: <br><input type="number" id="wis-input" min="1" max="30" value="10" onchange="ChangeBonus('Wis')"> (<span id="wisbonus"></span>)</label></td>
-					<td><label for="cha-input">CHA: <br><input type="number" id="cha-input" min="1" max="30" value="10" onchange="ChangeBonus('Cha')"> (<span id="chabonus"></span>)</label></td>
-				</tr>
-			</table>
-			<hr>
-			<table id="properties-lists-form">
-				<tr>
-					<td id="sthrows-form">
-						<label for="sthrows-input">Saving Throws:</label><br>
-						<select id="sthrows-input">
-							<option value="str">Strength</option>
-							<option value="dex">Dexterity</option>
-							<option value="con">Constitution</option>
-							<option value="int">Intelligence</option>
-							<option value="wis">Wisdom</option>
-							<option value="cha">Charisma</option>
-						</select>
-						<button type="button" onclick="AddSthrowInput()">Proficient</button>
-						<span id="sthrows-input-section"><ul id="sthrows-input-list"></ul></span>
-					</td>
-					<td id="skills-form">
-						<label for="skills-input">Skills:</label><br>
-						<select id="skills-input">
-							<option value="acrobatics">Acrobatics</option>
-							<option value="animal handling">Animal Handling</option>
-							<option value="arcana">Arcana</option>
-							<option value="athletics">Athletics</option>
-							<option value="deception">Deception</option>
-							<option value="history">History</option>
-							<option value="insight">Insight</option>
-							<option value="intimidation">Intimidation</option>
-							<option value="investigation">Investigation</option>
-							<option value="medicine">Medicine</option>
-							<option value="nature">Nature</option>
-							<option value="perception">Perception</option>
-							<option value="performance">Performance</option>
-							<option value="persuasion">Persuasion</option>
-							<option value="religion">Religion</option>
-							<option value="sleight of hand">Sleight of Hand</option>
-							<option value="stealth">Stealth</option>
-							<option value="survival">Survival</option>
-						</select>
-						<button type="button" onclick="AddSkillInput()">Proficient</button>
-						<button type="button" onclick="AddSkillInput(' (ex)')">Expert</button>
-						<span id="skills-input-section"><ul id="skills-input-list"></ul></span>
-					</td>
-					<td id="conditions-form">
-						<label for="conditions-input">Condition Immunities: </label><br>
-						<select id="conditions-input">
-							<option value="blinded">Blinded</option>
-							<option value="charmed">Charmed</option>
-							<option value="deafened">Deafened</option>
-							<option value="exhaustion">Exhaustion</option>
-							<option value="frightened">Frightened</option>
-							<option value="grappled">Grappled</option>
-							<option value="incapacitated">Incapacitated</option>
-							<option value="invisible">Invisible</option>
-							<option value="paralyzed">Paralyzed</option>
-							<option value="petrified">Petrified</option>
-							<option value="poisoned">Poisoned</option>
-							<option value="prone">Prone</option>
-							<option value="restrained">Restrained</option>
-							<option value="stunned">Stunned</option>
-							<option value="unconscious">Unconscious</option>
-						</select>
-						<button type="button" onclick="AddConditionInput()">Immune</button>
-						<span id="conditions-input-section"><ul id="conditions-input-list"></ul></span>
-					</td>
-				</tr>
-				<tr>
-					<td id="damagetypes-form">
-						<label for="damagetypes-input">Damage Types: </label><br>
-						<div>
-							<select id="damagetypes-input" onchange="ShowHideDamageOther()">
-								<option value="acid">Acid</option>
-								<option value="bludgeoning">Bludgeoning</option>
-								<option value="cold">Cold</option>
-								<option value="fire">Fire</option>
-								<option value="force">Force</option>
-								<option value="lightning">Lightning</option>
-								<option value="necrotic">Necrotic</option>
-								<option value="piercing">Piercing</option>
-								<option value="poison">Poison</option>
-								<option value="psychic">Psychic</option>
-								<option value="radiant">Radiant</option>
-								<option value="slashing">Slashing</option>
-								<option value="thunder">Thunder</option>
-								<option value="bludgeoning, piercing, and slashing from nonmagical attacks">Nonmagical Attacks</option>
-								<option value="bludgeoning, piercing, and slashing from nonmagical attacks that aren't silvered">Non-Silvered Attacks</option>
-								<option value="bludgeoning, piercing, and slashing from nonmagical attacks that aren't adamantine">Non-Adamantine Attacks</option>
-								<option value="*">Other</option>
-							</select>
-						</div>
-						<div><input id="other-damage-input" type="text" value=""></div>
-						<div>
-							<button type="button" onclick="AddDamageTypeInput('v')">Vulnerable</button>
-							<button type="button" onclick="AddDamageTypeInput('r')">Resistant</button>
-							<button type="button" onclick="AddDamageTypeInput('i')">Immune</button>
-						</div>
-						<div id="damage-input-section"><ul><span id="damagetypes-input-list"></span><span id="specialdamage-input-list"></span></ul></div>
-					</td>
-					<td id="languages-form">
-						<label for="languages-input">Languages: </label><br>
-						<div>
-							<select id="languages-input" onchange="ShowHideLanguageOther()">
-								<option value="All">All</option>
-								<option value="Abyssal">Abyssal</option>
-								<option value="Aquan">Aquan</option>
-								<option value="Auran">Auran</option>
-								<option value="Celestial">Celestial</option>
-								<option value="Common">Common</option>
-								<option value="Deep Speech">Deep Speech</option>
-								<option value="Draconic">Draconic</option>
-								<option value="Dwarvish">Dwarvish</option>
-								<option value="Elvish">Elvish</option>
-								<option value="Giant">Giant</option>
-								<option value="Gnomish">Gnomish</option>
-								<option value="Goblin">Goblin</option>
-								<option value="Halfling">Halfling</option>
-								<option value="Ignan">Ignan</option>
-								<option value="Infernal">Infernal</option>
-								<option value="Orc">Orc</option>
-								<option value="Primordial">Primordial</option>
-								<option value="Sylvan">Sylvan</option>
-								<option value="Terran">Terran</option>
-								<option value="Undercommon">Undercommon</option>
-								<option value="*">Other</option>
-							</select>
-						</div>
-						<div><input id="other-language-input" type="text" value=""></div>
-						<div><button type="button" onclick="AddLanguageInput()">Proficient</button></div>
-						<div id="languages-input-section"><ul id="languages-input-list"></ul></div>
-					</td>
-					<td>
-						<label for="telepathy-input">Telepathy:<br><input type="number" id="telepathy-input" min="0" max="995" step="5" value="0"> ft.</label>
-					</td>
-				</tr>
-			</table>
-			<table id="senses-form">
-				<tr>
-					<td>
-						<label for="blindsight-input">Blindsight: </label><input type="number" id="blindsight-input" min="0" max="995" step="5" value="0" onchange="ShowHideBlindBox()"><br>
-						<span id="blind-box-note" class="box-note"><label for="blindness-input">(Blind beyond: <input type="checkbox" id="blindness-input">)</label></span>
-					</td>
-					<td><label for="darkvision-input">Darkvision: </label><input type="number" id="darkvision-input" min="0" max="995" step="5" value="0"></td>
-					<td><label for="tremorsense-input">Tremorsense: </label><input type="number" id="tremorsense-input" min="0" max="995" step="5" value="0"></td>
-					<td><label for="truesight-input">Truesight: </label><input type="number" id="truesight-input" min="0" max="995" step="5" value="0"></td>
-				</tr>
-			</table>
-			<div id="cr-form">
-				<label for="cr-input">Challenge Rating: </label>
-				<select id="cr-input" onchange="ChangeProf()">
-					<option value="0">0 (10 XP)</option>
-					<option value="1/8">1/8 (25 XP)</option>
-					<option value="1/4">1/4 (50 XP)</option>
-					<option value="1/2">1/2 (100 XP)</option>
-					<option value="1" selected>1 (200 XP)</option>
-					<option value="2">2 (450 XP)</option>
-					<option value="3">3 (700 XP)</option>
-					<option value="4">4 (1,100 XP)</option>
-					<option value="5">5 (1.800 XP)</option>
-					<option value="6">6 (2,300 XP)</option>
-					<option value="7">7 (2,900 XP)</option>
-					<option value="8">8 (3,900 XP)</option>
-					<option value="9">9 (5,000 XP)</option>
-					<option value="10">10 (5,900 XP)</option>
-					<option value="11">11 (7,200 XP)</option>
-					<option value="12">12 (8,400 XP)</option>
-					<option value="13">13 (10,000 XP)</option>
-					<option value="14">14 (11,500 XP)</option>
-					<option value="15">15 (13,000 XP)</option>
-					<option value="16">16 (15,000 XP)</option>
-					<option value="17">17 (18,000 XP)</option>
-					<option value="18">18 (20,000 XP)</option>
-					<option value="19">19 (22,000 XP)</option>
-					<option value="20">20 (25,000 XP)</option>
-					<option value="21">21 (33,000 XP)</option>
-					<option value="22">22 (41,000 XP)</option>
-					<option value="23">23 (50,000 XP)</option>
-					<option value="24">24 (62,000 XP)</option>
-					<option value="25">25 (75,000 XP)</option>
-					<option value="26">26 (90,000 XP)</option>
-					<option value="27">27 (105,000 XP)</option>
-					<option value="28">28 (120,000 XP)</option>
-					<option value="29">29 (135,000 XP)</option>
-					<option value="30">30 (155,000 XP)</option>
-				</select><br>
-				<span id="prof-bonus"></span>
-			</div>
-			<hr>
-			<div>
-				<label for="is-legendary-input"><b>Legendary Creature?:</b> <input type="checkbox" id="is-legendary-input" onclick="ShowHideLegendaryCreature()"></label>
-			</div>
-			<br>
-			<div id="legendary-actions-form">
-				<b>Legendary Actions Description</b>
-				<div><label for="legendaries-descsection-input"></label><textarea id="legendaries-descsection-input" style="height: 4em;"></textarea></div>
-				<div><button type="button" onclick="LegendaryDescriptionDefault()">Reset to Default</button></div>
+				<button id="right-separator-button" type="button" onclick="UpdateFormAndBlock(-1)">>></button>
+				<hr>
+				<div id="monster-select-form">Monster Presets: <select id="monster-select" onchange="GetPreset()"><option value="">-Select-</option><option value="default">Restore Default</option></select></div>
 				<br>
-			</div>
-			<b>Abilities:</b>
-			<div><label for="abilities-name-input">Name: </label><input id="abilities-name-input" type="text" value=""></div>
-			<div><textarea id="abilities-desc-input" style="height: 10em;"></textarea></div>
-			<div>
-				<button type="button" id="add-ability-button" onclick="AddAbilityInput('abilities')">Add Ability</button>
-				<button type="button" id="add-action-button" onclick="AddAbilityInput('actions')">Add Action</button>
-				<button type="button" id="add-reaction-button" onclick="AddAbilityInput('reactions')">Add Reaction</button>
-				<button type="button" id="add-legendary-button" onclick="AddAbilityInput('legendaries')">Add Legendary Action</button>
-			</div>
-			<div>
-				<i>Use * to italicize and > to reverse-indent (for Spellcasting lists).</i>
-			</div>
-			<br>
-			<div style="text-align: left;">
-				<span id="abilities-input-section"><b>Abilities:</b><br> <ul id="abilities-input-list"></ul></span>
-				<span id="actions-input-section"><b>Actions:</b><br> <ul id="actions-input-list"></ul></span>
-				<span id="reactions-input-section"><b>Reactions:</b><br> <ul id="reactions-input-list"></ul></span>
-				<span id="legendaries-input-section"><b>Legendary Actions:</b><br> <ul id="legendaries-input-list"></ul></span>
-			</div>
+				<table id="type-form">
+					<tr>
+						<td>
+							<label for="name-input">Name: <br><input id="name-input" type="text" value="Monster"></label>
+						</td>
+						<td>
+							<label for="size-input">Size: <br>
+							<select id="size-input">
+								<option value="tiny">Tiny</option>
+								<option value="small">Small</option>
+								<option value="medium" selected="selected">Medium</option>
+								<option value="large">Large</option>
+								<option value="huge">Huge</option>
+								<option value="gargantuan">Gargantuan</option>
+							</select>
+							</label>
+						</td>
+						<td>
+							<label for="type-input">Type: <br>
+							<select id="type-input" onchange="ShowHideTypeOther()">
+								<option value="aberration">Aberration</option>
+								<option value="beast">Beast</option>
+								<option value="celestial">Celestial</option>
+								<option value="construct">Construct</option>
+								<option value="dragon">Dragon</option>
+								<option value="elemental">Elemental</option>
+								<option value="fey">Fey</option>
+								<option value="fiend">Fiend</option>
+								<option value="giant">Giant</option>
+								<option value="humanoid" selected>Humanoid</option>
+								<option value="monstrosity">Monstrosity</option>
+								<option value="ooze">Ooze</option>
+								<option value="plant">Plant</option>
+								<option value="undead">Undead</option>
+								<option value="*">Other</option>
+							</select>
+							</label>
+							<div><input id="other-type-input" type="text" value="swarm of Tiny beasts"></div>
+						</td>
+						<td>
+							<label for="tag-input">Tag: <br>
+							<input id="tag-input"></label>
+						</td>
+						<td>
+							<label for="alignment-input">Alignment: </label><br>
+							<input id="alignment-input" type="text" value="any alignment">
+						</td>
+					</tr>
+				</table>
+				<hr>
+				<table id="armor-hitdice-form">
+					<tr>
+						<td></td>
+						<td><label for="hitdice-input">Hit Dice: </label><br><input type="number" id="hitdice-input" min="1" max="99" value="5"></td>
+						<td>
+							<label for="armor-input">Armor Type: </label><br>
+							<select id="armor-input" onchange="ShowHideOtherArmor()">
+								<option value="none" selected>None</option>
+								<option value="natural armor">Natural Armor</option>
+								<option value="mage armor">Mage Armor</option>
+								<option value="padded armor">Padded</option>
+								<option value="leather armor">Leather</option>
+								<option value="studded leather">Studded Leather</option>
+								<option value="hide armor">Hide</option>
+								<option value="chain shirt">Chain Shirt</option>
+								<option value="scale mail">Scale Mail</option>
+								<option value="breastplate">Breastplate</option>
+								<option value="half plate">Half Plate</option>
+								<option value="ring mail">Ring Mail</option>
+								<option value="chain mail">Chain Mail</option>
+								<option value="splint">Splint</option>
+								<option value="plate">Plate</option>
+								<option value="other">Other</option>
+							</select><br>
+							<div id="shield-box-note" class="box-note"><label for="shield-input">(Shield: <input id="shield-input" type="checkbox">)</label></div>
+						</td>
+						<td>
+							<span id="natarmor-prompt"><label for="natarmor-input">Natural Armor Bonus: <input type="number" id="natarmor-input" min="1" max="99" value="3"></label></span>
+							<span id="otherarmor-prompt">
+								<label for="otherarmor-input">Description: <input id="otherarmor-input" type="text" value="10 (armor)"></label>
+								<div id="otherarmor-box-note" class="box-note"><i>Use * to italicize</i></div>
+							</span>
+						</td>
+						<td></td>
+					</tr>
+				</table>
+				<table id="monster-speed-form">
+					<tr>
+						<td><label for="speed-input">Speed: <br><input type="number" id="speed-input" min="0" max="995" value="30"> ft.</td>
+						<td><label for="burrow-speed-input">Burrow speed: <br><input type="number" id="burrow-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
+						<td><label for="climb-speed-input">Climb Speed: <br><input type="number" id="climb-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
+						<td>
+							<label for="fly-speed-input">Fly Speed: <br><input type="number" id="fly-speed-input" min="0" max="995" step="5" value="0" onchange="ShowHideHoverBox()"> ft.</label><br>
+							<span id="hover-box-note" class="box-note"><label for="hover-input">(Hover: <input type="checkbox" id="hover-input">)</label></span>
+						</td>
+						<td><label for="swim-speed-input">Swim Speed: <br><input type="number" id="swim-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
+					</tr>
+				</table>
+				<hr>
+				<table id="monster-stats-form">
+					<tr>
+						<td><label for="str-input">STR: <br><input type="number" id="str-input" min="1" max="30" value="10" onchange="ChangeBonus('Str')"> (<span id="strbonus"></span>)</label></td>
+						<td><label for="dex-input">DEX: <br><input type="number" id="dex-input" min="1" max="30" value="10" onchange="ChangeBonus('Dex')"> (<span id="dexbonus"></span>)</label></td>
+						<td><label for="con-input">CON: <br><input type="number" id="con-input" min="1" max="30" value="10" onchange="ChangeBonus('Con')"> (<span id="conbonus"></span>)</label></td>
+						<td><label for="int-input">INT: <br><input type="number" id="int-input" min="1" max="30" value="10" onchange="ChangeBonus('Int')"> (<span id="intbonus"></span>)</label></td>
+						<td><label for="wis-input">WIS: <br><input type="number" id="wis-input" min="1" max="30" value="10" onchange="ChangeBonus('Wis')"> (<span id="wisbonus"></span>)</label></td>
+						<td><label for="cha-input">CHA: <br><input type="number" id="cha-input" min="1" max="30" value="10" onchange="ChangeBonus('Cha')"> (<span id="chabonus"></span>)</label></td>
+					</tr>
+				</table>
+				<hr>
+				<table id="properties-lists-form">
+					<tr>
+						<td id="sthrows-form">
+							<label for="sthrows-input">Saving Throws:</label><br>
+							<select id="sthrows-input">
+								<option value="str">Strength</option>
+								<option value="dex">Dexterity</option>
+								<option value="con">Constitution</option>
+								<option value="int">Intelligence</option>
+								<option value="wis">Wisdom</option>
+								<option value="cha">Charisma</option>
+							</select>
+							<button type="button" onclick="AddSthrowInput()">Proficient</button>
+							<span id="sthrows-input-section"><ul id="sthrows-input-list"></ul></span>
+						</td>
+						<td id="skills-form">
+							<label for="skills-input">Skills:</label><br>
+							<select id="skills-input">
+								<option value="acrobatics">Acrobatics</option>
+								<option value="animal handling">Animal Handling</option>
+								<option value="arcana">Arcana</option>
+								<option value="athletics">Athletics</option>
+								<option value="deception">Deception</option>
+								<option value="history">History</option>
+								<option value="insight">Insight</option>
+								<option value="intimidation">Intimidation</option>
+								<option value="investigation">Investigation</option>
+								<option value="medicine">Medicine</option>
+								<option value="nature">Nature</option>
+								<option value="perception">Perception</option>
+								<option value="performance">Performance</option>
+								<option value="persuasion">Persuasion</option>
+								<option value="religion">Religion</option>
+								<option value="sleight of hand">Sleight of Hand</option>
+								<option value="stealth">Stealth</option>
+								<option value="survival">Survival</option>
+							</select>
+							<button type="button" onclick="AddSkillInput()">Proficient</button>
+							<button type="button" onclick="AddSkillInput(' (ex)')">Expert</button>
+							<span id="skills-input-section"><ul id="skills-input-list"></ul></span>
+						</td>
+						<td id="conditions-form">
+							<label for="conditions-input">Condition Immunities: </label><br>
+							<select id="conditions-input">
+								<option value="blinded">Blinded</option>
+								<option value="charmed">Charmed</option>
+								<option value="deafened">Deafened</option>
+								<option value="exhaustion">Exhaustion</option>
+								<option value="frightened">Frightened</option>
+								<option value="grappled">Grappled</option>
+								<option value="incapacitated">Incapacitated</option>
+								<option value="invisible">Invisible</option>
+								<option value="paralyzed">Paralyzed</option>
+								<option value="petrified">Petrified</option>
+								<option value="poisoned">Poisoned</option>
+								<option value="prone">Prone</option>
+								<option value="restrained">Restrained</option>
+								<option value="stunned">Stunned</option>
+								<option value="unconscious">Unconscious</option>
+							</select>
+							<button type="button" onclick="AddConditionInput()">Immune</button>
+							<span id="conditions-input-section"><ul id="conditions-input-list"></ul></span>
+						</td>
+					</tr>
+					<tr>
+						<td id="damagetypes-form">
+							<label for="damagetypes-input">Damage Types: </label><br>
+							<div>
+								<select id="damagetypes-input" onchange="ShowHideDamageOther()">
+									<option value="acid">Acid</option>
+									<option value="bludgeoning">Bludgeoning</option>
+									<option value="cold">Cold</option>
+									<option value="fire">Fire</option>
+									<option value="force">Force</option>
+									<option value="lightning">Lightning</option>
+									<option value="necrotic">Necrotic</option>
+									<option value="piercing">Piercing</option>
+									<option value="poison">Poison</option>
+									<option value="psychic">Psychic</option>
+									<option value="radiant">Radiant</option>
+									<option value="slashing">Slashing</option>
+									<option value="thunder">Thunder</option>
+									<option value="bludgeoning, piercing, and slashing from nonmagical attacks">Nonmagical Attacks</option>
+									<option value="bludgeoning, piercing, and slashing from nonmagical attacks that aren't silvered">Non-Silvered Attacks</option>
+									<option value="bludgeoning, piercing, and slashing from nonmagical attacks that aren't adamantine">Non-Adamantine Attacks</option>
+									<option value="*">Other</option>
+								</select>
+							</div>
+							<div><input id="other-damage-input" type="text" value=""></div>
+							<div>
+								<button type="button" onclick="AddDamageTypeInput('v')">Vulnerable</button>
+								<button type="button" onclick="AddDamageTypeInput('r')">Resistant</button>
+								<button type="button" onclick="AddDamageTypeInput('i')">Immune</button>
+							</div>
+							<div id="damage-input-section" style="display: none;"><ul><span id="damagetypes-input-list"></span><span id="specialdamage-input-list"></span></ul></div>
+						</td>
+						<td id="languages-form">
+							<label for="languages-input">Languages: </label><br>
+							<div>
+								<select id="languages-input" onchange="ShowHideLanguageOther()">
+									<option value="All">All</option>
+									<option value="Abyssal">Abyssal</option>
+									<option value="Aquan">Aquan</option>
+									<option value="Auran">Auran</option>
+									<option value="Celestial">Celestial</option>
+									<option value="Common">Common</option>
+									<option value="Deep Speech">Deep Speech</option>
+									<option value="Draconic">Draconic</option>
+									<option value="Dwarvish">Dwarvish</option>
+									<option value="Elvish">Elvish</option>
+									<option value="Giant">Giant</option>
+									<option value="Gnomish">Gnomish</option>
+									<option value="Goblin">Goblin</option>
+									<option value="Halfling">Halfling</option>
+									<option value="Ignan">Ignan</option>
+									<option value="Infernal">Infernal</option>
+									<option value="Orc">Orc</option>
+									<option value="Primordial">Primordial</option>
+									<option value="Sylvan">Sylvan</option>
+									<option value="Terran">Terran</option>
+									<option value="Undercommon">Undercommon</option>
+									<option value="*">Other</option>
+								</select>
+							</div>
+							<div><input id="other-language-input" type="text" value=""></div>
+							<div><button type="button" onclick="AddLanguageInput()">Proficient</button></div>
+							<div id="languages-input-section"><ul id="languages-input-list"></ul></div>
+						</td>
+						<td>
+							<label for="telepathy-input">Telepathy:<br><input type="number" id="telepathy-input" min="0" max="995" step="5" value="0"> ft.</label>
+						</td>
+					</tr>
+				</table>
+				<table id="senses-form">
+					<tr>
+						<td>
+							<label for="blindsight-input">Blindsight: </label><input type="number" id="blindsight-input" min="0" max="995" step="5" value="0" onchange="ShowHideBlindBox()"><br>
+							<span id="blind-box-note" class="box-note"><label for="blindness-input">(Blind beyond: <input type="checkbox" id="blindness-input">)</label></span>
+						</td>
+						<td><label for="darkvision-input">Darkvision: </label><input type="number" id="darkvision-input" min="0" max="995" step="5" value="0"></td>
+						<td><label for="tremorsense-input">Tremorsense: </label><input type="number" id="tremorsense-input" min="0" max="995" step="5" value="0"></td>
+						<td><label for="truesight-input">Truesight: </label><input type="number" id="truesight-input" min="0" max="995" step="5" value="0"></td>
+					</tr>
+				</table>
+				<div id="cr-form">
+					<label for="cr-input">Challenge Rating: </label>
+					<select id="cr-input" onchange="InputCR()">
+						<option value="0">0 (10 XP)</option>
+						<option value="1/8">1/8 (25 XP)</option>
+						<option value="1/4">1/4 (50 XP)</option>
+						<option value="1/2">1/2 (100 XP)</option>
+						<option value="1" selected>1 (200 XP)</option>
+						<option value="2">2 (450 XP)</option>
+						<option value="3">3 (700 XP)</option>
+						<option value="4">4 (1,100 XP)</option>
+						<option value="5">5 (1.800 XP)</option>
+						<option value="6">6 (2,300 XP)</option>
+						<option value="7">7 (2,900 XP)</option>
+						<option value="8">8 (3,900 XP)</option>
+						<option value="9">9 (5,000 XP)</option>
+						<option value="10">10 (5,900 XP)</option>
+						<option value="11">11 (7,200 XP)</option>
+						<option value="12">12 (8,400 XP)</option>
+						<option value="13">13 (10,000 XP)</option>
+						<option value="14">14 (11,500 XP)</option>
+						<option value="15">15 (13,000 XP)</option>
+						<option value="16">16 (15,000 XP)</option>
+						<option value="17">17 (18,000 XP)</option>
+						<option value="18">18 (20,000 XP)</option>
+						<option value="19">19 (22,000 XP)</option>
+						<option value="20">20 (25,000 XP)</option>
+						<option value="21">21 (33,000 XP)</option>
+						<option value="22">22 (41,000 XP)</option>
+						<option value="23">23 (50,000 XP)</option>
+						<option value="24">24 (62,000 XP)</option>
+						<option value="25">25 (75,000 XP)</option>
+						<option value="26">26 (90,000 XP)</option>
+						<option value="27">27 (105,000 XP)</option>
+						<option value="28">28 (120,000 XP)</option>
+						<option value="29">29 (135,000 XP)</option>
+						<option value="30">30 (155,000 XP)</option>
+					</select><br>
+					<span id="prof-bonus"></span>
+				</div>
+				<hr>
+				<div>
+					<label for="is-legendary-input"><b>Legendary Creature?:</b> <input type="checkbox" id="is-legendary-input" onclick="ShowHideLegendaryCreature()"></label>
+				</div>
+				<br>
+				<div id="legendary-actions-form">
+					<b>Legendary Actions Description</b>
+					<div><label for="legendaries-descsection-input"></label><textarea id="legendaries-descsection-input" style="height: 4em;"></textarea></div>
+					<div><button type="button" onclick="LegendaryDescriptionDefault()">Reset to Default</button></div>
+					<br>
+				</div>
+				<b>Abilities:</b>
+				<div><label for="abilities-name-input">Name: </label><input id="abilities-name-input" type="text" value=""></div>
+				<div><textarea id="abilities-desc-input" style="height: 10em;"></textarea></div>
+				<div>
+					<button type="button" id="add-ability-button" onclick="AddAbilityInput('abilities')">Add Ability</button>
+					<button type="button" id="add-action-button" onclick="AddAbilityInput('actions')">Add Action</button>
+					<button type="button" id="add-reaction-button" onclick="AddAbilityInput('reactions')">Add Reaction</button>
+					<button type="button" id="add-legendary-button" onclick="AddAbilityInput('legendaries')">Add Legendary Action</button>
+				</div>
+				<div>
+					<i>Use _ to italicize. For Spellcasting lists, use > to reverse-indent.</i>
+				</div>
+				<br>
+				<div style="text-align: left;">
+					<span id="abilities-input-section"><b>Abilities:</b><br> <ul id="abilities-input-list"></ul></span>
+					<span id="actions-input-section"><b>Actions:</b><br> <ul id="actions-input-list"></ul></span>
+					<span id="reactions-input-section"><b>Reactions:</b><br> <ul id="reactions-input-list"></ul></span>
+					<span id="legendaries-input-section"><b>Legendary Actions:</b><br> <ul id="legendaries-input-list"></ul></span>
+				</div>
 				
 			<br>
+			</div>
 		</div>
 	</body>
 </html>

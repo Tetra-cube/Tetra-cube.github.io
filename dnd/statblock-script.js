@@ -5,11 +5,11 @@ var name = "Monster", size = "medium", type = "humanoid", tag = "", alignment = 
 	strBonus = 0, dexBonus = 0, conBonus = 0, intBonus = 0, wisBonus = 0, chaBonus = 0,
 	blindsight = 0, blind = false, darkvision = 0, tremorsense = 0,	truesight = 0,
 	telepathy = 0,
-	cr = "1", profBonus = 2,
+	cr = "1",
 	isLegendary = false, legendariesDescription = "",
 	properties = [], abilities = [], actions = [], reactions = [], legendaries = [],
 	sthrows = [], skills = [], damagetypes = [], specialdamage = [], conditions = [], languages = [],
-	traitsHTML = [], doubleColumns = true, separationPoint = 1,
+	traitsHTML = [], doubleColumns = false, separationPoint = 1,
 	monsterNamesArr = [];
 
 $(document).ready(function() {	
@@ -41,8 +41,6 @@ $(document).ready(function() {
 	
 	// Set the CR proficiency bonus
 	SetBonuses();
-	profBonus = crs[cr].prof;
-	ChangeProf();
 	
 	// // Hide ability sections via code, for convenience
 	$("#abilities-input-section, #actions-input-section, #reactions-input-section, #legendaries-input-section").hide();
@@ -53,7 +51,20 @@ $(document).ready(function() {
 	// Populate the stat block
 	UpdateStatblock(0);
 	SetForms();
+	ChangeCRForm();
+	ChangeColumnRadioButtons();
 });
+
+
+
+
+
+// Print version
+
+function TryPrint()
+{
+	window.print();
+}
 
 
 
@@ -208,7 +219,7 @@ function UpdateStatblock(moveSeparationPoint)
 	// Saving Throws
 	var sthrowsDisplayArr = [];
 	for(var index in sthrows)
-		sthrowsDisplayArr.push(StringCapitalize(sthrows[index].name) + " +" + (GetStatBonus(sthrows[index].name) + profBonus));
+		sthrowsDisplayArr.push(StringCapitalize(sthrows[index].name) + " +" + (GetStatBonus(sthrows[index].name) + crs[cr].prof));
 	if(sthrowsDisplayArr.length > 0)
 		propertiesDisplayArr.push( { "name" : "Saving Throws", "arr" : sthrowsDisplayArr } );
 
@@ -218,9 +229,9 @@ function UpdateStatblock(moveSeparationPoint)
 	{
 		var skillData = skills[index];
 		if(skillData.hasOwnProperty("note"))
-			skillsDisplayArr.push(StringCapitalize(skillData.name) + " +" + (GetStatBonus(skillData.stat) + profBonus * 2));
+			skillsDisplayArr.push(StringCapitalize(skillData.name) + " +" + (GetStatBonus(skillData.stat) + crs[cr].prof * 2));
 		else
-			skillsDisplayArr.push(StringCapitalize(skillData.name) + " +" + (GetStatBonus(skillData.stat) + profBonus));
+			skillsDisplayArr.push(StringCapitalize(skillData.name) + " +" + (GetStatBonus(skillData.stat) + crs[cr].prof));
 	}
 	if(skillsDisplayArr.length > 0)
 		propertiesDisplayArr.push( { "name" : "Skills", "arr" : skillsDisplayArr } );
@@ -281,9 +292,9 @@ function UpdateStatblock(moveSeparationPoint)
 	var ppData = FindInList(skills, "Perception"), pp = 10 + wisBonus;
 	if(ppData != null)
 	{
-		pp += profBonus;
+		pp += crs[cr].prof;
 		if(ppData.hasOwnProperty("note"))
-			pp += profBonus;
+			pp += crs[cr].prof;
 	}
 	sensesDisplayArr.push("passive Perception " + pp);
 	propertiesDisplayArr.push( { "name" : "Senses", "arr" : sensesDisplayArr } );
@@ -294,7 +305,7 @@ function UpdateStatblock(moveSeparationPoint)
 		languageDisplayArr.push(languages[index].name);
 	if(telepathy > 0)
 		languageDisplayArr.push("telepathy " + telepathy + " ft.");
-	if(languageDisplayArr.length == 0)
+	if(languageDisplayArr.length == 0 && telepathy == 0)
 		languageDisplayArr.push("&mdash;");
 	propertiesDisplayArr.push( { "name" : "Languages", "arr" : languageDisplayArr } );
 	
@@ -405,7 +416,7 @@ function GetAllVariables()
 	
 	// Challenge Rating
 	cr = $("#cr-input").val();
-	profBonus = crs[cr].prof;
+	ChangeCRForm();
 	
 	// Legendaries
 	isLegendary = $("#is-legendary-input").prop("checked");
@@ -427,7 +438,11 @@ function GetPreset()
 	var name = $("#monster-select").val(), creature;
 	if(name == "")
 		return;
-	
+	if(name == "default")
+	{
+		SetPreset(defaultPreset);
+		return;
+	}
 	$.getJSON("https://api-beta.open5e.com/monsters/" + name, function(jsonArr) {
 		SetPreset(jsonArr);
 	})
@@ -457,7 +472,6 @@ function SetPreset(creature)
 	
 	// CR
 	cr = creature.challenge_rating;
-	profBonus = crs[cr].prof;
 	
 	// Armor Class
 	var armorAcData = creature.armor_class, armorDescData;
@@ -499,7 +513,12 @@ function SetPreset(creature)
 		armorName = (armorAcData == GetAC("none")) ? "none" : "other";
 	
 	if(armorName == "other")
-		otherArmorDesc = armorAcData + " (" + armorDescData + ")";
+	{
+		if(armorDescData)
+			otherArmorDesc = armorAcData + " (" + armorDescData + ")";
+		else
+			otherArmorDesc = armorAcData + " (unknown armor type)";
+	}
 	
 	// Hit Dice
 	hitDice = parseInt(creature.hit_dice.split("d")[0]);
@@ -522,12 +541,13 @@ function SetPreset(creature)
 	if(creature.charisma_save) AddSthrow("cha");
 	
 	// Skills
+	skills = [];
 	for(var index in allSkills)
 	{
 		var currentSkill = allSkills[index], skillCheck = StringReplaceAll(currentSkill.name.toLowerCase(), " ", "_");
-		if(creature.hasOwnProperty(skillCheck))
+		if(creature.hasOwnProperty(skillCheck) && creature[skillCheck] != null)
 		{
-			var expectedExpertise = GetStatBonus(currentSkill.stat) + profBonus * 2,
+			var expectedExpertise = GetStatBonus(currentSkill.stat) + crs[cr].prof * 2,
 				skillVal = creature[skillCheck];
 			AddSkill(allSkills[index].name, (skillVal >= expectedExpertise ? " (ex)" : null));
 		}
@@ -709,9 +729,9 @@ function SetForms()
 	ShowHideLegendaryCreature();
 	
 	// Challenge Rating
-	profBonus = crs[cr].prof;
+	crs[cr].prof = crs[cr].prof;
 	$("#cr-input").val(cr);
-	ChangeProf();
+	ChangeCRForm();
 }
 
 
@@ -746,7 +766,7 @@ function ShowHideDamageSection()
 
 function ShowHideDamageOther()
 {
-	ShowHideHtmlElement("#other-damage-input", $("#damagetypes-input").val() == "*o");
+	ShowHideHtmlElement("#other-damage-input", $("#damagetypes-input").val() == "*");
 }
 
 function ShowHideLanguageOther()
@@ -775,6 +795,29 @@ function ShowHideLegendaryCreature()
 	$("#is-legendary-input:checked").val() ?
 		$("#add-legendary-button, #legendary-actions-form").show() :
 		$("#add-legendary-button, #legendary-actions-form").hide();
+}
+
+
+
+
+
+// Other form functions
+
+function InputCR()
+{
+	cr = $("#cr-input").val();
+	ChangeCRForm();
+}
+
+function ChangeCRForm()
+{
+	$("#prof-bonus").html("(Proficiency Bonus: +" + crs[cr].prof + ")");
+}
+
+function ChangeColumnRadioButtons()
+{
+	$("#1col-input").prop("checked", !doubleColumns);
+	$("#2col-input").prop("checked", doubleColumns);
 }
 
 
@@ -900,6 +943,8 @@ function AddLanguageInput()
 
 function AddLanguage(languageName)
 {
+	if(languageName == "")
+		return;
 	if(languageName == "*")
 	{
 		languageName = $("#other-language-input").val().trim();
@@ -945,10 +990,10 @@ function AddAbilityPreset(arrName, ability)
 		spellcastingDesc = abilityDesc.substr(0, firstLineBreak);
 		spellcastingSpells = abilityDesc.substr(firstLineBreak);
 		
-		spellcastingSpells = StringReplaceAll(spellcastingSpells, "\n", "*\n>");
-		spellcastingSpells = StringReplaceAll(spellcastingSpells, ":", ":*");
-		spellcastingSpells = StringReplaceAll(spellcastingSpells, "(", "*(");
-		spellcastingSpells = StringReplaceAll(spellcastingSpells, ")", ")*");
+		spellcastingSpells = StringReplaceAll(spellcastingSpells, "\n", "_\n>");
+		spellcastingSpells = StringReplaceAll(spellcastingSpells, ":", ":_");
+		spellcastingSpells = StringReplaceAll(spellcastingSpells, "(", "_(");
+		spellcastingSpells = StringReplaceAll(spellcastingSpells, ")", ")_");
 		spellcastingSpells = spellcastingSpells.substr(1);
 		
 		abilityDesc = spellcastingDesc + "<br><br>" + spellcastingSpells;
@@ -1014,9 +1059,7 @@ function GetAC(armorNameCheck)
 		if(armor.type == "heavy")
 			return armor.ac + shieldBonus;
 		if(armorNameCheck == "natural armor")
-			return 10 + dexBonus + parseInt($("#natarmor-input").val()) + shieldBonus;
-		if(armorNameCheck == "mage armor")
-			return 10 + dexBonus + shieldBonus
+			return 10 + dexBonus + natArmorBonus + shieldBonus;
 		if(armorNameCheck == "other")
 			return "other";
 	}
@@ -1039,7 +1082,12 @@ function BonusFormat(newBonus)
 function GetArmorData()
 {
 	if(armorName == "other")
-		return FormatString($("#otherarmor-input").val().trim(), false);
+		return FormatString(otherArmorDesc, false);
+	if(armorName == "mage armor")
+	{
+		var mageAC = GetAC(armorName);
+		return mageAC + " (" + (mageAC + 3) + " with <i>mage armor</i>)";
+	}
 	if(armorName == "none")
 		return GetAC(armorName);
 	return GetArmorString(armorName, GetAC(armorName));
@@ -1073,7 +1121,7 @@ function FormatString(string, isBlock) // Add italics, indents, and newlines
 		if(character == "<")
 			index = string.indexOf(">", index);
 		// Italicize
-		else if(character == "*")
+		else if(character == "_")
 		{
 			string = StringSplice(string, index, 1, endItalics ? "</i>" : "<i>");
 			endItalics = !endItalics;
@@ -1311,11 +1359,6 @@ function FixPresetArray(string)
 
 // Misc
 
-function ChangeProf()
-{
-	$("#prof-bonus").html("(Proficiency Bonus: +" + crs[cr].prof + ")");
-}
-
 function GetSpeed(speedList, speedType)
 {
 	return speedList.hasOwnProperty(speedType) ? parseInt(speedList[speedType]) : 0;
@@ -1436,4 +1479,47 @@ const stats = [
 	allSavedTextVariables = [ "name", "size", "type", "tag", "alignment", "armorName", "otherArmorDesc", "cr", "legendariesDescription" ],
 	allSavedNumberVariables = [ "hitDice", "shieldBonus", "natArmorBonus", "speed", "burrowSpeed", "climbSpeed", "flySpeed", "swimSpeed", "strPoints", "dexPoints", "conPoints", "intPoints", "wisPoints", "chaPoints", "blindsight", "darkvision", "tremorsense", "truesight", "telepathy", "separationPoint" ],
 	allSavedBooleanVariables = [ "hover", "blind", "isLegendary", "doubleColumns" ],
-	allSavedArrayVariables = [ "sthrows", "skills", "conditions", "damagetypes", "specialdamage", "languages", "abilities", "actions", "reactions", "legendaries" ];
+	allSavedArrayVariables = [ "sthrows", "skills", "conditions", "damagetypes", "specialdamage", "languages", "abilities", "actions", "reactions", "legendaries" ],
+	
+	defaultPreset = 
+	{
+		"slug": "",
+		"name": "Monster",
+		"size": "Medium",
+		"type": "humanoid",
+		"subtype": "any race",
+		"group": null,
+		"alignment": "any alignment",
+		"armor_class": 10,
+		"armor_desc": null,
+		"hit_points": 22,
+		"hit_dice": "5d8",
+		"speed": {
+			"walk": 30
+		},
+		"strength": 10,
+		"dexterity": 10,
+		"constitution": 10,
+		"intelligence": 10,
+		"wisdom": 10,
+		"charisma": 10,
+		"strength_save": null,
+		"dexterity_save": null,
+		"constitution_save": null,
+		"intelligence_save": null,
+		"wisdom_save": null,
+		"charisma_save": null,
+		"perception": null,
+		"damage_vulnerabilities": "",
+		"damage_resistances": "",
+		"damage_immunities": "",
+		"condition_immunities": "",
+		"senses": "passive Perception 10",
+		"languages": "",
+		"challenge_rating": "1",
+		"actions": "",
+		"reactions": "",
+		"legendary_actions": "",
+		"special_abilities": "",
+		"document_slug": "systems-reference-document"
+	}
