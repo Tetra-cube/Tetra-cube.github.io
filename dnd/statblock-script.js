@@ -196,13 +196,13 @@ function UpdateStatblock(moveSeparationPoint)
 	// Speed
 	var speedsDisplayArr = [ speed + " ft."];
 	if(burrowSpeed > 0)
-		speedsDisplayArr.push("burrow " + burrowSpeed + "ft.");
+		speedsDisplayArr.push("burrow " + burrowSpeed + " ft.");
 	if(climbSpeed > 0)
-		speedsDisplayArr.push("climb " + climbSpeed + "ft.");
+		speedsDisplayArr.push("climb " + climbSpeed + " ft.");
 	if(flySpeed > 0)
-		speedsDisplayArr.push("fly " + flySpeed + "ft." + (hover ? " (hover)" : ""));
+		speedsDisplayArr.push("fly " + flySpeed + " ft." + (hover ? " (hover)" : ""));
 	if(swimSpeed > 0)
-		speedsDisplayArr.push("swim " + swimSpeed + "ft.");
+		speedsDisplayArr.push("swim " + swimSpeed + " ft.");
 	$("#speed").html(speedsDisplayArr.join(", "));
 
 	// Stats
@@ -839,6 +839,8 @@ function AddSthrow(sthrowName)
 {
 	if(!sthrowName) return;
 	var sthrowData = FindInList(stats, sthrowName), inserted = false;
+	if(sthrowData == null) return;
+	
 	// Non-alphabetical ordering
 	for(var index in sthrows)
 	{
@@ -865,8 +867,10 @@ function AddSkillInput(note)
 
 function AddSkill(skillName, note)
 {
-	var skillData = FindInList(allSkills, skillName)
-		skill = { "name" : skillData.name, "stat" : skillData.stat }
+	var skillData = FindInList(allSkills, skillName);
+	if(skillData == null) return;
+	
+	var skill = { "name" : skillData.name, "stat" : skillData.stat };
 	if(note)
 		skill["note"] = note;
 	InsertAlphabetical(skills, skill);
@@ -1338,7 +1342,7 @@ function FindInList(arr, name)
 		if(arr[index].name.toLowerCase() == lowercaseName)
 			return arr[index];
 	}
-	return -1;
+	return null;
 }
 
 function FixPresetArray(string)
@@ -1487,7 +1491,7 @@ const stats = [
 		"name": "Monster",
 		"size": "Medium",
 		"type": "humanoid",
-		"subtype": "any race",
+		"subtype": "",
 		"group": null,
 		"alignment": "any alignment",
 		"armor_class": 10,
