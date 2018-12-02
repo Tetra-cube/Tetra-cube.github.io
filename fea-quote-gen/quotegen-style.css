@@ -19,11 +19,15 @@ body
 	min-height: 100%;
 }
 
-.footer
+h1
 {
-	font-family: Arial, sans-serif;
-	font-size: 10px;
-	padding: 10px;
+	padding-top: 15px;
+	font-family: Chiaro;
+}
+
+td
+{
+	width: auto%;
 }
 
 @font-face
@@ -32,10 +36,11 @@ body
 	src: url('Chiaro.otf');
 }
 
-h1
+.footer
 {
-	padding-top: 15px;
-	font-family: Chiaro;
+	font-family: Arial, sans-serif;
+	font-size: 10px;
+	padding: 10px;
 }
 
 .leftalign

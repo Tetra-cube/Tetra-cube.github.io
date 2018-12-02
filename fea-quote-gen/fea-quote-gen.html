@@ -1,136 +1,133 @@
-<link rel='stylesheet' type='text/css' href='quotegen-style.css'>
 <!DOCTYPE html>
 <html>
-<link rel='shortcut icon' type='image/x-icon' href='feimages/favicon.ico' />
-<title>FE:A Quote Generator</title>
-<head>
-    <meta charset="utf-8"/>
-</head>
-<body>
-	<h1>Fire Emblem: Awakening Quote Generator</h1>
-	<hr>
-	<br><canvas id='imageCanvas'></canvas><br><br>
-	<form id='optionsForm'>
-		<table id='normalOptions' align="center">
-			<tr id='lpOptions'>
-				<th class='leftalign'>
-					<img src='feimages/remove.png' id='lpremove' title='Remove Portrait' />
-					Left Portrait: <input type='file' id='lp' />
-				</th>
-				<th class='rightalign'>
-					Flip<input type='checkbox' id='lpflip' />
-					Sprite Index: <input type='number' id='lpindex' min='1' value='1' disabled /><br>
-				</th>
-			</tr>
-			<tr id='rpOptions'>
-				<th class='leftalign'>
-					Right Portrait: <input type='file' id='rp' />
-					<img src='feimages/remove.png' id='rpremove' title='Remove Portrait' />
-				</th>
-				<th class='rightalign'>
-					Flip<input type='checkbox' id='rpflip' />
-					Sprite Index: <input type='number' id='rpindex' min='1' value='1' disabled /><br>
-				</th>
-			</tr>
-			<tr>
-				<th id='nameOption' colspan="2">
-					Name: <input type='text' id='name' /><br>
-				</th>
-			</tr>
-			<tr>
-				<th id='dialogueOption1' colspan="2">
-					Line 1: <input type='text' id='dialogue1' size="50" /><br>
-				</th>
-			</tr>
-			<tr>
-				<th id='dialogueOption2' colspan="2">
-					Line 2: <input type='text' id='dialogue2' size="50" /><br>
-				</th>
-			</tr>
-			<tr>
-				<th id='boxLocationOption' colspan="2">
-					Left<input type='radio' name='boxLocation' id='lBoxRadio'>
-					Right<input type='radio' name='boxLocation' id='rBoxRadio'>
-					No Textbox<input type='radio' name='boxLocation' id='noBoxRadio'>
-				</th>
-			</tr>
-		</table>
-		<br><br>
-		<table id='advancedOptions' align="center">
-			Additional Options:<br>
-			<tr id='bkgOptions'>
-				<th colspan="2">
-					<img src='feimages/remove.png' id='removebkg' title='Restore Default Background' />
-					Background Image: <input type='file' id='bkg' /><br>
-				</th>
-			</tr>
-			<tr id='lp2Options'>
-				<th class='leftalign'>
-					Left Portrait 2: <input type='file' id='lp2' />
-					<img src='feimages/remove.png' id='lp2remove' title='Remove Portrait' />
-				</th>
-				<th class='rightalign'>
-					Flip<input type='checkbox' id='lp2flip' />
-					Sprite Index: <input type='number' id='lp2index' min='1' value='1' disabled /><br>
-				</th>
-			</tr>
-			<tr id='rp2Options'>
-				<th class='leftalign'>
-					Right Portrait 2: <input type='file' id='rp2' />
-					<img src='feimages/remove.png' id='rp2remove' title='Remove Portrait' />
-				</th>
-				<th class='rightalign'>
-					Flip<input type='checkbox' id='rp2flip' />
-					Sprite Index: <input type='number' id='rp2index' min='1' value='1' disabled /><br>
-				</th>
-			</tr>
-			<tr>
-				<th colspan="2">
-					Box Type:
-				</th>
-			</tr>
-			<tr id='boxTypeOption'>
-				<th colspan="2">
-					Type 1<input type='radio' name='boxType' id='type1Radio'>&nbsp;&nbsp;
-					Type 2<input type='radio' name='boxType' id='type2Radio'>&nbsp;&nbsp;
-					Type 3<input type='radio' name='boxType' id='type3Radio'>&nbsp;&nbsp;
-					Type 4<input type='radio' name='boxType' id='type4Radio'>&nbsp;&nbsp;
-					Type 5<input type='radio' name='boxType' id='type5Radio'>&nbsp;&nbsp;
-				</th>
-			</tr>
-			<tr>
-				<th colspan="2">
-					Darken:
-				</th>
-			</tr>
-			<tr id='darkenPortraitOptions'>
-				<th colspan="2">
-					Left<input type='checkbox' id='lpdarken' />&nbsp;&nbsp;
-					Right<input type='checkbox' id='rpdarken' />&nbsp;&nbsp;
-					Left 2<input type='checkbox' id='lp2darken' />&nbsp;&nbsp;
-					Right 2<input type='checkbox' id='rp2darken' />
-				</th>
-			</tr>
-			<tr id='darkenBkgOption'>
-				<th colspan="2">
-					Background <input type='checkbox' id='darkenBkg' />
-				</th>
-			</tr>
-		</table>
-	</form>
-	<br>
-	<div class=footer>
-	  By <a href="http://chickenwraith.tumblr.com/">Chickenwraith</a> | Resources from <a href="http://incorrectfeaquotes.tumblr.com/tagged/resources">here</a> | <a href="https://github.com/Tetra-cube/Tetra-cube.github.io">GitHub repository</a> | Version 1.4
-	</div>
-</body>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel='stylesheet' type='text/css' href='quotegen-style.css'>
+		<link rel='shortcut icon' type='image/x-icon' href='feimages/favicon.ico' />
+		<title>FE:A Quote Generator</title>
+	</head>
+	<body>
+		<div id="kofiheader" style="text-align: center;">
+			<br>
+			<script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
+			<script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#46b798', 'Q5Q8MRF6');kofiwidget2.draw();</script>
+		</div>
+		<div id="content">
+			<h1>Fire Emblem: Awakening Quote Generator</h1>
+			<hr>
+			<br><canvas id='imageCanvas'></canvas><br><br>
+			<form id='optionsForm'>
+				<table id='normalOptions' align="center">
+					<tr id='lpOptions'>
+						<td class='leftalign'>
+							<img src='feimages/remove.png' id='lpremove' title='Remove Portrait' />
+							Left Portrait: <input type='file' id='lp' />
+						</td>
+						<td class='rightalign'>
+							Flip<input type='checkbox' id='lpflip' />
+							Sprite Index: <input type='number' id='lpindex' min='1' value='1' disabled /><br>
+						</td>
+					</tr>
+					<tr id='rpOptions'>
+						<td class='leftalign'>
+							Right Portrait: <input type='file' id='rp' />
+							<img src='feimages/remove.png' id='rpremove' title='Remove Portrait' />
+						</td>
+						<td class='rightalign'>
+							Flip<input type='checkbox' id='rpflip' />
+							Sprite Index: <input type='number' id='rpindex' min='1' value='1' disabled /><br>
+						</td>
+					</tr>
+					<tr>
+						<td id='nameOption' colspan="2">
+							Name: <input type='text' id='name' /><br>
+						</td>
+					</tr>
+					<tr>
+						<td id='dialogueOption1' colspan="2">
+							Line 1: <input type='text' id='dialogue1' size="50" /><br>
+						</td>
+					</tr>
+					<tr>
+						<td id='dialogueOption2' colspan="2">
+							Line 2: <input type='text' id='dialogue2' size="50" /><br>
+						</td>
+					</tr>
+					<tr>
+						<td id='boxLocationOption' colspan="2">
+							Left<input type='radio' name='boxLocation' id='lBoxRadio'>
+							Right<input type='radio' name='boxLocation' id='rBoxRadio'>
+							No Textbox<input type='radio' name='boxLocation' id='noBoxRadio'>
+						</td>
+					</tr>
+				</table>
+				<hr>
+				<b>Additional Options:</b>
+				<table id='advancedOptions' align="center">
+					<tr id='bkgOptions'>
+						<td colspan="2">
+							<img src='feimages/remove.png' id='removebkg' title='Restore Default Background' />
+							Background Image: <input type='file' id='bkg' /><br>
+						</td>
+					</tr>
+					<tr id='lp2Options'>
+						<td class='leftalign'>
+							Left Portrait 2: <input type='file' id='lp2' />
+							<img src='feimages/remove.png' id='lp2remove' title='Remove Portrait' />
+						</td>
+						<td class='rightalign'>
+							Flip<input type='checkbox' id='lp2flip' />
+							Sprite Index: <input type='number' id='lp2index' min='1' value='1' disabled /><br>
+						</td>
+					</tr>
+					<tr id='rp2Options'>
+						<td class='leftalign'>
+							Right Portrait 2: <input type='file' id='rp2' />
+							<img src='feimages/remove.png' id='rp2remove' title='Remove Portrait' />
+						</td>
+						<td class='rightalign'>
+							Flip<input type='checkbox' id='rp2flip' />
+							Sprite Index: <input type='number' id='rp2index' min='1' value='1' disabled /><br>
+						</td>
+					</tr>
+				</table>
+				<br>
+				<div id='boxTypeOption'>
+					<td colspan="2">
+						<b>Box Type:</b>
+						Type 1<input type='radio' name='boxType' id='type1Radio'>&nbsp;&nbsp;
+						Type 2<input type='radio' name='boxType' id='type2Radio'>&nbsp;&nbsp;
+						Type 3<input type='radio' name='boxType' id='type3Radio'>&nbsp;&nbsp;
+						Type 4<input type='radio' name='boxType' id='type4Radio'>&nbsp;&nbsp;
+						Type 5<input type='radio' name='boxType' id='type5Radio'>&nbsp;&nbsp;
+				</div>
+				<br>
+				<div id='darkenPortraitOptions'>
+						<b>Darken:</b>
+						Left<input type='checkbox' id='lpdarken' />&nbsp;&nbsp;
+						Right<input type='checkbox' id='rpdarken' />&nbsp;&nbsp;
+						Left 2<input type='checkbox' id='lp2darken' />&nbsp;&nbsp;
+						Right 2<input type='checkbox' id='rp2darken' />
+				</div>
+				<br>
+				<div id='darkenBkgOption'>
+						<b>Darken Background?</b> <input type='checkbox' id='darkenBkg' />
+				</div>
+			</form>
+			<br>
+			<div class=footer>
+			  Resources from <a href="http://incorrectfeaquotes.tumblr.com/tagged/resources">here</a> | <a href="https://github.com/Tetra-cube/Tetra-cube.github.io">GitHub repository</a> | Version 1.5
+			</div>
+		</div>
+	</body>
 </html>
 
 <script>
 
 // This hell code is a great example of how not to javascript. I'd fix it but a) it works somehow and b) I don't want to touch it ever again
 
-const lp=0, rp=1, lp2=2, rp2=3, bkgnum=4, drk=5, canvasWidth=400, canvasHeight=240, spriteWidth=256, spriteHeight=256, spriteOff=28, spriteOff2=-28, darkenConst=0.25;
-var offset = [0, canvasWidth-spriteWidth, 0, canvasWidth-spriteWidth];			// for drawing sprites
+const lp = 0, rp = 1, lp2 = 2, rp2 = 3, bkgnum = 4, drk = 5, canvasWidth = 400, canvasHeight = 240, spriteWidth = 256, spriteHeight = 256, spriteOff = 28, spriteOff2 = -28, darkenConst = 0.25;
+var offset = [0, canvasWidth - spriteWidth, 0, canvasWidth - spriteWidth];			// for drawing sprites
 var flipOffset = [-spriteWidth, -canvasWidth, -spriteWidth, -canvasWidth];		// for drawing flipped sprites
 var bkg = document.getElementById('bkg');
 var canvas = document.getElementById('imageCanvas');
