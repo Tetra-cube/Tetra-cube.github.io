@@ -12,7 +12,7 @@ var name = "Monster", size = "medium", type = "humanoid", tag = "", alignment = 
 	traitsHTML = [], doubleColumns = false, separationPoint = 1,
 	monsterNamesArr = [];
 
-$(document).ready(function() {	
+$(function() {
 	$.getJSON("https://api-beta.open5e.com/monsters/?format=json&fields=slug,name&limit=1000", function(jsonArr) {
 		$.each(jsonArr.results, function(index, value) {
 			$("#monster-select").append("<option value='" + value.slug + "'>" + value.name + "</option>");
