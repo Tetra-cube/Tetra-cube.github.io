@@ -280,13 +280,13 @@ function UpdateStatblock(moveSeparationPoint)
 	// Senses
 	var sensesDisplayArr = [];
 	if(blindsight > 0)
-		sensesDisplayArr.push("blindsight " + blindsight + "ft." + (blind ? " (blind beyond this radius)" : ""));
+		sensesDisplayArr.push("blindsight " + blindsight + " ft." + (blind ? " (blind beyond this radius)" : ""));
 	if(darkvision > 0)
-		sensesDisplayArr.push("darkvision " + darkvision + "ft.");
+		sensesDisplayArr.push("darkvision " + darkvision + " ft.");
 	if(tremorsense > 0)
-		sensesDisplayArr.push("tremorsense " + tremorsense + "ft.");
+		sensesDisplayArr.push("tremorsense " + tremorsense + " ft.");
 	if(truesight > 0)
-		sensesDisplayArr.push("truesight " + truesight + "ft.");
+		sensesDisplayArr.push("truesight " + truesight + " ft.");
 
 	// Passive Perception
 	var ppData = FindInList(skills, "Perception"), pp = 10 + wisBonus;
