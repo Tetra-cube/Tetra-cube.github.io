@@ -38,8 +38,6 @@ $(function() {
 	// Set the ability score bonuses
 	for(var stat in stats)
 		ChangeBonus(stats[stat].name.toLowerCase());
-	
-	// Set the CR proficiency bonus
 	SetBonuses();
 	
 	// // Hide ability sections via code, for convenience
@@ -499,7 +497,7 @@ function SetPreset(creature)
 			armorName = armorDescData[0].trim();
 			if(armorName == "natural armor")
 			{
-				natArmorBonusCheck = armorAcData - GetAC("none");
+				var natArmorBonusCheck = armorAcData - GetAC("none");
 				if(natArmorBonusCheck > 0)
 					natArmorBonus = natArmorBonusCheck;
 				else
@@ -518,6 +516,11 @@ function SetPreset(creature)
 			otherArmorDesc = armorAcData + " (" + armorDescData + ")";
 		else
 			otherArmorDesc = armorAcData + " (unknown armor type)";
+		
+			// Set the nat armor bonus for convenience
+			var natArmorBonusCheck = armorAcData - GetAC("none");
+			if(natArmorBonusCheck > 0)
+				natArmorBonus = natArmorBonusCheck;
 	}
 	
 	// Hit Dice
@@ -1432,7 +1435,7 @@ const stats = [
 		"2": {"xp": "450", "prof" : 2 },
 		"3": {"xp": "700", "prof" : 2 },
 		"4": {"xp": "1,100", "prof" : 2 },
-		"5": {"xp": "1.800", "prof" : 3 },
+		"5": {"xp": "1,800", "prof" : 3 },
 		"6": {"xp": "2,300", "prof" : 3 },
 		"7": {"xp": "2,900", "prof" : 3 },
 		"8": {"xp": "3,900", "prof" : 3 },
