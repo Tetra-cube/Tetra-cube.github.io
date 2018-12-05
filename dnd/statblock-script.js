@@ -26,15 +26,12 @@ $(function()
 		$("#monster-select-form").html("Unable to load monster presets.")
 	})
 	
+	// Set the default legendary description in case there isn't one saved
+	GetVariablesFunctions.LegendaryDescriptionDefault();
+	
 	// Load saved data
 	SaveLoadFunctions.RetrieveAllData();
-	
-	// Set the ability score bonuses
-	//for(var stat in stats)
-		//ChangeBonus(stats[stat].name.toLowerCase());
-	
-	// Set the default legendary description
-	GetVariablesFunctions.LegendaryDescriptionDefault();
+	FormFunctions.SetLegendaryDescriptionForm();
 	
 	// Populate the stat block
 	UpdateBlockFromVariables(0);
@@ -524,7 +521,7 @@ FormFunctions =
 		$("#2col-input").prop("checked", doubleColumns);
 	},
 	
-	LegendaryDescriptionDefaultSet: function()
+	SetLegendaryDescriptionForm: function()
 	{
 		$("#legendaries-descsection-input").val(legendariesDescription);
 	},
@@ -539,7 +536,6 @@ FormFunctions =
 	{
 		var arr = (arrName == "damage" ? damagetypes.concat(specialdamage) : window[arrName]),
 			displayArr = [], content = "", arrElement = "#" + arrName + "-input-list";
-			console.log(arr);
 		for(var index in arr)
 		{	
 			var element = arr[index],
@@ -680,7 +676,7 @@ InputFunctions =
 	LegendaryDescriptionDefaultInput: function()
 	{
 		GetVariablesFunctions.LegendaryDescriptionDefault();
-		FormFunctions.LegendaryDescriptionDefaultSet();
+		FormFunctions.SetLegendaryDescriptionForm();
 	}
 }
 
@@ -918,6 +914,7 @@ GetVariablesFunctions =
 		// Legendary?
 		isLegendary = Array.isArray(creature.legendary_actions);
 		this.LegendaryDescriptionDefault();
+		FormFunctions.SetLegendaryDescriptionForm();
 		
 		// Abilities
 		abilities = [];
