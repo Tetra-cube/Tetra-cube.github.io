@@ -27,15 +27,15 @@ $(function()
 	})
 	
 	// Set the default legendary description in case there isn't one saved
-	GetVariablesFunctions.LegendaryDescriptionDefault();
+	GetVariablesFunctions.SetPreset(defaultPreset);
 	
 	// Load saved data
 	SaveLoadFunctions.RetrieveAllData();
 	FormFunctions.SetLegendaryDescriptionForm();
 	
 	// Populate the stat block
-	UpdateBlockFromVariables(0);
 	FormFunctions.SetForms();
+	UpdateStatblock();
 });
 
 // Print function
@@ -316,6 +316,7 @@ SaveLoadFunctions =
 			var data = window[key];
 			if(data != undefined)
 				localStorage.setItem(key, Serialize(data));
+			console.log(key, data);
 		}
 	},
 
