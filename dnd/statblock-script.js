@@ -12,46 +12,18 @@ var name = "Monster", size = "medium", type = "humanoid", tag = "", alignment = 
 	traitsHTML = [], doubleColumns = false, separationPoint = 1,
 	monsterNamesArr = [];
 
-
-
-// Document ready function
-$(function()
-{
-	$.getJSON("https://api-beta.open5e.com/monsters/?format=json&fields=slug,name&limit=1000", function(jsonArr) {
-		$.each(jsonArr.results, function(index, value) {
-			$("#monster-select").append("<option value='" + value.slug + "'>" + value.name + "</option>");
-		})
-	})
-	.fail(function() {
-		$("#monster-select-form").html("Unable to load monster presets.")
-	})
-	
-	// Set the default legendary description in case there isn't one saved
-	GetVariablesFunctions.SetPreset(defaultPreset);
-	
-	// Load saved data
-	SaveLoadFunctions.RetrieveAllData();
-	FormFunctions.SetLegendaryDescriptionForm();
-	
-	// Populate the stat block
-	FormFunctions.SetForms();
-	UpdateStatblock();
-});
-
 // Print function
-TryPrint = function()
-{
-	window.print();
-}
+var TryPrint = () => { window.print(); }
 
-// Functions for updating the main stat block
-UpdateBlockFromVariables = function(moveSeparationPoint)
+// Update the main stat block from form variables
+var UpdateBlockFromVariables = function(moveSeparationPoint)
 {
 	GetVariablesFunctions.GetAllVariables();
 	UpdateStatblock(moveSeparationPoint);
 }
 
-UpdateStatblock = function(moveSeparationPoint)
+// Update the main stat block
+var UpdateStatblock = function(moveSeparationPoint)
 {
 	// Set Separation Point
 	var separationMax = abilities.length + actions.length + reactions.length - 1;
@@ -74,7 +46,7 @@ UpdateStatblock = function(moveSeparationPoint)
 	}
 	
 	// Save Before Continuing
-	SaveLoadFunctions.SaveAllData();
+	SavedData.SaveAll();
 	
 	// One column or two columns
 	var statBlock = $("#stat-block");
@@ -261,112 +233,112 @@ UpdateStatblock = function(moveSeparationPoint)
 	$("#traits-list-left").html(leftTraitsArr.join(""));
 	$("#traits-list-right").html(rightTraitsArr.join(""));
 	
+	// Show or hide the separator input depending on how many columns there are
 	FormFunctions.ShowHideSeparatorInput();
+}
 
-
-
-	// Nested function for abilities
+// Function used by UpdateStatblock for abilities
+var AddToTraitList = function(traitsArr, addElements, isLegendary = false)
+{
+	var traitsDisplayList = [];
 	
-	function AddToTraitList(traitsArr, addItems, isLegendary = false)
+	// Add specific elements to the beginning of the array, usually a header
+	if(addElements != undefined)
 	{
-		var traitsDisplayList = [];
-		if(addItems != undefined)
+		if(Array.isArray(addElements))
 		{
-			if(Array.isArray(addItems))
-			{
-				for(var index in addItems)
-					traitsHTML.push("*" + StringFunctions.FormatString(addItems[index]));
-			}
-			else
-				traitsHTML.push("*" + StringFunctions.FormatString(addItems));
-		}
-		
-		if(isLegendary)
-		{
-			for(var index in traitsArr)
-				traitsHTML.push(StringFunctions.MakeTraitHTMLLegendary(traitsArr[index].name, traitsArr[index].desc));
+			for(var index in addElements)
+				traitsHTML.push("*" + StringFunctions.FormatString(addElements[index]));
 		}
 		else
-		{
-			for(var index in traitsArr)
-				traitsHTML.push(StringFunctions.MakeTraitHTML(traitsArr[index].name, traitsArr[index].desc));
-		}
+			traitsHTML.push("*" + StringFunctions.FormatString(addElements));
+	}
+	
+	// There's a small difference in formatting for legendary actions
+	if(isLegendary)
+	{
+		for(var index in traitsArr)
+			traitsHTML.push(StringFunctions.MakeTraitHTMLLegendary(traitsArr[index].name, traitsArr[index].desc));
+	}
+	else
+	{
+		for(var index in traitsArr)
+			traitsHTML.push(StringFunctions.MakeTraitHTML(traitsArr[index].name, traitsArr[index].desc));
 	}
 }
 
-// Functions for saving/loading
-SaveLoadFunctions =
+// Functions for saving/loading data
+var SavedData =
 {
-	SaveAllData: function()
+	SaveAll: function()
 	{
+		
 		for(var index in allSavedBooleanVariables)
-			SaveData(allSavedBooleanVariables[index]);
+			this.Save(allSavedBooleanVariables[index]);
 		
 		for(var index in allSavedNumberVariables)
-			SaveData(allSavedNumberVariables[index]);
+			this.Save(allSavedNumberVariables[index]);
 		
 		for(var index in allSavedTextVariables)
-			SaveData(allSavedTextVariables[index]);
+			this.Save(allSavedTextVariables[index]);
 		
 		for(var index in allSavedArrayVariables)
-			SaveData(allSavedArrayVariables[index]);
-
-		function SaveData(key)
-		{
-			var data = window[key];
-			if(data != undefined)
-				localStorage.setItem(key, Serialize(data));
-			console.log(key, data);
-		}
+			this.Save(allSavedArrayVariables[index]);
 	},
-
-	RetrieveAllData: function()
+	
+	Save: function(key)
+	{
+		var data = window[key];
+		if(data != undefined)
+			localStorage.setItem(key, Serialize(data));
+	},
+	
+	RetrieveAll: function()
 	{
 		for(var index in allSavedBooleanVariables)
 		{
-			var key = allSavedBooleanVariables[index], data = RetrieveData(key);
+			var key = allSavedBooleanVariables[index], data = this.Retrieve(key);
 			if(data != undefined)
 				window[key] = (data == "true");
 		}
 		
 		for(var index in allSavedNumberVariables)
 		{
-			var key = allSavedNumberVariables[index], data = RetrieveData(key);
+			var key = allSavedNumberVariables[index], data = this.Retrieve(key);
 			if(data != undefined)
 				window[key] = parseInt(data);
 		}
 		
 		for(var index in allSavedTextVariables)
 		{
-			var key = allSavedTextVariables[index], data = RetrieveData(key);
+			var key = allSavedTextVariables[index], data = this.Retrieve(key);
 			if(data != undefined)
 				window[key] = data;
 		}
 		
 		for(var index in allSavedArrayVariables)
 		{
-			var key = allSavedArrayVariables[index], data = RetrieveData(key);
+			var key = allSavedArrayVariables[index], data = this.Retrieve(key);
 			if(data != undefined && Array.isArray(data))
 				window[key] = data;
 		}
-
-		function RetrieveData(key)
+	},
+	
+	Retrieve: function(key)
+	{
+		var data = localStorage.getItem(key);
+		if(data != undefined)
 		{
-			var data = localStorage.getItem(key);
-			if(data != undefined)
-			{
-				var deserializedData = Deserialize(data);
-				if(deserializedData != undefined)
-					return deserializedData;
-			}
+			var deserializedData = Deserialize(data);
+			if(deserializedData != undefined)
+				return deserializedData;
 		}
 	}
 }
 
 // Functions for form-setting
-FormFunctions =
+var FormFunctions =
 {
-	
 	// Set the forms
 	SetForms: function()
 	{
@@ -452,7 +424,6 @@ FormFunctions =
 	},
 
 	// Show/Hide form options to make it less overwhelming - only call these from SetForms or HTML elements
-
 	ShowHideHtmlElement: function(element, show)
 	{
 		show ? $(element).show() : $(element).hide();
@@ -505,34 +476,40 @@ FormFunctions =
 			$("#add-legendary-button, #legendary-actions-form").hide();
 	},
 
+	// Set the ability bonus given ability scores
 	ChangeBonus: function(stat)
 	{
 		var newBonus = StringFunctions.BonusFormat(MathFunctions.PointsToBonus($("#" + stat + "-input").val()));
 		$("#" + stat + "bonus").html(newBonus);
 	},
 
+	// Set the proficiency bonus based on the monster's CR
 	ChangeCRForm: function()
 	{
 		$("#prof-bonus").html("(Proficiency Bonus: +" + crs[cr].prof + ")");
 	},
 
+	// For setting the column radio buttons based on saved data
 	ChangeColumnRadioButtons: function()
 	{
 		$("#1col-input").prop("checked", !doubleColumns);
 		$("#2col-input").prop("checked", doubleColumns);
 	},
 	
+	// For setting the legendary action description
 	SetLegendaryDescriptionForm: function()
 	{
 		$("#legendaries-descsection-input").val(legendariesDescription);
 	},
 
+	// Set ability scores and bonuses
 	SetStatForm: function(statName, statPoints, statBonus)
 	{
 		$("#" + statName + "-input").val(statPoints);
 		$("#" + statName + "bonus").html(StringFunctions.BonusFormat(statBonus)); 
 	},
 	
+	// Make a list of removable items and add it to the editor
 	MakeDisplayList: function(arrName, capitalize, isBlock = false)
 	{
 		var arr = (arrName == "damage" ? damagetypes.concat(specialdamage) : window[arrName]),
@@ -548,9 +525,10 @@ FormFunctions =
 			else
 				content = "<b>" + elementName + note + "</b>";
 			
-			var functionArgs = GetFunctionArgs(), imageHTML = "<img class='statblockImage' src='dndimages/x-icon.png' alt='Remove' title='Remove' onclick='FormFunctions.RemoveDisplayListItem(\"" + functionArgs + ")'>";
+			var functionArgs = arrName + "\", " + index + ", " + capitalize + ", " + isBlock,
+				imageHTML = "<img class='statblock-image' src='dndimages/x-icon.png' alt='Remove' title='Remove' onclick='FormFunctions.RemoveDisplayListItem(\"" + functionArgs + ")'>";
 			if(isBlock)
-				imageHTML += " <img class='statblockImage' src='dndimages/edit-icon.png' alt='Edit' title='Edit' onclick='FormFunctions.EditDisplayListItem(\"" + functionArgs + ")'>";
+				imageHTML += " <img class='statblock-image' src='dndimages/edit-icon.png' alt='Edit' title='Edit' onclick='FormFunctions.EditDisplayListItem(\"" + functionArgs + ")'>";
 			displayArr.push("<li> " + imageHTML + " " + content + "</li>");
 		}
 		$(arrElement).html(displayArr.join(""));
@@ -559,13 +537,9 @@ FormFunctions =
 			$(arrElement).parent().hide();
 		else
 			$(arrElement).parent().show();
-		
-		function GetFunctionArgs()
-		{
-			return arrName + "\", " + index + ", " + capitalize + ", " + isBlock;
-		}
 	},
 
+	// Remove an item from a display list and update it
 	RemoveDisplayListItem: function(arrName, index, capitalize, isBlock)
 	{
 		var arr;
@@ -585,6 +559,7 @@ FormFunctions =
 		this.MakeDisplayList(arrName, capitalize, isBlock);
 	},
 
+	// Bring an item into the abilities textbox for editing
 	EditDisplayListItem: function(arrName, index, capitalize)
 	{
 		var item = window[arrName][index];
@@ -594,7 +569,7 @@ FormFunctions =
 }
 
 // Input functions to be called only through HTML
-InputFunctions =
+var InputFunctions =
 {
 	// Get all variables from a preset
 	GetPreset: function()
@@ -621,8 +596,8 @@ InputFunctions =
 		})
 	},
 
-	// Add items to lists - only call these through HTML elements
-
+	// Adding items to lists
+	
 	AddSthrowInput: function()
 	{
 		// Insert, complying with standard stat order
@@ -652,28 +627,39 @@ InputFunctions =
 
 	AddConditionInput: function()
 	{
+		// Insert alphabetically
 		GetVariablesFunctions.AddCondition($("#conditions-input").val());
+		
+		// Display
 		FormFunctions.MakeDisplayList("conditions", true);
 	},
 
 	AddLanguageInput: function()
 	{
+		// Insert alphabetically
 		GetVariablesFunctions.AddLanguage($("#languages-input").val());
+		
+		// Display
 		FormFunctions.MakeDisplayList("languages", false);
 	},
 
 	AddAbilityInput: function(arrName)
 	{
+		// Insert alphabetically
 		GetVariablesFunctions.AddAbility(arrName, $("#abilities-name-input").val().trim(), $("#abilities-desc-input").val().trim(), true);
+		
+		// Display
 		FormFunctions.MakeDisplayList(arrName, false, true);
 	},
 
+	// Change CR based on input dropdown
 	InputCR: function()
 	{
 		cr = $("#cr-input").val();
 		FormFunctions.ChangeCRForm();
 	},
 	
+	// Reset legendary description to default
 	LegendaryDescriptionDefaultInput: function()
 	{
 		GetVariablesFunctions.LegendaryDescriptionDefault();
@@ -681,10 +667,9 @@ InputFunctions =
 	}
 }
 
-// Functions to get/set variables
-GetVariablesFunctions = 
+// Functions to get/set important variables
+var GetVariablesFunctions = 
 {
-	
 	// Get all Variables from forms
 	GetAllVariables: function()
 	{
@@ -806,6 +791,7 @@ GetVariablesFunctions =
 		else
 			armorName = (armorAcData == MathFunctions.GetAC("none")) ? "none" : "other";
 		
+		// In case it's an unknown armor type
 		if(armorName == "other")
 		{
 			if(armorDescData)
@@ -813,7 +799,7 @@ GetVariablesFunctions =
 			else
 				otherArmorDesc = armorAcData + " (unknown armor type)";
 			
-				// Set the nat armor bonus for convenience
+				// Set the nat armor bonus for convenience- often the AC is for natural armor, but doesn't have it in the armor description
 				var natArmorBonusCheck = armorAcData - MathFunctions.GetAC("none");
 				if(natArmorBonusCheck > 0)
 					natArmorBonus = natArmorBonusCheck;
@@ -823,6 +809,8 @@ GetVariablesFunctions =
 		hitDice = parseInt(creature.hit_dice.split("d")[0]);
 		
 		// Speeds
+		var GetSpeed = (speedList, speedType) => speedList.hasOwnProperty(speedType) ? parseInt(speedList[speedType]) : 0;
+		
 		speed = GetSpeed(creature.speed, "walk");
 		burrowSpeed = GetSpeed(creature.speed, "burrow");
 		climbSpeed = GetSpeed(creature.speed, "climb");
@@ -852,7 +840,7 @@ GetVariablesFunctions =
 			var currentSkill = allSkills[index], skillCheck = StringFunctions.StringReplaceAll(currentSkill.name.toLowerCase(), " ", "_");
 			if(creature.hasOwnProperty(skillCheck) && creature[skillCheck] != null)
 			{
-				var expectedExpertise = GetVariablesFunctions.GetStatBonus(currentSkill.stat) + crs[cr].prof * 2,
+				var expectedExpertise = GetVariablesFunctions.GetStatBonus(currentSkill.stat) + Math.ceil(crs[cr].prof * 1.5),
 					skillVal = creature[skillCheck];
 				this.AddSkill(allSkills[index].name, (skillVal >= expectedExpertise ? " (ex)" : null));
 			}
@@ -948,13 +936,10 @@ GetVariablesFunctions =
 			for(var index in legendariesPresetArr)
 				this.AddAbilityPreset("legendaries", legendariesPresetArr[index]);
 		}
-
-		function GetSpeed(speedList, speedType)
-		{
-			return speedList.hasOwnProperty(speedType) ? parseInt(speedList[speedType]) : 0;
-		}
 	},
-
+	
+	// Add stuff to arrays
+	
 	AddSthrow: function(sthrowName)
 	{
 		if(!sthrowName) return;
@@ -1113,12 +1098,14 @@ GetVariablesFunctions =
 		this.AddAbility(arrName, abilityName, abilityDesc);
 	},
 
+	// Return the default legendary description
 	LegendaryDescriptionDefault: function()
 	{
 		var monsterName = name.toLowerCase();
 		legendariesDescription = "The " + monsterName + " can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The " + monsterName + " regains spent legendary actions at the start of its turn.";
 	},
 
+	// Set the HTML for ability bonuses
 	SetBonuses: function()
 	{
 		strBonus = MathFunctions.PointsToBonus(strPoints);
@@ -1129,23 +1116,17 @@ GetVariablesFunctions =
 		chaBonus = MathFunctions.PointsToBonus(chaPoints);
 	},
 	
-	GetStatBonus: function(name)
-	{
-		return window[name.toLowerCase() + "Bonus"]
-	},
+	// Return ability bonuses
+	GetStatBonus: (name) => window[name.toLowerCase() + "Bonus"],
 }
 
 // Functions that return a string
-StringFunctions =
+var StringFunctions =
 {
-
-	BonusFormat: function(newBonus)
-	{
-		if(newBonus >= 0)
-			newBonus = "+" + newBonus;
-		return newBonus;
-	},
+	// Add a + if the ability bonus is non-negative
+	BonusFormat: (newBonus) => (newBonus >= 0 ? "+" + newBonus : newBonus),
 	
+	// Get the string displayed for the monster's AC
 	GetArmorData: function()
 	{
 		if(armorName == "other")
@@ -1160,6 +1141,7 @@ StringFunctions =
 		return this.GetArmorString(armorName, MathFunctions.GetAC(armorName));
 	},
 	
+	// Add a shield to the string if the monster has one
 	GetArmorString: function(name, ac)
 	{
 		if(shieldBonus > 0)
@@ -1167,6 +1149,7 @@ StringFunctions =
 		return ac + " (" + name + ")"
 	},
 	
+	// Get the string displayed for the monster's HP
 	GetHP: function()
 	{
 		var hitDieSize = sizes[size].hitDie,
@@ -1275,35 +1258,22 @@ StringFunctions =
 		return "";
 	},
 
-	StringSplice: function(string, index, remove, insert = "")
-	{
-		return string.slice(0, index) + insert + string.slice(index + remove);
-	},
+	StringSplice: (string, index, remove, insert = "") => string.slice(0, index) + insert + string.slice(index + remove),
 
-	StringReplaceAll: function(string, find, replacement)
-	{
-		return string.split(find).join(replacement);
-	},
+	StringReplaceAll: (string, find, replacement) => string.split(find).join(replacement),
 
-	StringCapitalize: function(string)
-	{
-		return string[0].toUpperCase() + string.substr(1);
-	},
+	StringCapitalize: (string) => string[0].toUpperCase() + string.substr(1),
 
-	GetNumbersOnly: function(string)
-	{
-		return parseInt(string.replace(/\D/g,''));
-	},
+	GetNumbersOnly: (string) => parseInt(string.replace(/\D/g,'')),
 }
 
 // Math functions
-MathFunctions =
+var MathFunctions =
 {
-	PointsToBonus: function(points)
-	{
-		return Math.floor(points / 2) - 5;
-	},
+	// Compute ability bonuses based on ability scores
+	PointsToBonus: (points) => Math.floor(points / 2) - 5,
 
+	// Compute armor class
 	GetAC: function(armorNameCheck)
 	{
 		var armor = armors[armorNameCheck];
@@ -1325,14 +1295,14 @@ MathFunctions =
 }
 
 // Array functions
-ArrayFunctions =
+var ArrayFunctions =
 {
 	InsertAlphabetical: function(arr, element, checkMultiattack = false)
 	{
 		var lowercaseElement = element.name.toLowerCase();
-		if(checkMultiattack && arr.length > 0 && lowercaseElement == "multiattack")
+		if(checkMultiattack && arr.length > 0 && lowercaseElement.includes("multiattack"))
 		{
-			if(arr[0].name.toLowerCase() == "multiattack")
+			if(arr[0].name.toLowerCase().includes("multiattack"))
 				arr.splice(0, 1, element)
 			else
 				arr.splice(0, 0, element)
@@ -1341,7 +1311,7 @@ ArrayFunctions =
 		for(var index in arr)
 		{
 			var lowercaseIndex = arr[index].name.toLowerCase();
-			if(checkMultiattack && lowercaseIndex == "multiattack")
+			if(checkMultiattack && lowercaseIndex.includes("multiattack"))
 				continue;
 			if(lowercaseIndex > lowercaseElement)
 			{
@@ -1368,6 +1338,7 @@ ArrayFunctions =
 		return null;
 	},
 
+	// Take a string representing an array from a preset and turn it into a normal array
 	FixPresetArray: function(string)
 	{
 		var arr = string.split(","), returnArr = [];
@@ -1380,6 +1351,32 @@ ArrayFunctions =
 		return returnArr;
 	},
 }
+
+// Document ready function
+$(function()
+{
+	// Load the preset monster names
+	$.getJSON("https://api-beta.open5e.com/monsters/?format=json&fields=slug,name&limit=1000", function(jsonArr) {
+		$.each(jsonArr.results, function(index, value) {
+			$("#monster-select").append("<option value='" + value.slug + "'>" + value.name + "</option>");
+		})
+	})
+	.fail(function() {
+		$("#monster-select-form").html("Unable to load monster presets.")
+	})
+	
+	// Set the default legendary description in case there isn't one saved
+	GetVariablesFunctions.SetPreset(defaultPreset);
+	
+	// Load saved data
+	SavedData.RetrieveAll();
+	FormFunctions.SetLegendaryDescriptionForm();
+	GetVariablesFunctions.SetBonuses();
+	
+	// Populate the stat block
+	FormFunctions.SetForms();
+	UpdateStatblock();
+});
 
 
 

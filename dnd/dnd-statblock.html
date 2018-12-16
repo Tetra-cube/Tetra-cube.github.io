@@ -20,7 +20,7 @@
 		</div>
 		<div class="content">
 			<span class="donotprint">
-				<div class="centeredcontainer"><a href="dnd-reference.html">Reference</a> - <a href="dnd-char-gen.html">Character Generator</a> - <a href="dnd-npc-gen.html">NPC Generator</a> - <b>Statblock Generator</b></div>
+				<div class="centeredcontainer"><a href="dnd-reference.html">Reference</a> - <a href="dnd-char-gen.html">Character Generator</a> - <b>Statblock Generator</b></div>
 				<h1>D&D 5e Statblock Generator</h1>
 				Based on <a href="http://valloric.github.io/statblock5e/">Statblock5e</a> and <a href="https://open5e.com/">Open5e</a> 
 				<br><br>
@@ -239,7 +239,7 @@
 								<option value="cha">Charisma</option>
 							</select>
 							<button type="button" onclick="InputFunctions.AddSthrowInput()">Proficient</button>
-							<span id="sthrows-input-section"><ul id="sthrows-input-list"></ul></span>
+							<span id="sthrows-input-section"><ul id="sthrows-input-list" class="statblock-list"></ul></span>
 						</td>
 						<td id="skills-form">
 							<label for="skills-input">Skills:</label><br>
@@ -265,7 +265,7 @@
 							</select>
 							<button type="button" onclick="InputFunctions.AddSkillInput()">Proficient</button>
 							<button type="button" onclick="InputFunctions.AddSkillInput(' (ex)')">Expert</button>
-							<span id="skills-input-section"><ul id="skills-input-list"></ul></span>
+							<span id="skills-input-section"><ul id="skills-input-list" class="statblock-list"></ul></span>
 						</td>
 						<td id="conditions-form">
 							<label for="conditions-input">Condition Immunities: </label><br>
@@ -287,7 +287,7 @@
 								<option value="unconscious">Unconscious</option>
 							</select>
 							<button type="button" onclick="InputFunctions.AddConditionInput()">Immune</button>
-							<span id="conditions-input-section"><ul id="conditions-input-list"></ul></span>
+							<span id="conditions-input-section"><ul id="conditions-input-list" class="statblock-list"></ul></span>
 						</td>
 					</tr>
 					<tr>
@@ -320,7 +320,7 @@
 								<button type="button" onclick="InputFunctions.AddDamageTypeInput('r')">Resistant</button>
 								<button type="button" onclick="InputFunctions.AddDamageTypeInput('i')">Immune</button>
 							</div>
-							<div id="damage-input-section"><ul><span id="damage-input-list"></span></ul></div>
+							<div id="damage-input-section"><ul class="statblock-list"><span id="damage-input-list"></span></ul></div>
 						</td>
 						<td id="languages-form">
 							<label for="languages-input">Languages: </label><br>
@@ -352,7 +352,7 @@
 							</div>
 							<div><input id="other-language-input" type="text" value=""></div>
 							<div><button type="button" onclick="InputFunctions.AddLanguageInput()">Proficient</button></div>
-							<div id="languages-input-section"><ul id="languages-input-list"></ul></div>
+							<div id="languages-input-section"><ul id="languages-input-list" class="statblock-list"></ul></div>
 						</td>
 						<td>
 							<label for="telepathy-input">Telepathy:<br><input type="number" id="telepathy-input" min="0" max="995" step="5" value="0"> ft.</label>
@@ -435,10 +435,10 @@
 				</div>
 				<br>
 				<div style="text-align: left;">
-					<span id="abilities-input-section"><b>Abilities:</b><br> <ul id="abilities-input-list"></ul></span>
-					<span id="actions-input-section"><b>Actions:</b><br> <ul id="actions-input-list"></ul></span>
-					<span id="reactions-input-section"><b>Reactions:</b><br> <ul id="reactions-input-list"></ul></span>
-					<span id="legendaries-input-section"><b>Legendary Actions:</b><br> <ul id="legendaries-input-list"></ul></span>
+					<span id="abilities-input-section"><b>Abilities:</b><br> <ul id="abilities-input-list" class="statblock-list"></ul></span>
+					<span id="actions-input-section"><b>Actions:</b><br> <ul id="actions-input-list" class="statblock-list"></ul></span>
+					<span id="reactions-input-section"><b>Reactions:</b><br> <ul id="reactions-input-list" class="statblock-list"></ul></span>
+					<span id="legendaries-input-section"><b>Legendary Actions:</b><br> <ul id="legendaries-input-list" class="statblock-list"></ul></span>
 				</div>
 				
 			<br>

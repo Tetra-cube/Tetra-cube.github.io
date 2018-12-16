@@ -1,1185 +1,1084 @@
-var character, books, subraceVariants, ethnicityOption;
+var character = {}, books = [], mcEthnicity = "", ethnicityOption = "";
 
-function UpdateAllDropdowns()
+// Populate the dropdowns with material from the selected books
+var Dropdowns =
 {
-	document.getElementById('gendermenu').innerHTML ='<option value="0">Random</option><option value="1">Male</option><option value="2">Female</option><option value="3">Nonbinary or Unknown</option>'
-	
-	SetDropdownOptions(races, 'racemenu');
-	SetDropdownOptions(classes, 'classmenu');
-	SetDropdownOptions(backgrounds, 'backgroundmenu');
-}
-
-function SetDropdownOptions(arr, id)
-{
-	GetBooks();
-	var optionsArray = [ '<option value="0">Random</option>' ];
-		optionsArray.push();
-	for(var index in arr)
+	Update: function()
 	{
-		var item = arr[index];
-		if(typeof item == 'object')
+		Books.Get();
+		$("#racemenu").html(this.GetDropdownOptions(races));
+		$("#classmenu").html(this.GetDropdownOptions(classes));
+		$("#backgroundmenu").html(this.GetDropdownOptions(backgrounds));
+	},
+	
+	GetDropdownOptions: function(list)
+	{
+		var optionsArray = [ "<option value=\"Random\">Random</option>" ];
+		for(var propertyName in list)
 		{
-			if(item.hasOwnProperty('_special'))
+			var item = list[propertyName];
+			if(typeof item == "object" && item.hasOwnProperty("_special"))
 			{
-				if(!CheckHasBook(GetBookString(item._special)))
+				if(!Books.CheckSpecial(item._special))
 					continue;
 			}
+			optionsArray.push("<option value=\"" + propertyName + "\">" + propertyName + "</option>");
 		}
-		optionsArray.push('<option value="' + (parseInt(index) + 1) + '">' + item._name + '</option>');
-	}
-	document.getElementById(id).innerHTML = optionsArray.join('');
+		return optionsArray.join("");
+	},
 }
 
-function RandomizeAll()
+// Get or check what books we have
+var Books =
 {
-	GetBooks();
-	character = {};
-	
-	RandomizeGender(true);
-	RandomizeRace(true);
-	RandomizeClass(true);
-	RandomizeBackground(true);
-	RandomizeName(true);
-	//RandomizeStats(true);
-	RandomizeLife(true);
-	
-	MakeCard();
-}
-
-function RandomizeRace(allRandom)
-{
-	var radioButtons = document.getElementById('ethnicityRadioButtons').children;
-	if(radioButtons[0].checked)
-		ethnicityOption = 'standard';
-	else if(radioButtons[2].checked)
-		ethnicityOption = 'real';
-	else
-		ethnicityOption = RandomFromArray([ 'standard', 'real' ]);
-	
-	if(!allRandom)
-		GetBooks();
-	subraceVariants = [];
-	character.Race = GetPropertiesStart(races, 'racemenu');
-	SubraceVariantCheck();
-	document.getElementById('race').innerHTML = character.Race._name;
-	document.getElementById('raceheader').innerHTML = character.Race._name;
-	document.getElementById('racesection').innerHTML = MakeHTMLString(character.Race);
-
-	// Weird special case
-	if(character.Race._name == 'Warforged')
+	// Get the books we have from the checkboxes
+	Get: function()
 	{
-		character.Gender = 'Genderless';
-		document.getElementById('gender').innerHTML = character.Gender;
-	}
-	else if(character.Gender == 'Genderless')
-		RandomizeGender(false);
-	
-	if(!allRandom)
-	{
-		RandomizeName(true);	// Randomizes both name and life
-		MakeCard();
-	}
-}
-
-function RandomizeClass(allRandom)
-{
-	if(!allRandom)
-		GetBooks();
-	character.Class = GetPropertiesStart(classes, 'classmenu');
-	document.getElementById('class').innerHTML = character.Class._name;
-	document.getElementById('classheader').innerHTML = character.Class._name;
-	document.getElementById('classsection').innerHTML = MakeHTMLString(character.Class);
-	if(!allRandom)
-	{
-		RandomizeLife(allRandom);
-		MakeCard();
-	}
-}
-
-function RandomizeBackground(allRandom)
-{
-	if(!allRandom)
-		GetBooks();
-	character.Background = GetPropertiesStart(backgrounds, 'backgroundmenu');
-	document.getElementById('background').innerHTML = character.Background._name;
-	document.getElementById('backgroundheader').innerHTML = character.Background._name;
-	document.getElementById('backgroundsection').innerHTML = MakeHTMLString(character.Background);
-	if(!allRandom)
-	{
-		RandomizeLife(allRandom);
-		MakeCard();
-	}
-}
-
-function RandomizeGender(allRandom)
-{
-	var genderMenu = document.getElementById('gendermenu'), index = parseInt(genderMenu.value) - 1;
-	if(index < 0)
-		character.Gender = RandomFromArray(genders);
-	else
-		character.Gender = genderMenu[genderMenu.selectedIndex].text;
-	document.getElementById('gender').innerHTML = character.Gender;
-}
-
-function RandomizeName(allRandom)
-{
-	if(!allRandom)
-		GetBooks();
-	character._name = GetName(character.Race._name, character);
-	document.getElementById('name').innerHTML = character._name;
-	if(!allRandom)
-	{
-		RandomizeLife(allRandom);
-		MakeCard();
-	}
-}
-
-// function RandomizeStats(allRandom)
-// {
-	// if(!allRandom)
-		// GetBooks();
-	// character.Stats = GetStats();
-	// document.getElementById('statssection').innerHTML = MakeHTMLString(character.Stats);
-	// if(!allRandom)
-		// MakeCard();
-// }
-
-function RandomizeLife(allRandom)
-{
-	if(!allRandom)
-		GetBooks();
-	character.Life = Object.assign( { 'Trinket' : RandomFromArray(trinkets) }, GetProperties(life, true));
-	FinishLife();
-	document.getElementById('lifesection').innerHTML = MakeHTMLString(character.Life);
-}
-
-function GetBooks()
-{
-	books = [ 'PHB' ];
-	for(var bookNum in availableBooks)
-	{
-		var book = availableBooks[bookNum];
-		if(document.getElementById(book + 'box').checked)
-			books.push(book);
-	}
-}
-
-function GetPropertiesStart(propObj, dropdown)	// Set all properties in an object
-{
-	var index = parseInt(document.getElementById(dropdown).value) - 1;
-	if(index < 0)
-		index = RandomFromArrayCheckBooks(propObj);
-	return GetProperties(propObj[index], true);
-}
-
-function GetProperties(propObj, allowSpecial)	// Set all properties in an object
-{
-	// Special case
-	if(allowSpecial != false && propObj.hasOwnProperty('_special'))
-		return SpecialCase(propObj, propObj._special)
-	// String or number
-	if(typeof propObj != 'object')
-		return propObj;
-	// Array
-	if(Array.isArray(propObj))
-		return GetProperties(propObj[RandomFromArrayCheckBooks(propObj)], true);
-	// Another object
-	var newPropObj = {};
-	for(var propertyName in propObj)
-	{
-		if(propertyName != '_special')
-			newPropObj[propertyName] = GetProperties(propObj[propertyName], true);
-	}
-	return newPropObj;
-}
-
-function MakeHTMLString(charObj)	// Make the content that shows up on the page
-{
-	var stringBuffer = [];
-	for(var propertyName in charObj)
-	{
-		// Ignore certain properties
-		if(propertyName == '_name')
-			continue;
-		var property = charObj[propertyName];
-		if(property == '_none')
-			continue;
-		
-		stringBuffer.push('<li>');
-		if(propertyName.charAt(0) != '_')
-			stringBuffer.push('<b>', propertyName, ':</b> ');
-		if(typeof property == 'object')
-			stringBuffer.push('<ul>', MakeHTMLString(property), '</ul>');
-		else
+		books = [ "Real", "PHB" ];
+		for(var bookNum in availableBooks)
 		{
-			// For tooltips
-			while(property.indexOf('[[') >= 0)
+			var book = availableBooks[bookNum];
+			if($("#" + book + "box").prop("checked"))
+				books.push(book);
+		}
+	},
+
+	// Check an entire _special string
+	CheckSpecial: function(specialString)
+	{
+		var splitSpecial = specialString.split(" ");
+		for(var specialIndex in splitSpecial)
+		{
+			if(splitSpecial[specialIndex].slice(0, 5) == "book-")
+				return this.CheckString(splitSpecial[specialIndex].slice(5));
+		}
+		return false;
+	},
+
+	// Check a string of only books
+	CheckString: function(bookString)
+	{
+		for(var index in books)
+		{
+			if(bookString.includes(books[index]))
+				return true;
+		}
+		return false;
+	}
+}
+
+// For when the user clicks one of the Generate buttons, or when the page loads
+var Generate =
+{
+	All: function()
+	{
+		Books.Get();
+		
+		this.Race();
+		this.Gender();
+		this.Name();
+		this.Class();
+		this.Background();
+		this.NPCTraits();
+		this.Life();
+		
+		CardType.Set();
+	},
+
+	Race: function()
+	{
+		// Determine human ethnicity
+		if($("#standard-radio").prop("checked"))
+			ethnicityOption = "standard";
+		else if($("#real-radio").prop("checked"))
+			ethnicityOption = "real";
+		else
+			ethnicityOption = Random.Array([ "standard", "real" ]);
+		
+		character.Race = Content.GetRandom(races, $("#racemenu").val());
+		
+		$("#race").html(character.Race.name);
+		$("#raceheader").html(character.Race.name);
+		$("#racesection").html(HTMLStrings.Get(character.Race));
+		
+		if(character.Race.name == "Warforged")
+			$("#gender").html("Genderless");
+		else
+			$("#gender").html(character.Gender);
+	},
+
+	Gender: function()
+	{
+		var genderVal = $("#gendermenu").val();
+		character.Gender = (genderVal == "Random" ? Random.Array(genders) : genderVal);
+		
+		if(character.Race.name == "Warforged")
+			$("#gender").html("Genderless");
+		else
+			$("#gender").html(character.Gender);
+	},
+
+	Name: function()
+	{
+		character.Name = Names.Get(character.Race.name, character.Gender);
+		$("#name").html(character.Name);
+	},
+
+	Class: function()
+	{
+		character.Class = Content.GetRandom(classes, $("#classmenu").val());
+		
+		$("#class").html(character.Class.name);
+		$("#classheader").html(character.Class.name);
+		$("#classsection").html(HTMLStrings.Get(character.Class));
+	},
+
+	Background: function()
+	{
+		character.Background = Content.GetRandom(backgrounds, $("#backgroundmenu").val());
+		
+		$("#background").html(character.Background.name);
+		$("#backgroundheader").html(character.Background.name);
+		$("#backgroundsection").html(HTMLStrings.Get(character.Background));
+	},
+
+	NPCTraits: function()
+	{
+		character.NPCTraits = { "name" : "NPCTraits", "content" : Content.Get(NPCTraits.Get()) };
+		$("#npctraitssection").html(HTMLStrings.Get(character.NPCTraits));
+	},
+
+	Life: function()
+	{
+		character.Life = { "name" : "Life", "content" : Content.Get(Life.Get()) };
+		$("#lifesection").html(HTMLStrings.Get(character.Life));
+	},
+
+	// Functions for when a specific button is pressed
+	
+	RaceInput: function()
+	{
+		Books.Get();
+		this.Race();
+		this.Name();	// Randomizes both name and life
+		CardType.Set();
+	},
+
+	GenderInput: function()
+	{
+		this.Gender();
+	},
+
+	NameInput: function()
+	{
+		Books.Get();
+		this.Name();
+		this.Life();
+		CardType.Set();
+	},
+
+	ClassInput: function()
+	{
+		Books.Get();
+		this.Class();
+		this.Life();
+		CardType.Set();
+	},
+
+	BackgroundInput: function()
+	{
+		Books.Get();
+		this.Background();
+		this.Life();
+		CardType.Set();
+	},
+	
+	NPCTraitsInput: function()
+	{
+		Books.Get();
+		this.NPCTraits();
+		CardType.Set();
+	},
+
+	LifeInput: function()
+	{
+		Books.Get();
+		this.Life();
+		CardType.Set();
+	}
+}
+
+// Gets content from dnd-data and puts it into a format more readable to the generator (also filters out things that should be inaccessible)
+var Content =
+{
+	// Set all properties in an object
+	Get: function(item)
+	{
+		if(item == null) return null;
+		if(typeof item == "object")
+		{
+			if(Array.isArray(item))
+				return this.Get(Random.Array(item));
+			else
 			{
-				var startIndex = property.indexOf('[['), lineIndex = property.indexOf('|'), endIndex = property.indexOf(']]');
+				if(item.hasOwnProperty("_special"))
+				{
+					var specialItem = this.Special(item);
+					if(jQuery.isEmptyObject(specialItem))
+						return null;
+					return specialItem;
+				}
+				var properties = [];
+				for(var propertyName in item)
+				{
+					var content = this.Get(item[propertyName]);
+					if(content != null)
+						properties.push( { "name" : propertyName, "content" : content } );
+				}
+				return properties;
+			}
+		}
+		return item;
+	},
+	
+	// Get a random property from an initial object
+	GetRandom: function(item, dropdownVal = "Random")
+	{
+		if(dropdownVal != "Random")
+			return { "name" : dropdownVal, "content" : this.Special(item[dropdownVal]) };
+		var propsArr = [], randomProp;
+		for(var propName in item)
+		{
+			if(item[propName].hasOwnProperty("_special") && Books.CheckSpecial(item[propName]._special))
+				propsArr.push(propName);
+		}
+		randomProp = Random.Array(propsArr);
+		return { "name" : randomProp, "content" : this.Special(item[randomProp]) };
+	},
+	
+	
+	// For dealing with special cases (indicated by the _special keyword)
+	
+	Special : function(item)
+	{
+		// Clone the item, remove special from the clone, and apply every special in order
+		var newItem = Object.assign({}, item), cases = item._special.split(" ");
+		delete newItem._special;
+		for(var caseIndex in cases)
+			newItem = this.ApplySpecial(cases[caseIndex], newItem);
+		if(jQuery.isEmptyObject(newItem))
+			return null;
+		return this.Get(newItem);
+	},
+	
+	ApplySpecial: function(special, specialItem)	// Apply one special case to an object and return the resulting object
+	{
+		if(specialItem == null || typeof specialItem != "object") return specialItem;
+		var splitSpecial = special.split("-");
+		
+		switch(splitSpecial[0])
+		{
+			case "book" :		// Remove this item if we don't have the necessary book
+				return Books.CheckString(splitSpecial[1]) ? specialItem : null;
+			
+			case "booksort" :	// Take a bunch of arrays and make a composite array, discarding data from books we don't have. Then pick randomly from it.
+				return this.BookSort(specialItem);
 				
-				stringBuffer.push(
-					property.substring(0, startIndex),
-					'<span class="tooltip">',
-					property.substring(startIndex + 2, lineIndex),
-					'<span class="tooltiptext"> ',
-					tooltips[property.substring(lineIndex + 1, endIndex)],
-					'</span></span>');
-				property = property.substring(endIndex + 2);
-			}
-			// For sub-properties
+			case "characteristics" :	// Output height, weight, appearance, etc
+				return this.GetCharacteristics(specialItem);
+		
+			case "gendersort" :			// Get property according to gender
+				if(character.Gender == "Male")
+					return specialItem.Male;
+				if(character.Gender == "Female")
+					return specialItem.Female;
+			return Random.Array([specialItem.Male, specialItem.Female]);
 			
-			// if(property.indexOf('**') >= 0)
-			// {
-				// var starIndex = property.indexOf('**');
-				// stringBuffer.push(property.substring(0, starIndex), '<ul><li>');
-				// property = property.substring(starIndex + 2);
-				// starIndex = property.indexOf('**');
-				// while(starIndex >= 0)
-				// {
-					// stringBuffer.push(property.substring(0, starIndex), '</li><li>')
-					// property = property.substring(starIndex + 2);
-					// starIndex = property.indexOf('**');
-				// }
-				// stringBuffer.push(property, '</li></ul></li>');
-			// }
-			// else
-			stringBuffer.push(property, '</li>');
+			case "halfethnicity" :		// Get human ethnicity for half-humans
+				mcEthnicity = (Random.Num(5) > 0 ? RandomEthnicity.Get() : "Unknown");
+				return mcEthnicity;
+			
+			case "humanethnicity" :		// Get human ethnicity for full-humans
+				mcEthnicity = RandomEthnicity.Get();
+				return mcEthnicity;
+				
+			case "subracesort" :		// For certain races, we need to know the subrace to determine the physical characteristics. This is less hacky than the code it replaced.
+				var SubracePropName = (splitSpecial.length > 1 ? (splitSpecial[1].split("_").join(" ")) : "Subrace"),
+					subracesAndVariants = specialItem["Subraces and Variants"], newSubVar = {}, subraceString;
+				
+				for(var propertyName in subracesAndVariants)
+				{
+					if(propertyName == SubracePropName)
+					{
+						if(Array.isArray(subracesAndVariants[propertyName]))
+							subraceString = Random.Array(subracesAndVariants[SubracePropName]);
+						else
+							subraceString = this.BookSort(subracesAndVariants[SubracePropName]);
+						newSubVar[propertyName] = subraceString;
+					}
+					else
+						newSubVar[propertyName] = subracesAndVariants[propertyName];
+				}				
+				specialItem["Subraces and Variants"] = newSubVar;
+				specialItem["Physical Characteristics"] = specialItem["Physical Characteristics"][subraceString];
+				
+				return specialItem;
+			
+			case "tieflingappearance" :		// Tieflings have weird appearances
+				if(Random.Num(3) == 0)
+					return null;
+				return Random.ArrayMultiple(specialItem._array, Random.DiceRoll("1d4") + 1);
+				
+			case "tieflingvarianttype" :	// Tieflings also have weird variants
+				if(!books.includes("SCAG"))
+					return null;
+				return Random.Array(specialItem._array);
+		
+			case "monstrousorigin" :		// Monster origins
+				return Random.Array(monstrousOrigins);
+			
+			case "backgroundtraits" :		// For the SCAG backgrounds where the writers were lazy and used personalities from the PHB 
+				var backgroundCopy = backgrounds[splitSpecial[1].split("_").join(" ")];
+				specialItem["Trait"] = backgroundCopy.Trait;
+				specialItem["Ideal"] = backgroundCopy.Ideal;
+				specialItem["Bond"] = backgroundCopy.Bond;
+				specialItem["Flaw"] = backgroundCopy.Flaw;
+				return specialItem;
 		}
-	}
-	return stringBuffer.join('');
-}
+		return specialItem;
+	},
+	
+	// Remove every array that's non-applicable because we don't have the book, then merge the remaining arrays and pick randomly from them
+	BookSort: function(specialItem)
+	{
+		if(specialItem.hasOwnProperty("_special"))
+			delete specialItem._special;
+		var contentArr = [];
+		for(var bookName in specialItem)
+		{
+			if(Books.CheckString(bookName))
+				contentArr = contentArr.concat(specialItem[bookName]);
+		}
+		return Random.Array(contentArr);
+	},
+	
+	// Compute age, height, weight, and other physical characteristics
+	GetCharacteristics: function(item)
+	{
+		var chaObj = {}, age = Random.Num(item.maxage - item.minage) + item.minage;
+		age += (age == "1" ? " year" : " years");			// Extremely rare edge case but it can happen
+		chaObj.Age = age;
+		
+		var heightmod = Random.DiceRoll(item.heightmod), intHeight = item.baseheight + heightmod;
+		chaObj.Height = Math.floor(intHeight / 12) + "'" + (intHeight % 12) + "\"";
+		chaObj.Weight = item.baseweight + heightmod * Random.DiceRoll(item.weightmod) + " lbs.";
 
-function SpecialCase(propObj, special)	// Weird stuff
-{
-	if(special.substring(0, 5) == 'book-')
-	{
-		if(special.indexOf(' ') < 0)
-			return GetProperties(propObj, false);
-		special = special.substring(special.indexOf(' ') + 1);
-	}
-	if (special.substring(0, 7) == "traits-")
-		return BackgroundTraits(propObj, parseInt(special.substring(7)) - 1)
-	switch(special)
-	{
-		// Pick from available sourcebooks
-		case 'booksort' : 
-			return GetProperties(RandomFromBookArray(propObj), true);
-			
-		// Compute characteristics for some races with subraces
-		case 'characteristics' :
-			return GetCharacteristics(propObj);
-			
-		// Get property according to gender
-		case 'gendersort' :
-			if(character.Gender == 'Male')
-				return GetProperties(propObj.Male, true);
-			if(character.Gender == 'Female')
-				return GetProperties(propObj.Female, true);
-			return GetProperties(propObj[RandomFromArray(['Male', 'Female'])], true);
-			
-		// For half-human races
-		case 'halfethnicity' :
-			if(RandomNum(5) > 0)
-				return RandomEthnicity();
-			return 'Unknown';
-			
-		// Determine parents, if a mixed race
-		case 'mixedparents' :
-			var parents = life.Origin.Parents;
-			if(parents.hasOwnProperty(character.Race._name))
-				return RandomFromArray(parents[character.Race._name]);
-			return '_none';
-			
-		// Race stuff
-		
-		case 'humanethnicity' :
-			if(ethnicityOption == 'standard')
-				return GetProperties(RandomFromBookArray(propObj), true);
-			return RandomFromArray(propObj.Real)
-		
-		case 'subracetraitsort' :
-			subraceVariants.push({ 'obj': propObj, 'propname' : 'Subrace', 'get' : 'trait' });
-			return null;
-		
-		case 'subracephyssort' :
-			subraceVariants.push({ 'obj': propObj, 'propname' : 'Subrace', 'get' : 'phys'  });
-			return null;
-		
-		case 'draconicancestry' :
-			subraceVariants.push({ 'obj': propObj, 'propname' : 'Draconic Ancestry', 'get' : 'trait' });
-			return null;
-		
-		case 'dragonbornnickname' :
-			return RandomFromArray(propObj._array);
-		
-		// Half-elf variant stuff from scag
-		case 'halfelfvarianttraits' : 
-			subraceVariants.push({ 'obj': propObj, 'propname' : 'Elven Ancestry', 'get' : 'halfelf' });
-			return null;
-		
-		case 'halfelfvariantphys' : 
-			subraceVariants.push({ 'obj': propObj, 'propname' : 'Elven Ancestry', 'get' : 'phys' });
-			return null;
-		
-		case 'halforcsubraces' :
-			return GetProperties(propObj, false);
-		
-		// Weird-looking tieflings
-		case 'tieflingappearance' :
-		if(RandomNum(3) == 0)
-			return '_none';
-		return RandomFromArrayMultiple(propObj._array, DiceRoll('1d4') + 1);
-		
-		// Variant tieflings from scag
-		case 'tieflingvarianttype' :
-			if(books.indexOf('SCAG') < 0)
-				return '_none';
-			return RandomFromArray(propObj._array);
-		
-		case 'tieflingvarianttraits' :
-			subraceVariants.push({ 'obj': propObj, 'propname' : 'Variant', 'get' : 'tiefling' });
-			return null;
-		
-		// Monster origins
-		case 'monstrousorigin' :
-			return RandomFromArray(monstrousOrigins);
-		
-		// Do this later
-		case 'skip' :
-			return '';
-		
-		// Do this never
-		case 'ignoreinchargen' :
-			return '_none';
-	}
-	return special;
-}
-
-// Work with the things we put off until everything else was done
-function SubraceVariantCheck()
-{
-	for(var counter = 0; counter < subraceVariants.length; counter++)
-	{
-		var subraceVariant = subraceVariants[counter],
-			subraceName = character.Race['Subraces and Variants'][subraceVariant.propname];
-		if(subraceVariant.get == 'trait')
-		{
-			var raceObj = subraceVariant.obj[subraceName], newRaceObj = {};
-			for(var propertyName in raceObj)
-			{
-				if(propertyName != '_special')
-					newRaceObj[propertyName] = raceObj[propertyName];
-			}
-			character.Race['Racial Traits']['Subrace Traits'] = newRaceObj;
-		}
-		else if(subraceVariant.get == 'phys')
-			character.Race['Physical Characteristics'] = GetCharacteristics(subraceVariant.obj[subraceName]);
-		else if(subraceVariant.get == 'halfelf')
-		{
-			character.Race['Racial Traits']['Variant Traits'] = '_none';
-			if(books.indexOf('SCAG') < 0)
-				continue;
-			var variant = character.Race['Subraces and Variants']['Elven Ancestry'],
-				variantTraits = Object.assign({}, subraceVariant.obj._list['_any'], subraceVariant.obj._list[variant]);
-			character.Race['Racial Traits']['Variant Traits'] = variantTraits;
-		}
-		else if(subraceVariant.get == 'tiefling')
-		{
-			var variant = character.Race['Subraces and Variants'].Variant,
-				variantTraitList = subraceVariant.obj._list;
-			if(variant == '_none')
-			{
-				character.Race['Racial Traits']['Variant Traits'] = '_none';
-				continue;
-			}
-			var variantTraits = {};
-			for(var trait in variantTraitList)
-			{
-				if(variant.indexOf(trait) >= 0)
-					variantTraits[trait] = (variantTraitList[trait]);
-			}
-			character.Race['Racial Traits']['Variant Traits'] = variantTraits;
-		}
+		var otherObj = item._other;
+		if(otherObj == undefined)
+			return chaObj;
+		for(var otherName in otherObj)
+			chaObj[otherName] = otherObj[otherName];
+		return chaObj;
 	}
 }
 
-function GetName(raceName, characterOrSib)
+// Functions for random number/content selecting
+var Random =
 {
-	switch(raceName)
+	// Generate random number
+	Num: function(max)
 	{
-		case 'Aasimar' :
-			return GetHumanName(GetHumanEthnicity(), characterOrSib.Gender);
-		case 'Aarakocra' :
-			return RandomFromArray(names.Aarakocra);
-		case 'Bugbear' :
-			return GetGenderedName(names.Bugbear, characterOrSib.Gender);
-		case 'Centaur' :
-			return GetGenderedName(names.Centaur, characterOrSib.Gender);
-		case 'Changeling' :
-			return RandomFromArray(names.Changeling);
-		case 'Dragonborn' :
-			return FirstnameLastname(names.Dragonborn, 'Clan', characterOrSib.Gender);
-		case 'Dwarf' :
-			return FirstnameLastname(names.Dwarf, 'Clan', characterOrSib.Gender);
-		case 'Elf' :
-			if(character.age < 80 + RandomNum(40))
-				return RandomFromArray(names.Elf.Child) + ' ' + RandomFromArray(names.Elf.Family);
-			return FirstnameLastname(names.Elf, 'Family', characterOrSib.Gender);
-		case 'Firbolg' :
-			return GetGenderedName(names.Elf, characterOrSib.Gender);
-		case 'Genasi' :
-			return GetHumanName(GetHumanEthnicity(), characterOrSib.Gender);
-		case 'Gith' :
-			if(character.Race['Subraces and Variants'].Subrace == 'Githyanki')
-				return GetGenderedName(names.Githyanki, characterOrSib.Gender);
-			return GetGenderedName(names.Githzerai, characterOrSib.Gender);
-		case 'Gnome' :
-			if(character.Race['Subraces and Variants'].Subrace == 'Deep Gnome')
-				return FirstnameLastname(names['Deep Gnome'], 'Clan', characterOrSib.Gender);
-			var firstNames, numNames = 4 + RandomNum(4);
-			var gnomeNames = [];
-			while(gnomeNames.length < numNames)
-			{
-				var item;
-				if(characterOrSib.Gender == 'Male' || characterOrSib.Gender == 'Female')
-					item = RandomFromArray(names.Gnome[characterOrSib.Gender]);
+		return Math.floor(Math.random() * max);
+	},
+	
+	// Pick a random element from an array
+	Array: function(arr)
+	{
+		return arr[this.Num(arr.length)];
+	},
+	
+	// Pick multiple random elements from an array
+	ArrayMultiple: function(arr, num)
+	{
+		var returnArray = [];
+		while(returnArray.length < num)
+		{
+			var item = this.Array(arr);
+			if(!returnArray.includes(item))
+				returnArray.push(item);
+		}
+		return returnArray.join(", ");
+	},
+
+	// Roll dice based on a string (eg. '2d6')
+	DiceRoll: function(roll)
+	{
+		numbers = roll.split("d");
+		if(numbers.length == 1)
+			return numbers[0];
+		var total = 0;
+		for(die = 0; die < numbers[0]; die++)
+			total += this.Num(numbers[1]) + 1;
+		return total;
+	},
+}
+
+// Functions for making content objects into HTML strings to be displayed
+var HTMLStrings = 
+{
+	Get: function(item)
+	{
+		var itemContent = item.content, stringBuffer = [];
+		for(var index in itemContent)
+			stringBuffer.push(this.GetNext(itemContent[index]));
+		return stringBuffer.join("");
+	},
+	
+	GetNext: function(item)
+	{
+		var itemContent = item.content;
+		if(typeof itemContent != "object")
+			return "<li><b>" + item.name + "</b>: " + itemContent + "</li>";
+		
+		var stringBuffer = [];
+		for(var index in itemContent)
+			stringBuffer.push(this.GetNext(itemContent[index]));
+		return "<li><b> " + item.name + "</b>:<ul>" + stringBuffer.join("") + "</ul></li>";
+	},
+	
+	Life: function(item)
+	{
+		if(typeof item == "object")
+		{
+			var itemContent = item.content, stringBuffer = [];
+			for(var propertyName in itemContent)
+				stringBuffer.push(this.Life(itemContent[propertyName]));
+			return stringBuffer.join("");
+		}
+		return item;
+	},
+}
+
+// Functions relating to the character's name
+var Names = 
+{
+	Get: function(raceName, gender)
+	{
+		switch(raceName)
+		{
+			case "Aarakocra" :
+			case "Changeling" :
+			case "Grung" :
+			case "Kenku" :
+			case "Lizardfolk" :
+			case "Shifter" :
+			case "Tortle" :
+			case "Warforged" :
+				return Random.Array(names[raceName]);
+				
+			case "Bugbear" :
+			case "Centaur" :
+			case "Goblin" :
+			case "Kobold" :
+			case "Minotaur" :
+			case "Orc" :
+			case "Loxodon" :
+			case "Vedalken" :
+				return this.GetGendered(names[raceName], gender);
+				
+			case "Aasimar" :
+			case "Genasi" :
+				return this.GetHuman(this.GetHumanEthnicity(), gender);
+				
+			case "Dragonborn" :
+				return this.FirstnameLastname(names.Dragonborn, "Clan", gender);
+				
+			case "Dwarf" :
+				return this.FirstnameLastname(names.Dwarf, "Clan", gender);
+				
+			case "Elf" :
+				if(character.age < 80 + Random.Num(40))
+					return Random.Array(names.Elf.Child) + " " + Random.Array(names.Elf.Family);
+				return this.FirstnameLastname(names.Elf, "Family", gender);
+				
+			case "Firbolg" :
+				return this.GetGendered(names.Elf, gender);
+				
+			case "Gith" :
+				if(this.GetSubrace() == "Githyanki")
+					return this.GetGendered(names.Githyanki, gender);
+				return this.GetGendered(names.Githzerai, gender);
+				
+			case "Gnome" :
+				if(this.GetSubrace() == "Deep Gnome")
+					return this.FirstnameLastname(names["Deep Gnome"], "Clan", gender);
+				var firstNames, numNames = 4 + Random.Num(4);
+				var gnomeNames = [];
+				while(gnomeNames.length < numNames)
+				{
+					var item;
+					if(gender == "Male" || gender == "Female")
+						item = Random.Array(names.Gnome[gender]);
+					else
+						item = Random.Array(names.Gnome[this.RandomGender()]);
+					if(!gnomeNames.includes(item))
+						gnomeNames.push(item);
+				}
+				firstNames = gnomeNames.join(" ");
+				return firstNames + " \"" + Random.Array(names.Gnome.Nickname) + "\" " + Random.Array(names.Gnome.Clan);
+				
+			case "Goliath" :
+				return Random.Array(names.Goliath.Birth) + " \"" + Random.Array(names.Goliath.Nickname) + "\" " + Random.Array(names.Goliath.Clan);
+				
+			case "Halfling" :
+				return this.FirstnameLastname(names.Halfling, "Family", gender);
+				
+			case "Half-Elf" :
+				var rand = Random.Num(6)
+				if(rand < 2)
+					return this.HumanFirst(this.GetHumanEthnicity(), gender) + " " + Random.Array(names.Elf.Family);
+				if(rand < 4)
+					return this.GetGendered(names.Elf, gender) + " " + this.HumanLast(this.GetHumanEthnicity());
+				if(rand < 5)
+					return this.GetHuman(this.GetHumanEthnicity(), gender);
+				return this.FirstnameLastname(names.Elf, "Family", gender);
+				
+			case "Half-Orc" :
+				var rand = Random.Num(4);
+				if(rand < 1)
+					return this.GetGendered(names.Orc, gender);
+				if(rand < 2)
+					return this.GetGendered(names.Orc, gender) + " " + this.HumanLast(this.GetHumanEthnicity())
+				return this.GetHuman(this.GetHumanEthnicity(), gender);
+				
+			case "Hobgoblin" :
+				return this.FirstnameLastname(names.Hobgoblin, "Clan", gender);
+				
+			case "Human" :
+				return this.GetHuman(mcEthnicity, gender);
+				
+			case "Kalashtar" :
+				var quoriName, rand = Random.Num(2);
+				if(rand < 1)
+					quoriName = Random.Array(names.Quori.Female);
 				else
-					item = RandomFromArray(names.Gnome[RandomGender()]);
-				if(gnomeNames.indexOf(item) < 0)
-					gnomeNames.push(item);
-			}
-			firstNames = gnomeNames.join(' ');
-			return firstNames + ' "' + RandomFromArray(names.Gnome.Nickname) + '" ' + RandomFromArray(names.Gnome.Clan);
-		case 'Goblin' :
-			return GetGenderedName(names.Goblin, characterOrSib.Gender)
-		case 'Goliath' :
-			return RandomFromArray(names.Goliath.Birth) + ' "' + RandomFromArray(names.Goliath.Nickname) + '" ' + RandomFromArray(names.Goliath.Clan);
-		case 'Grung' :
-			return RandomFromArray(names.Grung);
-		case 'Halfling' :
-			return FirstnameLastname(names.Halfling, 'Family', characterOrSib.Gender);
-		case 'Half-Elf' :
-			var rand = RandomNum(6)
-			if(rand < 2)
-				return HumanFirstName(GetHumanEthnicity(), characterOrSib.Gender) + ' ' + RandomFromArray(names.Elf.Family);
-			if(rand < 4)
-				return GetGenderedName(names.Elf, characterOrSib.Gender) + ' ' + HumanLastName(GetHumanEthnicity());
-			if(rand < 5)
-				return GetHumanName(GetHumanEthnicity(), characterOrSib.Gender);
-			return FirstnameLastname(names.Elf, 'Family', characterOrSib.Gender);
-		case 'Half-Orc' :
-			var rand = RandomNum(4);
-			if(rand < 1)
-				return GetGenderedName(names.Orc, characterOrSib.Gender);
-			if(rand < 2)
-				return GetGenderedName(names.Orc, characterOrSib.Gender) + ' ' + HumanLastName(GetHumanEthnicity())
-			return GetHumanName(GetHumanEthnicity(), characterOrSib.Gender);
-		case 'Hobgoblin' :
-			return FirstnameLastname(names.Hobgoblin, 'Clan', characterOrSib.Gender);
-		case 'Human' :
-			var ethnicity;
-			if(character.Race._name == 'Human')
-				ethnicity = character.Race['Subraces and Variants'].Ethnicity;
-			else
-				ethnicity = character.Race['Subraces and Variants']['Human Heritage'];
-			if(ethnicity == 'Unknown')
-				ethnicity = RandomEthnicity();
-			return GetHumanName(ethnicity, characterOrSib.Gender);
-		case 'Kalashtar' :
-			var quoriName;
-			var rand = RandomNum(2);
-			if(rand < 1)
-				quoriName = RandomFromArray(names.Quori.Female);
-			else
-				quoriName = RandomFromArray(names.Quori.Male);
-			return RandomFromArray(names.Kalashtar) + ' ' + quoriName;
-		case 'Kenku' :
-			return RandomFromArray(names.Kenku);
-		case 'Kobold' :
-			return GetGenderedName(names.Kobold, characterOrSib.Gender);
-		case 'Lizardfolk' :
-			return RandomFromArray(names.Lizardfolk);
-		case 'Minotaur' :
-			return GetGenderedName(names.Minotaur, characterOrSib.Gender);
-		case 'Orc' :
-			return GetGenderedName(names.Orc, characterOrSib.Gender);
-		case 'Shifter' :
-			return RandomFromArray(names.Shifter);
-		case 'Tabaxi' :
-			return RandomFromArray(names.Tabaxi.Name) + ' ' + RandomFromArray(names.Tabaxi.Clan);
-		case 'Tortle' :
-			return RandomFromArray(names.Tortle);
-		case 'Triton' :
-			return FirstnameLastname(names.Triton, 'Surname', characterOrSib.Gender);
-		case 'Tiefling' :
-			if(RandomNum(5) < 2)
-				return GetHumanName(GetHumanEthnicity(), characterOrSib.Gender);
-			var lastName = HumanLastName(GetHumanEthnicity());
-			if(characterOrSib.Gender == 'Male' || characterOrSib.Gender == 'Female')
+					quoriName = Random.Array(names.Quori.Male);
+				return Random.Array(names.Kalashtar) + " " + quoriName;
+				
+			case "Simic Hybrid" :
+				var raceNames = Random.Array([ names.Human, names.Elf, names.Vedalken ]);
+				if(raceNames == names.Human)
+					return this.GetHuman(RandomEthnicity.Get(), gender);
+				return this.GetGendered(raceNames, gender);
+				
+			case "Tabaxi" :
+				return Random.Array(names.Tabaxi.Name) + " " + Random.Array(names.Tabaxi.Clan);
+				
+			case "Triton" :
+				return this.FirstnameLastname(names.Triton, "Surname", gender);
+				
+			case "Tiefling" :
+				if(Random.Num(5) < 2)
+					return this.GetHuman(this.GetHumanEthnicity(), gender);
+				var lastName = this.HumanLast(this.GetHumanEthnicity());
+				if(gender == "Male" || gender == "Female")
+				{
+					if(Random.Num(3) == 0)
+						return this.GetGendered(names.Infernal, gender) + " " + lastName;
+					return Random.Array(names.Virtue) + " " + lastName;
+				}
+				if(Random.Num(3) > 0)
+					return Random.Array(names.Virtue) + " " + lastName;
+				return this.GetGendered(names.Infernal, gender) + " " + lastName;
+				
+			case "Yuan-Ti Pureblood" :
+				return Random.Array(names["Yuan-Ti"]);
+		}
+	},
+	
+	RandomGender: () => Random.Array(["Male", "Female"]),
+	
+	GetSubrace: function()
+	{
+		var race = character.Race.content
+		for(var index in race)
+		{
+			if(race[index].name == "Subraces and Variants")
 			{
-				if(RandomNum(3) == 0)
-					return GetGenderedName(names.Infernal, characterOrSib.Gender) + ' ' + lastName;
-				return RandomFromArray(names.Virtue) + ' ' + lastName;
+				var subrace = race[index].content;
+				for(var index2 in subrace)
+				{
+					if(subrace[index2].name == "Subrace")
+						return subrace[index2].content;
+				}
 			}
-			if(RandomNum(3) > 0)
-				return RandomFromArray(names.Virtue) + ' ' + lastName;
-			return GetGenderedName(names.Infernal, characterOrSib.Gender) + ' ' + lastName;
-		case 'Warforged' :
-			return RandomFromArray(names.Warforged);
-		case 'Yuan-Ti Pureblood' :
-			return RandomFromArray(names['Yuan-Ti']);
-		case 'Loxodon' :
-			return GetGenderedName(names.Loxodon, characterOrSib.Gender);
-		case 'Simic Hybrid' :
-			var raceNames = RandomFromArray([ names.Human, names.Elf, names.Vedalken ]);
-			if(raceNames == names.Human)
-				return GetHumanName(RandomEthnicity(), characterOrSib.Gender);
-			return GetGenderedName(raceNames, characterOrSib.Gender);
-		case 'Vedalken' :
-			return GetGenderedName(names.Vedalken, characterOrSib.Gender);
-		case 'Viashino' :
-			return RandomFromArray(names.Viashino);
-	}
-}
-
-function FirstnameLastname(nameObj, lastnameType, gender)
-{
-	return GetGenderedName(nameObj, gender) + ' ' + RandomFromArray(nameObj[lastnameType]);
-}
-
-function RandomGender()
-{
-	return RandomFromArray(['Male', 'Female']);
-}
-
-function GetGenderedName(nameObj, gender)
-{
-	if(gender == 'Male' || gender == 'Female')
-		return RandomFromArray(nameObj[gender]);
-	return RandomFromArray(nameObj[RandomGender()]);
-}
-
-function GetHumanName(ethnicity, gender)
-{
-	var lastName = HumanLastName(ethnicity);
-	if(lastName != '')
-		return HumanFirstName(ethnicity, gender) + ' ' + lastName;
-	return HumanFirstName(ethnicity, gender);
-}
-
-function HumanFirstName(ethnicity, gender)
-{
-	if(ethnicityOption == 'standard')
-	{
-		if(ethnicity == 'Tethyrian')
-			return GetGenderedName(names.Human.Chondathan, gender);
-		return GetGenderedName(names.Human[ethnicity], gender);
-	}
-	return GetGenderedName(names['Human (Real)'][ethnicity], gender);
-}
-
-function HumanLastName(ethnicity)
-{
-	if(ethnicityOption == 'standard')
-	{
-		if(ethnicity == 'Bedine')
-			return RandomFromArray(names.Human.Bedine.Tribe);
-		if(ethnicity == 'Tethyrian')
-			return RandomFromArray(names.Human.Chondathan.Surname);
-		if(ethnicity == 'Tuigan' || ethnicity == 'Ulutiun')
-			return '';
-		return RandomFromArray(names.Human[ethnicity].Surname);
-	}
-	return '';
-}
-
-function RandomEthnicity()
-{
-	if(ethnicityOption == 'standard')
-		return GetProperties(races[7]['Subraces and Variants'].Ethnicity, true);
-	return GetProperties(races[7]['Subraces and Variants'].Ethnicity.Real);
-}
-
-// For half-elves, half-orcs, tieflings, aasimar, and genasi
-function GetHumanEthnicity()
-{
-	var ethnicity = character.Race['Subraces and Variants']['Human Heritage'];
-	if(ethnicity == 'Unknown')
-		ethnicity = RandomEthnicity();
-	return ethnicity;
-}
-
-function GetCharacteristics(propObj)	// Compute age, height, and weight
-{
-	var chaObj = {};
-	chaObj.Age = RandomNum(propObj.maxage - propObj.minage) + propObj.minage;
-	if(chaObj.Age == '1')
-		chaObj.Age += ' year'	// Extremely rare edge case but it can happen
-	else
-		chaObj.Age += ' years';
-	var heightmod = DiceRoll(propObj.heightmod), intHeight = propObj.baseheight + heightmod;
-	chaObj.Height = Math.floor(intHeight / 12) + '\'' + (intHeight % 12) + '"';
-	chaObj.Weight = propObj.baseweight + heightmod * DiceRoll(propObj.weightmod) + ' lbs.';
-	chaObj = Object.assign(chaObj, GetProperties(propObj.other, true));
-	return chaObj;
-}
-
-function BackgroundTraits(propObj, num)	// Assign background traits
-{
-	var baseBackground = backgrounds[num];
-	var newProp = Object.assign( {}, propObj )
-	delete newProp._special;
-	var traits = Object.assign( {}, GetProperties(newProp, true),
-	(
-		{
-			'Trait' : RandomFromArray(baseBackground.Trait),
-			'Ideal' : RandomFromArray(baseBackground.Ideal),
-			'Bond' : RandomFromArray(baseBackground.Bond),
-			'Flaw' : RandomFromArray(baseBackground.Flaw)
 		}
-	));
-	return traits;
-}
-
-function GetStats()
-{
-	var stats = {};
-	stats.Strength = '10';
-	stats.Dexterity = '10';
-	stats.Constitution = '10';
-	stats.Intelligence = '10';
-	stats.Wisdom = '10';
-	stats.Charisma = '10';
-	return stats;
-}
-
-function GetLifeEvents()
-{
-	var lifeEvents = {};
-	var numEvents = 3 + RandomNum(3);
-	for(var eventNum = 0; eventNum < numEvents; eventNum++)
+	},
+	
+	// Return a gendered first name and a last name based on race
+	FirstnameLastname: function(names, lastnameType, gender)
 	{
-		do {
-			var newEventType = '', randomEventNum = RandomNum(100);
-			if(randomEventNum == 99)
-				newEventType = 'Weird Stuff';
-			else
-				newEventType = eventTables['Life Events'][Math.floor(randomEventNum / 5)];
-		} while(lifeEvents.hasOwnProperty([newEventType]))
-		
-		var newEvent = '';
-		switch (newEventType)
+		return this.GetGendered(names, gender) + " " + Random.Array(names[lastnameType]);
+	},
+
+	// Get the gender or a random generator if the character doesn't have one
+	GetGendered: function(names, gender)
+	{
+		if(gender == "Male" || gender == "Female")
+			return Random.Array(names[gender]);
+		return Random.Array(names[this.RandomGender()]);
+	},
+
+	// Get a human name
+	GetHuman: function(ethnicity, gender)
+	{
+		var lastName = this.HumanLast(ethnicity);
+		if(lastName != null)
+			return this.HumanFirst(ethnicity, gender) + " " + lastName;
+		return this.HumanFirst(ethnicity, gender);
+	},
+
+	HumanFirst: function(ethnicity, gender)
+	{
+		if(ethnicityOption == "standard")
 		{
-			case 'Marriage' :
-				var spouseRace;
-				if(RandomNum(3) < 2)
-					spouseRace = character.Race._name;
-				else
-					spouseRace = GetRaceWeighted();
-				newEvent = 'You fell in love or got married to a(n) ' + spouseRace.toLowerCase() + ' ' + GetOccupation().toLowerCase() + '.';
-				break;
-			case 'Friend' :
-				newEvent = 'You made a friend of a(n) ' + GetRaceWeighted().toLowerCase() + ' ' + GetClassWeighted().toLowerCase() + '.';
-				break;
-			case 'Enemy' :
-				newEvent = 'You made an enemy of a(n) ' + GetRaceWeighted().toLowerCase() + ' ' + GetClassWeighted().toLowerCase() + '. Roll a d6. An odd number indicates you are to blame for the rift, and an even number indicates you are blameless.';
-				break;
-			case 'Job' :
-				newEvent = 'You spent time working in a job related to your background. Start the game with an extra 2d6 gp.';
-				break;
-			case 'Someone Important' :
-				newEvent = 'You met an important ' + GetRaceWeighted().toLowerCase() + ', who is ' + GetRelationship().toLowerCase() + ' towards you.';
-				break;
-			case 'Adventure' :
-				var rand = RandomNum(100);
-				if(rand == 99)
-					newEvent = eventTables.Adventure[10];
-				else
-					newEvent = eventTables.Adventure[Math.floor(rand/10)];
-				break;
-			case 'Crime' :
-					newEvent = RandomFromArray(eventTables.Crime) + '. ' + RandomFromArray(eventTables.Punishment);
-				break;
-			default:
-				newEvent = RandomFromArray(eventTables[newEventType]);
-				break;
+			if(ethnicity == "Tethyrian")
+				return this.GetGendered(names.Human.Chondathan, gender);
+			return this.GetGendered(names.Human[ethnicity], gender);
 		}
-		lifeEvents[newEventType] = newEvent;
-	}
-	return lifeEvents;
-}
+		return this.GetGendered(names["Human (Real)"][ethnicity], gender);
+	},
 
-function FinishLife()
-{
-	var raisedBy = GetRaisedBy();
-	character.Life.Origin['Raised By'] = raisedBy;
-	if(raisedBy == 'Mother and father')
-		delete character.Life.Origin['Absent Parent(s)'];
-	else
-		character.Life.Origin['Absent Parent(s)'] = GetAbsentParent();
-	var lifestyle = GetLifestyle();
-	character.Life.Origin['Family Lifestyle'] = lifestyle[0];
-	character.Life.Origin['Childhood Home'] = GetHome(lifestyle[1]);
-	character.Life.Origin['Childhood Memories'] = GetMemories();
-	var siblings = GetSiblings();
-	if(siblings == "None")
-		delete character.Life.Origin.Siblings;
-	else
-		character.Life.Origin.Siblings = siblings;
-	character.Life['Life Events'] = GetLifeEvents();
-}
-
-function GetSiblings()	// Determine who our siblings are
-{
-	var numSiblings = RandomNum(3);
-	if (numSiblings == 0)
+	HumanLast: function(ethnicity)
 	{
-		delete character.Life.Origin.Siblings;
-		return 'None';
-	}
-	siblings = {};
-	for(var sibNum = 0; sibNum < numSiblings; sibNum++)
-	{
-		var newSib = { _name: '' };
-		newSib.Gender = RandomFromArray(genders);
-		newSib.Race = GetSiblingRace(character.Race._name);
-		newSib._name = GetSiblingName(newSib);
-		while(newSib._name == character._name.substring(0, newSib._name.length))
-			newSib._name = GetSiblingName(newSib);
-		newSib.Alignment = GetAlignment();
-		newSib.Occupation = GetOccupation();
-		newSib.Status = GetStatus();
-		
-		newSib.Relationship = GetRelationship();
-		
-		var birthOrderRoll = DiceRoll('2d6');
-		if(newSib.Race == 'Warforged')
+		if(ethnicityOption == "standard")
 		{
-			delete newSib.Gender;
-			if(birthOrderRoll < 3)
-				newSib['Order of Construction'] = 'Simultaneous';
-			else if(birthOrderRoll < 8)
-				newSib['Order of Construction'] = 'Older';
-			else
-				newSib['Order of Construction'] = 'Younger';
+			if(ethnicity == "Bedine")
+				return Random.Array(names.Human.Bedine.Tribe);
+			if(ethnicity == "Tethyrian")
+				return Random.Array(names.Human.Chondathan.Surname);
+			if(ethnicity == "Tuigan" || ethnicity == "Ulutiun")
+				return "";
+			return Random.Array(names.Human[ethnicity].Surname);
 		}
+		return null;
+	},
+	
+	// Get character's human heritage - for half-elves, half-orcs, tieflings, aasimar, and genasi
+	GetHumanEthnicity: () => (mcEthnicity == "Unknown" ? RandomEthnicity.Get() : mcEthnicity),
+}
+
+// Oddball function for returning a random human ethnicity
+var RandomEthnicity =
+{
+	Get: function()
+	{
+		if(ethnicityOption == "standard")
+		{
+			if(books.includes("SCAG"))
+				return Random.Array(races.Human["Subraces and Variants"].Ethnicity.PHB
+					.concat(races.Human["Subraces and Variants"].Ethnicity.SCAG));
+			return Random.Array(races.Human["Subraces and Variants"].Ethnicity.PHB);
+		}
+		return Random.Array(races.Human["Subraces and Variants"].Ethnicity.Real);
+	}
+}
+
+// Return random traits as given in the NPC section of the DMG
+var NPCTraits =
+{
+	Get: function()
+	{
+		var newNPCTraits = {};
+		newNPCTraits.Appearance = Random.Array(npcAppearances);
+		
+		var highTraitNum = Random.Num(npcHighAbilities.length);
+		var lowTraitNum = Random.Num(npcLowAbilities.length);
+		
+		// Reroll when the low ability is the same as the high ability
+		while(lowTraitNum == highTraitNum)
+			lowTraitNum = Random.Num(npcLowAbilities.length);
+		
+		newNPCTraits["High Ability"] = npcHighAbilities[highTraitNum];
+		newNPCTraits["Low Ability"] = npcLowAbilities[lowTraitNum];
+
+		newNPCTraits.Talent = Random.Array(npcTalents);
+		newNPCTraits.Mannerism = Random.Array(npcMannerisms);
+		newNPCTraits["Interaction Trait"] = Random.Array(npcInteractionTraits);
+
+		var ideal = Random.Array(npcIdeals), bond, bond1 = Random.Num(10)
+		if(bond1 < 9)
+			bond = npcBonds[bond1];
 		else
 		{
-			if(birthOrderRoll < 3)
-				newSib['Birth Order'] = 'Twin, triplet, or quadruplet';
-			else if(birthOrderRoll < 8)
-				newSib['Birth Order'] = 'Older';
+			bond1 = Random.Num(9);
+			var bond2 = Random.Num(9);
+			while(bond2 == bond1)
+				bond2 = Random.Num(9);
+			bond = npcBonds[bond1] + ", " + npcBonds[bond2];
+		}
+		newNPCTraits.Values = ideal + ", " + bond;
+		
+		newNPCTraits["Flaw or Secret"] = Random.Array(npcFlawsAndSecrets);
+		return newNPCTraits;
+	}
+}
+
+// Return random life events as given in Xanathar's guide
+var Life =
+{
+	Get: function()
+	{
+			var newLife = {};
+		newLife.Alignment = Random.Array(alignments);
+		newLife.Origin = {};
+		newLife.Origin.Birthplace = Random.Array(origins.Birthplace);
+		var parents = origins.Parents[character.Race.name];
+		if(parents != undefined)
+			newLife.Origin.Parents = Random.Array(parents);
+		
+		var raisedBy = this.RaisedBy();
+		if(raisedBy != "Mother and father")
+			newLife.Origin["Absent Parent(s)"] = this.AbsentParent();
+
+		var lifestyle = this.Lifestyle();
+		newLife.Origin["Family Lifestyle"] = lifestyle[0];
+		newLife.Origin["Childhood Home"] = this.Home(lifestyle[1]);
+		newLife.Origin["Childhood Memories"] = this.Memories();
+
+		newLife.Origin["Siblings"] = this.Siblings(newLife.Origin.Parents);
+
+		newLife["Life Events"] = this.LifeEvents();
+		newLife["Trinket"] = Random.Array(trinkets);
+		
+		return newLife;
+	},
+
+	LifeEvents: function()
+	{
+		var lifeEvents = {};
+		var numEvents = 3 + Random.Num(3);
+		for(var eventNum = 0; eventNum < numEvents; eventNum++)
+		{
+			do {
+				var newEventType = "", randomEventNum = Random.Num(100);
+				if(randomEventNum == 99)
+					newEventType = "Weird Stuff";
+				else
+					newEventType = eventTables["Life Events"][Math.floor(randomEventNum / 5)];
+			} while(lifeEvents.hasOwnProperty([newEventType]))
+			
+			var newEvent = "";
+			switch (newEventType)
+			{
+				case "Marriage" :
+					var spouseRace;
+					if(Random.Num(3) < 2)
+						spouseRace = character.Race.name;
+					else
+						spouseRace = this.RaceWeighted();
+					newEvent = "You fell in love or got married to a(n) " + spouseRace.toLowerCase() + " " + this.Occupation().toLowerCase() + ".";
+					break;
+				case "Friend" :
+					newEvent = "You made a friend of a(n) " + this.RaceWeighted().toLowerCase() + " " + this.ClassWeighted().toLowerCase() + ".";
+					break;
+				case "Enemy" :
+					newEvent = "You made an enemy of a(n) " + this.RaceWeighted().toLowerCase() + " " + this.ClassWeighted().toLowerCase() + ". Roll a d6. An odd number indicates you are to blame for the rift, and an even number indicates you are blameless.";
+					break;
+				case "Job" :
+					newEvent = "You spent time working in a job related to your background. Start the game with an extra 2d6 gp.";
+					break;
+				case "Someone Important" :
+					newEvent = "You met an important " + this.RaceWeighted().toLowerCase() + ", who is " + this.Relationship().toLowerCase() + " towards you.";
+					break;
+				case "Adventure" :
+					var rand = Random.Num(100);
+					if(rand == 99)
+						newEvent = eventTables.Adventure[10];
+					else
+						newEvent = eventTables.Adventure[Math.floor(rand/10)];
+					break;
+				case "Crime" :
+						newEvent = Random.Array(eventTables.Crime) + ". " + Random.Array(eventTables.Punishment);
+					break;
+				default:
+					newEvent = Random.Array(eventTables[newEventType]);
+					break;
+			}
+			lifeEvents[newEventType] = newEvent;
+		}
+		return lifeEvents;
+	},
+
+	Siblings: function(parents)	// Determine who our siblings are
+	{
+		var numSiblings = Random.Num(3);
+		if (numSiblings == 0) return null;
+		siblings = {};
+		for(var sibNum = 0; sibNum < numSiblings; sibNum++)
+		{
+			var newSib = {};
+			if(newSib.Race != "Warforged")
+				newSib.Gender = Random.Array(genders);
+			newSib.Race = this.SiblingRace(parents);
+			newSibName = this.SiblingName(newSib);
+			while(newSibName == character.Name.substring(0, newSibName.length))
+				newSibName = this.SiblingName(newSib);
+			newSib.Alignment = this.Alignment();
+			newSib.Occupation = this.Occupation();
+			newSib.Status = this.Status();
+
+			newSib.Relationship = this.Relationship();
+			
+			var birthOrderRoll = Random.DiceRoll("2d6"), birthOrder;
+			if(newSib.Race == "Warforged")
+			{
+				if(birthOrderRoll < 3) birthOrder = "Simultaneous";
+				else if(birthOrderRoll < 8) birthOrder = "Older";
+				else birthOrder = "Younger";
+				newSib["Order of Construction"] = birthOrder;
+			}
 			else
-				newSib['Birth Order'] = 'Younger';
-		}
-		siblings[newSib._name] = newSib;
-	}
-	return siblings;
-}
-
-function GetSiblingRace(race) 	// If mixed-race, determine races of siblings
-{
-	var parents = character.Life.Origin.Parents;
-	switch(race)
-	{
-		case 'Half-Elf' :
-			if(parents == 'One parent was an elf and the other was a half-elf.')
-				return RandomFromArray([ 'Elf', 'Half-Elf' ]);
-			if(parents == 'One parent was a human and the other was a half-elf.')
-				return RandomFromArray([ 'Human', 'Half-Elf' ]);
-			return 'Half-Elf';
-		case 'Half-Orc' :
-			if(parents == 'One parent was an orc and the other was a half-orc.')
-				return RandomFromArray([ 'Orc', 'Half-Orc' ]);
-			if(parents == 'One parent was an human and the other was a half-orc.')
-				return RandomFromArray([ 'Human', 'Half-Orc' ]);
-			return 'Half-Orc';
-		case 'Tiefling' :
-			if(parents == 'Both parents were humans, their infernal heritage dormant until you came along.')
-				return RandomFromArray([ 'Human', 'Human', 'Human', 'Tiefling' ]);
-			if(parents == 'One parent was a tiefling and the other was a human.')
-				return RandomFromArray([ 'Human', 'Tiefling' ]);
-			return 'Tiefling';
-		case 'Genasi' :
-			if(parents == 'One parent was a genasi and the other was a human.')
-				return RandomFromArray([ 'Human', 'Genasi' ]);
-			if(parents == 'Both parents were humans, their elemental heritage dormant until you came along.')
-				return RandomFromArray([ 'Human', 'Human', 'Human', 'Genasi' ]);
-			return 'Genasi';
-		case 'Aasimar' :
-			if(parents == 'Both parents were humans, their celestial heritage dormant until you came along.')
-				return 'Human';
-			return RandomFromArray([ 'Human', 'Aasimar' ]);
-	}
-	return race;
-}
-
-function GetSiblingName(sibling)
-{
-	var name = '';
-	if(sibling.Race == 'Tabaxi')
-		return RandomFromArray(names.Tabaxi.Name);
-	else if(sibling.Race == 'Human' && character.Race._name != 'Human')
-	{
-		var ethnicity = character.Race['Subraces and Variants']['Human Heritage'];
-		if(ethnicity == 'Unknown')
-			ethnicity = RandomEthnicity();
-		name = GetHumanName(ethnicity, sibling.Gender);
-	}
-	else
-		name = GetName(sibling.Race, sibling);
-	var lastSpace = name.lastIndexOf(' ');
-	if(lastSpace < 0)
-		return name;
-	return name.substring(0, lastSpace);
-}
-
-function GetRaceWeighted()
-{
-	raceWeightList = Object.assign({}, raceWeights);
-	totalWeight = 95;
-	for(var raceIndex in races)
-	{
-		var race = races[raceIndex];
-		var bookString = GetBookString(race._special);
-		if(bookString == 'PHB' || !CheckHasBook(bookString))
-			continue;
-		raceWeightList[race._name] = 1;
-		totalWeight += 1;
-	}
-	var rand = RandomNum(totalWeight);
-	for(var race in raceWeightList)
-	{
-		rand -= raceWeightList[race];
-		if(rand <= 0)
-			return race;
-	}
-}
-
-function GetAlignment()
-{
-	var roll = DiceRoll('3d6');
-	if(roll < 4)
-		return RandomFromArray(['Chaotic Evil', 'Chaotic Neutral']);
-	if(roll < 6)
-		return 'Lawful Evil';
-	if(roll < 9)
-		return 'Neutral Evil';
-	if(roll < 13)
-		return 'Neutral';
-	if(roll < 16)
-		return 'Neutral Good';
-	if(roll < 17)
-		return 'Lawful Good';
-	if(roll < 18)
-		return 'Lawful Neutral';
-	return RandomFromArray(['Chaotic Good', 'Chaotic Neutral']);
-}
-
-function GetOccupation()
-{
-	var rand = RandomNum(100);
-	if(rand < 5)
-		return 'Academic';
-	if(rand < 10)
-		return 'Adventurer (' + GetClassWeighted() + ')';
-	if(rand < 11)
-		return 'Aristocrat';
-	if(rand < 26)
-		return 'Artisan or guild member';
-	if(rand < 31)
-		return 'Criminal';
-	if(rand < 36)
-		return 'Entertainer';
-	if(rand < 38)
-		return 'Exile, hermit, or refugee';
-	if(rand < 43)
-		return 'Explorer or wanderer';
-	if(rand < 55)
-		return 'Farmer or herder';
-	if(rand < 60)
-		return 'Hunter or trapper';
-	if(rand < 75)
-		return 'Laborer';
-	if(rand < 80)
-		return 'Merchant';
-	if(rand < 85)
-		return 'Politician or bureaucrat';
-	if(rand < 90)
-		return 'Priest';
-	if(rand < 95)
-		return 'Sailor';
-	if(rand < 100)
-		return 'Soldier';
-}
-
-function GetClassWeighted()
-{
-	var rand = RandomNum(115);
-	if(rand < 7)
-		return 'Barbarian';
-	if(rand < 14)
-		return 'Bard';
-	if(rand < 29)
-		return 'Cleric';
-	if(rand < 36)
-		return 'Druid';
-	if(rand < 52)
-		return 'Fighter';
-	if(rand < 58)
-		return 'Monk';
-	if(rand < 64)
-		return 'Paladin';
-	if(rand < 70)
-		return 'Ranger';
-	if(rand < 84)
-		return 'Rogue';
-	if(rand < 89)
-		return 'Sorcerer';
-	if(rand < 94)
-		return 'Warlock';
-	if(rand < 100)
-		return 'Wizard';
-	if(rand < 105)
-	{
-		if (books.indexOf('Unofficial' >= 0))
-			return 'Blood Hunter';
-		return GetClassWeighted();
-	}
-	if(rand < 110)
-	{
-		if(books.indexOf('UA' >= 0))
-			return 'Artificer';
-		return GetClassWeighted();
-	}
-	if(books.indexOf('UA' >= 0))
-		return 'Mystic';
-	return GetClassWeighted();
-}
-
-function GetStatus()
-{
-	var roll = DiceRoll('3d6');
-	if(roll < 4)
-		return 'Dead (roll on the Cause of Death table)'
-	if(roll < 6)
-		return 'Missing or unknown'
-	if(roll < 9)
-		return 'Alive, but doing poorly due to injury, financial trouble, or relationship difficulties'
-	if(roll < 13)
-		return 'Alive and well'
-	if(roll < 16)
-		return 'Alive and quite successful'
-	if(roll < 18)
-		return 'Alive and infamous'
-	return 'Alive and famous'
-}
-
-function GetRaisedBy()
-{
-	var rand = RandomNum(100);
-	if(rand < 1)
-		return 'Nobody';
-	if(rand < 2)
-		return 'Institution, such as an asylum';
-	if(rand < 3)
-		return 'Temple';
-	if(rand < 5)
-		return 'Orphanage';
-	if(rand < 7)
-		return 'Guardian';
-	if(rand < 15)
-		return 'Paternal or maternal aunt, uncle, or both; or extended family such as a tribe or clan';
-	if(rand < 25)
-		return 'Paternal or maternal grandparent(s)';
-	if(rand < 35)
-		return 'Adoptive family (same or different race)';
-	if(rand < 55)
-		return 'Single father or stepfather';
-	if(rand < 75)
-		return 'Single mother or stepmother';
-	return 'Mother and father';
-}
-
-function GetAbsentParent()
-{
-	var rand = RandomNum(4);
-	if(rand < 1)
-		return 'Your parent(s) died';
-	if(rand < 2)
-		return 'Your parent(s) was/were imprisoned, enslaved, or otherwise taken away';
-	if(rand < 3)
-		return 'Your parent(s) abandoned you';
-	return 'Your parent(s) disappeared to an unknown fate';
-}
-
-function GetLifestyle()
-{
-	var roll = DiceRoll('3d6');
-	if(roll < 4)
-		return [ 'Wretched', -40 ];
-	if(roll < 6)
-		return [ 'Squalid', -20 ];
-	if(roll < 9)
-		return [ 'Poor', -10 ];
-	if(roll < 13)
-		return [ 'Modest', 0 ];
-	if(roll < 16)
-		return [ 'Comfortable', 10 ];
-	if(roll < 18)
-		return [ 'Wealthy', 20 ];
-	return [ 'Aristocratic', 40 ];
-}
-
-function GetHome(lifeMod)
-{
-	var rand = RandomNum(100) + lifeMod;
-	if(rand < 0)
-		return 'On the streets';
-	if(rand < 20)
-		return 'Rundown shack';
-	if(rand < 30)
-		return 'No permanent residence, you moved around a lot';
-	if(rand < 40)
-		return 'Encampment of village in the wilderness';
-	if(rand < 50)
-		return 'Apartment in a rundown neighborhood';
-	if(rand < 70)
-		return 'Small house';
-	if(rand < 90)
-		return 'Large house';
-	if(rand < 110)
-		return 'Mansion';
-	return 'Palace or Castle';
-}
-
-function GetMemories()
-{
-	var roll = DiceRoll('3d6') + RandomNum(5) - 1;
-	if(roll < 4)
-		return 'I am still haunted by my childhood, when I was treated badly by my peers';
-	if(roll < 6)
-		return 'I spent most of my childhood alone, with no close friends';
-	if(roll < 9)
-		return 'Others saw me as being different or strange, and so I had few companions';
-	if(roll < 13)
-		return 'I had a few close friends and lived an ordinary childhood.';
-	if(roll < 16)
-		return 'I had several friends, and my childhood was generally a happy one.';
-	if(roll < 18)
-		return 'I always found it easy to make friends, and I loved being around people.';
-	return 'Everyone knew who I was, and I had friends everywhere I went.';
-}
-
-function GetRelationship()
-{
-	var roll = DiceRoll('3d4');
-	if(roll < 5)
-		return 'Hostile';
-	else if(roll < 11)
-		return 'Friendly';
-	return 'Indifferent';
-}
-
-function RandomNum(max)	// Generate random number
-{
-	return Math.floor(Math.random() * max);
-}
-
-function RandomFromArray(arr)	// Pick a random element from an array
-{
-	return arr[RandomNum(arr.length)];
-}
-
-function RandomFromArrayCheckBooks(arr)
-{
-	var returnArray = [];
-	for(var index in arr)
-	{
-		var item = arr[index];
-		if(typeof item == 'object')
-		{
-			if(item.hasOwnProperty('_special'))
 			{
-				if(!CheckHasBook(GetBookString(item._special)))
-					continue;
+				if(birthOrderRoll < 3) birthOrder = "Twin, triplet, or quadruplet";
+				else if(birthOrderRoll < 8) birthOrder = "Older";
+				else birthOrder = "Younger";
+				newSib["Birth Order"] = birthOrder;
 			}
+			siblings[newSibName] = newSib;
 		}
-		returnArray.push(index);
-	}
-	return RandomFromArray(returnArray);
-}
+		return siblings;
+	},
 
-function RandomFromArrayMultiple(arr, num)	// Pick multiple random elements from an array
-{
-	var returnArray = [];
-	while(returnArray.length < num)
+	SiblingRace: function(parents) 	// If mixed-race, determine races of siblings
 	{
-		var item = RandomFromArray(arr);
-		if(returnArray.indexOf(item) < 0)
-			returnArray.push(item);
-	}
-	return returnArray.join(', ');
-}
-
-function RandomFromBookArray(bookList)	// Pick a random element from a list of book arrays
-{
-	var bookListWeights = [];
-	var totalWeight = 0;
-	for(var bookName in bookList)
-	{
-		for(var bookNum in books)
+		switch(character.Race.name)
 		{
-			if(bookName.indexOf(books[bookNum]) >= 0)
-			{
-				var weight = bookList[bookName].length;
-				bookListWeights.push({ 'name' : bookName, 'weight' : weight });
-				totalWeight += weight;
+			case "Half-Elf" :
+				if(parents == "One parent was an elf and the other was a half-elf.")
+					return Random.Array([ "Elf", "Half-Elf" ]);
+				if(parents == "One parent was a human and the other was a half-elf.")
+					return Random.Array([ "Human", "Half-Elf" ]);
+				return "Half-Elf";
+			case "Half-Orc" :
+				if(parents == "One parent was an orc and the other was a half-orc.")
+					return Random.Array([ "Orc", "Half-Orc" ]);
+				if(parents == "One parent was an human and the other was a half-orc.")
+					return Random.Array([ "Human", "Half-Orc" ]);
+				return "Half-Orc";
+			case "Tiefling" :
+				if(parents == "Both parents were humans, their infernal heritage dormant until you came along.")
+					return Random.Array([ "Human", "Human", "Human", "Tiefling" ]);
+				if(parents == "One parent was a tiefling and the other was a human.")
+					return Random.Array([ "Human", "Tiefling" ]);
+				return "Tiefling";
+			case "Genasi" :
+				if(parents == "One parent was a genasi and the other was a human.")
+					return Random.Array([ "Human", "Genasi" ]);
+				if(parents == "Both parents were humans, their elemental heritage dormant until you came along.")
+					return Random.Array([ "Human", "Human", "Human", "Genasi" ]);
+				return "Genasi";
+			case "Aasimar" :
+				if(parents == "Both parents were humans, their celestial heritage dormant until you came along.")
+					return "Human";
+				return Random.Array([ "Human", "Aasimar" ]);
+		}
+		return character.Race.name;
+	},
+
+	// Determine race based on weighted probabilities (ie. more common races are more likely to come up)
+	RaceWeighted: function()
+	{
+		raceWeightList = Object.assign({}, raceWeights);
+		totalWeight = 95;
+		for(var raceName in races)
+		{
+			var race = races[raceName];
+			if(race._special.includes("PHB") || !Books.CheckSpecial(race._special))
 				continue;
-			}
+			raceWeightList[raceName] = 3;
+			totalWeight += 3;
 		}
-	}
-	var randomNum = RandomNum(totalWeight);
-	var bookNum = 0;
-	while(randomNum >= bookListWeights[bookNum].weight)
-	{
-		randomNum -= bookListWeights[bookNum].weight;
-		bookNum++;
-	}
-	return bookList[bookListWeights[bookNum].name][randomNum];
-}
+		var rand = Random.Num(totalWeight);
+		for(var race in raceWeightList)
+		{
+			rand -= raceWeightList[race];
+			if(rand <= 0)
+				return race;
+		}
+	},
 
-function DiceRoll(roll)	// Roll dice based on a string (eg. '2d6')
-{
-	numbers = roll.split('d');
-	if(numbers.length == 1)
-		return numbers[0];
-	var total = 0;
-	for(die = 0; die < numbers[0]; die++)
-		total += RandomNum(numbers[1]) + 1;
-	return total;
-}
-
-function CheckHasBook(book)
-{
-	if(book == null)
-		return true;
-	for(var index in books)
-	{
-		if(book.indexOf(books[index]) >= 0)
-			return true;
-	}
-	return false;
-}
 	
-function GetBookString(string)
-{
-	if(string.substring(0, 5) != 'book-')
-		return null;
-	var spaceIndex = string.indexOf(' ');
-	if(spaceIndex < 0)
-		bookString = string.substring(5);
-	else
-		bookString = string.substring(5, spaceIndex);
-	return bookString;
+	// Random tables
+	
+	SiblingName: function(sibling)
+	{
+		var siblingRace = sibling.Race, name;
+		if(siblingRace == "Tabaxi")
+			return Random.Array(names.Tabaxi.Name);
+		else if(siblingRace == "Human" && character.Race.name != "Human")
+			name = Names.GetHuman(Names.GetHumanEthnicity(), sibling.Gender);
+		else
+			name = Names.Get(sibling.Race, sibling.Gender);
+		var lastSpace = name.lastIndexOf(" ");
+		if(lastSpace < 0)
+			return name;
+		return name.substring(0, lastSpace);
+	},
+
+	Alignment: function()
+	{
+		var roll = Random.DiceRoll("3d6");
+		if(roll < 4) return Random.Array(["Chaotic Evil", "Chaotic Neutral"]);
+		if(roll < 6) return "Lawful Evil";
+		if(roll < 9) return "Neutral Evil";
+		if(roll < 13) return "Neutral";
+		if(roll < 16) return "Neutral Good";
+		if(roll < 17) return "Lawful Good";
+		if(roll < 18) return "Lawful Neutral";
+		return Random.Array(["Chaotic Good", "Chaotic Neutral"]);
+	},
+
+	Occupation: function()
+	{
+		var rand = Random.Num(100);
+		if(rand < 5) return "Academic";
+		if(rand < 10) return "Adventurer (" + this.ClassWeighted() + ")";
+		if(rand < 11) return "Aristocrat";
+		if(rand < 26) return "Artisan or guild member";
+		if(rand < 31) return "Criminal";
+		if(rand < 36) return "Entertainer";
+		if(rand < 38) return "Exile, hermit, or refugee";
+		if(rand < 43) return "Explorer or wanderer";
+		if(rand < 55) return "Farmer or herder";
+		if(rand < 60) return "Hunter or trapper";
+		if(rand < 75) return "Laborer";
+		if(rand < 80) return "Merchant";
+		if(rand < 85) return "Politician or bureaucrat";
+		if(rand < 90) return "Priest";
+		if(rand < 95) return "Sailor";
+		if(rand < 100) return "Soldier";
+	},
+
+	ClassWeighted: function()
+	{
+		var rand = Random.Num(115);
+		if(rand < 7) return "Barbarian";
+		if(rand < 14) return "Bard";
+		if(rand < 29) return "Cleric";
+		if(rand < 36) return "Druid";
+		if(rand < 52) return "Fighter";
+		if(rand < 58) return "Monk";
+		if(rand < 64) return "Paladin";
+		if(rand < 70) return "Ranger";
+		if(rand < 84) return "Rogue";
+		if(rand < 89) return "Sorcerer";
+		if(rand < 94) return "Warlock";
+		if(rand < 100) return "Wizard";
+		if(rand < 105)
+		{
+			if (books.includes("Unofficial"))
+				return "Blood Hunter";
+			return this.ClassWeighted();
+		}
+		if(rand < 110)
+		{
+			if(books.includes("UA"))
+				return "Artificer";
+			return this.ClassWeighted();
+		}
+		if(books.includes("UA"))
+			return "Mystic";
+		return this.ClassWeighted();
+	},
+
+	Status: function()
+	{
+		var roll = Random.DiceRoll("3d6");
+		if(roll < 4) return "Dead (roll on the Cause of Death table)"
+		if(roll < 6) return "Missing or unknown"
+		if(roll < 9) return "Alive, but doing poorly due to injury, financial trouble, or relationship difficulties"
+		if(roll < 13) return "Alive and well"
+		if(roll < 16) return "Alive and quite successful"
+		if(roll < 18) return "Alive and infamous"
+		return "Alive and famous"
+	},
+
+	RaisedBy: function()
+	{
+		var rand = Random.Num(100);
+		if(rand < 1) return "Nobody";
+		if(rand < 2) return "Institution, such as an asylum";
+		if(rand < 3) return "Temple";
+		if(rand < 5) return "Orphanage";
+		if(rand < 7) return "Guardian";
+		if(rand < 15) return "Paternal or maternal aunt, uncle, or both; or extended family such as a tribe or clan";
+		if(rand < 25) return "Paternal or maternal grandparent(s)";
+		if(rand < 35) return "Adoptive family (same or different race)";
+		if(rand < 55) return "Single father or stepfather";
+		if(rand < 75) return "Single mother or stepmother";
+		return "Mother and father";
+	},
+
+	AbsentParent: function()
+	{
+		var rand = Random.Num(4);
+		if(rand < 1) return "Your parent(s) died";
+		if(rand < 2) return "Your parent(s) was/were imprisoned, enslaved, or otherwise taken away";
+		if(rand < 3) return "Your parent(s) abandoned you";
+		return "Your parent(s) disappeared to an unknown fate";
+	},
+
+	Lifestyle: function()
+	{
+		var roll = Random.DiceRoll("3d6");
+		if(roll < 4) return [ "Wretched", -40 ];
+		if(roll < 6) return [ "Squalid", -20 ];
+		if(roll < 9) return [ "Poor", -10 ];
+		if(roll < 13) return [ "Modest", 0 ];
+		if(roll < 16) return [ "Comfortable", 10 ];
+		if(roll < 18) return [ "Wealthy", 20 ];
+		return [ "Aristocratic", 40 ];
+	},
+
+	Home: function(lifeMod)
+	{
+		var rand = Random.Num(100) + lifeMod;
+		if(rand < 0) return "On the streets";
+		if(rand < 20) return "Rundown shack";
+		if(rand < 30) return "No permanent residence, you moved around a lot";
+		if(rand < 40) return "Encampment of village in the wilderness";
+		if(rand < 50) return "Apartment in a rundown neighborhood";
+		if(rand < 70) return "Small house";
+		if(rand < 90) return "Large house";
+		if(rand < 110) return "Mansion";
+		return "Palace or Castle";
+	},
+
+	Memories: function()
+	{
+		var roll = Random.DiceRoll("3d6") + Random.Num(5) - 1;
+		if(roll < 4) return "I am still haunted by my childhood, when I was treated badly by my peers";
+		if(roll < 6) return "I spent most of my childhood alone, with no close friends";
+		if(roll < 9) return "Others saw me as being different or strange, and so I had few companions";
+		if(roll < 13) return "I had a few close friends and lived an ordinary childhood.";
+		if(roll < 16) return "I had several friends, and my childhood was generally a happy one.";
+		if(roll < 18) return "I always found it easy to make friends, and I loved being around people.";
+		return "Everyone knew who I was, and I had friends everywhere I went.";
+	},
+
+	Relationship: function()
+	{
+		var roll = Random.DiceRoll("3d4");
+		if(roll < 5) return "Hostile";
+		else if(roll < 11) return "Friendly";
+		return "Indifferent";
+	},
 }
+
+// When the page loads
+$(function()
+{
+	Dropdowns.Update();
+	Generate.All();
+});

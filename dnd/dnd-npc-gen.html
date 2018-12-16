@@ -1,98 +1,10 @@
 <!DOCTYPE html>
-<html style="background-image: url('./dndimages/npcgenbkg.jpg')">
-	<link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" />
-	<head>
+<html>
+	<head>	
 		<meta charset="utf-8"/>
-		<title>D&D 5e NPC Generator</title>
-		<link rel="stylesheet" type="text/css" href="dnd-style.css">
-		<script src="dnd-data.js"></script> 
-		<script src="char-gen-script.js"></script> 
-		<script src="npc-gen-script.js"></script> 
+		<meta http-equiv="Refresh" content="0; url=dnd-char-gen.html" />
 	</head>
 	<body>
-		<div id="kofiheader" style="text-align: center;">
-			<br>
-			<script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
-			<script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#46b798', 'Q5Q8MRF6');kofiwidget2.draw();</script>
-		</div>
-		<div class="content">
-			<div class="centeredcontainer"><a href="dnd-reference.html">Reference</a> - <a href="dnd-char-gen.html">Character Generator</a> - <b>NPC Generator</b> - <a href="dnd-statblock.html">Statblock Generator</a></div>
-			<h1>D&D 5e Random NPC Generator</h1>
-			<br>
-			<div>Select which books to use:</div>
-			<ul class="booklist">
-				<li><b><input id="PHBbox" type="checkbox" disabled checked> <label for="PHBbox">Player's Handbook</label></b></li>
-				<li><b><input id="EEbox" type="checkbox" onclick="UpdateAllDropdownsNPC()" checked> <label for="EEbox">Elemental Evil Player's Companion</label></b></li>
-				<li><b><input id="SCAGbox" type="checkbox" onclick="UpdateAllDropdownsNPC()" checked> <label for="SCAGbox">Sword Coast Adventurer's Guide</label></b></li>
-				<li><b><input id="VGtMbox" type="checkbox" onclick="UpdateAllDropdownsNPC()" checked> <label for="VGtMbox">Volo's Guide to Monsters</label></b></li>
-				<li><b><input id="MRbox" type="checkbox" onclick="UpdateAllDropdownsNPC()" checked> <label for="MRbox">Volo's Guide (Monstrous Races)</label></b></li>
-				<li><b><input id="XGtEbox" type="checkbox" onclick="UpdateAllDropdownsNPC()" checked> <label for="XGtEbox">Xanathar's Guide to Everything</label></b></li>
-				<li><b><input id="MToFbox" type="checkbox" onclick="UpdateAllDropdownsNPC()" checked> <label for="MToFbox">Mordenkainen's Tome of Foes</label></b></li>
-				<li><b><input id="GGtRbox" type="checkbox" onclick="UpdateAllDropdownsNPC()" checked> <label for="GGtRbox">Guildmaster's Guide to Ravnica</label></b></li>
-				<li><b><input id="Otherbox" type="checkbox" onclick="UpdateAllDropdownsNPC()" checked> <label for="Otherbox">Other Content</label></b></li>
-				<li><b><input id="DMGbox" type="checkbox" onclick="UpdateAllDropdownsNPC()"> <label for="DMGbox">Dungeon Master's Guide</label></b></li>
-				<li><b><input id="WGtEbox" type="checkbox" onclick="UpdateAllDropdownsNPC()"> <label for="WGtEbox">Wayfinder's Guide to Eberron</label></b></li>
-				<li><b><input id="UAbox" type="checkbox" onclick="UpdateAllDropdownsNPC()"> <label for="UAbox">Unearthed Arcana</label></b></li>
-				<li><b><input id="Unofficialbox" type="checkbox" onclick="UpdateAllDropdownsNPC()"> <label for="Unofficialbox">Notable Unofficial Content</label></b></li>
-			</ul>
-			<br><hr><br>
-			
-			<div class="centeredcontainer">
-				<span class="randombuttoncontainer"><button type="button" onclick="RandomizeAllNPC()">Randomize NPC</button> </span>
-				<span class="randombuttoncontainer"><button type="button" onclick="RandomizeNameNPC(false)">Randomize Name</button> </span>
-				<span class="randombuttoncontainer"><button type="button" onclick="RandomizeRaceNPC(false)">Randomize Race</button> </span>
-				<span class="randombuttoncontainer"><button type="button" onclick="RandomizeTraitsNPC(false)">Randomize Traits</button></span>
-				<br><br>
-				<div id="ethnicityRadioButtons" class="centeredcontainer" >
-					Human Ethnicities: &nbsp;
-					<input id="standardRadio" type="radio" name="ethnicityButton" value="standardRadio" checked> <label for="standardRadio"> Standard Ethnicities </label> &nbsp;
-					<input id="realRadio" type="radio" name="ethnicityButton" value="realRadio"> <label for="realRadio"> Real Ethnicities </label> &nbsp;
-					<input id="bothRadio" type="radio" name="ethnicityButton" value="bothRadio"> <label for="bothRadio"> Both </label>
-				</div>
-				<br>
-				<div class="dropdowncontainer"><b>Gender: </b><select class="dropdown" id="gendermenu"></select></div>
-				<div class="dropdowncontainer"><b>Race: </b><select class="dropdown" id="racemenu"></select></div>
-			</div>
-			
-			<br><hr><br>
-			
-			<div id="textTypeRadioButtons" class="centeredcontainer" >
-				<input id="bulletpointRadio" type="radio" name="textTypeButton" value="bulletpointRadio" onclick="ShowBulletPointList()" checked> <label for="bulletpointRadio"> Show Bullet Point List </label> &nbsp;
-				<input id="plaintextRadio" type="radio" name="textTypeButton" value="plaintextRadio" onclick="ShowPlainText()"> <label for="plaintextRadio"> Show Plaintext </label> &nbsp;
-			</div>
-			
-			<div id="bulletpoints">
-				<h2><span id="name"></span></h2>
-				<ul>
-					<li><b>Race:</b> <span class="randomfield" id="race"></span></li>
-					<li><b>Gender:</b> <span class="randomfield" id="gender"></span></li>
-				</ul>
-				
-				<h3>Race: <span id="raceheader"></h3>
-				<ul>
-					<span id="racesection"></span>
-				</ul>
-				
-				<h3>Traits: <span id="traitsheader"></h3>
-				<ul>
-					<span id="traitssection"></span>
-				</ul>
-			</div>
-			
-			<div id="plaintext">
-				<h2>Plain text: </h2>
-				<textarea rows="25" cols="100" id="textarea" readonly></textarea>
-			</div>
-			
-		</div>
+		<p>The NPC Generator has been merged with the <a href="dnd-char-gen.html">Character Generator</a>.</p>
 	</body>
-	<script>
-		UpdateAllDropdownsNPC();
-		RandomizeAllNPC();
-
-		if(document.getElementById('plaintextRadio').checked)
-			document.getElementById('bulletpoints').setAttribute('hidden', 'true');
-		else
-			document.getElementById('plaintext').setAttribute('hidden', 'true');
-	</script>
 </html>

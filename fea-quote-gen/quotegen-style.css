@@ -1,5 +1,4 @@
-html
-{
+html{
 	background-image: url("feimages/pagebackground.jpg");
 	background-attachment: fixed;
 	background-size: cover; 
@@ -7,8 +6,7 @@ html
 	height: 100%;
 }
 
-body
-{
+body{
     max-width: 800px;
     margin: 0px auto;
 	text-align: center;
@@ -19,42 +17,47 @@ body
 	min-height: 100%;
 }
 
-h1
-{
+h1{
 	padding-top: 15px;
 	font-family: Chiaro;
 }
 
-td
-{
+td{
 	width: auto%;
 }
 
-@font-face
-{
+input[type=number] {
+    width: 50px;
+}
+
+input[type=file] {
+    width: 400px;
+}
+
+@font-face{
     font-family: 'Chiaro';
 	src: url('Chiaro.otf');
 }
 
-.footer
-{
+.left-align{
+	text-align: left;
+}
+
+.right-align{
+	text-align: right;
+}
+
+.x-button{
+	cursor: pointer;
+}
+
+#footer{
 	font-family: Arial, sans-serif;
 	font-size: 10px;
 	padding: 10px;
 }
 
-.leftalign
-{
-	text-align: left;
-}
-
-.rightalign
-{
-	text-align: right;
-}
-
-#imagecanvas
-{
+#imagecanvas{
 	border-color: white;
 	border-style: solid;
 }

@@ -20,10 +20,10 @@ var bookNames =
 var genders = ['Male', 'Male', 'Male', 'Male', 'Male', 'Female', 'Female', 'Female', 'Female', 'Female', 'Nonbinary or Unknown' ];
 
 var races =
-[
+{
+	'Dragonborn' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Dragonborn',
 		'Subraces and Variants' :
 		{
 			'Draconic Ancestry' : [ 'Black', 'Blue', 'Brass', 'Bronze', 'Copper', 'Gold', 'Green', 'Red', 'Silver', 'White' ]
@@ -37,21 +37,17 @@ var races =
 			'heightmod' : '2d8',
 			'baseweight' : 175,
 			'weightmod' : '2d6',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Red', 'Gold' ],
 				'Scales' : 'See Ancestry'
 			}
 		},
-		'Childhood Nickname' : 
-		{
-			'_special' : 'dragonbornnickname',
-			'_array' : [ 'Climber', 'Earbender', 'Leaper', 'Pious', 'Shieldbiter', 'Zealous' ]
-		}
+		'Childhood Nickname' : [ 'Climber', 'Earbender', 'Leaper', 'Pious', 'Shieldbiter', 'Zealous' ]
 	},
+	'Dwarf' :
 	{
-		'_special' : 'book-PHB',
-		'_name' : 'Dwarf',
+		'_special' : 'book-PHB subracesort',
 		'Subraces and Variants' : 
 		{
 			'Subrace' :
@@ -73,7 +69,7 @@ var races =
 				'heightmod' : '2d4',
 				'baseweight' : 115,
 				'weightmod' : '2d6',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Brown', 'Hazel' ],
 					'Skin' : [ 'Pale (red-tinged)', 'Fair (red-tinged)', 'Light Brown', 'Brown', 'Dark Brown' ],
@@ -89,7 +85,7 @@ var races =
 				'heightmod' : '2d4',
 				'baseweight' : 130,
 				'weightmod' : '2d6',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Brown', 'Hazel' ],
 					'Skin' : [ 'Pale (red-tinged)', 'Fair (red-tinged)', 'Light Brown', 'Brown', 'Dark Brown' ],
@@ -105,7 +101,7 @@ var races =
 				'heightmod' : '2d4',
 				'baseweight' : 130,
 				'weightmod' : '2d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Black' ],
 					'Skin' : [ 'Gray' ],
@@ -114,9 +110,9 @@ var races =
 			}
 		}
 	},
+	'Elf' :
 	{
-		'_special' : 'book-PHB',
-		'_name' : 'Elf',
+		'_special' : 'book-PHB subracesort',
 		'Subraces and Variants' : 
 		{
 			'Subrace' :
@@ -140,7 +136,7 @@ var races =
 				'heightmod' : '2d10',
 				'baseweight' : 90,
 				'weightmod' : '1d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Silver', 'Gold', 'Black', 'Gold-flecked Blue', 'Gold-flecked Green' ],
 					'Skin' : [ 'Bronze', 'Alabaster', 'Blue-Tinged Alabaster' ],
@@ -156,7 +152,7 @@ var races =
 				'heightmod' : '2d10',
 				'baseweight' : 100,
 				'weightmod' : '1d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Brown', 'Green', 'Hazel' ],
 					'Skin' : [ 'Light Copper', 'Copper', 'Dark Copper', 'Greenish-copper' ],
@@ -172,7 +168,7 @@ var races =
 				'heightmod' : '2d6',
 				'baseweight' : 75,
 				'weightmod' : '1d6',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Pale Lilac', 'Pale Silver', 'Pale Pink', 'Pale Red', 'Pale Blue' ],
 					'Skin' : [ 'Obsidian Black' ],
@@ -188,7 +184,7 @@ var races =
 				'heightmod' : '2d12',
 				'baseweight' : 90,
 				'weightmod' : '1d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Blue', 'Violet', 'Green' ],
 					'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
@@ -204,7 +200,7 @@ var races =
 				'heightmod' : '2d8',
 				'baseweight' : 90,
 				'weightmod' : '1d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Blue', 'Gold', 'White-Silver' ],
 					'Skin' : [ 'Deep Green with brown stripes', 'Blue with white stripes' ],
@@ -220,7 +216,7 @@ var races =
 				'heightmod' : '2d8',
 				'baseweight' : 90,
 				'weightmod' : '1d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Black' ],
 					'Skin' : [ 'Alabaster', 'Light Gray', 'Gray', 'Dark Gray' ],
@@ -236,7 +232,7 @@ var races =
 				'heightmod' : '2d10',
 				'baseweight' : 90,
 				'weightmod' : '1d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Silver', 'Gold', 'Black', 'Gold-flecked Blue', 'Gold-flecked Green' ],
 					'Skin' : [ 'Bronze', 'Alabaster', 'Blue-Tinged Alabaster' ],
@@ -252,7 +248,7 @@ var races =
 				'heightmod' : '2d10',
 				'baseweight' : 100,
 				'weightmod' : '1d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Brown', 'Green', 'Hazel' ],
 					'Skin' : [ 'Light Copper', 'Copper', 'Dark Copper', 'Greenish-copper' ],
@@ -268,7 +264,7 @@ var races =
 				'heightmod' : '2d10',
 				'baseweight' : 90,
 				'weightmod' : '1d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Silver', 'Gold', 'Black', 'Gold-flecked Blue', 'Gold-flecked Green' ],
 					'Skin' : [ 'Bronze', 'Alabaster', 'Blue-Tinged Alabaster' ],
@@ -284,7 +280,7 @@ var races =
 				'heightmod' : '2d10',
 				'baseweight' : 100,
 				'weightmod' : '1d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Brown', 'Green', 'Hazel' ],
 					'Skin' : [ 'Light Copper', 'Copper', 'Dark Copper', 'Greenish-copper' ],
@@ -300,7 +296,7 @@ var races =
 				'heightmod' : '2d10',
 				'baseweight' : 90,
 				'weightmod' : '1d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Blue', 'Green', 'Purple' ],
 					'Skin' : [ 'White', 'Pale' ],
@@ -317,7 +313,7 @@ var races =
 				'heightmod' : '2d6',
 				'baseweight' : 75,
 				'weightmod' : '1d6',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Brown', 'Green', 'Hazel' ],
 					'Skin' : [ 'Light Copper', 'Copper', 'Dark Copper', 'Greenish-copper' ],
@@ -326,9 +322,9 @@ var races =
 			}
 		}
 	},
+	'Gnome' :
 	{
-		'_special' : 'book-PHB',
-		'_name' : 'Gnome',
+		'_special' : 'book-PHB subracesort',
 		'Subraces and Variants' : 
 		{
 			'Subrace' :
@@ -350,7 +346,7 @@ var races =
 				'heightmod' : '2d4',
 				'baseweight' : 35,
 				'weightmod' : '1',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Glittering Black', 'Glittering Blue' ],
 					'Skin' : [ 'Ruddy Tan', 'Woody Brown', 'Rocky Gray' ],
@@ -366,7 +362,7 @@ var races =
 				'heightmod' : '2d4',
 				'baseweight' : 35,
 				'weightmod' : '1',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Glittering Black', 'Glittering Blue' ],
 					'Skin' : [ 'Ruddy Tan', 'Woody Brown', 'Rocky Gray' ],
@@ -382,7 +378,7 @@ var races =
 				'heightmod' : '2d4',
 				'baseweight' : 90,
 				'weightmod' : '1d6',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Gray', 'Black' ],
 					'Skin' : [ 'Gray', 'Brown', 'Dun' ],
@@ -396,9 +392,9 @@ var races =
 			}
 		}
 	},
+	'Halfling' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Halfling',
 		'Subraces and Variants' : 
 		{
 			'Subrace' :
@@ -417,7 +413,7 @@ var races =
 			'heightmod' : '2d4',
 			'baseweight' : 35,
 			'weightmod' : '1',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Brown', 'Hazel' ],
 				'Skin' : [ 'Ruddy-cast pale', 'Ruddy-cast fair', 'Tan' ],
@@ -425,9 +421,9 @@ var races =
 			}
 		}
 	},
+	'Half-Elf' :
 	{
-		'_special' : 'book-PHB',
-		'_name' : 'Half-Elf',
+		'_special' : 'book-PHB subracesort-Elven_Ancestry',
 		'Subraces and Variants' : 
 		{
 			'Elven Ancestry' : [ 'Wood Elf', 'High Elf', 'Drow', 'Aquatic Elf' ],
@@ -445,7 +441,7 @@ var races =
 				'heightmod' : '2d8',
 				'baseweight' : 110,
 				'weightmod' : '2d4',							
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
 					'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown', 'Light Copper', 'Copper', 'Dark Copper', 'Greenish-copper' ],
@@ -461,7 +457,7 @@ var races =
 				'heightmod' : '2d8',
 				'baseweight' : 110,
 				'weightmod' : '2d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray', 'Silver', 'Gold', 'Black', 'Gold-flecked Blue', 'Gold-flecked Green' ],
 					'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown', 'Bronze', 'Alabaster', 'Blue-Tinged Alabaster' ],
@@ -477,7 +473,7 @@ var races =
 				'heightmod' : '2d8',
 				'baseweight' : 110,
 				'weightmod' : '2d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray', 'Pale Lilac', 'Pale Silver', 'Pale Pink', 'Pale Red', 'Pale Blue' ],
 					'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown', 'Obsidian Black' ],
@@ -493,7 +489,7 @@ var races =
 				'heightmod' : '2d8',
 				'baseweight' : 110,
 				'weightmod' : '2d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray', 'Gold', 'White-Silver' ],
 					'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown', 'Deep Green with brown stripes', 'Blue with white stripes' ],
@@ -502,12 +498,11 @@ var races =
 			}
 		}
 	},
+	'Half-Orc' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Half-Orc',
 		'Subraces and Variants' : 
 		{
-			'_special' : 'halforcsubraces',
 			'Human Heritage' : { '_special' : 'halfethnicity' }
 		},
 		'Physical Characteristics' :
@@ -519,7 +514,7 @@ var races =
 			'heightmod' : '2d10',
 			'baseweight' : 140,
 			'weightmod' : '2d6',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Red', 'Gray' ],
 				'Skin' : [ 'Gray', 'Greenish-gray', 'Purplish-gray', 'Bluish-gray' ],
@@ -527,9 +522,9 @@ var races =
 			}
 		}
 	},
+	'Human' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Human',
 		'Subraces and Variants' : 
 		{
 			'Ethnicity' :
@@ -549,7 +544,7 @@ var races =
 			'heightmod' : '2d10',
 			'baseweight' : 110,
 			'weightmod' : '2d4',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
 				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
@@ -557,9 +552,9 @@ var races =
 			}
 		}
 	},
+	'Tiefling' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Tiefling',
 		'Subraces and Variants' :
 		{
 			'Subrace' :
@@ -572,7 +567,7 @@ var races =
 			'Variant' :
 			{
 				'_special' : 'book-SCAG tieflingvarianttype',
-				'_array' : [ '_none', 'Devil\'s Tongue', 'Hellfire', 'Winged', 'Feral', 'Feral, Devil\'s Tongue', 'Feral, Hellfire', 'Feral, Winged' ]
+				'_array' : [ null, 'Devil\'s Tongue', 'Hellfire', 'Winged', 'Feral', 'Feral, Devil\'s Tongue', 'Feral, Hellfire', 'Feral, Winged' ]
 			},
 			'Human Heritage' : { '_special' : 'halfethnicity' }
 		},
@@ -585,7 +580,7 @@ var races =
 			'heightmod' : '2d8',
 			'baseweight' : 110,
 			'weightmod' : '2d4',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Black', 'Red', 'White', 'Silver', 'Gold' ],
 				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown', 'Light Red', 'Red', 'Dark Red', 'Light Red', 'Red', 'Dark Red' ],
@@ -599,9 +594,9 @@ var races =
 			}
 		}
 	},
+	'Aarakocra' :
 	{
 		'_special' : 'book-EE',
-		'_name' : 'Aarakocra',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -611,7 +606,7 @@ var races =
 			'heightmod' : '2d10',
 			'baseweight' : 65,
 			'weightmod' : '1d4',
-			'other' :
+			'_other' :
 			{
 				'Eyes' : [ "Black" ],
 				'Plumage' : 
@@ -623,9 +618,9 @@ var races =
 			}
 		}
 	},
+	'Genasi' :
 	{
-		'_special' : 'book-EE',
-		'_name' : 'Genasi',
+		'_special' : 'book-EE subracesort',
 		'Subraces and Variants' : 
 		{
 			'Subrace' : [ 'Air Genasi', 'Earth Genasi', 'Fire Genasi', 'Water Genasi' ],
@@ -643,13 +638,13 @@ var races =
 				'heightmod' : '2d10',
 				'baseweight' : 120,
 				'weightmod' : '2d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Light Blue' ],
 					'Skin' : [ 'Light Blue' ],
 					'Hair' : [ 'Light Blue' ],
 					'Voice' : [ 'Normal', 'Breathy, with a faint echo' ],
-					'Other Traits' : [ '_none', '_none', '_none', '_none', 'Odd patterns on flesh', 'Crystals growing from scalp' ]
+					'Other Traits' : [ null, null, null, null, 'Odd patterns on flesh', 'Crystals growing from scalp' ]
 				}
 			},
 			'Earth Genasi' : 
@@ -661,7 +656,7 @@ var races =
 				'heightmod' : '2d10',
 				'baseweight' : 120,
 				'weightmod' : '2d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Brown', 'Hazel', 'Orange', 'Blue', 'Earthlike' ],
 					'Skin Color' : [ 'Brown', 'Deep Brown', 'Black' ],
@@ -679,13 +674,13 @@ var races =
 				'heightmod' : '2d10',
 				'baseweight' : 120,
 				'weightmod' : '2d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Fiery' ],
 					'Skin' : [ 'Flaming Red', 'Coal-black', 'Ash-gray' ],
 					'Hair' : [ 'Red', 'Fire' ],
 					'Voice' : [ 'Normal', 'Crackling flames' ],
-					'Other Traits' : [ '_none', 'Brimstone smell' ]
+					'Other Traits' : [ null, 'Brimstone smell' ]
 				}
 			},
 			'Water Genasi' : 
@@ -697,20 +692,20 @@ var races =
 				'heightmod' : '2d10',
 				'baseweight' : 120,
 				'weightmod' : '2d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Blue', 'Black', 'Blue-black' ],
 					'Skin' : [ 'Blue', 'Green' ],
 					'Hair' : [ 'Bald' ],
 					'Voice' : [ 'Normal', 'Whalesong undertones', 'Trickling stream undertones' ],
-					'Other Traits' : [ '_none', 'Floating Hair' ]
+					'Other Traits' : [ null, 'Floating Hair' ]
 				}
 			}
 		}
 	},
+	'Goliath' :
 	{
 		'_special' : 'book-EE/VGtM',
-		'_name' : 'Goliath',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -720,7 +715,7 @@ var races =
 			'heightmod' : '2d4',
 			'baseweight' : 130,
 			'weightmod' : '1d8',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Blue', 'Green' ],
 				'Skin' : [ 'Gray', 'Brown' ],
@@ -733,9 +728,9 @@ var races =
 			}
 		}
 	},
+	'Aasimar' :
 	{
 		'_special' : 'book-VGtM',
-		'_name' : 'Aasimar',
 		'Subraces and Variants' :
 		{
 			'Subrace' : [ 'Protector Aasimar', 'Scourge Aasimar', 'Fallen Aasimar' ],
@@ -750,7 +745,7 @@ var races =
 			'heightmod' : '2d10',
 			'baseweight' : 110,
 			'weightmod' : '2d4',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'White', 'Gold', 'Gray', 'Topaz' ],
 				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown', 'Emerald', 'Gold', 'Silver', 'Emerald', 'Gold', 'Silver' ],
@@ -760,9 +755,9 @@ var races =
 		'Guide Name' : [ 'Tadriel', 'Myllandra', 'Seraphina', 'Galladia', 'Mykiel', 'Valandras' ],
 		'Guide Nature' : [ 'Bookish and lecturing', 'Compassionate and hopeful', 'Practical and lighthearted', 'Fierce and vengeful', 'Stern and judgmental', 'Kind and parental' ]
 	},
+	'Firbolg' :
 	{
 		'_special' : 'book-VGtM',
-		'_name' : 'Firbolg',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -772,7 +767,7 @@ var races =
 			'heightmod' : '2d12',
 			'baseweight' : 175,
 			'weightmod' : '2d6',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'White' ],
 				'Skin' : [ 'Fleshy Pink' ],
@@ -791,9 +786,9 @@ var races =
 			'Dispatched on a quest by tribe leaders' 
 		]
 	},
+	'Kenku' :
 	{
 		'_special' : 'book-VGtM',
-		'_name' : 'Kenku',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -803,15 +798,15 @@ var races =
 			'heightmod' : '2d8',
 			'baseweight' : 50,
 			'weightmod' : '1d6',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Black' ]
 			}
 		}
 	},
+	'Lizardfolk' :
 	{
 		'_special' : 'book-VGtM',
-		'_name' : 'Lizardfolk',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -821,7 +816,7 @@ var races =
 			'heightmod' : '2d10',
 			'baseweight' : 120,
 			'weightmod' : '2d6',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Yellow' ],
 				'Skin/Scales' : [ 'Green', 'Black', 'Gray', 'Brown' ]
@@ -839,9 +834,9 @@ var races =
 			'You enjoy eating your food while it\'s still wriggling.'
 		]
 	},
+	'Tabaxi' :
 	{
 		'_special' : 'book-VGtM',
-		'_name' : 'Tabaxi',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -851,7 +846,7 @@ var races =
 			'heightmod' : '2d10',
 			'baseweight' : 90,
 			'weightmod' : '2d4',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Green', 'Yellow' ],
 				'Hair' : [ 'Yellow', 'Orange', 'Red' ]
@@ -882,9 +877,9 @@ var races =
 			'You can\'t help but pocket interesting objects you come across. '
 		]
 	},
+	'Triton' :
 	{
 		'_special' : 'book-VGtM',
-		'_name' : 'Triton',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -894,7 +889,7 @@ var races =
 			'heightmod' : '2d10',
 			'baseweight' : 90,
 			'weightmod' : '2d4',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Black', 'White', 'Green', 'Blue' ],
 				'Skin' : [ 'Silver', 'Silver-Blue' ],
@@ -911,9 +906,9 @@ var races =
 			'You mistakenly assume that surface folk know about and are impressed by your people\'s history. '
 		]
 	},
+	'Bugbear' :
 	{
 		'_special' : 'book-MR',
-		'_name' : 'Bugbear',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -923,7 +918,7 @@ var races =
 			'heightmod' : '2d12',
 			'baseweight' : 200,
 			'weightmod' : '2d6',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Yellow', 'Orange', 'Red', 'Brown', 'Greenish-white' ],
 				'Skin' : [ 'Yellow', 'Reddish-brown' ],
@@ -932,9 +927,9 @@ var races =
 		},
 		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
 	},
+	'Goblin' :
 	{
 		'_special' : 'book-MR/GGtR',
-		'_name' : 'Goblin',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -944,7 +939,7 @@ var races =
 			'heightmod' : '2d4',
 			'baseweight' : 35,
 			'weightmod' : '1',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Yellow', 'Orange', 'Red' ],
 				'Skin' : [ 'Yellow', 'Orange', 'Red' ],
@@ -952,9 +947,9 @@ var races =
 		},
 		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
 	},
+	'Hobgoblin' :
 	{
 		'_special' : 'book-MR',
-		'_name' : 'Hobgoblin',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -964,7 +959,7 @@ var races =
 			'heightmod' : '2d10',
 			'baseweight' : 110,
 			'weightmod' : '2d4',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Yellow', 'Orange', 'Red' ],
 				'Skin' : [ 'Orange', 'Reddish-brown' ],
@@ -973,9 +968,9 @@ var races =
 		},
 		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
 	},
+	'Kobold' :
 	{
 		'_special' : 'book-MR',
-		'_name' : 'Kobold',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -985,7 +980,7 @@ var races =
 			'heightmod' : '2d4',
 			'baseweight' : 25,
 			'weightmod' : '1',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Burnt Orange', 'Red' ],
 				'Skin' : [ 'Red', 'Reddish-brown' ]
@@ -993,9 +988,9 @@ var races =
 		},
 		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
 	},
+	'Orc' :
 	{
 		'_special' : 'book-MR',
-		'_name' : 'Orc',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1005,7 +1000,7 @@ var races =
 			'heightmod' : '2d8',
 			'baseweight' : 175,
 			'weightmod' : '2d6',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Red', 'Gray' ],
 				'Skin' : [ 'Gray', 'Purplish-Gray', 'Bluish-Gray' ],
@@ -1014,9 +1009,9 @@ var races =
 		},
 		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
 	},
+	'Yuan-Ti Pureblood' :
 	{
 		'_special' : 'book-MR',
-		'_name' : 'Yuan-Ti Pureblood',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1026,7 +1021,7 @@ var races =
 			'heightmod' : '2d10',
 			'baseweight' : 110,
 			'weightmod' : '2d4',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Green' ],
 				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
@@ -1035,9 +1030,9 @@ var races =
 		},
 		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
 	},
+	'Gith' :
 	{
-		'_special' : 'book-MToF',
-		'_name' : 'Gith',
+		'_special' : 'book-MToF subracesort',
 		'Subraces and Variants' :
 		{
 			'Subrace' : [ 'Githyanki', 'Githzerai' ]
@@ -1054,7 +1049,7 @@ var races =
 				'heightmod' : '2d12',
 				'baseweight' : 100,
 				'weightmod' : '2d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Yellow' ],
 					'Skin' : [ 'Green', 'Yellow', 'Orange', 'Spotted brown' ],
@@ -1071,7 +1066,7 @@ var races =
 				'heightmod' : '2d12',
 				'baseweight' : 90,
 				'weightmod' : '1d4',
-				'other' : 
+				'_other' : 
 				{
 					'Eyes' : [ 'Yellow' ],
 					'Skin' : [ 'Green', 'Yellow', 'Orange', 'Spotted brown' ],
@@ -1080,9 +1075,9 @@ var races =
 			}
 		}
 	},
+	'Centaur' :
 	{
 		'_special' : 'book-GGtR',
-		'_name' : 'Centaur',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1092,7 +1087,7 @@ var races =
 			'heightmod' : '2d10',
 			'baseweight' : 1500,
 			'weightmod' : '2d10',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
 				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
@@ -1100,9 +1095,9 @@ var races =
 			}
 		}
 	},
+	'Loxodon' :
 	{
 		'_special' : 'book-GGtR',
-		'_name' : 'Loxodon',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1112,12 +1107,12 @@ var races =
 			'heightmod' : '2d8',
 			'baseweight' : 280,
 			'weightmod' : '2d4',
-			'other' : { }
+			'_other' : { }
 		}
 	},
+	'Minotaur' :
 	{
 		'_special' : 'book-GGtR',
-		'_name' : 'Minotaur',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1127,7 +1122,7 @@ var races =
 			'heightmod' : '2d4',
 			'baseweight' : 310,
 			'weightmod' : '1d6',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Black', 'Dark Yellow' ],
 				'Skin' : [ 'Black', 'Brown', 'White' ],
@@ -1135,9 +1130,9 @@ var races =
 			}
 		}
 	},
+	'Simic Hybrid' :
 	{
 		'_special' : 'book-GGtR',
-		'_name' : 'Simic Hybrid',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1147,14 +1142,14 @@ var races =
 			'heightmod' : '2d10',
 			'baseweight' : 110,
 			'weightmod' : '2d4',
-			'other' : { }
+			'_other' : { }
 		},
 		'Animal Enhancement' : [ 'Manta Glide', 'Nimble Climber', 'Underwater Adaptation' ],
 		'Advanced Animal Enhancement' : [ 'Acid Spit', 'Carapace', 'Grappling Appendages' ]
 	},
+	'Vedalken' :
 	{
 		'_special' : 'book-GGtR',
-		'_name' : 'Vedalken',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1164,12 +1159,12 @@ var races =
 			'heightmod' : '2d4',
 			'baseweight' : 110,
 			'weightmod' : '2d4',
-			'other' : { }
+			'_other' : { }
 		}
 	},
+	'Tortle' :
 	{
 		'_special' : 'book-Other',
-		'_name' : 'Tortle',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1179,16 +1174,16 @@ var races =
 			'heightmod' : '2d4',
 			'baseweight' : 355,
 			'weightmod' : '2d8',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Green', 'Blue', 'Brown', 'Black' ],
 				'Skin/Shell' : [ 'Olive-Green', 'Blue-Green', 'Brown' ],
 			}
 		}
 	},
+	'Changeling' :
 	{
 		'_special' : 'book-WGtE',
-		'_name' : 'Changeling',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1198,7 +1193,7 @@ var races =
 			'heightmod' : '2d8',
 			'baseweight' : 120,
 			'weightmod' : '1d4',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'White' ],
 				'Skin' : [ 'Pale', 'Light Gray' ],
@@ -1206,9 +1201,9 @@ var races =
 			}
 		}
 	},
+	'Kalashtar' :
 	{
 		'_special' : 'book-WGtE',
-		'_name' : 'Kalashtar',
 		'Subraces and Variants' :
 		{
 			'Human Heritage' : { '_special' : 'halfethnicity' }
@@ -1222,7 +1217,7 @@ var races =
 			'heightmod' : '2d10',
 			'baseweight' : 110,
 			'weightmod' : '2d4',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
 				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
@@ -1230,9 +1225,9 @@ var races =
 			}
 		}
 	},
+	'Shifter' :
 	{
 		'_special' : 'book-WGtE',
-		'_name' : 'Shifter',
 		'Subraces and Variants' :
 		{
 			'Subrace' : [ 'Beasthide', 'Longtooth', 'Swiftstride', 'Wildhunt' ]
@@ -1246,7 +1241,7 @@ var races =
 			'heightmod' : '2d10',
 			'baseweight' : 130,
 			'weightmod' : '1d8',
-			'other' : 
+			'_other' : 
 			{
 				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
 				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
@@ -1254,9 +1249,9 @@ var races =
 			}
 		}
 	},
+	'Warforged' :
 	{
 		'_special' : 'book-WGtE',
-		'_name' : 'Warforged',
 		'Subraces and Variants' :
 		{
 			'Subrace' : [ 'Envoy', 'Juggernaut', 'Skirmisher' ]
@@ -1270,15 +1265,15 @@ var races =
 			'heightmod' : '2d8',
 			'baseweight' : 270,
 			'weightmod' : '2d4',
-			'other' : 
+			'_other' : 
 			{
 				'Composition' : [ 'Stone', 'Metal', 'Wood' ]
 			}
 		}
 	},
+	'Grung' :
 	{
 		'_special' : 'book-Unofficial',
-		'_name' : 'Grung',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
@@ -1288,20 +1283,20 @@ var races =
 			'heightmod' : '2d4',
 			'baseweight' : 35,
 			'weightmod' : '1',
-			'other' : 
+			'_other' : 
 			{
 				'Skin' : [ 'Green', 'Blue', 'Purple', 'Red', 'Orange', 'Gold' ],
 			}
 		},
 		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
 	}
-]
+}
 
 var classes =
-[
+{
+	'Barbarian' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Barbarian',
 		'Primal Path' :
 		{
 			'_special' : 'booksort',
@@ -1319,9 +1314,9 @@ var classes =
 				'A small leather pouch holding three stones that represent your ancestors',
 				'A few small bones from the first beast you killed, tied together with colored wool',
 				'An egg-sized stone in the shape of your spirit animal that appeared one day in your belt pouch',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Tattoo' :
 			[
@@ -1331,9 +1326,9 @@ var classes =
 				'The antlers of an elk are inked across your back.',
 				'Images of your spirit animal are tattooed along your weapon arm and hand.',
 				'The eyes of a wolf are marked on your back to help you see and ward off evil spirits.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Superstition' :
 			[
@@ -1343,9 +1338,9 @@ var classes =
 				'Magical things bring trouble. Never sleep with a magic object within ten feet of you.',
 				'When you walk through a graveyard, be sure to wear silver, or a ghost might jump into your body.',
 				'If an elf looks you in the eyes, she\'s trying to read your thoughts.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Became a barbarian because' :
 			[
@@ -1358,9 +1353,9 @@ var classes =
 			]
 		}
 	},
+	'Bard' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Bard',
 		'Bard College' :
 		{
 			'_special' : 'booksort',
@@ -1372,15 +1367,15 @@ var classes =
 		{
 			'Defining Works' :
 			[
-				'"The Three Flambinis,” a ribald song concerning mistaken identities and unfettered desire',
-				'"Waltz of the Myconids,” an upbeat tune that children in particular enjoy',
+				'"The Three Flambinis," a ribald song concerning mistaken identities and unfettered desire',
+				'"Waltz of the Myconids," an upbeat tune that children in particular enjoy',
 				'"Asmodeus\'s Golden Arse," a dramatic poem you claim was inspired by your personal visit to Avernus',
 				'"The Pirates of Luskan," your firsthand account of being kidnapped by sea reavers as a child',
 				'"A Hoop, Two Pigeons, and a Hell Hound," a subtle parody of an incompetent noble',
 				'"A Fool in the Abyss," a comedic poem about a jester\'s travels among demons',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Instrument' :
 			[
@@ -1390,21 +1385,21 @@ var classes =
 				'An orcish drum',
 				'A wooden bullywug croak box',
 				'A tinker\'s harp of gnomish design',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Embarassment' :
 			[
-				'The time when your comedic song, "Big Tom\'s Hijinks”- which, by the way, you thought was brilliant- did not go over well with Big Tom',
+				'The time when your comedic song, "Big Tom\'s Hijinks"- which, by the way, you thought was brilliant- did not go over well with Big Tom',
 				'The matinee performance when a circus\'s owlbear got loose and terrorized the crowd',
-				'When your opening song was your enthusiastic but universally hated rendition of "Song of the Froghemoth”',
+				'When your opening song was your enthusiastic but universally hated rendition of "Song of the Froghemoth"',
 				'The first and last public performance of "Mirt, Man about Town"',
 				'The time on stage when your wig caught fire and you threw it down- which set fire to the stage',
-				'When you sat on your lute by mistake during the final stanza of "Starlight Serenade”',
-				'_none',
-				'_none',
-				'_none'
+				'When you sat on your lute by mistake during the final stanza of "Starlight Serenade"',
+				null,
+				null,
+				null
 			],
 			'Became a bard because' :
 			[
@@ -1417,9 +1412,9 @@ var classes =
 			]
 		}
 	},
+	'Cleric' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Cleric',
 		'Divine Domain' :
 		{
 			'_special' : 'booksort',
@@ -1440,9 +1435,9 @@ var classes =
 				'Your temple is a fortress and a proving ground that trains warrior-priests.',
 				'Your temple is a peaceful, humble place, filled with vegetable gardens and simple priests.',
 				'You served in a temple in the Outer Planes.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Keepsake' :
 			[
@@ -1452,9 +1447,9 @@ var classes =
 				'A braid of hair woven from the tail of a unicorn',
 				'A scroll that describes how best to rid the world of necromancers',
 				'A runestone said to be blessed by your god',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Secret' :
 			[
@@ -1464,9 +1459,9 @@ var classes =
 				'Even though you can work divine magic, you have never truly felt the presence of a divine essence within yourself.',
 				'You are plagued by nightmares that you believe are sent by your god as punishment for some unknown transgression.',
 				'In times of despair, you feel that you are but a plaything of the gods, and you resent their remoteness.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Became a cleric because' :
 			[
@@ -1479,9 +1474,9 @@ var classes =
 			]
 		}
 	},
+	'Druid' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Druid',
 		'Druid Circle' :
 		{
 			'_special' : 'booksort',
@@ -1500,9 +1495,9 @@ var classes =
 				'A small bronze bowl engraved with animal images',
 				'A rattle made from a dried gourd and holly berries',
 				'A miniature golden sickle handed down to you from your mentor',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Guiding Aspect' :
 			[
@@ -1512,9 +1507,9 @@ var classes =
 				'The sea is a constant, churning cauldron of power and chaos. It reminds you that accepting change is necessary to sustain yourself in the world.',
 				'The birds in the sky are evidence that even the smallest creatures can survive if they remain above the fray.',
 				'As demonstrated by the actions of the wolf, an individual\'s strength is nothing compared to the power of the pack.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Mentor' :
 			[
@@ -1524,9 +1519,9 @@ var classes =
 				'You were one of several youngsters who were mentored by an old druid, until one of your fellow pupils betrayed your group and killed your master.',
 				'Your mentor has appeared to you only in visions. You have yet to meet this person, and you are not sure such a person exists in mortal form.',
 				'Your mentor was a werebear who taught you to treat all living things with equal regard.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Became a druid because' :
 			[
@@ -1539,9 +1534,9 @@ var classes =
 			]
 		}
 	},
+	'Fighter' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Fighter',
 		'Martial Archetype' :
 		{
 			'_special' : 'booksort',
@@ -1560,9 +1555,9 @@ var classes =
 				'A skull with a dagger through it, representing the doom you bring your enemies',
 				'A phoenix in a ring of fire, an expression of an indomitable spirit',
 				'Three drops of blood beneath a horizontal sword blade on a black background, symbolizing three foes you have sworn to kill',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Instructor' :
 			[
@@ -1572,9 +1567,9 @@ var classes =
 				'Tribal Warrior. Your instructor grew up in a tribe, where fighting for one\'s life was practically an everyday occurrence.',
 				'Street Fighter . Your trainer excels at urban combat combining close-quarters work with silence and efficiency.',
 				'Weapon Master . Your mentor helped you to become one with your chosen weapon, by imparting highly specialized knowledge of how to wield it most effectively.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Signature Style' :
 			[
@@ -1584,9 +1579,9 @@ var classes =
 				'Effortless. You rarely perspire or display anything other than a stoic expression in battle.',
 				'Energetic. You sing and laugh during combat as your spirit soars. You are happiest when you have a foe in front of you and a weapon in hand.',
 				'Sinister. You scowl and sneer while fighting, and you enjoy mocking your foes as you defeat them.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Became a fighter because' :
 			[
@@ -1599,9 +1594,9 @@ var classes =
 			]
 		}
 	},
+	'Monk' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Monk',
 		'Monastic Tradition' :
 		{
 			'_special' : 'booksort',
@@ -1621,9 +1616,9 @@ var classes =
 				'Your monastery is built beside a volcanic system of hot springs, geysers, and sulfur pools. You regularly received visits from azer traders.',
 				'Your monastery was founded by gnomes and is an underground labyrinth oftunnels and rooms.',
 				'Your monastery was carved from an iceberg in the frozen reaches of the world.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Monastic Icons' :
 			[
@@ -1633,9 +1628,9 @@ var classes =
 				'Owlbear. The monks of your monastery revere a family of owlbears and have coexisted with them for generations.',
 				'Hydra. Your order singles out the hydra for its ability to unleash several attacks simultaneously.',
 				'Dragon. A dragon once laired within your monastery . Its influence remains long after its departure.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Master' :
 			[
@@ -1645,9 +1640,9 @@ var classes =
 				'Your master seemed goodhearted while tutoring you, but betrayed your monastery in the end.',
 				'Your master was cold and distant. You suspect that the two of you might be related.',
 				'Your master was kind and generous, never critical of your progress. Nevertheless, you feel you never fully lived up to the expectations placed on you.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Became a monk because' :
 			[
@@ -1660,9 +1655,9 @@ var classes =
 			]
 		}
 	},
+	'Paladin' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Paladin',
 		'Sacred Oath' :
 		{
 			'_special' : 'booksort',
@@ -1682,9 +1677,9 @@ var classes =
 				'Leadership. You will win a great battle that bards will sing about, and in so doing, you will become an example to inspire others.',
 				'Faith. You know your path is righteous, or else the gods would not have set you upon it.',
 				'Glory. You will lead the world into a grand new era, one that will be branded with your name.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Symbol' :
 			[
@@ -1694,9 +1689,9 @@ var classes =
 				'A red heart, showing the world your commitment to justice',
 				'A black heart, signifying that emotions such as pity do not sway your dedication to your oath',
 				'An unblinking eye, meaning that you are ever alert to all threats against your cause',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Nemesis' :
 			[
@@ -1706,9 +1701,9 @@ var classes =
 				'A high priest who sees you as a misguided fool and wants you to abandon your religion',
 				'A rival paladin who trained with you but became an oathbreaker and holds you responsible',
 				'A vampire who has sworn revenge against all paladins after being defeated by one',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Temptation' :
 			[
@@ -1718,9 +1713,9 @@ var classes =
 				'Envy. You are mindful of what some famous folk have accomplished, and you feel inadequate when your deeds don\'t compare to theirs.',
 				'Despair. You consider the great strength of the enemies you must defeat, and at times you see no way to achieve final victory.',
 				'Greed. Regardless of how much glory and treasure you amass, it\'s never enough for you.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Became a paladin because' :
 			[
@@ -1733,9 +1728,9 @@ var classes =
 			]
 		}
 	},
+	'Ranger' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Ranger',
 		'Ranger Archetype' :
 		{
 			'_special' : 'booksort',
@@ -1753,9 +1748,9 @@ var classes =
 				'Walls are for cowards, who huddle behind them while others do the work of making the world safe.',
 				'Visiting a town is not unpleasant, but after a few days I feel the irresistible call to return to the wild.',
 				'Cities breed weakness by isolating folk from the harsh lessons of the wild.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Homeland' :
 			[
@@ -1765,9 +1760,9 @@ var classes =
 				'You dwelled on the edge of a swamp, in an area imperiled by land creatures as well as aquatic ones.',
 				'Because you grew up among the peaks, finding the best path through the mountains is second nature to you.',
 				'You wandered the far north, learning how to protect yourself and prosper in a realm overrun by ice.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Sworn Enemy' :
 			[
@@ -1777,9 +1772,9 @@ var classes =
 				'You find your foe fascinating, and you collect books of tales and history concerning it.',
 				'You collect tokens of your fallen enemies to remind you of each kill.',
 				'You respect your chosen enemy, and you see your battles as a test of respective skills.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Became a ranger because' :
 			[
@@ -1792,9 +1787,9 @@ var classes =
 			]
 		}
 	},
+	'Rogue' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Rogue',
 		'Roguish Archetype' :
 		{
 			'_special' : 'booksort',
@@ -1812,9 +1807,9 @@ var classes =
 				'The chance to deflate someone\'s ego',
 				'The finest food and drink',
 				'Adding to your collection of exotic coins',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Adversary' :
 			[
@@ -1824,9 +1819,9 @@ var classes =
 				'An art collector who uses illegal means to acquire masterpieces',
 				'A fence who uses you as a messenger to set up illicit meetings',
 				'The proprietor of an illegal pit fighting arena where you once took bets',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Benefactor' :
 			[
@@ -1836,9 +1831,9 @@ var classes =
 				'Your parents used their savings to bail you out of trouble in your younger days and are now destitute.',
 				'A dragon didn\'t eat you when it had a chance, and in return you promised to set aside choice pieces of treasure for it.',
 				'A druid once helped you out of a tight spot; now any random animal you see could be that benefactor, perhaps come to claim a return favor.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Became a rogue because' :
 			[
@@ -1851,9 +1846,9 @@ var classes =
 			]
 		}
 	},
+	'Sorcerer' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Sorcerer',
 		'Sorcerous Origin' :
 		{
 			'_special' : 'booksort',
@@ -1872,9 +1867,9 @@ var classes =
 				'Your birth was prophesied in an ancient text, and you are foretold to use your power for terrible ends.',
 				'You are the product of generations of careful, selective breeding',
 				'You were made in a vat by an alchemist',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Reaction' :
 			[
@@ -1884,9 +1879,9 @@ var classes =
 				'You came to the attention of a sinister cult that plans on exploiting your abilities.',
 				'People around you believe that your powers are a curse levied on your family for a past transgression.',
 				'Your powers are believed to be tied to an ancient line of mad kings that supposedly ended in a bloody revolt over a century ago.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Supernatural Mark' :
 			[
@@ -1896,9 +1891,9 @@ var classes =
 				'Your hair grows at a prodigious rate.',
 				'You wrinkle your nose repeatedly while you are chewing.',
 				'A red splotch appears on your neck once a day, then vanishes after an hour.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Sign of Sorcery' :
 			[
@@ -1908,9 +1903,9 @@ var classes =
 				'Your hair and garments are briefly buffeted about as if by a breeze, whenever you call forth a spell.',
 				'If you are standing when you cast a spell, you rise six inches into the air and gently float back down.',
 				'Illusory blue flames wreathe your head as you begin your casting, then abruptly disappear.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Became a sorcerer because' :
 			[
@@ -1923,9 +1918,9 @@ var classes =
 			]
 		}
 	},
+	'Warlock' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Warlock',
 		'Otherworldly Patron' :
 		{
 			'_special' : 'booksort',
@@ -1944,9 +1939,9 @@ var classes =
 				'Your patron is a strict disciplinarian but treats you with a measure of respect.',
 				'Your patron tricked you into a pact and treats you as a slave.',
 				'You are mostly left to your own devices with no interference from your patron. Sometimes you dread the demands it will make when it does appear.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Special Terms' :
 			[
@@ -1956,9 +1951,9 @@ var classes =
 				'You must occasionally conduct bizarre rituals to maintain your pact.',
 				'You can never wear the same outfit twice, since your patron finds such predictability to be boring.',
 				'When you use an eldritch invocation, you must speak your patron\'s name aloud or risk incurring its displeasure.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Binding Mark' :
 			[
@@ -1968,9 +1963,9 @@ var classes =
 				'Your tongue is an unnatural color.',
 				'You have a vestigial tail.',
 				'Your nose glows in the dark.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Became a warlock because' :
 			[
@@ -1983,9 +1978,9 @@ var classes =
 			]
 		}
 	},
+	'Wizard' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Wizard',
 		'Arcane Tradition' :
 		{
 			'_special' : 'booksort',
@@ -2004,9 +1999,9 @@ var classes =
 				'Small stones inscribed with spells and kept in a cloth bag',
 				'A scorched book, ravaged by dragon fire, with the script of your spells barely visible on its pages',
 				'A tome full of black pages whose writing is visible only in dim light or darkness',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Ambition' :
 			[
@@ -2016,9 +2011,9 @@ var classes =
 				'Magic is a dangerous tool. You use it to protect what you treasure.',
 				'Arcane power must be taken away from those who would abuse it.',
 				'You will become the greatest wizard the world has seen in generations.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Eccentricity' :
 			[
@@ -2028,9 +2023,9 @@ var classes =
 				'Your most prized possession is a dead worm that you keep inside a potion vial.',
 				'When you want people to leave you alone, you start talking to yourself. That usually does the trick.',
 				'Your fashion sense and grooming, or more accurately lack thereof, sometimes causes others to assume you are a beggar.',
-				'_none',
-				'_none',
-				'_none'
+				null,
+				null,
+				null
 			],
 			'Became a wizard because' :
 			[
@@ -2043,28 +2038,28 @@ var classes =
 			]
 		}
 	},
+	'Artificer' :
 	{
 		'_special' : 'book-UA',
-		'_name' : 'Artificer',
 		'Artificer Specialty' : [ 'Alchemist', 'Gunsmith' ]
 	},
+	'Mystic' :
 	{
 		'_special' : 'book-UA',
-		'_name' : 'Mystic',
 		'Mystic Order' : [ 'Order of the Avatar', 'Order of the Awakened', 'Order of the Immortal', 'Order of the Nomad', 'Order of the Soul Knife', 'Order of the Wu Jen' ]
 	},
+	'Blood Hunter' :
 	{
 		'_special' : 'book-Unofficial',
-		'_name' : 'Blood Hunter',
 		'Blood Hunter Order' : [ 'Order of the Ghostslayer', 'Order of the Profane Soul', 'Order of the Mutant' ]
 	}
-]
+}
 
 var backgrounds =
-[
+{
+	'Acolyte' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Acolyte',
 		'Trait' :
 		[
 			'I idolize a particular hero of my faith, and constantly refer to that person\'s deeds and example.',
@@ -2113,9 +2108,9 @@ var backgrounds =
 			'After encountering a true servant of the gods, I was so inspired that I immediately entered the service of a religious group.'
 		]
 	},
+	'Charlatan' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Charlatan',
 		'Trait' :
 		[
 			'I fall in and out of love easily, and am always pursuing someone.',
@@ -2173,9 +2168,9 @@ var backgrounds =
 			'I was poor or I feared becoming poor, so I learned the tricks I needed to keep myself out of poverty.'
 		]
 	},
+	'Criminal' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Criminal',
 		'Trait' :
 		[
 			'I always have a plan for what to do when things go wrong.',
@@ -2210,7 +2205,7 @@ var backgrounds =
 			'When I see something valuable, I can\'t think about anything but how to steal it.',
 			'When faced with a choice between money and my friends, I usually choose the money.',
 			'If there\'s a plan, I\'ll forget it. If I don\'t forget it, I\'ll ignore it.',
-			'I have a "tell” that reveals when I\'m lying.',
+			'I have a "tell" that reveals when I\'m lying.',
 			'I turn tail and run when things look bad.',
 			'An innocent person is in prison for a crime that I committed. I\'m okay with that.'
 		],
@@ -2224,14 +2219,14 @@ var backgrounds =
 		],
 		'Optional Variant' : 'Spy'
 	},
+	'Entertainer' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Entertainer',
 		'Trait' :
 		[
 			'I know a story relevant to almost every situation.',
 			'Whenever I come to a new place, I collect local rumors and spread gossip.',
-			'I\'m a hopeless romantic, always searching for that "special someone.”',
+			'I\'m a hopeless romantic, always searching for that "special someone."',
 			'Nobody stays angry at me or around me for long, since I can defuse any amount of tension.',
 			'I love a good insult, even one directed at me.',
 			'I get bitter if I\'m not the center of attention.',
@@ -2277,9 +2272,9 @@ var backgrounds =
 		],
 		'Optional Variant' : 'Gladiator'
 	},
+	'Folk Hero' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Folk Hero',
 		'Trait' :
 		[
 			'I judge people by their actions, not their words.',
@@ -2341,9 +2336,9 @@ var backgrounds =
 			'I have always stood up for those who are weaker than I am.'
 		]
 	},
+	'Guild Artisan' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Guild Artisan',
 		'Trait' :
 		[
 			'I believe that anything worth doing is worth doing right. I can\'t help it- I\'m a perfectionist.',
@@ -2395,9 +2390,9 @@ var backgrounds =
 		],
 		'Optional Variant' : 'Guild Merchant'
 	},
+	'Hermit' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Hermit',
 		'Trait' :
 		[
 			'I\'ve been isolated for so long that I rarely speak, preferring gestures and the occasional grunt.',
@@ -2457,9 +2452,9 @@ var backgrounds =
 			'Society\'s decadence disgusted me, so I decided to leave it behind.'
 		]
 	},
+	'Noble' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Noble',
 		'Trait' :
 		[
 			'My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.',
@@ -2509,9 +2504,9 @@ var backgrounds =
 		],
 		'Optional Variant' : 'Knight'
 	},
+	'Outlander' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Outlander',
 		'Trait' :
 		[
 			'I\'m driven by a wanderlust that led me away from home.',
@@ -2560,9 +2555,9 @@ var backgrounds =
 			'After a tragedy I retreated to the wilderness, leaving my old life behind. My family moved away from civilization, and I learned to adapt to my new environment.'
 		]
 	},
+	'Sage' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Sage',
 		'Trait' :
 		[
 			'I use polysyllabic words that convey the impression of great erudition.',
@@ -2613,9 +2608,9 @@ var backgrounds =
 			
 		]
 	},
+	'Sailor' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Sailor',
 		'Trait' :
 		[
 			'My friends know they can rely on me, no matter what.',
@@ -2665,9 +2660,9 @@ var backgrounds =
 		],
 		'Optional Variant' : 'Pirate'
 	},
+	'Soldier' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Soldier',
 		'Trait' :
 		[
 			'I\'m always polite and respectful.',
@@ -2717,9 +2712,9 @@ var backgrounds =
 			'Invaders attacked my homeland. It was my duty to take up arms in defense of my people.'
 		]
 	},
+	'Urchin' :
 	{
 		'_special' : 'book-PHB',
-		'_name' : 'Urchin',
 		'Trait' :
 		[
 			'I hide scraps of food and trinkets away in my pockets.',
@@ -2768,31 +2763,31 @@ var backgrounds =
 			'My parents died, leaving no one to look after me. I raised myself.'
 		]
 	},
+	'City Watch' :
 	{
-		'_special' : 'book-SCAG traits-13',
-		'_name' : 'City Watch',
+		'_special' : 'book-SCAG backgroundtraits-Soldier',
 		'Optional Variant' : 'Investigator'
 	},
+	'Clan Crafter' :
 	{
-		'_special' : 'book-SCAG traits-6',
-		'_name' : 'Clan Crafter'
+		'_special' : 'book-SCAG backgroundtraits-Guild_Artisan',
 	},
+	'Cloistered Scholar' :
 	{
-		'_special' : 'book-SCAG traits-10',
-		'_name' : 'Cloistered Scholar'
+		'_special' : 'book-SCAG backgroundtraits-Sage',
 	},
+	'Courtier' :
 	{
-		'_special' : 'book-SCAG traits-6',
-		'_name' : 'Courtier'
+		'_special' : 'book-SCAG backgroundtraits-Guild_Artisan',
 	},
+	'Faction Agent' :
 	{
-		'_special' : 'book-SCAG traits-1',
-		'_name' : 'Faction Agent',
+		'_special' : 'book-SCAG backgroundtraits-Acolyte',
 		'Faction' : [ 'The Harpers', 'The Order of the Gauntlet', 'The Emerald Enclave', 'The Lords\' Alliance', 'The Zhentarim' ]
 	},
+	'Far Traveler' :
 	{
 		'_special' : 'book-SCAG',
-		'_name' : 'Far Traveler',
 		'Trait' :
 		[
 			'I have different assumptions from those around me concerning personal space, blithely invading others\' space in innocence, or reacting to ignorant invasion of my own.',
@@ -2832,9 +2827,9 @@ var backgrounds =
 		'Why Are You Here?' : [ 'Emissary', 'Pilgrim', 'Exile', 'Sightseer', 'Fugitive', 'Wanderer' ],
 		'Where are you from?' : [ 'Evermeet', 'Halruaa', 'Kara-Tur', 'Mulhorand', 'Sossal', 'Zakhara', 'The Underdark' ]
 	},
+	'Inheritor' :
 	{
-		'_special' : 'book-SCAG traits-5',
-		'_name' : 'Inheritor',
+		'_special' : 'book-SCAG backgroundtraits-Folk_Hero',
 		'Inheritance' :
 		[
 			'A document such as a map, a letter, or a journal',
@@ -2847,29 +2842,29 @@ var backgrounds =
 			'A tattoo or other body marking'
 		]
 	},
+	'Knight of the Order' :
 	{
-		'_special' : 'book-SCAG traits-13',
-		'_name' : 'Knight of the Order'
+		'_special' : 'book-SCAG backgroundtraits-Soldier',
 	},
+	'Mercenary Veteran' :
 	{
-		'_special' : 'book-SCAG traits-13',
-		'_name' : 'Mercenary Veteran'
+		'_special' : 'book-SCAG backgroundtraits-Soldier',
 	},
+	'Urban Bounty Hunter' :
 	{
-		'_special' : 'book-SCAG traits-3',
-		'_name' : 'Urban Bounty Hunter'
+		'_special' : 'book-SCAG backgroundtraits-Criminal',
 	},
+	'Uthgardt Tribe Member' :
 	{
-		'_special' : 'book-SCAG traits-9',
-		'_name' : 'Uthgardt Tribe Member'
+		'_special' : 'book-SCAG backgroundtraits-Outlander',
 	},
+	'Waterdhavian Noble' :
 	{
-		'_special' : 'book-SCAG traits-8',
-		'_name' : 'Waterdhavian Noble'
+		'_special' : 'book-SCAG backgroundtraits-Noble',
 	},
+	'Anthropologist' :
 	{
 		'_special' : 'book-Other',
-		'_name' : 'Anthropologist',
 		'Trait' :
 		[
 			'I prefer the company of those who aren\'t like me, including people of other races.',
@@ -2908,9 +2903,9 @@ var backgrounds =
 		],
 		'Adopted Culture' : [ 'Aarakocra', 'Halfling', 'Dwarf', 'Human', 'Elf', 'Lizardfolk', 'Goblin', 'Orc' ]
 	},
+	'Archaeologist' :
 	{
 		'_special' : 'book-Other',
-		'_name' : 'Archaeologist',
 		'Trait' :
 		[
 			'I love a good puzzle or mystery.',
@@ -2951,9 +2946,9 @@ var backgrounds =
 		],
 		'Signature Item' : [ '10-foot pole', 'Medallion', 'Crowbar', 'Shovel', 'Hat', 'Sledgehammer', 'Hooded lantern', 'Whip' ]
 	},
+	'Haunted One' :
 	{
 		'_special' : 'book-Other',
-		'_name' : 'Haunted One',
 		'Trait' :
 		[
 			'I don\'t run from evil. Evil runs from me.',
@@ -3006,9 +3001,9 @@ var backgrounds =
 			'You did terrible things to avenge the murder of someone you loved. You became a monster, and it haunts your waking dreams.'
 		]
 	},
+	'House Agent' :
 	{
 		'_special' : 'book-WGtE',
-		'_name' : 'House Agent',
 		'House' : [ 'Cannith', 'Deneith', 'Ghallanda', 'Jorasco', 'Kundarak', 'Lyrandar', 'Medani', 'Orien', 'Phiarlan', 'Sivis', 'Tharashk', 'Thuranni', 'Vadalis' ],
 		'House Agent Role' : [ 'Acquisition', 'Investigation', 'Research and Development', 'Security', 'Intimidation', 'Exploration', 'Negotiation', 'Covert Operations' ],
 		'Trait' :
@@ -3050,156 +3045,122 @@ var backgrounds =
 			'I\'m working for a hidden faction in my house that gives me secret assignments.'
 		]
 	}
-]
+}
 
-var life =
+var alignments = ['Lawful Good', 'Neutral Good', 'Chaotic Good', 'Lawful Neutral', 'True Neutral', 'Chaotic Neutral', 'Lawful Evil', 'Neutral Evil', 'Chaotic Evil'];
+
+var origins =
 {
-	'Alignment' : ['Lawful Good', 'Neutral Good', 'Chaotic Good', 'Lawful Neutral', 'True Neutral', 'Chaotic Neutral', 'Lawful Evil', 'Neutral Evil', 'Chaotic Evil'],
-	'Origin' :
+	'Birthplace' :
+	[
+		'Home of a family friend',
+		'Home of a family friend',
+		'Home of a family friend',
+		'Home of a family friend',
+		'Home of a family friend',
+		'Home of a healer or midwife',
+		'Home of a healer or midwife',
+		'Home of a healer or midwife',
+		'Home of a healer or midwife',
+		'Home of a healer or midwife',
+		'Home of a healer or midwife',
+		'Home of a healer or midwife',
+		'Home of a healer or midwife',
+		'Carriage, cart, or wagon',
+		'Carriage, cart, or wagon',
+		'Barn, shed, or other outbuilding',
+		'Barn, shed, or other outbuilding',
+		'Barn, shed, or other outbuilding',
+		'Cave',
+		'Cave',
+		'Field',
+		'Field',
+		'Forest',
+		'Forest',
+		'Temple',
+		'Temple',
+		'Temple',
+		'Battlefield',
+		'Alley or street',
+		'Alley or street',
+		'Brothel, tavern, or inn',
+		'Brothel, tavern, or inn',
+		'Castle, keep, tower, or palace',
+		'Castle, keep, tower, or palace',
+		'Sewer or rubbish heap',
+		'Among people of a different race',
+		'Among people of a different race',
+		'Among people of a different race',
+		'On board a boat or a ship',
+		'On board a boat or a ship',
+		'On board a boat or a ship',
+		'In a prison or in the headquarters of a secret organization',
+		'In a prison or in the headquarters of a secret organization',
+		'In a sage\'s laboratory',
+		'In a sage\'s laboratory',
+		'In the Feywild',
+		'In the Shadowfell',
+		'On the Astral Plane or the Ethereal Plane',
+		'On an Inner Plane of your choice',
+		'On an Outer Plane of your choice'
+	],
+	'Parents' :
 	{
-		'Birthplace' :
+		'Half-Elf' : 
 		[
-			'Home',
-			[
-				'Home of a family friend',
-				'Home of a family friend',
-				'Home of a family friend',
-				'Home of a family friend',
-				'Home of a family friend',
-				'Home of a healer or midwife',
-				'Home of a healer or midwife',
-				'Home of a healer or midwife',
-				'Home of a healer or midwife',
-				'Home of a healer or midwife',
-				'Home of a healer or midwife',
-				'Home of a healer or midwife',
-				'Home of a healer or midwife',
-				'Carriage, cart, or wagon',
-				'Carriage, cart, or wagon',
-				'Barn, shed, or other outbuilding',
-				'Barn, shed, or other outbuilding',
-				'Barn, shed, or other outbuilding',
-				'Cave',
-				'Cave',
-				'Field',
-				'Field',
-				'Forest',
-				'Forest',
-				'Temple',
-				'Temple',
-				'Temple',
-				'Battlefield',
-				'Alley or street',
-				'Alley or street',
-				'Brothel, tavern, or inn',
-				'Brothel, tavern, or inn',
-				'Castle, keep, tower, or palace',
-				'Castle, keep, tower, or palace',
-				'Sewer or rubbish heap',
-				'Among people of a different race',
-				'Among people of a different race',
-				'Among people of a different race',
-				'On board a boat or a ship',
-				'On board a boat or a ship',
-				'On board a boat or a ship',
-				'In a prison or in the headquarters of a secret organization',
-				'In a prison or in the headquarters of a secret organization',
-				'In a sage\'s laboratory',
-				'In a sage\'s laboratory',
-				'In the Feywild',
-				'In the Shadowfell',
-				'On the Astral Plane or the Ethereal Plane',
-				'On an Inner Plane of your choice',
-				'On an Outer Plane of your choice'
-			]
+			'One parent was an elf and the other was a human.',
+			'One parent was an elf and the other was a human.',
+			'One parent was an elf and the other was a human.',
+			'One parent was an elf and the other was a human.',
+			'One parent was an elf and the other was a human.',
+			'One parent was an elf and the other was a half-elf.',
+			'One parent was a human and the other was a half-elf.',
+			'Both parents were half-elves.'
 		],
-		'Parents' :
-		{
-			'_special' : 'mixedparents',
-			'Half-Elf' : 
-			[
-				'One parent was an elf and the other was a human.',
-				'One parent was an elf and the other was a human.',
-				'One parent was an elf and the other was a human.',
-				'One parent was an elf and the other was a human.',
-				'One parent was an elf and the other was a human.',
-				'One parent was an elf and the other was a half-elf.',
-				'One parent was a human and the other was a half-elf.',
-				'Both parents were half-elves.'
-			],
-			'Half-Orc' :
-			[
-				'One parent was an orc and the other was a human.',
-				'One parent was an orc and the other was a human.',
-				'One parent was an orc and the other was a human.',
-				'One parent was an orc and the other was a half-orc.',
-				'One parent was an orc and the other was a half-orc.',
-				'One parent was an human and the other was a half-orc.',
-				'One parent was an human and the other was a half-orc.',
-				'Both parents were half-orcs.'
-			],
-			'Tiefling' :
-			[
-				'Both parents were humans, their infernal heritage dormant until you came along.',
-				'Both parents were humans, their infernal heritage dormant until you came along.',
-				'Both parents were humans, their infernal heritage dormant until you came along.',
-				'Both parents were humans, their infernal heritage dormant until you came along.',
-				'One parent was a tiefling and the other was a human.',
-				'One parent was a tiefling and the other was a human.',
-				'One parent was a tiefling and the other was a devil.',
-				'One parent was a human and the other was a devil.',
-			],
-			'Genasi' :
-			[
-				'One parent was a genie and the other was a human.',
-				'One parent was a genie and the other was a human.',
-				'One parent was a genie and the other was a human.',
-				'One parent was a genie and the other was a human.',
-				'One parent was a genasi and the other was a human.',
-				'One parent was a genasi and the other was a human.',
-				'One parent was a genasi and the other was a human.',
-				'Both parents were humans, their elemental heritage dormant until you came along.',
-			],
-			'Aasimar' :
-			[
-				'One parent was a god and the other was a human.',
-				'One parent was a god and the other was a human.',
-				'One parent was a celestial and the other was a human.',
-				'One parent was a celestial and the other was a human.',
-				'One parent was a celestial and the other was a human.',
-				'Both parents were humans, their celestial heritage dormant until you came along.',
-				'Both parents were humans, their celestial heritage dormant until you came along.',
-				'Both parents were humans, their celestial heritage dormant until you came along.'
-			]
-		},
-		'Raised By' : 
-		{
-			'_special' : 'skip'
-		},
-		'Absent Parent(s)' :
-		{
-			'_special' : 'skip'
-		},
-		'Family Lifestyle' : 
-		{
-			'_special' : 'skip'
-		},
-		'Childhood Home' : 
-		{
-			'_special' : 'skip',
-		},
-		'Childhood Memories' : 
-		{
-			'_special' : 'skip',
-		},
-		'Siblings' : 
-		{
-			'_special' : 'skip'
-		}
-	},
-	'Life Events' :
-	{
-		'_special' : 'skip'
+		'Half-Orc' :
+		[
+			'One parent was an orc and the other was a human.',
+			'One parent was an orc and the other was a human.',
+			'One parent was an orc and the other was a human.',
+			'One parent was an orc and the other was a half-orc.',
+			'One parent was an orc and the other was a half-orc.',
+			'One parent was an human and the other was a half-orc.',
+			'One parent was an human and the other was a half-orc.',
+			'Both parents were half-orcs.'
+		],
+		'Tiefling' :
+		[
+			'Both parents were humans, their infernal heritage dormant until you came along.',
+			'Both parents were humans, their infernal heritage dormant until you came along.',
+			'Both parents were humans, their infernal heritage dormant until you came along.',
+			'Both parents were humans, their infernal heritage dormant until you came along.',
+			'One parent was a tiefling and the other was a human.',
+			'One parent was a tiefling and the other was a human.',
+			'One parent was a tiefling and the other was a devil.',
+			'One parent was a human and the other was a devil.',
+		],
+		'Genasi' :
+		[
+			'One parent was a genie and the other was a human.',
+			'One parent was a genie and the other was a human.',
+			'One parent was a genie and the other was a human.',
+			'One parent was a genie and the other was a human.',
+			'One parent was a genasi and the other was a human.',
+			'One parent was a genasi and the other was a human.',
+			'One parent was a genasi and the other was a human.',
+			'Both parents were humans, their elemental heritage dormant until you came along.',
+		],
+		'Aasimar' :
+		[
+			'One parent was a god and the other was a human.',
+			'One parent was a god and the other was a human.',
+			'One parent was a celestial and the other was a human.',
+			'One parent was a celestial and the other was a human.',
+			'One parent was a celestial and the other was a human.',
+			'Both parents were humans, their celestial heritage dormant until you came along.',
+			'Both parents were humans, their celestial heritage dormant until you came along.',
+			'Both parents were humans, their celestial heritage dormant until you came along.'
+		]
 	}
 }
 
@@ -3866,7 +3827,7 @@ var trinkets =
 	'A petrified mouse',
 	'A black pirate flag adorned with a dragon\'s skull and crossbones',
 	'A tiny mechanical crab or spider that moves about when it\'s not being observed',
-	'A glass jar containing lard with a label that reads, "Griffon Grease”',
+	'A glass jar containing lard with a label that reads, "Griffon Grease"',
 	'A wooden box with a ceramic bottom that holds a living worm with a head on each end of its body',
 	'A metal urn containing the ashes of a hero'
 ]
@@ -3876,8 +3837,6 @@ var UARaces =
 	{ 'name' : 'Abyssal Tiefling', 'source' : 'That Old Black Magic', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/old-black-magic' },
 	{ 'name' : 'Revenant Subrace', 'source' : 'Gothic Heroes', 'link' : 'http://dnd.wizards.com/articles/features/gothic-heroes' },
 	{ 'name' : 'Elf Subraces: Avariel and Grugach', 'source' : 'Elf Subraces', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces' },
-	{ 'name' : 'Centaur and Minotaur', 'source' : 'Centaurs and Minotaurs', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/centaurs-and-minotaurs' },
-	{ 'name' : 'Races of Ravnica', 'source' : 'Races of Ravnica', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/races-ravnica' },
 ]
 
 var UAClasses =
@@ -3896,8 +3855,7 @@ var UAClasses =
 	{ 'name' : 'Warlock: The Raven Queen', 'source' : 'Warlock and Wizard', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard' },
 	{ 'name' : 'Wizard: Theurgy', 'source' : 'Wizard Revisited', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/wizard-revisited' },
 	{ 'name' : 'Mystic, Artificer', 'source' : 'Unearthed Arcana Update', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update' },
-	{ 'name' : 'Druid: Circle of Spores, Fighter: Brute, Wizard: School of Invention', 'source' : 'Three Subclasses', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses' },
-	{ 'name' : 'Cleric: Order Domain', 'source' : 'Order Domain', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/order-domain' },
+	{ 'name' : 'Fighter: Brute, Wizard: School of Invention', 'source' : 'Three Subclasses', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses' },
 	{ 'name' : 'Sorcerer: Giant Soul', 'source' : 'Giant Soul Sorcerer', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/giant-soul-sorcerer' },
 ]
 
@@ -3912,6 +3870,7 @@ var UAOther =
 	{ 'name' : 'Eldritch Inovcations', 'source' : 'Warlock and Wizard', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard' },
 	{ 'name' : 'Cantrips & 1st Level Spells', 'source' : 'Starter Spells', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/starter-spells' },
 	{ 'name' : 'Skill Feats', 'source' : 'Feats for Skills', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/feats-skills' },
+	{ 'name' : 'Rules for Ships', 'source' : 'Of Ships and the Sea', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/ships-and-sea' },
 ]
 
 var raceWeights = 
