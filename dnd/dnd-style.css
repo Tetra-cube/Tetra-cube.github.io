@@ -2,7 +2,6 @@ html {
 	background-attachment: fixed;
 	background-size: cover; 
 }
-
 body {
 	font-family: Georgia, Arial, sans-serif;
 	text-align: left;
@@ -12,27 +11,21 @@ body {
 	background-image: url('./dndimages/papyr.jpg');
 	border-style: none solid;
 }
-
 h1, h2 {
 	font-family: Tahoma, Georgia, Arial, sans-serif;
 }
-
 hr {
 	border-style: solid;
 	border-color: black;
 }
-
 a {
     color: darkred;
 	text-decoration: none;
 }
-
 ul {
-  text-align: left;
-  margin: 4px 4px 16px;
-  padding-left: 16px;
+	text-align: left;
+	padding-left: 40px;
 }
-
 button {
 	-webkit-border-radius: 3;
 	-moz-border-radius: 3;
@@ -44,46 +37,36 @@ button {
 	text-decoration: none;
 	width: auto;
 }
-
 button:hover {
 	background: #a5c791;
 	text-decoration: none;
 }
-
 input[type=number] {
     width: 60px;
 }
-
 textarea {
-  width: 80%;
+	width: 80%;
 }
-
 table {
-  table-layout: fixed;
-  text-align: left;
-  width: 100%;
+	table-layout: fixed;
+	text-align: left;
+	width: 100%;
 }
-
 td {
-  text-align: left;
-  vertical-align: top;
+	text-align: left;
+	vertical-align: top;
 }
-
 
 .content {
     padding: 25px 50px;
 }
-
-
 .booklist>li {
 	margin: 0 0 1% 0;
 }
-
 .booklist {
 	list-style-type: none;
 	padding: 0px 18px;
 }
-
 .tooltip {
     position: relative;
     display: inline-block;
@@ -91,7 +74,6 @@ td {
 	text-decoration: none;
 	cursor: help;
 }
-
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 400px;
@@ -108,15 +90,12 @@ td {
 	border-style: solid;
 	border-radius: 5px;
 }
-
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
-
 .buttoncontainer{
     text-align: center;
 }
-
 .collapsiblebutton {
 	cursor: pointer;
 	font-size: 15px;
@@ -131,15 +110,14 @@ td {
     -ms-user-select: none;
     user-select: none;
 }
-
 .expandretracttext {
-	text-align: center;
+	text-align: right;
 	cursor: pointer;
 	font-size: 15px;
     color: darkred;
-	width: 50%;
-    display: inline-block;
+	width: auto%;
 	font-size: 18px;
+	padding-left: 50px;
 	
 	/* Make Unselectable */
 	
@@ -150,41 +128,39 @@ td {
     -ms-user-select: none;
     user-select: none;
 }
-
 .centeredcontainer {
 	display: block;
 	text-align: center;
 }
-
 .indent {
-  text-indent: 1em;
+	text-indent: 1em;
 }
-
 .reverse-indent {
-  text-indent: -1em;
-  padding-left: 1em;
+	text-indent: -1em;
+	padding-left: 1em;
 }
-
 .box-note {
-  font-size: 10pt;
+	font-size: 10pt;
 }
-
 .removable-list-item:hover {
-  color: red;
-  text-decoration: line-through;
-  cursor: pointer;
+	color: red;
+	text-decoration: line-through;
+	cursor: pointer;
 }
-
-.statblockImage {
-  width: 12px;
-  height: 12px;
-  cursor: pointer;
+.statblock-image {
+	width: 12px;
+	height: 12px;
+	cursor: pointer;
+}
+.statblock-list {
+	text-align: left;
+	margin: 4px 4px 16px;
+	padding-left: 16px;
 }
 
 #legendaries-descsection {
-  margin: 8px 0 0;
+	margin: 8px 0 0;
 }
-
 #imagecanvas {
 	border-color: white;
 	border-style: solid;

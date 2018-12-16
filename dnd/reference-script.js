@@ -1,491 +1,346 @@
-var book;
+var books = [];
 
-function UpdateList()
+// Update the page depending on books selected
+var UpdateList = function()
 {
-	GetBooks();
-	var racesList = GetContent(races), classesList = GetContent(classes), backgroundsList = GetContent(backgrounds), namesList = GetNames(names);
-	document.getElementById('races').innerHTML = MakeHTMLStringStart(racesList);
-	document.getElementById('classes').innerHTML = MakeHTMLStringStart(classesList);
-	document.getElementById('backgrounds').innerHTML = MakeHTMLStringStart(backgroundsList);
-	document.getElementById('names').innerHTML = MakeHTMLStringNamesStart(namesList);
-	document.getElementById('uaraces').innerHTML = GetUAStuff(UARaces);
-	document.getElementById('uaclasses').innerHTML = GetUAStuff(UAClasses);
-	document.getElementById('uaother').innerHTML = GetUAStuff(UAOther);
+	// Get Books
+	{
+		books = [ "Real", "PHB" ];
+		for(var bookNum in availableBooks)
+		{
+			var book = availableBooks[bookNum];
+			if(book == "MR")
+				continue;
+			if(document.getElementById(book + "box").checked)
+				books.push(book);
+		}
+		if(books.indexOf("VGtM") >= 0)
+			books.push("MR");
+	}
+	
+	var racesList = Content.Get(races);
+		classesList = Content.Get(classes),
+		backgroundsList = Content.Get(backgrounds);
+		namesList = Content.GetNext(names);
+	
+	$("#races").html(HTMLStrings.Make(racesList));
+	$("#classes").html(HTMLStrings.Make(classesList));
+	$("#backgrounds").html(HTMLStrings.Make(backgroundsList));
+	$("#names").html(HTMLStrings.MakeNames(namesList));
+	$("#uaraces").html(UAStuff.Get(UARaces));
+	$("#uaclasses").html(UAStuff.Get(UAClasses));
+	$("#uaother").html(UAStuff.Get(UAOther));
+	
+	Collapsibles.RetractAll("races");
+	Collapsibles.RetractAll("classes");
+	Collapsibles.RetractAll("backgrounds");
+	Collapsibles.RetractAll("names");
 }
 
-function GetBooks()
+// Gets content from dnd-data and puts it into a format more readable to the generator (also filters out things that should be inaccessible)
+var Content = 
 {
-	books = [ 'PHB' ];
-	for(var bookNum in availableBooks)
+	// Recursive function to populate the content lists
+	Get: function(item)
 	{
-		var book = availableBooks[bookNum];
-		if(book == 'MR')
-			continue;
-		if(document.getElementById(book + 'box').checked)
-			books.push(book);
-	}
-	if(books.indexOf('VGtM') >= 0)
-		books.push('MR');
-}
-
-function MakeHTMLStringStart(arr)
-{
-	var stringBuffer = [];
-	for(var index in arr)
-	{
-		if(arr[index] == 'discarditem')
-			continue;
-		var item = arr[index], isName = false;
-		for(var index2 in item)
+		var properties = [];
+		for(var propertyName in item)
 		{
-			var item2 = item[index2];
-			if(item2.name == '_name')
-			{
-				stringBuffer.push('<h3>', NewCollapsible(), item2.content, ' <sup>(', GetBookId(item2.book), ')</sup>', '</h3>');
-				break;
-			}
-		}
-		stringBuffer.push(MakeHTMLString(item));
-	}
-	return stringBuffer.join('');
-}
-
-function MakeHTMLString(item)
-{
-	var stringBuffer = [];
-	// If an object or an array
-	if(typeof item == 'object')
-	{
-		// If an array
-		if(Array.isArray(item))
-		{
-			// Make a new list to hold the contents
-			stringBuffer.push('<ul style="display: none">');
-			for(var index in item)
-			{
-				var element = item[index];
-				// For array elements we don't want to show
-				if((typeof element == 'string' && element.charAt(0) == '_') || (typeof element == 'object' && element.name == '_name'))
-					continue;
-				if(element.hasOwnProperty('content') && element.content == 'discarditem')
-					continue;
-					
-				stringBuffer.push('<li>', MakeHTMLString(element), '</li>');
-			}
-			stringBuffer.push('</ul>');
-		}
-		else
-		{
-			// If we don't want to show the name
-			if(item.name.charAt(0) == '_')
-			{
-				if(item.hasOwnProperty('book'))
-					stringBuffer.push(MakeHTMLString(item.content), ' <sup>(', GetBookId(item.book), ')</sup>');
-				else
-					stringBuffer.push(MakeHTMLString(item.content));
-			}
-			else
-			{
-				if(typeof item.content == 'object')
-					stringBuffer.push(NewCollapsible());
-				stringBuffer.push('<b>', item.name, '</b>: ', MakeHTMLString(item.content))
-			}
-		}
-	}
-	else
-		stringBuffer.push(item);
-	// else
-	// {
-		// // For tooltips
-		// while(item.indexOf('[[') >= 0)
-		// {
-			// var startIndex = item.indexOf('[['), lineIndex = item.indexOf('|'), endIndex = item.indexOf(']]');
+			var property = item[propertyName], propertySpecial = property._special.split(" "), bookString;
 			
-			// stringBuffer.push(
-				// item.substring(0, startIndex),
-				// '<span class="tooltip">',
-				// item.substring(startIndex + 2, lineIndex),
-				// '<span class="tooltiptext"> ',
-				// tooltips[item.substring(lineIndex + 1, endIndex)],
-				// '</span></span>');
-			// item = item.substring(endIndex + 2);
-		// }
+			for(var index in propertySpecial)
+			{
+				var splitSpecial = propertySpecial[index].split("-");
+				if(splitSpecial[0] = "book")
+				{
+					bookString = splitSpecial[1];
+					break;
+				}
+			}
+			
+			if(this.CheckForBook(bookString))
+				properties.push( { "name" : propertyName, "content" : Content.GetNext(property), "book" : bookString } );
+		}
+		return properties;
+	},
+	
+	GetNext: function(item)
+	{
+		if(item == null) return null;
+		if(typeof item == "object")
+		{
+			if(Array.isArray(item))		// If item is an array
+			{
+				var elements = [];
+				for(var index in item)
+				{
+					var content = this.GetNext(item[index]);
+					if(content != null)
+						elements.push(content);
+				}
+				return elements;
+			}
+			else		// If item is an object
+			{
+				if(item.hasOwnProperty("_special"))
+				{
+					var specialItem = this.Special(item);
+					if(jQuery.isEmptyObject(specialItem))
+						return null;
+					return specialItem;
+				}
+				var properties = [];
+				for(var propertyName in item)
+				{
+					var content = this.GetNext(item[propertyName]);
+					if(content != null)
+						properties.push( { "name" : propertyName, "content" : content } );
+				}
+				return properties;
+			}
+		}
+		return item;	// If item is a string or other simple variable
+	},
+	
+	Special: function(item)
+	{
+		// Clone the item, remove special from the clone, and apply every special in order
+		var newItem = Object.assign({}, item), cases = item._special.split(" ");
+		delete newItem._special;
+		for(var caseIndex in cases)
+			newItem = this.ApplySpecial(cases[caseIndex], newItem);
+		if(jQuery.isEmptyObject(newItem))
+			return null;
+		return this.GetNext(newItem);
+	},
+
+	ApplySpecial: function(special, specialItem)			// Apply one special case to an object and return the resulting object
+	{
+		if(specialItem == null) return null;
+		var splitSpecial = special.split("-");
 		
-		// // For sub-properties
-		// if(item.indexOf('**') >= 0)
-		// {
-			// var starIndex = item.indexOf('**');
-			// stringBuffer.push(item.substring(0, starIndex), '<ul><li>');
-			// item = item.substring(starIndex + 2);
-			// starIndex = item.indexOf('**');
-			// while(starIndex >= 0)
-			// {
-				// stringBuffer.push(item.substring(0, starIndex), '</li><li>')
-				// item = item.substring(starIndex + 2);
-				// starIndex = item.indexOf('**');
-			// }
-			// stringBuffer.push(item, '</li></ul>');
-		// }
-		// stringBuffer.push(item);
-	// }
-	return stringBuffer.join('');
+		switch(splitSpecial[0])
+		{
+			case "book" :		// Remove this item if we don't have the necessary book
+				return this.CheckForBook(splitSpecial[1]) ? specialItem : null;
+				
+			case "booksort" :	// Take a bunch of arrays and make a composite array, discarding data from books we don't have
+			case 'humanethnicity':
+				var newObj = {};
+				for(var bookName in specialItem)
+				{
+					if(this.CheckForBook(bookName))
+						newObj["[[" + bookName + "]]"] = specialItem[bookName];
+				}
+				return newObj;
+				
+			case "characteristics" :	// Output height, weight, appearance, etc
+				var newObj = {};
+				newObj["Base Height"] = Math.floor(specialItem.baseheight / 12) + "'" + (specialItem.baseheight % 12) + "\"";
+				newObj["Height Mod"] = "+" + specialItem.heightmod;
+				newObj["Base Weight"] = specialItem.baseweight + " lb.";
+				newObj["Weight Mod"] = "x (" + specialItem.weightmod + ") lb.";
+				if(specialItem.hasOwnProperty("_other"))
+				{
+					for(var propertyName in specialItem._other)
+						newObj[propertyName] = specialItem._other[propertyName];
+				}
+				return newObj;
+				
+			case "dragonbornnickname" :
+			case "tieflingvarianttype" :
+			case "tieflingappearance" :
+				return specialItem._array;
+		
+			case "backgroundtraits" :			// For the SCAG backgrounds where the writers were lazy and used personalities from the PHB 
+				var backgroundCopy = backgrounds[splitSpecial[1].split("_").join(" ")];
+				specialItem["Trait"] = backgroundCopy.Trait;
+				specialItem["Ideal"] = backgroundCopy.Ideal;
+				specialItem["Bond"] = backgroundCopy.Bond;
+				specialItem["Flaw"] = backgroundCopy.Flaw;
+				return specialItem;
+		}
+		
+		return specialItem;
+	},
+
+	CheckForBook: function(booksString)			// Check if any of the books in a given string are enabled
+	{
+		for(var index in books)
+		{
+			if(booksString.includes(books[index]))
+				return true;
+		}
+		return false;
+	},
 }
 
-function MakeHTMLStringNamesStart(item)
+// Functions for making content objects into HTML strings to be displayed
+var HTMLStrings =
 {
-	return '<ul>' + MakeHTMLStringNames(item) + '</ul>';
-}
-
-function MakeHTMLStringNames(item)
-{
-	if(typeof item == 'object')
+	Make: function(arr)
 	{
 		var stringBuffer = [];
-		if(Array.isArray(item))
+		for(var index in arr)
 		{
-			for(var index in item)
+			var item = arr[index];
+			stringBuffer.push("<h3>", Collapsibles.New(), item.name, " <sup>(", item.book, ")</sup>", "</h3>", this.MakeNext(item.content));
+		}
+		return stringBuffer.join("");
+	},
+
+	MakeNext: function(item, noBulletPoints = false)
+	{
+		if(typeof item == "object")
+		{
+			if(Array.isArray(item))		// If item is an array
 			{
-				if(item[index] == 'discarditem')
-					continue;
-				var element = item[index];
-				stringBuffer.push(MakeHTMLStringNames(element));
-			}
-		}
-		else
-		{
-			//if(Array.isArray(item.content))
-				stringBuffer.push('<li>', NewCollapsible(), '<b>', item.name, '</b>: <ul style="display: none">', MakeHTMLStringNames(item.content), '</ul></li>');
-			//else
-				//stringBuffer.push('<li>', '<b>', item.name, '</b>: ', MakeHTMLStringNames(item.content), '</li>');
-		}
-		return stringBuffer.join('');
-	}
-	return item;
-}
-
-function GetContent(item, book)
-{
-	if(typeof item == 'object')
-	{
-		if(Array.isArray(item))
-		{	
-			var elements = [];
-			for(var index in item)
-				elements.push(GetContent(item[index], book));
-			return elements;
-		}
-		else
-		{
-			if(item.hasOwnProperty('_special'))
-				return SpecialCase(item);
-			return PushAllProperties(item);
-		}
-	}
-	//if(book == null)
-		return item;
-	//return { 'name' : '_none', 'content' : item, 'book' : book };
-}
-
-function PushAllProperties(item, book)
-{
-	var properties = [];
-	for(var propertyName in item)
-	{
-		if(propertyName != '_special')
-		{
-			if(book == null)
-				properties.push( { 'name' : propertyName, 'content' : GetContent(item[propertyName]) } );
-			else
-				properties.push( { 'name' : propertyName, 'content' : GetContent(item[propertyName]), 'book' : book } );
-		}
-	}
-	return properties;
-}
-
-function CheckHasBook(book)
-{
-	for(var index in books)
-	{
-		if(book.indexOf(books[index]) >= 0)
-			return true;
-	}
-	return false;
-}
-
-function GetBookString(string)
-{
-	if(string.substring(0, 5) != 'book-')
-		return null;
-	var spaceIndex = string.indexOf(' ');
-	if(spaceIndex < 0)
-		bookString = string.substring(5);
-	else
-		bookString = string.substring(5, spaceIndex);
-	return bookString;
-}
-
-function SpecialCase(item)
-{
-	var special, bookString = GetBookString(item._special);
-	if(bookString == null)
-		special = item._special;
-	else
-	{
-		if(!CheckHasBook(bookString))
-			return 'discarditem';
-		var spaceIndex = item._special.indexOf(' ');
-		if(spaceIndex < 0)
-			return PushAllProperties(item, bookString);
-		special = item._special.substring(spaceIndex + 1);
-	}
-	if (special.substring(0, 6) == "traits")
-	{
-		var background = GetContent(backgrounds[parseInt(special.substring(7)) - 1]);
-		var newItem =
-		[
-			{ 'name' : '_name', 'content' : item._name, 'book' : bookString },
-		];
-		for(var item2Name in background)
-		{
-			var item2 = background[item2Name];
-			if(item2.name == 'Trait' || item2.name == 'Ideal' || item2.name == 'Bond' || item2.name == 'Flaw' )
-				newItem.push(item2);
-		}
-		for(var item2Name in item)
-		{
-			var item2 = item[item2Name];
-			if(item2Name != '_name' && item2Name != '_special' )
-				newItem.push( { 'name' : item2Name, 'content' : item2} );
-		}
-		return newItem;
-	}
-	switch(special)
-	{
-		case 'booksort' :
-			var newArr = [];
-			for(var bookListPropName in item)
-			{
-				for(var bookNum in books)
+				var itemList = [], allStrings = true;
+				for(var index in item)
 				{
-					var bookId = books[bookNum];
-					if(bookListPropName.indexOf(bookId) >= 0)
-					{
-						var content = GetContent(item[bookListPropName], bookId);
-						newArr.push(content.join(', ') + ' <sup>(' + bookListPropName + ')</sup>');
-						break;
-					}
+					if(allStrings && typeof item[index] != "string")
+						allStrings = false;
+
+					var newString = this.MakeNext(item[index], noBulletPoints);
+					if(newString != null)
+						itemList.push(newString);
 				}
-			}
-		
-			// for(var bookNum in books)
-			// {
-				// var bookId = books[bookNum];
-				// if(item.hasOwnProperty(bookId))
-				// {
-					// var content = GetContent(item[bookId], bookId);
-					// newArr.push(content.join(', ') + ' <sup>(' + GetBookId(bookId) + ')</sup>');
-				// }
-			// }
-			return FlattenArray(newArr);
-		case 'characteristics' :
-			var newArr = [];
-			newArr.push( { 'name' : 'Base Height', 'content' : Math.floor(item.baseheight / 12) + '\'' + (item.baseheight % 12) + '"' } );
-			newArr.push( { 'name' : 'Height Mod', 'content' : '+' + item.heightmod } );
-			newArr.push( { 'name' : 'Base Weight', 'content' : item.baseweight + ' lb.' } );
-			newArr.push( { 'name' : 'Weight Mod', 'content' : 'x (' + item.weightmod + ') lb.' } );
-			for(var otherItemName in item.other)
-			{
-				var otherItem = item.other[otherItemName];			
-				if(otherItem.hasOwnProperty('_special'))
-					newArr.push( { 'name' : otherItemName, 'content' : SpecialCase(otherItem) } );
-				else if(typeof otherItem == 'object')
+				if(allStrings)
 				{
-					if(Array.isArray(otherItem))
+					// Check for duplicate items (used for the character generator) and remove
+					var index1 = 0, index2;
+					while(index1 < itemList.length)
 					{
-						var otherArray = [];
-						for(var index in otherItem)
+						index2 = index1 + 1;
+						while(index2 < itemList.length)
 						{
-							if(otherItem[index] != '_none')
-								otherArray.push(otherItem[index]);
+							if(itemList[index1] == itemList[index2])
+								itemList.splice(index2, 1);
+							else
+								index2 ++;
 						}
-						newArr.push( { 'name' : otherItemName, 'content' : otherArray.join(', ') } );
+						index1 ++;
 					}
-					else
-						newArr.push( { 'name' : otherItemName, 'content' : GetContent(otherItem) } );
+					if(noBulletPoints)
+						return itemList.join(", ");
 				}
-				else
-					newArr.push( { 'name' : otherItemName, 'content' : otherItem } );
+				return "<ul><li>" + itemList.join("</li><li>") + "</li></ul>";
 			}
-			return newArr;
-		case 'draconicancestry' :
-		case 'subracetraitsort' :
-		case 'subracephyssort' :
-			return PushAllProperties(item);
-		case 'gendersort' :
-			return [ { 'name' : 'Male' , 'content' : item.Male.join(', ') }, { 'name' : 'Female', 'content' : item.Female.join(', ') } ]
-		case 'halfethnicity' :
-			return 'discarditem';
-		
-		// Race stuff
-		case 'dragonbornnickname' :
-			return item._array.join(', ');
-		case 'halfelfvarianttraits' : 
-			if(books.indexOf('SCAG') >= 0)
+			else
 			{
-				var newArr = [];
-				for(var propertyName in item._list)
+				if(item.name.includes("[["))
+					return this.MakeNext(item.content, true) + " <sup>(" + item.name.slice(2, -2) + ")</sup>";
+				else
 				{
-					if(propertyName == '_any')
-						newArr.push( { 'name' : '_Note', 'content' : item._list[propertyName]._Note }, { 'name' : 'Keen Senses' , 'content' : item._list[propertyName]['Keen Senses'] } );
-					else
-						newArr.push( { 'name' : propertyName, 'content' : GetContent(item._list[propertyName]) } );
+					if(!noBulletPoints)
+						noBulletPoints = noBulletPointsTraits.includes(item.name);
+					var content = this.MakeNext(item.content, noBulletPoints);
+					if(content != null)
+						return "<b>" + item.name + "</b>: " + content;
 				}
-				return newArr;
 			}
-			return 'discarditem';
-		case 'halfelfvariantphys' : 
-			return PushAllProperties(item);
-		case 'halforcsubraces' :
-			return 'discarditem';
-		case 'humanethnicity' :
-			return PushAllProperties(item);
-		case 'tieflingappearance' :
-			var newArr = [];
-			for(var index in item._array)
-				newArr.push(item._array[index]);
-			return newArr.join(', ');
-		case 'tieflingvarianttype' :
-			return [ 'Feral, Devil\'s Tongue, Hellfire, Winged', { 'name' : 'Note', 'content' : 'The Devil\'s Tongue, Hellfire, and Winged variants are mutually exclusive' } ];
-		case 'tieflingvarianttraits' :
-			if(books.indexOf('SCAG') >= 0)
-				return PushAllProperties(item._list);
-			return 'discarditem';
-		case 'monstrousorigin' :
-			return monstrousOrigins;
-			
-		// Do this later
-		case 'skip' :
-			return '';
-		// Do this because this isn't the char gen
-		case 'ignoreinchargen' :
-			return PushAllProperties(item);
-	}
-	return { 'name' : 'error', 'content' : 'error' };
-}
-
-function GetBookId(id)
-{
-	if(id == 'MR')
-		return 'VGtM';
-	return id;
-}
-
-function FlattenArray(arr)
-{
-	var newArr = [];
-	for(var itemName in arr)
-	{
-		var item = arr[itemName];
-		if(Array.isArray(item))
-		{
-			item = FlattenArray(item);
-			for(var subItemName in item)
-				newArr.push(item[subItemName]);
 		}
-		else
-			newArr.push(item);
-	}
-	return newArr;
-}
+		
+		if(item[0] == "_")
+			return null;
 
-function GetNames(list)
-{
-	var nameArr = [];
-	for(var propName in list)
-	{
-		var prop = list[propName];
-		if(Array.isArray(prop))
-			nameArr.push( { 'name' : propName, 'content' : prop.join(', ') } );
-		else
-			nameArr.push( { 'name' : propName, 'content' : GetNames(prop) } );
-	}
-	return nameArr;
-}
-
-function NewCollapsible()
-{
-	return '<span class="collapsiblebutton" onclick="CollapseExpand(this)">[+]</span> '
-}
-
-function CollapseExpand(collapsibleButton)
-{
-	var collapsibleItem = GetCollapseExpandItem(collapsibleButton);
+		return item;
+	},
 	
-	if(collapsibleItem.hasAttribute("style"))
+	MakeNames: function(item)
 	{
-		collapsibleItem.removeAttributeNode(collapsibleItem.getAttributeNode("style"));
-		collapsibleButton.innerHTML = '[-]';
-	}
-	else
+		var stringBuffer = [];
+		stringBuffer.push("<ul>")
+		for(var index in item)
+			stringBuffer.push("<li><b>", Collapsibles.New(), item[index].name, "</b>:", this.MakeNamesNext(item[index].content), "</li>");
+		stringBuffer.push("</ul>")
+		return stringBuffer.join("");
+	},
+	
+	MakeNamesNext: function(item)
 	{
-		collapsibleItem.style.display = 'none';
-		collapsibleButton.innerHTML = '[+]';
-	}
-}
-
-function GetCollapseExpandItem(collapsibleButton)
-{
-	if(collapsibleButton.parentElement.nodeName == 'H3')
-	{
-		var collapsibleItem = collapsibleButton.parentElement;
-		while(collapsibleItem.nodeName != 'UL')
-			collapsibleItem = collapsibleItem.nextSibling;
-		return collapsibleItem;
-	}
-	else
-	{
-		var collapsibleItem = collapsibleButton.nextSibling;
-		while(collapsibleItem.nodeName != 'UL')
-			collapsibleItem = collapsibleItem.nextSibling;
-		return collapsibleItem;
-	}
-}
-
-function ExpandAll()
-{
-	var buttons = document.getElementsByClassName('collapsiblebutton');
-	for(var buttonId = 0; buttonId < buttons.length; buttonId++)
-	{
-		var collapsibleButton = buttons[buttonId], collapsibleItem = GetCollapseExpandItem(collapsibleButton);
-		if(collapsibleItem.hasAttribute("style"))
+		if(typeof item == "object")
 		{
-			collapsibleItem.removeAttributeNode(collapsibleItem.getAttributeNode("style"));
-			collapsibleButton.innerHTML = '[-]';
+			if(Array.isArray(item))
+			{
+				var stringBuffer = [];
+				for(var index in item)
+					stringBuffer.push(this.MakeNamesNext(item[index]));
+				if(typeof item[0] == "object")
+					return "<ul><li>" + stringBuffer.join("</li><li>") + "</li></ul>";
+				return "<ul><li>" + stringBuffer.join(", ") + "</li></ul>";
+			}
+			else
+				return "<b>" + item.name + "</b>:" + this.MakeNamesNext(item.content);
 		}
+		else
+			return item;
 	}
 }
 
-function RetractAll()
+// Deal with collapsible buttons, collapse/expand content
+var Collapsibles =
 {
-	var buttons = document.getElementsByClassName('collapsiblebutton');
-	for(var buttonId = 0; buttonId < buttons.length; buttonId++)
+
+	New: function()
 	{
-		var collapsibleButton = buttons[buttonId], collapsibleItem = GetCollapseExpandItem(collapsibleButton);
-		if(!collapsibleItem.hasAttribute("style"))
+		return "<span class=\"collapsiblebutton\" onclick=\"Collapsibles.CollapseExpand(this)\">[+] </span>"
+	},
+
+	CollapseExpand: function(button)
+	{
+		var item = $(button).parent().next();
+		
+		while(item[0].tagName != "UL")
+			item = item.next();
+		
+		
+		if(item.is(":visible"))
 		{
-			collapsibleItem.style.display = 'none';
-			collapsibleButton.innerHTML = '[+]';
+			$(button).html("[+] ");
+			item.hide();
 		}
+		else
+		{
+			$(button).html("[-] ");
+			item.show();
+		}
+	},
+
+	ExpandAll: function(listName)
+	{
+		var buttons = $("#" + listName).find(".collapsiblebutton");
+		$.each(buttons, function(){
+			$(this).html("[-] ");
+			$(this).parent().next().show();
+		});
+	},
+
+	RetractAll: function(listName)
+	{
+		var buttons = $("#" + listName).find(".collapsiblebutton");
+		$.each(buttons, function(){
+			$(this).html("[+] ");
+			$(this).parent().next().hide();
+		});
 	}
 }
 
-function GetUAStuff(arr)
+// Populate the UA lists at the bottom
+var UAStuff = 
 {
-	var stringBuffer = []
-	for(var index in arr)
+	Get: function(arr)
 	{
-		var item = arr[index];
-		stringBuffer.push('<li><b>', item.name, ':</b> <a href="', item.link, '">', item.source, '</a>');
+		var stringBuffer = []
+		for(var index in arr)
+		{
+			var item = arr[index];
+			stringBuffer.push("<li><b>", item.name, ":</b> <a href=\"", item.link, "\">", item.source, "</a>");
+		}
+		return stringBuffer.join("");
 	}
-	return stringBuffer.join('');
 }
+
+
+
+const noBulletPointsTraits = [ "Subraces and Variants", "Physical Characteristics", "Childhood Nickname", "Guide Name", "Animal Enhancement", "Advanced Animal Enhancement", "Artificer Specialty", "Mystic Order", "Blood Hunter Order" ];
