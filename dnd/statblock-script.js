@@ -789,7 +789,10 @@ var GetVariablesFunctions =
 				armorName = "other";
 		}
 		else
+		{
+			shieldBonus = 0;
 			armorName = (armorAcData == MathFunctions.GetAC("none")) ? "none" : "other";
+		}
 		
 		// In case it's an unknown armor type
 		if(armorName == "other")

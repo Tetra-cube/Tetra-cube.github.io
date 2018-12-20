@@ -1,10 +1,8 @@
 # D&D 5e Stuff
 
-[Content Reference](https://tetra-cube.github.io/dnd/dnd-reference.html)
+[PC Options Reference](https://tetra-cube.github.io/dnd/dnd-reference.html)
 
 [Random Character Generator](https://tetra-cube.github.io/dnd/dnd-char-gen.html)
-
-[Random NPC Generator](https://tetra-cube.github.io/dnd/dnd-npc-gen.html)
 
 [Statblock Generator](https://tetra-cube.github.io/dnd/dnd-statblock.html)
 
