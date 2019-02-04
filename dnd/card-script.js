@@ -250,7 +250,7 @@ var Card =
 
 	ClassName: function()
 	{
-		return character.Class.name + " (" + this.FindTraitByName(character.Class.content, subclassesCard[character.Class.name]) + ") ";
+		return character.Class.name + " (" + this.FindTraitByName(character.Class.content, subclassesCard[character.Class.name]) + ")";
 	},
 
 	BackgroundName: function()
