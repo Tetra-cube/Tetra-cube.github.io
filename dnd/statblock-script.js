@@ -1055,8 +1055,9 @@ var GetVariablesFunctions =
 		var abilityName = ability.name.trim(), abilityDesc = ability.desc.trim();
 		
 		// In case of spellcasting
-		if(arrName == "abilities" && abilityName.toLowerCase().includes("spellcasting"))
+		if(arrName == "abilities" && abilityName.toLowerCase().includes("spellcasting") && abilityDesc.includes("\n"))
 		{
+			abilityDesc = abilityDesc.split("\u2022").join("");
 			var firstLineBreak = abilityDesc.indexOf("\n");
 			spellcastingDesc = abilityDesc.substr(0, firstLineBreak).trim();
 			spellcastingSpells = abilityDesc.substr(firstLineBreak).trim();
