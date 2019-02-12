@@ -9,6 +9,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="FileSaver.js/dist/FileSaver.min.js"></script>
 		<script src="serialize.js"></script>
 		<script src="statblock-script.js"></script>
 	</head>
@@ -24,7 +25,10 @@
 				<h1>D&D 5e Statblock Generator</h1>
 				Based on <a href="http://valloric.github.io/statblock5e/">Statblock5e</a> and <a href="https://open5e.com/">Open5e</a> 
 				<br><br>
+				<button onclick="TrySaveFile()">Save Statblock</button>
+				<button onclick="LoadFilePrompt()">Load Statblock</button>
 				<button onclick="TryPrint()">Print Statblock</button>
+				<input id="file-upload" type="file" onChange="TryLoadFile();" hidden />
 				<br><br>
 			</span>
 			
