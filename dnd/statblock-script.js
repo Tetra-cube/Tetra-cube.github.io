@@ -102,14 +102,14 @@ var UpdateStatblock = function(moveSeparationPoint)
 
 	// Saving Throws
 	var sthrowsDisplayArr = [];
-	for(var index in sthrows)
+	for(var index = 0; index < sthrows.length; index++)
 		sthrowsDisplayArr.push(StringFunctions.StringCapitalize(sthrows[index].name) + " +" + (GetVariablesFunctions.GetStatBonus(sthrows[index].name) + crs[cr].prof));
 	if(sthrowsDisplayArr.length > 0)
 		propertiesDisplayArr.push( { "name" : "Saving Throws", "arr" : sthrowsDisplayArr } );
 
 	// Skills
 	var skillsDisplayArr = [];
-	for(var index in skills)
+	for(var index = 0; index < skills.length; index++)
 	{
 		var skillData = skills[index];
 		if(skillData.hasOwnProperty("note"))
@@ -124,7 +124,7 @@ var UpdateStatblock = function(moveSeparationPoint)
 	var vulnerableDisplayArr = [], resistantDisplayArr = [], immuneDisplayArr = [],
 		vulnerableDisplayArrSpecial = [], resistantDisplayArrSpecial = [], immuneDisplayArrSpecial = [],
 		vulnerableDisplayString = "", resistantDisplayString = "", immuneDisplayString = "";
-	for(var index in damagetypes)
+	for(var index = 0; index < damagetypes.length; index++)
 	{
 		if(damagetypes[index].type == 'v')
 			vulnerableDisplayArr.push(damagetypes[index].name);
@@ -133,7 +133,7 @@ var UpdateStatblock = function(moveSeparationPoint)
 		else
 			immuneDisplayArr.push(damagetypes[index].name);
 	}
-	for(var index in specialdamage)
+	for(var index = 0; index < specialdamage.length; index++)
 	{
 		if(specialdamage[index].type == 'v')
 			vulnerableDisplayArrSpecial.push(specialdamage[index].name);
@@ -156,7 +156,7 @@ var UpdateStatblock = function(moveSeparationPoint)
 
 	// Condition Immunities
 	var conditionsDisplayArr = [];
-	for(var index in conditions)
+	for(var index = 0; index < conditions.length; index++)
 		conditionsDisplayArr.push(conditions[index].name.toLowerCase());
 	if(conditionsDisplayArr.length > 0)
 		propertiesDisplayArr.push( { "name" : "Condition Immunities", "arr" : conditionsDisplayArr } );
@@ -185,7 +185,7 @@ var UpdateStatblock = function(moveSeparationPoint)
 	
 	// Languages
 	var languageDisplayArr = [];
-	for(var index in languages)
+	for(var index = 0; index < languages.length; index++)
 		languageDisplayArr.push(languages[index].name);
 	if(telepathy > 0)
 		languageDisplayArr.push("telepathy " + telepathy + " ft.");
@@ -222,7 +222,7 @@ var UpdateStatblock = function(moveSeparationPoint)
 	
 	// Add traits, taking into account the width of the block (one column or two columns)
 	var leftTraitsArr = [], rightTraitsArr = [], separationCounter = 0;
-	for(var index in traitsHTML)
+	for(var index = 0; index < traitsHTML.length; index++)
 	{
 		var trait = traitsHTML[index], raiseCounter = true;
 		if(trait[0] == "*")
@@ -256,7 +256,7 @@ var AddToTraitList = function(traitsArr, addElements, isLegendary = false)
 	{
 		if(Array.isArray(addElements))
 		{
-			for(var index in addElements)
+			for(var index = 0; index < addElements.length; index++)
 				traitsHTML.push("*" + StringFunctions.FormatString(addElements[index]));
 		}
 		else
@@ -266,12 +266,12 @@ var AddToTraitList = function(traitsArr, addElements, isLegendary = false)
 	// There's a small difference in formatting for legendary actions
 	if(isLegendary)
 	{
-		for(var index in traitsArr)
+		for(var index = 0; index < traitsArr.length; index++)
 			traitsHTML.push(StringFunctions.MakeTraitHTMLLegendary(traitsArr[index].name, traitsArr[index].desc));
 	}
 	else
 	{
-		for(var index in traitsArr)
+		for(var index = 0; index < traitsArr.length; index++)
 			traitsHTML.push(StringFunctions.MakeTraitHTML(traitsArr[index].name, traitsArr[index].desc));
 	}
 }
@@ -288,23 +288,23 @@ var SavedData =
 	SaveAllToFile()
 	{
 		var blob = new Blob( [ this.GetAllSerialized() ], {type: "text/plain;charset=utf-8"});
-		saveAs(blob, name + ".monster")
+		saveAs(blob, name)
 	},
 	
 	GetAllSerialized: function()
 	{
 		var serializedArray = [];
 		
-		for(var index in allSavedBooleanVariables)
+		for(var index = 0; index < allSavedBooleanVariables.length; index++)
 			this.GetSerialized(allSavedBooleanVariables[index], serializedArray);
 		
-		for(var index in allSavedNumberVariables)
+		for(var index = 0; index < allSavedNumberVariables.length; index++)
 			this.GetSerialized(allSavedNumberVariables[index], serializedArray);
 		
-		for(var index in allSavedTextVariables)
+		for(var index = 0; index < allSavedTextVariables.length; index++)
 			this.GetSerialized(allSavedTextVariables[index], serializedArray);
 		
-		for(var index in allSavedArrayVariables)
+		for(var index = 0; index < allSavedArrayVariables.length; index++)
 			this.GetSerialized(allSavedArrayVariables[index], serializedArray);
 		
 		return serializedArray.join("");
@@ -557,7 +557,7 @@ var FormFunctions =
 	{
 		var arr = (arrName == "damage" ? damagetypes.concat(specialdamage) : window[arrName]),
 			displayArr = [], content = "", arrElement = "#" + arrName + "-input-list";
-		for(var index in arr)
+		for(var index = 0; index < arr.length; index++)
 		{	
 			var element = arr[index],
 				elementName = capitalize ? StringFunctions.StringCapitalize(element.name) : element.name;
@@ -881,7 +881,7 @@ var GetVariablesFunctions =
 		
 		// Skills
 		skills = [];
-		for(var index in allSkills)
+		for(var index = 0; index < allSkills.length; index++)
 		{
 			var currentSkill = allSkills[index], skillCheck = StringFunctions.StringReplaceAll(currentSkill.name.toLowerCase(), " ", "_");
 			if(creature.hasOwnProperty(skillCheck) && creature[skillCheck] != null)
@@ -895,7 +895,7 @@ var GetVariablesFunctions =
 		// Conditions
 		conditions = [];
 		var conditionsPresetArr = ArrayFunctions.FixPresetArray(creature.condition_immunities);
-		for(var index in conditionsPresetArr)
+		for(var index = 0; index < conditionsPresetArr.length; index++)
 			this.AddCondition(conditionsPresetArr[index]);
 		
 		// Damage Types
@@ -909,7 +909,7 @@ var GetVariablesFunctions =
 		languages = [];
 		telepathy = 0;
 		var languagesPresetArr = creature.languages.split(",");
-		for(var index in languagesPresetArr)
+		for(var index = 0; index < languagesPresetArr.length; index++)
 		{
 			var languageName = languagesPresetArr[index].trim();
 			if(languageName.toLowerCase().includes("telepathy"))
@@ -925,7 +925,7 @@ var GetVariablesFunctions =
 		tremorsense = 0;
 		truesight = 0;
 		var sensesPresetArr = creature.senses.split(",");
-		for(var index in sensesPresetArr)
+		for(var index = 0; index < sensesPresetArr.length; index++)
 		{
 			var senseString = sensesPresetArr[index].trim().toLowerCase(), senseName = senseString.split(" ")[0], senseDist = StringFunctions.GetNumbersOnly(senseString);
 			switch(senseName)
@@ -961,25 +961,25 @@ var GetVariablesFunctions =
 			
 		if(Array.isArray(abilitiesPresetArr))
 		{
-			for(var index in abilitiesPresetArr)
+			for(var index = 0; index < abilitiesPresetArr.length; index++)
 				this.AddAbilityPreset("abilities", abilitiesPresetArr[index]);
 		}
 			
 		if(Array.isArray(actionsPresetArr))
 		{
-			for(var index in actionsPresetArr)
+			for(var index = 0; index < actionsPresetArr.length; index++)
 				this.AddAbilityPreset("actions", actionsPresetArr[index]);
 		}
 			
 		if(Array.isArray(reactionsPresetArr))
 		{
-			for(var index in reactionsPresetArr)
+			for(var index = 0; index < reactionsPresetArr.length; index++)
 				this.AddAbilityPreset("reactions", reactionsPresetArr[index]);
 		}
 			
 		if(isLegendary && Array.isArray(legendariesPresetArr))
 		{
-			for(var index in legendariesPresetArr)
+			for(var index = 0; index < legendariesPresetArr.length; index++)
 				this.AddAbilityPreset("legendaries", legendariesPresetArr[index]);
 		}
 	},
@@ -993,7 +993,7 @@ var GetVariablesFunctions =
 		if(sthrowData == null) return;
 		
 		// Non-alphabetical ordering
-		for(var index in sthrows)
+		for(var index = 0; index < sthrows.length; index++)
 		{
 			if(sthrows[index].name == sthrowName) return;
 			if(sthrows[index].order > sthrowData.order)
@@ -1052,7 +1052,7 @@ var GetVariablesFunctions =
 		else
 		{
 			var normalArr = arr[0].split(",");
-			for(var index in normalArr)
+			for(var index = 0; index < normalArr.length; index++)
 				this.AddDamageType(normalArr[index].trim(), type);
 			for(var index = 1; index < arr.length; index++)
 				this.AddDamageType(arr[index].trim(), type);
@@ -1106,7 +1106,7 @@ var GetVariablesFunctions =
 			spellcastingSpells = abilityDesc.substr(firstLineBreak).trim();
 			
 			spellsArr = spellcastingSpells.split("\n");
-			for(var index in spellsArr)
+			for(var index = 0; index < spellsArr.length; index++)
 			{
 				var string = spellsArr[index], splitString = string.split(":");
 				if(splitString.length < 2)
@@ -1128,7 +1128,7 @@ var GetVariablesFunctions =
 		{
 			// Italicize the correct parts of attack-type actions
 			var lowercaseDesc = abilityDesc.toLowerCase();
-			for(var index in attackTypes)
+			for(var index = 0; index < attackTypes.length; index++)
 			{
 				var attackType = attackTypes[index];
 				if(lowercaseDesc.includes(attackType))
@@ -1355,7 +1355,7 @@ var ArrayFunctions =
 				arr.splice(0, 0, element)
 			return;
 		}
-		for(var index in arr)
+		for(var index = 0; index < arr.length; index++)
 		{
 			var lowercaseIndex = arr[index].name.toLowerCase();
 			if(checkMultiattack && lowercaseIndex.includes("multiattack"))
@@ -1377,7 +1377,7 @@ var ArrayFunctions =
 	FindInList: function(arr, name)
 	{
 		var lowercaseName = name.toLowerCase();
-		for(var index in arr)
+		for(var index = 0; index < arr.length; index++)
 		{
 			if(arr[index].name.toLowerCase() == lowercaseName)
 				return arr[index];
@@ -1389,7 +1389,7 @@ var ArrayFunctions =
 	FixPresetArray: function(string)
 	{
 		var arr = string.split(","), returnArr = [];
-		for(var index in arr)
+		for(var index = 0; index < arr.length; index++)
 		{
 			var name = arr[index].trim();
 			if(name.length > 0)

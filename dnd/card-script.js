@@ -314,7 +314,7 @@ var Card =
 			}
 		}
 		usedTraitIndices.sort( function(item1, item2) { return item1 - item2 } );
-		for(var index in usedTraitIndices)
+		for(var index = 0; index < usedTraitIndices.length; index++)
 			usedTraits.push(traitArr[usedTraitIndices[index]])
 		
 		// Bottom-justify it
@@ -333,9 +333,9 @@ var Card =
 			classPersonalityArr = this.FindTraitByName(character.Class.content, "Personality"),
 			npcTraitsArr = character.NPCTraits.content,
 			lifeArr = character.Life.content;
-		for(var traitIndex in backgroundArr)
+		for(var index = 0; index < backgroundArr.length; index++)
 		{
-			var trait = backgroundArr[traitIndex];
+			var trait = backgroundArr[index];
 			// if(trait.name[0] == "_")
 				// continue;
 			allTraits.push(trait);
@@ -347,22 +347,22 @@ var Card =
 		}
 		else
 		{
-			for(var traitIndex in raceArr)
+			for(var index = 0; index < raceArr.length; index++)
 			{
-				var trait = raceArr[traitIndex];
+				var trait = raceArr[index];
 				if(trait.name != "name" && trait.name != "Subraces and Variants" && trait.name != "Racial Traits" && trait.name != "Physical Characteristics")
 					allTraits.push(trait);
 			}
 		}
-		for(var traitIndex in classPersonalityArr)
+		for(var index = 0; index < classPersonalityArr.length; index++)
 		{
-			var trait = classPersonalityArr[traitIndex];
+			var trait = classPersonalityArr[index];
 			if(trait != null && trait.content != null)
 				allTraits.push(trait);
 		}
-		for(var traitIndex in npcTraitsArr)
+		for(var index = 0; index < npcTraitsArr.length; index++)
 		{
-			var trait = npcTraitsArr[traitIndex];
+			var trait = npcTraitsArr[index];
 			allTraits.push(trait);
 		}
 		allTraits.push( { "name" : "Trinket", "content" : this.FindTraitByName(lifeArr, "Trinket") } );
@@ -380,9 +380,9 @@ var Card =
 	{
 		var allTraits = [];
 		var physChar = this.FindTraitByName(character.Race.content, "Physical Characteristics");
-		for(var traitIndex in physChar)
+		for(var index = 0; index < physChar.length; index++)
 		{
-			var trait = physChar[traitIndex];
+			var trait = physChar[index];
 			if(trait != null)
 				allTraits.push(trait);
 		}
@@ -393,17 +393,17 @@ var Card =
 	TraitsArray: function(ctx, source)
 	{
 		var traitArr = [];
-		for(var traitIndex in source)
+		for(var index = 0; index < source.length; index++)
 		{
 			// Get info on the label
 			ctx.font = labelFont;
-			var labelText = source[traitIndex].name + ": ",
+			var labelText = source[index].name + ": ",
 				labelWidth = ctx.measureText(labelText).width,
 				lineWidth = labelWidth;
 			
 			// Get info on the description
 			ctx.font = descriptionFont;
-			var lineArr = this.MultilineStringArray(ctx, source[traitIndex].content, labelWidth);
+			var lineArr = this.MultilineStringArray(ctx, source[index].content, labelWidth);
 			traitArr.push( { "label" : labelText, "labelwidth" : labelWidth, "description" : lineArr } );
 		}
 		return traitArr;
@@ -440,7 +440,7 @@ var Card =
 	PrintDescription: function(ctx, traits, yPos)
 	{
 		// Write out the text
-		for(var index in traits)
+		for(var index = 0; index < traits.length; index++)
 		{
 			var trait = traits[index];
 			
@@ -463,7 +463,7 @@ var Card =
 
 	FindTraitByName: function(arr, name)
 	{
-		for(var index in arr)
+		for(var index = 0; index < arr.length; index++)
 		{
 			if(arr[index].name == name)
 				return arr[index].content;
@@ -523,7 +523,7 @@ var CardType =
 		if(typeof item != "object")
 			return item;
 		var itemContent = item.content, stringBuffer = [];
-		for(var index in itemContent)
+		for(var index = 0; index < itemContent.length; index++)
 			stringBuffer.push(this.PlainTextNext(itemContent[index], "\n-"));
 		return item.name + stringBuffer.join("");
 	},
@@ -534,7 +534,7 @@ var CardType =
 			return item;
 		
 		var itemContent = item.content, stringBuffer = [];
-		for(var index in itemContent)
+		for(var index = 0; index < itemContent.length; index++)
 			stringBuffer.push(this.PlainTextNext(itemContent[index], depthString + "-"));
 		return depthString + item.name + ": " + stringBuffer.join("");
 	},

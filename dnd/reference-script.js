@@ -6,7 +6,7 @@ var UpdateList = function()
 	// Get Books
 	{
 		books = [ "Real", "PHB" ];
-		for(var bookNum in availableBooks)
+		for(var bookNum = 0; bookNum < availableBooks.length; bookNum++)
 		{
 			var book = availableBooks[bookNum];
 			if(book == "MR")
@@ -48,7 +48,7 @@ var Content =
 		{
 			var property = item[propertyName], propertySpecial = property._special.split(" "), bookString;
 			
-			for(var index in propertySpecial)
+			for(var index = 0; index < propertySpecial.length; index++)
 			{
 				var splitSpecial = propertySpecial[index].split("-");
 				if(splitSpecial[0] = "book")
@@ -72,7 +72,7 @@ var Content =
 			if(Array.isArray(item))		// If item is an array
 			{
 				var elements = [];
-				for(var index in item)
+				for(var index = 0; index < item.length; index++)
 				{
 					var content = this.GetNext(item[index]);
 					if(content != null)
@@ -107,7 +107,7 @@ var Content =
 		// Clone the item, remove special from the clone, and apply every special in order
 		var newItem = Object.assign({}, item), cases = item._special.split(" ");
 		delete newItem._special;
-		for(var caseIndex in cases)
+		for(var caseIndex = 0; caseIndex < cases.length; caseIndex++)
 			newItem = this.ApplySpecial(cases[caseIndex], newItem);
 		if(jQuery.isEmptyObject(newItem))
 			return null;
@@ -181,7 +181,7 @@ var HTMLStrings =
 	Make: function(arr)
 	{
 		var stringBuffer = [];
-		for(var index in arr)
+		for(var index = 0; index < arr.length; index++)
 		{
 			var item = arr[index];
 			stringBuffer.push("<h3>", Collapsibles.New(), item.name, " <sup>(", item.book, ")</sup>", "</h3>", this.MakeNext(item.content));
@@ -196,7 +196,7 @@ var HTMLStrings =
 			if(Array.isArray(item))		// If item is an array
 			{
 				var itemList = [], allStrings = true;
-				for(var index in item)
+				for(var index = 0; index < item.length; index++)
 				{
 					if(allStrings && typeof item[index] != "string")
 						allStrings = false;
@@ -251,7 +251,7 @@ var HTMLStrings =
 	{
 		var stringBuffer = [];
 		stringBuffer.push("<ul>")
-		for(var index in item)
+		for(var index = 0; index < item.length; index++)
 			stringBuffer.push("<li><b>", Collapsibles.New(), item[index].name, "</b>:", this.MakeNamesNext(item[index].content), "</li>");
 		stringBuffer.push("</ul>")
 		return stringBuffer.join("");
@@ -264,7 +264,7 @@ var HTMLStrings =
 			if(Array.isArray(item))
 			{
 				var stringBuffer = [];
-				for(var index in item)
+				for(var index = 0; index < item.length; index++)
 					stringBuffer.push(this.MakeNamesNext(item[index]));
 				if(typeof item[0] == "object")
 					return "<ul><li>" + stringBuffer.join("</li><li>") + "</li></ul>";
@@ -332,7 +332,7 @@ var UAStuff =
 	Get: function(arr)
 	{
 		var stringBuffer = []
-		for(var index in arr)
+		for(var index = 0; index < arr.length; index++)
 		{
 			var item = arr[index];
 			stringBuffer.push("<li><b>", item.name, ":</b> <a href=\"", item.link, "\">", item.source, "</a>");
