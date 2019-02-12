@@ -15,6 +15,15 @@ var name = "Monster", size = "medium", type = "humanoid", tag = "", alignment = 
 // Print function
 var TryPrint = () => { window.print(); }
 
+// Save function
+var TrySaveFile = () => { SavedData.SaveAllToFile(); }
+
+// Upload file function
+var LoadFilePrompt = () => { $("#file-upload").click(); }
+
+// Load function
+var TryLoadFile = () => { SavedData.RetrieveAllFromFile(); }
+
 // Update the main stat block from form variables
 var UpdateBlockFromVariables = function(moveSeparationPoint)
 {
@@ -46,7 +55,7 @@ var UpdateStatblock = function(moveSeparationPoint)
 	}
 	
 	// Save Before Continuing
-	SavedData.SaveAll();
+	SavedData.SaveAllLocalStorage();
 	
 	// One column or two columns
 	var statBlock = $("#stat-block");
@@ -270,70 +279,104 @@ var AddToTraitList = function(traitsArr, addElements, isLegendary = false)
 // Functions for saving/loading data
 var SavedData =
 {
-	SaveAll: function()
+	
+	SaveAllLocalStorage: function()
 	{
-		
-		for(var index in allSavedBooleanVariables)
-			this.Save(allSavedBooleanVariables[index]);
-		
-		for(var index in allSavedNumberVariables)
-			this.Save(allSavedNumberVariables[index]);
-		
-		for(var index in allSavedTextVariables)
-			this.Save(allSavedTextVariables[index]);
-		
-		for(var index in allSavedArrayVariables)
-			this.Save(allSavedArrayVariables[index]);
+		localStorage.setItem("SavedData", this.GetAllSerialized());
 	},
 	
-	Save: function(key)
+	SaveAllToFile()
+	{
+		var blob = new Blob( [ this.GetAllSerialized() ], {type: "text/plain;charset=utf-8"});
+		saveAs(blob, name + ".monster")
+	},
+	
+	GetAllSerialized: function()
+	{
+		var serializedArray = [];
+		
+		for(var index in allSavedBooleanVariables)
+			this.GetSerialized(allSavedBooleanVariables[index], serializedArray);
+		
+		for(var index in allSavedNumberVariables)
+			this.GetSerialized(allSavedNumberVariables[index], serializedArray);
+		
+		for(var index in allSavedTextVariables)
+			this.GetSerialized(allSavedTextVariables[index], serializedArray);
+		
+		for(var index in allSavedArrayVariables)
+			this.GetSerialized(allSavedArrayVariables[index], serializedArray);
+		
+		return serializedArray.join("");
+	},
+	
+	GetSerialized: function(key, serializedArray, type)
 	{
 		var data = window[key];
 		if(data != undefined)
-			localStorage.setItem(key, Serialize(data));
+			serializedArray.push(key, ": ", Serialize(data), "\n");
 	},
 	
-	RetrieveAll: function()
+	RetrieveAllLocalStorage: function()
 	{
-		for(var index in allSavedBooleanVariables)
+		var savedData = localStorage.getItem("SavedData");
+		if(savedData != undefined)
+			this.GetAllDeserialized(savedData);
+	},
+	
+	RetrieveAllFromFile()
+	{
+		var file = $("#file-upload").prop("files")[0],
+			reader = new FileReader(), self = this;
+
+		reader.onload = function (e)
 		{
-			var key = allSavedBooleanVariables[index], data = this.Retrieve(key);
+			self.GetAllDeserialized(reader.result);
+			Populate();
+		};
+		
+		reader.readAsText(file);
+	},
+	
+	GetAllDeserialized: function(serializedString)
+	{
+		var deserializedObject = {}, splitArray = serializedString.split("\n");
+		
+		for(var index = 0; index < splitArray.length; index++)
+		{
+			var dataString = splitArray[index], colonIndex = dataString.indexOf(":"),
+				key = dataString.substring(0, colonIndex), val = Deserialize(dataString.substring(colonIndex + 2));
+			deserializedObject[key] = val;
+		}
+		
+		for(var index = 0; index < allSavedBooleanVariables.length; index++)
+		{
+			var key = allSavedBooleanVariables[index], data = deserializedObject[key];
 			if(data != undefined)
 				window[key] = (data == "true");
 		}
 		
-		for(var index in allSavedNumberVariables)
+		for(var index = 0; index < allSavedNumberVariables.length; index++)
 		{
-			var key = allSavedNumberVariables[index], data = this.Retrieve(key);
+			var key = allSavedNumberVariables[index], data = deserializedObject[key];
 			if(data != undefined)
 				window[key] = parseInt(data);
 		}
 		
-		for(var index in allSavedTextVariables)
+		for(var index = 0; index < allSavedTextVariables.length; index++)
 		{
-			var key = allSavedTextVariables[index], data = this.Retrieve(key);
+			var key = allSavedTextVariables[index], data = deserializedObject[key];
 			if(data != undefined)
 				window[key] = data;
 		}
 		
-		for(var index in allSavedArrayVariables)
+		for(var index = 0; index < allSavedArrayVariables.length; index++)
 		{
-			var key = allSavedArrayVariables[index], data = this.Retrieve(key);
-			if(data != undefined && Array.isArray(data))
+			var key = allSavedArrayVariables[index], data = deserializedObject[key];
+			if(data != undefined)
 				window[key] = data;
 		}
 	},
-	
-	Retrieve: function(key)
-	{
-		var data = localStorage.getItem(key);
-		if(data != undefined)
-		{
-			var deserializedData = Deserialize(data);
-			if(deserializedData != undefined)
-				return deserializedData;
-		}
-	}
 }
 
 // Functions for form-setting
@@ -1373,14 +1416,19 @@ $(function()
 	GetVariablesFunctions.SetPreset(defaultPreset);
 	
 	// Load saved data
-	SavedData.RetrieveAll();
+	SavedData.RetrieveAllLocalStorage();
+	Populate();
+});
+
+function Populate()
+{
 	FormFunctions.SetLegendaryDescriptionForm();
 	GetVariablesFunctions.SetBonuses();
 	
 	// Populate the stat block
 	FormFunctions.SetForms();
 	UpdateStatblock();
-});
+}
 
 
 
