@@ -35,7 +35,7 @@ var Books =
 	Get: function()
 	{
 		books = [ "Real", "PHB" ];
-		for(var bookNum in availableBooks)
+		for(var bookNum = 0; bookNum < availableBooks.length; bookNum++)
 		{
 			var book = availableBooks[bookNum];
 			if($("#" + book + "box").prop("checked"))
@@ -47,7 +47,7 @@ var Books =
 	CheckSpecial: function(specialString)
 	{
 		var splitSpecial = specialString.split(" ");
-		for(var specialIndex in splitSpecial)
+		for(var specialIndex = 0; specialIndex < splitSpecial.length; specialIndex++)
 		{
 			if(splitSpecial[specialIndex].slice(0, 5) == "book-")
 				return this.CheckString(splitSpecial[specialIndex].slice(5));
@@ -58,7 +58,7 @@ var Books =
 	// Check a string of only books
 	CheckString: function(bookString)
 	{
-		for(var index in books)
+		for(var index = 0; index < books.length; index++)
 		{
 			if(bookString.includes(books[index]))
 				return true;
@@ -264,7 +264,7 @@ var Content =
 		// Clone the item, remove special from the clone, and apply every special in order
 		var newItem = Object.assign({}, item), cases = item._special.split(" ");
 		delete newItem._special;
-		for(var caseIndex in cases)
+		for(var caseIndex = 0; caseIndex < cases.length; caseIndex++)
 			newItem = this.ApplySpecial(cases[caseIndex], newItem);
 		if(jQuery.isEmptyObject(newItem))
 			return null;
@@ -417,7 +417,7 @@ var Random =
 		if(numbers.length == 1)
 			return numbers[0];
 		var total = 0;
-		for(die = 0; die < numbers[0]; die++)
+		for(var die = 0; die < numbers[0]; die++)
 			total += this.Num(numbers[1]) + 1;
 		return total;
 	},
@@ -429,7 +429,7 @@ var HTMLStrings =
 	Get: function(item)
 	{
 		var itemContent = item.content, stringBuffer = [];
-		for(var index in itemContent)
+		for(var index = 0; index < itemContent.length; index++)
 			stringBuffer.push(this.GetNext(itemContent[index]));
 		return stringBuffer.join("");
 	},
@@ -441,7 +441,7 @@ var HTMLStrings =
 			return "<li><b>" + item.name + "</b>: " + itemContent + "</li>";
 		
 		var stringBuffer = [];
-		for(var index in itemContent)
+		for(var index = 0; index < itemContent.length; index++)
 			stringBuffer.push(this.GetNext(itemContent[index]));
 		return "<li><b> " + item.name + "</b>:<ul>" + stringBuffer.join("") + "</ul></li>";
 	},
@@ -601,12 +601,12 @@ var Names =
 	GetSubrace: function()
 	{
 		var race = character.Race.content
-		for(var index in race)
+		for(var index = 0; index < race.length; index++)
 		{
 			if(race[index].name == "Subraces and Variants")
 			{
 				var subrace = race[index].content;
-				for(var index2 in subrace)
+				for(var index2 = 0; index2 < subrace.length; index2++)
 				{
 					if(subrace[index2].name == "Subrace")
 						return subrace[index2].content;

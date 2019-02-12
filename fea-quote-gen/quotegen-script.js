@@ -239,7 +239,7 @@ $(function()
 	reader = new FileReader();
 	
 	// Code for portrait images
-	for(var idIndex in allIDs)
+	for(var idIndex = 0; idIndex < allIDs.length; idIndex++)
 	{
 		portraitImages[allIDs[idIndex]] = new Image();
 		portraitImages[allIDs[idIndex]].addEventListener("load", Canvas.Reload);
@@ -308,7 +308,7 @@ $(function()
 	$("#lp2-flip").prop("checked", true);
 	$("#rp2-flip").prop("checked", false);
 	
-	for(var idIndex in allIDs)
+	for(var idIndex = 0; idIndex < allIDs.length; idIndex++)
 	{
 		var id = allIDs[idIndex];
 		IDElement(id).val(null);
@@ -322,7 +322,7 @@ $(function()
 	$("#bkg").on("change", HTMLFunctions.OnChangeBackground);
 	$("#remove-bkg").on("click", HTMLFunctions.RemoveBackground);
 	
-	for(var idIndex in allIDs)
+	for(var idIndex = 0; idIndex < allIDs.length; idIndex++)
 	{
 		let id = allIDs[idIndex];
 		IDElement(id).on("change", function(e){

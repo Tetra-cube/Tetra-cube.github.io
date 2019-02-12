@@ -3,7 +3,7 @@ function Serialize(item)
 	if(Array.isArray(item))
 	{
 		var serializedArr = [];
-		for(var index in item)
+		for(var index = 0; index < item.length; index++)
 			serializedArr.push(Serialize(item[index]));
 		return "[" + serializedArr.join("/") + "]";
 	}
@@ -42,7 +42,7 @@ function Deserialize(string)
 			return TraverseString(innerString, "/", []);
 		case "{":
 			var objArr = TraverseString(innerString, "|", {}), newObj = {};
-			for(var index in objArr)
+			for(var index = 0; index < objArr.length; index++)
 			{
 				var propString = objArr[index]; dividerIndex = propString.indexOf(":");
 				newObj[propString.slice(0, dividerIndex)] = Deserialize(propString.slice(dividerIndex + 1));
