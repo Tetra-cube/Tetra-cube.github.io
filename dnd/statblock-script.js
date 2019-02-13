@@ -1066,6 +1066,15 @@ var GetVariablesFunctions =
 		if(arrName == "abilities" && abilityName.toLowerCase().includes("spellcasting") && abilityDesc.includes("\n"))
 		{
 			abilityDesc = abilityDesc.split("\u2022").join("");	// Remove bullet points
+			
+			// For hag covens
+			var postDesc = "";
+			if(abilityName.toLowerCase().includes("shared spellcasting"))
+			{
+				var lastLineBreak = abilityDesc.lastIndexOf("\n\n");
+				postDesc = abilityDesc.substr(lastLineBreak).trim();
+				abilityDesc = abilityDesc.substring(0, lastLineBreak);
+			}
 
 			var firstLineBreak = abilityDesc.indexOf("\n");
 			spellcastingDesc = abilityDesc.substr(0, firstLineBreak).trim();
@@ -1086,7 +1095,13 @@ var GetVariablesFunctions =
 			
 			spellcastingSpells = spellsArr.join("\n>");
 			
-			abilityDesc = spellcastingDesc + "\n\n>" + spellcastingSpells;
+			abilityDesc = spellcastingDesc + "\n\n\n>" + spellcastingSpells;
+			
+			// For hag covens
+			if(postDesc.length > 0)
+				abilityDesc += "\n\n" + postDesc;
+			
+			console.log(abilityDesc);
 		}
 		
 		// In case of attacks
@@ -1209,7 +1224,7 @@ var StringFunctions =
 						endIndent = false;
 					}
 					if(newLine)
-						insertion += "<br><br>";
+						insertion += "<br>";
 					string = this.StringSplice(string, index, 1, insertion);
 					index += insertion.length - 1;
 					newLine = true;
