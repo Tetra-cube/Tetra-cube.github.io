@@ -1,6 +1,6 @@
 .stat-block {
 	text-align: left;
-	font-size: 13.5px;
+	font-size: 12.5px;
 	line-height: 1.2em;
 	margin: 20px;
 	display: inline-block;
@@ -68,7 +68,7 @@
 .creature-heading h1 {
 	font-family: 'Libre Baskerville', 'Lora', 'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif;
 	color: #922610;
-	font-size: 23px;
+	font-size: 21px;
 	line-height: 1.2em;
 	margin: 10px 0 0;
 	letter-spacing: 1px;
@@ -87,7 +87,7 @@
 	display: inline;
 	margin: 0;
 	color: #922610;
-	font-size: 13.5px;
+	font-size: 12.5px;
 	line-height: 1.2em;
 }
 .property-line h4 {
@@ -129,7 +129,7 @@
 }
 .property-block h4,
 .property-block p {
-	font-size: 13.5px;
+	font-size: 12.5px;
 	line-height: 1.2em;
 	display: inline;
 	margin: 0;
