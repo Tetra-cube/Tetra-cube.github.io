@@ -16,13 +16,13 @@ var name = "Monster", size = "medium", type = "humanoid", tag = "", alignment = 
 var TryPrint = () => { window.print(); }
 
 // Save function
-var TrySaveFile = () => { SavedData.SaveAllToFile(); }
+var TrySaveFile = () => { SavedData.SaveToFile(); }
 
 // Upload file function
 var LoadFilePrompt = () => { $("#file-upload").click(); }
 
 // Load function
-var TryLoadFile = () => { SavedData.RetrieveAllFromFile(); }
+var TryLoadFile = () => { SavedData.RetrieveFromFile(); }
 
 // Update the main stat block from form variables
 var UpdateBlockFromVariables = function(moveSeparationPoint)
@@ -43,9 +43,9 @@ var UpdateStatblock = function(moveSeparationPoint)
 			separationMax += 1;
 	}
 	
-	if(moveSeparationPoint == undefined)
-		separationPoint = Math.floor(separationMax / 2);
-	else
+	if(separationPoint == undefined)
+		separationPoint = Math.floor(separationMax / 2.5);
+	if(moveSeparationPoint != undefined)
 	{
 		separationPoint += moveSeparationPoint;
 		if (separationPoint < 0)
@@ -55,7 +55,7 @@ var UpdateStatblock = function(moveSeparationPoint)
 	}
 	
 	// Save Before Continuing
-	SavedData.SaveAllLocalStorage();
+	SavedData.SaveToLocalStorage();
 	
 	// One column or two columns
 	var statBlock = $("#stat-block");
@@ -72,7 +72,7 @@ var UpdateStatblock = function(moveSeparationPoint)
 		$("#monster-type").html(StringFunctions.StringCapitalize(size) + " " + type + " (" + tag + "), " + alignment);
 
 	// Armor Class
-	$("#armor-class").html(StringFunctions.GetArmorData());
+	$("#armor-class").html(StringFunctions.FormatString(StringFunctions.GetArmorData()));
 
 	// Hit Points
 	$("#hit-points").html(StringFunctions.GetHP());
@@ -257,10 +257,10 @@ var AddToTraitList = function(traitsArr, addElements, isLegendary = false)
 		if(Array.isArray(addElements))
 		{
 			for(var index = 0; index < addElements.length; index++)
-				traitsHTML.push("*" + StringFunctions.FormatString(addElements[index]));
+				traitsHTML.push("*" + addElements[index]);
 		}
 		else
-			traitsHTML.push("*" + StringFunctions.FormatString(addElements));
+			traitsHTML.push("*" + addElements);
 	}
 	
 	// There's a small difference in formatting for legendary actions
@@ -279,100 +279,63 @@ var AddToTraitList = function(traitsArr, addElements, isLegendary = false)
 // Functions for saving/loading data
 var SavedData =
 {
+	// Saving
 	
-	SaveAllLocalStorage: function()
+	SaveToLocalStorage: function()
 	{
-		localStorage.setItem("SavedData", this.GetAllSerialized());
+		localStorage.setItem("SavedData", this.Serialize());
 	},
 	
-	SaveAllToFile()
+	SaveToFile()
 	{
-		var blob = new Blob( [ this.GetAllSerialized() ], {type: "text/plain;charset=utf-8"});
+		var blob = new Blob( [ this.Serialize() ], {type: "text/plain;charset=utf-8"});
 		saveAs(blob, name)
 	},
 	
-	GetAllSerialized: function()
+	Serialize: function()
 	{
-		var serializedArray = [];
+		var JSONobject = {};
 		
-		for(var index = 0; index < allSavedBooleanVariables.length; index++)
-			this.GetSerialized(allSavedBooleanVariables[index], serializedArray);
-		
-		for(var index = 0; index < allSavedNumberVariables.length; index++)
-			this.GetSerialized(allSavedNumberVariables[index], serializedArray);
-		
-		for(var index = 0; index < allSavedTextVariables.length; index++)
-			this.GetSerialized(allSavedTextVariables[index], serializedArray);
-		
-		for(var index = 0; index < allSavedArrayVariables.length; index++)
-			this.GetSerialized(allSavedArrayVariables[index], serializedArray);
-		
-		return serializedArray.join("");
+		for(var index = 0; index < allSavedVariables.length; index++)
+		{
+			var key = allSavedVariables[index],
+				data = window[key];
+			if(data != undefined)
+				JSONobject[key] = data;
+		}
+		return JSON.stringify(JSONobject);
 	},
 	
-	GetSerialized: function(key, serializedArray, type)
-	{
-		var data = window[key];
-		if(data != undefined)
-			serializedArray.push(key, ": ", Serialize(data), "\n");
-	},
+	// Retrieving
 	
-	RetrieveAllLocalStorage: function()
+	RetrieveFromLocalStorage: function()
 	{
 		var savedData = localStorage.getItem("SavedData");
 		if(savedData != undefined)
-			this.GetAllDeserialized(savedData);
+			this.Deserialize(savedData);
 	},
 	
-	RetrieveAllFromFile()
+	RetrieveFromFile()
 	{
 		var file = $("#file-upload").prop("files")[0],
 			reader = new FileReader(), self = this;
 
 		reader.onload = function (e)
 		{
-			self.GetAllDeserialized(reader.result);
+			self.Deserialize(reader.result);
 			Populate();
 		};
 		
 		reader.readAsText(file);
 	},
 	
-	GetAllDeserialized: function(serializedString)
+	Deserialize: function(JSONstring)
 	{
-		var deserializedObject = {}, splitArray = serializedString.split("\n");
+		var JSONobject = JSON.parse(JSONstring)
 		
-		for(var index = 0; index < splitArray.length; index++)
+		for(var index = 0; index < allSavedVariables.length; index++)
 		{
-			var dataString = splitArray[index], colonIndex = dataString.indexOf(":"),
-				key = dataString.substring(0, colonIndex), val = Deserialize(dataString.substring(colonIndex + 2));
-			deserializedObject[key] = val;
-		}
-		
-		for(var index = 0; index < allSavedBooleanVariables.length; index++)
-		{
-			var key = allSavedBooleanVariables[index], data = deserializedObject[key];
-			if(data != undefined)
-				window[key] = (data == "true");
-		}
-		
-		for(var index = 0; index < allSavedNumberVariables.length; index++)
-		{
-			var key = allSavedNumberVariables[index], data = deserializedObject[key];
-			if(data != undefined)
-				window[key] = parseInt(data);
-		}
-		
-		for(var index = 0; index < allSavedTextVariables.length; index++)
-		{
-			var key = allSavedTextVariables[index], data = deserializedObject[key];
-			if(data != undefined)
-				window[key] = data;
-		}
-		
-		for(var index = 0; index < allSavedArrayVariables.length; index++)
-		{
-			var key = allSavedArrayVariables[index], data = deserializedObject[key];
+			var key = allSavedVariables[index], data = JSONobject[key];
 			if(data != undefined)
 				window[key] = data;
 		}
@@ -564,9 +527,9 @@ var FormFunctions =
 				note = element.hasOwnProperty("note") ? element.note : "";
 			
 			if(element.hasOwnProperty("desc"))
-				content = "<b>" + elementName + note + ":</b> " + element.desc;
+				content = "<b>" + StringFunctions.FormatString(elementName + note, false) + ":</b> " + StringFunctions.FormatString(element.desc, isBlock);
 			else
-				content = "<b>" + elementName + note + "</b>";
+				content = "<b>" + StringFunctions.FormatString(elementName + note, false) + "</b>";
 			
 			var functionArgs = arrName + "\", " + index + ", " + capitalize + ", " + isBlock,
 				imageHTML = "<img class='statblock-image' src='dndimages/x-icon.png' alt='Remove' title='Remove' onclick='FormFunctions.RemoveDisplayListItem(\"" + functionArgs + ")'>";
@@ -982,6 +945,8 @@ var GetVariablesFunctions =
 			for(var index = 0; index < legendariesPresetArr.length; index++)
 				this.AddAbilityPreset("legendaries", legendariesPresetArr[index]);
 		}
+		
+		separationPoint = undefined; // This will make the separation point be automatically calculated in UpdateStatblock
 	},
 	
 	// Add stuff to arrays
@@ -1090,7 +1055,7 @@ var GetVariablesFunctions =
 		if(abilityName.length == 0)
 			return;
 		var arr = window[arrName];
-		ArrayFunctions.InsertAlphabetical(arr, { "name" : abilityName.trim(), "desc" : StringFunctions.FormatString(abilityDesc.trim(), true) }, true);
+		ArrayFunctions.InsertAlphabetical(arr, { "name" : abilityName.trim(), "desc" : abilityDesc.trim() }, true);
 	},
 
 	AddAbilityPreset: function(arrName, ability)
@@ -1100,7 +1065,8 @@ var GetVariablesFunctions =
 		// In case of spellcasting
 		if(arrName == "abilities" && abilityName.toLowerCase().includes("spellcasting") && abilityDesc.includes("\n"))
 		{
-			abilityDesc = abilityDesc.split("\u2022").join("");
+			abilityDesc = abilityDesc.split("\u2022").join("");	// Remove bullet points
+
 			var firstLineBreak = abilityDesc.indexOf("\n");
 			spellcastingDesc = abilityDesc.substr(0, firstLineBreak).trim();
 			spellcastingSpells = abilityDesc.substr(firstLineBreak).trim();
@@ -1115,12 +1081,13 @@ var GetVariablesFunctions =
 				newString = StringFunctions.StringReplaceAll(newString, "(", "_(");
 				newString = StringFunctions.StringReplaceAll(newString, ")", ")_");
 				
-				spellsArr[index] = splitString[0] + ":_" + newString + "_";
+				spellsArr[index] = " " + splitString[0].trim() + ": _" + newString.trim() + "_";
 			}
 			
+			console.log(spellsArr);
 			spellcastingSpells = spellsArr.join("\n>");
 			
-			abilityDesc = spellcastingDesc + "<br><br>" + spellcastingSpells;
+			abilityDesc = spellcastingDesc + "\n\n>" + spellcastingSpells;
 		}
 		
 		// In case of attacks
@@ -1177,11 +1144,11 @@ var StringFunctions =
 	GetArmorData: function()
 	{
 		if(armorName == "other")
-			return this.FormatString(otherArmorDesc, false);
+			return otherArmorDesc;
 		if(armorName == "mage armor")
 		{
 			var mageAC = MathFunctions.GetAC(armorName);
-			return mageAC + " (" + (mageAC + 3) + " with <i>mage armor</i>)";
+			return mageAC + " (" + (mageAC + 3) + " with _mage armor_)";
 		}
 		if(armorName == "none")
 			return MathFunctions.GetAC(armorName);
@@ -1242,6 +1209,8 @@ var StringFunctions =
 						insertion += "</div>";
 						endIndent = false;
 					}
+					if(newLine)
+						insertion += "<br><br>";
 					string = this.StringSplice(string, index, 1, insertion);
 					index += insertion.length - 1;
 					newLine = true;
@@ -1277,17 +1246,17 @@ var StringFunctions =
 		if(property.arr.length == 0) return "";
 		var htmlClass = firstLine ? "property-line first" : "property-line",
 			arr = Array.isArray(property.arr) ? property.arr.join(", ") : property.arr;
-		return "<div class=\"" + htmlClass + "\"> <h4>" + property.name + "</h4> <p>" + arr + "</p></div><!-- property line -->"
+		return "<div class=\"" + htmlClass + "\"> <h4>" + property.name + "</h4> <p>" + this.FormatString(arr, false) + "</p></div><!-- property line -->"
 	},
 
 	MakeTraitHTML: function(name, description)
 	{
-		return "<div class=\"property-block\"><h4>" + name + ".</h4><p> " + description + "</p></div> <!-- property block -->";
+		return "<div class=\"property-block\"><h4>" + name + ".</h4><p> " + this.FormatString(description, true) + "</p></div> <!-- property block -->";
 	},
 
 	MakeTraitHTMLLegendary: function(name, description)
 	{
-		return "<div class=\"property-block legendary\"><h4>" + name + ".</h4><p> " + description + "</p></div> <!-- property block -->";
+		return "<div class=\"property-block legendary\"><h4>" + name + ".</h4><p> " + this.FormatString(description, true) + "</p></div> <!-- property block -->";
 	},
 
 	// General string operations
@@ -1416,7 +1385,7 @@ $(function()
 	GetVariablesFunctions.SetPreset(defaultPreset);
 	
 	// Load saved data
-	SavedData.RetrieveAllLocalStorage();
+	SavedData.RetrieveFromLocalStorage();
 	Populate();
 });
 
@@ -1540,10 +1509,17 @@ const stats = [
 		"other": { "type": "special" },
 	},
 	
-	allSavedTextVariables = [ "name", "size", "type", "tag", "alignment", "armorName", "otherArmorDesc", "cr", "legendariesDescription" ],
-	allSavedNumberVariables = [ "hitDice", "shieldBonus", "natArmorBonus", "speed", "burrowSpeed", "climbSpeed", "flySpeed", "swimSpeed", "strPoints", "dexPoints", "conPoints", "intPoints", "wisPoints", "chaPoints", "blindsight", "darkvision", "tremorsense", "truesight", "telepathy", "separationPoint" ],
-	allSavedBooleanVariables = [ "hover", "blind", "isLegendary", "doubleColumns" ],
-	allSavedArrayVariables = [ "sthrows", "skills", "conditions", "damagetypes", "specialdamage", "languages", "abilities", "actions", "reactions", "legendaries" ],
+	allSavedVariables = [
+		"name", "size", "type", "tag", "alignment", "armorName", "otherArmorDesc", "cr", "legendariesDescription",
+		"hitDice", "shieldBonus", "natArmorBonus", "speed", "burrowSpeed", "climbSpeed", "flySpeed", "swimSpeed", "strPoints", "dexPoints", "conPoints", "intPoints", "wisPoints", "chaPoints", "blindsight", "darkvision", "tremorsense", "truesight", "telepathy", "separationPoint",
+		"hover", "blind", "isLegendary", "doubleColumns",
+		"sthrows", "skills", "conditions", "damagetypes", "specialdamage", "languages", "abilities", "actions", "reactions", "legendaries"
+	],
+	
+	// allSavedTextVariables = [ "name", "size", "type", "tag", "alignment", "armorName", "otherArmorDesc", "cr", "legendariesDescription" ],
+	// allSavedNumberVariables = [ "hitDice", "shieldBonus", "natArmorBonus", "speed", "burrowSpeed", "climbSpeed", "flySpeed", "swimSpeed", "strPoints", "dexPoints", "conPoints", "intPoints", "wisPoints", "chaPoints", "blindsight", "darkvision", "tremorsense", "truesight", "telepathy", "separationPoint" ],
+	// allSavedBooleanVariables = [ "hover", "blind", "isLegendary", "doubleColumns" ],
+	// allSavedArrayVariables = [ "sthrows", "skills", "conditions", "damagetypes", "specialdamage", "languages", "abilities", "actions", "reactions", "legendaries" ],
 	
 	attackTypes = [ "melee or ranged weapon attack:", "melee or ranged spell attack:", "melee weapon attack:", "melee spell attack:", "ranged weapon attack:", "ranged spell attack:" ],
 	
