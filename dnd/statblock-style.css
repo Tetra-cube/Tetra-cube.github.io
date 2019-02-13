@@ -137,13 +137,20 @@
 .property-block h4 {
 	font-style: italic;
 }
-.legendary h4,
-.legendary p {
+.property-block {
+	padding: 10px 2px 0;
+}
+.legendary{
+	padding-top: 0;
+}
+.legendary h4{
+	padding-left: 2px;
 	font-style: normal;
 	line-height: 1em;
 }
-.property-block {
-	padding: 10px 2px 0;
+.legendary p {
+	font-style: normal;
+	line-height: 1em;
 }
 .actions h3 {
 	border-bottom: 2px solid #7A200D;
