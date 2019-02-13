@@ -217,7 +217,7 @@ var UpdateStatblock = function(moveSeparationPoint)
 		if(legendariesDescription == "")
 			AddToTraitList(legendaries, "<h3>Legendary Actions</h3>", true);
 		else
-			AddToTraitList(legendaries, [ "<h3>Legendary Actions</h3><br>", legendariesDescription ], true);
+			AddToTraitList(legendaries, ["<h3>Legendary Actions</h3><div class='property-block'>", legendariesDescription, "</div></br>"], true);
 	}
 	
 	// Add traits, taking into account the width of the block (one column or two columns)
@@ -1255,7 +1255,7 @@ var StringFunctions =
 
 	MakeTraitHTMLLegendary: function(name, description)
 	{
-		return "<div class=\"property-block legendary\"><h4>" + name + ".</h4><p> " + this.FormatString(description, true) + "</p></div> <!-- property block -->";
+		return "<div class=\"property-block reverse-indent legendary\"><h4>" + name + ".</h4><p> " + this.FormatString(description, true) + "</p></div> <!-- property block -->";
 	},
 
 	// General string operations
@@ -1548,7 +1548,6 @@ const stats = [
 		"intelligence_save": null,
 		"wisdom_save": null,
 		"charisma_save": null,
-		"perception": null,
 		"damage_vulnerabilities": "",
 		"damage_resistances": "",
 		"damage_immunities": "",
