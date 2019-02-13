@@ -1084,7 +1084,6 @@ var GetVariablesFunctions =
 				spellsArr[index] = " " + splitString[0].trim() + ": _" + newString.trim() + "_";
 			}
 			
-			console.log(spellsArr);
 			spellcastingSpells = spellsArr.join("\n>");
 			
 			abilityDesc = spellcastingDesc + "\n\n>" + spellcastingSpells;
