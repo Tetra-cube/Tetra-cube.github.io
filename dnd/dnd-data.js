@@ -3841,22 +3841,23 @@ var UARaces =
 
 var UAClasses =
 [
-	{ 'name' : 'Bard: College of Satire, Fighter: Scout', 'source' : 'Kits of Old', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/kits-old' },
-	{ 'name' : 'Fighter: Monster Hunter, Rogue: Inquisitive', 'source' : 'Gothic Heroes', 'link' : 'http://dnd.wizards.com/articles/features/gothic-heroes' },
-	{ 'name' : 'Warlock: Seeker', 'source' : 'The Faithful', 'link' : 'http://dnd.wizards.com/articles/features/faithful' },
+	{ 'name' : 'Artificer Class', 'source' : 'The Artificer Revisited', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/artificer-revisited' },
+	{ 'name' : 'Mystic Class', 'source' : 'Unearthed Arcana Update', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update' },
 	{ 'name' : 'Alternative Ranger Class', 'source' : 'The Ranger, Revised', 'link' : 'http://dnd.wizards.com/articles/features/unearthed-arcana-ranger-revised' },
+	{ 'name' : 'Bard: College of Satire, Fighter: Scout', 'source' : 'Kits of Old', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/kits-old' },
 	{ 'name' : 'Cleric: Protection Domain', 'source' : 'Cleric: Divine Domains', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/cleric-divine-domains' },
 	{ 'name' : 'Druid: Circle of Twilight', 'source' : 'Druid Circles and Wild Shape', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/druid-circles-and-wild-shape' },
+	{ 'name' : 'Fighter: Monster Hunter, Rogue: Inquisitive', 'source' : 'Gothic Heroes', 'link' : 'http://dnd.wizards.com/articles/features/gothic-heroes' },
 	{ 'name' : 'Fighter: Sharpshooter', 'source' : 'Fighter: Martial Archetypes', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/fighter' },
+	{ 'name' : 'Fighter: Brute, Wizard: School of Invention', 'source' : 'Three Subclasses', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses' },
 	{ 'name' : 'Monk: Way of Tranquility', 'source' : 'Monk: Monastic Traditions', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/monk-monastic-traditions' },
 	{ 'name' : 'Paladin: Oath of Treachery', 'source' : 'Paladin: Sacred Oaths', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/paladin-sacred-oaths' },
 	{ 'name' : 'Ranger: Primeval Guardian', 'source' : 'Ranger and Rogue', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/ranger-and-rogue' },
 	{ 'name' : 'Sorcerer: Phoenix Sorcery, Sea Sorcery, Stone Sorcery', 'source' : 'Sorcerer', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/sorcerer' },
+	{ 'name' : 'Sorcerer: Giant Soul', 'source' : 'Giant Soul Sorcerer', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/giant-soul-sorcerer' },
+	{ 'name' : 'Warlock: Seeker', 'source' : 'The Faithful', 'link' : 'http://dnd.wizards.com/articles/features/faithful' },
 	{ 'name' : 'Warlock: The Raven Queen', 'source' : 'Warlock and Wizard', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard' },
 	{ 'name' : 'Wizard: Theurgy', 'source' : 'Wizard Revisited', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/wizard-revisited' },
-	{ 'name' : 'Mystic, Artificer', 'source' : 'Unearthed Arcana Update', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update' },
-	{ 'name' : 'Fighter: Brute, Wizard: School of Invention', 'source' : 'Three Subclasses', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses' },
-	{ 'name' : 'Sorcerer: Giant Soul', 'source' : 'Giant Soul Sorcerer', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/giant-soul-sorcerer' },
 ]
 
 var UAOther =
@@ -3870,7 +3871,6 @@ var UAOther =
 	{ 'name' : 'Eldritch Inovcations', 'source' : 'Warlock and Wizard', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard' },
 	{ 'name' : 'Cantrips & 1st Level Spells', 'source' : 'Starter Spells', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/starter-spells' },
 	{ 'name' : 'Skill Feats', 'source' : 'Feats for Skills', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/feats-skills' },
-	{ 'name' : 'Rules for Ships', 'source' : 'Of Ships and the Sea', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/ships-and-sea' },
 ]
 
 var raceWeights = 
