@@ -590,7 +590,7 @@ var InputFunctions =
 			UpdateStatblock();
 			return;
 		}
-		$.getJSON("https://api-beta.open5e.com/monsters/" + name, function(jsonArr) {
+		$.getJSON("https://api.open5e.com/monsters/" + name, function(jsonArr) {
 			GetVariablesFunctions.SetPreset(jsonArr);
 			FormFunctions.SetForms();
 			UpdateStatblock();
@@ -1386,7 +1386,7 @@ var ArrayFunctions =
 $(function()
 {
 	// Load the preset monster names
-	$.getJSON("https://api-beta.open5e.com/monsters/?format=json&fields=slug,name&limit=1000", function(jsonArr) {
+	$.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000", function(jsonArr) {
 		$.each(jsonArr.results, function(index, value) {
 			$("#monster-select").append("<option value='" + value.slug + "'>" + value.name + "</option>");
 		})
