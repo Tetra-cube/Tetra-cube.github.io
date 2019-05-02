@@ -33,8 +33,6 @@ var Card =
 		backgroundImage.src = "./dndimages/cardimages/cardbackgrounds/" + this.FileNameFormat(character.Class.name) + ".jpg";
 		$("#sourcelink").attr("href", sources[raceName][fileName]);
 			
-		// This is shitty code but if it works it works
-			
 		backgroundImage.onload = function()
 		{ 
 			ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
