@@ -1541,7 +1541,7 @@ var classes =
 		{
 			'_special' : 'booksort',
 			'PHB' : [ 'Champion', 'Battle Master', 'Eldritch Knight' ],
-			'SCAG' : [ 'Banneret (Purple Dragon Knight)' ],
+			'SCAG' : [ 'Banneret/Purple Dragon Knight' ],
 			'XGtE' : [ 'Arcane Archer', 'Cavalier', 'Samurai' ],
 			'UA' : [ 'Scout', 'Monster Hunter', 'Sharpshooter', 'Brute' ]
 		},
@@ -3875,15 +3875,15 @@ var UAOther =
 
 var raceWeights = 
 {
-	'Dragonborn' : 5,
-	'Dwarf' : 10,
-	'Elf' : 10,
-	'Gnome' : 5,
-	'Halfling' : 10,
-	'Human' : 40,
-	'Half-Elf' : 5,
-	'Half-Orc' : 5,
-	'Tiefling' : 5,
+	'Dragonborn' : 3,
+	'Dwarf' : 6,
+	'Elf' : 6,
+	'Gnome' : 3,
+	'Halfling' : 6,
+	'Human' : 24,
+	'Half-Elf' : 3,
+	'Half-Orc' : 3,
+	'Tiefling' : 3,
 }
 
 var monstrousOrigins =

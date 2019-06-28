@@ -1,4 +1,4 @@
-var character = {}, books = [], mcEthnicity = "", ethnicityOption = "";
+var character = {}, characterType = "either", books = [], mcEthnicity = "", ethnicityOption = "";
 
 // Populate the dropdowns with material from the selected books
 var Dropdowns =
@@ -67,6 +67,34 @@ var Books =
 	}
 }
 
+var CharacterType =
+{
+	GetNoCard: function()
+	{
+		characterType = $("#pc-radio").prop("checked") ? "pc" : $("#npc-radio").prop("checked") ? "npc" : "either";
+	},
+	Get: function()
+	{
+		this.GetNoCard();
+		if(characterType == "pc")
+		{
+			$(".pc-show, .pc-only-show").show();
+			$(".npc-show, .npc-only-show").hide();
+		}
+		else if(characterType == "npc")
+		{
+			$(".npc-show, .npc-only-show").show();
+			$(".pc-show, .pc-only-show").hide();
+		}
+		else
+		{
+			$(".pc-show, .npc-show").show();
+			$(".pc-only-show, .npc-only-show").hide();
+		}
+		CardType.Set();
+	}
+}
+
 // For when the user clicks one of the Generate buttons, or when the page loads
 var Generate =
 {
@@ -79,6 +107,7 @@ var Generate =
 		this.Name();
 		this.Class();
 		this.Background();
+		this.Occupation();
 		this.NPCTraits();
 		this.Life();
 		
@@ -95,7 +124,13 @@ var Generate =
 		else
 			ethnicityOption = Random.Array([ "standard", "real" ]);
 		
-		character.Race = Content.GetRandom(races, $("#racemenu").val());
+		
+		// Determine race weight
+		if($("#weighted-radio").prop("checked"))
+			character.Race = Content.GetRandom(races, RaceWeighted.Get());
+		else
+			character.Race = Content.GetRandom(races, $("#racemenu").val());
+		
 		
 		$("#race").html(character.Race.name);
 		$("#raceheader").html(character.Race.name);
@@ -113,9 +148,11 @@ var Generate =
 		character.Gender = (genderVal == "Random" ? Random.Array(genders) : genderVal);
 		
 		if(character.Race.name == "Warforged")
-			$("#gender").html("Genderless");
+			$("#gender, #genderheader").html("Genderless");
 		else
-			$("#gender").html(character.Gender);
+			$("#gender, #genderheader").html(character.Gender);
+		
+		this.Name();
 	},
 
 	Name: function()
@@ -142,10 +179,16 @@ var Generate =
 		$("#backgroundsection").html(HTMLStrings.Get(character.Background));
 	},
 
+	Occupation: function()
+	{
+		character.Occupation = Occupation.Get();
+		$("#occupation").html(character.Occupation);
+	},
+
 	NPCTraits: function()
 	{
 		character.NPCTraits = { "name" : "NPCTraits", "content" : Content.Get(NPCTraits.Get()) };
-		$("#npctraitssection").html(HTMLStrings.Get(character.NPCTraits));
+		$("#npc-traits-section").html(HTMLStrings.Get(character.NPCTraits));
 	},
 
 	Life: function()
@@ -205,7 +248,7 @@ var Generate =
 		Books.Get();
 		this.Life();
 		CardType.Set();
-	}
+	},
 }
 
 // Gets content from dnd-data and puts it into a format more readable to the generator (also filters out things that should be inaccessible)
@@ -538,7 +581,7 @@ var Names =
 				if(rand < 2)
 					return this.HumanFirst(this.GetHumanEthnicity(), gender) + " " + Random.Array(names.Elf.Family);
 				if(rand < 4)
-					return this.GetGendered(names.Elf, gender) + " " + this.HumanLast(this.GetHumanEthnicity());
+					return this.GetGendered(names.Elf, gender) + this.HumanLast(this.GetHumanEthnicity());
 				if(rand < 5)
 					return this.GetHuman(this.GetHumanEthnicity(), gender);
 				return this.FirstnameLastname(names.Elf, "Family", gender);
@@ -548,7 +591,7 @@ var Names =
 				if(rand < 1)
 					return this.GetGendered(names.Orc, gender);
 				if(rand < 2)
-					return this.GetGendered(names.Orc, gender) + " " + this.HumanLast(this.GetHumanEthnicity())
+					return this.GetGendered(names.Orc, gender) + this.HumanLast(this.GetHumanEthnicity())
 				return this.GetHuman(this.GetHumanEthnicity(), gender);
 				
 			case "Hobgoblin" :
@@ -584,12 +627,12 @@ var Names =
 				if(gender == "Male" || gender == "Female")
 				{
 					if(Random.Num(3) == 0)
-						return this.GetGendered(names.Infernal, gender) + " " + lastName;
-					return Random.Array(names.Virtue) + " " + lastName;
+						return this.GetGendered(names.Infernal, gender) + lastName;
+					return Random.Array(names.Virtue) + lastName;
 				}
 				if(Random.Num(3) > 0)
-					return Random.Array(names.Virtue) + " " + lastName;
-				return this.GetGendered(names.Infernal, gender) + " " + lastName;
+					return Random.Array(names.Virtue) + lastName;
+				return this.GetGendered(names.Infernal, gender) + lastName;
 				
 			case "Yuan-Ti Pureblood" :
 				return Random.Array(names["Yuan-Ti"]);
@@ -634,7 +677,7 @@ var Names =
 	{
 		var lastName = this.HumanLast(ethnicity);
 		if(lastName != null)
-			return this.HumanFirst(ethnicity, gender) + " " + lastName;
+			return this.HumanFirst(ethnicity, gender) + lastName;
 		return this.HumanFirst(ethnicity, gender);
 	},
 
@@ -654,18 +697,43 @@ var Names =
 		if(ethnicityOption == "standard")
 		{
 			if(ethnicity == "Bedine")
-				return Random.Array(names.Human.Bedine.Tribe);
+				return " " + Random.Array(names.Human.Bedine.Tribe);
 			if(ethnicity == "Tethyrian")
-				return Random.Array(names.Human.Chondathan.Surname);
+				return " " + Random.Array(names.Human.Chondathan.Surname);
 			if(ethnicity == "Tuigan" || ethnicity == "Ulutiun")
 				return "";
-			return Random.Array(names.Human[ethnicity].Surname);
+			return " " + Random.Array(names.Human[ethnicity].Surname);
 		}
-		return null;
+		return "";
 	},
 	
 	// Get character's human heritage - for half-elves, half-orcs, tieflings, aasimar, and genasi
 	GetHumanEthnicity: () => (mcEthnicity == "Unknown" ? RandomEthnicity.Get() : mcEthnicity),
+}
+
+// Determine race based on weighted probabilities (ie. more common races are more likely to come up)
+var RaceWeighted =
+{
+	Get: function()
+	{
+		raceWeightList = Object.assign({}, raceWeights);
+		totalWeight = 57;
+		for(var raceName in races)
+		{
+			var race = races[raceName];
+			if(race._special.includes("PHB") || !Books.CheckSpecial(race._special))
+				continue;
+			raceWeightList[raceName] = 1;
+			totalWeight += 1;
+		}
+		var rand = Random.Num(totalWeight);
+		for(var race in raceWeightList)
+		{
+			rand -= raceWeightList[race];
+			if(rand <= 0)
+				return race;
+		}
+	}
 }
 
 // Oddball function for returning a random human ethnicity
@@ -724,6 +792,30 @@ var NPCTraits =
 	}
 }
 
+var Occupation =
+{
+	Get: function(allowAdventurer)
+	{
+		var rand = Random.Num(allowAdventurer ? 100 : 99);
+		if(rand < 5) return "Academic";
+		if(rand < 10) return "Aristocrat";
+		if(rand < 25) return "Artisan or guild member";
+		if(rand < 30) return "Criminal";
+		if(rand < 35) return "Entertainer";
+		if(rand < 37) return "Exile, hermit, or refugee";
+		if(rand < 42) return "Explorer or wanderer";
+		if(rand < 54) return "Farmer or herder";
+		if(rand < 59) return "Hunter or trapper";
+		if(rand < 74) return "Laborer";
+		if(rand < 79) return "Merchant";
+		if(rand < 84) return "Politician or bureaucrat";
+		if(rand < 89) return "Priest";
+		if(rand < 94) return "Sailor";
+		if(rand < 99) return "Soldier";
+		return "Adventurer (" + Life.ClassWeighted() + ")";
+	},
+}
+
 // Return random life events as given in Xanathar's guide
 var Life =
 {
@@ -776,20 +868,20 @@ var Life =
 					if(Random.Num(3) < 2)
 						spouseRace = character.Race.name;
 					else
-						spouseRace = this.RaceWeighted();
-					newEvent = "You fell in love or got married to a(n) " + spouseRace.toLowerCase() + " " + this.Occupation().toLowerCase() + ".";
+						spouseRace = RaceWeighted.Get();
+					newEvent = "You fell in love or got married to a(n) " + spouseRace.toLowerCase() + " " + Occupation.Get(true).toLowerCase() + ".";
 					break;
 				case "Friend" :
-					newEvent = "You made a friend of a(n) " + this.RaceWeighted().toLowerCase() + " " + this.ClassWeighted().toLowerCase() + ".";
+					newEvent = "You made a friend of a(n) " + RaceWeighted.Get().toLowerCase() + " " + this.ClassWeighted().toLowerCase() + ".";
 					break;
 				case "Enemy" :
-					newEvent = "You made an enemy of a(n) " + this.RaceWeighted().toLowerCase() + " " + this.ClassWeighted().toLowerCase() + ". Roll a d6. An odd number indicates you are to blame for the rift, and an even number indicates you are blameless.";
+					newEvent = "You made an enemy of a(n) " + RaceWeighted.Get().toLowerCase() + " " + this.ClassWeighted().toLowerCase() + ". Roll a d6. An odd number indicates you are to blame for the rift, and an even number indicates you are blameless.";
 					break;
 				case "Job" :
 					newEvent = "You spent time working in a job related to your background. Start the game with an extra 2d6 gp.";
 					break;
 				case "Someone Important" :
-					newEvent = "You met an important " + this.RaceWeighted().toLowerCase() + ", who is " + this.Relationship().toLowerCase() + " towards you.";
+					newEvent = "You met an important " + RaceWeighted.Get().toLowerCase() + ", who is " + this.Relationship().toLowerCase() + " towards you.";
 					break;
 				case "Adventure" :
 					var rand = Random.Num(100);
@@ -825,7 +917,7 @@ var Life =
 			while(newSibName == character.Name.substring(0, newSibName.length))
 				newSibName = this.SiblingName(newSib);
 			newSib.Alignment = this.Alignment();
-			newSib.Occupation = this.Occupation();
+			newSib.Occupation = Occupation.Get(true);
 			newSib.Status = this.Status();
 
 			newSib.Relationship = this.Relationship();
@@ -885,29 +977,6 @@ var Life =
 		}
 		return character.Race.name;
 	},
-
-	// Determine race based on weighted probabilities (ie. more common races are more likely to come up)
-	RaceWeighted: function()
-	{
-		raceWeightList = Object.assign({}, raceWeights);
-		totalWeight = 95;
-		for(var raceName in races)
-		{
-			var race = races[raceName];
-			if(race._special.includes("PHB") || !Books.CheckSpecial(race._special))
-				continue;
-			raceWeightList[raceName] = 3;
-			totalWeight += 3;
-		}
-		var rand = Random.Num(totalWeight);
-		for(var race in raceWeightList)
-		{
-			rand -= raceWeightList[race];
-			if(rand <= 0)
-				return race;
-		}
-	},
-
 	
 	// Random tables
 	
@@ -937,27 +1006,6 @@ var Life =
 		if(roll < 17) return "Lawful Good";
 		if(roll < 18) return "Lawful Neutral";
 		return Random.Array(["Chaotic Good", "Chaotic Neutral"]);
-	},
-
-	Occupation: function()
-	{
-		var rand = Random.Num(100);
-		if(rand < 5) return "Academic";
-		if(rand < 10) return "Adventurer (" + this.ClassWeighted() + ")";
-		if(rand < 11) return "Aristocrat";
-		if(rand < 26) return "Artisan or guild member";
-		if(rand < 31) return "Criminal";
-		if(rand < 36) return "Entertainer";
-		if(rand < 38) return "Exile, hermit, or refugee";
-		if(rand < 43) return "Explorer or wanderer";
-		if(rand < 55) return "Farmer or herder";
-		if(rand < 60) return "Hunter or trapper";
-		if(rand < 75) return "Laborer";
-		if(rand < 80) return "Merchant";
-		if(rand < 85) return "Politician or bureaucrat";
-		if(rand < 90) return "Priest";
-		if(rand < 95) return "Sailor";
-		if(rand < 100) return "Soldier";
 	},
 
 	ClassWeighted: function()
@@ -1079,6 +1127,7 @@ var Life =
 // When the page loads
 $(function()
 {
+	CharacterType.GetNoCard();
 	Dropdowns.Update();
 	Generate.All();
 });

@@ -1,124 +1,126 @@
 <!DOCTYPE html>
-<html style="background-image: url('./dndimages/statblockbkg.jpg')">
-	<link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" />
+<html lang="en" style="background-image: url('dndimages/statblockbkg.jpg')">
 	<head>
 		<meta charset="utf-8"/>
 		<title>D&D 5e Statblock Generator</title>
-		<link rel="stylesheet" type="text/css" href="statblock-style.css">
-		<link rel="stylesheet" type="text/css" href="dnd-style.css">
-		<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700" rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="FileSaver.js/dist/FileSaver.min.js"></script>
-		<script src="statblock-script.js"></script>
+		<link rel="shortcut icon" type="image/x-icon" href="dndimages/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="css/statblock-style.css">
+		<link rel="stylesheet" type="text/css" href="css/dnd-style.css">
+		<link rel="stylesheet" type="text/css" href="css/libre-baskerville.css">
+		<link rel="stylesheet" type="text/css" href="css/noto-sans.css">
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/filesaver.min.js"></script>
+		<script src="js/dom-to-image.min.js"></script>
+		<script src="js/statblock-script.js"></script>
 	</head>
 	<body style="text-align: center;">
 		<div id="kofiheader" style="text-align: center;">
 			<br>
-			<script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
-			<script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#46b798', 'Q5Q8MRF6');kofiwidget2.draw();</script>
+			<script src='https://ko-fi.com/widgets/widget_2.js'></script>
+			<script>kofiwidget2.init('Support Me on Ko-fi', '#46b798', 'Q5Q8MRF6');kofiwidget2.draw();</script>
 		</div>
 		<div class="content">
-			<span class="donotprint">
-				<div class="centeredcontainer"><a href="dnd-reference.html">PC Options Reference</a> - <a href="dnd-char-gen.html">Character Generator</a> - <b>Statblock Generator</b></div>
-				<h1>D&D 5e Statblock Generator</h1>
-				Based on <a href="http://valloric.github.io/statblock5e/">Statblock5e</a> and <a href="https://open5e.com/">Open5e</a> 
-				<br><br>
-				<button onclick="TrySaveFile()">Save Statblock</button>
-				<button onclick="LoadFilePrompt()">Load Statblock</button>
-				<button onclick="TryPrint()">Print Statblock</button>
-				<input id="file-upload" type="file" onChange="TryLoadFile();" hidden />
-				<br><br>
-			</span>
+			<div style="text-align: center;"><a href="dnd-reference.html">PC Options Reference</a> - <a href="dnd-char-gen.html">Character Generator</a> - <b>Statblock Generator</b></div>
+			<h1 class="dnd-header">D&D 5e Statblock Generator</h1>
+			Based on <a href="http://valloric.github.io/statblock5e/">Statblock5e</a> and <a href="https://open5e.com/">Open5e</a> 
+			<br><br>
+			<button onclick="TrySaveFile()">Save Statblock</button>
+			<button onclick="LoadFilePrompt()">Load Statblock</button>
+			<button onclick="TryPrint()">Printable Block</button>
+			<button onclick="TryImage()">View Image</button>
+			<input id="file-upload" type="file" onChange="TryLoadFile();" hidden />
+			<br><br>
+			<div id="monster-select-form">Monster Presets: <select id="monster-select"><option value="">-Select-</option><option value="default">Restore Default</option></select><button type="button" id="monster-select-button" onclick="InputFunctions.GetPreset()">Use Preset</button></div>
+			<br>
 			
 			<!-- The Actual Stat Block -->
-			<div id="stat-block" class="stat-block">
-				<hr class="orange-border" />
-				<div class="section-left">
-					<div class="creature-heading">
-						<h1 id="monster-name"></h1>
-						<h2 id="monster-type"></h2>
-					</div> <!-- creature heading -->
-					<svg height="5" width="100%" class="tapered-rule">
-						<polyline points="0,0 400,2.5 0,5"></polyline>
-					</svg>
-					<div class="top-stats">
-						<div class="property-line first">
-							<h4>Armor Class</h4>
-							<p id="armor-class"></p>
-						</div> <!-- property line -->
-						<div class="property-line">
-							<h4>Hit Points</h4>
-							<p id="hit-points"></p>
-						</div> <!-- property line -->
-						<div class="property-line last">
-							<h4>Speed</h4>
-							<p id = "speed"></p>
-						</div> <!-- property line -->
+			<div id="stat-block-wrapper">
+				<div id="stat-block" class="stat-block">
+					<hr class="orange-border" />
+					<div class="section-left">
+						<div class="creature-heading">
+							<h1 id="monster-name">Monster</h1>
+							<h2 id="monster-type">Size, type, alignment</h2>
+						</div> <!-- creature heading -->
 						<svg height="5" width="100%" class="tapered-rule">
 							<polyline points="0,0 400,2.5 0,5"></polyline>
 						</svg>
-						<div class="scores">
-							<div class="scores-strength">
-								<h4>STR</h4>
-								<p id="strpts"></p>
-							</div> <!-- scores strength -->
-							<div class="scores-dexterity">
-								<h4>DEX</h4>
-								<p id="dexpts"></p>
-							</div> <!-- scores dexterity -->
-							<div class="scores-constitution">
-								<h4>CON</h4>
-								<p id="conpts"></p>
-							</div> <!-- scores constitution -->
-							<div class="scores-intelligence">
-								<h4>INT</h4>
-								<p id="intpts"></p>
-							</div> <!-- scores intelligence -->
-							<div class="scores-wisdom">
-								<h4>WIS</h4>
-								<p id="wispts"></p>
-							</div> <!-- scores wisdom -->
-							<div class="scores-charisma">
-								<h4>CHA</h4>
-								<p id="chapts"></p>
-							</div> <!-- scores charisma -->
-						</div> <!-- scores -->
+						<div class="top-stats">
+							<div class="property-line first">
+								<h4>Armor Class</h4>
+								<p id="armor-class"></p>
+							</div> <!-- property line -->
+							<div class="property-line">
+								<h4>Hit Points</h4>
+								<p id="hit-points"></p>
+							</div> <!-- property line -->
+							<div class="property-line last">
+								<h4>Speed</h4>
+								<p id="speed"></p>
+							</div> <!-- property line -->
+							<svg height="5" width="100%" class="tapered-rule">
+								<polyline points="0,0 400,2.5 0,5"></polyline>
+							</svg>
+							<div class="scores">
+								<div class="scores-strength">
+									<h4>STR</h4>
+									<p id="strpts"></p>
+								</div> <!-- scores strength -->
+								<div class="scores-dexterity">
+									<h4>DEX</h4>
+									<p id="dexpts"></p>
+								</div> <!-- scores dexterity -->
+								<div class="scores-constitution">
+									<h4>CON</h4>
+									<p id="conpts"></p>
+								</div> <!-- scores constitution -->
+								<div class="scores-intelligence">
+									<h4>INT</h4>
+									<p id="intpts"></p>
+								</div> <!-- scores intelligence -->
+								<div class="scores-wisdom">
+									<h4>WIS</h4>
+									<p id="wispts"></p>
+								</div> <!-- scores wisdom -->
+								<div class="scores-charisma">
+									<h4>CHA</h4>
+									<p id="chapts"></p>
+								</div> <!-- scores charisma -->
+							</div> <!-- scores -->
+							<svg height="5" width="100%" class="tapered-rule">
+								<polyline points="0,0 400,2.5 0,5"></polyline>
+							</svg>
+							<div id="properties-list"></div>
+							<div class="property-line last">
+								<h4>Challenge</h4>
+								<p id="challenge-rating"></p>
+							</div> <!-- property line -->
+						</div> <!-- top stats -->
 						<svg height="5" width="100%" class="tapered-rule">
 							<polyline points="0,0 400,2.5 0,5"></polyline>
 						</svg>
-						<span id="properties-list"></span>
-						<div class="property-line last">
-							<h4>Challenge</h4>
-							<p id="challengeRating"></p>
-						</div> <!-- property line -->
-					</div> <!-- top stats -->
-					<svg height="5" width="100%" class="tapered-rule">
-						<polyline points="0,0 400,2.5 0,5" /></polyline>
-					</svg>
-					<div class="actions">
-						<span id="traits-list-left"></span>
-					</div> <!-- actions -->
-				</div> <!-- section left -->
-				<div class="section-right">
-					<div class="actions">
-						<span id="traits-list-right"></span>
-					</div> <!-- actions -->
-				</div> <!-- section right -->
-				<hr class="orange-border bottom" />
+						<div class="actions">
+							<div id="traits-list-left"></div>
+						</div> <!-- actions -->
+					</div> <!-- section left -->
+					<div class="section-right">
+						<div class="actions">
+							<div id="traits-list-right"></div>
+						</div> <!-- actions -->
+					</div> <!-- section right -->
+					<hr class="orange-border bottom" />
+				</div>
 			</div> <!-- stat block -->
 			
-			<div class="options donotprint">
+			<div class="options">
 				<form>
 					<label for="1col-input"><input id="1col-input" type="radio" name="columns-input" value="1col" checked> One Column</label>
 					<label for="2col-input"><input id="2col-input" type="radio" name="columns-input" value="2col"> Two Columns</label>
 				</form>
-				<button id="left-separator-button" type="button" onclick="UpdateBlockFromVariables(1)"><<</button> 
+				<button id="left-separator-button" type="button" onclick="UpdateBlockFromVariables(1)">&lt;&lt;</button> 
 				<button type="button" onclick="UpdateBlockFromVariables(0)">Update Statblock</button> 
 				<button id="right-separator-button" type="button" onclick="UpdateBlockFromVariables(-1)">>></button>
 				<hr>
-				<div id="monster-select-form">Monster Presets: <select id="monster-select" onchange="InputFunctions.GetPreset()"><option value="">-Select-</option><option value="default">Restore Default</option></select></div>
-				<br>
 				<table id="type-form">
 					<tr>
 						<td>
@@ -172,7 +174,12 @@
 				<table id="armor-hitdice-form">
 					<tr>
 						<td></td>
-						<td><label for="hitdice-input">Hit Dice: </label><br><input type="number" id="hitdice-input" min="1" max="99" value="5"></td>
+						<td>
+							<div id="hitdice-input-prompt"><label for="hitdice-input">Hit Dice: <br><input type="number" id="hitdice-input" min="1" max="99" value="5"></label></div>
+							<div id="hp-text-input-prompt"><label for="hp-text-input">Hit Points:<br><input id="hp-text-input" value="4 (1d8)"></label></div>
+							<div id="custom-hp-box-prompt" class="box-note"><label for="custom-hp-input">(Customize: <input id="custom-hp-input" type="checkbox" onchange="FormFunctions.ShowHideCustomHP()">)</label></div>
+							<br>
+						</td>
 						<td>
 							<label for="armor-input">Armor Type: </label><br>
 							<select id="armor-input" onchange="FormFunctions.ShowHideOtherArmor()">
@@ -196,23 +203,23 @@
 							<div id="shield-box-note" class="box-note"><label for="shield-input">(Shield: <input id="shield-input" type="checkbox">)</label></div>
 						</td>
 						<td>
-							<span id="natarmor-prompt"><label for="natarmor-input">Natural Armor Bonus: <input type="number" id="natarmor-input" min="1" max="99" value="3"></label></span>
-							<span id="otherarmor-prompt">
+							<div id="natarmor-prompt"><label for="natarmor-input">Natural Armor Bonus: <input type="number" id="natarmor-input" min="1" max="99" value="3"></label></div>
+							<div id="otherarmor-prompt">
 								<label for="otherarmor-input">Description: <input id="otherarmor-input" type="text" value="10 (armor)"></label>
 								<div id="otherarmor-box-note" class="box-note"><i>Use _ to italicize</i></div>
-							</span>
+							</div>
 						</td>
 						<td></td>
 					</tr>
 				</table>
 				<table id="monster-speed-form">
 					<tr>
-						<td><label for="speed-input">Speed: <br><input type="number" id="speed-input" min="0" max="995" step="5" value="30"> ft.</td>
+						<td><label for="speed-input">Speed: <br><input type="number" id="speed-input" min="0" max="995" step="5" value="30"> ft.</label></td>
 						<td><label for="burrow-speed-input">Burrow speed: <br><input type="number" id="burrow-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
 						<td><label for="climb-speed-input">Climb Speed: <br><input type="number" id="climb-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
 						<td>
 							<label for="fly-speed-input">Fly Speed: <br><input type="number" id="fly-speed-input" min="0" max="995" step="5" value="0" onchange="FormFunctions.ShowHideHoverBox()"> ft.</label><br>
-							<span id="hover-box-note" class="box-note"><label for="hover-input">(Hover: <input type="checkbox" id="hover-input">)</label></span>
+							<div id="hover-box-note" class="box-note"><label for="hover-input">(Hover: <input type="checkbox" id="hover-input">)</label></div>
 						</td>
 						<td><label for="swim-speed-input">Swim Speed: <br><input type="number" id="swim-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
 					</tr>
@@ -242,7 +249,7 @@
 								<option value="cha">Charisma</option>
 							</select>
 							<button type="button" onclick="InputFunctions.AddSthrowInput()">Proficient</button>
-							<span id="sthrows-input-section"><ul id="sthrows-input-list" class="statblock-list"></ul></span>
+							<div id="sthrows-input-section"><ul id="sthrows-input-list" class="statblock-list"></ul></div>
 						</td>
 						<td id="skills-form">
 							<label for="skills-input">Skills:</label><br>
@@ -268,7 +275,7 @@
 							</select>
 							<button type="button" onclick="InputFunctions.AddSkillInput()">Proficient</button>
 							<button type="button" onclick="InputFunctions.AddSkillInput(' (ex)')">Expert</button>
-							<span id="skills-input-section"><ul id="skills-input-list" class="statblock-list"></ul></span>
+							<div id="skills-input-section"><ul id="skills-input-list" class="statblock-list"></ul></div>
 						</td>
 						<td id="conditions-form">
 							<label for="conditions-input">Condition Immunities: </label><br>
@@ -290,7 +297,7 @@
 								<option value="unconscious">Unconscious</option>
 							</select>
 							<button type="button" onclick="InputFunctions.AddConditionInput()">Immune</button>
-							<span id="conditions-input-section"><ul id="conditions-input-list" class="statblock-list"></ul></span>
+							<div id="conditions-input-section"><ul id="conditions-input-list" class="statblock-list"></ul></div>
 						</td>
 					</tr>
 					<tr>
@@ -323,7 +330,7 @@
 								<button type="button" onclick="InputFunctions.AddDamageTypeInput('r')">Resistant</button>
 								<button type="button" onclick="InputFunctions.AddDamageTypeInput('i')">Immune</button>
 							</div>
-							<div id="damage-input-section"><ul class="statblock-list"><span id="damage-input-list"></span></ul></div>
+							<div id="damage-input-section"><ul id="damage-input-list" class="statblock-list"></ul></div>
 						</td>
 						<td id="languages-form">
 							<label for="languages-input">Languages: </label><br>
@@ -366,7 +373,7 @@
 					<tr>
 						<td>
 							<label for="blindsight-input">Blindsight: </label><input type="number" id="blindsight-input" min="0" max="995" step="5" value="0" onchange="FormFunctions.ShowHideBlindBox()"><br>
-							<span id="blind-box-note" class="box-note"><label for="blindness-input">(Blind beyond: <input type="checkbox" id="blindness-input">)</label></span>
+							<div id="blind-box-note" class="box-note"><label for="blindness-input">(Blind beyond: <input type="checkbox" id="blindness-input">)</label></div>
 						</td>
 						<td><label for="darkvision-input">Darkvision: </label><input type="number" id="darkvision-input" min="0" max="995" step="5" value="0"></td>
 						<td><label for="tremorsense-input">Tremorsense: </label><input type="number" id="tremorsense-input" min="0" max="995" step="5" value="0"></td>
@@ -411,7 +418,7 @@
 						<option value="29">29 (135,000 XP)</option>
 						<option value="30">30 (155,000 XP)</option>
 					</select><br>
-					<span id="prof-bonus"></span>
+					<div id="prof-bonus"></div>
 				</div>
 				<hr>
 				<div>
@@ -425,7 +432,7 @@
 					<br>
 				</div>
 				<b>Abilities:</b>
-				<div><label for="abilities-name-input">Name: </label><input id="abilities-name-input" type="text" value=""></div>
+				<div><label for="abilities-name-input">Name: </label><input id="abilities-name-input" type="text" value="" size="40" style="margin-right: 40px;"></div>
 				<div><textarea id="abilities-desc-input" style="height: 10em;"></textarea></div>
 				<div>
 					<button type="button" id="add-ability-button" onclick="InputFunctions.AddAbilityInput('abilities')">Add Ability</button>
@@ -434,18 +441,23 @@
 					<button type="button" id="add-legendary-button" onclick="InputFunctions.AddAbilityInput('legendaries')">Add Legendary Action</button>
 				</div>
 				<div>
-					<i>Use _ to italicize. For Spellcasting lists, use > to reverse-indent.</i>
+					<select id="common-ability-input"></select>
+					<button type="button" id="add-common-ability-button" onclick="InputFunctions.AddCommonAbilityInput()">Use Preset</button>
+				</div>
+				<div>
+					<i>Use _ to italicize and ** to bold. For Spellcasting lists, use > to reverse-indent.</i>
 				</div>
 				<br>
 				<div style="text-align: left;">
-					<span id="abilities-input-section"><b>Abilities:</b><br> <ul id="abilities-input-list" class="statblock-list"></ul></span>
-					<span id="actions-input-section"><b>Actions:</b><br> <ul id="actions-input-list" class="statblock-list"></ul></span>
-					<span id="reactions-input-section"><b>Reactions:</b><br> <ul id="reactions-input-list" class="statblock-list"></ul></span>
-					<span id="legendaries-input-section"><b>Legendary Actions:</b><br> <ul id="legendaries-input-list" class="statblock-list"></ul></span>
+					<div id="abilities-input-section"><b>Abilities:</b><br> <ul id="abilities-input-list" class="statblock-list"></ul></div>
+					<div id="actions-input-section"><b>Actions:</b><br> <ul id="actions-input-list" class="statblock-list"></ul></div>
+					<div id="reactions-input-section"><b>Reactions:</b><br> <ul id="reactions-input-list" class="statblock-list"></ul></div>
+					<div id="legendaries-input-section"><b>Legendary Actions:</b><br> <ul id="legendaries-input-list" class="statblock-list"></ul></div>
 				</div>
 				
 			<br>
 			</div>
+			<div class="footer"><a href="https://github.com/Tetra-cube/Tetra-cube.github.io">GitHub Repo</a></div>
 		</div>
 	</body>
 </html>

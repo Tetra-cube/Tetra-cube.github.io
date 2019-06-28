@@ -341,6 +341,9 @@ var UAStuff =
 	}
 }
 
-
+$(function()
+{
+	UpdateList();
+});
 
 const noBulletPointsTraits = [ "Subraces and Variants", "Physical Characteristics", "Childhood Nickname", "Guide Name", "Animal Enhancement", "Advanced Animal Enhancement", "Artificer Specialty", "Mystic Order", "Blood Hunter Order" ];

@@ -2,14 +2,12 @@
 	text-align: left;
 	font-size: 12.5px;
 	line-height: 1.2em;
-	margin: 20px;
 	display: inline-block;
 	vertical-align: top;
 	width: 400px;
 	background: #FDF1DC;
-	padding: 5px 10px 20px;
+	padding: 10px 10px 20px;
 	box-sizing: border-box;
-	box-shadow: 0 0 1.5em #867453;
 	font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
 }
 .stat-block.wide {
@@ -65,6 +63,9 @@
 	color: #922610;
 	fill: #922610;
 }
+.creature-heading {
+	margin: 0 0 10px;
+}
 .creature-heading h1 {
 	font-family: 'Libre Baskerville', 'Lora', 'Calisto MT', 'Bookman Old Style', Bookman, 'Goudy Old Style', Garamond, 'Hoefler Text', 'Bitstream Charter', Georgia, serif;
 	color: #922610;
@@ -80,7 +81,7 @@
 	font-style: italic;
 	font-size: 12px;
 	line-height: 1.2em;
-	margin: 0 0 10px;
+	margin: 0;
 }
 .property-line h4,
 .property-line p {
@@ -140,17 +141,18 @@
 .property-block {
 	padding: 10px 2px 0;
 }
-.legendary{
+.legendary {
 	padding-top: 0;
 }
 .legendary h4{
 	padding-left: 2px;
 	font-style: normal;
-	line-height: 1em;
 }
 .legendary p {
 	font-style: normal;
-	line-height: 1em;
+}
+#traits-list-right > :first-child.property-block.legendary {	/* for a rare edge case where a legendary action is the first item in the second column */
+	padding-top: 10px;
 }
 .actions h3 {
 	border-bottom: 2px solid #7A200D;
@@ -169,54 +171,13 @@
 .actions:last-child {
 	margin: 0;
 }
-
-@media print {
-
-	@page {
-		margin: 10mm 5mm;
-	}
-	html {
-		background-image: none;
-		background: none;
-	}
-	body {
-		border-style: none;
-	}
-	.stat-block.wide {
-		column-count: 2;
-		-webkit-column-count: 2;
-		-moz-column-count: 2;
-	}
-	.stat-block,
-	.stat-block.wide {
-		margin: 0;
-		padding: 0;
-		background-color: white;
-		box-sizing: content-box;
-		box-shadow: none;
-	}
-	.stat-block,
-	.stat-block.wide,
-	.stat-block.wide .section-left,
-	.stat-block.wide .section-right,
-	.property-line,
-	.property-block {
-		width: 100%;
-		display: block;
-		vertical-align: center;
-	}
-	.orange-border {
-		display: none;
-	}
-	.donotprint {
-		display: none;
-	}
-	#kofiheader {
-		display: none;
-	}
+.indent {
+	text-indent: 1em;
 }
-@media screen and (max-width: 575px) {
-	.stat-block {
-		margin: 20px 0;
-	}
+.reverse-indent {
+	text-indent: -1em;
+	padding-left: 1em;
+}
+.top-stats { /* Fix for a weird bug that I can't figure out the cause of */
+	margin: 0 0 10px;
 }

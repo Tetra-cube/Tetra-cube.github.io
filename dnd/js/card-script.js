@@ -117,12 +117,9 @@ var Card =
 			case "minotaur" :
 			case "shifter" :
 				return gender;
-			case "grung" :
-			case "loxodon" :
-			case "simic-hybrid" :
-			case "vedalken" :
-				return raceName;
 		}
+		// grung, loxodon, simic hybrid, vedalken
+		return raceName;
 	},
 
 	// Divides characters into 5 different types to determine the card image to use
@@ -130,11 +127,6 @@ var Card =
 	{
 		switch(classNm)
 		{
-			case "barbarian" :
-			case "fighter" :
-			case "monk" :
-			case "blood-hunter" :
-				return "melee";
 			case "bard" :
 			case "rogue" :
 			case "artificer" :
@@ -151,6 +143,8 @@ var Card =
 			case "mystic" :
 				return "mage";
 		}
+		// barbarian, fighter, monk, blood-hunter
+				return "melee";
 	},
 
 	// Get and print the text on the card
@@ -179,7 +173,11 @@ var Card =
 		
 		// Description line 1
 		stringBuffer = [];
-		stringBuffer.push(this.RaceName(), this.ClassName(), this.BackgroundName());
+		stringBuffer.push(this.RaceName());
+		if(characterType == "npc")
+			stringBuffer.push(this.Occupation());
+		else
+			stringBuffer.push(this.ClassName(), this.BackgroundName());
 		
 		// (Ensure the text isn't too big)
 		text = stringBuffer.join(" - "), fontSize = 16;
@@ -246,6 +244,11 @@ var Card =
 		return character.Race.name;
 	},
 
+	Occupation: function()
+	{
+		return character.Occupation;
+	},
+
 	ClassName: function()
 	{
 		return character.Class.name + " (" + this.FindTraitByName(character.Class.content, subclassesCard[character.Class.name]) + ")";
@@ -292,7 +295,9 @@ var Card =
 	SetPersonalityCard: function(ctx, yPos)
 	{
 		// Get the data we need
-		var traitArr = this.TraitsArray(ctx, this.PersonalityCardData());
+		var traitArr = this.TraitsArray(ctx, this.PersonalityCardData()).slice(0);
+		if(characterType == "either")
+			traitArr = [ this.TraitsArrayObject(ctx, { "name" : "Occupation", "content" : character.Occupation } ) ].concat(traitArr);;
 		
 		// Pick which traits we use
 		var usedLines = 0, usedTraitIndices = [], usedTraits = [];
@@ -331,12 +336,15 @@ var Card =
 			classPersonalityArr = this.FindTraitByName(character.Class.content, "Personality"),
 			npcTraitsArr = character.NPCTraits.content,
 			lifeArr = character.Life.content;
-		for(var index = 0; index < backgroundArr.length; index++)
+		if(characterType != "npc")
 		{
-			var trait = backgroundArr[index];
-			// if(trait.name[0] == "_")
-				// continue;
-			allTraits.push(trait);
+			for(var index = 0; index < backgroundArr.length; index++)
+			{
+				var trait = backgroundArr[index];
+				// if(trait.name[0] == "_")
+					// continue;
+				allTraits.push(trait);
+			}
 		}
 		if(character.Race.name == "Aasimar")
 		{
@@ -352,16 +360,22 @@ var Card =
 					allTraits.push(trait);
 			}
 		}
-		for(var index = 0; index < classPersonalityArr.length; index++)
+		if(characterType != "npc")
 		{
-			var trait = classPersonalityArr[index];
-			if(trait != null && trait.content != null)
-				allTraits.push(trait);
+			for(var index = 0; index < classPersonalityArr.length; index++)
+			{
+				var trait = classPersonalityArr[index];
+				if(trait != null && trait.content != null)
+					allTraits.push(trait);
+			}
 		}
-		for(var index = 0; index < npcTraitsArr.length; index++)
+		if(characterType != "pc")
 		{
-			var trait = npcTraitsArr[index];
-			allTraits.push(trait);
+			for(var index = 0; index < npcTraitsArr.length; index++)
+			{
+				var trait = npcTraitsArr[index];
+				allTraits.push(trait);
+			}
 		}
 		allTraits.push( { "name" : "Trinket", "content" : this.FindTraitByName(lifeArr, "Trinket") } );
 		return allTraits;
@@ -392,19 +406,22 @@ var Card =
 	{
 		var traitArr = [];
 		for(var index = 0; index < source.length; index++)
-		{
-			// Get info on the label
-			ctx.font = labelFont;
-			var labelText = source[index].name + ": ",
-				labelWidth = ctx.measureText(labelText).width,
-				lineWidth = labelWidth;
-			
-			// Get info on the description
-			ctx.font = descriptionFont;
-			var lineArr = this.MultilineStringArray(ctx, source[index].content, labelWidth);
-			traitArr.push( { "label" : labelText, "labelwidth" : labelWidth, "description" : lineArr } );
-		}
+			traitArr.push(this.TraitsArrayObject(ctx, source[index]));
 		return traitArr;
+	},
+	
+	TraitsArrayObject: function(ctx, sourceItem)
+	{
+		// Get info on the label
+		ctx.font = labelFont;
+		var labelText = sourceItem.name + ": ",
+			labelWidth = ctx.measureText(labelText).width,
+			lineWidth = labelWidth;
+		
+		// Get info on the description
+		ctx.font = descriptionFont;
+		var lineArr = this.MultilineStringArray(ctx, sourceItem.content, labelWidth);
+		return { "label" : labelText, "labelwidth" : labelWidth, "description" : lineArr };
 	},
 
 	// Return a string split into multiple lines if necessary
@@ -496,9 +513,9 @@ var CardType =
 		var stringBuffer = [], description = [];
 		description.push(
 			{ "name" : "Race", "content" : character.Race.name },
+			{ "name" : "Gender", "content" : character.Gender },
 			{ "name" : "Class", "content" : character.Class.name },
 			{ "name" : "Background", "content" : character.Background.name },
-			{ "name" : "Gender", "content" : character.Gender },
 			{ "name" : "Description", "content" : character.NPCTraits.content }
 		);
 		if(character.Race.name == "Warforged")
