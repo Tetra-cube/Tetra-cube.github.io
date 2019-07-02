@@ -27,22 +27,22 @@
 .stat-block.wide .section-right {
 	margin-left: 1.5%;
 }
-@media screen and (max-width: 675px) {
-	.stat-block.wide {
-		min-width: 280px;
-	}
-	.stat-block.wide .section-left,
-	.stat-block.wide .section-right {
-	  display: block;
-	  width: 100%;
-	}
-	.stat-block.wide .section-left {
-	  margin: 0;
-	}
-	.stat-block.wide .section-right {
-		margin: 0;
-	}
-}
+/* @media screen and (max-width: 675px) { */
+	/* .stat-block.wide { */
+		/* min-width: 280px; */
+	/* } */
+	/* .stat-block.wide .section-left, */
+	/* .stat-block.wide .section-right { */
+	  /* display: block; */
+	  /* width: 100%; */
+	/* } */
+	/* .stat-block.wide .section-left { */
+	  /* margin: 0; */
+	/* } */
+	/* .stat-block.wide .section-right { */
+		/* margin: 0; */
+	/* } */
+/* } */
 .orange-border {
 	display: block;
 	background: #E69A28;

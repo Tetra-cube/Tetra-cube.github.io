@@ -21,6 +21,118 @@ var genders = ['Male', 'Male', 'Male', 'Male', 'Male', 'Female', 'Female', 'Fema
 
 var races =
 {
+	'Aarakocra' :
+	{
+		'_special' : 'book-EE',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 3,
+			'maxage' : 20,
+			'baseheight' : 48,
+			'heightmod' : '2d10',
+			'baseweight' : 65,
+			'weightmod' : '1d4',
+			'_other' :
+			{
+				'Eyes' : [ "Black" ],
+				'Plumage' : 
+				{
+					'_special' : 'gendersort',
+					'Male' : ['Red', 'Orange', 'Yellow'],
+					'Female' : ['Brown', 'Gray']
+				}
+			}
+		}
+	},
+	'Aasimar' :
+	{
+		'_special' : 'book-VGtM',
+		'Subraces and Variants' :
+		{
+			'Subrace' : [ 'Protector Aasimar', 'Scourge Aasimar', 'Fallen Aasimar' ],
+			'Human Heritage' : { '_special' : 'halfethnicity' }
+		},
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 120,
+			'baseheight' : 56,
+			'heightmod' : '2d10',
+			'baseweight' : 110,
+			'weightmod' : '2d4',
+			'_other' : 
+			{
+				'Eyes' : [ 'White', 'Gold', 'Gray', 'Topaz' ],
+				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown', 'Emerald', 'Gold', 'Silver', 'Emerald', 'Gold', 'Silver' ],
+				'Hair' : [ 'Black', 'Brown', 'Blond', 'Silver', 'Red' ]
+			}
+		},
+		'Guide Name' : [ 'Tadriel', 'Myllandra', 'Seraphina', 'Galladia', 'Mykiel', 'Valandras' ],
+		'Guide Nature' : [ 'Bookish and lecturing', 'Compassionate and hopeful', 'Practical and lighthearted', 'Fierce and vengeful', 'Stern and judgmental', 'Kind and parental' ]
+	},
+	'Bugbear' :
+	{
+		'_special' : 'book-MR',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 12,
+			'maxage' : 60,
+			'baseheight' : 72,
+			'heightmod' : '2d12',
+			'baseweight' : 200,
+			'weightmod' : '2d6',
+			'_other' : 
+			{
+				'Eyes' : [ 'Yellow', 'Orange', 'Red', 'Brown', 'Greenish-white' ],
+				'Skin' : [ 'Yellow', 'Reddish-brown' ],
+				'Hair' : [ 'Brown', 'Red' ]
+			}
+		},
+		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
+	},
+	'Centaur' :
+	{
+		'_special' : 'book-GGtR',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 60,
+			'baseheight' : 80,
+			'heightmod' : '2d10',
+			'baseweight' : 1500,
+			'weightmod' : '2d10',
+			'_other' : 
+			{
+				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
+				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
+				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
+			}
+		}
+	},
+	'Changeling' :
+	{
+		'_special' : 'book-WGtE',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 11,
+			'maxage' : 60,
+			'baseheight' : 58,
+			'heightmod' : '2d8',
+			'baseweight' : 120,
+			'weightmod' : '1d4',
+			'_other' : 
+			{
+				'Eyes' : [ 'White' ],
+				'Skin' : [ 'Pale', 'Light Gray' ],
+				'Hair' : [ 'Silver', 'Platinum', 'Blonde' ]
+			}
+		}
+	},
 	'Dragonborn' :
 	{
 		'_special' : 'book-PHB',
@@ -322,6 +434,167 @@ var races =
 			}
 		}
 	},
+	'Firbolg' :
+	{
+		'_special' : 'book-VGtM',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 20,
+			'maxage' : 400,
+			'baseheight' : 74,
+			'heightmod' : '2d12',
+			'baseweight' : 175,
+			'weightmod' : '2d6',
+			'_other' : 
+			{
+				'Eyes' : [ 'White' ],
+				'Skin' : [ 'Fleshy Pink' ],
+				'Hair' : [ 'Blonde', 'Red' ]
+			}
+		},
+		'Reason for Adventuring' :
+		[
+			'Outcast for murder',
+			'Outcast for severely damaging home territory',
+			'Clan slain by invading humanoids',
+			'Clan slain by a dragon or demon',
+			'Separated from the tribe and lost',
+			'Homeland destroyed by natural disaster',
+			'Personal quest ordained by omens',
+			'Dispatched on a quest by tribe leaders' 
+		]
+	},
+	'Genasi' :
+	{
+		'_special' : 'book-EE subracesort',
+		'Subraces and Variants' : 
+		{
+			'Subrace' : [ 'Air Genasi', 'Earth Genasi', 'Fire Genasi', 'Water Genasi' ],
+			'Human Heritage' : { '_special' : 'halfethnicity' }
+		},
+		'Physical Characteristics' :
+		{
+			'_special' : 'subracephyssort',
+			'Air Genasi' : 
+			{
+				'_special' : 'characteristics',
+				'minage' : 13,
+				'maxage' : 100,
+				'baseheight' : 58,
+				'heightmod' : '2d10',
+				'baseweight' : 120,
+				'weightmod' : '2d4',
+				'_other' : 
+				{
+					'Eyes' : [ 'Light Blue' ],
+					'Skin' : [ 'Light Blue' ],
+					'Hair' : [ 'Light Blue' ],
+					'Voice' : [ 'Normal', 'Breathy, with a faint echo' ],
+					'Other Traits' : [ null, null, null, null, 'Odd patterns on flesh', 'Crystals growing from scalp' ]
+				}
+			},
+			'Earth Genasi' : 
+			{
+				'_special' : 'characteristics',
+				'minage' : 13,
+				'maxage' : 100,
+				'baseheight' : 58,
+				'heightmod' : '2d10',
+				'baseweight' : 120,
+				'weightmod' : '2d4',
+				'_other' : 
+				{
+					'Eyes' : [ 'Brown', 'Hazel', 'Orange', 'Blue', 'Earthlike' ],
+					'Skin Color' : [ 'Brown', 'Deep Brown', 'Black' ],
+					'Skin Type' : [ 'Normal', 'Dirty', 'Polished', 'Metallic', 'Rusty iron', 'Rough hide', 'Covered in crystal', 'Fissures in flesh' ],
+					'Hair' : [ 'Black', 'Brown', 'Earthlike' ],
+					'Voice' : [ 'Normal', 'Low and gravelly' ],
+				}
+			},
+			'Fire Genasi' : 
+			{
+				'_special' : 'characteristics',
+				'minage' : 13,
+				'maxage' : 100,
+				'baseheight' : 58,
+				'heightmod' : '2d10',
+				'baseweight' : 120,
+				'weightmod' : '2d4',
+				'_other' : 
+				{
+					'Eyes' : [ 'Fiery' ],
+					'Skin' : [ 'Flaming Red', 'Coal-black', 'Ash-gray' ],
+					'Hair' : [ 'Red', 'Fire' ],
+					'Voice' : [ 'Normal', 'Crackling flames' ],
+					'Other Traits' : [ null, 'Brimstone smell' ]
+				}
+			},
+			'Water Genasi' : 
+			{
+				'_special' : 'characteristics',
+				'minage' : 13,
+				'maxage' : 100,
+				'baseheight' : 58,
+				'heightmod' : '2d10',
+				'baseweight' : 120,
+				'weightmod' : '2d4',
+				'_other' : 
+				{
+					'Eyes' : [ 'Blue', 'Black', 'Blue-black' ],
+					'Skin' : [ 'Blue', 'Green' ],
+					'Hair' : [ 'Bald' ],
+					'Voice' : [ 'Normal', 'Whalesong undertones', 'Trickling stream undertones' ],
+					'Other Traits' : [ null, 'Floating Hair' ]
+				}
+			}
+		}
+	},
+	'Gith' :
+	{
+		'_special' : 'book-MToF subracesort',
+		'Subraces and Variants' :
+		{
+			'Subrace' : [ 'Githyanki', 'Githzerai' ]
+		},
+		'Physical Characteristics' :
+		{
+			'_special' : 'subracephyssort',
+			'Githyanki' : 
+			{
+				'_special' : 'characteristics',
+				'minage' : 13,
+				'maxage' : 80,
+				'baseheight' : 60,
+				'heightmod' : '2d12',
+				'baseweight' : 100,
+				'weightmod' : '2d4',
+				'_other' : 
+				{
+					'Eyes' : [ 'Yellow' ],
+					'Skin' : [ 'Green', 'Yellow', 'Orange', 'Spotted brown' ],
+					'Hair' : [ 'Brown' ],
+					'Note on age' : [ 'While githyanki bodies live for about a century, they are ageless while on the astral plane.' ]
+				}
+			},
+			'Githzerai' : 
+			{
+				'_special' : 'characteristics',
+				'minage' : 13,
+				'maxage' : 80,
+				'baseheight' : 59,
+				'heightmod' : '2d12',
+				'baseweight' : 90,
+				'weightmod' : '1d4',
+				'_other' : 
+				{
+					'Eyes' : [ 'Yellow' ],
+					'Skin' : [ 'Green', 'Yellow', 'Orange', 'Spotted brown' ],
+					'Hair' : [ 'Brown' ]
+				}
+			}
+		}
+	},
 	'Gnome' :
 	{
 		'_special' : 'book-PHB subracesort',
@@ -391,6 +664,70 @@ var races =
 				}
 			}
 		}
+	},
+	'Goblin' :
+	{
+		'_special' : 'book-MR/GGtR',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 6,
+			'maxage' : 45,
+			'baseheight' : 41,
+			'heightmod' : '2d4',
+			'baseweight' : 35,
+			'weightmod' : '1',
+			'_other' : 
+			{
+				'Eyes' : [ 'Yellow', 'Orange', 'Red' ],
+				'Skin' : [ 'Yellow', 'Orange', 'Red' ],
+			}
+		},
+		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
+	},
+	'Goliath' :
+	{
+		'_special' : 'book-EE/VGtM',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 60,
+			'baseheight' : 65,
+			'heightmod' : '2d4',
+			'baseweight' : 130,
+			'weightmod' : '1d8',
+			'_other' : 
+			{
+				'Eyes' : [ 'Blue', 'Green' ],
+				'Skin' : [ 'Gray', 'Brown' ],
+				'Hair' :
+				{
+					'_special' : 'gendersort',
+					'Male' : [ 'Bald' ],
+					'Female' : [ 'Black', 'Dark Brown', 'Dark Gray' ]
+				}
+			}
+		}
+	},
+	'Grung' :
+	{
+		'_special' : 'book-Unofficial',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 1,
+			'maxage' : 40,
+			'baseheight' : 30,
+			'heightmod' : '2d4',
+			'baseweight' : 35,
+			'weightmod' : '1',
+			'_other' : 
+			{
+				'Skin' : [ 'Green', 'Blue', 'Purple', 'Red', 'Orange', 'Gold' ],
+			}
+		},
+		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
 	},
 	'Halfling' :
 	{
@@ -522,6 +859,27 @@ var races =
 			}
 		}
 	},
+	'Hobgoblin' :
+	{
+		'_special' : 'book-MR',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 60,
+			'baseheight' : 56,
+			'heightmod' : '2d10',
+			'baseweight' : 110,
+			'weightmod' : '2d4',
+			'_other' : 
+			{
+				'Eyes' : [ 'Yellow', 'Orange', 'Red' ],
+				'Skin' : [ 'Orange', 'Reddish-brown' ],
+				'Hair' : [ 'Dark Brown', 'Dark Gray', 'Orange', 'Red' ]
+			}
+		},
+		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
+	},
 	'Human' :
 	{
 		'_special' : 'book-PHB',
@@ -552,239 +910,29 @@ var races =
 			}
 		}
 	},
-	'Tiefling' :
+	'Kalashtar' :
 	{
-		'_special' : 'book-PHB',
+		'_special' : 'book-WGtE',
 		'Subraces and Variants' :
 		{
-			'Subrace' :
-			{
-				'_special' : 'booksort',
-				'PHB' : [ 'Asmodeous Tiefling' ],
-				'MToF' : [ 'Baalzebul Tiefling', 'Dispater Tiefling', 'Fierna Tiefling', 'Glasya Tiefling', 'Levistus Tiefling', 'Mammon Tiefling', 'Mephistopheles Tiefling', 'Zariel Tiefling' ],
-				'UA' : [ 'Abyssal Tiefling' ]
-			},
-			'Variant' :
-			{
-				'_special' : 'book-SCAG tieflingvarianttype',
-				'_array' : [ null, 'Devil\'s Tongue', 'Hellfire', 'Winged', 'Feral', 'Feral, Devil\'s Tongue', 'Feral, Hellfire', 'Feral, Winged' ]
-			},
 			'Human Heritage' : { '_special' : 'halfethnicity' }
 		},
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 65,
-			'baseheight' : 57,
-			'heightmod' : '2d8',
-			'baseweight' : 110,
-			'weightmod' : '2d4',
-			'_other' : 
-			{
-				'Eyes' : [ 'Black', 'Red', 'White', 'Silver', 'Gold' ],
-				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown', 'Light Red', 'Red', 'Dark Red', 'Light Red', 'Red', 'Dark Red' ],
-				'Hair' : [ 'Black', 'Brown', 'Dark Red', 'Dark Blue', 'Dark Purple' ],
-				'Horns' : [ 'Ram', 'Gazelle', 'Antelope', 'Bull', 'Ibex', 'Bison', 'One Broken' ],
-				'Other Traits' :
-				{
-					'_special' : 'tieflingappearance',
-					'_array' : [ 'Small horns', 'Fangs or sharp teeth', 'Forked tongue', 'Catlike eyes', 'Six fingers on each hand', 'Goat-like legs', 'Cloven hooves', 'Forked tail', 'Leathery or scaly skin', 'Red or dark blue skin', 'Cast no shadow or reflection', 'Exude a smell of brimstone' ]
-				}
-			}
-		}
-	},
-	'Aarakocra' :
-	{
-		'_special' : 'book-EE',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 3,
-			'maxage' : 20,
-			'baseheight' : 48,
-			'heightmod' : '2d10',
-			'baseweight' : 65,
-			'weightmod' : '1d4',
-			'_other' :
-			{
-				'Eyes' : [ "Black" ],
-				'Plumage' : 
-				{
-					'_special' : 'gendersort',
-					'Male' : ['Red', 'Orange', 'Yellow'],
-					'Female' : ['Brown', 'Gray']
-				}
-			}
-		}
-	},
-	'Genasi' :
-	{
-		'_special' : 'book-EE subracesort',
-		'Subraces and Variants' : 
-		{
-			'Subrace' : [ 'Air Genasi', 'Earth Genasi', 'Fire Genasi', 'Water Genasi' ],
-			'Human Heritage' : { '_special' : 'halfethnicity' }
-		},
-		'Physical Characteristics' :
-		{
-			'_special' : 'subracephyssort',
-			'Air Genasi' : 
-			{
-				'_special' : 'characteristics',
-				'minage' : 13,
-				'maxage' : 100,
-				'baseheight' : 58,
-				'heightmod' : '2d10',
-				'baseweight' : 120,
-				'weightmod' : '2d4',
-				'_other' : 
-				{
-					'Eyes' : [ 'Light Blue' ],
-					'Skin' : [ 'Light Blue' ],
-					'Hair' : [ 'Light Blue' ],
-					'Voice' : [ 'Normal', 'Breathy, with a faint echo' ],
-					'Other Traits' : [ null, null, null, null, 'Odd patterns on flesh', 'Crystals growing from scalp' ]
-				}
-			},
-			'Earth Genasi' : 
-			{
-				'_special' : 'characteristics',
-				'minage' : 13,
-				'maxage' : 100,
-				'baseheight' : 58,
-				'heightmod' : '2d10',
-				'baseweight' : 120,
-				'weightmod' : '2d4',
-				'_other' : 
-				{
-					'Eyes' : [ 'Brown', 'Hazel', 'Orange', 'Blue', 'Earthlike' ],
-					'Skin Color' : [ 'Brown', 'Deep Brown', 'Black' ],
-					'Skin Type' : [ 'Normal', 'Dirty', 'Polished', 'Metallic', 'Rusty iron', 'Rough hide', 'Covered in crystal', 'Fissures in flesh' ],
-					'Hair' : [ 'Black', 'Brown', 'Earthlike' ],
-					'Voice' : [ 'Normal', 'Low and gravelly' ],
-				}
-			},
-			'Fire Genasi' : 
-			{
-				'_special' : 'characteristics',
-				'minage' : 13,
-				'maxage' : 100,
-				'baseheight' : 58,
-				'heightmod' : '2d10',
-				'baseweight' : 120,
-				'weightmod' : '2d4',
-				'_other' : 
-				{
-					'Eyes' : [ 'Fiery' ],
-					'Skin' : [ 'Flaming Red', 'Coal-black', 'Ash-gray' ],
-					'Hair' : [ 'Red', 'Fire' ],
-					'Voice' : [ 'Normal', 'Crackling flames' ],
-					'Other Traits' : [ null, 'Brimstone smell' ]
-				}
-			},
-			'Water Genasi' : 
-			{
-				'_special' : 'characteristics',
-				'minage' : 13,
-				'maxage' : 100,
-				'baseheight' : 58,
-				'heightmod' : '2d10',
-				'baseweight' : 120,
-				'weightmod' : '2d4',
-				'_other' : 
-				{
-					'Eyes' : [ 'Blue', 'Black', 'Blue-black' ],
-					'Skin' : [ 'Blue', 'Green' ],
-					'Hair' : [ 'Bald' ],
-					'Voice' : [ 'Normal', 'Whalesong undertones', 'Trickling stream undertones' ],
-					'Other Traits' : [ null, 'Floating Hair' ]
-				}
-			}
-		}
-	},
-	'Goliath' :
-	{
-		'_special' : 'book-EE/VGtM',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
 			'minage' : 13,
 			'maxage' : 60,
-			'baseheight' : 65,
-			'heightmod' : '2d4',
-			'baseweight' : 130,
-			'weightmod' : '1d8',
-			'_other' : 
-			{
-				'Eyes' : [ 'Blue', 'Green' ],
-				'Skin' : [ 'Gray', 'Brown' ],
-				'Hair' :
-				{
-					'_special' : 'gendersort',
-					'Male' : [ 'Bald' ],
-					'Female' : [ 'Black', 'Dark Brown', 'Dark Gray' ]
-				}
-			}
-		}
-	},
-	'Aasimar' :
-	{
-		'_special' : 'book-VGtM',
-		'Subraces and Variants' :
-		{
-			'Subrace' : [ 'Protector Aasimar', 'Scourge Aasimar', 'Fallen Aasimar' ],
-			'Human Heritage' : { '_special' : 'halfethnicity' }
-		},
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 120,
-			'baseheight' : 56,
+			'baseheight' : 59,
 			'heightmod' : '2d10',
 			'baseweight' : 110,
 			'weightmod' : '2d4',
 			'_other' : 
 			{
-				'Eyes' : [ 'White', 'Gold', 'Gray', 'Topaz' ],
-				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown', 'Emerald', 'Gold', 'Silver', 'Emerald', 'Gold', 'Silver' ],
-				'Hair' : [ 'Black', 'Brown', 'Blond', 'Silver', 'Red' ]
+				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
+				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
+				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
 			}
-		},
-		'Guide Name' : [ 'Tadriel', 'Myllandra', 'Seraphina', 'Galladia', 'Mykiel', 'Valandras' ],
-		'Guide Nature' : [ 'Bookish and lecturing', 'Compassionate and hopeful', 'Practical and lighthearted', 'Fierce and vengeful', 'Stern and judgmental', 'Kind and parental' ]
-	},
-	'Firbolg' :
-	{
-		'_special' : 'book-VGtM',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 20,
-			'maxage' : 400,
-			'baseheight' : 74,
-			'heightmod' : '2d12',
-			'baseweight' : 175,
-			'weightmod' : '2d6',
-			'_other' : 
-			{
-				'Eyes' : [ 'White' ],
-				'Skin' : [ 'Fleshy Pink' ],
-				'Hair' : [ 'Blonde', 'Red' ]
-			}
-		},
-		'Reason for Adventuring' :
-		[
-			'Outcast for murder',
-			'Outcast for severely damaging home territory',
-			'Clan slain by invading humanoids',
-			'Clan slain by a dragon or demon',
-			'Separated from the tribe and lost',
-			'Homeland destroyed by natural disaster',
-			'Personal quest ordained by omens',
-			'Dispatched on a quest by tribe leaders' 
-		]
+		}
 	},
 	'Kenku' :
 	{
@@ -803,6 +951,26 @@ var races =
 				'Eyes' : [ 'Black' ]
 			}
 		}
+	},
+	'Kobold' :
+	{
+		'_special' : 'book-MR',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 4,
+			'maxage' : 60,
+			'baseheight' : 25,
+			'heightmod' : '2d4',
+			'baseweight' : 25,
+			'weightmod' : '1',
+			'_other' : 
+			{
+				'Eyes' : [ 'Burnt Orange', 'Red' ],
+				'Skin' : [ 'Red', 'Reddish-brown' ]
+			}
+		},
+		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
 	},
 	'Lizardfolk' :
 	{
@@ -833,6 +1001,103 @@ var races =
 			'You appreciate the soft humanoids who realize they need chain mail and swords to match the gifts you were born with.',
 			'You enjoy eating your food while it\'s still wriggling.'
 		]
+	},
+	'Loxodon' :
+	{
+		'_special' : 'book-GGtR',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 400,
+			'baseheight' : 70,
+			'heightmod' : '2d8',
+			'baseweight' : 280,
+			'weightmod' : '2d4',
+			'_other' : { }
+		}
+	},
+	'Minotaur' :
+	{
+		'_special' : 'book-GGtR',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 120,
+			'baseheight' : 70,
+			'heightmod' : '2d4',
+			'baseweight' : 310,
+			'weightmod' : '1d6',
+			'_other' : 
+			{
+				'Eyes' : [ 'Black', 'Dark Yellow' ],
+				'Skin' : [ 'Black', 'Brown', 'White' ],
+				'Hair' : [ 'Black', 'Brown', 'White', 'Red' ]
+			}
+		}
+	},
+	'Orc' :
+	{
+		'_special' : 'book-MR',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 9,
+			'maxage' : 40,
+			'baseheight' : 64,
+			'heightmod' : '2d8',
+			'baseweight' : 175,
+			'weightmod' : '2d6',
+			'_other' : 
+			{
+				'Eyes' : [ 'Red', 'Gray' ],
+				'Skin' : [ 'Gray', 'Purplish-Gray', 'Bluish-Gray' ],
+				'Hair' : [ 'Black' ]
+			}
+		},
+		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
+	},
+	'Shifter' :
+	{
+		'_special' : 'book-WGtE',
+		'Subraces and Variants' :
+		{
+			'Subrace' : [ 'Beasthide', 'Longtooth', 'Swiftstride', 'Wildhunt' ]
+		},
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 7,
+			'maxage' : 50,
+			'baseheight' : 60,
+			'heightmod' : '2d10',
+			'baseweight' : 130,
+			'weightmod' : '1d8',
+			'_other' : 
+			{
+				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
+				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
+				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
+			}
+		}
+	},
+	'Simic Hybrid' :
+	{
+		'_special' : 'book-GGtR',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 50,
+			'baseheight' : 56,
+			'heightmod' : '2d10',
+			'baseweight' : 110,
+			'weightmod' : '2d4',
+			'_other' : { }
+		},
+		'Animal Enhancement' : [ 'Manta Glide', 'Nimble Climber', 'Underwater Adaptation' ],
+		'Advanced Animal Enhancement' : [ 'Acid Spit', 'Carapace', 'Grappling Appendages' ]
 	},
 	'Tabaxi' :
 	{
@@ -877,6 +1142,67 @@ var races =
 			'You can\'t help but pocket interesting objects you come across. '
 		]
 	},
+	'Tiefling' :
+	{
+		'_special' : 'book-PHB',
+		'Subraces and Variants' :
+		{
+			'Subrace' :
+			{
+				'_special' : 'booksort',
+				'PHB' : [ 'Asmodeous Tiefling' ],
+				'MToF' : [ 'Baalzebul Tiefling', 'Dispater Tiefling', 'Fierna Tiefling', 'Glasya Tiefling', 'Levistus Tiefling', 'Mammon Tiefling', 'Mephistopheles Tiefling', 'Zariel Tiefling' ],
+				'UA' : [ 'Abyssal Tiefling' ]
+			},
+			'Variant' :
+			{
+				'_special' : 'book-SCAG tieflingvarianttype',
+				'_array' : [ null, 'Devil\'s Tongue', 'Hellfire', 'Winged', 'Feral', 'Feral, Devil\'s Tongue', 'Feral, Hellfire', 'Feral, Winged' ]
+			},
+			'Human Heritage' : { '_special' : 'halfethnicity' }
+		},
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 13,
+			'maxage' : 65,
+			'baseheight' : 57,
+			'heightmod' : '2d8',
+			'baseweight' : 110,
+			'weightmod' : '2d4',
+			'_other' : 
+			{
+				'Eyes' : [ 'Black', 'Red', 'White', 'Silver', 'Gold' ],
+				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown', 'Light Red', 'Red', 'Dark Red', 'Light Red', 'Red', 'Dark Red' ],
+				'Hair' : [ 'Black', 'Brown', 'Dark Red', 'Dark Blue', 'Dark Purple' ],
+				'Horns' : [ 'Ram', 'Gazelle', 'Antelope', 'Bull', 'Ibex', 'Bison', 'One Broken' ],
+				'Other Traits' :
+				{
+					'_special' : 'tieflingappearance',
+					'_array' : [ 'Small horns', 'Fangs or sharp teeth', 'Forked tongue', 'Catlike eyes', 'Six fingers on each hand', 'Goat-like legs', 'Cloven hooves', 'Forked tail', 'Leathery or scaly skin', 'Red or dark blue skin', 'Cast no shadow or reflection', 'Exude a smell of brimstone' ]
+				}
+			}
+		}
+	},
+	'Tortle' :
+	{
+		'_special' : 'book-Other',
+		'Physical Characteristics' :
+		{
+			'_special' : 'characteristics',
+			'minage' : 11,
+			'maxage' : 40,
+			'baseheight' : 60,
+			'heightmod' : '2d4',
+			'baseweight' : 355,
+			'weightmod' : '2d8',
+			'_other' : 
+			{
+				'Eyes' : [ 'Green', 'Blue', 'Brown', 'Black' ],
+				'Skin/Shell' : [ 'Olive-Green', 'Blue-Green', 'Brown' ],
+			}
+		}
+	},
 	'Triton' :
 	{
 		'_special' : 'book-VGtM',
@@ -906,247 +1232,6 @@ var races =
 			'You mistakenly assume that surface folk know about and are impressed by your people\'s history. '
 		]
 	},
-	'Bugbear' :
-	{
-		'_special' : 'book-MR',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 12,
-			'maxage' : 60,
-			'baseheight' : 72,
-			'heightmod' : '2d12',
-			'baseweight' : 200,
-			'weightmod' : '2d6',
-			'_other' : 
-			{
-				'Eyes' : [ 'Yellow', 'Orange', 'Red', 'Brown', 'Greenish-white' ],
-				'Skin' : [ 'Yellow', 'Reddish-brown' ],
-				'Hair' : [ 'Brown', 'Red' ]
-			}
-		},
-		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
-	},
-	'Goblin' :
-	{
-		'_special' : 'book-MR/GGtR',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 6,
-			'maxage' : 45,
-			'baseheight' : 41,
-			'heightmod' : '2d4',
-			'baseweight' : 35,
-			'weightmod' : '1',
-			'_other' : 
-			{
-				'Eyes' : [ 'Yellow', 'Orange', 'Red' ],
-				'Skin' : [ 'Yellow', 'Orange', 'Red' ],
-			}
-		},
-		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
-	},
-	'Hobgoblin' :
-	{
-		'_special' : 'book-MR',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 60,
-			'baseheight' : 56,
-			'heightmod' : '2d10',
-			'baseweight' : 110,
-			'weightmod' : '2d4',
-			'_other' : 
-			{
-				'Eyes' : [ 'Yellow', 'Orange', 'Red' ],
-				'Skin' : [ 'Orange', 'Reddish-brown' ],
-				'Hair' : [ 'Dark Brown', 'Dark Gray', 'Orange', 'Red' ]
-			}
-		},
-		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
-	},
-	'Kobold' :
-	{
-		'_special' : 'book-MR',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 4,
-			'maxage' : 60,
-			'baseheight' : 25,
-			'heightmod' : '2d4',
-			'baseweight' : 25,
-			'weightmod' : '1',
-			'_other' : 
-			{
-				'Eyes' : [ 'Burnt Orange', 'Red' ],
-				'Skin' : [ 'Red', 'Reddish-brown' ]
-			}
-		},
-		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
-	},
-	'Orc' :
-	{
-		'_special' : 'book-MR',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 9,
-			'maxage' : 40,
-			'baseheight' : 64,
-			'heightmod' : '2d8',
-			'baseweight' : 175,
-			'weightmod' : '2d6',
-			'_other' : 
-			{
-				'Eyes' : [ 'Red', 'Gray' ],
-				'Skin' : [ 'Gray', 'Purplish-Gray', 'Bluish-Gray' ],
-				'Hair' : [ 'Black' ]
-			}
-		},
-		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
-	},
-	'Yuan-Ti Pureblood' :
-	{
-		'_special' : 'book-MR',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 60,
-			'baseheight' : 56,
-			'heightmod' : '2d10',
-			'baseweight' : 110,
-			'weightmod' : '2d4',
-			'_other' : 
-			{
-				'Eyes' : [ 'Green' ],
-				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
-				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
-			}
-		},
-		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
-	},
-	'Gith' :
-	{
-		'_special' : 'book-MToF subracesort',
-		'Subraces and Variants' :
-		{
-			'Subrace' : [ 'Githyanki', 'Githzerai' ]
-		},
-		'Physical Characteristics' :
-		{
-			'_special' : 'subracephyssort',
-			'Githyanki' : 
-			{
-				'_special' : 'characteristics',
-				'minage' : 13,
-				'maxage' : 80,
-				'baseheight' : 60,
-				'heightmod' : '2d12',
-				'baseweight' : 100,
-				'weightmod' : '2d4',
-				'_other' : 
-				{
-					'Eyes' : [ 'Yellow' ],
-					'Skin' : [ 'Green', 'Yellow', 'Orange', 'Spotted brown' ],
-					'Hair' : [ 'Brown' ],
-					'Note on age' : [ 'While githyanki bodies live for about a century, they are ageless while on the astral plane.' ]
-				}
-			},
-			'Githzerai' : 
-			{
-				'_special' : 'characteristics',
-				'minage' : 13,
-				'maxage' : 80,
-				'baseheight' : 59,
-				'heightmod' : '2d12',
-				'baseweight' : 90,
-				'weightmod' : '1d4',
-				'_other' : 
-				{
-					'Eyes' : [ 'Yellow' ],
-					'Skin' : [ 'Green', 'Yellow', 'Orange', 'Spotted brown' ],
-					'Hair' : [ 'Brown' ]
-				}
-			}
-		}
-	},
-	'Centaur' :
-	{
-		'_special' : 'book-GGtR',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 60,
-			'baseheight' : 80,
-			'heightmod' : '2d10',
-			'baseweight' : 1500,
-			'weightmod' : '2d10',
-			'_other' : 
-			{
-				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
-				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
-				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
-			}
-		}
-	},
-	'Loxodon' :
-	{
-		'_special' : 'book-GGtR',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 400,
-			'baseheight' : 70,
-			'heightmod' : '2d8',
-			'baseweight' : 280,
-			'weightmod' : '2d4',
-			'_other' : { }
-		}
-	},
-	'Minotaur' :
-	{
-		'_special' : 'book-GGtR',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 120,
-			'baseheight' : 70,
-			'heightmod' : '2d4',
-			'baseweight' : 310,
-			'weightmod' : '1d6',
-			'_other' : 
-			{
-				'Eyes' : [ 'Black', 'Dark Yellow' ],
-				'Skin' : [ 'Black', 'Brown', 'White' ],
-				'Hair' : [ 'Black', 'Brown', 'White', 'Red' ]
-			}
-		}
-	},
-	'Simic Hybrid' :
-	{
-		'_special' : 'book-GGtR',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 50,
-			'baseheight' : 56,
-			'heightmod' : '2d10',
-			'baseweight' : 110,
-			'weightmod' : '2d4',
-			'_other' : { }
-		},
-		'Animal Enhancement' : [ 'Manta Glide', 'Nimble Climber', 'Underwater Adaptation' ],
-		'Advanced Animal Enhancement' : [ 'Acid Spit', 'Carapace', 'Grappling Appendages' ]
-	},
 	'Vedalken' :
 	{
 		'_special' : 'book-GGtR',
@@ -1160,93 +1245,6 @@ var races =
 			'baseweight' : 110,
 			'weightmod' : '2d4',
 			'_other' : { }
-		}
-	},
-	'Tortle' :
-	{
-		'_special' : 'book-Other',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 11,
-			'maxage' : 40,
-			'baseheight' : 60,
-			'heightmod' : '2d4',
-			'baseweight' : 355,
-			'weightmod' : '2d8',
-			'_other' : 
-			{
-				'Eyes' : [ 'Green', 'Blue', 'Brown', 'Black' ],
-				'Skin/Shell' : [ 'Olive-Green', 'Blue-Green', 'Brown' ],
-			}
-		}
-	},
-	'Changeling' :
-	{
-		'_special' : 'book-WGtE',
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 11,
-			'maxage' : 60,
-			'baseheight' : 58,
-			'heightmod' : '2d8',
-			'baseweight' : 120,
-			'weightmod' : '1d4',
-			'_other' : 
-			{
-				'Eyes' : [ 'White' ],
-				'Skin' : [ 'Pale', 'Light Gray' ],
-				'Hair' : [ 'Silver', 'Platinum', 'Blonde' ]
-			}
-		}
-	},
-	'Kalashtar' :
-	{
-		'_special' : 'book-WGtE',
-		'Subraces and Variants' :
-		{
-			'Human Heritage' : { '_special' : 'halfethnicity' }
-		},
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 13,
-			'maxage' : 60,
-			'baseheight' : 59,
-			'heightmod' : '2d10',
-			'baseweight' : 110,
-			'weightmod' : '2d4',
-			'_other' : 
-			{
-				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
-				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
-				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
-			}
-		}
-	},
-	'Shifter' :
-	{
-		'_special' : 'book-WGtE',
-		'Subraces and Variants' :
-		{
-			'Subrace' : [ 'Beasthide', 'Longtooth', 'Swiftstride', 'Wildhunt' ]
-		},
-		'Physical Characteristics' :
-		{
-			'_special' : 'characteristics',
-			'minage' : 7,
-			'maxage' : 50,
-			'baseheight' : 60,
-			'heightmod' : '2d10',
-			'baseweight' : 130,
-			'weightmod' : '1d8',
-			'_other' : 
-			{
-				'Eyes' : [ 'Brown', 'Hazel', 'Green', 'Blue', 'Gray' ],
-				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
-				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
-			}
 		}
 	},
 	'Warforged' :
@@ -1271,29 +1269,36 @@ var races =
 			}
 		}
 	},
-	'Grung' :
+	'Yuan-Ti Pureblood' :
 	{
-		'_special' : 'book-Unofficial',
+		'_special' : 'book-MR',
 		'Physical Characteristics' :
 		{
 			'_special' : 'characteristics',
-			'minage' : 1,
-			'maxage' : 40,
-			'baseheight' : 30,
-			'heightmod' : '2d4',
-			'baseweight' : 35,
-			'weightmod' : '1',
+			'minage' : 13,
+			'maxage' : 60,
+			'baseheight' : 56,
+			'heightmod' : '2d10',
+			'baseweight' : 110,
+			'weightmod' : '2d4',
 			'_other' : 
 			{
-				'Skin' : [ 'Green', 'Blue', 'Purple', 'Red', 'Orange', 'Gold' ],
+				'Eyes' : [ 'Green' ],
+				'Skin' : [ 'Pale', 'Fair', 'Tan', 'Light Brown', 'Brown', 'Dark Brown' ],
+				'Hair' : [ 'Black', 'Brown', 'Blond', 'Auburn', 'Red', 'Gray/White' ]
 			}
 		},
 		'Monstrous Origin' : { '_special' : 'monstrousorigin' }
-	}
+	},
 }
 
 var classes =
 {
+	'Artificer' :
+	{
+		'_special' : 'book-UA',
+		'Artificer Specialty' : [ 'Alchemist', 'Archivist', 'Artillerist', 'Battle Smith' ]
+	},
 	'Barbarian' :
 	{
 		'_special' : 'book-PHB',
@@ -1411,6 +1416,11 @@ var classes =
 				'I picked up a musical instrument one day and instantly discovered that I could play it.'
 			]
 		}
+	},
+	'Blood Hunter' :
+	{
+		'_special' : 'book-Unofficial',
+		'Blood Hunter Order' : [ 'Order of the Ghostslayer', 'Order of the Profane Soul', 'Order of the Mutant' ]
 	},
 	'Cleric' :
 	{
@@ -1654,6 +1664,11 @@ var classes =
 				'I was wild and undisciplined as a youngster, but then I realized the error of my ways. I applied to a monastery and became a monk as a way to live a life of discipline.'
 			]
 		}
+	},
+	'Mystic' :
+	{
+		'_special' : 'book-UA',
+		'Mystic Order' : [ 'Order of the Avatar', 'Order of the Awakened', 'Order of the Immortal', 'Order of the Nomad', 'Order of the Soul Knife', 'Order of the Wu Jen' ]
 	},
 	'Paladin' :
 	{
@@ -2038,21 +2053,6 @@ var classes =
 			]
 		}
 	},
-	'Artificer' :
-	{
-		'_special' : 'book-UA',
-		'Artificer Specialty' : [ 'Alchemist', 'Gunsmith' ]
-	},
-	'Mystic' :
-	{
-		'_special' : 'book-UA',
-		'Mystic Order' : [ 'Order of the Avatar', 'Order of the Awakened', 'Order of the Immortal', 'Order of the Nomad', 'Order of the Soul Knife', 'Order of the Wu Jen' ]
-	},
-	'Blood Hunter' :
-	{
-		'_special' : 'book-Unofficial',
-		'Blood Hunter Order' : [ 'Order of the Ghostslayer', 'Order of the Profane Soul', 'Order of the Mutant' ]
-	}
 }
 
 var backgrounds =
@@ -2107,6 +2107,90 @@ var backgrounds =
 			'I followed a childhood friend, a respected acquaintance, or someone I loved into religious service. ',
 			'After encountering a true servant of the gods, I was so inspired that I immediately entered the service of a religious group.'
 		]
+	},
+	'Anthropologist' :
+	{
+		'_special' : 'book-Other',
+		'Trait' :
+		[
+			'I prefer the company of those who aren\'t like me, including people of other races.',
+			'I\'m a stickler when it comes to observing proper etiquette and local customs.',
+			'I would rather observe than meddle.',
+			'By living among violent people, I have become desensitized to violence.',
+			'I would risk life and limb to discover a new culture or unravel the secrets of a dead one.',
+			'When l arrive at a ew settlement for the first time, l must learn all its customs. '
+		],
+		'Ideal' :
+		[
+			'Discovery. I want to be the first person to discover a lost culture. (Any)',
+			'Distance. One must not interfere with the affairs of another culture- even one in need of aid. (Lawful)',
+			'Knowledge. By understanding other races and cultures, we learn to understand ourselves. (Any)',
+			'Power. Common people crave strong leadership, and I do my utmost to provide it. (Lawful)',
+			'Protection. I must do everything possible to save a society facing extinction. (Good)',
+			'Indifferent. life is cruel. What\'s the point in saving people if they\'re going to die anyway? (Chaotic)'
+		],
+		'Bond' :
+		[
+			'My mentor gave me a journal filled with lore and wisdom. Losing it would devastate me.',
+			'Having lived among the people of a primeval tribe or clan, I long to return and see how they are faring.',
+			'Years ago, tragedy struck the members of an isolated society I befriended, and I will honor them.',
+			'I want to learn more about a particular humanoid culture that fascinates me.',
+			'I seek to avenge a clan, tribe, kingdom, or empire that was wiped out.',
+			'I have a trinket that I believe is the key to finding a long-lost society.'
+		],
+		'Flaw' :
+		[
+			'Boats make me seasick.',
+			'I talk to myself, and I don\'t make friends easily.',
+			'I believe that I\'m intellectually superior to people from other cultures and have much to teach them.',
+			'I\'ve picked up some unpleasant habits living among goblins, lizardfolk, or orcs.',
+			'I complain about everything.',
+			'I wear a tribal mask and never take it off. '
+		],
+		'Adopted Culture' : [ 'Aarakocra', 'Halfling', 'Dwarf', 'Human', 'Elf', 'Lizardfolk', 'Goblin', 'Orc' ]
+	},
+	'Archaeologist' :
+	{
+		'_special' : 'book-Other',
+		'Trait' :
+		[
+			'I love a good puzzle or mystery.',
+			'I\'m a pack rat who never throws anything away.',
+			'Fame is more important to me than money.',
+			'I have no qualms about stealing from the dead.',
+			'I\'m happier In a dusty old tomb than I am in the centers of civilization.',
+			'Traps don\'t make me nervous. Idiots who trigger traps make me nervous.',
+			'I might fail, but I will never give up.',
+			'You might think I\'m a scholar, but I love a good brawl. These fists were made for punching.'
+		],
+		'Ideal' :
+		[
+			'Preservation. That artifact belongs in a museum. (Good)',
+			'Greed. I won\'t risk my life for nothing. I expect some kind of payment. (Any)',
+			'Death Wish. Nothing is more exhilarating than a narrow escape from the jaws of death. (Chaotic)',
+			'Dignity. The dead and their belongings deserve to be treated with respect. (Lawful)',
+			'Immortality. All my exploring is part of a plan to find the secret of everlasting life. (Any)',
+			'Danger. With every great discovery comes grave danger. The two walk hand in hand. (Any) '
+		],
+		'Bond' :
+		[
+			'Ever since I was a child, I\'ve heard stories about a lost city. I aim to find it, learn its secrets, and earn my place in the history books.',
+			'I want to find my mentor, who disappeared on an expedition some time ago.',
+			'I have a friendly rival. Only one of us can be the best, and I aim to prove it\'s me.',
+			'I won\'t sell an art object or other treasure that has historical significance or is one of a kind.',
+			'I\'m secretly in love with the wealthy patron who sponsors my archaeological exploits.',
+			'I hope to bring prestige to a library, a museum, or a university. '
+		],
+		'Flaw' :
+		[
+			'I have a secret fear of some common wild animal- and In my work, I see them everywhere.',
+			'I can\'t leave a room without searching it for secret doors.',
+			'When I\'m not exploring dungeons or ruins, I get jittery and impatient.',
+			'I have no time for friends or family. I spend every waking moment thinking about and preparing for my next expedition.',
+			'When given the choice of going left or right, I always go left.',
+			'I can\'t sleep except in total darkness.'
+		],
+		'Signature Item' : [ '10-foot pole', 'Medallion', 'Crowbar', 'Shovel', 'Hat', 'Sledgehammer', 'Hooded lantern', 'Whip' ]
 	},
 	'Charlatan' :
 	{
@@ -2167,6 +2251,23 @@ var backgrounds =
 			'After a charlatan fleeced my family, I decided to learn the trade so I would never be fooled by such deception again.',
 			'I was poor or I feared becoming poor, so I learned the tricks I needed to keep myself out of poverty.'
 		]
+	},
+	'City Watch' :
+	{
+		'_special' : 'book-SCAG backgroundtraits-Soldier',
+		'Optional Variant' : 'Investigator'
+	},
+	'Clan Crafter' :
+	{
+		'_special' : 'book-SCAG backgroundtraits-Guild_Artisan',
+	},
+	'Cloistered Scholar' :
+	{
+		'_special' : 'book-SCAG backgroundtraits-Sage',
+	},
+	'Courtier' :
+	{
+		'_special' : 'book-SCAG backgroundtraits-Guild_Artisan',
 	},
 	'Criminal' :
 	{
@@ -2271,6 +2372,53 @@ var backgrounds =
 			'A traveling entertainer took me in and taught me the trade.'
 		],
 		'Optional Variant' : 'Gladiator'
+	},
+	'Faction Agent' :
+	{
+		'_special' : 'book-SCAG backgroundtraits-Acolyte',
+		'Faction' : [ 'The Harpers', 'The Order of the Gauntlet', 'The Emerald Enclave', 'The Lords\' Alliance', 'The Zhentarim' ]
+	},
+	'Far Traveler' :
+	{
+		'_special' : 'book-SCAG',
+		'Trait' :
+		[
+			'I have different assumptions from those around me concerning personal space, blithely invading others\' space in innocence, or reacting to ignorant invasion of my own.',
+			'I have my own ideas about what is and is not food, and I find the eating habits of those around me fascinating, confusing, or revolting.',
+			'I have a strong code of honor or sense of propriety that others don\'t comprehend.',
+			'I express affection or contempt in ways that are unfamiliar to others.',
+			'I honor my deities through practices that are foreign to this land.',
+			'I begin or end my day with small traditional rituals that are unfamiliar to those around me.'
+		],
+		'Ideal' :
+		[
+			'Open. I have much to learn from the kindly folk I meet along my way. (Good)',
+			'Reserved. As someone new to these strange lands, I am cautious and respectful in my dealings. (Lawful)',
+			'Adventure. I\'m far from home, and everything is strange and wonderful! (Chaotic)',
+			'Cunning. Though I may not know their ways, neither do they know mine, which can be to my advantage. (Evil)',
+			'Inquisitive. Everything is new, but I have a thirst to learn. (Neutral)',
+			'Suspicious. I must be careful, for I have no way of telling friend from foe here. (Any)'
+		],
+		'Bond' :
+		[
+			'So long as I have this token from my homeland, I can face any adversity in this strange land.',
+			'The gods of my people are a comfort to me so far from home.',
+			'I hold no greater cause than my service to my people.',
+			'My freedom is my most precious possession. I\'ll never let anyone take it from me again.',
+			'I\'m fascinated by the beauty and wonder of this new land.',
+			'Though I had no choice, I lament having to leave my loved one(s) behind. I hope to see them again one day.'
+		],
+		'Flaw' :
+		[
+			'I am secretly (or not so secretly) convinced of the superiority of my own culture over that of this foreign land.',
+			'I pretend not to understand the local language in order to avoid interactions I would rather not have.',
+			'I have a weakness for the new intoxicants and other pleasures of this land.',
+			'I don\'t take kindly to some of the actions and motivations of the people of this land, because these folk are different from me.',
+			'I consider the adherents of other gods to be deluded innocents at best, or ignorant fools at worst.',
+			'I have a weakness for the exotic beauty of the people of these lands.'
+		],
+		'Why Are You Here?' : [ 'Emissary', 'Pilgrim', 'Exile', 'Sightseer', 'Fugitive', 'Wanderer' ],
+		'Where are you from?' : [ 'Evermeet', 'Halruaa', 'Kara-Tur', 'Mulhorand', 'Sossal', 'Zakhara', 'The Underdark' ]
 	},
 	'Folk Hero' :
 	{
@@ -2390,6 +2538,61 @@ var backgrounds =
 		],
 		'Optional Variant' : 'Guild Merchant'
 	},
+	'Haunted One' :
+	{
+		'_special' : 'book-Other',
+		'Trait' :
+		[
+			'I don\'t run from evil. Evil runs from me.',
+			'I like to read and memorize poetry. It keeps me calm and brings me fleeting moments of happiness.',
+			'I spend money freely and live life to the fullest, knowing that tomorrow I might die.',
+			'I live for the thrill of the hunt.',
+			'I don\'t talk about the thing that torments me. I\'d rather not burden others with my curse.',
+			'I expect danger around every corner.',
+			'I refuse to become a victim, and I will not allow others to be victimized.',
+			'I put no trust in divine beings.'
+		],
+		'Ideal' :
+		[
+			'I try to help those in need, no matter what the personal cost. (Good)',
+			'I\'ll stop the spirits that haunt me or die trying. (Any)',
+			'I kill monsters to make the world a safer place, and to exorcise my own demons. (Good).',
+			'I have a dark calling that puts me above the law. (Chaotic)',
+			'I like to know my enemy\'s capabilities and weaknesses before rushing into battle. (Lawful).',
+			'I\'m a monster that destroys other monsters, and anything else that gets in my way. (Evil).',
+		],
+		'Bond' :
+		[
+			'I keep my thoughts and discoveries in a journal. My journal is my legacy.',
+			'I would sacrifice my life and my soul to protect the innocent.',
+			'My torment drove away the person I love. I strive to win back the love I\'ve lost.',
+			'A terrible guilt consumes me. I hope that I can find redemption through my actions.',
+			'There\'s evil in me, I can feel it. It must never be set free.',
+			'I have a child to protect. I must make the world a safer place for him (or her).'
+		],
+		'Flaw' :
+		[
+			'I have certain rituals that I must follow every day. I can never break them.',
+			'I assume the worst in people.',
+			'I feel no compassion for the dead. They\'re the lucky ones.',
+			'I have an addiction.',
+			'I am a purveyor of doom and gloom who lives in a world without hope.',
+			'I talk to spirits that no one else can see.'
+		],
+		'Harrowing Event' :
+		[
+			'A monster that slaughtered dozens of innocent people spared your life, and you don\'t know why.',
+			'You were born under a dark star. You can feel it watching you, coldly and distantly. Sometimes it beckons you in the dead of night.',
+			'An apparition that has haunted your family for generations now haunts you. You don\'t know what it wants, and it won\'t leave you alone.',
+			'Your family has a history of practicing the dark arts. You dabbled once and felt something horrible clutch at your soul, whereupon you fled in terror.',
+			'An oni took your sibling one cold, dark night, and you were unable to stop it.',
+			'You were cursed with lycanthropy and later cured. You are now haunted by the innocents you slaughtered.',
+			'A hag kidnapped and raised you. You escaped, but the hag still has a magical hold over you and fills your mind with evil thoughts.',
+			'You opened an eldritch tome and saw things unfit for a sane mind. You burned the book, but its words and images are burned into your psyche.',
+			'A fiend possessed you as a child. You were locked away but escaped. The fiend is still inside you, but now you try to keep it locked away.',
+			'You did terrible things to avenge the murder of someone you loved. You became a monster, and it haunts your waking dreams.'
+		]
+	},
 	'Hermit' :
 	{
 		'_special' : 'book-PHB',
@@ -2451,6 +2654,73 @@ var backgrounds =
 			'I lost everything- my home, my family, my friends. Going it alone was all I could do.',
 			'Society\'s decadence disgusted me, so I decided to leave it behind.'
 		]
+	},
+	'House Agent' :
+	{
+		'_special' : 'book-WGtE',
+		'House' : [ 'Cannith', 'Deneith', 'Ghallanda', 'Jorasco', 'Kundarak', 'Lyrandar', 'Medani', 'Orien', 'Phiarlan', 'Sivis', 'Tharashk', 'Thuranni', 'Vadalis' ],
+		'House Agent Role' : [ 'Acquisition', 'Investigation', 'Research and Development', 'Security', 'Intimidation', 'Exploration', 'Negotiation', 'Covert Operations' ],
+		'Trait' :
+		[
+			'I never let emotion complicate work.',
+			'I\'m always looking to improve efficiency.',
+			'I share trivia about my house’s business (medicine, ships, warforged).',
+			'I holy myself and anyone I work with to extremely high standards.',
+			'I never forget an insult made against myself or my house.',
+			'I\'m excited and enthusiastic about everything my house does.',
+			'I\'m representing my house and take great pride in my personal appearance.',
+			'I\'m critical of monarchies and opposed to any restrictions on the houses.'
+		],
+		'Ideal' :
+		[
+			'Common Good. My house serves a vital function, and its prosperity will help everyone. (Good)',
+			'Tradition. I uphold traditions of my house and bring honor to my family. (Lawful)',
+			'Innovation. Abandon old traditions and find better ways to do things. (Chaotic)',
+			'Power. I want to ensure the prosperity of my house and wield its power myself. (Evil)',
+			'Discovery. I want to learn all I can, both for my house and my own curiosity. (Any)',
+			'Comfort. I want to ensure that me and mine enjoy the best things in life. (Any)'
+		],
+		'Bond' :
+		[
+			'My house is my family, and I would do anything for my family.',
+			'I love someone from another house, but such relationships are forbidden.',
+			'Someone I love was killed by a rival faction within my house, and I will have revenge.',
+			'I don\'t care about the house as a whole, but I would do anything for my old mentor.',
+			'I believe my house needs to evolve to survive, and I need to lead that charge.',
+			'I am determined to impress the leaders of my house, and to become a leader myself.'
+		],
+		'Flaw' :
+		[
+			'I\'m overly concerned with following established procedures and protocols.',
+			'I\'m obsessed with conspiracy theories and worried about secret societies and hidden demons.',
+			'I believe that my house and bloodline makes me better than everyone else.',
+			'I\'m concealing a secret that could get me driven from my house.',
+			'I have strong religious beliefs that aren\'t shared by others in my house.',
+			'I\'m working for a hidden faction in my house that gives me secret assignments.'
+		]
+	},
+	'Inheritor' :
+	{
+		'_special' : 'book-SCAG backgroundtraits-Folk_Hero',
+		'Inheritance' :
+		[
+			'A document such as a map, a letter, or a journal',
+			'A trinket (see "Trinkets" in chapter 5 of the Player\'s Handbook)',
+			'A trinket (see "Trinkets" in chapter 5 of the Player\'s Handbook)',
+			'An article of clothing',
+			'A piece of jewelry',
+			'An arcane book or formulary',
+			'A written story, song, poem, or secret',
+			'A tattoo or other body marking'
+		]
+	},
+	'Knight of the Order' :
+	{
+		'_special' : 'book-SCAG backgroundtraits-Soldier',
+	},
+	'Mercenary Veteran' :
+	{
+		'_special' : 'book-SCAG backgroundtraits-Soldier',
 	},
 	'Noble' :
 	{
@@ -2712,6 +2982,14 @@ var backgrounds =
 			'Invaders attacked my homeland. It was my duty to take up arms in defense of my people.'
 		]
 	},
+	'Tribe Member' :
+	{
+		'_special' : 'book-SCAG backgroundtraits-Outlander',
+	},
+	'Urban Bounty Hunter' :
+	{
+		'_special' : 'book-SCAG backgroundtraits-Criminal',
+	},
 	'Urchin' :
 	{
 		'_special' : 'book-PHB',
@@ -2763,288 +3041,10 @@ var backgrounds =
 			'My parents died, leaving no one to look after me. I raised myself.'
 		]
 	},
-	'City Watch' :
-	{
-		'_special' : 'book-SCAG backgroundtraits-Soldier',
-		'Optional Variant' : 'Investigator'
-	},
-	'Clan Crafter' :
-	{
-		'_special' : 'book-SCAG backgroundtraits-Guild_Artisan',
-	},
-	'Cloistered Scholar' :
-	{
-		'_special' : 'book-SCAG backgroundtraits-Sage',
-	},
-	'Courtier' :
-	{
-		'_special' : 'book-SCAG backgroundtraits-Guild_Artisan',
-	},
-	'Faction Agent' :
-	{
-		'_special' : 'book-SCAG backgroundtraits-Acolyte',
-		'Faction' : [ 'The Harpers', 'The Order of the Gauntlet', 'The Emerald Enclave', 'The Lords\' Alliance', 'The Zhentarim' ]
-	},
-	'Far Traveler' :
-	{
-		'_special' : 'book-SCAG',
-		'Trait' :
-		[
-			'I have different assumptions from those around me concerning personal space, blithely invading others\' space in innocence, or reacting to ignorant invasion of my own.',
-			'I have my own ideas about what is and is not food, and I find the eating habits of those around me fascinating, confusing, or revolting.',
-			'I have a strong code of honor or sense of propriety that others don\'t comprehend.',
-			'I express affection or contempt in ways that are unfamiliar to others.',
-			'I honor my deities through practices that are foreign to this land.',
-			'I begin or end my day with small traditional rituals that are unfamiliar to those around me.'
-		],
-		'Ideal' :
-		[
-			'Open. I have much to learn from the kindly folk I meet along my way. (Good)',
-			'Reserved. As someone new to these strange lands, I am cautious and respectful in my dealings. (Lawful)',
-			'Adventure. I\'m far from home, and everything is strange and wonderful! (Chaotic)',
-			'Cunning. Though I may not know their ways, neither do they know mine, which can be to my advantage. (Evil)',
-			'Inquisitive. Everything is new, but I have a thirst to learn. (Neutral)',
-			'Suspicious. I must be careful, for I have no way of telling friend from foe here. (Any)'
-		],
-		'Bond' :
-		[
-			'So long as I have this token from my homeland, I can face any adversity in this strange land.',
-			'The gods of my people are a comfort to me so far from home.',
-			'I hold no greater cause than my service to my people.',
-			'My freedom is my most precious possession. I\'ll never let anyone take it from me again.',
-			'I\'m fascinated by the beauty and wonder of this new land.',
-			'Though I had no choice, I lament having to leave my loved one(s) behind. I hope to see them again one day.'
-		],
-		'Flaw' :
-		[
-			'I am secretly (or not so secretly) convinced of the superiority of my own culture over that of this foreign land.',
-			'I pretend not to understand the local language in order to avoid interactions I would rather not have.',
-			'I have a weakness for the new intoxicants and other pleasures of this land.',
-			'I don\'t take kindly to some of the actions and motivations of the people of this land, because these folk are different from me.',
-			'I consider the adherents of other gods to be deluded innocents at best, or ignorant fools at worst.',
-			'I have a weakness for the exotic beauty of the people of these lands.'
-		],
-		'Why Are You Here?' : [ 'Emissary', 'Pilgrim', 'Exile', 'Sightseer', 'Fugitive', 'Wanderer' ],
-		'Where are you from?' : [ 'Evermeet', 'Halruaa', 'Kara-Tur', 'Mulhorand', 'Sossal', 'Zakhara', 'The Underdark' ]
-	},
-	'Inheritor' :
-	{
-		'_special' : 'book-SCAG backgroundtraits-Folk_Hero',
-		'Inheritance' :
-		[
-			'A document such as a map, a letter, or a journal',
-			'A trinket (see "Trinkets" in chapter 5 of the Player\'s Handbook)',
-			'A trinket (see "Trinkets" in chapter 5 of the Player\'s Handbook)',
-			'An article of clothing',
-			'A piece of jewelry',
-			'An arcane book or formulary',
-			'A written story, song, poem, or secret',
-			'A tattoo or other body marking'
-		]
-	},
-	'Knight of the Order' :
-	{
-		'_special' : 'book-SCAG backgroundtraits-Soldier',
-	},
-	'Mercenary Veteran' :
-	{
-		'_special' : 'book-SCAG backgroundtraits-Soldier',
-	},
-	'Urban Bounty Hunter' :
-	{
-		'_special' : 'book-SCAG backgroundtraits-Criminal',
-	},
-	'Uthgardt Tribe Member' :
-	{
-		'_special' : 'book-SCAG backgroundtraits-Outlander',
-	},
 	'Waterdhavian Noble' :
 	{
 		'_special' : 'book-SCAG backgroundtraits-Noble',
 	},
-	'Anthropologist' :
-	{
-		'_special' : 'book-Other',
-		'Trait' :
-		[
-			'I prefer the company of those who aren\'t like me, including people of other races.',
-			'I\'m a stickler when it comes to observing proper etiquette and local customs.',
-			'I would rather observe than meddle.',
-			'By living among violent people, I have become desensitized to violence.',
-			'I would risk life and limb to discover a new culture or unravel the secrets of a dead one.',
-			'When l arrive at a ew settlement for the first time, l must learn all its customs. '
-		],
-		'Ideal' :
-		[
-			'Discovery. I want to be the first person to discover a lost culture. (Any)',
-			'Distance. One must not interfere with the affairs of another culture- even one in need of aid. (Lawful)',
-			'Knowledge. By understanding other races and cul-tures, we learn to understand ourselves. (Any)',
-			'Power. Common people crave strong leadership, and I do my utmost to provide it. (Lawful)',
-			'Protection. I must do everything possible to save a society facing extinction. (Good)',
-			'Indifferent. life is cruel. What\'s the point in saving people if they\'re going to die anyway? (Chaotic)'
-		],
-		'Bond' :
-		[
-			'My mentor gave me a journal filled with lore and wisdom. Losing it would devastate me.',
-			'Having lived among the people of a primeval tribe or clan, I long to return and see how they are faring.',
-			'Years ago, tragedy struck the members of an isolated society I befriended, and I will honor them.',
-			'I want to learn more about a particular humanoid culture that fascinates me.',
-			'I seek to avenge a clan, tribe, kingdom, or empire that was wiped out.',
-			'I have a trinket that I believe is the key to finding a long-lost society.'
-		],
-		'Flaw' :
-		[
-			'Boats make me seasick.',
-			'I talk to myself, and I don\'t make friends easily.',
-			'I believe that I\'m intellectually superior to people from other cultures and have much to teach them.',
-			'I\'ve picked up some unpleasant habits living among goblins, lizardfolk, or orcs.',
-			'I complain about everything.',
-			'I wear a tribal mask and never take it off. '
-		],
-		'Adopted Culture' : [ 'Aarakocra', 'Halfling', 'Dwarf', 'Human', 'Elf', 'Lizardfolk', 'Goblin', 'Orc' ]
-	},
-	'Archaeologist' :
-	{
-		'_special' : 'book-Other',
-		'Trait' :
-		[
-			'I love a good puzzle or mystery.',
-			'I\'m a pack rat who never throws anything away.',
-			'Fame is more important to me than money.',
-			'I have no qualms about stealing from the dead.',
-			'I\'m happier In a dusty old tomb than I am in the centers of civilization.',
-			'Traps don\'t make me nervous. Idiots who trigger traps make me nervous.',
-			'I might fail, but I will never give up.',
-			'You might think I\'m a scholar, but I love a good brawl. These fists were made for punching.'
-		],
-		'Ideal' :
-		[
-			'Preservation. That artifact belongs in a museum. (Good)',
-			'Greed. I won\'t risk my life for nothing. I expect some kind of payment. (Any)',
-			'Death Wish. Nothing is more exhilarating than a narrow escape from the jaws of death. (Chaotic)',
-			'Dignity. The dead and their belongings deserve to be treated with respect. (Lawful)',
-			'Immortality. All my exploring is part of a plan to find the secret of everlasting life. (Any)',
-			'Danger. With every great discovery comes grave danger. The two walk hand in hand. (Any) '
-		],
-		'Bond' :
-		[
-			'Ever since I was a child, I\'ve heard stories about a lost city. I aim to find it, learn its secrets, and earn my place in the history books.',
-			'I want to find my mentor, who disappeared on an expedition some time ago.',
-			'I have a friendly rival. Only one of us can be the best, and I aim to prove it\'s me.',
-			'I won\'t sell an art object or other treasure that has historical significance or is one of a kind.',
-			'I\'m secretly in love with the wealthy patron who sponsors my archaeological exploits.',
-			'I hope to bring prestige to a library, a museum, or a university. '
-		],
-		'Flaw' :
-		[
-			'I have a secret fear of some common wild animal- and In my work, I see them everywhere.',
-			'I can\'t leave a room without searching it for secret doors.',
-			'When I\'m not exploring dungeons or ruins, I get jittery and impatient.',
-			'I have no time for friends or family. I spend every waking moment thinking about and preparing for my next expedition.',
-			'When given the choice of going left or right, I always go left.',
-			'I can\'t sleep except in total darkness.'
-		],
-		'Signature Item' : [ '10-foot pole', 'Medallion', 'Crowbar', 'Shovel', 'Hat', 'Sledgehammer', 'Hooded lantern', 'Whip' ]
-	},
-	'Haunted One' :
-	{
-		'_special' : 'book-Other',
-		'Trait' :
-		[
-			'I don\'t run from evil. Evil runs from me.',
-			'I like to read and memorize poetry. It keeps me calm and brings me fleeting moments of happiness.',
-			'I spend money freely and live life to the fullest, knowing that tomorrow I might die.',
-			'I live for the thrill of the hunt.',
-			'I don\'t talk about the thing that torments me. I\'d rather not burden others with my curse.',
-			'I expect danger around every corner.',
-			'I refuse to become a victim, and I will not allow others to be victimized.',
-			'I put no trust in divine beings.'
-		],
-		'Ideal' :
-		[
-			'I try to help those in need, no matter what the personal cost. (Good)',
-			'I\'ll stop the spirits that haunt me or die trying. (Any)',
-			'I kill monsters to make the world a safer place, and to exorcise my own demons. (Good).',
-			'I have a dark calling that puts me above the law. (Chaotic)',
-			'I like to know my enemy\'s capabilities and weaknesses before rushing into battle. (Lawful).',
-			'I\'m a monster that destroys other monsters, and anything else that gets in my way. (Evil).',
-		],
-		'Bond' :
-		[
-			'I keep my thoughts and discoveries in a journal. My journal is my legacy.',
-			'I would sacrifice my life and my soul to protect the innocent.',
-			'My torment drove away the person I love. I strive to win back the love I\'ve lost.',
-			'A terrible guilt consumes me. I hope that I can find redemption through my actions.',
-			'There\'s evil in me, I can feel it. It must never be set free.',
-			'I have a child to protect. I must make the world a safer place for him (or her).'
-		],
-		'Flaw' :
-		[
-			'I have certain rituals that I must follow every day. I can never break them.',
-			'I assume the worst in people.',
-			'I feel no compassion for the dead. They\'re the lucky ones.',
-			'I have an addiction.',
-			'I am a purveyor of doom and gloom who lives in a world without hope.',
-			'I talk to spirits that no one else can see.'
-		],
-		'Harrowing Event' :
-		[
-			'A monster that slaughtered dozens of innocent people spared your life, and you don\'t know why.',
-			'You were born under a dark star. You can feel it watching you, coldly and distantly. Sometimes it beckons you in the dead of night.',
-			'An apparition that has haunted your family for generations now haunts you. You don\'t know what it wants, and it won\'t leave you alone.',
-			'Your family has a history of practicing the dark arts. You dabbled once and felt something horrible clutch at your soul, whereupon you fled in terror.',
-			'An oni took your sibling one cold, dark night, and you were unable to stop it.',
-			'You were cursed with lycanthropy and later cured. You are now haunted by the innocents you slaughtered.',
-			'A hag kidnapped and raised you. You escaped, but the hag still has a magical hold over you and fills your mind with evil thoughts.',
-			'You opened an eldritch tome and saw things unfit for a sane mind. You burned the book, but its words and images are burned into your psyche.',
-			'A fiend possessed you as a child. You were locked away but escaped. The fiend is still inside you, but now you try to keep it locked away.',
-			'You did terrible things to avenge the murder of someone you loved. You became a monster, and it haunts your waking dreams.'
-		]
-	},
-	'House Agent' :
-	{
-		'_special' : 'book-WGtE',
-		'House' : [ 'Cannith', 'Deneith', 'Ghallanda', 'Jorasco', 'Kundarak', 'Lyrandar', 'Medani', 'Orien', 'Phiarlan', 'Sivis', 'Tharashk', 'Thuranni', 'Vadalis' ],
-		'House Agent Role' : [ 'Acquisition', 'Investigation', 'Research and Development', 'Security', 'Intimidation', 'Exploration', 'Negotiation', 'Covert Operations' ],
-		'Trait' :
-		[
-			'I never let emotion complicate work.',
-			'I\'m always looking to improve efficiency.',
-			'I share trivia about my house’s business (medicine, ships, warforged).',
-			'I holy myself and anyone I work with to extremely high standards.',
-			'I never forget an insult made against myself or my house.',
-			'I\'m excited and enthusiastic about everything my house does.',
-			'I\'m representing my house and take great pride in my personal appearance.',
-			'I\'m critical of monarchies and opposed to any restrictions on the houses.'
-		],
-		'Ideal' :
-		[
-			'Common Good. My house serves a vital function, and its prosperity will help everyone. (Good)',
-			'Tradition. I uphold traditions of my house and bring honor to my family. (Lawful)',
-			'Innovation. Abandon old traditions and find better ways to do things. (Chaotic)',
-			'Power. I want to ensure the prosperity of my house and wield its power myself. (Evil)',
-			'Discovery. I want to learn all I can, both for my house and my own curiosity. (Any)',
-			'Comfort. I want to ensure that me and mine enjoy the best things in life. (Any)'
-		],
-		'Bond' :
-		[
-			'My house is my family, and I would do anything for my family.',
-			'I love someone from another house, but such relationships are forbidden.',
-			'Someone I love was killed by a rival faction within my house, and I will have revenge.',
-			'I don\'t care about the house as a whole, but I would do anything for my old mentor.',
-			'I believe my house needs to evolve to survive, and I need to lead that charge.',
-			'I am determined to impress the leaders of my house, and to become a leader myself.'
-		],
-		'Flaw' :
-		[
-			'I\'m overly concerned with following established procedures and protocols.',
-			'I\'m obsessed with conspiracy theories and worried about secret societies and hidden demons.',
-			'I believe that my house and bloodline makes me better than everyone else.',
-			'I\'m concealing a secret that could get me driven from my house.',
-			'I have strong religious beliefs that aren\'t shared by others in my house.',
-			'I\'m working for a hidden faction in my house that gives me secret assignments.'
-		]
-	}
 }
 
 var alignments = ['Lawful Good', 'Neutral Good', 'Chaotic Good', 'Lawful Neutral', 'True Neutral', 'Chaotic Neutral', 'Lawful Evil', 'Neutral Evil', 'Chaotic Evil'];
@@ -3841,7 +3841,7 @@ var UARaces =
 
 var UAClasses =
 [
-	{ 'name' : 'Artificer Class', 'source' : 'The Artificer Revisited', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/artificer-revisited' },
+	{ 'name' : 'The Artificer Returns', 'source' : 'The Artificer Revisited', 'link' : 'https://dnd.wizards.com/articles/unearthed-arcana/artificer-returns' },
 	{ 'name' : 'Mystic Class', 'source' : 'Unearthed Arcana Update', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update' },
 	{ 'name' : 'Alternative Ranger Class', 'source' : 'The Ranger, Revised', 'link' : 'http://dnd.wizards.com/articles/features/unearthed-arcana-ranger-revised' },
 	{ 'name' : 'Bard: College of Satire, Fighter: Scout', 'source' : 'Kits of Old', 'link' : 'http://dnd.wizards.com/articles/unearthed-arcana/kits-old' },

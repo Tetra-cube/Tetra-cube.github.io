@@ -6,11 +6,10 @@ var UpdateList = function()
 	// Get Books
 	{
 		books = [ "Real", "PHB" ];
-		for(var bookNum = 0; bookNum < availableBooks.length; bookNum++)
+		for(let bookNum = 0; bookNum < availableBooks.length; bookNum++)
 		{
-			var book = availableBooks[bookNum];
-			if(book == "MR")
-				continue;
+			let book = availableBooks[bookNum];
+			if(book == "MR") continue;
 			if(document.getElementById(book + "box").checked)
 				books.push(book);
 		}
@@ -18,7 +17,7 @@ var UpdateList = function()
 			books.push("MR");
 	}
 	
-	var racesList = Content.Get(races);
+	let racesList = Content.Get(races);
 		classesList = Content.Get(classes),
 		backgroundsList = Content.Get(backgrounds);
 		namesList = Content.GetNext(names);
@@ -43,14 +42,14 @@ var Content =
 	// Recursive function to populate the content lists
 	Get: function(item)
 	{
-		var properties = [];
-		for(var propertyName in item)
+		let properties = [];
+		for(let propertyName in item)
 		{
-			var property = item[propertyName], propertySpecial = property._special.split(" "), bookString;
+			let property = item[propertyName], propertySpecial = property._special.split(" "), bookString;
 			
-			for(var index = 0; index < propertySpecial.length; index++)
+			for(let index = 0; index < propertySpecial.length; index++)
 			{
-				var splitSpecial = propertySpecial[index].split("-");
+				let splitSpecial = propertySpecial[index].split("-");
 				if(splitSpecial[0] = "book")
 				{
 					bookString = splitSpecial[1];
@@ -71,10 +70,10 @@ var Content =
 		{
 			if(Array.isArray(item))		// If item is an array
 			{
-				var elements = [];
-				for(var index = 0; index < item.length; index++)
+				let elements = [];
+				for(let index = 0; index < item.length; index++)
 				{
-					var content = this.GetNext(item[index]);
+					let content = this.GetNext(item[index]);
 					if(content != null)
 						elements.push(content);
 				}
@@ -84,15 +83,13 @@ var Content =
 			{
 				if(item.hasOwnProperty("_special"))
 				{
-					var specialItem = this.Special(item);
-					if(jQuery.isEmptyObject(specialItem))
-						return null;
-					return specialItem;
+					let specialItem = this.Special(item);
+					return jQuery.isEmptyObject(specialItem) ? null : specialItem;
 				}
-				var properties = [];
-				for(var propertyName in item)
+				let properties = [];
+				for(let propertyName in item)
 				{
-					var content = this.GetNext(item[propertyName]);
+					let content = this.GetNext(item[propertyName]);
 					if(content != null)
 						properties.push( { "name" : propertyName, "content" : content } );
 				}
@@ -105,19 +102,17 @@ var Content =
 	Special: function(item)
 	{
 		// Clone the item, remove special from the clone, and apply every special in order
-		var newItem = Object.assign({}, item), cases = item._special.split(" ");
+		let newItem = Object.assign({}, item), cases = item._special.split(" ");
 		delete newItem._special;
-		for(var caseIndex = 0; caseIndex < cases.length; caseIndex++)
+		for(let caseIndex = 0; caseIndex < cases.length; caseIndex++)
 			newItem = this.ApplySpecial(cases[caseIndex], newItem);
-		if(jQuery.isEmptyObject(newItem))
-			return null;
-		return this.GetNext(newItem);
+		return jQuery.isEmptyObject(newItem) ? null : this.GetNext(newItem);
 	},
 
 	ApplySpecial: function(special, specialItem)			// Apply one special case to an object and return the resulting object
 	{
 		if(specialItem == null) return null;
-		var splitSpecial = special.split("-");
+		let splitSpecial = special.split("-");
 		
 		switch(splitSpecial[0])
 		{
@@ -126,26 +121,26 @@ var Content =
 				
 			case "booksort" :	// Take a bunch of arrays and make a composite array, discarding data from books we don't have
 			case 'humanethnicity':
-				var newObj = {};
-				for(var bookName in specialItem)
+				let heObj = {};
+				for(let bookName in specialItem)
 				{
 					if(this.CheckForBook(bookName))
-						newObj["[[" + bookName + "]]"] = specialItem[bookName];
+						heObj["[[" + bookName + "]]"] = specialItem[bookName];
 				}
-				return newObj;
+				return heObj;
 				
 			case "characteristics" :	// Output height, weight, appearance, etc
-				var newObj = {};
-				newObj["Base Height"] = Math.floor(specialItem.baseheight / 12) + "'" + (specialItem.baseheight % 12) + "\"";
-				newObj["Height Mod"] = "+" + specialItem.heightmod;
-				newObj["Base Weight"] = specialItem.baseweight + " lb.";
-				newObj["Weight Mod"] = "x (" + specialItem.weightmod + ") lb.";
+				let chObj = {};
+				chObj["Base Height"] = Math.floor(specialItem.baseheight / 12) + "'" + (specialItem.baseheight % 12) + "\"";
+				chObj["Height Mod"] = "+" + specialItem.heightmod;
+				chObj["Base Weight"] = specialItem.baseweight + " lb.";
+				chObj["Weight Mod"] = "x (" + specialItem.weightmod + ") lb.";
 				if(specialItem.hasOwnProperty("_other"))
 				{
-					for(var propertyName in specialItem._other)
-						newObj[propertyName] = specialItem._other[propertyName];
+					for(let propertyName in specialItem._other)
+						chObj[propertyName] = specialItem._other[propertyName];
 				}
-				return newObj;
+				return chObj;
 				
 			case "dragonbornnickname" :
 			case "tieflingvarianttype" :
@@ -153,7 +148,7 @@ var Content =
 				return specialItem._array;
 		
 			case "backgroundtraits" :			// For the SCAG backgrounds where the writers were lazy and used personalities from the PHB 
-				var backgroundCopy = backgrounds[splitSpecial[1].split("_").join(" ")];
+				let backgroundCopy = backgrounds[splitSpecial[1].split("_").join(" ")];
 				specialItem["Trait"] = backgroundCopy.Trait;
 				specialItem["Ideal"] = backgroundCopy.Ideal;
 				specialItem["Bond"] = backgroundCopy.Bond;
@@ -166,7 +161,7 @@ var Content =
 
 	CheckForBook: function(booksString)			// Check if any of the books in a given string are enabled
 	{
-		for(var index in books)
+		for(let index in books)
 		{
 			if(booksString.includes(books[index]))
 				return true;
@@ -180,10 +175,10 @@ var HTMLStrings =
 {
 	Make: function(arr)
 	{
-		var stringBuffer = [];
-		for(var index = 0; index < arr.length; index++)
+		let stringBuffer = [];
+		for(let index = 0; index < arr.length; index++)
 		{
-			var item = arr[index];
+			let item = arr[index];
 			stringBuffer.push("<h3>", Collapsibles.New(), item.name, " <sup>(", item.book, ")</sup>", "</h3>", this.MakeNext(item.content));
 		}
 		return stringBuffer.join("");
@@ -195,20 +190,20 @@ var HTMLStrings =
 		{
 			if(Array.isArray(item))		// If item is an array
 			{
-				var itemList = [], allStrings = true;
-				for(var index = 0; index < item.length; index++)
+				let itemList = [], allStrings = true;
+				for(let index = 0; index < item.length; index++)
 				{
 					if(allStrings && typeof item[index] != "string")
 						allStrings = false;
 
-					var newString = this.MakeNext(item[index], noBulletPoints);
+					let newString = this.MakeNext(item[index], noBulletPoints);
 					if(newString != null)
 						itemList.push(newString);
 				}
 				if(allStrings)
 				{
 					// Check for duplicate items (used for the character generator) and remove
-					var index1 = 0, index2;
+					let index1 = 0, index2;
 					while(index1 < itemList.length)
 					{
 						index2 = index1 + 1;
@@ -234,7 +229,7 @@ var HTMLStrings =
 				{
 					if(!noBulletPoints)
 						noBulletPoints = noBulletPointsTraits.includes(item.name);
-					var content = this.MakeNext(item.content, noBulletPoints);
+					let content = this.MakeNext(item.content, noBulletPoints);
 					if(content != null)
 						return "<b>" + item.name + "</b>: " + content;
 				}
@@ -249,9 +244,9 @@ var HTMLStrings =
 	
 	MakeNames: function(item)
 	{
-		var stringBuffer = [];
+		let stringBuffer = [];
 		stringBuffer.push("<ul>")
-		for(var index = 0; index < item.length; index++)
+		for(let index = 0; index < item.length; index++)
 			stringBuffer.push("<li><b>", Collapsibles.New(), item[index].name, "</b>:", this.MakeNamesNext(item[index].content), "</li>");
 		stringBuffer.push("</ul>")
 		return stringBuffer.join("");
@@ -263,8 +258,8 @@ var HTMLStrings =
 		{
 			if(Array.isArray(item))
 			{
-				var stringBuffer = [];
-				for(var index = 0; index < item.length; index++)
+				let stringBuffer = [];
+				for(let index = 0; index < item.length; index++)
 					stringBuffer.push(this.MakeNamesNext(item[index]));
 				if(typeof item[0] == "object")
 					return "<ul><li>" + stringBuffer.join("</li><li>") + "</li></ul>";
@@ -289,7 +284,7 @@ var Collapsibles =
 
 	CollapseExpand: function(button)
 	{
-		var item = $(button).parent().next();
+		let item = $(button).parent().next();
 		
 		while(item[0].tagName != "UL")
 			item = item.next();
@@ -309,7 +304,7 @@ var Collapsibles =
 
 	ExpandAll: function(listName)
 	{
-		var buttons = $("#" + listName).find(".collapsiblebutton");
+		let buttons = $("#" + listName).find(".collapsiblebutton");
 		$.each(buttons, function(){
 			$(this).html("[-] ");
 			$(this).parent().next().show();
@@ -318,7 +313,7 @@ var Collapsibles =
 
 	RetractAll: function(listName)
 	{
-		var buttons = $("#" + listName).find(".collapsiblebutton");
+		let buttons = $("#" + listName).find(".collapsiblebutton");
 		$.each(buttons, function(){
 			$(this).html("[+] ");
 			$(this).parent().next().hide();
@@ -331,10 +326,10 @@ var UAStuff =
 {
 	Get: function(arr)
 	{
-		var stringBuffer = []
-		for(var index = 0; index < arr.length; index++)
+		let stringBuffer = []
+		for(let index = 0; index < arr.length; index++)
 		{
-			var item = arr[index];
+			let item = arr[index];
 			stringBuffer.push("<li><b>", item.name, ":</b> <a href=\"", item.link, "\">", item.source, "</a>");
 		}
 		return stringBuffer.join("");

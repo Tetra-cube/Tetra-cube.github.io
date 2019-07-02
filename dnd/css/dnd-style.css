@@ -1,18 +1,33 @@
-html {
-	background-attachment: fixed;
-	background-size: cover; 
-}
 body {
+	background-attachment: fixed;
+	background-size: cover;
+	margin: 0;
+}
+.container {
 	font-family: Georgia, Arial, sans-serif;
 	text-align: left;
     max-width: 1000px;
-    margin: 0px auto;
+    margin: 0 auto;
 	line-height: 125%;
 	background-image: url('../dndimages/papyr.jpg');
-	border-style: none solid;
+	border-style: none;
 }
-h1.dnd-header, h2.dnd-header {
+.content {
+	padding: 25px 50px;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+h1 {
 	font-family: Tahoma, Georgia, Arial, sans-serif;
+	font-size: 2rem;
+}
+h2 {
+	font-family: Tahoma, Georgia, Arial, sans-serif;
+	font-size: 1.5rem;
+}
+h3 {
+	font-size: 1.2rem;
 }
 hr {
 	border-style: solid;
@@ -24,17 +39,17 @@ a {
 }
 ul {
 	text-align: left;
-	padding-left: 40px;
+	padding-left: 1.5rem;
 }
 button {
-	-webkit-border-radius: 3;
-	-moz-border-radius: 3;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
 	border-radius: 3px;
 	color: #ffffff;
-	font-size: 16px;
+	font-size: 1rem;
+	font-family: Tahoma, Georgia, Arial, sans-serif;
 	background: #91ab8e;
-	padding: 2px 6px 2px 6px;
-	text-decoration: none;
+	padding: 2px 6px;
 	width: auto;
 }
 button:hover {
@@ -42,15 +57,31 @@ button:hover {
 	text-decoration: none;
 }
 select {
-    height: 22px;
+    height: 1.5rem;
+	font-family: Tahoma, Georgia, Arial, sans-serif;
+	font-size: .8rem;
+}
+input {
+	font-family: Tahoma, Georgia, Arial, sans-serif;
+	font-size: .8rem;
+}
+input[type=text] {
+	width: 95%;
+    height: 1.5rem;
 }
 input[type=number] {
-    width: 60px;
+    width: 4rem;
+	padding: 1px;
 }
 input[type=checkbox] {
 	vertical-align: middle;
+	margin: 0 .25rem .25rem .25rem;
 }
 textarea {
+	font-family: monospace;
+	font-size: .8rem;
+    letter-spacing: normal;
+    line-height: normal;
 	width: 80%;
 }
 table {
@@ -62,16 +93,15 @@ td {
 	text-align: left;
 	vertical-align: top;
 }
+canvas {
+	max-width: 100%;
+}
 
-.content {
-    padding: 25px 50px;
+label {
+	margin-bottom: 0;
 }
-.booklist>li {
-	margin: 0 0 1% 0;
-}
-.booklist {
-	list-style-type: none;
-	padding: 0px 18px;
+.booklist div {
+	margin-bottom: .5rem;
 }
 .tooltip {
     position: relative;
@@ -102,6 +132,10 @@ td {
 .buttoncontainer{
     text-align: center;
 }
+.box-note {
+	font-size: .8rem;
+	line-height: 1.5rem;
+}
 .collapsiblebutton {
 	cursor: pointer;
 	font-size: 15px;
@@ -117,12 +151,10 @@ td {
     user-select: none;
 }
 .expandretracttext {
-	text-align: right;
 	cursor: pointer;
-	font-size: 15px;
+	font-size: 1.2rem;
     color: darkred;
-	width: auto%;
-	font-size: 18px;
+	display: inline;
 	padding-left: 50px;
 	
 	/* Make Unselectable */
@@ -152,41 +184,25 @@ td {
 .character-columns button {
 	margin-top: 2px;
 }
-.indent {
-	text-indent: 1em;
+.radio-row {
+	line-height: 1.5rem;
+	margin-bottom: 1rem;
 }
-.reverse-indent {
-	text-indent: -1em;
-	padding-left: 1em;
-}
-.box-note {
-	font-size: 10pt;
-}
-.removable-list-item:hover {
-	color: red;
-	text-decoration: line-through;
-	cursor: pointer;
-}
-#stat-block-wrapper {
-	margin: 20px;
-	box-shadow: 0 0 1.5em #867453;
-	display: inline-block;
-}
-.statblock-image {
-	width: 12px;
-	height: 12px;
-	cursor: pointer;
-}
-.statblock-list {
-	text-align: left;
-	margin: 4px 4px 16px;
-	padding-left: 16px;
-}
-
-#legendaries-descsection {
-	margin: 8px 0 0;
+.radio-row b {
+	line-height: 2rem;
 }
 #imagecanvas {
 	border-color: white;
 	border-style: solid;
+}
+@media screen and (min-width: 1000px) {
+	.container {
+		border-style: none solid;
+	}
+	#ref-body {
+		background-image: url("../dndimages/refbkg.jpg");
+	}
+	#char-gen-body {
+		background-image: url("../dndimages/chargenbkg.jpg");
+	}
 }

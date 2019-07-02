@@ -1,74 +1,81 @@
 <!DOCTYPE html>
-<html lang="en" style="background-image: url('./dndimages/refbkg.jpg')">
+<html lang="en">
 	<head>
 		<meta charset="utf-8"/>
-		<title>D&D 5e PC Options Reference</title>
+		<title>D&amp;D 5e PC Options Reference</title>
 		<link rel="shortcut icon" type="image/x-icon" href="dndimages/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/dnd-style.css">
+		<link rel="stylesheet" type="text/css" href="css/dnd-rwd.css">
 		<script src="js/jquery-3.4.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 		<script src="js/dnd-data.js"></script> 
 		<script src="js/reference-script.js"></script> 
 	</head>
-	<body>
-		<div id="kofiheader" style="text-align: center;">
-			<br>
-			<script src="https://ko-fi.com/widgets/widget_2.js"></script>
-			<script>kofiwidget2.init("Support Me on Ko-fi", "#46b798", "Q5Q8MRF6");kofiwidget2.draw();</script>
-		</div>
-		<div class="content">
-			<div class="centeredcontainer"><b>PC Options Reference</b> - <a href="dnd-char-gen.html">Character Generator</a> - <a href="dnd-statblock.html">Statblock Generator</a></div>
-			<h1 class="dnd-header">D&D 5e Content Reference</h1>
-			<br>
-			<div>Select which books to use:</div>
-			<ul class="booklist">
-				<li><b><input id="PHBbox" type="checkbox" disabled checked> Player's Handbook</b> is the corebook which contains all of the base content.</li>
-				<li><b><input id="EEbox" type="checkbox" onclick="UpdateList()" checked><label for="EEbox"> Elemental Evil Player's Companion,</label></b> a short <a href="http://dnd.wizards.com/articles/features/elementalevil_playerscompanion">online supplement</a>. Contains races and spells.</li>
-				<li><b><input id="SCAGbox" type="checkbox" onclick="UpdateList()" checked><label for="SCAGbox"> Sword Coast Adventurer's Guide</label></b>. Contains subraces, subclasses, backgrounds, and a couple of cantrips.</li>
-				<li><b><input id="VGtMbox" type="checkbox" onclick="UpdateList()" checked><label for="VGtMbox"> Volo's Guide to Monsters</label></b>. Contains additional races, including monster races.</li>
-				<li><b><input id="XGtEbox" type="checkbox" onclick="UpdateList()" checked><label for="XGtEbox"> Xanathar's Guide to Everything</label></b>. Contains subclasses, spells, racial feats.</li>
-				<li><b><input id="MToFbox" type="checkbox" onclick="UpdateList()" checked><label for="MToFbox"> Mordenkainen's Tome of Foes</label></b>. Contains the gith race and various subraces.</li>
-				<li><b><input id="GGtRbox" type="checkbox" onclick="UpdateList()" checked><label for="GGtRbox"> Guildmaster's Guide to Ravnica</label></b>, a MtG crossover book. Contains races and subclasses.</li>
-				<li><b><input id="Otherbox" type="checkbox" onclick="UpdateList()" checked><label for="Otherbox"> Other Content:</label></b> <b>The Tortle Package</b> contains the tortle race. <b>Adventure Modules</b> sometimes contain usable content.</li>
-				<li><b><input id="DMGbox" type="checkbox" onclick="UpdateList()"><label for="DMGbox"> Dungeon Master's Guide</label></b> has player character options that require DM approval.</li>
-				<li><b><input id="WGtEbox" type="checkbox" onclick="UpdateList()"><label for="WGtEbox"> Wayfinder's Guide to Eberron</label></b> is UA material. Contains the various races of Eberron, and dragonmarks.</li>
-				<li><b><input id="UAbox" type="checkbox" onclick="UpdateList()"><label for="UAbox"> Unearthed Arcana</label></b> is not a rulebook, but playtest material found on the <a href="http://dnd.wizards.com/articles/unearthed-arcana">Wizards of the Coast website</a>. See the bottom of the page for a list of Unearthed Arcana content.</li>
-				<li><b><input id="Unofficialbox" type="checkbox" onclick="UpdateList()"><label for="Unofficialbox"> Notable Unofficial Content</label></b> includes popular unofficial content such as the <a href="http://geekandsundry.com/wp-content/uploads/2015/12/Blood-Hunter-Class-1.3.pdf">Blood Hunter</a>.</li>
-			</ul>
-			<hr>
-			<h2 class="dnd-header">Races
-				<span class="expandretracttext" onclick="Collapsibles.ExpandAll('races')">Expand All</span>
-				<span class="expandretracttext" onclick="Collapsibles.RetractAll('races')">Retract All</span>
-			</h2>
-			<span id="races"></span>
-			<br><hr>
-			<h2 class="dnd-header">Classes
-				<span class="expandretracttext" onclick="Collapsibles.ExpandAll('classes')">Expand All</span>
-				<span class="expandretracttext" onclick="Collapsibles.RetractAll('classes')">Retract All</span>
-			</h2>
-			<span id="classes"></span>
-			<br><hr>
-			<h2 class="dnd-header">Backgrounds
-				<span class="expandretracttext" onclick="Collapsibles.ExpandAll('backgrounds')">Expand All</span>
-				<span class="expandretracttext" onclick="Collapsibles.RetractAll('backgrounds')">Retract All</span>
-			</h2>
-			<span id="backgrounds"></span>
-			<br><hr>
-			<h2 class="dnd-header">Names
-				<span class="expandretracttext" onclick="Collapsibles.ExpandAll('names')">Expand All</span>
-				<span class="expandretracttext" onclick="Collapsibles.RetractAll('names')">Retract All</span>
-			</h2>
-			<span id="names"></span>
-			<br><hr>
-			<div id="uacontent">
-				<h2 class="dnd-header">Unearthed Arcana Index</h2>
-				<h3><span class="collapsiblebutton" onclick="Collapsibles.CollapseExpand(this)">[+]</span> UA Races &amp; Subraces</h3>
-				<ul id="uaraces" style="display: none"></ul>
-				<h3><span class="collapsiblebutton" onclick="Collapsibles.CollapseExpand(this)">[+]</span> UA Classes &amp; Subclasses</h3>
-				<ul id="uaclasses" style="display: none"></ul>
-				<h3><span class="collapsiblebutton" onclick="Collapsibles.CollapseExpand(this)">[+]</span> UA Other</h3>
-				<ul id="uaother" style="display: none"></ul>
+	<body id="ref-body">
+		<div class="container">
+			<div id="kofiheader" style="text-align: center;">
+				<br>
+				<script src='https://ko-fi.com/widgets/widget_2.js'></script>
+				<script>kofiwidget2.init('Support Me on Ko-fi', '#46b798', 'Q5Q8MRF6');kofiwidget2.draw();</script>
 			</div>
-			<div class="footer"><a href="https://github.com/Tetra-cube/Tetra-cube.github.io">GitHub Repo</a></div>
+			<div class="content">
+				<div style="text-align: center;"><b>PC Options Reference</b> - <a href="dnd-char-gen.html">Character Generator</a> - <a href="dnd-statblock.html">Statblock Generator</a></div>
+				<br>
+				<h1>D&amp;D 5e Content Reference</h1>
+				<br>
+				<div>Select which books to use:</div>
+				<br>
+				<div class="booklist">
+					<div><label for="PHBbox"><b><input id="PHBbox" type="checkbox" disabled checked> Player's Handbook:</b></label> The corebook, which contains all of the base content.</div>
+					<div><label for="EEbox"><b><input id="EEbox" type="checkbox" onclick="UpdateList()" checked> Elemental Evil Player's Companion:</b></label> A short <a href="http://dnd.wizards.com/articles/features/elementalevil_playerscompanion">online supplement</a>. Contains races and spells.</div>
+					<div><label for="SCAGbox"><b><input id="SCAGbox" type="checkbox" onclick="UpdateList()" checked> Sword Coast Adventurer's Guide:</b></label> Contains subraces, subclasses, backgrounds, and a couple of cantrips.</div>
+					<div><label for="VGtMbox"><b><input id="VGtMbox" type="checkbox" onclick="UpdateList()" checked> Volo's Guide to Monsters:</b></label> Contains additional races, including monster races.</div>
+					<div><label for="XGtEbox"><b><input id="XGtEbox" type="checkbox" onclick="UpdateList()" checked> Xanathar's Guide to Everything:</b></label> Contains subclasses, spells, racial feats.</div>
+					<div><label for="MToFbox"><b><input id="MToFbox" type="checkbox" onclick="UpdateList()" checked> Mordenkainen's Tome of Foes:</b></label> Contains the gith race and various subraces.</div>
+					<div><label for="GGtRbox"><b><input id="GGtRbox" type="checkbox" onclick="UpdateList()" checked> Guildmaster's Guide to Ravnica:</b></label> A MtG crossover book. Contains races and subclasses.</div>
+					<div><label for="Otherbox"><b><input id="Otherbox" type="checkbox" onclick="UpdateList()" checked> Other Content:</b></label> <b>The Tortle Package</b> contains the tortle race. <b>Adventure Modules</b> sometimes contain usable content.</div>
+					<div><label for="DMGbox"><b><input id="DMGbox" type="checkbox" onclick="UpdateList()"> Dungeon Master's Guide:</b></label> Has player character options that require DM approval.</div>
+					<div><label for="WGtEbox"><b><input id="WGtEbox" type="checkbox" onclick="UpdateList()"> Wayfinder's Guide to Eberron:</b></label> Contains the various races of Eberron, and dragonmarks. UA material.</div>
+					<div><label for="UAbox"><b><input id="UAbox" type="checkbox" onclick="UpdateList()"> Unearthed Arcana:</b></label> Not a rulebook, but playtest material found on the <a href="http://dnd.wizards.com/articles/unearthed-arcana">Wizards of the Coast website</a>. See the bottom of the page for a list of Unearthed Arcana content.</div>
+					<div><label for="Unofficialbox"><b><input id="Unofficialbox" type="checkbox" onclick="UpdateList()"> Notable Unofficial Content:</b></label> Includes popular unofficial content such as the <a href="http://geekandsundry.com/wp-content/uploads/2015/12/Blood-Hunter-Class-1.3.pdf">Blood Hunter</a>.</div>
+				</div>
+				<hr>
+				<h2>Races
+					<div class="expandretracttext" onclick="Collapsibles.ExpandAll('races')">Expand All</div>
+					<div class="expandretracttext" onclick="Collapsibles.RetractAll('races')">Retract All</div>
+				</h2>
+				<div id="races"></div>
+				<br><hr>
+				<h2>Classes
+					<div class="expandretracttext" onclick="Collapsibles.ExpandAll('classes')">Expand All</div>
+					<div class="expandretracttext" onclick="Collapsibles.RetractAll('classes')">Retract All</div>
+				</h2>
+				<div id="classes"></div>
+				<br><hr>
+				<h2>Backgrounds
+					<div class="expandretracttext" onclick="Collapsibles.ExpandAll('backgrounds')">Expand All</div>
+					<div class="expandretracttext" onclick="Collapsibles.RetractAll('backgrounds')">Retract All</div>
+				</h2>
+				<div id="backgrounds"></div>
+				<br><hr>
+				<h2>Names
+					<div class="expandretracttext" onclick="Collapsibles.ExpandAll('names')">Expand All</div>
+					<div class="expandretracttext" onclick="Collapsibles.RetractAll('names')">Retract All</div>
+				</h2>
+				<div id="names"></div>
+				<br><hr>
+				<div id="uacontent">
+					<h2>Unearthed Arcana Index</h2>
+					<h3><span class="collapsiblebutton" onclick="Collapsibles.CollapseExpand(this)">[+]</span> UA Races &amp; Subraces</h3>
+					<ul id="uaraces" style="display: none"></ul>
+					<h3><span class="collapsiblebutton" onclick="Collapsibles.CollapseExpand(this)">[+]</span> UA Classes &amp; Subclasses</h3>
+					<ul id="uaclasses" style="display: none"></ul>
+					<h3><span class="collapsiblebutton" onclick="Collapsibles.CollapseExpand(this)">[+]</span> UA Other</h3>
+					<ul id="uaother" style="display: none"></ul>
+				</div>
+				<div class="footer"><a href="https://github.com/Tetra-cube/Tetra-cube.github.io">GitHub Repo</a></div>
+			</div>
 		</div>
 	</body>
 </html>
