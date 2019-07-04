@@ -23,7 +23,7 @@ var TryLoadFile = () => { SavedData.RetrieveFromFile(); }
 
 // Print function
 var TryPrint = function() {
-	let printWindow = window.open("dnd-statblock-print.html");
+	let printWindow = window.open();
 	printWindow.document.write('<html><head><meta charset="utf-8"/><title>' + mon.name + '</title><link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" /><link rel="stylesheet" type="text/css" href="css/statblock-style.css"><link rel="stylesheet" type="text/css" href="css/libre-baskerville.css"><link rel="stylesheet" type="text/css" href="css/noto-sans.css"></head><body><div class="content">');
 	printWindow.document.write($("#stat-block-wrapper").html());
 	printWindow.document.write('</div></body></html>');
@@ -111,12 +111,7 @@ var UpdateStatblock = function(moveSeparationPoint)
 	$("#hit-points").html(StringFunctions.GetHP());
 
 	// Speed
-	let speedsDisplayArr = [ mon.speed + " ft."];
-	if(mon.burrowSpeed > 0) speedsDisplayArr.push("burrow " + mon.burrowSpeed + " ft.");
-	if(mon.climbSpeed > 0) speedsDisplayArr.push("climb " + mon.climbSpeed + " ft.");
-	if(mon.flySpeed > 0) speedsDisplayArr.push("fly " + mon.flySpeed + " ft." + (mon.hover ? " (hover)" : ""));
-	if(mon.swimSpeed > 0) speedsDisplayArr.push("swim " + mon.swimSpeed + " ft.");
-	$("#speed").html(speedsDisplayArr.join(", "));
+	$("#speed").html(StringFunctions.GetSpeed());
 
 	// Stats
 	let setPts = (id, pts) => 
@@ -128,75 +123,7 @@ var UpdateStatblock = function(moveSeparationPoint)
 	setPts("#wispts", mon.wisPoints);
 	setPts("#chapts", mon.chaPoints);
 
-	// Properties
-	let propertiesDisplayArr = [], sthrowsDisplayArr = [], skillsDisplayArr = [], conditionsDisplayArr = [], sensesDisplayArr = [], languageDisplayArr = [],
-		 vulnerableDisplayString = "", resistantDisplayString = "", immuneDisplayString = "";
-
-	// Saving Throws
-	for(let index = 0; index < mon.sthrows.length; index++)
-		sthrowsDisplayArr.push(StringFunctions.StringCapitalize(mon.sthrows[index].name) + " " +
-			StringFunctions.BonusFormat((MathFunctions.PointsToBonus(mon[mon.sthrows[index].name + "Points"]) + crs[mon.cr].prof)));
-	
-	// Skills
-	for(let index = 0; index < mon.skills.length; index++)
-	{
-		let skillData = mon.skills[index];
-		skillsDisplayArr.push(StringFunctions.StringCapitalize(skillData.name) + " " +
-			StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon[skillData.stat + "Points"]) + crs[mon.cr].prof * (skillData.hasOwnProperty("note") ? 2 : 1)));
-	}
-
-	// Damage Types (It's not pretty but it does its job)
-	let vulnerableDisplayArr = [], resistantDisplayArr = [], immuneDisplayArr = [],
-		vulnerableDisplayArrSpecial = [], resistantDisplayArrSpecial = [], immuneDisplayArrSpecial = [];
-	for(let index = 0; index < mon.damagetypes.length; index++)
-	{
-		let typeId = mon.damagetypes[index].type;
-		(typeId == "v" ? vulnerableDisplayArr : typeId == "i" ? immuneDisplayArr : resistantDisplayArr).push(mon.damagetypes[index].name)
-	}
-	for(let index = 0; index < mon.specialdamage.length; index++)
-	{
-		let typeId = mon.specialdamage[index].type,
-			arr = typeId == "v" ? vulnerableDisplayArrSpecial : typeId == "i" ? immuneDisplayArrSpecial : resistantDisplayArrSpecial;
-		arr.push(mon.specialdamage[index].name)
-	}
-	vulnerableDisplayString = StringFunctions.ConcatUnlessEmpty(vulnerableDisplayArr.join(", "), vulnerableDisplayArrSpecial.join("; "), "; ").toLowerCase();
-	resistantDisplayString = StringFunctions.ConcatUnlessEmpty(resistantDisplayArr.join(", "), resistantDisplayArrSpecial.join("; "), "; ").toLowerCase();
-	immuneDisplayString = StringFunctions.ConcatUnlessEmpty(immuneDisplayArr.join(", "), immuneDisplayArrSpecial.join("; "), "; ").toLowerCase();
-	
-	// Condition Immunities
-	for(let index = 0; index < mon.conditions.length; index++)
-		conditionsDisplayArr.push(mon.conditions[index].name.toLowerCase());
-
-	// Senses
-	if(mon.blindsight > 0) sensesDisplayArr.push("blindsight " + mon.blindsight + " ft." + (mon.blind ? " (blind beyond this radius)" : ""));
-	if(mon.darkvision > 0) sensesDisplayArr.push("darkvision " + mon.darkvision + " ft.");
-	if(mon.tremorsense > 0) sensesDisplayArr.push("tremorsense " + mon.tremorsense + " ft.");
-	if(mon.truesight > 0) sensesDisplayArr.push("truesight " + mon.truesight + " ft.");
-
-	// Passive Perception
-	let ppData = ArrayFunctions.FindInList(mon.skills, "Perception"), pp = 10 + MathFunctions.PointsToBonus(mon.wisPoints);
-	if(ppData != null)
-		pp += crs[mon.cr].prof * (ppData.hasOwnProperty("note") ? 2 : 1);
-	sensesDisplayArr.push("passive Perception " + pp);
-	
-	// Languages
-	for(let index = 0; index < mon.languages.length; index++)
-		languageDisplayArr.push(mon.languages[index].name);
-	if(mon.telepathy > 0)
-		languageDisplayArr.push("telepathy " + mon.telepathy + " ft.");
-	else if(languageDisplayArr.length == 0)
-		languageDisplayArr.push("&mdash;");
-	
-	// Add all that to the array
-	let pushArr = (name, arr) => { if(arr.length > 0) propertiesDisplayArr.push( { "name" : name, "arr" : arr } ) };
-	pushArr("Saving Throws", sthrowsDisplayArr);
-	pushArr("Skills", skillsDisplayArr);
-	pushArr("Damage Vulnerabilities", vulnerableDisplayString);
-	pushArr("Damage Resistances", resistantDisplayString);
-	pushArr("Damage Immunities", immuneDisplayString);
-	pushArr("Condition Immunities", conditionsDisplayArr);
-	pushArr("Senses", sensesDisplayArr);
-	pushArr("Languages", languageDisplayArr);
+	let propertiesDisplayArr = StringFunctions.GetPropertiesDisplayArr();
 	
 	// Display All Properties (except CR)
 	let propertiesDisplayList = [];
@@ -259,6 +186,62 @@ var AddToTraitList = function(traitsHTML, traitsArr, addElements, isLegendary = 
 	// There's a small difference in formatting for legendary actions
 	for(let index = 0; index < traitsArr.length; index++)
 		traitsHTML.push(StringFunctions[isLegendary ? "MakeTraitHTMLLegendary" : "MakeTraitHTML"](traitsArr[index].name, traitsArr[index].desc));
+}
+
+// Homebrewery/GM Binder markdown
+var TryMarkdown = function() {
+	let markdownWindow = window.open();
+	let markdown = [ '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>', mon.name, '</title><link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" /></head><body><h2>Homebrewery/GM Binder Markdown</h2><code>', mon.doubleColumns ? "___<br>___<br>" : "___<br>", '> ## ', mon.name, '<br>>*', StringFunctions.StringCapitalize(mon.size), ' ', mon.type ];
+	if(mon.tag != "")
+		markdown.push(' (', mon.tag, ')');
+	markdown.push(', ', mon.alignment, '*<br>>___<br>> - **Armor Class** ', StringFunctions.FormatString(StringFunctions.GetArmorData()), '<br>> - **Hit Points** ', StringFunctions.GetHP(), '<br>> - **Speed** ', StringFunctions.GetSpeed(), "<br>>___<br>>|STR|DEX|CON|INT|WIS|CHA|<br>>|:---:|:---:|:---:|:---:|:---:|:---:|<br>>|",
+		mon.strPoints, " (", StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.strPoints)), ")|",
+		mon.dexPoints, " (", StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.dexPoints)), ")|",
+		mon.conPoints, " (", StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.conPoints)), ")|",
+		mon.intPoints, " (", StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.intPoints)), ")|",
+		mon.wisPoints, " (", StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.wisPoints)), ")|",
+		mon.chaPoints, " (", StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.chaPoints)), ")|<br>>___<br>");
+
+	let propertiesDisplayArr = StringFunctions.GetPropertiesDisplayArr();
+	
+	for(let index = 0; index < propertiesDisplayArr.length; index++)
+	{
+		markdown.push('> - **', propertiesDisplayArr[index].name, "** ",
+			(Array.isArray(propertiesDisplayArr[index].arr) ? propertiesDisplayArr[index].arr.join(", ") : propertiesDisplayArr[index].arr),
+			"<br>");
+	}
+	markdown.push("> - **Challenge** ", mon.cr, " (", crs[mon.cr].xp, " XP)<br>>___<br>");
+	
+	if(mon.abilities.length > 0) markdown.push(GetTraitMarkdown(mon.abilities, false));
+	if(mon.actions.length > 0) markdown.push("<br>> ### Actions<br>", GetTraitMarkdown(mon.actions, false));
+	if(mon.reactions.length > 0) markdown.push("<br>> ### Reactions<br>", GetTraitMarkdown(mon.reactions, false));
+	if(mon.isLegendary)
+	{
+		markdown.push("<br>> ### Legendary Actions<br>> ", mon.legendariesDescription);
+		if(mon.legendaries.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.legendaries, true));
+	}
+	
+	markdown.push("</code></body></html>")
+	
+	markdownWindow.document.write(markdown.join(""));
+}
+
+var GetTraitMarkdown = function(traitArr, legendary)
+{
+	let markdown = [];
+	for(let index = 0; index < traitArr.length; index++)
+	{
+		let desc = traitArr[index].desc
+			.replace(/(?:\r\n|\r|\n)\s*(?:\r\n|\r|\n)/g, '\n>\n')
+			.replace(/(?:\r\n|\r|\n)>/g, '\&lt;br&gt;<br>')
+			.replace(/(?:\r\n|\r|\n)/g, '\&lt;br&gt;<br>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;');
+		markdown.push("> " +
+			(legendary ? "**" : "***") +
+			traitArr[index].name +
+			(legendary ? ".** " : ".*** ") +
+			desc);
+	}
+	return markdown.join("<br>><br>");
 }
 
 // Functions for form-setting
@@ -1088,6 +1071,91 @@ var StringFunctions =
 		if (conBonus == 0)
 			return avgHP + " (" + mon.hitDice + "d" + hitDieSize + ")";
 		return Math.max(avgHP, 1) + " (" + mon.hitDice + "d" + hitDieSize + " - " + -(mon.hitDice * conBonus) + ")";
+	},
+	
+	GetSpeed: function()
+	{
+		let speedsDisplayArr = [ mon.speed + " ft."];
+		if(mon.burrowSpeed > 0) speedsDisplayArr.push("burrow " + mon.burrowSpeed + " ft.");
+		if(mon.climbSpeed > 0) speedsDisplayArr.push("climb " + mon.climbSpeed + " ft.");
+		if(mon.flySpeed > 0) speedsDisplayArr.push("fly " + mon.flySpeed + " ft." + (mon.hover ? " (hover)" : ""));
+		if(mon.swimSpeed > 0) speedsDisplayArr.push("swim " + mon.swimSpeed + " ft.");
+		return speedsDisplayArr.join(", ")
+	},
+	
+	GetPropertiesDisplayArr: function()
+	{
+		// Properties
+		let propertiesDisplayArr = [], sthrowsDisplayArr = [], skillsDisplayArr = [], conditionsDisplayArr = [], sensesDisplayArr = [], languageDisplayArr = [],
+			 vulnerableDisplayString = "", resistantDisplayString = "", immuneDisplayString = "";
+
+		// Saving Throws
+		for(let index = 0; index < mon.sthrows.length; index++)
+			sthrowsDisplayArr.push(StringFunctions.StringCapitalize(mon.sthrows[index].name) + " " +
+				StringFunctions.BonusFormat((MathFunctions.PointsToBonus(mon[mon.sthrows[index].name + "Points"]) + crs[mon.cr].prof)));
+		
+		// Skills
+		for(let index = 0; index < mon.skills.length; index++)
+		{
+			let skillData = mon.skills[index];
+			skillsDisplayArr.push(StringFunctions.StringCapitalize(skillData.name) + " " +
+				StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon[skillData.stat + "Points"]) + crs[mon.cr].prof * (skillData.hasOwnProperty("note") ? 2 : 1)));
+		}
+
+		// Damage Types (It's not pretty but it does its job)
+		let vulnerableDisplayArr = [], resistantDisplayArr = [], immuneDisplayArr = [],
+			vulnerableDisplayArrSpecial = [], resistantDisplayArrSpecial = [], immuneDisplayArrSpecial = [];
+		for(let index = 0; index < mon.damagetypes.length; index++)
+		{
+			let typeId = mon.damagetypes[index].type;
+			(typeId == "v" ? vulnerableDisplayArr : typeId == "i" ? immuneDisplayArr : resistantDisplayArr).push(mon.damagetypes[index].name)
+		}
+		for(let index = 0; index < mon.specialdamage.length; index++)
+		{
+			let typeId = mon.specialdamage[index].type,
+				arr = typeId == "v" ? vulnerableDisplayArrSpecial : typeId == "i" ? immuneDisplayArrSpecial : resistantDisplayArrSpecial;
+			arr.push(mon.specialdamage[index].name)
+		}
+		vulnerableDisplayString = StringFunctions.ConcatUnlessEmpty(vulnerableDisplayArr.join(", "), vulnerableDisplayArrSpecial.join("; "), "; ").toLowerCase();
+		resistantDisplayString = StringFunctions.ConcatUnlessEmpty(resistantDisplayArr.join(", "), resistantDisplayArrSpecial.join("; "), "; ").toLowerCase();
+		immuneDisplayString = StringFunctions.ConcatUnlessEmpty(immuneDisplayArr.join(", "), immuneDisplayArrSpecial.join("; "), "; ").toLowerCase();
+		
+		// Condition Immunities
+		for(let index = 0; index < mon.conditions.length; index++)
+			conditionsDisplayArr.push(mon.conditions[index].name.toLowerCase());
+
+		// Senses
+		if(mon.blindsight > 0) sensesDisplayArr.push("blindsight " + mon.blindsight + " ft." + (mon.blind ? " (blind beyond this radius)" : ""));
+		if(mon.darkvision > 0) sensesDisplayArr.push("darkvision " + mon.darkvision + " ft.");
+		if(mon.tremorsense > 0) sensesDisplayArr.push("tremorsense " + mon.tremorsense + " ft.");
+		if(mon.truesight > 0) sensesDisplayArr.push("truesight " + mon.truesight + " ft.");
+
+		// Passive Perception
+		let ppData = ArrayFunctions.FindInList(mon.skills, "Perception"), pp = 10 + MathFunctions.PointsToBonus(mon.wisPoints);
+		if(ppData != null)
+			pp += crs[mon.cr].prof * (ppData.hasOwnProperty("note") ? 2 : 1);
+		sensesDisplayArr.push("passive Perception " + pp);
+		
+		// Languages
+		for(let index = 0; index < mon.languages.length; index++)
+			languageDisplayArr.push(mon.languages[index].name);
+		if(mon.telepathy > 0)
+			languageDisplayArr.push("telepathy " + mon.telepathy + " ft.");
+		else if(languageDisplayArr.length == 0)
+			languageDisplayArr.push("&mdash;");
+		
+		// Add all that to the array
+		let pushArr = (name, arr) => { if(arr.length > 0) propertiesDisplayArr.push( { "name" : name, "arr" : arr } ) };
+		pushArr("Saving Throws", sthrowsDisplayArr);
+		pushArr("Skills", skillsDisplayArr);
+		pushArr("Damage Vulnerabilities", vulnerableDisplayString);
+		pushArr("Damage Resistances", resistantDisplayString);
+		pushArr("Damage Immunities", immuneDisplayString);
+		pushArr("Condition Immunities", conditionsDisplayArr);
+		pushArr("Senses", sensesDisplayArr);
+		pushArr("Languages", languageDisplayArr);
+		
+		return propertiesDisplayArr;
 	},
 	
 	// Add italics, indents, and newlines
