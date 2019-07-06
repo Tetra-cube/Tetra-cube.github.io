@@ -1043,10 +1043,10 @@ var StringFunctions =
 		if(mon.armorName == "mage armor")
 		{
 			let mageAC = MathFunctions.GetAC(mon.armorName);
-			return mageAC + " (" + (mageAC + 3) + " with _mage armor_)";
+			return mageAC + " (" + (mon.shieldBonus > 0 ? "shield, " : "") + (mageAC + 3) + " with _mage armor_)";
 		}
 		if(mon.armorName == "none")
-			return MathFunctions.GetAC(mon.armorName);
+			return MathFunctions.GetAC(mon.armorName) + (mon.shieldBonus > 0 ? " (shield)" : "");
 		return this.GetArmorString(mon.armorName, MathFunctions.GetAC(mon.armorName));
 	},
 	
