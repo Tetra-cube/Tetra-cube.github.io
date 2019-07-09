@@ -184,7 +184,7 @@
 							<td>
 								<div id="hitdice-input-prompt"><label for="hitdice-input">Hit Dice: <br><input type="number" id="hitdice-input" min="1" max="99" value="5"></label></div>
 								<div id="hp-text-input-prompt"><label for="hp-text-input">Hit Points:<br><input id="hp-text-input" value="4 (1d8)"></label></div>
-								<div id="custom-hp-box-prompt" class="box-note"><label for="custom-hp-input">(Customize: <input id="custom-hp-input" type="checkbox" onchange="FormFunctions.ShowHideCustomHP()">)</label></div>
+								<div id="custom-hp-box-prompt" class="box-note"><label for="custom-hp-input">(Custom HP: <input id="custom-hp-input" type="checkbox" onchange="FormFunctions.ShowHideCustomHP()">)</label></div>
 							</td>
 							<td>
 								<label for="armor-input">Armor Type: <br>
@@ -208,27 +208,35 @@
 								</select></label>
 								<div id="shield-box-note" class="box-note"><label for="shield-input">(Shield: <input id="shield-input" type="checkbox">)</label></div>
 							</td>
-							<td>
-								<div id="natarmor-prompt"><label for="natarmor-input">Natural Armor Bonus: <input type="number" id="natarmor-input" min="1" max="99" value="3"></label></div>
+							<td colspan="2">
+								<div id="natarmor-prompt"><label for="natarmor-input">Natural Armor Bonus:<br><input type="number" id="natarmor-input" min="1" max="99" value="3"></label></div>
 								<div id="otherarmor-prompt">
-									<label for="otherarmor-input">Description: <input id="otherarmor-input" type="text" value="10 (armor)"></label>
+									<label for="otherarmor-input">Description: <input id="otherarmor-input" type="text" value="10 (armor)"></label><br>
 									<div id="otherarmor-box-note" class="box-note"><i>Use _ to italicize</i></div>
 								</div>
 							</td>
-							<td></td>
 						</tr>
 					</table>
 					<br>
 					<table id="monster-speed-form">
 						<tr>
-							<td><label for="speed-input">Speed: <br><input type="number" id="speed-input" min="0" max="995" step="5" value="30"> ft.</label></td>
-							<td><label for="burrow-speed-input">Burrow speed: <br><input type="number" id="burrow-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
-							<td><label for="climb-speed-input">Climb Speed: <br><input type="number" id="climb-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
-							<td>
-								<label for="fly-speed-input">Fly Speed: <br><input type="number" id="fly-speed-input" min="0" max="995" step="5" value="0" onchange="FormFunctions.ShowHideHoverBox()"> ft.</label>
+							<td class="normal-speed-col"><label for="speed-input">Speed:<br><input type="number" id="speed-input" min="0" max="995" step="5" value="30"> ft.</label></td>
+							<td class="normal-speed-col"><label for="burrow-speed-input">Burrow Speed:<br><input type="number" id="burrow-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
+							<td class="normal-speed-col"><label for="climb-speed-input">Climb Speed:<br><input type="number" id="climb-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
+							<td class="normal-speed-col">
+								<label for="fly-speed-input">Fly Speed:<br><input type="number" id="fly-speed-input" min="0" max="995" step="5" value="0" onchange="FormFunctions.ShowHideHoverBox()"> ft.</label>
 								<div id="hover-box-note" class="box-note"><label for="hover-input">(Hover: <input type="checkbox" id="hover-input">)</label></div>
 							</td>
-							<td><label for="swim-speed-input">Swim Speed: <br><input type="number" id="swim-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
+							<td class="normal-speed-col"><label for="swim-speed-input">Swim Speed:<br><input type="number" id="swim-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
+							<td colspan="5" class="custom-speed-col" style="display: none;">
+								<label for="custom-speed-prompt" style="width: 100%;">Speed: <input id="custom-speed-prompt" type="text" value="30 ft."></label><br>
+							</td>
+							<td>
+								<br>
+								<div class="box-note">
+									<label for="custom-speed-input">(Custom Speed: <input id="custom-speed-input" type="checkbox" onchange="FormFunctions.ShowHideCustomSpeed()"> )</label>
+								</div>
+							</td>
 						</tr>
 					</table>
 					<hr>
@@ -311,7 +319,7 @@
 					<br>
 					<table>
 						<tr>
-							<td id="damagetypes-form">
+							<td id="damagetypes-form" colspan="2">
 								<label for="damagetypes-input">Damage Types:<br>
 									<select id="damagetypes-input" onchange="FormFunctions.ShowHideDamageOther()">
 										<option value="acid">Acid</option>
@@ -375,6 +383,7 @@
 							</td>
 						</tr>
 					</table>
+					<br>
 					<table id="senses-form">
 						<tr>
 							<td>
