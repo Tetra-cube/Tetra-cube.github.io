@@ -2,10 +2,11 @@ var mon = {
 		name: "Monster", size: "medium", type: "humanoid", tag: "", alignment: "any alignment",
 		hitDice: 5, armorName: "none", shieldBonus: 0, natArmorBonus: 3, otherArmorDesc: "10 (armor)",
 		speed: 30, burrowSpeed: 0, climbSpeed: 0, flySpeed: 0, hover: false, swimSpeed: 0,
+		customHP: false, customSpeed: false, hpText: "4 (1d8)", speedDesc: "30 ft.",
 		strPoints: 10, dexPoints: 10, conPoints: 10, intPoints: 10, wisPoints: 10, chaPoints: 10,
 		blindsight: 0, blind: false, darkvision: 0, tremorsense: 0, truesight: 0,
 		telepathy: 0,
-		cr: "1",
+		cr: 1,
 		isLegendary: false, legendariesDescription: "",
 		properties: [], abilities: [], actions: [], reactions: [], legendaries: [],
 		sthrows: [], skills: [], damagetypes: [], specialdamage: [], conditions: [], languages: [],
@@ -288,6 +289,9 @@ var FormFunctions =
 		$("#hover-input").prop("checked", mon.hover);
 		this.ShowHideHoverBox();
 		$("#swim-speed-input").val(mon.swimSpeed);
+		$("#custom-speed-prompt").val(mon.speedDesc);
+		$("#custom-speed-input").prop("checked", mon.customSpeed);
+		this.ShowHideCustomSpeed();
 		
 		// Stats
 		this.SetStatForm("str", mon.strPoints);
@@ -353,6 +357,14 @@ var FormFunctions =
 			$("#natarmor-prompt").show();
 		else if($("#armor-input").val() == "other")
 			$("#otherarmor-prompt").show();
+	},
+	ShowHideCustomSpeed: function()
+	{
+		$(".normal-speed-col, .custom-speed-col").hide();
+		if($("#custom-speed-input").prop('checked'))
+			$(".custom-speed-col").show();
+		else
+			$(".normal-speed-col").show();
 	},
 
 	ShowHideDamageOther: function() { this.ShowHideHtmlElement("#other-damage-input", $("#damagetypes-input").val() == "*"); },
@@ -443,8 +455,8 @@ var FormFunctions =
 				arr = mon.damagetypes;
 			else
 			{
-				index -= damagetypes.length;
-				arr = specialdamage;
+				index -= mon.damagetypes.length;
+				arr = mon.specialdamage;
 			}
 		}
 		else
@@ -617,6 +629,8 @@ var GetVariablesFunctions =
 		mon.flySpeed = $("#fly-speed-input").val();
 		mon.hover = $("#hover-input").prop("checked");
 		mon.swimSpeed = $("#swim-speed-input").val();
+		mon.speedDesc = $("#custom-speed-prompt").val();
+		mon.customSpeed = $("#custom-speed-input").prop("checked");
 		
 		// Stats	
 		mon.strPoints = $("#str-input").val();
@@ -673,8 +687,10 @@ var GetVariablesFunctions =
 		let armorAcData = preset.armor_class, armorDescData = preset.armor_desc ? preset.armor_desc.split(",") : null;
 
 		// What type of armor do we have? If it doesn't match anything, use "other"
-		if(armorDescData) 
+		mon.shieldBonus = 0;
+		if(armorDescData)
 		{
+			mon.armorName = armorDescData[0];
 			// If we have a shield and nothing else
 			if(armorDescData.length == 1 && armorDescData[0].trim() == "shield")
 			{
@@ -686,8 +702,14 @@ var GetVariablesFunctions =
 				// If we have a shield in addition to something else
 				if(armorDescData.length > 1)
 				{
-					mon.shieldBonus = 2;
-					mon.armorName = armorDescData[0];
+					if(armorDescData[1].trim() == "shield")
+					{
+						mon.shieldBonus = 2;
+						mon.armorName = armorDescData[0];
+					}
+					// Or if it's just weird
+					else
+						armorDescData = [ armorDescData.join(",") ];
 				}
 
 				// Is it natural armor?
@@ -697,7 +719,7 @@ var GetVariablesFunctions =
 					if(natArmorBonusCheck > 0)
 						mon.natArmorBonus = natArmorBonusCheck;
 					
-					// Weird edge case where the monster has a natural armor bonus of <=0
+					// Weird edge case where the monster has a natural armor bonus of <= 0
 					else
 						mon.armorName = "other";
 				}
@@ -708,20 +730,18 @@ var GetVariablesFunctions =
 				
 				// We have no idea what this armor is
 				else
-					armorName = "other";	
+					mon.armorName = "other";	
 			}
 		}
 		else
-		{
-			mon.shieldBonus = 0;
-			mon.armorName = (armorAcData == MathFunctions.GetAC("none")) ? "none" : "other";
-		}
+			mon.armorName = (armorAcData == MathFunctions.GetAC("none") ? "none" : "other");
 		
 		// In case it's an unknown armor type
 		if(mon.armorName == "other")
 		{
 			if(armorDescData)
-				mon.otherArmorDesc = armorAcData + " (" + armorDescData + ")";
+				mon.otherArmorDesc = armorDescData[0].includes("(") ? armorDescData :
+					armorAcData + " (" + armorDescData + ")";
 			else
 				mon.otherArmorDesc = armorAcData + " (unknown armor type)";
 			
@@ -731,6 +751,8 @@ var GetVariablesFunctions =
 			if(natArmorBonusCheck > 0)
 				mon.natArmorBonus = natArmorBonusCheck;
 		}
+		else
+			mon.otherArmorDesc = armorAcData + (preset.armor_desc ? " (" + preset.armor_desc + ")" : "");
 		
 		// Hit Dice
 		mon.hitDice = parseInt(preset.hit_dice.split("d")[0]);
@@ -746,6 +768,17 @@ var GetVariablesFunctions =
 		mon.flySpeed = GetSpeed(preset.speed, "fly");
 		mon.swimSpeed = GetSpeed(preset.speed, "swim");
 		mon.hover = preset.speed.hasOwnProperty("hover");
+		
+		if(preset.speed.hasOwnProperty("notes"))
+		{
+			mon.customSpeed = true;
+			mon.speedDesc = preset.speed.walk + " ft. (" + preset.speed.notes + ")";
+		}
+		else
+		{
+			mon.customSpeed = false;
+			mon.speedDesc = StringFunctions.GetSpeed();
+		}
 		
 		// Saving Throws
 		mon.sthrows = [];
@@ -764,14 +797,17 @@ var GetVariablesFunctions =
 		
 		// Skills
 		mon.skills = [];
-		for(let index = 0; index < allSkills.length; index++)
+		if(preset.skills)
 		{
-			let currentSkill = allSkills[index], skillCheck = StringFunctions.StringReplaceAll(currentSkill.name.toLowerCase(), " ", "_");
-			if(preset.hasOwnProperty(skillCheck) && preset[skillCheck] != null)
+			for(let index = 0; index < allSkills.length; index++)
 			{
-				let expectedExpertise = MathFunctions.PointsToBonus(mon[currentSkill.stat + "Points"]) + Math.ceil(crs[mon.cr].prof * 1.5),
-					skillVal = preset[skillCheck];
-				this.AddSkill(allSkills[index].name, (skillVal >= expectedExpertise ? " (ex)" : null));
+				let currentSkill = allSkills[index], skillCheck = StringFunctions.StringReplaceAll(currentSkill.name.toLowerCase(), " ", "_");
+				if(preset.skills[skillCheck])
+				{
+					let expectedExpertise = MathFunctions.PointsToBonus(mon[currentSkill.stat + "Points"]) + Math.ceil(crs[mon.cr].prof * 1.5),
+						skillVal = preset.skills[skillCheck];
+					this.AddSkill(allSkills[index].name, (skillVal >= expectedExpertise ? " (ex)" : null));
+				}
 			}
 		}
 		
@@ -814,7 +850,7 @@ var GetVariablesFunctions =
 			{
 				case "blindsight":
 					mon.blindsight = senseDist;
-					mon.blind = senseName.toLowerCase().includes("blind beyond");
+					mon.blind = senseString.toLowerCase().includes("blind beyond");
 					break;
 				case "darkvision":
 					mon.darkvision = senseDist;
@@ -830,7 +866,10 @@ var GetVariablesFunctions =
 		
 		// Legendary?
 		mon.isLegendary = Array.isArray(preset.legendary_actions);
-		this.LegendaryDescriptionDefault();
+		if(preset.legendary_desc == null || preset.legendary_desc.length == 0)
+			this.LegendaryDescriptionDefault();
+		else
+			mon.legendariesDescription = preset.legendary_desc;
 		FormFunctions.SetLegendaryDescriptionForm();
 		
 		// Abilities
@@ -1075,12 +1114,30 @@ var StringFunctions =
 	
 	GetSpeed: function()
 	{
+		if(mon.customSpeed)
+			return mon.speedDesc;
 		let speedsDisplayArr = [ mon.speed + " ft."];
 		if(mon.burrowSpeed > 0) speedsDisplayArr.push("burrow " + mon.burrowSpeed + " ft.");
 		if(mon.climbSpeed > 0) speedsDisplayArr.push("climb " + mon.climbSpeed + " ft.");
 		if(mon.flySpeed > 0) speedsDisplayArr.push("fly " + mon.flySpeed + " ft." + (mon.hover ? " (hover)" : ""));
 		if(mon.swimSpeed > 0) speedsDisplayArr.push("swim " + mon.swimSpeed + " ft.");
 		return speedsDisplayArr.join(", ")
+	},
+	
+	GetSenses: function()
+	{
+		let sensesDisplayArr = [];
+		if(mon.blindsight > 0) sensesDisplayArr.push("blindsight " + mon.blindsight + " ft." + (mon.blind ? " (blind beyond this radius)" : ""));
+		if(mon.darkvision > 0) sensesDisplayArr.push("darkvision " + mon.darkvision + " ft.");
+		if(mon.tremorsense > 0) sensesDisplayArr.push("tremorsense " + mon.tremorsense + " ft.");
+		if(mon.truesight > 0) sensesDisplayArr.push("truesight " + mon.truesight + " ft.");
+
+		// Passive Perception
+		let ppData = ArrayFunctions.FindInList(mon.skills, "Perception"), pp = 10 + MathFunctions.PointsToBonus(mon.wisPoints);
+		if(ppData != null)
+			pp += crs[mon.cr].prof * (ppData.hasOwnProperty("note") ? 2 : 1);
+		sensesDisplayArr.push("passive Perception " + pp);
+		return sensesDisplayArr.join(", ");
 	},
 	
 	GetPropertiesDisplayArr: function()
@@ -1125,16 +1182,7 @@ var StringFunctions =
 			conditionsDisplayArr.push(mon.conditions[index].name.toLowerCase());
 
 		// Senses
-		if(mon.blindsight > 0) sensesDisplayArr.push("blindsight " + mon.blindsight + " ft." + (mon.blind ? " (blind beyond this radius)" : ""));
-		if(mon.darkvision > 0) sensesDisplayArr.push("darkvision " + mon.darkvision + " ft.");
-		if(mon.tremorsense > 0) sensesDisplayArr.push("tremorsense " + mon.tremorsense + " ft.");
-		if(mon.truesight > 0) sensesDisplayArr.push("truesight " + mon.truesight + " ft.");
-
-		// Passive Perception
-		let ppData = ArrayFunctions.FindInList(mon.skills, "Perception"), pp = 10 + MathFunctions.PointsToBonus(mon.wisPoints);
-		if(ppData != null)
-			pp += crs[mon.cr].prof * (ppData.hasOwnProperty("note") ? 2 : 1);
-		sensesDisplayArr.push("passive Perception " + pp);
+		sensesDisplayString = StringFunctions.GetSenses();
 		
 		// Languages
 		for(let index = 0; index < mon.languages.length; index++)
@@ -1152,7 +1200,7 @@ var StringFunctions =
 		pushArr("Damage Resistances", resistantDisplayString);
 		pushArr("Damage Immunities", immuneDisplayString);
 		pushArr("Condition Immunities", conditionsDisplayArr);
-		pushArr("Senses", sensesDisplayArr);
+		pushArr("Senses", sensesDisplayString);
 		pushArr("Languages", languageDisplayArr);
 		
 		return propertiesDisplayArr;
@@ -1353,12 +1401,12 @@ function Populate()
 
 
 const stats = [
-		{ "name": "str", "order": 0 },
-		{ "name": "dex", "order": 1 }, 
-		{ "name": "con", "order": 2 },
-		{ "name": "int", "order": 3 },
-		{ "name": "wis", "order": 4 },
-		{ "name": "cha", "order": 5 },
+		{ "name" : "str", "order" : 0 },
+		{ "name" : "dex", "order" : 1 }, 
+		{ "name" : "con", "order" : 2 },
+		{ "name" : "int", "order" : 3 },
+		{ "name" : "wis", "order" : 4 },
+		{ "name" : "cha", "order" : 5 },
 	],
 	
 	//allProperties = [ "Saving Throws", "Skills", "Damage Vulnerabilities", "Damage Resistances", "Damage Immunities", "Condition Immunities" ],
@@ -1392,115 +1440,117 @@ const stats = [
 	
 	sizes = 
 	{
-		"tiny":	{ "hitDie": 4 },
-		"small": { "hitDie": 6 },
-		"medium": { "hitDie": 8 },
-		"large": { "hitDie": 10 },
-		"huge": { "hitDie": 12 },
-		"gargantuan": { "hitDie": 20 },
+		"tiny" :	{ "hitDie" : 4 },
+		"small" : { "hitDie" : 6 },
+		"medium" : { "hitDie" : 8 },
+		"large" : { "hitDie" : 10 },
+		"huge" : { "hitDie" : 12 },
+		"gargantuan" : { "hitDie" : 20 },
 	},
 	
 	types = [ "aberration", "beast", "celestial", "construct", "dragon", "elemental", "fey", "fiend", "giant", "humanoid", "monstrosity", "ooze", "plant", "undead" ]
 
 	crs =
 	{
-		"0": {"xp": "10", "prof" : 2 },
-		"1/8": {"xp": "25", "prof" : 2 },
-		"1/4": {"xp": "50", "prof" : 2 },
-		"1/2": {"xp": "100", "prof" : 2 },
-		"1": {"xp": "200", "prof" : 2 },
-		"2": {"xp": "450", "prof" : 2 },
-		"3": {"xp": "700", "prof" : 2 },
-		"4": {"xp": "1,100", "prof" : 2 },
-		"5": {"xp": "1,800", "prof" : 3 },
-		"6": {"xp": "2,300", "prof" : 3 },
-		"7": {"xp": "2,900", "prof" : 3 },
-		"8": {"xp": "3,900", "prof" : 3 },
-		"9": {"xp": "5,000", "prof" : 4 },
-		"10": {"xp": "5,900", "prof" : 4 },
-		"11": {"xp": "7,200", "prof" : 4 },
-		"12": {"xp": "8,400", "prof" : 4 },
-		"13": {"xp": "10,000", "prof" : 5 },
-		"14": {"xp": "11,500", "prof" : 5 },
-		"15": {"xp": "13,000", "prof" : 5 },
-		"16": {"xp": "15,000", "prof" : 5 },
-		"17": {"xp": "18,000", "prof" : 6 },
-		"18": {"xp": "20,000", "prof" : 6 },
-		"19": {"xp": "22,000", "prof" : 6 },
-		"20": {"xp": "25,000", "prof" : 6 },
-		"21": {"xp": "33,000", "prof" : 7 },
-		"22": {"xp": "41,000", "prof" : 7 },
-		"23": {"xp": "50,000", "prof" : 7 },
-		"24": {"xp": "62,000", "prof" : 7 },
-		"25": {"xp": "75,000", "prof" : 8 },
-		"26": {"xp": "90,000", "prof" : 8 },
-		"27": {"xp": "105,000", "prof" : 8 },
-		"28": {"xp": "120,000", "prof" : 8 },
-		"29": {"xp": "135,000", "prof" : 9 },
-		"30": {"xp": "155,000", "prof" : 9 },
+		"0" : {"xp" : "10", "prof" : 2 },
+		"1/8" : {"xp" : "25", "prof" : 2 },
+		"1/4" : {"xp" : "50", "prof" : 2 },
+		"1/2" : {"xp" : "100", "prof" : 2 },
+		"1" : {"xp" : "200", "prof" : 2 },
+		"2" : {"xp" : "450", "prof" : 2 },
+		"3" : {"xp" : "700", "prof" : 2 },
+		"4" : {"xp" : "1,100", "prof" : 2 },
+		"5" : {"xp" : "1,800", "prof" : 3 },
+		"6" : {"xp" : "2,300", "prof" : 3 },
+		"7" : {"xp" : "2,900", "prof" : 3 },
+		"8" : {"xp" : "3,900", "prof" : 3 },
+		"9" : {"xp" : "5,000", "prof" : 4 },
+		"10" : {"xp" : "5,900", "prof" : 4 },
+		"11" : {"xp" : "7,200", "prof" : 4 },
+		"12" : {"xp" : "8,400", "prof" : 4 },
+		"13" : {"xp" : "10,000", "prof" : 5 },
+		"14" : {"xp" : "11,500", "prof" : 5 },
+		"15" : {"xp" : "13,000", "prof" : 5 },
+		"16" : {"xp" : "15,000", "prof" : 5 },
+		"17" : {"xp" : "18,000", "prof" : 6 },
+		"18" : {"xp" : "20,000", "prof" : 6 },
+		"19" : {"xp" : "22,000", "prof" : 6 },
+		"20" : {"xp" : "25,000", "prof" : 6 },
+		"21" : {"xp" : "33,000", "prof" : 7 },
+		"22" : {"xp" : "41,000", "prof" : 7 },
+		"23" : {"xp" : "50,000", "prof" : 7 },
+		"24" : {"xp" : "62,000", "prof" : 7 },
+		"25" : {"xp" : "75,000", "prof" : 8 },
+		"26" : {"xp" : "90,000", "prof" : 8 },
+		"27" : {"xp" : "105,000", "prof" : 8 },
+		"28" : {"xp" : "120,000", "prof" : 8 },
+		"29" : {"xp" : "135,000", "prof" : 9 },
+		"30" : {"xp" : "155,000", "prof" : 9 },
 	},
 
 	armors = 
 	{
-		"none":	{ "type": "special" },
-		"natural armor": { "type": "special" },
-		"mage armor": { "type": "special" },
-		"padded armor": { "type": "light", "ac": 11 },
-		"leather armor": { "type": "light",	"ac": 11 },
-		"studded leather": { "type": "light", "ac": 12 },
-		"hide armor": { "type": "medium", "ac": 12 },
-		"chain shirt": { "type": "medium", "ac": 13 },
-		"scale mail": { "type": "medium", "ac": 14 },
-		"breastplate": { "type": "medium", "ac": 14 },
-		"half plate": { "type": "medium", "ac": 15 },
-		"ring mail": { "type": "heavy", "ac": 14 },
-		"chain mail": { "type": "heavy", "ac": 16 },
-		"splint": { "type": "heavy", "ac": 17 },
-		"plate": { "type": "heavy", "ac": 18 },
-		"other": { "type": "special" },
+		"none" : { "type" : "special" },
+		"natural armor" : { "type" : "special" },
+		"mage armor" : { "type" : "special" },
+		"padded armor" : { "type" : "light", "ac" : 11 },
+		"leather armor" : { "type" : "light",	"ac" : 11 },
+		"studded leather" : { "type" : "light", "ac" : 12 },
+		"hide armor" : { "type" : "medium", "ac" : 12 },
+		"chain shirt" : { "type" : "medium", "ac" : 13 },
+		"scale mail" : { "type" : "medium", "ac" : 14 },
+		"breastplate" : { "type" : "medium", "ac" : 14 },
+		"half plate" : { "type" : "medium", "ac" : 15 },
+		"ring mail" : { "type" : "heavy", "ac" : 14 },
+		"chain mail" : { "type" : "heavy", "ac" : 16 },
+		"splint" : { "type" : "heavy", "ac" : 17 },
+		"plate" : { "type" : "heavy", "ac" : 18 },
+		"other" : { "type" : "special" },
 	},
-	
-	attackTypes = [ "melee or ranged weapon attack:", "melee or ranged spell attack:", "melee weapon attack:", "melee spell attack:", "ranged weapon attack:", "ranged spell attack:" ],
 	
 	defaultPreset = 
 	{
-		"slug": "",
-		"name": "Monster",
-		"size": "Medium",
-		"type": "humanoid",
-		"subtype": "",
-		"group": null,
-		"alignment": "any alignment",
-		"armor_class": 10,
-		"armor_desc": null,
-		"hit_points": 22,
-		"hit_dice": "5d8",
-		"speed": { "walk": 30 },
-		"strength": 10,
-		"dexterity": 10,
-		"constitution": 10,
-		"intelligence": 10,
-		"wisdom": 10,
-		"charisma": 10,
-		"strength_save": null,
-		"dexterity_save": null,
-		"constitution_save": null,
-		"intelligence_save": null,
-		"wisdom_save": null,
-		"charisma_save": null,
-		"damage_vulnerabilities": "",
-		"damage_resistances": "",
-		"damage_immunities": "",
-		"condition_immunities": "",
-		"senses": "passive Perception 10",
-		"languages": "",
-		"challenge_rating": "1",
-		"actions": "",
-		"reactions": "",
-		"legendary_actions": "",
-		"special_abilities": "",
-		"document_slug": "systems-reference-document"
+		"slug" : "",
+		"name" : "Monster",
+		"size" : "Medium",
+		"type" : "humanoid",
+		"subtype" : "",
+		"group" : null,
+		"alignment" : "any alignment",
+		"armor_class" : 10,
+		"armor_desc" : null,
+		"hit_points" : 22,
+		"hit_dice" : "5d8",
+		"speed" : { "walk" : 30 },
+		"strength" : 10,
+		"dexterity" : 10,
+		"constitution" : 10,
+		"intelligence" : 10,
+		"wisdom" : 10,
+		"charisma" : 10,
+		"strength_save" : null,
+		"dexterity_save" : null,
+		"constitution_save" : null,
+		"intelligence_save" : null,
+		"wisdom_save" : null,
+		"charisma_save" : null,
+		"skills" : {},
+		"damage_vulnerabilities" : "",
+		"damage_resistances" : "",
+		"damage_immunities" : "",
+		"condition_immunities" : "",
+		"senses" : "passive Perception 10",
+		"languages" : "",
+		"challenge_rating" : "1",
+		"actions" : "",
+		"reactions" : "",
+		"legendary_actions" : "",
+		"legendary_desc" : "",
+		"special_abilities" : "",
+		"document_slug" : "systems-reference-document"
 	},
+	
+	attackTypes = [ "melee or ranged weapon attack:", "melee or ranged spell attack:", "melee weapon attack:", "melee spell attack:", "ranged weapon attack:", "ranged spell attack:" ],
 	
 	commonAbilities =
 	[
