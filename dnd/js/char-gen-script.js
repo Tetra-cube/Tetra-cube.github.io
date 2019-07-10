@@ -68,7 +68,6 @@ var CharacterType =
 	GetNoCard: function()
 	{
 		characterType = $("#pc-radio").prop("checked") ? "pc" : $("#npc-radio").prop("checked") ? "npc" : "either";
-		console.log(defaultRaceSectionClass);
 		if(characterType == "pc")
 		{
 			$(".pc-show, .pc-only-show").show();
@@ -122,7 +121,10 @@ var Generate =
 			Random.Array([ "standard", "real" ]);
 		
 		// Determine race weight
-		character.Race = Content.GetRandom(races, $("#weighted-radio").prop("checked") ? RaceWeighted.Get() : $("#racemenu").val());
+		let raceVal = $("#racemenu").val();
+		character.Race = Content.GetRandom(races, raceVal == "Random" ?
+			$("#weighted-radio").prop("checked") ? RaceWeighted.Get() : "Random" :
+			raceVal);
 		
 		$("#race, #raceheader").html(character.Race.name);
 		$("#racesection").html(HTMLStrings.Get(character.Race));
