@@ -174,16 +174,6 @@ label {
 	text-align: center;
 	margin-top: 20px;
 }
-.character-columns ul {
-	padding-left: 5px;
-	margin-left: 5px;
-}
-.character-columns td {
-	padding: 0 5px;
-}
-.character-columns button {
-	margin-top: 2px;
-}
 .radio-row {
 	line-height: 1.5rem;
 	margin-bottom: 1rem;
@@ -194,6 +184,16 @@ label {
 #imagecanvas {
 	border-color: white;
 	border-style: solid;
+}
+#character-columns ul {
+	padding-left: 5px;
+	margin-left: 5px;
+}
+#character-columns td {
+	padding: 0 5px;
+}
+#character-columns button {
+	margin-top: 2px;
 }
 @media screen and (min-width: 1000px) {
 	.container {

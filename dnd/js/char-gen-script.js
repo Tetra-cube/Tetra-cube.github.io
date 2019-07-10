@@ -1,4 +1,4 @@
-var character = {}, characterType = "either", books = [], mcEthnicity = "", ethnicityOption = "";
+var character = {}, characterType = "either", books = [], mcEthnicity = "", ethnicityOption = "", defaultRaceSectionClass;
 
 // Populate the dropdowns with material from the selected books
 var Dropdowns =
@@ -68,25 +68,29 @@ var CharacterType =
 	GetNoCard: function()
 	{
 		characterType = $("#pc-radio").prop("checked") ? "pc" : $("#npc-radio").prop("checked") ? "npc" : "either";
-	},
-	Get: function()
-	{
-		this.GetNoCard();
+		console.log(defaultRaceSectionClass);
 		if(characterType == "pc")
 		{
 			$(".pc-show, .pc-only-show").show();
 			$(".npc-show, .npc-only-show").hide();
+			$("#race-section").prop("class", defaultRaceSectionClass);
 		}
 		else if(characterType == "npc")
 		{
 			$(".npc-show, .npc-only-show").show();
 			$(".pc-show, .pc-only-show").hide();
+			$("#race-section").prop("class", "col-12");
 		}
 		else
 		{
 			$(".pc-show, .npc-show").show();
 			$(".pc-only-show, .npc-only-show").hide();
+			$("#race-section").prop("class", defaultRaceSectionClass);
 		}
+	},
+	Get: function()
+	{
+		this.GetNoCard();
 		CardType.Set();
 	}
 }
@@ -1044,6 +1048,7 @@ var Life =
 // When the page loads
 $(function()
 {
+	defaultRaceSectionClass = $("#race-section").prop("class");
 	CharacterType.GetNoCard();
 	Dropdowns.Update();
 	Generate.All();
