@@ -1,4 +1,15 @@
-var character = {}, characterType = "either", books = [], mcEthnicity = "", ethnicityOption = "", defaultRaceSectionClass;
+var character = {}, characterType = "either", books = [], mcEthnicity = "", ethnicityOption = "", defaultRaceSectionClass,
+	lock = {
+		"name" : false,
+		"traits" : false,
+		"occupation" : false,
+		"gender" : false,
+		"race" : false,
+		"class" : false,
+		"background" : false,
+		"life" : false,
+		"all" : [ "name", "traits", "occupation", "gender", "race", "class", "background", "life" ]
+	};
 
 // Populate the dropdowns with material from the selected books
 var Dropdowns =
@@ -73,18 +84,21 @@ var CharacterType =
 			$(".pc-show, .pc-only-show").show();
 			$(".npc-show, .npc-only-show").hide();
 			$("#race-section").prop("class", defaultRaceSectionClass);
+			$("#name-lock-div").removeClass("col-lg-4");
 		}
 		else if(characterType == "npc")
 		{
 			$(".npc-show, .npc-only-show").show();
 			$(".pc-show, .pc-only-show").hide();
 			$("#race-section").prop("class", "col-12");
+			$("#name-lock-div").addClass("col-lg-4");
 		}
 		else
 		{
 			$(".pc-show, .npc-show").show();
 			$(".pc-only-show, .npc-only-show").hide();
 			$("#race-section").prop("class", defaultRaceSectionClass);
+			$("#name-lock-div").addClass("col-lg-4");
 		}
 	},
 	Get: function()
@@ -115,6 +129,7 @@ var Generate =
 
 	Race: function()
 	{
+		if(lock.race) return;
 		// Determine human ethnicity
 		ethnicityOption = $("#standard-radio").prop("checked") ? "standard" :
 			$("#real-radio").prop("checked") ? "real" :
@@ -134,6 +149,7 @@ var Generate =
 
 	Gender: function()
 	{
+		if(lock.gender) return;
 		let genderVal = $("#gendermenu").val();
 		character.Gender = (genderVal == "Random" ? Random.Array(genders) : genderVal);
 		
@@ -144,12 +160,14 @@ var Generate =
 
 	Name: function()
 	{
+		if(lock.name) return;
 		character.Name = Names.Get(character.Race.name, character.Gender);
 		$("#name").html(character.Name);
 	},
 
 	Class: function()
 	{
+		if(lock.class) return;
 		character.Class = Content.GetRandom(classes, $("#classmenu").val());
 		
 		$("#class, #classheader").html(character.Class.name);
@@ -158,6 +176,7 @@ var Generate =
 
 	Background: function()
 	{
+		if(lock.background) return;
 		character.Background = Content.GetRandom(backgrounds, $("#backgroundmenu").val());
 		
 		$("#background, #backgroundheader").html(character.Background.name);
@@ -166,18 +185,21 @@ var Generate =
 
 	Occupation: function()
 	{
+		if(lock.occupation) return;
 		character.Occupation = Occupation.Get();
 		$("#occupation").html(character.Occupation);
 	},
 
 	NPCTraits: function()
 	{
+		if(lock.traits) return;
 		character.NPCTraits = { "name" : "NPCTraits", "content" : Content.Get(NPCTraits.Get()) };
 		$("#npc-traits-section").html(HTMLStrings.Get(character.NPCTraits));
 	},
 
 	Life: function()
 	{
+		if(lock.life) return;
 		character.Life = { "name" : "Life", "content" : Content.Get(Life.Get()) };
 		$("#lifesection").html(HTMLStrings.Get(character.Life));
 	},
@@ -1045,6 +1067,29 @@ var Life =
 			roll < 11 ? "Friendly" :
 			"Indifferent";
 	},
+}
+
+var LockFunctions = {
+	TryLock: function(id)
+	{
+		let button = $("#" + id + "-lock-button").children(":first"), lockThis = !lock[id];
+		lock[id] = lockThis;
+		button.prop("class", lockThis ? "fa fa-lock" : "fa fa-lock-open");
+	},
+	TryLockAll: function(id)
+	{
+		lock.all.forEach(function(id) {
+			lock[id] = true;
+			$("#" + id + "-lock-button").children(":first").prop("class", "fa fa-lock");
+		});
+	},
+	TryUnlockAll: function(id)
+	{
+		lock.all.forEach(function(id) {
+			lock[id] = false;
+			$("#" + id + "-lock-button").children(":first").prop("class", "fa fa-lock-open");
+		});
+	}
 }
 
 // When the page loads

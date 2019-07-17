@@ -42,9 +42,6 @@ ul {
 	padding-left: 1.5rem;
 }
 button {
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
 	color: #ffffff;
 	font-size: 1rem;
 	font-family: Tahoma, Georgia, Arial, sans-serif;
@@ -180,6 +177,13 @@ label {
 }
 .radio-row b {
 	line-height: 2rem;
+}
+.lock-button {
+	width: 2rem;
+	background: #888888;
+}
+.lock-button:hover {
+	background: #cccccc;
 }
 #imagecanvas {
 	border-color: white;

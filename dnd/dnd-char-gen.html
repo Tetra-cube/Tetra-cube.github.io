@@ -5,6 +5,7 @@
 		<title>D&amp;D 5e Character Generator</title>
 		<link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/all.min.css">
 		<link rel="stylesheet" type="text/css" href="css/dnd-style.css">
 		<link rel="stylesheet" type="text/css" href="css/dnd-rwd.css">
 		<script src="js/jquery-3.4.1.min.js"></script>
@@ -100,6 +101,9 @@
 				<hr>
 				
 				<div style="text-align: center;">
+					<button class="lock-button" id="all-lock-button" style="width: 4rem;" onclick="LockFunctions.TryLockAll()"><i class="fas fa-lock"></i> All</button>
+					<button class="lock-button" id="none-lock-button" style="width: 4rem;" onclick="LockFunctions.TryUnlockAll()"><i class="fas fa-lock-open"></i> All</button>
+					<br>
 					<button type="button" onclick="Generate.All()">Generate Character</button>
 				</div>
 				<br>
@@ -113,39 +117,48 @@
 					<li class="npc-show"><b>Description:</b> <ul id="npc-traits-section"></ul></li>
 				</ul>
 				<br>
-				<div style="text-align: center;">
-					<button type="button" onclick="Generate.NameInput()">Generate Name</button>
-					<button class="npc-show" type="button" onclick="Generate.NPCTraitsInput()">Generate Description</button>
-					<button class="npc-show" type="button" onclick="Generate.Occupation()">Generate Occupation</button>
+				<div class="row" style="text-align: center;">
+					<div id="name-lock-div" class="col-12 col-lg-4" style="inline-block">
+						<button class="lock-button" id="name-lock-button" onclick="LockFunctions.TryLock('name')"><i class="fas fa-lock-open"></i></button>
+						<button type="button" onclick="Generate.NameInput()">Generate Name</button>
+					</div>
+					<div class="col-12 col-lg-4 npc-show" style="inline-block">
+						<button class="lock-button" id="traits-lock-button" onclick="LockFunctions.TryLock('traits')"><i class="fas fa-lock-open"></i></button>
+						<button type="button" onclick="Generate.NPCTraitsInput()">Generate Description</button>
+					</div>
+					<div class="col-12 col-lg-4 npc-show" style="inline-block">
+						<button class="lock-button" id="occupation-lock-button" onclick="LockFunctions.TryLock('occupation')"><i class="fas fa-lock-open"></i></button>
+						<button type="button" onclick="Generate.Occupation()">Generate Occupation</button>
+					</div>
 				</div>
 				
 				<hr>
 				 
 				<div style="text-align: center;">
 					<div>
-						<label for="gendermenu"><b>Gender: </b>
-							<br class="small-only-br">
-							<select class="dropdown" id="gendermenu">
-								<option value="Random">Random</option>
-								<option value="Male">Male</option>
-								<option value="Female">Female</option>
-								<option value="Nonbinary or Unknown">Nonbinary or Unknown</option>
-							</select>
-						</label>
+						<label for="gendermenu"><b>Gender: </b></label>
+						<button class="lock-button" id="gender-lock-button" onclick="LockFunctions.TryLock('gender')"><i class="fas fa-lock-open"></i></button>
+						<br class="small-only-br">
+						<select class="dropdown" id="gendermenu">
+							<option value="Random">Random</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+							<option value="Nonbinary or Unknown">Nonbinary or Unknown</option>
+						</select>
 						<button type="button" onclick="Generate.Gender()">Generate</button>
 					</div>
 					<h3>Gender: <span id="genderheader"></span></h3>
 				</div>
 				<br>
-				
 				<div id="character-columns" class="row">
 					<div class="col-12 col-lg-4 pc-show" id="class-section">
 						<div style="text-align: center;">
 							<label for="classmenu">
 								<b>Class: </b>
-								<br class="sometimes-br">
-								<select class="dropdown" id="classmenu"></select>
 							</label>
+							<br class="sometimes-br">
+							<button class="lock-button" id="class-lock-button" onclick="LockFunctions.TryLock('class')"><i class="fas fa-lock-open"></i></button>
+							<select class="dropdown" id="classmenu"></select>
 							<button type="button" onclick="Generate.ClassInput()">Generate</button>
 							<br><br>
 						</div>
@@ -157,9 +170,10 @@
 						<div style="text-align: center;">
 							<label for="racemenu">
 								<b>Race: </b>
-								<br class="sometimes-br">
-								<select class="dropdown" id="racemenu"></select>
 							</label>
+							<br class="sometimes-br">
+							<button class="lock-button" id="race-lock-button" onclick="LockFunctions.TryLock('race')"><i class="fas fa-lock-open"></i></button>
+							<select class="dropdown" id="racemenu"></select>
 							<button type="button" onclick="Generate.RaceInput()">Generate</button>
 							<br><br>
 						</div>
@@ -171,9 +185,10 @@
 						<div style="text-align: center;">
 							<label for="backgroundmenu">
 								<b>Background: </b>
-								<br class="sometimes-br">
-								<select class="dropdown" id="backgroundmenu"></select>
 							</label>
+							<br class="sometimes-br">
+							<button class="lock-button" id="background-lock-button" onclick="LockFunctions.TryLock('background')"><i class="fas fa-lock-open"></i></button>
+							<select class="dropdown" id="backgroundmenu"></select>
 							<button type="button" onclick="Generate.BackgroundInput()">Generate</button>
 							<br><br>
 						</div>
@@ -185,7 +200,9 @@
 				
 				<hr>
 				<div>
-					<h3 style="display: inline; margin-right: 30px;">Life:</h3><button type="button" onclick="Generate.LifeInput()">Generate</button><br><br>
+					<h3 style="display: inline; margin-right: 30px;">Life:</h3>
+					<button class="lock-button" id="life-lock-button" onclick="LockFunctions.TryLock('life')"><i class="fas fa-lock-open"></i></button>
+					<button type="button" onclick="Generate.LifeInput()">Generate</button><br><br>
 					<ul id="lifesection" style="min-height: 45rem;"></ul>
 					<br>
 					<sub>Refer to Xanathar's Guide (starting on page 61) for supplementary tables.</sub>
