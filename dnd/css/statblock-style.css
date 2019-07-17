@@ -181,3 +181,23 @@
 .top-stats { /* Fix for a weird bug that I can't figure out the cause of */
 	margin: 0 0 10px;
 }
+
+#print-block h1,
+#print-block h3,
+#print-block h4,
+#print-block p {
+	color: black;
+}
+#print-block h3 {
+	border-bottom-color: black;
+}
+#print-block .tapered-rule {
+	color: black;
+	fill: black;
+}
+#print-block .stat-block {
+	background: none;
+}
+#print-block .orange-border {
+	display: none;
+}

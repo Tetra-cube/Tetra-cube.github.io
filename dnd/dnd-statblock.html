@@ -122,7 +122,7 @@
 				<div class="options">
 					<form>
 						<label for="1col-input"><input id="1col-input" type="radio" name="columns-input" value="1col" checked> One Column</label>
-						<label for="2col-input"><input id="2col-input" type="radio" name="columns-input" value="2col"> Two Columns</label>
+						<label for="2col-input" style="margin-left: .5rem;"><input id="2col-input" type="radio" name="columns-input" value="2col"> Two Columns</label>
 					</form>
 					<button id="left-separator-button" type="button" onclick="UpdateBlockFromVariables(1)">&lt;&lt;</button> 
 					<button type="button" onclick="UpdateBlockFromVariables(0)">Update Statblock</button> 
@@ -228,7 +228,7 @@
 								<div id="hover-box-note" class="box-note"><label for="hover-input">(Hover: <input type="checkbox" id="hover-input">)</label></div>
 							</td>
 							<td class="normal-speed-col"><label for="swim-speed-input">Swim Speed:<br><input type="number" id="swim-speed-input" min="0" max="995" step="5" value="0"> ft.</label></td>
-							<td colspan="5" class="custom-speed-col" style="display: none;">
+							<td colspan="5" class="custom-speed-col">
 								<label for="custom-speed-prompt" style="width: 100%;">Speed: <input id="custom-speed-prompt" type="text" value="30 ft."></label><br>
 							</td>
 							<td>
@@ -463,16 +463,27 @@
 						<button type="button" id="add-common-ability-button" onclick="InputFunctions.AddCommonAbilityInput()">Use Preset</button>
 					</div>
 					<div>
-						<i>Use _ to italicize and ** to bold. For Spellcasting lists, use > to reverse-indent.</i>
+						<label for="format-helper-checkbox">Show Formatting Help: <input type="checkbox" id="format-helper-checkbox" onclick="FormFunctions.ShowHideFormatHelper()"></label>
 					</div>
-					<br>
-					<div style="text-align: left;">
+					<div id="format-helper" style="text-align: left; padding: 0 2rem;">
+						<i>
+							<br>
+							<div>Use _ to italicize and ** to bold. For Spellcasting lists, use > to reverse-indent.</div>
+							<br>
+							<div><b>[MON]</b>: Shows the monster's name.</div>
+							<div><b>[CHA]</b>: Shows the monster's charisma modifier.</div>
+							<div><b>[STR ATK]</b>: Calculates the modifier to the monster's attack roll for a strength-based attack.</div>
+							<div><b>[DEX 2D8]</b>: Calculates the damage roll for a dexterity-based attack with damage dice 2d8.</div>
+							<div><b>[WIS SAVE]</b>: Calculates the save DC vs the monster's wisdom.</div>
+							<br>
+						</i>
+					</div>
+					<div style="text-align: left; min-height: 5rem;">
 						<div id="abilities-input-section"><b>Abilities:</b><br> <ul id="abilities-input-list" class="statblock-list"></ul></div>
 						<div id="actions-input-section"><b>Actions:</b><br> <ul id="actions-input-list" class="statblock-list"></ul></div>
 						<div id="reactions-input-section"><b>Reactions:</b><br> <ul id="reactions-input-list" class="statblock-list"></ul></div>
 						<div id="legendaries-input-section"><b>Legendary Actions:</b><br> <ul id="legendaries-input-list" class="statblock-list"></ul></div>
 					</div>
-					
 				<br>
 				</div>
 				<div class="footer"><a href="https://github.com/Tetra-cube/Tetra-cube.github.io">GitHub Repo</a></div>

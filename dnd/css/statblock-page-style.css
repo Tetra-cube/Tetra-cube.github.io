@@ -29,6 +29,21 @@
 #legendaries-descsection {
 	margin: 8px 0 0;
 }
+#stat-helper tr {
+	border-bottom: 1px solid;
+}
+#stat-helper td, #stat-helper th {
+	text-align: center;
+	border-left: 1px solid;
+	min-width: 3rem;
+	padding: 0 .5rem;
+}
+#stat-helper .left-td {
+	border-left: none;
+	text-align: left;
+	padding-left: 0px;
+	font-weight: bold;
+}
 
 @media screen and (min-width: 992px) {
 	#stat-block-body {
