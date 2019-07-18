@@ -1482,48 +1482,19 @@ $(function()
 		// Load saved data
 		SavedData.RetrieveFromLocalStorage();
 		
-		FormFunctions.SetLegendaryDescriptionForm();
-		FormFunctions.SetCommonAbilitiesDropdown();
-		
-		// Populate the stat block
-		FormFunctions.InitForms();
-		FormFunctions.SetForms();
-		UpdateStatblock();
+		Populate();
 	});
 	
 	FormFunctions.ShowHideFormatHelper();
 });
 
-// Document ready function
-// $(function()
-// {
-	// // Load the preset monster names
-	// $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000", function(jsonArr) {
-		// $.each(jsonArr.results, function(index, value) {
-			// $("#monster-select").append("<option value='" + value.slug + "'>" + value.name + "</option>");
-		// })
-	// })
-	// .fail(function() {
-		// $("#monster-select-form").html("Unable to load monster presets.")
-	// })
+function Populate()
+{
+	FormFunctions.SetLegendaryDescriptionForm();
+	FormFunctions.SetCommonAbilitiesDropdown();
 	
-	// // Set the default legendary description in case there isn't one saved
-	// GetVariablesFunctions.SetPreset(defaultPreset);
-	
-	// // Load saved data
-	// SavedData.RetrieveFromLocalStorage();
-	// Populate();
-	
-	// FormFunctions.ShowHideFormatHelper();
-	// FormFunctions.InitForms();
-// });
-
-// function Populate()
-// {
-	// FormFunctions.SetLegendaryDescriptionForm();
-	// FormFunctions.SetCommonAbilitiesDropdown();
-	
-	// // Populate the stat block
-	// FormFunctions.SetForms();
-	// UpdateStatblock();
-// }
+	// Populate the stat block
+	FormFunctions.InitForms();
+	FormFunctions.SetForms();
+	UpdateStatblock();
+}
