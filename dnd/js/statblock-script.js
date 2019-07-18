@@ -193,7 +193,7 @@ var AddToTraitList = function(traitsHTML, traitsArr, addElements, isLegendary = 
 
 var ReplaceTraitTags = function(desc)
 {
-	const bracketExp = /\[(.*?)\]/g, damageExp = /\d*d\d+/g;
+	const bracketExp = /\[(.*?)\]/g, damageExp = /\d*d\d+/;
 	let matches = [], match = null;
 	while ((match = bracketExp.exec(desc)) != null)
 		matches.push(match);
@@ -1377,11 +1377,7 @@ var StringFunctions =
 
 	StringReplaceAll: (string, find, replacement) => string.split(find).join(replacement),
 
-	StringCapitalize: function(string)
-	{
-		let stringArr = string.split(" ");
-		return stringArr.map(subStr => subStr[0].toUpperCase() + subStr.substr(1)).join(" ");
-	},
+	StringCapitalize: (string) => string[0].toUpperCase() + string.substr(1),
 
 	GetNumbersOnly: (string) => parseInt(string.replace(/\D/g,'')),
 }
