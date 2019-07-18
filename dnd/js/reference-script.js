@@ -1,20 +1,21 @@
-var books = [];
+var backgrounds, books, classes, names, other, races, ua,
+	usedBooks = [];
 
 // Update the page depending on books selected
 var UpdateList = function()
 {
 	// Get Books
 	{
-		books = [ "Real", "PHB" ];
-		for(let bookNum = 0; bookNum < availableBooks.length; bookNum++)
+		usedBooks = [ "Real", "PHB" ];
+		for(let bookNum = 0; bookNum < books.availableBooks.length; bookNum++)
 		{
-			let book = availableBooks[bookNum];
+			let book = books.availableBooks[bookNum];
 			if(book == "MR") continue;
 			if(document.getElementById(book + "box").checked)
-				books.push(book);
+				usedBooks.push(book);
 		}
-		if(books.indexOf("VGtM") >= 0)
-			books.push("MR");
+		if(usedBooks.indexOf("VGtM") >= 0)
+			usedBooks.push("MR");
 	}
 	
 	let racesList = Content.Get(races);
@@ -26,9 +27,9 @@ var UpdateList = function()
 	$("#classes").html(HTMLStrings.Make(classesList));
 	$("#backgrounds").html(HTMLStrings.Make(backgroundsList));
 	$("#names").html(HTMLStrings.MakeNames(namesList));
-	$("#uaraces").html(UAStuff.Get(UARaces));
-	$("#uaclasses").html(UAStuff.Get(UAClasses));
-	$("#uaother").html(UAStuff.Get(UAOther));
+	$("#uaraces").html(UAStuff.Get(ua.races));
+	$("#uaclasses").html(UAStuff.Get(ua.classes));
+	$("#uaother").html(UAStuff.Get(ua.other));
 	
 	Collapsibles.RetractAll("races");
 	Collapsibles.RetractAll("classes");
@@ -161,9 +162,9 @@ var Content =
 
 	CheckForBook: function(booksString)			// Check if any of the books in a given string are enabled
 	{
-		for(let index in books)
+		for(let index in usedBooks)
 		{
-			if(booksString.includes(books[index]))
+			if(booksString.includes(usedBooks[index]))
 				return true;
 		}
 		return false;
@@ -338,7 +339,23 @@ var UAStuff =
 
 $(function()
 {
-	UpdateList();
+	let calls = 7;
+	const GetJSON = function(name) {
+		$.getJSON("js/JSON/" + name + ".json", function(data) {
+			window[name] = data;
+			calls--;
+			if(calls <= 0)
+				UpdateList();
+		});
+	}
+	
+	GetJSON("backgrounds");
+	GetJSON("books");
+	GetJSON("classes");
+	GetJSON("names");
+	GetJSON("other");
+	GetJSON("races");
+	GetJSON("ua");
 });
 
 const noBulletPointsTraits = [ "Subraces and Variants", "Physical Characteristics", "Childhood Nickname", "Guide Name", "Animal Enhancement", "Advanced Animal Enhancement", "Artificer Specialty", "Mystic Order", "Blood Hunter Order" ];

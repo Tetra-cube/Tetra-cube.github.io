@@ -1,4 +1,5 @@
-var character = {}, characterType = "either", books = [], mcEthnicity = "", ethnicityOption = "", defaultRaceSectionClass,
+var backgrounds, books, cardsources, classes, life, names, npcs, other, races,
+	character = {}, characterType = "either", usedBooks = [], mcEthnicity = "", ethnicityOption = "", defaultRaceSectionClass,
 	lock = {
 		"name" : false,
 		"traits" : false,
@@ -16,7 +17,7 @@ var Dropdowns =
 {
 	Update: function()
 	{
-		Books.Get();
+		BookFunctions.Get();
 		$("#racemenu").html(this.GetDropdownOptions(races));
 		$("#classmenu").html(this.GetDropdownOptions(classes));
 		$("#backgroundmenu").html(this.GetDropdownOptions(backgrounds));
@@ -28,7 +29,7 @@ var Dropdowns =
 		for(let propertyName in list)
 		{
 			let item = list[propertyName];
-			if(typeof item != "object" || !item.hasOwnProperty("_special") || Books.CheckSpecial(item._special))
+			if(typeof item != "object" || !item.hasOwnProperty("_special") || BookFunctions.CheckSpecial(item._special))
 				optionsArray.push("<option value=\"" + propertyName + "\">" + propertyName + "</option>");
 		}
 		return optionsArray.join("");
@@ -36,17 +37,17 @@ var Dropdowns =
 }
 
 // Get or check what books we have
-var Books =
+var BookFunctions =
 {
 	// Get the books we have from the checkboxes
 	Get: function()
 	{
-		books = [ "Real", "PHB" ];
-		for(let bookNum = 0; bookNum < availableBooks.length; bookNum++)
+		usedBooks = [ "Real", "PHB" ];
+		for(let bookNum = 0; bookNum < books.availableBooks.length; bookNum++)
 		{
-			let book = availableBooks[bookNum];
+			let book = books.availableBooks[bookNum];
 			if($("#" + book + "box").prop("checked"))
-				books.push(book);
+				usedBooks.push(book);
 		}
 	},
 
@@ -65,9 +66,9 @@ var Books =
 	// Check a string of only books
 	CheckString: function(bookString)
 	{
-		for(let index = 0; index < books.length; index++)
+		for(let index = 0; index < usedBooks.length; index++)
 		{
-			if(bookString.includes(books[index]))
+			if(bookString.includes(usedBooks[index]))
 				return true;
 		}
 		return false;
@@ -113,7 +114,7 @@ var Generate =
 {
 	All: function()
 	{
-		Books.Get();
+		BookFunctions.Get();
 		
 		this.Race();
 		this.Gender();
@@ -151,7 +152,7 @@ var Generate =
 	{
 		if(lock.gender) return;
 		let genderVal = $("#gendermenu").val();
-		character.Gender = (genderVal == "Random" ? Random.Array(genders) : genderVal);
+		character.Gender = (genderVal == "Random" ? Random.Array(other.genders) : genderVal);
 		
 		$("#gender, #genderheader").html(character.Race.name == "Warforged" ? "Genderless" : character.Gender);
 		
@@ -208,7 +209,7 @@ var Generate =
 	
 	RaceInput: function()
 	{
-		Books.Get();
+		BookFunctions.Get();
 		this.Race();
 		this.Name();
 		this.Life();
@@ -222,35 +223,35 @@ var Generate =
 
 	NameInput: function()
 	{
-		Books.Get();
+		BookFunctions.Get();
 		this.Name();
 		CardType.Set();
 	},
 
 	ClassInput: function()
 	{
-		Books.Get();
+		BookFunctions.Get();
 		this.Class();
 		CardType.Set();
 	},
 
 	BackgroundInput: function()
 	{
-		Books.Get();
+		BookFunctions.Get();
 		this.Background();
 		CardType.Set();
 	},
 	
 	NPCTraitsInput: function()
 	{
-		Books.Get();
+		BookFunctions.Get();
 		this.NPCTraits();
 		CardType.Set();
 	},
 
 	LifeInput: function()
 	{
-		Books.Get();
+		BookFunctions.Get();
 		this.Life();
 		CardType.Set();
 	},
@@ -297,7 +298,7 @@ var Content =
 		let propsArr = [], randomProp;
 		for(let propName in item)
 		{
-			if(item[propName].hasOwnProperty("_special") && Books.CheckSpecial(item[propName]._special))
+			if(item[propName].hasOwnProperty("_special") && BookFunctions.CheckSpecial(item[propName]._special))
 				propsArr.push(propName);
 		}
 		randomProp = Random.Array(propsArr);
@@ -327,7 +328,7 @@ var Content =
 		switch(splitSpecial[0])
 		{
 			case "book" :		// Remove this item if we don't have the necessary book
-				return Books.CheckString(splitSpecial[1]) ? specialItem : null;
+				return BookFunctions.CheckString(splitSpecial[1]) ? specialItem : null;
 			
 			case "booksort" :	// Take a bunch of arrays and make a composite array, discarding data from books we don't have. Then pick randomly from it.
 				return this.BookSort(specialItem);
@@ -375,12 +376,12 @@ var Content =
 				return Random.ArrayMultiple(specialItem._array, Random.DiceRoll("1d4") + 1);
 				
 			case "tieflingvarianttype" :	// Tieflings also have weird variants
-				if(!books.includes("SCAG"))
+				if(!usedBooks.includes("SCAG"))
 					return null;
 				return Random.Array(specialItem._array);
 		
 			case "monstrousorigin" :		// Monster origins
-				return Random.Array(monstrousOrigins);
+				return Random.Array(other.monstrousOrigins);
 			
 			case "backgroundtraits" :		// For the SCAG backgrounds where the writers were lazy and used personalities from the PHB 
 				let backgroundCopy = backgrounds[splitSpecial[1].split("_").join(" ")];
@@ -401,7 +402,7 @@ var Content =
 		let contentArr = [];
 		for(let bookName in specialItem)
 		{
-			if(Books.CheckString(bookName))
+			if(BookFunctions.CheckString(bookName))
 				contentArr = contentArr.concat(specialItem[bookName]);
 		}
 		return Random.Array(contentArr);
@@ -686,11 +687,11 @@ var RaceWeighted =
 {
 	Get: function()
 	{
-		let raceWeightList = Object.assign({}, raceWeights), totalWeight = 57;
+		let raceWeightList = Object.assign({}, other.raceWeights), totalWeight = 57;
 		for(let raceName in races)
 		{
 			let race = races[raceName];
-			if(race._special.includes("PHB") || !Books.CheckSpecial(race._special)) continue;
+			if(race._special.includes("PHB") || !BookFunctions.CheckSpecial(race._special)) continue;
 			raceWeightList[raceName] = 1;
 			totalWeight += 1;
 		}
@@ -710,7 +711,7 @@ var RandomEthnicity =
 	Get: function()
 	{
 		return ethnicityOption == "standard" ?
-			books.includes("SCAG") ?
+			usedBooks.includes("SCAG") ?
 				Random.Array(races.Human["Subraces and Variants"].Ethnicity.PHB.concat(races.Human["Subraces and Variants"].Ethnicity.SCAG)) :
 				Random.Array(races.Human["Subraces and Variants"].Ethnicity.PHB) :
 			Random.Array(races.Human["Subraces and Variants"].Ethnicity.Real);
@@ -722,35 +723,35 @@ var NPCTraits =
 {
 	Get: function()
 	{
-		let newNPCTraits = { "Appearance" : Random.Array(npcAppearances) },
-			highTraitNum = Random.Num(npcHighAbilities.length),
-			lowTraitNum = Random.Num(npcLowAbilities.length - 1);
+		let newNPCTraits = { "Appearance" : Random.Array(npcs.appearances) },
+			highTraitNum = Random.Num(npcs.highAbilities.length),
+			lowTraitNum = Random.Num(npcs.lowAbilities.length - 1);
 		
 		// Low ability can't be the same as the high ability
 		if(lowTraitNum >= highTraitNum)
 			lowTraitNum++;
 		
-		newNPCTraits["High Ability"] = npcHighAbilities[highTraitNum];
-		newNPCTraits["Low Ability"] = npcLowAbilities[lowTraitNum];
+		newNPCTraits["High Ability"] = npcs.highAbilities[highTraitNum];
+		newNPCTraits["Low Ability"] = npcs.lowAbilities[lowTraitNum];
 
-		newNPCTraits.Talent = Random.Array(npcTalents);
-		newNPCTraits.Mannerism = Random.Array(npcMannerisms);
-		newNPCTraits["Interaction Trait"] = Random.Array(npcInteractionTraits);
+		newNPCTraits.Talent = Random.Array(npcs.talents);
+		newNPCTraits.Mannerism = Random.Array(npcs.mannerisms);
+		newNPCTraits["Interaction Trait"] = Random.Array(npcs.interactionTraits);
 
-		let ideal = Random.Array(npcIdeals), bond, bond1 = Random.Num(10)
+		let ideal = Random.Array(npcs.ideals), bond, bond1 = Random.Num(10)
 		if(bond1 < 9)
-			bond = npcBonds[bond1];
+			bond = npcs.bonds[bond1];
 		else
 		{
 			bond1 = Random.Num(9);
 			let bond2 = Random.Num(9);
 			while(bond2 == bond1)
 				bond2 = Random.Num(9);
-			bond = npcBonds[bond1] + ", " + npcBonds[bond2];
+			bond = npcs.bonds[bond1] + ", " + npcs.bonds[bond2];
 		}
 		newNPCTraits.Values = ideal + ", " + bond;
 		
-		newNPCTraits["Flaw or Secret"] = Random.Array(npcFlawsAndSecrets);
+		newNPCTraits["Flaw or Secret"] = Random.Array(npcs.flawsAndSecrets);
 		return newNPCTraits;
 	}
 }
@@ -785,13 +786,13 @@ var Life =
 	Get: function()
 	{
 		let newLife = {};
-		newLife.Alignment = Random.Array(alignments);
+		newLife.Alignment = Random.Array(life.alignments);
 		newLife.Origin = {};
 		if(character.Race.name == "Warforged")
-			newLife.Origin.Built = Random.Array(origins.Birthplace);
+			newLife.Origin.Built = Random.Array(life.origins.Birthplace);
 		else
-			newLife.Origin.Birthplace = Random.Array(origins.Birthplace);
-		let parents = origins.Parents[character.Race.name];
+			newLife.Origin.Birthplace = Random.Array(life.origins.Birthplace);
+		let parents = life.origins.Parents[character.Race.name];
 		if(parents != undefined)
 			newLife.Origin.Parents = Random.Array(parents);
 		
@@ -807,7 +808,7 @@ var Life =
 		newLife.Origin["Siblings"] = this.Siblings(newLife.Origin.Parents);
 
 		newLife["Life Events"] = this.LifeEvents();
-		newLife["Trinket"] = Random.Array(trinkets);
+		newLife["Trinket"] = Random.Array(life.trinkets);
 		
 		return newLife;
 	},
@@ -822,7 +823,7 @@ var Life =
 			do {
 				let randomEventNum = Random.Num(100);
 				newEventType = randomEventNum == 99 ? "Weird Stuff" :
-					eventTables["Life Events"][Math.floor(randomEventNum / 5)];
+					life.eventTables["Life Events"][Math.floor(randomEventNum / 5)];
 			} while(lifeEvents.hasOwnProperty([newEventType]))
 			
 			let newEvent = "";
@@ -850,16 +851,13 @@ var Life =
 					break;
 				case "Adventure" :
 					let rand = Random.Num(100);
-					if(rand == 99)
-						newEvent = eventTables.Adventure[10];
-					else
-						newEvent = eventTables.Adventure[Math.floor(rand/10)];
+					newEvent = rand == 99 ? life.eventTables.Adventure[10] : life.eventTables.Adventure[Math.floor(rand/10)];
 					break;
 				case "Crime" :
-						newEvent = Random.Array(eventTables.Crime) + ". " + Random.Array(eventTables.Punishment);
+					newEvent = Random.Array(life.eventTables.Crime) + ". " + Random.Array(life.eventTables.Punishment);
 					break;
 				default:
-					newEvent = Random.Array(eventTables[newEventType]);
+					newEvent = Random.Array(life.eventTables[newEventType]);
 					break;
 			}
 			lifeEvents[newEventType] = newEvent;
@@ -877,7 +875,7 @@ var Life =
 			let newSib = {},
 				race = this.SiblingRace(parents);
 			if(race != "Warforged")
-				newSib.Gender = Random.Array(genders);
+				newSib.Gender = Random.Array(other.genders);
 			newSib.Race = race;
 			newSibName = this.SiblingName(newSib);
 			while(newSibName == character.Name.substring(0, newSibName.length))
@@ -980,9 +978,9 @@ var Life =
 			rand < 89 ? "Sorcerer" :
 			rand < 94 ? "Warlock" :
 			rand < 100 ? "Wizard" :
-			rand < 105 ? (books.includes("Unofficial") ? "Blood Hunter" : this.ClassWeighted()) :
-			rand < 110 ? (books.includes("UA") ? "Artificer" : this.ClassWeighted()) :
-			(books.includes("UA") ? "Mystic" : this.ClassWeighted());
+			rand < 105 ? (usedBooks.includes("Unofficial") ? "Blood Hunter" : this.ClassWeighted()) :
+			rand < 110 ? (usedBooks.includes("UA") ? "Artificer" : this.ClassWeighted()) :
+			(usedBooks.includes("UA") ? "Mystic" : this.ClassWeighted());
 	},
 
 	Status: function()
@@ -1095,8 +1093,29 @@ var LockFunctions = {
 // When the page loads
 $(function()
 {
+	let calls = 9;
+	const GetJSON = function(name) {
+		$.getJSON("js/JSON/" + name + ".json", function(data) {
+			window[name] = data;
+			calls--;
+			if(calls <= 0)
+			{
+				CharacterType.GetNoCard();
+				Dropdowns.Update();
+				Generate.All();
+			}
+		});
+	}
+	
+	GetJSON("backgrounds");
+	GetJSON("books");
+	GetJSON("cardsources");
+	GetJSON("classes");
+	GetJSON("life");
+	GetJSON("names");
+	GetJSON("npcs");
+	GetJSON("other");
+	GetJSON("races");
+	
 	defaultRaceSectionClass = $("#race-section").prop("class");
-	CharacterType.GetNoCard();
-	Dropdowns.Update();
-	Generate.All();
 });

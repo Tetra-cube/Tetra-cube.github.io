@@ -1,3 +1,5 @@
+var data;
+
 var mon = {
 		name: "Monster", size: "medium", type: "humanoid", tag: "", alignment: "any alignment",
 		hitDice: 5, armorName: "none", shieldBonus: 0, natArmorBonus: 3, otherArmorDesc: "10 (armor)",
@@ -134,7 +136,7 @@ var UpdateStatblock = function(moveSeparationPoint)
 	$("#properties-list").html(propertiesDisplayList.join(""));
 	
 	// Challenge Rating
-	$("#challenge-rating").html(mon.cr + " (" + crs[mon.cr].xp + " XP)");
+	$("#challenge-rating").html(mon.cr + " (" + data.crs[mon.cr].xp + " XP)");
 	
 	// Abilities
 	let traitsHTML = [];
@@ -197,7 +199,7 @@ var ReplaceTraitTags = function(desc)
 		matches.push(match);
 	
 	matches.forEach(function(match) {
-		const GetPoints = (pts) => statNames.includes(matchArr[0]) ? MathFunctions.PointsToBonus(mon[pts + "Points"]) : null;
+		const GetPoints = (pts) => data.statNames.includes(matchArr[0]) ? MathFunctions.PointsToBonus(mon[pts + "Points"]) : null;
 		let matchArr = match[1].toLowerCase().replace(/ +/g, ' ').trim().split(' '), replaceString = null;
 			
 		if(matchArr.length == 1)
@@ -217,7 +219,7 @@ var ReplaceTraitTags = function(desc)
 				{
 					let multiplier = splitDmg[0].length > 0 ? parseInt(splitDmg[0]) : 1,
 						dieSize = parseInt(splitDmg[1]);
-					replaceString = Math.floor(multiplier * ((dieSize + 1) / 2) + damageMod) + " (" + multiplier + "d" + dieSize;
+					replaceString = Math.Max(Math.floor(multiplier * ((dieSize + 1) / 2) + damageMod), 1) + " (" + multiplier + "d" + dieSize;
 					replaceString +=
 						damageMod > 0 ? " + " + damageMod :
 						damageMod < 0 ? " - " + -damageMod : "";
@@ -230,10 +232,10 @@ var ReplaceTraitTags = function(desc)
 				switch (matchArr[1])
 				{
 					case "atk" :
-						replaceString = StringFunctions.BonusFormat(GetPoints(matchArr[0]) + crs[mon.cr].prof);
+						replaceString = StringFunctions.BonusFormat(GetPoints(matchArr[0]) + data.crs[mon.cr].prof);
 						break;
 					case "save" :
-						replaceString = GetPoints(matchArr[0]) + crs[mon.cr].prof + 8;
+						replaceString = GetPoints(matchArr[0]) + data.crs[mon.cr].prof + 8;
 						break;
 				}
 			}
@@ -268,7 +270,7 @@ var TryMarkdown = function() {
 			(Array.isArray(propertiesDisplayArr[index].arr) ? propertiesDisplayArr[index].arr.join(", ") : propertiesDisplayArr[index].arr),
 			"<br>");
 	}
-	markdown.push("> - **Challenge** ", mon.cr, " (", crs[mon.cr].xp, " XP)<br>>___<br>");
+	markdown.push("> - **Challenge** ", mon.cr, " (", data.crs[mon.cr].xp, " XP)<br>>___<br>");
 	
 	if(mon.abilities.length > 0) markdown.push(GetTraitMarkdown(mon.abilities, false));
 	if(mon.actions.length > 0) markdown.push("<br>> ### Actions<br>", GetTraitMarkdown(mon.actions, false));
@@ -312,7 +314,7 @@ var FormFunctions =
 		$("#name-input").val(mon.name);
 		$("#size-input").val(mon.size);
 		
-		if(types.includes(mon.type))
+		if(data.types.includes(mon.type))
 			$("#type-input").val(mon.type);
 		else
 		{
@@ -451,7 +453,7 @@ var FormFunctions =
 	ChangeBonus: function(stat) { $("#" + stat + "bonus").html(StringFunctions.BonusFormat(MathFunctions.PointsToBonus($("#" + stat + "-input").val()))); },
 
 	// Set the proficiency bonus based on the monster's CR
-	ChangeCRForm: function() { $("#prof-bonus").html("(Proficiency Bonus: +" + crs[mon.cr].prof + ")"); },
+	ChangeCRForm: function() { $("#prof-bonus").html("(Proficiency Bonus: +" + data.crs[mon.cr].prof + ")"); },
 
 	// For setting the column radio buttons based on saved data
 	ChangeColumnRadioButtons: function()
@@ -466,8 +468,8 @@ var FormFunctions =
 	SetCommonAbilitiesDropdown : function()
 	{
 		$("#common-ability-input").html("");
-		for(let index = 0; index < commonAbilities.length; index++)
-			$("#common-ability-input").append("<option value='" + index + "'>" + commonAbilities[index].name + "</option>");
+		for(let index = 0; index < data.commonAbilities.length; index++)
+			$("#common-ability-input").append("<option value='" + index + "'>" + data.commonAbilities[index].name + "</option>");
 	},
 
 	// Set ability scores and bonuses
@@ -547,13 +549,13 @@ var FormFunctions =
 	InitForms: function()
 	{
 		let dropdownBuffer = [
-			"<option value=0>0 (", crs["0"].xp, " XP)</option>",
-			"<option value=1/8>1/8 (", crs["1/8"].xp, " XP)</option>",
-			"<option value=1/4>1/4 (", crs["1/4"].xp, " XP)</option>",
-			"<option value=1/2>1/2 (", crs["1/2"].xp, " XP)</option>"
+			"<option value=0>0 (", data.crs["0"].xp, " XP)</option>",
+			"<option value=1/8>1/8 (", data.crs["1/8"].xp, " XP)</option>",
+			"<option value=1/4>1/4 (", data.crs["1/4"].xp, " XP)</option>",
+			"<option value=1/2>1/2 (", data.crs["1/2"].xp, " XP)</option>"
 		];
 		for(let cr = 1; cr < 100; cr++)
-			dropdownBuffer.push("<option value=", cr, ">", cr, " (", crs[cr].xp, " XP)</option>");
+			dropdownBuffer.push("<option value=", cr, ">", cr, " (", data.crs[cr].xp, " XP)</option>");
 		$("#cr-input").html(dropdownBuffer.join(""));
 	}
 }
@@ -568,7 +570,7 @@ var InputFunctions =
 		if(name == "") return;
 		if(name == "default")
 		{
-			GetVariablesFunctions.SetPreset(defaultPreset);
+			GetVariablesFunctions.SetPreset(data.defaultPreset);
 			FormFunctions.SetForms();
 			UpdateStatblock();
 			return;
@@ -665,7 +667,7 @@ var InputFunctions =
 
 	AddCommonAbilityInput: function()
 	{
-		let commonAbility = commonAbilities[$("#common-ability-input").val()];
+		let commonAbility = data.commonAbilities[$("#common-ability-input").val()];
 		if(commonAbility.desc)
 		{
 			$("#abilities-name-input").val(commonAbility.hasOwnProperty("realname") ? commonAbility.realname : commonAbility.name);
@@ -804,7 +806,7 @@ var GetVariablesFunctions =
 				}
 				
 				// Is it another type of armor we know?
-				else if(armors.hasOwnProperty(armorDescData[0].trim()))
+				else if(data.armors.hasOwnProperty(armorDescData[0].trim()))
 					mon.armorName = armorDescData[0].trim();
 				
 				// We have no idea what this armor is
@@ -878,14 +880,14 @@ var GetVariablesFunctions =
 		mon.skills = [];
 		if(preset.skills)
 		{
-			for(let index = 0; index < allSkills.length; index++)
+			for(let index = 0; index < data.allSkills.length; index++)
 			{
-				let currentSkill = allSkills[index], skillCheck = StringFunctions.StringReplaceAll(currentSkill.name.toLowerCase(), " ", "_");
+				let currentSkill = data.allSkills[index], skillCheck = StringFunctions.StringReplaceAll(currentSkill.name.toLowerCase(), " ", "_");
 				if(preset.skills[skillCheck])
 				{
-					let expectedExpertise = MathFunctions.PointsToBonus(mon[currentSkill.stat + "Points"]) + Math.ceil(crs[mon.cr].prof * 1.5),
+					let expectedExpertise = MathFunctions.PointsToBonus(mon[currentSkill.stat + "Points"]) + Math.ceil(data.crs[mon.cr].prof * 1.5),
 						skillVal = preset.skills[skillCheck];
-					this.AddSkill(allSkills[index].name, (skillVal >= expectedExpertise ? " (ex)" : null));
+					this.AddSkill(data.allSkills[index].name, (skillVal >= expectedExpertise ? " (ex)" : null));
 				}
 			}
 		}
@@ -982,7 +984,7 @@ var GetVariablesFunctions =
 	AddSthrow: function(sthrowName)
 	{
 		if(!sthrowName) return;
-		let sthrowData = ArrayFunctions.FindInList(stats, sthrowName), inserted = false;
+		let sthrowData = ArrayFunctions.FindInList(data.stats, sthrowName), inserted = false;
 		if(sthrowData == null) return;
 		
 		// Non-alphabetical ordering
@@ -1002,7 +1004,7 @@ var GetVariablesFunctions =
 
 	AddSkill: function(skillName, note)
 	{
-		let skillData = ArrayFunctions.FindInList(allSkills, skillName);
+		let skillData = ArrayFunctions.FindInList(data.allSkills, skillName);
 		if(skillData == null) return;
 		
 		let skill = { "name" : skillData.name, "stat" : skillData.stat };
@@ -1014,7 +1016,7 @@ var GetVariablesFunctions =
 	AddDamageType: function(damageName, type)
 	{
 		let special = false, note;
-		if(!allNormalDamageTypes.includes(damageName.toLowerCase()))
+		if(!data.allNormalDamageTypes.includes(damageName.toLowerCase()))
 		{
 			special = true;
 			if(damageName == "*")
@@ -1133,9 +1135,9 @@ var GetVariablesFunctions =
 		{
 			// Italicize the correct parts of attack-type actions
 			let lowercaseDesc = abilityDesc.toLowerCase();
-			for(let index = 0; index < attackTypes.length; index++)
+			for(let index = 0; index < data.attackTypes.length; index++)
 			{
-				let attackType = attackTypes[index];
+				let attackType = data.attackTypes[index];
 				if(lowercaseDesc.includes(attackType))
 				{
 					let indexOfStart = lowercaseDesc.indexOf(attackType), indexOfHit = lowercaseDesc.indexOf("hit:");
@@ -1193,7 +1195,7 @@ var StringFunctions =
 		if(mon.customHP)
 			return mon.hpText;
 		let conBonus = MathFunctions.PointsToBonus(mon.conPoints);
-			hitDieSize = sizes[mon.size].hitDie,
+			hitDieSize = data.sizes[mon.size].hitDie,
 			avgHP = Math.floor(mon.hitDice * ((hitDieSize + 1) / 2)) + (mon.hitDice * conBonus);
 		if (conBonus > 0)
 			return avgHP + " (" + mon.hitDice + "d" + hitDieSize + " + " + (mon.hitDice * conBonus) + ")";
@@ -1225,7 +1227,7 @@ var StringFunctions =
 		// Passive Perception
 		let ppData = ArrayFunctions.FindInList(mon.skills, "Perception"), pp = 10 + MathFunctions.PointsToBonus(mon.wisPoints);
 		if(ppData != null)
-			pp += crs[mon.cr].prof * (ppData.hasOwnProperty("note") ? 2 : 1);
+			pp += data.crs[mon.cr].prof * (ppData.hasOwnProperty("note") ? 2 : 1);
 		sensesDisplayArr.push("passive Perception " + pp);
 		return sensesDisplayArr.join(", ");
 	},
@@ -1239,14 +1241,14 @@ var StringFunctions =
 		// Saving Throws
 		for(let index = 0; index < mon.sthrows.length; index++)
 			sthrowsDisplayArr.push(StringFunctions.StringCapitalize(mon.sthrows[index].name) + " " +
-				StringFunctions.BonusFormat((MathFunctions.PointsToBonus(mon[mon.sthrows[index].name + "Points"]) + crs[mon.cr].prof)));
+				StringFunctions.BonusFormat((MathFunctions.PointsToBonus(mon[mon.sthrows[index].name + "Points"]) + data.crs[mon.cr].prof)));
 		
 		// Skills
 		for(let index = 0; index < mon.skills.length; index++)
 		{
 			let skillData = mon.skills[index];
 			skillsDisplayArr.push(StringFunctions.StringCapitalize(skillData.name) + " " +
-				StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon[skillData.stat + "Points"]) + crs[mon.cr].prof * (skillData.hasOwnProperty("note") ? 2 : 1)));
+				StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon[skillData.stat + "Points"]) + data.crs[mon.cr].prof * (skillData.hasOwnProperty("note") ? 2 : 1)));
 		}
 
 		// Damage Types (It's not pretty but it does its job)
@@ -1395,7 +1397,7 @@ var MathFunctions =
 	// Compute armor class
 	GetAC: function(armorNameCheck)
 	{
-		let armor = armors[armorNameCheck],
+		let armor = data.armors[armorNameCheck],
 			dexBonus = MathFunctions.PointsToBonus(mon.dexPoints);
 		if(armor)
 		{
@@ -1468,402 +1470,60 @@ $(function()
 	})
 	.fail(function() {
 		$("#monster-select-form").html("Unable to load monster presets.")
-	})
+	});
 	
-	// Set the default legendary description in case there isn't one saved
-	GetVariablesFunctions.SetPreset(defaultPreset);
-	
-	// Load saved data
-	SavedData.RetrieveFromLocalStorage();
-	Populate();
+	// Load the json data
+	$.getJSON("js/JSON/statblockdata.json", function(json) {
+		data = json;
+		
+		// Set the default monster in case there isn't one saved
+		GetVariablesFunctions.SetPreset(data.defaultPreset);
+		
+		// Load saved data
+		SavedData.RetrieveFromLocalStorage();
+		
+		FormFunctions.SetLegendaryDescriptionForm();
+		FormFunctions.SetCommonAbilitiesDropdown();
+		
+		// Populate the stat block
+		FormFunctions.InitForms();
+		FormFunctions.SetForms();
+		UpdateStatblock();
+	});
 	
 	FormFunctions.ShowHideFormatHelper();
-	FormFunctions.InitForms();
 });
 
-function Populate()
-{
-	FormFunctions.SetLegendaryDescriptionForm();
-	FormFunctions.SetCommonAbilitiesDropdown();
+// Document ready function
+// $(function()
+// {
+	// // Load the preset monster names
+	// $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000", function(jsonArr) {
+		// $.each(jsonArr.results, function(index, value) {
+			// $("#monster-select").append("<option value='" + value.slug + "'>" + value.name + "</option>");
+		// })
+	// })
+	// .fail(function() {
+		// $("#monster-select-form").html("Unable to load monster presets.")
+	// })
 	
-	// Populate the stat block
-	FormFunctions.SetForms();
-	UpdateStatblock();
-}
+	// // Set the default legendary description in case there isn't one saved
+	// GetVariablesFunctions.SetPreset(defaultPreset);
+	
+	// // Load saved data
+	// SavedData.RetrieveFromLocalStorage();
+	// Populate();
+	
+	// FormFunctions.ShowHideFormatHelper();
+	// FormFunctions.InitForms();
+// });
 
-
-
-const stats = [
-		{ "name" : "str", "order" : 0 },
-		{ "name" : "dex", "order" : 1 }, 
-		{ "name" : "con", "order" : 2 },
-		{ "name" : "int", "order" : 3 },
-		{ "name" : "wis", "order" : 4 },
-		{ "name" : "cha", "order" : 5 },
-	],
+// function Populate()
+// {
+	// FormFunctions.SetLegendaryDescriptionForm();
+	// FormFunctions.SetCommonAbilitiesDropdown();
 	
-	statNames = [ "str", "dex", "con", "int", "wis", "cha" ];
-	
-	//allProperties = [ "Saving Throws", "Skills", "Damage Vulnerabilities", "Damage Resistances", "Damage Immunities", "Condition Immunities" ],
-
-	allSkills = [
-		{ "name" : "acrobatics" , "stat" : "dex" },
-		{ "name" : "animal handling", "stat" : "wis" },
-		{ 'name' : "arcana", "stat" : "int" },
-		{ 'name' : "athletics", "stat" : "str" },
-		{ 'name' : "deception", "stat" : "cha" },
-		{ 'name' : "history", "stat" : "int" },
-		{ 'name' : "insight", "stat" : "wis" },
-		{ 'name' : "intimidation", "stat" : "cha" },
-		{ 'name' : "investigation", "stat" : "int" },
-		{ 'name' : "medicine", "stat" : "wis" },
-		{ 'name' : "nature", "stat" : "int" },
-		{ 'name' : "perception", "stat" : "wis" },
-		{ 'name' : "performance", "stat" : "cha" },
-		{ 'name' : "persuasion", "stat" : "cha" },
-		{ 'name' : "religion", "stat" : "int" },
-		{ 'name' : "sleight of Hand", "stat" : "dex" },
-		{ 'name' : "stealth", "stat" : "dex" },
-		{ 'name' : "survival", "stat" : "wis" },
-	],
-	
-	allNormalDamageTypes = [ "acid", "bludgeoning", "cold", "fire", "force", "lightning", "necrotic", "piercing", "poison", "psychic", "radiant", "slashing", "thunder" ],
-	
-	allConditions = [ "blinded", "charmed", "deafened", "exhaustion", "frightened", "grappled", "incapacitated", "invisible", "paralyzed", "petrified", "poisoned", "prone", "restrained", "stunned", "unconscious" ],
-	
-	commonLanguages = [],
-	
-	sizes = 
-	{
-		"tiny" :	{ "hitDie" : 4 },
-		"small" : { "hitDie" : 6 },
-		"medium" : { "hitDie" : 8 },
-		"large" : { "hitDie" : 10 },
-		"huge" : { "hitDie" : 12 },
-		"gargantuan" : { "hitDie" : 20 },
-	},
-	
-	types = [ "aberration", "beast", "celestial", "construct", "dragon", "elemental", "fey", "fiend", "giant", "humanoid", "monstrosity", "ooze", "plant", "undead" ]
-
-	crs =
-	{
-		"0" : {"xp" : "10", "prof" : 2 },
-		"1/8" : {"xp" : "25", "prof" : 2 },
-		"1/4" : {"xp" : "50", "prof" : 2 },
-		"1/2" : {"xp" : "100", "prof" : 2 },
-		"1" : {"xp" : "200", "prof" : 2 },
-		"2" : {"xp" : "450", "prof" : 2 },
-		"3" : {"xp" : "700", "prof" : 2 },
-		"4" : {"xp" : "1,100", "prof" : 2 },
-		"5" : {"xp" : "1,800", "prof" : 3 },
-		"6" : {"xp" : "2,300", "prof" : 3 },
-		"7" : {"xp" : "2,900", "prof" : 3 },
-		"8" : {"xp" : "3,900", "prof" : 3 },
-		"9" : {"xp" : "5,000", "prof" : 4 },
-		"10" : {"xp" : "5,900", "prof" : 4 },
-		"11" : {"xp" : "7,200", "prof" : 4 },
-		"12" : {"xp" : "8,400", "prof" : 4 },
-		"13" : {"xp" : "10,000", "prof" : 5 },
-		"14" : {"xp" : "11,500", "prof" : 5 },
-		"15" : {"xp" : "13,000", "prof" : 5 },
-		"16" : {"xp" : "15,000", "prof" : 5 },
-		"17" : {"xp" : "18,000", "prof" : 6 },
-		"18" : {"xp" : "20,000", "prof" : 6 },
-		"19" : {"xp" : "22,000", "prof" : 6 },
-		"20" : {"xp" : "25,000", "prof" : 6 },
-		"21" : {"xp" : "33,000", "prof" : 7 },
-		"22" : {"xp" : "41,000", "prof" : 7 },
-		"23" : {"xp" : "50,000", "prof" : 7 },
-		"24" : {"xp" : "62,000", "prof" : 7 },
-		"25" : {"xp" : "75,000", "prof" : 8 },
-		"26" : {"xp" : "90,000", "prof" : 8 },
-		"27" : {"xp" : "105,000", "prof" : 8 },
-		"28" : {"xp" : "120,000", "prof" : 8 },
-		"29" : {"xp" : "135,000", "prof" : 9 },
-		"30" : {"xp" : "155,000", "prof" : 9 },
-		"31" : {"xp" : "???", "prof" : 9 },
-		"32" : {"xp" : "???", "prof" : 9 },
-		"33" : {"xp" : "???", "prof" : 10 },
-		"34" : {"xp" : "???", "prof" : 10 },
-		"35" : {"xp" : "???", "prof" : 10 },
-		"36" : {"xp" : "???", "prof" : 10 },
-		"37" : {"xp" : "???", "prof" : 11 },
-		"38" : {"xp" : "???", "prof" : 11 },
-		"39" : {"xp" : "???", "prof" : 11 },
-		"40" : {"xp" : "???", "prof" : 11 },
-		"41" : {"xp" : "???", "prof" : 12 },
-		"42" : {"xp" : "???", "prof" : 12 },
-		"43" : {"xp" : "???", "prof" : 12 },
-		"44" : {"xp" : "???", "prof" : 12 },
-		"45" : {"xp" : "???", "prof" : 13 },
-		"46" : {"xp" : "???", "prof" : 13 },
-		"47" : {"xp" : "???", "prof" : 13 },
-		"48" : {"xp" : "???", "prof" : 13 },
-		"49" : {"xp" : "???", "prof" : 14 },
-		"50" : {"xp" : "???", "prof" : 14 },
-		"51" : {"xp" : "???", "prof" : 14 },
-		"52" : {"xp" : "???", "prof" : 14 },
-		"53" : {"xp" : "???", "prof" : 15 },
-		"54" : {"xp" : "???", "prof" : 15 },
-		"55" : {"xp" : "???", "prof" : 15 },
-		"56" : {"xp" : "???", "prof" : 15 },
-		"57" : {"xp" : "???", "prof" : 16 },
-		"58" : {"xp" : "???", "prof" : 16 },
-		"59" : {"xp" : "???", "prof" : 16 },
-		"60" : {"xp" : "???", "prof" : 16 },
-		"61" : {"xp" : "???", "prof" : 17 },
-		"62" : {"xp" : "???", "prof" : 17 },
-		"63" : {"xp" : "???", "prof" : 17 },
-		"64" : {"xp" : "???", "prof" : 17 },
-		"65" : {"xp" : "???", "prof" : 18 },
-		"66" : {"xp" : "???", "prof" : 18 },
-		"67" : {"xp" : "???", "prof" : 18 },
-		"68" : {"xp" : "???", "prof" : 18 },
-		"69" : {"xp" : "???", "prof" : 19 },
-		"70" : {"xp" : "???", "prof" : 19 },
-		"71" : {"xp" : "???", "prof" : 19 },
-		"72" : {"xp" : "???", "prof" : 19 },
-		"73" : {"xp" : "???", "prof" : 20 },
-		"74" : {"xp" : "???", "prof" : 20 },
-		"75" : {"xp" : "???", "prof" : 20 },
-		"76" : {"xp" : "???", "prof" : 20 },
-		"77" : {"xp" : "???", "prof" : 21 },
-		"78" : {"xp" : "???", "prof" : 21 },
-		"79" : {"xp" : "???", "prof" : 21 },
-		"80" : {"xp" : "???", "prof" : 21 },
-		"81" : {"xp" : "???", "prof" : 22 },
-		"82" : {"xp" : "???", "prof" : 22 },
-		"83" : {"xp" : "???", "prof" : 22 },
-		"84" : {"xp" : "???", "prof" : 22 },
-		"85" : {"xp" : "???", "prof" : 23 },
-		"86" : {"xp" : "???", "prof" : 23 },
-		"87" : {"xp" : "???", "prof" : 23 },
-		"88" : {"xp" : "???", "prof" : 23 },
-		"89" : {"xp" : "???", "prof" : 24 },
-		"90" : {"xp" : "???", "prof" : 24 },
-		"91" : {"xp" : "???", "prof" : 24 },
-		"92" : {"xp" : "???", "prof" : 24 },
-		"93" : {"xp" : "???", "prof" : 25 },
-		"94" : {"xp" : "???", "prof" : 25 },
-		"95" : {"xp" : "???", "prof" : 25 },
-		"96" : {"xp" : "???", "prof" : 25 },
-		"97" : {"xp" : "???", "prof" : 26 },
-		"98" : {"xp" : "???", "prof" : 26 },
-		"99" : {"xp" : "???", "prof" : 26 }
-	},
-
-	armors = 
-	{
-		"none" : { "type" : "special" },
-		"natural armor" : { "type" : "special" },
-		"mage armor" : { "type" : "special" },
-		"padded armor" : { "type" : "light", "ac" : 11 },
-		"leather armor" : { "type" : "light",	"ac" : 11 },
-		"studded leather" : { "type" : "light", "ac" : 12 },
-		"hide armor" : { "type" : "medium", "ac" : 12 },
-		"chain shirt" : { "type" : "medium", "ac" : 13 },
-		"scale mail" : { "type" : "medium", "ac" : 14 },
-		"breastplate" : { "type" : "medium", "ac" : 14 },
-		"half plate" : { "type" : "medium", "ac" : 15 },
-		"ring mail" : { "type" : "heavy", "ac" : 14 },
-		"chain mail" : { "type" : "heavy", "ac" : 16 },
-		"splint" : { "type" : "heavy", "ac" : 17 },
-		"plate" : { "type" : "heavy", "ac" : 18 },
-		"other" : { "type" : "special" },
-	},
-	
-	defaultPreset = 
-	{
-		"slug" : "",
-		"name" : "Monster",
-		"size" : "Medium",
-		"type" : "humanoid",
-		"subtype" : "",
-		"group" : null,
-		"alignment" : "any alignment",
-		"armor_class" : 10,
-		"armor_desc" : null,
-		"hit_points" : 22,
-		"hit_dice" : "5d8",
-		"speed" : { "walk" : 30 },
-		"strength" : 10,
-		"dexterity" : 10,
-		"constitution" : 10,
-		"intelligence" : 10,
-		"wisdom" : 10,
-		"charisma" : 10,
-		"strength_save" : null,
-		"dexterity_save" : null,
-		"constitution_save" : null,
-		"intelligence_save" : null,
-		"wisdom_save" : null,
-		"charisma_save" : null,
-		"skills" : {},
-		"damage_vulnerabilities" : "",
-		"damage_resistances" : "",
-		"damage_immunities" : "",
-		"condition_immunities" : "",
-		"senses" : "passive Perception 10",
-		"languages" : "",
-		"challenge_rating" : "1",
-		"actions" : "",
-		"reactions" : "",
-		"legendary_actions" : "",
-		"legendary_desc" : "",
-		"special_abilities" : "",
-		"document_slug" : "systems-reference-document"
-	},
-	
-	attackTypes = [ "melee or ranged weapon attack:", "melee or ranged spell attack:", "melee weapon attack:", "melee spell attack:", "ranged weapon attack:", "ranged spell attack:" ],
-	
-	commonAbilities =
-	[
-		{ "name" : "Select Preset", "desc" : null },
-		{ "name" : "", "desc" : null },
-		
-		{ "name" : "Melee Weapon Attack (STR)", "realname" : "", "desc" : "_Melee Weapon Attack:_ [STR ATK] to hit, reach ??? ft., one target. _Hit:_ [STR ?D?] ??? damage." },
-		{ "name" : "Melee Weapon Attack (DEX)", "realname" : "", "desc" : "_Melee Weapon Attack:_ [DEX ATK] to hit, reach ??? ft., one target. _Hit:_ [DEX ?D?] ??? damage." },
-		{ "name" : "Melee Spell Attack (INT)", "realname" : "", "desc" : "_Melee Spell Attack:_ [INT ATK] to hit, reach ??? ft., one target. _Hit:_ [INT ?D?] ??? damage." },
-		{ "name" : "Melee Spell Attack (WIS)", "realname" : "", "desc" : "_Melee Spell Attack:_ [WIS ATK] to hit, reach ??? ft., one target. _Hit:_ [WIS ?D?] ??? damage." },
-		{ "name" : "Melee Spell Attack (CHA)", "realname" : "", "desc" : "_Melee Spell Attack:_ [CHA ATK] to hit, reach ??? ft., one target. _Hit:_ [CHA ?D?] ??? damage." },
-		{ "name" : "Ranged Weapon Attack (STR)", "realname" : "", "desc" : "_Ranged Weapon Attack:_ [STR ATK] to hit, range ???/??? ft., one target. _Hit:_ [STR ?D?] ??? damage." },
-		{ "name" : "Ranged Weapon Attack (DEX)", "realname" : "", "desc" : "_Ranged Weapon Attack:_ [DEX ATK] to hit, range ???/??? ft., one target. _Hit:_ [DEX ?D?] ??? damage." },
-		{ "name" : "Ranged Spell Attack (INT)", "realname" : "", "desc" : "_Ranged Spell Attack:_ [INT ATK] to hit, range ???/??? ft., one target. _Hit:_ [INT ?D?] ??? damage." },
-		{ "name" : "Ranged Spell Attack (WIS)", "realname" : "", "desc" : "_Ranged Spell Attack:_ [WIS ATK] to hit, range ???/??? ft., one target. _Hit:_ [WIS ?D?] ??? damage." },
-		{ "name" : "Ranged Spell Attack (CHA)", "realname" : "", "desc" : "_Ranged Spell Attack:_ [CHA ATK] to hit, range ???/??? ft., one target. _Hit:_ [CHA ?D?] ??? damage." },
-		{ "name" : "Melee or Ranged Weapon Attack", "realname" : "", "desc" : "_Melee or Ranged Weapon Attack:_ +??? to hit, reach ??? ft. or range ???/??? ft., one target. _Hit:_ ??? (???d??? + ???) ??? damage." },
-		
-		{ "name" : "", "desc" : null },
-		
-		{ "name" : "Multiattack (Action)", "desc" : "The [MON] makes two attacks." },
-		{ "name" : "Spellcasting (INT)", "realname" : "Spellcasting", "desc" : "The [MON] is a ???-level spellcaster. Its spellcasting ability is Intelligence (spell save DC [INT SAVE], [INT ATK] to hit with spell attacks). The [MON] has the following ??? spells prepared:\n\n> Cantrips (at will): _spell, spell, spell, spell_\n> 1st level (4 slots): _spell, spell, spell_\n> 2nd level (3 slots): _spell, spell, spell_\n> 3rd level (2 slots): _spell, spell_" },
-		{ "name" : "Spellcasting (WIS)", "realname" : "Spellcasting", "desc" : "The [MON] is a ???-level spellcaster. Its spellcasting ability is Wisdom (spell save DC [WIS SAVE], [WIS ATK] to hit with spell attacks). The [MON] has the following ??? spells prepared:\n\n> Cantrips (at will): _spell, spell, spell, spell_\n> 1st level (4 slots): _spell, spell, spell_\n> 2nd level (3 slots): _spell, spell, spell_\n> 3rd level (2 slots): _spell, spell_" },
-		{ "name" : "Spellcasting (CHA)", "realname" : "Spellcasting", "desc" : "The [MON] is a ???-level spellcaster. Its spellcasting ability is Charisma (spell save DC [CHA SAVE], [CHA ATK] to hit with spell attacks). The [MON] has the following ??? spells prepared:\n\n> Cantrips (at will): _spell, spell, spell, spell_\n> 1st level (4 slots): _spell, spell, spell_\n> 2nd level (3 slots): _spell, spell, spell_\n> 3rd level (2 slots): _spell, spell_" },
-		{ "name" : "Innate Spellcasting (INT)", "realname" : "Innate Spellcasting", "desc" : "The [MON]'s innate spellcasting ability is Intelligence (spell save DC [INT SAVE], [INT ATK] to hit with spell attacks). It can innately cast the following spells, requiring no material components:\n\n> At will: _spell, spell, spell_\n> 3/day each: _spell, spell, spell_\n> 1/day each: _spell, spell_" },
-		{ "name" : "Innate Spellcasting (WIS)", "realname" : "Innate Spellcasting", "desc" : "The [MON]'s innate spellcasting ability is Wisdom (spell save DC [WIS SAVE], [WIS ATK] to hit with spell attacks). It can innately cast the following spells, requiring no material components:\n\n> At will: _spell, spell, spell_\n> 3/day each: _spell, spell, spell_\n> 1/day each: _spell, spell_" },
-		{ "name" : "Innate Spellcasting (CHA)", "realname" : "Innate Spellcasting", "desc" : "The [MON]'s innate spellcasting ability is Charisma (spell save DC [CHA SAVE], [CHA ATK] to hit with spell attacks). It can innately cast the following spells, requiring no material components:\n\n> At will: _spell, spell, spell_\n> 3/day each: _spell, spell, spell_\n> 1/day each: _spell, spell_" },
-		{ "name" : "Legendary Resistance", "realname" : "Legendary Resistance (3/day)", "desc" : "If the [MON] fails a saving throw, it can choose to succeed instead." },
-		
-		{ "name" : "", "desc" : null },
-		
-		{ "name" : "Aggressive", "desc" : "As a bonus action, the [MON] can move up to its speed toward a hostile creature that it can see." },
-		{ "name" : "Ambusher", "desc" : "The [MON] has advantage on attack rolls against any creature it has surprised." },
-		{ "name" : "Amorphous", "desc" : "The [MON] can move through a space as narrow as 1 inch wide without squeezing." },
-		{ "name" : "Amphibious", "desc" : "The [MON] can breathe air and water." },
-		{ "name" : "Angelic Weapons", "desc" : "The [MON]'s weapon attacks are magical. When the [MON] hits with any weapon, the weapon deals an extra ???d??? radiant damage (included in the attack)." },
-		{ "name" : "Animal Telepathy", "realname" : "??? Telepathy", "desc" : "The [MON] can magically command any ??? within 120 feet of it, using a limited telepathy." },
-		{ "name" : "Antimagic Susceptibility", "desc" : "The [MON] is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the [MON] must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute." },
-		{ "name" : "Assassinate", "desc" : "During its first turn, the [MON] has advantage on attack rolls against any creature that hasn't taken a turn. Any hit the [MON] scores against a surprised creature is a critical hit." },
-		{ "name" : "Attack (Legendary Action)", "realname" : "??? Attack", "desc" : "The [MON] makes a ??? attack." },
-		{ "name" : "Aversion to Damage", "realname" : "Aversion to ???", "desc" : "If the [MON] takes ??? damage, it has disadvantage on attack rolls and ability checks until the end of its next turn." },
-		{ "name" : "Beast of Burden", "desc" : "The [MON] is considered to be a ??? animal for the purpose of determining its carrying capacity." },
-		{ "name" : "Berserk", "desc" : "Whenever the [MON] starts its turn with ??? hit points or fewer, roll a d6. On a 6, the [MON] goes berserk. On each of its turns while berserk, the [MON] attacks the nearest creature it can see. If no creature is near enough to move to and attack, the [MON] attacks an object, with preference for an object smaller than itself. Once the [MON] goes berserk, it continues to do so until it is destroyed or regains all its hit points." },
-		{ "name" : "Blind Senses", "desc" : "The [MON] can't use its blindsight while deafened and unable to smell." },
-		{ "name" : "Blood Frenzy", "desc" : "The [MON] has advantage on melee attack rolls against any creature that doesn't have all its hit points." },
-		{ "name" : "Brave", "desc" : "The [MON] has advantage on saving throws against being frightened." },
-		{ "name" : "Breath Weapon (Cone, Action)", "realname" : "Breath Weapon (Recharge ???)", "desc" : "The [MON] exhales ??? in a ??-foot cone. Each creature in that area must make a DC ??? Dexterity saving throw, taking ??? (???d???) ??? damage on a failed save, or half as much damage on a successful one." },
-		{ "name" : "Breath Weapon (Line, Action)", "realname" : "Breath Weapon (Recharge ???)", "desc" : "The [MON] exhales ??? in a ???-foot line that is ??? feet wide. Each creature in that line must make a DC ??? Dexterity saving throw, taking ??? (???d???) ??? damage on a failed save, or half as much damage on a successful one." },
-		{ "name" : "Brute", "desc" : "A melee weapon deals one extra die of its damage when the [MON] hits with it (included in the attack)." },
-		{ "name" : "Camouflage", "realname" : "??? Camouflage", "desc" : "The [MON] has advantage on Dexterity (Stealth) checks made to hide in ??? terrain." },
-		{ "name" : "Change Shape (Dragon, Action)", "realname" : "Change Shape", "desc" : "The [MON] magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the [MON]'s choice).\nIn a new form, the [MON] retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form." },
-		{ "name" : "Change Shape (Humanoid, Action)", "realname" : "Change Shape", "desc" : "The [MON] magically polymorphs into a small or medium humanoid, or back into its true form. Its statistics are the same in each form. Any equipment the [MON] is wearing or carrying isn't transformed. If the [MON] dies, it reverts to its true form." },
-		{ "name" : "Charge", "desc" : "If the [MON] moves at least ??? ft. straight toward a target and then hits it with a ??? attack on the same turn, the target takes an extra ??? (???d???) ??? damage. If the target is a creature, it must succeed on a DC ??? Strength saving throw or be knocked prone." },
-		{ "name" : "Confer Resistance", "realname" : "Confer ??? Resistance", "desc" : "The [MON] can grant resistance to ??? damage to anyone riding it." },
-		{ "name" : "Corrode Metal", "desc" : "Any nonmagical weapon made of metal that hits the [MON] corrodes. After dealing damage, the weapon takes a permanent and cumulative -1 penalty to damage rolls. If its penalty drops to -5, the weapon is destroyed. Non magical ammunition made of metal that hits the [MON] is destroyed after dealing damage.\nThe [MON] can eat through 2-inch-thick, nonmagical metal in 1 round." },
-		{ "name" : "Cunning Action", "desc" : "On each of its turns, the [MON] can use a bonus action to take the Dash, Disengage, or Hide action." },
-		{ "name" : "Damage Absorption", "realname" : "??? Absorption", "desc" : "Whenever the [MON] is subjected to ??? damage, it takes no damage and instead regains a number of hit points equal to the ??? damage dealt." },
-		{ "name" : "Damage Transfer", "desc" : "While it is grappling a creature, the [MON] takes only half the damage dealt to it, and the creature grappled by the [MON] takes the other half." },
-		{ "name" : "Dark Devotion", "desc" : "The [MON] has advantage on saving throws against being charmed or frightened." },
-		{ "name" : "Death Burst", "desc" : "When the [MON] dies, it explodes in a burst of ???. Each creature within ??? ft. of it must make a DC ??? Dexterity saving throw, taking ??? (???d???) ??? damage on a failed save, or half as much damage on a successful one." },
-		{ "name" : "Detect (Legendary Action)", "realname" : "Detect", "desc" : "The [MON] makes a Wisdom (Perception) check." },
-		{ "name" : "Devil's Sight", "desc" : "Magical darkness doesn't impede the devil's darkvision." },
-		{ "name" : "Divine Awareness", "desc" : "The [MON] knows if it hears a lie." },
-		{ "name" : "Divine Eminence", "desc" : "As a bonus action, the [MON] can expend a spell slot to cause its melee weapon attacks to magically deal an extra ??? (???d???) radiant damage to a target on a hit. This benefit lasts until the end of the turn. If the [MON] expends a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each level above 1st." },
-		{ "name" : "Duergar Resilience", "desc" : "The duergar has advantage on saving throws against poison, spells, and illusions, as well as to resist being charmed or paralyzed." },
-		{ "name" : "Earth Glide", "desc" : "The [MON] can burrow through nonmagical, unworked earth and stone. While doing so, the [MON] doesn't disturb the material it moves through." },
-		{ "name" : "Echolocation", "desc" : "The [MON] can't use its blindsight while deafened." },
-		{ "name" : "Elemental Demise", "desc" : "If the [MON] dies, its body disintegrates into ???, leaving behind only equipment the [MON] was wearing or carrying." },
-		{ "name" : "Elemental Form", "realname" : "??? Form", "desc" : "The [MON] can enter a hostile creature's space and stop there. It can move through a space as narrow as 1 inch wide without squeezing." },
-		{ "name" : "Ephemeral", "desc" : "The [MON] can't wear or carry anything." },
-		{ "name" : "Etherealness (Action)", "realname" : "Etherealness", "desc" : "The [MON] magically enters the Ethereal Plane from the Material Plane, or vice versa." },
-		{ "name" : "Ethereal Jaunt", "desc" : "As a bonus action, the [MON] can magically shift from the Material Plane to the Ethereal Plane, or vice versa." },
-		{ "name" : "Ethereal Sight", "desc" : "The [MON] can see 60 ft. into the Ethereal Plane when it is on the Material Plane, and vice versa." },
-		{ "name" : "Evasion", "desc" : "If the [MON] is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the [MON] instead takes no damage if it succeeds on the saving throw, and only half damage if it fails." },
-		{ "name" : "False Appearance", "desc" : "While the [MON] remains motionless, it is indistinguishable from ???." },
-		{ "name" : "Fear Aura", "desc" : "Any creature hostile to the [MON] that starts its turn within ??? feet of the [MON] must make a DC ??? Wisdom saving throw, unless the [MON] is incapacitated. On a failed save, the creature is frightened until the start of its next turn. If a creature's saving throw is successful, the creature is immune to the [MON]'s Fear Aura for the next 24 hours." },
-		{ "name" : "Fey Ancestry", "desc" : "The [MON] has advantage on saving throws against being charmed, and magic can't put the [MON] to sleep." },
-		{ "name" : "Flyby", "desc" : "The [MON] doesn't provoke opportunity attacks when it flies out of an enemy's reach." },
-		{ "name" : "Freedom of Movement", "desc" : "The [MON] ignores difficult terrain, and magical effects can't reduce its speed or cause it to be restrained. It can spend 5 feet of movement to escape from nonmagical restraints or being grappled." },
-		{ "name" : "Frightful Presence (Action)", "realname" : "Frightful Presence", "desc" : "Each creature of the [MON]'s choice that is within 120 feet of the [MON] and aware of it must succeed on a DC ??? Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the [MON]'s Frightful Presence for the next 24 hours." },
-		{ "name" : "Gnome Cunning", "desc" : "The gnome has advantage on Intelligence, Wisdom, and Charisma saving throws against magic." },
-		{ "name" : "Grappler", "desc" : "The [MON] has advantage on attack rolls against any creature grappled by it." },
-		{ "name" : "Healing Touch (Action)", "realname" : "Healing Touch (???/day)", "desc" : "The [MON] touches another creature. The target magically regains ??? (???d??? + ???) hit points and is freed from any curse, disease, poison, blindness, or deafness." },
-		{ "name" : "Heated Body", "desc" : "A creature that touches the [MON] or hits it with a melee attack while within ??? feet of it takes ??? (???d???) fire damage." },
-		{ "name" : "Heated Weapons", "desc" : "Any metal melee weapon the [MON] wields deals an extra ??? (???d???) fire damage on a hit (included in the attack)." },
-		{ "name" : "Hellish Weapons", "desc" : "The [MON]'s weapon attacks are magical and deal an extra ??? (???d???) poison damage on a hit (included in the attacks)." },
-		{ "name" : "Hold Breath", "desc" : "The [MON] can hold its breath for ???." },
-		{ "name" : "Ice Walk", "desc" : "The [MON] can move across and climb icy surfaces without needing to make an ability check. Additionally, difficult terrain composed of ice or snow doesn't cost it extra movement." },
-		{ "name" : "Illumination", "desc" : "The [MON] sheds bright light in a ???-foot radius and dim light in an additional ??? ft." },
-		{ "name" : "Illusory Appearance (Action)", "realname" : "Illusory Appearance", "desc" : "The [MON] covers itself and anything it is wearing or carrying with a magical illusion that makes it look like another creature of its general size and shape. The effect ends if the [MON] takes a bonus action to end it or if it dies.\nThe changes wrought by this effect fail to hold up to physical inspection. For example, the [MON] could appear to have no claws, but someone touching its hand might feel the claws. Otherwise, a creature must take an action to visually inspect the illusion and succeed on a DC ??? Intelligence (Investigation) check to discern that the [MON] is disguised." },
-		{ "name" : "Immutable Form", "desc" : "The [MON] is immune to any spell or effect that would alter its form." },
-		{ "name" : "Incorporeal", "desc" : "The [MON] can move through other creatures and objects as if they were difficult terrain. It takes ??? (???d???) force damage if it ends its turn inside an object." },
-		{ "name" : "Innate Spellcasting (Single Spell)", "realname" : "Innate Spellcasting (???/Day)", "desc" : "The [MON] can innately cast ??? (spell save DC ???), requiring no material components. Its innate spellcasting ability is ???." },
-		{ "name" : "Inscrutable", "desc" : "The [MON] is immune to any effect that would sense its emotions or read its thoughts, as well as any divination spell that it refuses. Wisdom (Insight) checks made to ascertain the [MON]'s intentions or sincerity have disadvantage." },
-		{ "name" : "Invisibility (Action)", "realname" : "Invisibility", "desc" : "The [MON] magically turns invisible until it attacks or casts a spell, or until its concentration ends (as if concentrating on a spell). Any equipment the [MON] wears or carries is invisible with it." },
-		{ "name" : "Invisibility (Permanent)", "realname" : "Invisibility", "desc" : "The [MON] is invisible." },
-		{ "name" : "Keen Hearing", "desc" : "The [MON] has advantage on Wisdom (Perception) checks that rely on hearing." },
-		{ "name" : "Keen Sight", "desc" : "The [MON] has advantage on Wisdom (Perception) checks that rely on sight." },
-		{ "name" : "Keen Smell", "desc" : "The [MON] has advantage on Wisdom (Perception) checks that rely on smell." },
-		{ "name" : "Keen Hearing and Sight", "desc" : "The [MON] has advantage on Wisdom (Perception) checks that rely on hearing or sight." },
-		{ "name" : "Keen Hearing and Smell", "desc" : "The [MON] has advantage on Wisdom (Perception) checks that rely on hearing or smell." },
-		{ "name" : "Keen Sight and Smell", "desc" : "The [MON] has advantage on Wisdom (Perception) checks that rely on sight or smell." },
-		{ "name" : "Labyrinthine Recall", "desc" : "The [MON] can perfectly recall any path it has traveled." },
-		{ "name" : "Leadership (Action)", "realname" : "Leadership (Recharges after a Short or Long Rest)", "desc" : "For 1 minute, the [MON] can utter a special command or warning whenever a nonhostile creature that it can see within 30 ft. of it makes an attack roll or a saving throw. The creature can add a d4 to its roll provided it can hear and understand the [MON]. A creature can benefit from only one Leadership die at a time. This effect ends if the [MON] is incapacitated." },
-		{ "name" : "Life Drain (Action)", "realname" : "Life Drain", "desc" : "_Melee Spell Attack:_ +??? to hit, reach ??? ft., one creature. _Hit:_ ??? (???d??? + ???) necrotic damage. The target must succeed on a DC ??? Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. The target dies if this effect reduces its hit point maximum to 0." },
-		{ "name" : "Limited Amphibiousness", "desc" : "The [MON] can breathe air and water, but it needs to be submerged at least once every 4 hours to avoid suffocating." },
-		{ "name" : "Limited Magic Immunity", "desc" : "The [MON] can't be affected or detected by spells of ??? level or lower unless it wishes to be. It has advantage on saving throws against all other spells and magical effects." },
-		{ "name" : "Limited Telepathy", "desc" : "The [MON] can magically communicate simple ideas, emotions, and images telepathically with any creature within ??? ft. of it." },
-		{ "name" : "Magic Resistance", "desc" : "The [MON] has advantage on saving throws against spells and other magical effects." },
-		{ "name" : "Magic Weapons", "desc" : "The [MON]'s weapon attacks are magical." },
-		{ "name" : "Martial Advantage", "desc" : "Once per turn, the [MON] can deal an extra ??? (???d???) damage to a creature it hits with a weapon attack if that creature is within 5 ft. of an ally of the [MON] that isn't incapacitated." },
-		{ "name" : "Mimicry", "desc" : "The [MON] can mimic ??? sounds it has heard. A creature that hears the sounds can tell they are imitations with a successful DC ??? Wisdom (Insight) check." },
-		{ "name" : "Nimble Escape", "desc" : "The [MON] can take the Disengage or Hide action as a bonus action on each of its turns." },
-		{ "name" : "Pack Tactics", "desc" : "The [MON] has advantage on an attack roll against a creature if at least one of the [MON]'s allies is within 5 ft. of the creature and the ally isn't incapacitated." },
-		{ "name" : "Parry (Reaction)", "realname" : "Parry", "desc" : "The [MON] adds ??? to its AC against one melee attack that would hit it. To do so, the [MON] must see the attacker and be wielding a melee weapon." },
-		{ "name" : "Petrifying Gaze", "desc" : "If a creature starts its turn within ??? ft. of the [MON] and the two of them can see each other, the [MON] can force the creature to make a DC ??? Constitution saving throw if the [MON] isn't incapacitated. On a failed save, the creature magically begins to turn to stone and is restrained. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is petrified until freed by the greater restoration spell or other magic.\nA creature that isn't surprised can avert its eyes to avoid the saving throw at the start of its turn. If it does so, it can't see the [MON] until the start of its next turn, when it can avert its eyes again. If it looks at the [MON] in the meantime, it must immediately make the save.\nIf the [MON] sees its reflection within ??? ft. of it in bright light, it is affected by its own gaze." },
-		{ "name" : "Pounce", "desc" : "If the [MON] moves at least ??? ft. straight toward a target and then hits it with a ??? attack on the same turn, the target takes an extra ??? (???d???) ??? damage. If the target is a creature, it must succeed on a DC ??? Strength saving throw or be knocked prone. If the target is prone, the [MON] can make another ??? attack against it as a bonus action." },
-		{ "name" : "Rampage", "desc" : "When the [MON] reduces a creature to 0 hit points with a melee attack on its turn, the [MON] can take a bonus action to move up to half its speed and make a ??? attack." },
-		{ "name" : "Reactive", "desc" : "The [MON] can take one reaction on every turn in combat." },
-		{ "name" : "Read Thoughts (Action)", "realname" : "Read Thoughts", "desc" : "The [MON] magically reads the surface thoughts of one creature within ??? ft. of it. The effect can penetrate barriers, but 3 ft. of wood or dirt, 2 ft. of stone, 2 inches of metal, or a thin sheet of lead blocks it. While the target is in range, the [MON] can continue reading its thoughts, as long as the [MON]'s concentration isn't broken (as if concentrating on a spell). While reading the target's mind, the [MON] has advantage on Wisdom (Insight) and Charisma (Deception, Intimidation, and Persuasion) checks against the target." },
-		{ "name" : "Reckless", "desc" : "At the start of its turn, the [MON] can gain advantage on all melee weapon attack rolls it makes during that turn, but attack rolls against it have advantage until the start of its next turn." },
-		{ "name" : "Regeneration", "desc" : "The [MON] regains ??? hit points at the start of its turn if it has at least 1 hit point." },
-		{ "name" : "Regeneration (Troll)", "realname" : "Regeneration", "desc" : "The [MON] regains ??? hit points at the start of its turn. If the [MON] takes acid or fire damage, this trait doesn't function at the start of the [MON]'s next turn. The [MON] dies only if it starts its turn with 0 hit points and doesn't regenerate." },
-		{ "name" : "Relentless", "realname" : "Relentless (Recharges after a Short or Long Rest)", "desc" : "If the [MON] takes ??? damage or less that would reduce it to 0 hit points, it is reduced to 1 hit point instead." },
-		{ "name" : "Rust Metal", "desc" : "Any nonmagical weapon made of metal that hits the [MON] corrodes. After dealing damage, the weapon takes a permanent and cumulative -1 penalty to damage rolls. If its penalty drops to -5, the weapon is destroyed. Non magical ammunition made of metal that hits the [MON] is destroyed after dealing damage." },
-		{ "name" : "Speak With Plants and Beasts", "desc" : "The [MON] can communicate with beasts and plants as if they shared a language." },
-		{ "name" : "Sense Magic", "desc" : "The [MON] senses magic within 120 feet of it at will. This trait otherwise works like the detect magic spell but isn't itself magical." },
-		{ "name" : "Shadow Stealth", "desc" : "While in dim light or darkness, the [MON] can take the Hide action as a bonus action." },
-		{ "name" : "Shapechanger", "desc" : "The [MON] can use its action to polymorph into a ???, or back into its true form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies." },
-		{ "name" : "Shapechanger (Lycanthrope)", "realname" : "Shapechanger", "desc" : "The [MON] can use its action to polymorph into a ???-humanoid hybrid or into a ???, or back into its true form, which is humanoid. Its statistics, other than its AC, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies." },
-		{ "name" : "Shielded Mind", "desc" : "The [MON] is immune to scrying and to any effect that would sense its emotions, read its thoughts, or detect its location." },
-		{ "name" : "Siege Monster", "desc" : "The [MON] deals double damage to objects and structures." },
-		{ "name" : "Sneak Attack", "realname" : "Sneak Attack (1/Turn)", "desc" : "The [MON] deals an extra ??? (???d???) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 ft. of an ally of the [MON] that isn't incapacitated and the [MON] doesn't have disadvantage on the attack roll." },
-		{ "name" : "Spider Climb", "desc" : "The [MON] can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check." },
-		{ "name" : "Split (Reaction)", "realname" : "Split", "desc" : "When a [MON] that is Medium or larger is subjected to lightning or slashing damage, it splits into two new [MON] if it has at least 10 hit points. Each new [MON] has hit points equal to half the original [MON]'s, rounded down. New [MON] are one size smaller than the original [MON]." },
-		{ "name" : "Standing Leap", "desc" : "The [MON]'s long jump is up to ??? ft. and its high jump is up to ??? ft., with or without a running start." },
-		{ "name" : "Steadfast", "desc" : "The [MON] can't be frightened while it can see an allied creature within 30 feet of it." },
-		{ "name" : "Sunlight Sensitivity", "desc" : "While in sunlight, the [MON] has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight." },
-		{ "name" : "Sure-Footed", "desc" : "The [MON] has advantage on Strength and Dexterity saving throws made against effects that would knock it prone." },
-		{ "name" : "Surprise Attack", "desc" : "If the [MON] surprises a creature and hits it with an attack during the first round of combat, the target takes an extra ??? (???d???) damage from the attack." },
-		{ "name" : "Swarm", "desc" : "The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a ???. The swarm can't regain hit points or gain temporary hit points." },
-		{ "name" : "Teleport (Action or Legendary Action)", "realname" : "Teleport", "desc" : "The [MON] magically teleports, along with any equipment it is wearing or carrying, up to 120 feet to an unoccupied space it can see." },
-		{ "name" : "Trampling Charge", "desc" : "If the [MON] moves at least ??? ft. straight toward a target and then hits it with a ??? attack on the same turn, the target takes an extra ??? (???d???) ??? damage. If the target is a creature, it must succeed on a DC ??? Strength saving throw or be knocked prone. If the target is prone, the [MON] can make another ??? attack against it as a bonus action." },
-		{ "name" : "Tunneler", "desc" : "The [MON] can burrow through solid rock at half its burrow speed and leaves a ???-foot-diameter tunnel in its wake." },
-		{ "name" : "Turn Resistance", "desc" : "The [MON] has advantage on saving throws against any effect that turns undead." },
-		{ "name" : "Two-Headed", "desc" : "The [MON] has advantage on Wisdom (Perception) checks and on saving throws against being blinded, charmed, deafened, frightened, stunned, and knocked unconscious." },
-		{ "name" : "Undead Fortitude", "desc" : "If damage reduces the [MON] to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the [MON] drops to 1 hit point instead." },
-		{ "name" : "Water Breathing", "desc" : "The [MON] can breathe only underwater." },
-		{ "name" : "Web Sense", "desc" : "While in contact with a web, the [MON] knows the exact location of any other creature in contact with the same web." },
-		{ "name" : "Web Walker", "desc" : "The [MON] ignores movement restrictions caused by webbing." },
-		{ "name" : "Wing Attack (Legendary Action)", "realname" : "Wing Attack (Costs 2 Actions)", "desc" : "The [MON] beats its wings. Each creature within ??? ft. of the [MON] must succeed on a DC ??? Dexterity saving throw or take ??? (???d??? + ???) bludgeoning damage and be knocked prone. The [MON] can then fly up to half its flying speed." }
-	];
+	// // Populate the stat block
+	// FormFunctions.SetForms();
+	// UpdateStatblock();
+// }

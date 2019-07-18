@@ -1,0 +1,18 @@
+{
+	"availableBooks": ["EE", "SCAG", "VGtM", "MR", "XGtE", "MToF", "GGtR", "DMG", "Other", "WGtE", "Unofficial", "UA"],
+	"bookNames": {
+		"PHB": "Player\"s Handbook",
+		"EE": "Elemental Evil Player\"s Companion",
+		"SCAG": "Sword Coast Adventurer\"s Guide",
+		"VGtM": "Volo\"s Guide to Monsters",
+		"MR": "Volo\"s Guide (Monstrous Races)",
+		"XGtE": "Xanathar\"s Guide to Everything",
+		"MToF": "Mordenkainen\"s Tome of Foes",
+		"GGtR": "Guildmaster\"s Guide to Ravnica",
+		"DMG": "Dungeon Master\"s Guide",
+		"Other": "Other Content",
+		"WGtE": "Wayfinder\"s Guide to Eberron",
+		"UA": "Unearthed Arcana",
+		"Unofficial": "Unofficial Content"
+	}
+}

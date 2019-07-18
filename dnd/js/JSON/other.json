@@ -1,0 +1,24 @@
+{
+	"genders": ["Male", "Male", "Male", "Male", "Male", "Female", "Female", "Female", "Female", "Female", "Nonbinary or Unknown"],
+	"raceWeights": {
+		"Dragonborn": 3,
+		"Dwarf": 6,
+		"Elf": 6,
+		"Gnome": 3,
+		"Halfling": 6,
+		"Human": 24,
+		"Half-Elf": 3,
+		"Half-Orc": 3,
+		"Tiefling": 3
+	},
+	"monstrousOrigins": [
+		"You are a spy sent to undermine your enemies from within.",
+		"You are the victim of a curse or polymorph spell.",
+		"You were raised by humans, elves, or dwarves and have adopted their culture.",
+		"At a young age, you adopted a human religion and now serve it faithfully.",
+		"You received divine insight that sent you on your path, and occasionally receive new visions that guide you.",
+		"Your sworn enemy is an ally of your people, forcing you to leave your tribe to gain vengeance.",
+		"An evil entity corrupted your people's society.",
+		"An injury or strange event caused you to lose all memory of your past, but occasional flashes of it return to you."
+	]
+}

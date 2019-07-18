@@ -31,7 +31,7 @@ var Card =
 			raceName = this.RaceForImage(character.Race.name),
 			fileName = this.ImageFileName(raceName);
 		backgroundImage.src = "./dndimages/cardimages/cardbackgrounds/" + this.FileNameFormat(character.Class.name) + ".jpg";
-		$("#sourcelink").attr("href", sources[raceName][fileName]);
+		$("#sourcelink").attr("href", cardsources[raceName][fileName]);
 			
 		backgroundImage.onload = function()
 		{ 
@@ -265,7 +265,7 @@ var Card =
 	// Add racial traits for certain special races
 	VariantTraits: function()
 	{
-		var variantRaces = [ "Dragonborn", "Half-Elf", "Human", "Tiefling" ]
+		const variantRaces = [ "Dragonborn", "Half-Elf", "Human", "Tiefling" ];
 		if(variantRaces.includes(character.Race.name))
 		{
 			var subvar = this.FindTraitByName(character.Race.content, "Subraces and Variants");
@@ -274,13 +274,13 @@ var Card =
 				case "Dragonborn" :
 					return this.FindTraitByName(subvar, "Draconic Ancestry") + " Dragon Ancestry - ";
 				case "Half-Elf" :
-					if(books.indexOf("SCAG") < 0)
+					if(usedBooks.indexOf("SCAG") < 0)
 						return "";
 					return this.FindTraitByName(subvar, "Elven Ancestry") + " Ancestry - ";
 				case "Human" :
 					return this.FindTraitByName(subvar, "Ethnicity") + " - ";
 				case "Tiefling" :
-					if(!books.includes("SCAG"))
+					if(!usedBooks.includes("SCAG"))
 						return null;
 					var variant = this.FindTraitByName(subvar, "Variant");
 					if(variant == null)
@@ -333,7 +333,6 @@ var Card =
 		var allTraits = [],
 			backgroundArr = character.Background.content,
 			raceArr = character.Race.content,
-			classPersonalityArr = this.FindTraitByName(character.Class.content, "Personality"),
 			npcTraitsArr = character.NPCTraits.content,
 			lifeArr = character.Life.content;
 		if(characterType != "npc")
@@ -362,11 +361,15 @@ var Card =
 		}
 		if(characterType != "npc")
 		{
-			for(var index = 0; index < classPersonalityArr.length; index++)
+			classPersonalityArr = this.FindTraitByName(character.Class.content, "Personality");
+			if(classPersonalityArr)
 			{
-				var trait = classPersonalityArr[index];
-				if(trait != null && trait.content != null)
-					allTraits.push(trait);
+				for(var index = 0; index < classPersonalityArr.length; index++)
+				{
+					var trait = classPersonalityArr[index];
+					if(trait != null && trait.content != null)
+						allTraits.push(trait);
+				}
 			}
 		}
 		if(characterType != "pc")
