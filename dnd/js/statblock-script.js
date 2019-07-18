@@ -219,7 +219,7 @@ var ReplaceTraitTags = function(desc)
 				{
 					let multiplier = splitDmg[0].length > 0 ? parseInt(splitDmg[0]) : 1,
 						dieSize = parseInt(splitDmg[1]);
-					replaceString = Math.Max(Math.floor(multiplier * ((dieSize + 1) / 2) + damageMod), 1) + " (" + multiplier + "d" + dieSize;
+					replaceString = Math.max(Math.floor(multiplier * ((dieSize + 1) / 2) + damageMod), 1) + " (" + multiplier + "d" + dieSize;
 					replaceString +=
 						damageMod > 0 ? " + " + damageMod :
 						damageMod < 0 ? " - " + -damageMod : "";
