@@ -709,9 +709,14 @@
 			"desc": "_Ranged Spell Attack:_ [CHA ATK] to hit, range ???/??? ft., one target. _Hit:_ [CHA ?D?] ??? damage."
 		},
 		{
-			"name": "Melee or Ranged Weapon Attack",
+			"name": "Melee or Ranged Weapon Attack (STR)",
 			"realname": "",
-			"desc": "_Melee or Ranged Weapon Attack:_ +??? to hit, reach ??? ft. or range ???/??? ft., one target. _Hit:_ ??? (???d??? + ???) ??? damage."
+			"desc": "_Melee or Ranged Weapon Attack:_ [STR ATK] to hit, reach ??? ft. or range ???/??? ft., one target. _Hit:_ [STR ?D?] ??? damage."
+		},
+		{
+			"name": "Melee or Ranged Weapon Attack (DEX)",
+			"realname": "",
+			"desc": "_Melee or Ranged Weapon Attack:_ [DEX ATK] to hit, reach ??? ft. or range ???/??? ft., one target. _Hit:_ [DEX ?D?] ??? damage."
 		},
 
 		{
@@ -722,6 +727,11 @@
 		{
 			"name": "Multiattack (Action)",
 			"desc": "The [MON] makes two attacks."
+		},
+		{
+			"name": "Legendary Resistance",
+			"realname": "Legendary Resistance (3/day)",
+			"desc": "If the [MON] fails a saving throw, it can choose to succeed instead."
 		},
 		{
 			"name": "Spellcasting (INT)",
@@ -752,11 +762,6 @@
 			"name": "Innate Spellcasting (CHA)",
 			"realname": "Innate Spellcasting",
 			"desc": "The [MON]'s innate spellcasting ability is Charisma (spell save DC [CHA SAVE], [CHA ATK] to hit with spell attacks). It can innately cast the following spells, requiring no material components:\n\n> At will: _spell, spell, spell_\n> 3/day each: _spell, spell, spell_\n> 1/day each: _spell, spell_"
-		},
-		{
-			"name": "Legendary Resistance",
-			"realname": "Legendary Resistance (3/day)",
-			"desc": "If the [MON] fails a saving throw, it can choose to succeed instead."
 		},
 
 		{
@@ -1273,6 +1278,200 @@
 			"name": "Wing Attack (Legendary Action)",
 			"realname": "Wing Attack (Costs 2 Actions)",
 			"desc": "The [MON] beats its wings. Each creature within ??? ft. of the [MON] must succeed on a DC ??? Dexterity saving throw or take ??? (???d??? + ???) bludgeoning damage and be knocked prone. The [MON] can then fly up to half its flying speed."
+		},
+
+		{
+			"name": "",
+			"desc": null
+		},
+
+		{
+			"name": "Battleaxe",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D8] slashing damage, or [STR 1D10] slashing damage if used with two hands."
+		},
+		{
+			"name": "Blowgun",
+			"desc": "_Ranged Weapon Attack:_ [DEX ATK] to hit, range 25/100 ft., one target. _Hit:_ [DEX 1] piercing damage."
+		},
+		{
+			"name": "Club",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D4] bludgeoning damage."
+		},
+		{
+			"name": "Dagger (STR)",
+			"realname": "Dagger",
+			"desc": "_Melee or Ranged Weapon Attack:_ [STR ATK] to hit, reach 5 ft. or range 20/60 ft., one target. _Hit:_ [STR 1D4] piercing damage."
+		},
+		{
+			"name": "Dagger (DEX)",
+			"realname": "Dagger",
+			"desc": "_Melee or Ranged Weapon Attack:_ [DEX ATK] to hit, reach 5 ft. or range 20/60 ft., one target. _Hit:_ [DEX 1D4] piercing damage."
+		},
+		{
+			"name": "Dart (STR)",
+			"realname": "Dart",
+			"desc": "_Ranged Weapon Attack:_ [STR ATK] to hit, range 20/60 ft., one target. _Hit:_ [STR 1D4] piercing damage."
+		},
+		{
+			"name": "Dart (DEX)",
+			"realname": "Dart",
+			"desc": "_Ranged Weapon Attack:_ [DEX ATK] to hit, range 20/60 ft., one target. _Hit:_ [DEX 1D4] piercing damage."
+		},
+		{
+			"name": "Flail",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D8] bludgeoning damage."
+		},
+		{
+			"name": "Glaive",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 10 ft., one target. _Hit:_ [STR 1D10] slashing damage."
+		},
+		{
+			"name": "Greataxe",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D12] slashing damage."
+		},
+		{
+			"name": "Greatclub",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D8] bludgeoning damage."
+		},
+		{
+			"name": "Greatsword",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 2D6] slashing damage."
+		},
+		{
+			"name": "Halberd",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 10 ft., one target. _Hit:_ [STR 1D10] slashing damage."
+		},
+		{
+			"name": "Handaxe",
+			"desc": "_Melee or Ranged Weapon Attack:_ [STR ATK] to hit, reach 5 ft. or range 20/60 ft., one target. _Hit:_ [STR 1D6] slashing damage."
+		},
+		{
+			"name": "Hand Crossbow",
+			"desc": "_Ranged Weapon Attack:_ [DEX ATK] to hit, range 30/120 ft., one target. _Hit:_ [DEX 1D6] piercing damage."
+		},
+		{
+			"name": "Heavy Crossbow",
+			"desc": "_Ranged Weapon Attack:_ [DEX ATK] to hit, range 100/400 ft., one target. _Hit:_ [DEX 1D10] piercing damage."
+		},
+		{
+			"name": "Javelin",
+			"desc": "_Melee or Ranged Weapon Attack:_ [STR ATK] to hit, reach 5 ft. or range 30/120 ft., one target. _Hit:_ [STR 1D6] piercing damage."
+		},
+		{
+			"name": "Lance",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 10 ft., one target. _Hit:_ [STR 1D12] piercing damage."
+		},
+		{
+			"name": "Light Crossbow",
+			"desc": "_Ranged Weapon Attack:_ [DEX ATK] to hit, range 80/320 ft., one target. _Hit:_ [DEX 1D8] piercing damage."
+		},
+		{
+			"name": "Light Hammer",
+			"desc": "_Melee or Ranged Weapon Attack:_ [STR ATK] to hit, reach 5 ft. or range 20/60 ft., one target. _Hit:_ [STR 1D4] bludgeoning damage."
+		},
+		{
+			"name": "Longbow",
+			"desc": "_Ranged Weapon Attack:_ [DEX ATK] to hit, range 150/600 ft., one target. _Hit:_ [DEX 1D8] piercing damage."
+		},
+		{
+			"name": "Longsword",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D8] slashing damage, or [STR 1D10] slashing damage if used with two hands."
+		},
+		{
+			"name": "Mace",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D6] bludgeoning damage."
+		},
+		{
+			"name": "Maul",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 2D6] bludgeoning damage."
+		},
+		{
+			"name": "Morningstar",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D8] piercing damage."
+		},
+		{
+			"name": "Net",
+			"desc": "_Ranged Weapon Attack:_ [DEX ATK] to hit, range 5/15 ft., one Large or smaller creature. _Hit:_ The target is restrained. A creature can use its action to make a DC 10 Strength check to free itself or another creature in a net, ending the effect on a success. Dealing 5 slashing damage to the net (AC 10) frees the target without harming it and destroys the net."
+		},
+		{
+			"name": "Pike",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 10 ft., one target. _Hit:_ [STR 1D10] piercing damage."
+		},
+		{
+			"name": "Quarterstaff",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D6] bludgeoning damage, or [STR 1D8] bludgeoning damage if used with two hands."
+		},
+		{
+			"name": "Rapier (STR)",
+			"realname": "Rapier",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D8] piercing damage."
+		},
+		{
+			"name": "Rapier (DEX)",
+			"realname": "Rapier",
+			"desc": "_Melee Weapon Attack:_ [DEX ATK] to hit, reach 5 ft., one target. _Hit:_ [DEX 1D8] piercing damage."
+		},
+		{
+			"name": "Scimitar (STR)",
+			"realname": "Scimitar",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D6] slashing damage."
+		},
+		{
+			"name": "Scimitar (DEX)",
+			"realname": "Scimitar",
+			"desc": "_Melee Weapon Attack:_ [DEX ATK] to hit, reach 5 ft., one target. _Hit:_ [DEX 1D6] slashing damage."
+		},
+		{
+			"name": "Shortbow",
+			"desc": "_Ranged Weapon Attack:_ [DEX ATK] to hit, range 80/320 ft., one target. _Hit:_ [DEX 1D6] piercing damage."
+		},
+		{
+			"name": "Shortsword (STR)",
+			"realname": "Shortsword",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D6] piercing damage."
+		},
+		{
+			"name": "Shortsword (DEX)",
+			"realname": "Shortsword",
+			"desc": "_Melee Weapon Attack:_ [DEX ATK] to hit, reach 5 ft., one target. _Hit:_ [DEX 1D6] piercing damage."
+		},
+		{
+			"name": "Sickle",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D4] slashing damage."
+		},
+		{
+			"name": "Sling",
+			"desc": "_Ranged Weapon Attack:_ [DEX ATK] to hit, range 30/120 ft., one target. _Hit:_ [DEX 1D4] bludgeoning damage."
+		},
+		{
+			"name": "Spear",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft. or range 20/60 ft., one target. _Hit:_ [STR 1D6] piercing damage, or [STR 1D8] piercing damage if used with two hands to make a melee attack."
+		},
+		{
+			"name": "Trident",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft. or range 20/60 ft., one target. _Hit:_ [STR 1D6] piercing damage, or [STR 1D8] piercing damage if used with two hands to make a melee attack."
+		},
+		{
+			"name": "Unarmed Strike",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1] bludgeoning damage."
+		},
+		{
+			"name": "Warhammer",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D8] bludgeoning damage, or [STR 1D10] bludgeoning damage if used with two hands."
+		},
+		{
+			"name": "War Pick",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D8] piercing damage."
+		},
+		{
+			"name": "Whip (STR)",
+			"realname": "Whip",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 10 ft., one target. _Hit:_ [STR 1D4] slashing damage."
+		},
+		{
+			"name": "Whip (DEX)",
+			"realname": "Whip",
+			"desc": "_Melee Weapon Attack:_ [DEX ATK] to hit, reach 10 ft., one target. _Hit:_ [DEX 1D4] slashing damage."
 		}
 	]
 }

@@ -225,8 +225,9 @@ var ReplaceTraitTags = function(desc)
 						damageMod < 0 ? " - " + -damageMod : "";
 					replaceString += ")";
 				}
-				
 			}
+			else if(/\d+/.test(matchArr[1]))
+				replaceString = Math.max(parseInt(matchArr[1]) + GetPoints(matchArr[0]), 1);
 			else
 			{
 				switch (matchArr[1])
@@ -241,7 +242,7 @@ var ReplaceTraitTags = function(desc)
 			}
 		}
 		
-		if(replaceString)
+		if(replaceString != null)
 			desc = desc.replace(match[0], replaceString);
 	});
 
