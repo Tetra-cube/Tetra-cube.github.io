@@ -726,6 +726,7 @@
 
 		{
 			"name": "Multiattack (Action)",
+			"realname": "Multiattack",
 			"desc": "The [MON] makes two attacks."
 		},
 		{
