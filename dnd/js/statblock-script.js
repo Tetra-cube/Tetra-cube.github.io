@@ -271,9 +271,9 @@ var TryMarkdown = function() {
 			(Array.isArray(propertiesDisplayArr[index].arr) ? propertiesDisplayArr[index].arr.join(", ") : propertiesDisplayArr[index].arr),
 			"<br>");
 	}
-	markdown.push("> - **Challenge** ", mon.cr, " (", data.crs[mon.cr].xp, " XP)<br>>___<br>");
+	markdown.push("> - **Challenge** ", mon.cr, " (", data.crs[mon.cr].xp, " XP)<br>>___");
 	
-	if(mon.abilities.length > 0) markdown.push(GetTraitMarkdown(mon.abilities, false));
+	if(mon.abilities.length > 0) markdown.push("<br>", GetTraitMarkdown(mon.abilities, false));
 	if(mon.actions.length > 0) markdown.push("<br>> ### Actions<br>", GetTraitMarkdown(mon.actions, false));
 	if(mon.reactions.length > 0) markdown.push("<br>> ### Reactions<br>", GetTraitMarkdown(mon.reactions, false));
 	if(mon.isLegendary)
