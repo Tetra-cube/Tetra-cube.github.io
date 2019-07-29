@@ -45,7 +45,7 @@
 		"Nickname": ["Aleslosh", "Ashhearth", "Badger", "Cloak", "Doublelock", "Filchbatter", "Fnipper", "Ku", "Nim", "Oneshoe", "Pock", "Sparklegem", "Stumbleduck"]
 	},
 	"Goblin": {
-		"Female": ["Vuura", "Ciisa", "Jaaraas Larr", "Flara", "Catlona", "Silonda", "Hillin", "Jebi", "Sazza"],
+		"Female": ["Vuura", "Ciisa", "Jaaraas", "Larr", "Flara", "Catlona", "Silonda", "Hillin", "Jebi", "Sazza"],
 		"Male": ["Chetiin", "Griz", "Gobber", "Toby", "Berk", "Btas", "Dnuzeg", "Dten", "Fooraak", "Gras", "Keevan", "Nbus", "Noregz", "Rath", "Sgaz", "Vuus", "Xoganm"]
 	},
 	"Goliath": {
