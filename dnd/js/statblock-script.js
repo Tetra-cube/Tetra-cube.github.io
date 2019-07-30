@@ -193,57 +193,115 @@ var AddToTraitList = function(traitsHTML, traitsArr, addElements, isLegendary = 
 
 var ReplaceTraitTags = function(desc)
 {
-	const bracketExp = /\[(.*?)\]/g, damageExp = /\d*d\d+/;
+	const bracketExp = /\[(.*?)\]/g, damageExp = /\d*d\d+/, bonusExp = /^[+-] ?(\d+)$/;
 	let matches = [], match = null;
 	while ((match = bracketExp.exec(desc)) != null)
 		matches.push(match);
 	
 	matches.forEach(function(match) {
-		const GetPoints = (pts) => data.statNames.includes(matchArr[0]) ? MathFunctions.PointsToBonus(mon[pts + "Points"]) : null;
-		let matchArr = match[1].toLowerCase().replace(/ +/g, ' ').trim().split(' '), replaceString = null;
-			
-		if(matchArr.length == 1)
-		{
-			if(matchArr[0] == "mon") 
-				replaceString = mon.name.toLowerCase();
-			else
-				replaceString = StringFunctions.BonusFormat(GetPoints(matchArr[0]));
-		}
-		else if(matchArr.length == 2)
-		{
-			if(damageExp.test(matchArr[1]))
-			{
-				let splitDmg = matchArr[1].split("d"),
-					damageMod = GetPoints(matchArr[0]);
-				if(damageMod != null && splitDmg[0].length < 5 && splitDmg[1].length < 5)
-				{
-					let multiplier = splitDmg[0].length > 0 ? parseInt(splitDmg[0]) : 1,
-						dieSize = parseInt(splitDmg[1]);
-					replaceString = Math.max(Math.floor(multiplier * ((dieSize + 1) / 2) + damageMod), 1) + " (" + multiplier + "d" + dieSize;
-					replaceString +=
-						damageMod > 0 ? " + " + damageMod :
-						damageMod < 0 ? " - " + -damageMod : "";
-					replaceString += ")";
-				}
-			}
-			else if(/\d+/.test(matchArr[1]))
-				replaceString = Math.max(parseInt(matchArr[1]) + GetPoints(matchArr[0]), 1);
-			else
-			{
-				switch (matchArr[1])
-				{
-					case "atk" :
-						replaceString = StringFunctions.BonusFormat(GetPoints(matchArr[0]) + data.crs[mon.cr].prof);
-						break;
-					case "save" :
-						replaceString = GetPoints(matchArr[0]) + data.crs[mon.cr].prof + 8;
-						break;
-				}
-			}
-		}
+		const GetPoints = (pts) => data.statNames.includes(pts) ? MathFunctions.PointsToBonus(mon[pts + "Points"]) : null;
+		let readString = match[1].toLowerCase().replace(/ +/g, ' ').trim();
 		
-		if(replaceString != null)
-			desc = desc.replace(match[0], replaceString);
+		if(readString.length > 0)
+		{
+			if(readString == "mon")
+				desc = desc.replace(match[0], mon.name.toLowerCase());
+			else
+			{
+				let readPosition = 0, type = null, statPoints = GetPoints(readString.substring(0, 3)),
+					bonus = 0, roll = null, total = 0;
+				
+				// Get stat mods
+				if(statPoints != null)
+				{
+					bonus = statPoints;
+					readPosition = 3;
+					type = "stat";
+					if(readString.length > 3)
+					{
+						if(readString.substring(3, 7) == " atk")
+						{
+							bonus += data.crs[mon.cr].prof;
+							readPosition = 7;
+							type = "atk";
+						}
+						else if(readString.substring(3, 8) == " save")
+						{
+							bonus += data.crs[mon.cr].prof + 8;
+							readPosition = 8;
+							type = "save";
+						}
+					}
+				
+					if(readPosition < readString.length)
+					{
+						if(readString[readPosition] == " ")
+							readPosition++;
+						else
+							type = "error";
+					}
+				}
+						
+				// Get roll
+				if((type == null || type == "stat") && readPosition < readString.length)
+				{
+					let nextSpace = readString.indexOf(" ", readPosition),
+						nextToken = nextSpace >= 0 ? readString.substring(readPosition, nextSpace) : readString.substring(readPosition);
+						
+					if(damageExp.test(nextToken))
+					{
+						roll = nextToken;
+						readPosition += nextToken.length;
+						type = "dmg";
+					
+						if(readPosition < readString.length)
+						{
+							if(readString[readPosition] == " ")
+								readPosition++;
+							else
+								type = "error";
+						}
+					}
+				}
+				
+				// Get bonus
+				if(type != "error" && readPosition < readString.length)
+				{
+					let nextToken = readString.substring(readPosition),
+						bonusMatch = nextToken.match(bonusExp);
+					if(bonusMatch)
+						bonus += nextToken[0] == "-" ? -parseInt(bonusMatch[1]) : parseInt(bonusMatch[1]);
+					else
+						type = "error";
+				}
+				
+				// Make the string
+				if(type != null && type != "error")
+				{
+					let replaceString = null;
+					switch(type) {
+						case "stat":
+						case "atk":
+							replaceString = StringFunctions.BonusFormat(bonus);
+							break;
+						case "save":
+							replaceString = bonus;
+							break;
+						case "dmg":
+							let splitRoll = roll.split("d"),
+								multiplier = splitRoll[0].length > 0 ? parseInt(splitRoll[0]) : 1,
+								dieSize = parseInt(splitRoll[1]);
+							replaceString = Math.max(Math.floor(multiplier * ((dieSize + 1) / 2) + bonus), 1) + " (" + multiplier + "d" + dieSize;
+							replaceString += bonus > 0 ?
+								" + " + bonus : bonus < 0 ?
+								" - " + -bonus : "";
+							replaceString += ")";
+							break;
+					}
+					desc = desc.replace(match[0], replaceString);
+				}
+			}
+		}
 	});
 
 	return desc;

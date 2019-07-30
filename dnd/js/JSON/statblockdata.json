@@ -788,7 +788,7 @@
 		},
 		{
 			"name": "Angelic Weapons",
-			"desc": "The [MON]'s weapon attacks are magical. When the [MON] hits with any weapon, the weapon deals an extra ???d??? radiant damage (included in the attack)."
+			"desc": "The [MON]'s weapon attacks are magical. When the [MON] hits with any weapon, the weapon deals an extra [???d???] radiant damage (included in the attack)."
 		},
 		{
 			"name": "Animal Telepathy",
@@ -836,12 +836,12 @@
 		{
 			"name": "Breath Weapon (Cone, Action)",
 			"realname": "Breath Weapon (Recharge ???)",
-			"desc": "The [MON] exhales ??? in a ???-foot cone. Each creature in that area must make a DC ??? Dexterity saving throw, taking ??? (???d???) ??? damage on a failed save, or half as much damage on a successful one."
+			"desc": "The [MON] exhales ??? in a ???-foot cone. Each creature in that area must make a DC ??? Dexterity saving throw, taking [???d???] ??? damage on a failed save, or half as much damage on a successful one."
 		},
 		{
 			"name": "Breath Weapon (Line, Action)",
 			"realname": "Breath Weapon (Recharge ???)",
-			"desc": "The [MON] exhales ??? in a ???-foot line that is ??? feet wide. Each creature in that line must make a DC ??? Dexterity saving throw, taking ??? (???d???) ??? damage on a failed save, or half as much damage on a successful one."
+			"desc": "The [MON] exhales ??? in a ???-foot line that is ??? feet wide. Each creature in that line must make a DC ??? Dexterity saving throw, taking [???d???] ??? damage on a failed save, or half as much damage on a successful one."
 		},
 		{
 			"name": "Brute",
@@ -864,12 +864,17 @@
 		},
 		{
 			"name": "Charge",
-			"desc": "If the [MON] moves at least ??? ft. straight toward a target and then hits it with a ??? attack on the same turn, the target takes an extra ??? (???d???) ??? damage. If the target is a creature, it must succeed on a DC ??? Strength saving throw or be knocked prone."
+			"desc": "If the [MON] moves at least ??? ft. straight toward a target and then hits it with a ??? attack on the same turn, the target takes an extra [???d???] ??? damage. If the target is a creature, it must succeed on a DC ??? Strength saving throw or be knocked prone."
 		},
 		{
 			"name": "Confer Resistance",
 			"realname": "Confer ??? Resistance",
 			"desc": "The [MON] can grant resistance to ??? damage to anyone riding it."
+		},
+		{
+			"name": "Constrict (Action)",
+			"realname": "Constrict",
+			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one creature. _Hit:_ [STR ???D???] bludgeoning damage, and the target is grappled (escape DC ???). Until this grapple ends, the creature is restrained, and the [MON] can't constrict another target."
 		},
 		{
 			"name": "Corrode Metal",
@@ -894,7 +899,7 @@
 		},
 		{
 			"name": "Death Burst",
-			"desc": "When the [MON] dies, it explodes in a burst of ???. Each creature within ??? ft. of it must make a DC ??? Dexterity saving throw, taking ??? (???d???) ??? damage on a failed save, or half as much damage on a successful one."
+			"desc": "When the [MON] dies, it explodes in a burst of ???. Each creature within ??? ft. of it must make a DC ??? Dexterity saving throw, taking [???d???] ??? damage on a failed save, or half as much damage on a successful one."
 		},
 		{
 			"name": "Detect (Legendary Action)",
@@ -911,7 +916,7 @@
 		},
 		{
 			"name": "Divine Eminence",
-			"desc": "As a bonus action, the [MON] can expend a spell slot to cause its melee weapon attacks to magically deal an extra ??? (???d???) radiant damage to a target on a hit. This benefit lasts until the end of the turn. If the [MON] expends a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each level above 1st."
+			"desc": "As a bonus action, the [MON] can expend a spell slot to cause its melee weapon attacks to magically deal an extra [???d???] radiant damage to a target on a hit. This benefit lasts until the end of the turn. If the [MON] expends a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each level above 1st."
 		},
 		{
 			"name": "Duergar Resilience",
@@ -991,19 +996,19 @@
 		{
 			"name": "Healing Touch (Action)",
 			"realname": "Healing Touch (???/day)",
-			"desc": "The [MON] touches another creature. The target magically regains ??? (???d??? + ???) hit points and is freed from any curse, disease, poison, blindness, or deafness."
+			"desc": "The [MON] touches another creature. The target magically regains [???d??? + ???] hit points and is freed from any curse, disease, poison, blindness, or deafness."
 		},
 		{
 			"name": "Heated Body",
-			"desc": "A creature that touches the [MON] or hits it with a melee attack while within ??? feet of it takes ??? (???d???) fire damage."
+			"desc": "A creature that touches the [MON] or hits it with a melee attack while within ??? feet of it takes [???d???] fire damage."
 		},
 		{
 			"name": "Heated Weapons",
-			"desc": "Any metal melee weapon the [MON] wields deals an extra ??? (???d???) fire damage on a hit (included in the attack)."
+			"desc": "Any metal melee weapon the [MON] wields deals an extra [???d???] fire damage on a hit (included in the attack)."
 		},
 		{
 			"name": "Hellish Weapons",
-			"desc": "The [MON]'s weapon attacks are magical and deal an extra ??? (???d???) poison damage on a hit (included in the attacks)."
+			"desc": "The [MON]'s weapon attacks are magical and deal an extra [???d???] poison damage on a hit (included in the attacks)."
 		},
 		{
 			"name": "Hold Breath",
@@ -1028,7 +1033,7 @@
 		},
 		{
 			"name": "Incorporeal",
-			"desc": "The [MON] can move through other creatures and objects as if they were difficult terrain. It takes ??? (???d???) force damage if it ends its turn inside an object."
+			"desc": "The [MON] can move through other creatures and objects as if they were difficult terrain. It takes [???d???] force damage if it ends its turn inside an object."
 		},
 		{
 			"name": "Innate Spellcasting (Single Spell)",
@@ -1085,7 +1090,7 @@
 		{
 			"name": "Life Drain (Action)",
 			"realname": "Life Drain",
-			"desc": "_Melee Spell Attack:_ +??? to hit, reach ??? ft., one creature. _Hit:_ ??? (???d??? + ???) necrotic damage. The target must succeed on a DC ??? Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
+			"desc": "_Melee Spell Attack:_ +??? to hit, reach ??? ft., one creature. _Hit:_ [???d??? + ???] necrotic damage. The target must succeed on a DC ??? Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
 		},
 		{
 			"name": "Limited Amphibiousness",
@@ -1109,7 +1114,7 @@
 		},
 		{
 			"name": "Martial Advantage",
-			"desc": "Once per turn, the [MON] can deal an extra ??? (???d???) damage to a creature it hits with a weapon attack if that creature is within 5 ft. of an ally of the [MON] that isn't incapacitated."
+			"desc": "Once per turn, the [MON] can deal an extra [???d???] damage to a creature it hits with a weapon attack if that creature is within 5 ft. of an ally of the [MON] that isn't incapacitated."
 		},
 		{
 			"name": "Mimicry",
@@ -1134,7 +1139,7 @@
 		},
 		{
 			"name": "Pounce",
-			"desc": "If the [MON] moves at least ??? ft. straight toward a target and then hits it with a ??? attack on the same turn, the target takes an extra ??? (???d???) ??? damage. If the target is a creature, it must succeed on a DC ??? Strength saving throw or be knocked prone. If the target is prone, the [MON] can make another ??? attack against it as a bonus action."
+			"desc": "If the [MON] moves at least ??? ft. straight toward a target and then hits it with a ??? attack on the same turn, the target takes an extra [???d???] ??? damage. If the target is a creature, it must succeed on a DC ??? Strength saving throw or be knocked prone. If the target is prone, the [MON] can make another ??? attack against it as a bonus action."
 		},
 		{
 			"name": "Rampage",
@@ -1203,7 +1208,7 @@
 		{
 			"name": "Sneak Attack",
 			"realname": "Sneak Attack (1/Turn)",
-			"desc": "The [MON] deals an extra ??? (???d???) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 ft. of an ally of the [MON] that isn't incapacitated and the [MON] doesn't have disadvantage on the attack roll."
+			"desc": "The [MON] deals an extra [???d???] damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 ft. of an ally of the [MON] that isn't incapacitated and the [MON] doesn't have disadvantage on the attack roll."
 		},
 		{
 			"name": "Spider Climb",
@@ -1232,7 +1237,7 @@
 		},
 		{
 			"name": "Surprise Attack",
-			"desc": "If the [MON] surprises a creature and hits it with an attack during the first round of combat, the target takes an extra ??? (???d???) damage from the attack."
+			"desc": "If the [MON] surprises a creature and hits it with an attack during the first round of combat, the target takes an extra [???d???] damage from the attack."
 		},
 		{
 			"name": "Swarm",
@@ -1245,7 +1250,7 @@
 		},
 		{
 			"name": "Trampling Charge",
-			"desc": "If the [MON] moves at least ??? ft. straight toward a target and then hits it with a ??? attack on the same turn, the target takes an extra ??? (???d???) ??? damage. If the target is a creature, it must succeed on a DC ??? Strength saving throw or be knocked prone. If the target is prone, the [MON] can make another ??? attack against it as a bonus action."
+			"desc": "If the [MON] moves at least ??? ft. straight toward a target and then hits it with a ??? attack on the same turn, the target takes an extra [???d???] ??? damage. If the target is a creature, it must succeed on a DC ??? Strength saving throw or be knocked prone. If the target is prone, the [MON] can make another ??? attack against it as a bonus action."
 		},
 		{
 			"name": "Tunneler",
@@ -1278,7 +1283,7 @@
 		{
 			"name": "Wing Attack (Legendary Action)",
 			"realname": "Wing Attack (Costs 2 Actions)",
-			"desc": "The [MON] beats its wings. Each creature within ??? ft. of the [MON] must succeed on a DC ??? Dexterity saving throw or take ??? (???d??? + ???) bludgeoning damage and be knocked prone. The [MON] can then fly up to half its flying speed."
+			"desc": "The [MON] beats its wings. Each creature within ??? ft. of the [MON] must succeed on a DC ??? Dexterity saving throw or take [STR ???d???] bludgeoning damage and be knocked prone. The [MON] can then fly up to half its flying speed."
 		},
 
 		{
