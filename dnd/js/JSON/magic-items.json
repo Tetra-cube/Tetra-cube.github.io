@@ -1,0 +1,1873 @@
+{
+	"tier1Tables": [{
+			"table": null,
+			"rolls": "0",
+			"weight": "36"
+		},
+		{
+			"table": "A",
+			"rolls": "6",
+			"weight": "24"
+		},
+		{
+			"table": "B",
+			"rolls": "4",
+			"weight": "15"
+		},
+		{
+			"table": "C",
+			"rolls": "4",
+			"weight": "10"
+		},
+		{
+			"table": "F",
+			"rolls": "4",
+			"weight": "12"
+		},
+		{
+			"table": "G",
+			"rolls": "1",
+			"weight": "3"
+		}
+	],
+	"tier2Tables": [{
+			"table": null,
+			"rolls": "0",
+			"weight": "28"
+		},
+		{
+			"table": "A",
+			"rolls": "6",
+			"weight": "16"
+		},
+		{
+			"table": "B",
+			"rolls": "4",
+			"weight": "19"
+		},
+		{
+			"table": "C",
+			"rolls": "4",
+			"weight": "11"
+		},
+		{
+			"table": "D",
+			"rolls": "1",
+			"weight": "6"
+		},
+		{
+			"table": "G",
+			"rolls": "4",
+			"weight": "14"
+		},
+		{
+			"table": "G",
+			"rolls": "4",
+			"weight": "4"
+		},
+		{
+			"table": "G",
+			"rolls": "1",
+			"weight": "2"
+		}
+	],
+	"tier3Tables": [{
+			"table": null,
+			"rolls": "0",
+			"weight": "15"
+		},
+		{
+			"table": "A,B",
+			"rolls": "4,6",
+			"weight": "14"
+		},
+		{
+			"table": "C",
+			"rolls": "6",
+			"weight": "21"
+		},
+		{
+			"table": "D",
+			"rolls": "4",
+			"weight": "16"
+		},
+		{
+			"table": "E",
+			"rolls": "1",
+			"weight": "8"
+		},
+		{
+			"table": "F,G",
+			"rolls": "1,4",
+			"weight": "8"
+		},
+		{
+			"table": "H",
+			"rolls": "4",
+			"weight": "10"
+		},
+		{
+			"table": "I",
+			"rolls": "1",
+			"weight": "8"
+		}
+	],
+	"tier4Tables": [{
+			"table": null,
+			"rolls": "0",
+			"weight": "2"
+		},
+		{
+			"table": "C",
+			"rolls": "8",
+			"weight": "12"
+		},
+		{
+			"table": "D",
+			"rolls": "6",
+			"weight": "32"
+		},
+		{
+			"table": "E",
+			"rolls": "6",
+			"weight": "22"
+		},
+		{
+			"table": "G",
+			"rolls": "4",
+			"weight": "4"
+		},
+		{
+			"table": "H",
+			"rolls": "4",
+			"weight": "8"
+		},
+		{
+			"table": "I",
+			"rolls": "4",
+			"weight": "20"
+		}
+	],
+	"tableA": [{
+			"name": "Potion of healing",
+			"weight": "50"
+		},
+		{
+			"name": "Spell scroll (cantrip)",
+			"weight": "10"
+		},
+		{
+			"name": "Potion of climbing",
+			"weight": "10"
+		},
+		{
+			"name": "Spell scroll (1st level)",
+			"weight": "20"
+		},
+		{
+			"name": "Spell scroll (2nd level)",
+			"weight": "4"
+		},
+		{
+			"name": "Potion of greater healing",
+			"weight": "4"
+		},
+		{
+			"name": "Bag of holding",
+			"weight": "1"
+		},
+		{
+			"name": "Driftglobe",
+			"weight": "1"
+		}
+	],
+	"tableB": [{
+			"name": "Potion of greater healing",
+			"weight": "15"
+		},
+		{
+			"name": "Potion of fire breath",
+			"weight": "7"
+		},
+		{
+			"name": "Potion of resistance",
+			"weight": "7"
+		},
+		{
+			"name": "Ammunition, +1",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of animal friendship",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of hill giant strength",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of growth",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of water breathing",
+			"weight": "5"
+		},
+		{
+			"name": "Spell scroll (2nd level)",
+			"weight": "5"
+		},
+		{
+			"name": "Spell scroll (3rd level)",
+			"weight": "5"
+		},
+		{
+			"name": "Bag of holding",
+			"weight": "3"
+		},
+		{
+			"name": "Keoghtom's ointment",
+			"weight": "3"
+		},
+		{
+			"name": "Oil of slipperiness",
+			"weight": "3"
+		},
+		{
+			"name": "Dust of disappearance",
+			"weight": "2"
+		},
+		{
+			"name": "Dust of dryness",
+			"weight": "2"
+		},
+		{
+			"name": "Dust of sneezing and choking",
+			"weight": "2"
+		},
+		{
+			"name": "Elemental gem",
+			"weight": "2"
+		},
+		{
+			"name": "Philter of love",
+			"weight": "2"
+		},
+		{
+			"name": "Alchemy jug",
+			"weight": "1"
+		},
+		{
+			"name": "Cap of water breathing",
+			"weight": "1"
+		},
+		{
+			"name": "Cloak of the manta ray",
+			"weight": "1"
+		},
+		{
+			"name": "Driftglobe",
+			"weight": "1"
+		},
+		{
+			"name": "Goggles of night",
+			"weight": "1"
+		},
+		{
+			"name": "Helm of comprehending languages",
+			"weight": "1"
+		},
+		{
+			"name": "Immovable rod",
+			"weight": "1"
+		},
+		{
+			"name": "Lantern of revealing",
+			"weight": "1"
+		},
+		{
+			"name": "Mariner's armor",
+			"weight": "1"
+		},
+		{
+			"name": "Mithral armor",
+			"weight": "1"
+		},
+		{
+			"name": "Potion of poison",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of swimming",
+			"weight": "1"
+		},
+		{
+			"name": "Robe of useful items",
+			"weight": "1"
+		},
+		{
+			"name": "Rope of climbing",
+			"weight": "1"
+		},
+		{
+			"name": "Saddle of the cavalier",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of magic detection",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of secrets",
+			"weight": "1"
+		}
+	],
+	"tableC": [{
+			"name": "Potion of superior healing",
+			"weight": "15"
+		},
+		{
+			"name": "Spell scroll (4th level)",
+			"weight": "7"
+		},
+		{
+			"name": "Ammunition, +2",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of clairvoyance",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of diminution",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of gaseous form",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of frost giant strength",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of stone giant strength",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of heroism",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of invulnerability",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of mind reading",
+			"weight": "5"
+		},
+		{
+			"name": "Spell scroll (5th level)",
+			"weight": "5"
+		},
+		{
+			"name": "Elixir of health",
+			"weight": "3"
+		},
+		{
+			"name": "Oil of etherealness",
+			"weight": "3"
+		},
+		{
+			"name": "Potion of fire giant strength",
+			"weight": "3"
+		},
+		{
+			"name": "Quaal's feather token",
+			"weight": "3"
+		},
+		{
+			"name": "Scroll of protection",
+			"weight": "3"
+		},
+		{
+			"name": "Bag of beans",
+			"weight": "2"
+		},
+		{
+			"name": "Bead of force",
+			"weight": "2"
+		},
+		{
+			"name": "Chime of opening",
+			"weight": "1"
+		},
+		{
+			"name": "Decanter of endless water",
+			"weight": "1"
+		},
+		{
+			"name": "Eyes of minute seeing",
+			"weight": "1"
+		},
+		{
+			"name": "Folding boat",
+			"weight": "1"
+		},
+		{
+			"name": "Heward's handy haversack",
+			"weight": "1"
+		},
+		{
+			"name": "Horseshoes of speed",
+			"weight": "1"
+		},
+		{
+			"name": "Necklace of fireballs",
+			"weight": "1"
+		},
+		{
+			"name": "Periapt of health",
+			"weight": "1"
+		},
+		{
+			"name": "Sending Stones",
+			"weight": "1"
+		}
+	],
+	"tableD": [{
+			"name": "Potion of supreme healing",
+			"weight": "20"
+		},
+		{
+			"name": "Potion of invisibility",
+			"weight": "10"
+		},
+		{
+			"name": "Potion of speed",
+			"weight": "10"
+		},
+		{
+			"name": "Spell scroll (6th level)",
+			"weight": "10"
+		},
+		{
+			"name": "Spell scroll (7th level)",
+			"weight": "7"
+		},
+		{
+			"name": "Ammunition, +3",
+			"weight": "5"
+		},
+		{
+			"name": "Oil of sharpness",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of flying",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of cloud giant strength",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of longevity",
+			"weight": "5"
+		},
+		{
+			"name": "Potion of vitality",
+			"weight": "5"
+		},
+		{
+			"name": "Spell scroll (8th level)",
+			"weight": "5"
+		},
+		{
+			"name": "Horseshoes of a zephyr",
+			"weight": "3"
+		},
+		{
+			"name": "Nolzur's marvelous pigments",
+			"weight": "3"
+		},
+		{
+			"name": "Bag of devouring",
+			"weight": "1"
+		},
+		{
+			"name": "Portable hole",
+			"weight": "1"
+		}
+	],
+	"tableE": [{
+			"name": "Spell scroll (8th level)",
+			"weight": "30"
+		},
+		{
+			"name": "Potion of storm giant strength",
+			"weight": "25"
+		},
+		{
+			"name": "Potion of supreme healing",
+			"weight": "15"
+		},
+		{
+			"name": "Spell scroll (9th level)",
+			"weight": "15"
+		},
+		{
+			"name": "Universal solvent",
+			"weight": "8"
+		},
+		{
+			"name": "Arrow of slaying",
+			"weight": "5"
+		},
+		{
+			"name": "Sovereign glue",
+			"weight": "2"
+		}
+	],
+	"tableF": [{
+			"name": "Weapon, +1",
+			"weight": "15"
+		},
+		{
+			"name": "Shield, +1",
+			"weight": "3"
+		},
+		{
+			"name": "Sentinel shield",
+			"weight": "3"
+		},
+		{
+			"name": "Amulet of proof against detection and location",
+			"weight": "2"
+		},
+		{
+			"name": "Boots of elvenkind",
+			"weight": "2"
+		},
+		{
+			"name": "Boots of striding and springing",
+			"weight": "2"
+		},
+		{
+			"name": "Bracers of archery",
+			"weight": "2"
+		},
+		{
+			"name": "Brooch of shielding",
+			"weight": "2"
+		},
+		{
+			"name": "Broom of flying",
+			"weight": "2"
+		},
+		{
+			"name": "Cloak of elvenkind",
+			"weight": "2"
+		},
+		{
+			"name": "Cloak of protection",
+			"weight": "2"
+		},
+		{
+			"name": "Gauntlets of ogre power",
+			"weight": "2"
+		},
+		{
+			"name": "Hat of disguise",
+			"weight": "2"
+		},
+		{
+			"name": "Javelin of lightning",
+			"weight": "2"
+		},
+		{
+			"name": "Pearl of power",
+			"weight": "2"
+		},
+		{
+			"name": "Rod of the pact keeper, + 1",
+			"weight": "2"
+		},
+		{
+			"name": "Slippers of spider climbing",
+			"weight": "2"
+		},
+		{
+			"name": "Staff of the adder",
+			"weight": "2"
+		},
+		{
+			"name": "Staff of the python",
+			"weight": "2"
+		},
+		{
+			"name": "Sword of vengeance",
+			"weight": "2"
+		},
+		{
+			"name": "Trident of fish command",
+			"weight": "2"
+		},
+		{
+			"name": "Wand of magic missiles",
+			"weight": "2"
+		},
+		{
+			"name": "Wand of the war mage, + 1",
+			"weight": "2"
+		},
+		{
+			"name": "Wand of web",
+			"weight": "2"
+		},
+		{
+			"name": "Weapon of warning",
+			"weight": "2"
+		},
+		{
+			"name": "Adamantine armor (chain mail)",
+			"weight": "1"
+		},
+		{
+			"name": "Adamantine armor (chain shirt)",
+			"weight": "1"
+		},
+		{
+			"name": "Adamantine armor (scale mail)",
+			"weight": "1"
+		},
+		{
+			"name": "Bag of tricks (gray)",
+			"weight": "1"
+		},
+		{
+			"name": "Bag of tricks (rust)",
+			"weight": "1"
+		},
+		{
+			"name": "Bag of tricks (tan)",
+			"weight": "1"
+		},
+		{
+			"name": "Boots of the winterlands",
+			"weight": "1"
+		},
+		{
+			"name": "Circlet of blasting",
+			"weight": "1"
+		},
+		{
+			"name": "Deck of illusions",
+			"weight": "1"
+		},
+		{
+			"name": "Eversmoking bottle",
+			"weight": "1"
+		},
+		{
+			"name": "Eyes of charming",
+			"weight": "1"
+		},
+		{
+			"name": "Eyes of the eagle",
+			"weight": "1"
+		},
+		{
+			"name": "Figurine of wondrous power (silver raven)",
+			"weight": "1"
+		},
+		{
+			"name": "Gem of brightness",
+			"weight": "1"
+		},
+		{
+			"name": "Gloves of missile snaring",
+			"weight": "1"
+		},
+		{
+			"name": "Gloves of swimming and climbing",
+			"weight": "1"
+		},
+		{
+			"name": "Gloves of thievery",
+			"weight": "1"
+		},
+		{
+			"name": "Headband of intellect",
+			"weight": "1"
+		},
+		{
+			"name": "Helm of telepathy",
+			"weight": "1"
+		},
+		{
+			"name": "Instrument of the bards (Doss lute)",
+			"weight": "1"
+		},
+		{
+			"name": "Instrument of the bards (Fochlucan bandore)",
+			"weight": "1"
+		},
+		{
+			"name": "Instrument of the bards (Mac-Fuimidh cittern)",
+			"weight": "1"
+		},
+		{
+			"name": "Medallion of thoughts",
+			"weight": "1"
+		},
+		{
+			"name": "Necklace of adaptation",
+			"weight": "1"
+		},
+		{
+			"name": "Periapt of wound closure",
+			"weight": "1"
+		},
+		{
+			"name": "Pipes of haunting",
+			"weight": "1"
+		},
+		{
+			"name": "Pipes of the sewers",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of jumping",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of mind shielding",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of warmth",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of water walking",
+			"weight": "1"
+		},
+		{
+			"name": "Quiver of Ehlonna",
+			"weight": "1"
+		},
+		{
+			"name": "Stone of good luck",
+			"weight": "1"
+		},
+		{
+			"name": "Wind fan",
+			"weight": "1"
+		},
+		{
+			"name": "Winged boots",
+			"weight": "1"
+		}
+	],
+	"tableG": [{
+			"name": "Weapon, +2",
+			"weight": "11"
+		},
+		{
+			"name": "Figurine of wondrous power (Bronze griffon)",
+			"weight": "1/4"
+		},
+		{
+			"name": "Figurine of wondrous power (Ebony fly)",
+			"weight": "1/4"
+		},
+		{
+			"name": "Figurine of wondrous power (Golden lions)",
+			"weight": "1/4"
+		},
+		{
+			"name": "Figurine of wondrous power (Ivory goats)",
+			"weight": "1/4"
+		},
+		{
+			"name": "Figurine of wondrous power (Marble elephant)",
+			"weight": "1/4"
+		},
+		{
+			"name": "Figurine of wondrous power (Onyx dog)",
+			"weight": "1/2"
+		},
+		{
+			"name": "Figurine of wondrous power (Serpentine owl)",
+			"weight": "1/4"
+		},
+		{
+			"name": "Adamantine armor (breastplate)",
+			"weight": "1"
+		},
+		{
+			"name": "Adamantine armor (splint)",
+			"weight": "1"
+		},
+		{
+			"name": "Amulet of health",
+			"weight": "1"
+		},
+		{
+			"name": "Armor of vulnerability",
+			"weight": "1"
+		},
+		{
+			"name": "Arrow-catching shield",
+			"weight": "1"
+		},
+		{
+			"name": "Belt of dwarvenkind",
+			"weight": "1"
+		},
+		{
+			"name": "Belt of hill giant strength",
+			"weight": "1"
+		},
+		{
+			"name": "Berserker axe",
+			"weight": "1"
+		},
+		{
+			"name": "Boots of levitation",
+			"weight": "1"
+		},
+		{
+			"name": "Boots of speed",
+			"weight": "1"
+		},
+		{
+			"name": "Bowl of commanding water elementals",
+			"weight": "1"
+		},
+		{
+			"name": "Bracers of defense",
+			"weight": "1"
+		},
+		{
+			"name": "Brazier of commanding fire elementals",
+			"weight": "1"
+		},
+		{
+			"name": "Cape of the mountebank",
+			"weight": "1"
+		},
+		{
+			"name": "Censer of controlling air elementals",
+			"weight": "1"
+		},
+		{
+			"name": "Armor, +1 chain mail",
+			"weight": "1"
+		},
+		{
+			"name": "Armor of resistance (chain mail)",
+			"weight": "1"
+		},
+		{
+			"name": "Armor of resistance (chain shirt)",
+			"weight": "1"
+		},
+		{
+			"name": "Armor, +1 chain shirt",
+			"weight": "1"
+		},
+		{
+			"name": "Cloak of displacement",
+			"weight": "1"
+		},
+		{
+			"name": "Cloak of the bat",
+			"weight": "1"
+		},
+		{
+			"name": "Cube of force",
+			"weight": "1"
+		},
+		{
+			"name": "Daern's instant fortress",
+			"weight": "1"
+		},
+		{
+			"name": "Dagger of venom",
+			"weight": "1"
+		},
+		{
+			"name": "Dimensional shackles",
+			"weight": "1"
+		},
+		{
+			"name": "Dragon slayer",
+			"weight": "1"
+		},
+		{
+			"name": "Elven chain",
+			"weight": "1"
+		},
+		{
+			"name": "Flame tongue",
+			"weight": "1"
+		},
+		{
+			"name": "Gem of seeing",
+			"weight": "1"
+		},
+		{
+			"name": "Giant slayer",
+			"weight": "1"
+		},
+		{
+			"name": "Glamoured studded leather",
+			"weight": "1"
+		},
+		{
+			"name": "Helm of teleportation",
+			"weight": "1"
+		},
+		{
+			"name": "Horn of blasting",
+			"weight": "1"
+		},
+		{
+			"name": "Horn of Valhalla (silver or brass)",
+			"weight": "1"
+		},
+		{
+			"name": "Instrument of the bards (Canaithmandolin)",
+			"weight": "1"
+		},
+		{
+			"name": "Instrument ofthe bards (Cii lyre)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (awareness)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (protection)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (reserve)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (sustenance)",
+			"weight": "1"
+		},
+		{
+			"name": "Iron bands of Bilarro",
+			"weight": "1"
+		},
+		{
+			"name": "Armor, +1 leather",
+			"weight": "1"
+		},
+		{
+			"name": "Armor of resistance (leather)",
+			"weight": "1"
+		},
+		{
+			"name": "Mace of disruption",
+			"weight": "1"
+		},
+		{
+			"name": "Mace of smiting",
+			"weight": "1"
+		},
+		{
+			"name": "Mace of terror",
+			"weight": "1"
+		},
+		{
+			"name": "Mantle of spell resistance",
+			"weight": "1"
+		},
+		{
+			"name": "Necklace of prayer beads",
+			"weight": "1"
+		},
+		{
+			"name": "Periapt of proof against poison",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of animal influence",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of evasion",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of feather falling",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of free action",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of protection",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of resistance",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of spell storing",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of the ram",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of X-ray vision",
+			"weight": "1"
+		},
+		{
+			"name": "Robe of eyes",
+			"weight": "1"
+		},
+		{
+			"name": "Rod of rulership",
+			"weight": "1"
+		},
+		{
+			"name": "Rod of the pact keeper, +2",
+			"weight": "1"
+		},
+		{
+			"name": "Rope of entanglement",
+			"weight": "1"
+		},
+		{
+			"name": "Armor, +1 scale mail",
+			"weight": "1"
+		},
+		{
+			"name": "Armor of resistance (scale mail)",
+			"weight": "1"
+		},
+		{
+			"name": "Shield, +2",
+			"weight": "1"
+		},
+		{
+			"name": "Shield of missile attraction",
+			"weight": "1"
+		},
+		{
+			"name": "Staff of charming",
+			"weight": "1"
+		},
+		{
+			"name": "Staff of healing",
+			"weight": "1"
+		},
+		{
+			"name": "Staff of swarming insects",
+			"weight": "1"
+		},
+		{
+			"name": "Staff of the woodlands",
+			"weight": "1"
+		},
+		{
+			"name": "Staff of withering",
+			"weight": "1"
+		},
+		{
+			"name": "Stone of controlling earth elementals",
+			"weight": "1"
+		},
+		{
+			"name": "Sun blade",
+			"weight": "1"
+		},
+		{
+			"name": "Sword of life stealing",
+			"weight": "1"
+		},
+		{
+			"name": "Sword of wounding",
+			"weight": "1"
+		},
+		{
+			"name": "Tentacle rod",
+			"weight": "1"
+		},
+		{
+			"name": "Vicious weapon",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of binding",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of enemy detection",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of fear",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of fireballs",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of lightning bolts",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of paralysis",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of the war mage, +2",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of wonder",
+			"weight": "1"
+		},
+		{
+			"name": "Wings of flying",
+			"weight": "1"
+		}
+	],
+	"tableH": [{
+			"name": "Weapon, +3",
+			"weight": "10"
+		},
+		{
+			"name": "Amulet of the planes",
+			"weight": "2"
+		},
+		{
+			"name": "Carpet of flying",
+			"weight": "2"
+		},
+		{
+			"name": "Crystal ball (very rare version)",
+			"weight": "2"
+		},
+		{
+			"name": "Ring of regeneration",
+			"weight": "2"
+		},
+		{
+			"name": "Ring of shooting stars",
+			"weight": "2"
+		},
+		{
+			"name": "Ring of telekinesis",
+			"weight": "2"
+		},
+		{
+			"name": "Robe of scintillating colors",
+			"weight": "2"
+		},
+		{
+			"name": "Robe of stars",
+			"weight": "2"
+		},
+		{
+			"name": "Rod of absorption",
+			"weight": "2"
+		},
+		{
+			"name": "Rod of alertness",
+			"weight": "2"
+		},
+		{
+			"name": "Rod of security",
+			"weight": "2"
+		},
+		{
+			"name": "Rod of the pact keeper, +3",
+			"weight": "2"
+		},
+		{
+			"name": "Scimitar of speed",
+			"weight": "2"
+		},
+		{
+			"name": "Shield, +3",
+			"weight": "2"
+		},
+		{
+			"name": "Staff of fire",
+			"weight": "2"
+		},
+		{
+			"name": "Staff of frost",
+			"weight": "2"
+		},
+		{
+			"name": "Staff of power",
+			"weight": "2"
+		},
+		{
+			"name": "Staff of striking",
+			"weight": "2"
+		},
+		{
+			"name": "Staff of thunder and lightning",
+			"weight": "2"
+		},
+		{
+			"name": "Sword of sharpness",
+			"weight": "2"
+		},
+		{
+			"name": "Wand of polymorph",
+			"weight": "2"
+		},
+		{
+			"name": "Wand of the war mage, + 3",
+			"weight": "2"
+		},
+		{
+			"name": "Adamantine armor (half plate)",
+			"weight": "1"
+		},
+		{
+			"name": "Adamantine armor (plate)",
+			"weight": "1"
+		},
+		{
+			"name": "Animated shield",
+			"weight": "1"
+		},
+		{
+			"name": "Belt of fire giant strength",
+			"weight": "1"
+		},
+		{
+			"name": "Belt of frost (or stone) giant strength",
+			"weight": "1"
+		},
+		{
+			"name": "Armor, +1 breastplate",
+			"weight": "1"
+		},
+		{
+			"name": "Armor of resistance (breastplate)",
+			"weight": "1"
+		},
+		{
+			"name": "Candle of invocation",
+			"weight": "1"
+		},
+		{
+			"name": "Armor, +2 chain mail",
+			"weight": "1"
+		},
+		{
+			"name": "Armor, +2 chain shirt",
+			"weight": "1"
+		},
+		{
+			"name": "Cloak of arachnida",
+			"weight": "1"
+		},
+		{
+			"name": "Dancing sword",
+			"weight": "1"
+		},
+		{
+			"name": "Demon armor",
+			"weight": "1"
+		},
+		{
+			"name": "Dragon scale mail",
+			"weight": "1"
+		},
+		{
+			"name": "Dwarven plate",
+			"weight": "1"
+		},
+		{
+			"name": "Dwarven thrower",
+			"weight": "1"
+		},
+		{
+			"name": "Efreeti bottle",
+			"weight": "1"
+		},
+		{
+			"name": "Figurine of wondrous power (obsidian steed)",
+			"weight": "1"
+		},
+		{
+			"name": "Frost brand",
+			"weight": "1"
+		},
+		{
+			"name": "Helm of brilliance",
+			"weight": "1"
+		},
+		{
+			"name": "Horn of Valhalla (bronze)",
+			"weight": "1"
+		},
+		{
+			"name": "Instrument of the bards (Anstruth harp)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (absorption)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (agility)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (fortitude)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (insight)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (intellect)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (leadership)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (strength)",
+			"weight": "1"
+		},
+		{
+			"name": "Armor, +2 leather",
+			"weight": "1"
+		},
+		{
+			"name": "Manual of bodily health",
+			"weight": "1"
+		},
+		{
+			"name": "Manual of gainful exercise",
+			"weight": "1"
+		},
+		{
+			"name": "Manual of golems",
+			"weight": "1"
+		},
+		{
+			"name": "Manual of quickness of action",
+			"weight": "1"
+		},
+		{
+			"name": "Mirror of life trapping",
+			"weight": "1"
+		},
+		{
+			"name": "Nine lives stealer",
+			"weight": "1"
+		},
+		{
+			"name": "Oathbow",
+			"weight": "1"
+		},
+		{
+			"name": "Armor, +2 scale mail",
+			"weight": "1"
+		},
+		{
+			"name": "Spellguard shield",
+			"weight": "1"
+		},
+		{
+			"name": "Armor, +1 splint",
+			"weight": "1"
+		},
+		{
+			"name": "Armor of resistance (splint)",
+			"weight": "1"
+		},
+		{
+			"name": "Armor, +1 studded leather",
+			"weight": "1"
+		},
+		{
+			"name": "Armor of resistance (studded leather)",
+			"weight": "1"
+		},
+		{
+			"name": "Tome of clear thought",
+			"weight": "1"
+		},
+		{
+			"name": "Tome of leadership and influence",
+			"weight": "1"
+		},
+		{
+			"name": "Tome of understanding",
+			"weight": "1"
+		}
+	],
+	"tableI": [{
+			"name": "Defender",
+			"weight": "5"
+		},
+		{
+			"name": "Hammer of thunderbolts",
+			"weight": "5"
+		},
+		{
+			"name": "Luck blade",
+			"weight": "5"
+		},
+		{
+			"name": "Sword of answering",
+			"weight": "5"
+		},
+		{
+			"name": "Holy avenger",
+			"weight": "3"
+		},
+		{
+			"name": "Ring of djinni summoning",
+			"weight": "3"
+		},
+		{
+			"name": "Ring of invisibility",
+			"weight": "3"
+		},
+		{
+			"name": "Ring of spell turning",
+			"weight": "3"
+		},
+		{
+			"name": "Rod of lordly might",
+			"weight": "3"
+		},
+		{
+			"name": "Staff of the magi",
+			"weight": "3"
+		},
+		{
+			"name": "Vorpal sword",
+			"weight": "3"
+		},
+		{
+			"name": "Belt of cloud giant strength",
+			"weight": "3"
+		},
+		{
+			"name": "Armor, +2 breastplate",
+			"weight": "2"
+		},
+		{
+			"name": "Armor, +3 chain mail",
+			"weight": "2"
+		},
+		{
+			"name": "Armor, +3 chain shirt",
+			"weight": "2"
+		},
+		{
+			"name": "Cloak of invisibility",
+			"weight": "2"
+		},
+		{
+			"name": "Crystal ball (legendary version)",
+			"weight": "2"
+		},
+		{
+			"name": "Armor, +1 half plate",
+			"weight": "2"
+		},
+		{
+			"name": "Iron flask",
+			"weight": "2"
+		},
+		{
+			"name": "Armor, +3 leather",
+			"weight": "2"
+		},
+		{
+			"name": "Armor, +1 plate",
+			"weight": "2"
+		},
+		{
+			"name": "Robe of the archmagi",
+			"weight": "2"
+		},
+		{
+			"name": "Rod of resurrection",
+			"weight": "2"
+		},
+		{
+			"name": "Armor, +1 scale mail",
+			"weight": "2"
+		},
+		{
+			"name": "Scarab of protection",
+			"weight": "2"
+		},
+		{
+			"name": "Armor, +2 splint",
+			"weight": "2"
+		},
+		{
+			"name": "Armor, +2 studded leather",
+			"weight": "2"
+		},
+		{
+			"name": "Well of many worlds",
+			"weight": "2"
+		},
+		{
+			"name": "Armor, +2 half plate",
+			"weight": "1/6"
+		},
+		{
+			"name": "Armor, +2 plate",
+			"weight": "1/6"
+		},
+		{
+			"name": "Armor, +3 studded leather",
+			"weight": "1/6"
+		},
+		{
+			"name": "Armor, +3 breastplate",
+			"weight": "1/6"
+		},
+		{
+			"name": "Armor, +3 splint",
+			"weight": "1/6"
+		},
+		{
+			"name": "Armor, +3 half plate",
+			"weight": "1/12"
+		},
+		{
+			"name": "Armor, +3 plate",
+			"weight": "1/12"
+		},
+		{
+			"name": "Apparatus of Kwalish",
+			"weight": "1"
+		},
+		{
+			"name": "Armor of invulnerability",
+			"weight": "1"
+		},
+		{
+			"name": "Belt of storm giant strength",
+			"weight": "1"
+		},
+		{
+			"name": "Cubic gate",
+			"weight": "1"
+		},
+		{
+			"name": "Deck of many things",
+			"weight": "1"
+		},
+		{
+			"name": "Efreeti chain",
+			"weight": "1"
+		},
+		{
+			"name": "Armor of resistance (half plate)",
+			"weight": "1"
+		},
+		{
+			"name": "Horn of Valhalla (iron)",
+			"weight": "1"
+		},
+		{
+			"name": "Instrument of the bards (Ollamh harp)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (greater absorption)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (mastery)",
+			"weight": "1"
+		},
+		{
+			"name": "Ioun stone (regeneration)",
+			"weight": "1"
+		},
+		{
+			"name": "Plate armor of etherealness",
+			"weight": "1"
+		},
+		{
+			"name": "Plate armor of resistance",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of air elemental command",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of earthelemental command",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of fire elemental command",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of three wishes",
+			"weight": "1"
+		},
+		{
+			"name": "Ring of water elemental command",
+			"weight": "1"
+		},
+		{
+			"name": "Sphere of annihilation",
+			"weight": "1"
+		},
+		{
+			"name": "Talisman of pure good",
+			"weight": "1"
+		},
+		{
+			"name": "Talisman of the sphere",
+			"weight": "1"
+		},
+		{
+			"name": "Talisman of ultimate evil",
+			"weight": "1"
+		},
+		{
+			"name": "Tome of the stilled tongue",
+			"weight": "1"
+		}
+	],
+	"tableX": [{
+			"name": "Armor of gleaming",
+			"weight": "1"
+		},
+		{
+			"name": "Bead of nourishment",
+			"weight": "1"
+		},
+		{
+			"name": "Bead of refreshment",
+			"weight": "1"
+		},
+		{
+			"name": "Boots of false tracks",
+			"weight": "1"
+		},
+		{
+			"name": "Candle of the deep",
+			"weight": "1"
+		},
+		{
+			"name": "Cast-off armor",
+			"weight": "1"
+		},
+		{
+			"name": "Charlatan’s die",
+			"weight": "1"
+		},
+		{
+			"name": "Cloak of billowing",
+			"weight": "1"
+		},
+		{
+			"name": "Cloak of many fashions",
+			"weight": "1"
+		},
+		{
+			"name": "Clockwork amulet",
+			"weight": "1"
+		},
+		{
+			"name": "Clothes of mending",
+			"weight": "1"
+		},
+		{
+			"name": "Dark shard amulet",
+			"weight": "1"
+		},
+		{
+			"name": "Dread helm",
+			"weight": "1"
+		},
+		{
+			"name": "Ear horn of hearing",
+			"weight": "1"
+		},
+		{
+			"name": "Enduring spellbook",
+			"weight": "1"
+		},
+		{
+			"name": "Ersatz eye",
+			"weight": "1"
+		},
+		{
+			"name": "Hat of vermin",
+			"weight": "1"
+		},
+		{
+			"name": "Hat of wizardry",
+			"weight": "1"
+		},
+		{
+			"name": "Heward’s handy spice pouch",
+			"weight": "1"
+		},
+		{
+			"name": "Horn of silent alarm",
+			"weight": "1"
+		},
+		{
+			"name": "Instrument of illusions",
+			"weight": "1"
+		},
+		{
+			"name": "Instrument of scribing",
+			"weight": "1"
+		},
+		{
+			"name": "Lock of trickery",
+			"weight": "1"
+		},
+		{
+			"name": "Moon-touched sword",
+			"weight": "1"
+		},
+		{
+			"name": "Mystery key",
+			"weight": "1"
+		},
+		{
+			"name": "Orb of direction",
+			"weight": "1"
+		},
+		{
+			"name": "Orb of time",
+			"weight": "1"
+		},
+		{
+			"name": "Perfume of bewitching",
+			"weight": "1"
+		},
+		{
+			"name": "Pipe of smoke monsters",
+			"weight": "1"
+		},
+		{
+			"name": "Pole of angling",
+			"weight": "1"
+		},
+		{
+			"name": "Pole of collapsing",
+			"weight": "1"
+		},
+		{
+			"name": "Pot of awakening",
+			"weight": "1"
+		},
+		{
+			"name": "Potion of climbing",
+			"weight": "1"
+		},
+		{
+			"name": "Potion of healing",
+			"weight": "1"
+		},
+		{
+			"name": "Rope of mending",
+			"weight": "1"
+		},
+		{
+			"name": "Ruby of the war mage",
+			"weight": "1"
+		},
+		{
+			"name": "Shield of expression",
+			"weight": "1"
+		},
+		{
+			"name": "Smoldering armor",
+			"weight": "1"
+		},
+		{
+			"name": "Spell scroll (cantrip)",
+			"weight": "1"
+		},
+		{
+			"name": "Spell scroll (1st level)",
+			"weight": "1"
+		},
+		{
+			"name": "Staff of adornment",
+			"weight": "1"
+		},
+		{
+			"name": "Staff of birdcalls",
+			"weight": "1"
+		},
+		{
+			"name": "Staff of flowers",
+			"weight": "1"
+		},
+		{
+			"name": "Talking doll",
+			"weight": "1"
+		},
+		{
+			"name": "Tankard of sobriety",
+			"weight": "1"
+		},
+		{
+			"name": "Unbreakable arrow",
+			"weight": "1"
+		},
+		{
+			"name": "Veteran’s cane",
+			"weight": "1"
+		},
+		{
+			"name": "Walloping ammunition",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of conducting",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of pyrotechnics",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of scowls",
+			"weight": "1"
+		},
+		{
+			"name": "Wand of smiles",
+			"weight": "1"
+		}
+	]
+}
