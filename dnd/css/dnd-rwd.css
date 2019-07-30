@@ -1,27 +1,34 @@
 @media screen and (max-width: 576px) {
-	ul {
-		padding-left: 12px;
-	}
-	.expandretracttext {
-		display: block;
-		padding-left: 0;
-	}
+    ul {
+        padding-left: 12px;
+    }
+
+    .expandretracttext {
+        display: block;
+        padding-left: 0;
+    }
 }
+
 @media screen and (max-width: 768px) {
-	h1, h2 {
-		text-align: center;
-	}
-	.content {
-		padding: 25px 12px;
-	}
+
+    h1,
+    h2 {
+        text-align: center;
+    }
+
+    .content {
+        padding: 25px 12px;
+    }
 }
+
 @media screen and (min-width: 576px) {
-	.small-only-br {
-		display: none;
-	}
+    .small-only-br {
+        display: none;
+    }
 }
+
 @media screen and (max-width: 992px) and (min-width: 576px) {
-	.sometimes-br {
-		display: none;
-	}
+    .sometimes-br {
+        display: none;
+    }
 }

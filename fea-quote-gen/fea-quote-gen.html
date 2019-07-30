@@ -1,126 +1,139 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8"/>
-		<title>FE:A Quote Generator</title>
-		<link rel="stylesheet" type="text/css" href="quotegen-style.css">
-		<link rel="shortcut icon" type="image/x-icon" href="feimages/favicon.ico" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script type="text/javascript" src="quotegen-script.js"></script>
-	</head>
-	<body>
-		<div id="kofiheader" align="center">
-			<br>
-			<script type="text/javascript" src="https://ko-fi.com/widgets/widget_2.js"></script>
-			<script type="text/javascript">kofiwidget2.init("Support Me on Ko-fi", "#46b798", "Q5Q8MRF6"); kofiwidget2.draw();</script>
-		</div>
-		<div class="content">
-			<h1>Fire Emblem: Awakening Quote Generator</h1>
-			<div>This generator is designed to be used with the spritesheets on <a href="http://feaspritestuff.tumblr.com/sheets">feaspritestuff</a>.</div>
-			<br><hr>
-			<br><canvas id="image-canvas"></canvas><br><br>
-			<form id="options-form">
-				<table id="normal-options" align="center">
-					<tr id="lp-options">
-						<td class="left-align">
-							<img src="feimages/remove.png" class="x-button" id="lp-remove" title="Remove Portrait"></img>
-							<label for="lp">Left Portrait: <input type="file" id="lp"></input></label>
-						</td>
-						<td class="right-align">
-							<label for="lp-flip">Flip<input type="checkbox" id="lp-flip"></input></label>
-							<label for="lp-sprite-index">Sprite Index: <input type="number" id="lp-sprite-index" min="1" max="999" value="1" disabled></input></label><br>
-						</td>
-					</tr>
-					<tr id="rp-options">
-						<td class="left-align">
-							<img src="feimages/remove.png" class="x-button" id="rp-remove" title="Remove Portrait"></img>
-							<label for="rp">Right Portrait: <input type="file" id="rp"></input></label>
-						</td>
-						<td class="right-align">
-							<label for="rp-flip">Flip<input type="checkbox" id="rp-flip"></input></label>
-							<label for="rp-sprite-index">Sprite Index: <input type="number" id="rp-sprite-index" min="1" max="999" value="1" disabled></input></label><br>
-						</td>
-					</tr>
-					<tr>
-						<td id="name-option" colspan="2">
-							<label for="name">Name: <input type="text" id="name" size="20" maxlength="255"></input></label><br>
-						</td>
-					</tr>
-					<tr>
-						<td id="dialogue-option-1" colspan="2">
-							<label for="dialogue-1">Line 1: <input type="text" id="dialogue-1" size="50" maxlength="255"></input></label><br>
-						</td>
-					</tr>
-					<tr>
-						<td id="dialogue-option-2" colspan="2">
-							<label for="dialogue-2">Line 2: <input type="text" id="dialogue-2" size="50" maxlength="255"></input></label><br>
-						</td>
-					</tr>
-					<tr>
-						<td id="box-location-option" colspan="2">
-							<label for="l-box-radio">Left<input type="radio" name="box-location" id="l-box-radio"></input></label>&nbsp;&nbsp;
-							<label for="r-box-radio">Right<input type="radio" name="box-location" id="r-box-radio"></input></label>&nbsp;&nbsp;
-							<label for="no-box-radio">No Textbox<input type="radio" name="box-location" id="no-box-radio"></input></label>
-						</td>
-					</tr>
-				</table>
-				<hr>
-				<b>Additional Options:</b>
-				<table id="advanced-options" align="center">
-					<tr id="bkg-options">
-						<td colspan="2" class="left-align">
-							<img src="feimages/remove.png" class="x-button" id="remove-bkg" title="Restore Default Background">
-							<label for="bkg">Background Image: <input type="file" id="bkg"></input></label><br>
-						</td>
-					</tr>
-					<tr id="lp2-options">
-						<td class="left-align">
-							<img src="feimages/remove.png" class="x-button" id="lp2-remove" title="Remove Portrait"></img>
-							<label for="lp2">Left Portrait 2: <input type="file" id="lp2"></input></label>
-						</td>
-						<td class="right-align">
-							<label for="lp2-flip">Flip<input type="checkbox" id="lp2-flip"></input></label>
-							<label for="lp2-sprite-index">Sprite Index: <input type="number" id="lp2-sprite-index" min="1" max="999" value="1" disabled></input></label><br>
-						</td>
-					</tr>
-					<tr id="rp2-options">
-						<td class="left-align">
-							<img src="feimages/remove.png" class="x-button" id="rp2-remove" title="Remove Portrait">
-							<label for="rp2">Right Portrait 2: <input type="file" id="rp2"></input></label>
-						</td>
-						<td class="right-align">
-							<label for="rp2-flip">Flip<input type="checkbox" id="rp2-flip"></input></label>
-							<label for="rp2-sprite-index">Sprite Index: <input type="number" id="rp2-sprite-index" min="1" max="999" value="1" disabled></input></label><br>
-						</td>
-					</tr>
-				</table>
-				<br>
-				<div id="box-type-option">
-					<b>Box Type:</b>&nbsp;&nbsp;
-					<label for="type-1-radio">Type 1<input type="radio" name="box-type" id="type-1-radio"></input></label>&nbsp;&nbsp;
-					<label for="type-2-radio">Type 2<input type="radio" name="box-type" id="type-2-radio"></input></label>&nbsp;&nbsp;
-					<label for="type-3-radio">Type 3<input type="radio" name="box-type" id="type-3-radio"></input></label>&nbsp;&nbsp;
-					<label for="type-4-radio">Type 4<input type="radio" name="box-type" id="type-4-radio"></input></label>&nbsp;&nbsp;
-					<label for="type-5-radio">Type 5<input type="radio" name="box-type" id="type-5-radio"></input></label>
-				</div>
-				<br>
-				<div id="darken-portrait-options">
-					<b>Darken:</b>&nbsp;&nbsp;
-					<label for="lp-darken">Left<input type="checkbox" id="lp-darken"></input></label>&nbsp;&nbsp;
-					<label for="rp-darken">Right<input type="checkbox" id="rp-darken"></input></label>&nbsp;&nbsp;
-					<label for="lp2-darken">Left 2<input type="checkbox" id="lp2-darken"></input></label>&nbsp;&nbsp;
-					<label for="rp2-darken">Right 2<input type="checkbox" id="rp2-darken"></input></label>
-				</div>
-				<br>
-				<div id="darken-bkg-option">
-					<label for="darken-bkg"><b>Darken Background?</b> <input type="checkbox" id="darken-bkg"></input></label>
-				</div>
-			</form>
-			<br>
-			<div id="footer">
-				Resources from <a href="http://incorrectfeaquotes.tumblr.com/tagged/resources">here</a> | <a href="https://github.com/Tetra-cube/Tetra-cube.github.io">GitHub repository</a> | Version 1.6
-			</div>
-		</div>
-	</body>
+
+<head>
+    <meta charset="utf-8" />
+    <title>FE:A Quote Generator</title>
+    <link rel="stylesheet" type="text/css" href="quotegen-style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="feimages/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="quotegen-script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="kofiheader" align="center">
+            <br>
+            <script type="text/javascript" src="https://ko-fi.com/widgets/widget_2.js"></script>
+            <script type="text/javascript">
+                kofiwidget2.init("Support Me on Ko-fi", "#46b798", "Q5Q8MRF6");
+                kofiwidget2.draw();
+            </script>
+        </div>
+        <div class="content">
+            <h1>Fire Emblem: Awakening Quote Generator</h1>
+            <div>This generator is designed to be used with the spritesheets on <a href="http://feaspritestuff.tumblr.com/sheets">feaspritestuff</a>.</div>
+            <br>
+            <hr>
+            <br><canvas id="image-canvas"></canvas><br><br>
+            <form id="options-form">
+                <table id="normal-options" align="center">
+                    <tr id="lp-options">
+                        <td class="left-align fixed-width-td">
+                            <img src="feimages/remove.png" class="x-button" id="lp-remove" title="Remove Portrait"></img>
+                            <label for="lp">Left Portrait:</label>
+                        </td>
+                        <td class="left-align"><input type="file" id="lp"></input>
+                        </td>
+                        <td class="right-align">
+                            <label for="lp-flip">Flip<input type="checkbox" id="lp-flip"></input></label>
+                            <label for="lp-sprite-index">Sprite Index:<input type="number" id="lp-sprite-index" min="1" max="999" value="1" disabled></input></label><br>
+                        </td>
+                    </tr>
+                    <tr id="rp-options">
+                        <td class="left-align fixed-width-td">
+                            <img src="feimages/remove.png" class="x-button" id="rp-remove" title="Remove Portrait"></img>
+                            <label for="rp">Right Portrait:</label>
+                        </td>
+                        <td class="left-align">
+                            <input type="file" id="rp"></input>
+                        </td>
+                        <td class="right-align">
+                            <label for="rp-flip">Flip<input type="checkbox" id="rp-flip"></input></label>
+                            <label for="rp-sprite-index">Sprite Index:<input type="number" id="rp-sprite-index" min="1" max="999" value="1" disabled></input></label><br>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <div id="name-option" class="dialogue-input">
+                    <label for="name">Name: <input type="text" id="name" maxlength="255" style="width: 10rem;"></input></label><br>
+                </div>
+                <div id="dialogue-option-1" class="dialogue-input">
+                    <label for="dialogue-1">Line 1: <input type="text" id="dialogue-1" maxlength="255" style="width: 25rem;"></input></label><br>
+                </div>
+                <div id="dialogue-option-2" class="dialogue-input">
+                    <label for="dialogue-2">Line 2: <input type="text" id="dialogue-2" maxlength="255" style="width: 25rem;"></input></label><br>
+                </div>
+                <div id="box-location-option">
+                    <label for="l-box-radio">Left<input type="radio" name="box-location" id="l-box-radio"></input></label>&nbsp;&nbsp;
+                    <label for="r-box-radio">Right<input type="radio" name="box-location" id="r-box-radio"></input></label>&nbsp;&nbsp;
+                    <label for="no-box-radio">No Textbox<input type="radio" name="box-location" id="no-box-radio"></input></label>
+                </div>
+                <hr>
+                <b>Additional Options:</b>
+                <table id="advanced-options" align="center">
+                    <tr id="bkg-options">
+                        <td class="left-align fixed-width-td">
+                            <img src="feimages/remove.png" class="x-button" id="remove-bkg" title="Restore Default Background">
+                            <label for="bkg">Background:</label>
+                        </td>
+                        <td colspan="2" class="left-align">
+                            <input type="file" id="bkg"></input><br>
+                        </td>
+                    </tr>
+                    <tr id="lp2-options">
+                        <td class="left-align fixed-width-td">
+                            <img src="feimages/remove.png" class="x-button" id="lp2-remove" title="Remove Portrait"></img>
+                            <label for="lp2">Left Portrait 2:</label>
+                        </td>
+                        <td class="left-align">
+                            <input type="file" id="lp2"></input>
+                        </td>
+                        <td class="right-align">
+                            <label for="lp2-flip">Flip<input type="checkbox" id="lp2-flip"></input></label>
+                            <label for="lp2-sprite-index">Sprite Index:<input type="number" id="lp2-sprite-index" min="1" max="999" value="1" disabled></input></label><br>
+                        </td>
+                    </tr>
+                    <tr id="rp2-options">
+                        <td class="left-align fixed-width-td">
+                            <img src="feimages/remove.png" class="x-button" id="rp2-remove" title="Remove Portrait">
+                            <label for="rp2">Right Portrait 2:</label>
+                        </td>
+                        <td class="left-align">
+                            <input type="file" id="rp2"></input>
+                        </td>
+                        <td class="right-align">
+                            <label for="rp2-flip">Flip<input type="checkbox" id="rp2-flip"></input></label>
+                            <label for="rp2-sprite-index">Sprite Index:<input type="number" id="rp2-sprite-index" min="1" max="999" value="1" disabled></input></label><br>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <div id="box-type-option" class="advanced-option">
+                    <b>Box Type:</b>&nbsp;&nbsp;
+                    <label for="type-1-radio">Type 1<input type="radio" name="box-type" id="type-1-radio"></input></label>&nbsp;&nbsp;
+                    <label for="type-2-radio">Type 2<input type="radio" name="box-type" id="type-2-radio"></input></label>&nbsp;&nbsp;
+                    <label for="type-3-radio">Type 3<input type="radio" name="box-type" id="type-3-radio"></input></label>&nbsp;&nbsp;
+                    <label for="type-4-radio">Type 4<input type="radio" name="box-type" id="type-4-radio"></input></label>&nbsp;&nbsp;
+                    <label for="type-5-radio">Type 5<input type="radio" name="box-type" id="type-5-radio"></input></label>
+                </div>
+                <div id="darken-portrait-options" class="advanced-option">
+                    <b>Darken:</b>&nbsp;&nbsp;
+                    <label for="lp-darken">Left<input type="checkbox" id="lp-darken"></input></label>&nbsp;&nbsp;
+                    <label for="rp-darken">Right<input type="checkbox" id="rp-darken"></input></label>&nbsp;&nbsp;
+                    <label for="lp2-darken">Left 2<input type="checkbox" id="lp2-darken"></input></label>&nbsp;&nbsp;
+                    <label for="rp2-darken">Right 2<input type="checkbox" id="rp2-darken"></input></label>
+                </div>
+                <div id="darken-bkg-option" class="advanced-option">
+                    <label for="darken-bkg"><b>Darken Background?</b> <input type="checkbox" id="darken-bkg"></input></label>
+                </div>
+            </form>
+            <div id="footer">
+                Resources from <a href="http://incorrectfeaquotes.tumblr.com/tagged/resources">here</a> | <a href="https://github.com/Tetra-cube/Tetra-cube.github.io">GitHub repository</a> | Version 1.6
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
 </script>

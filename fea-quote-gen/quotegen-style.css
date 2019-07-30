@@ -1,63 +1,91 @@
-html{
-	background-image: url("feimages/pagebackground.jpg");
-	background-attachment: fixed;
-	background-size: cover; 
-	font-family: Arial, sans-serif;
-	height: 100%;
+html {
+    height: 100%;
 }
 
-body{
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100%;
+}
+
+.container {
     max-width: 800px;
-    margin: 0px auto;
-	text-align: center;
-	border-style: none solid;
-	background-color: #f3dab1;
-	position: relative;
-	height: auto;
-	min-height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #f3dab1;
+    min-height: 100%;
 }
 
-h1{
-	padding-top: 15px;
-	font-family: Chiaro;
+h1 {
+    font-family: Chiaro;
 }
 
-td{
-	width: auto%;
+table {
+    padding: 0 1rem;
+    min-width: 80%;
+    max-width: 100%;
+}
+
+.fixed-width-td {
+    width: 7.5rem;
+}
+
+input {
+    max-width: 80%;
 }
 
 input[type=number] {
-    width: 50px;
+    width: 2.5rem;
 }
 
-input[type=file] {
-    width: 400px;
-}
+/* input[type=file] { */
+/* width: 400px; */
+/* } */
 
-@font-face{
+@font-face {
     font-family: 'Chiaro';
-	src: url('Chiaro.otf');
+    src: url('Chiaro.otf');
 }
 
-.left-align{
-	text-align: left;
+.left-align {
+    text-align: left;
 }
 
-.right-align{
-	text-align: right;
+.right-align {
+    text-align: right;
 }
 
-.x-button{
-	cursor: pointer;
+.x-button {
+    cursor: pointer;
 }
 
-#footer{
-	font-family: Arial, sans-serif;
-	font-size: 10px;
-	padding: 10px;
+.dialogue-input {
+    margin: 0 2.5rem .25rem 0;
 }
 
-#imagecanvas{
-	border-color: white;
-	border-style: solid;
+.advanced-option {
+    margin-bottom: .5rem;
+}
+
+#footer {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    padding: 10px;
+}
+
+#imagecanvas {
+    border-color: white;
+    border-style: solid;
+}
+
+@media screen and (min-width: 800px) {
+    body {
+        background-image: url("feimages/pagebackground.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .container {
+        border-style: none solid;
+    }
 }
