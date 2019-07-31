@@ -1,7 +1,12 @@
+html {
+	height: 100%;
+}
+
 body {
     background-attachment: fixed;
     background-size: cover;
     margin: 0;
+	height: 100%;
 }
 
 .container {
@@ -12,6 +17,7 @@ body {
     line-height: 125%;
     background-image: url('../dndimages/papyr.jpg');
     border-style: none;
+	min-height: 100%;
 }
 
 .content {
@@ -180,12 +186,14 @@ label {
     user-select: none;
 }
 
-.expandretracttext {
+.expand-retract-text {
     cursor: pointer;
+    font-family: Tahoma, Georgia, Arial, sans-serif;
     font-size: 1.2rem;
+	font-weight: bold;
     color: darkred;
     display: inline;
-    padding-left: 50px;
+    margin-left: 3rem;
 
     /* Make Unselectable */
 
@@ -195,6 +203,11 @@ label {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.expand-retract-h2 {
+	display: inline-block;
+	width: 10rem;
 }
 
 .centeredcontainer {
