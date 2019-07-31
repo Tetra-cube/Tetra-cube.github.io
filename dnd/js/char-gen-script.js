@@ -591,7 +591,7 @@ var Names = {
     GetSubrace: function() {
         let race = character.Race.content
         for (let index = 0; index < race.length; index++) {
-            if (race[index].name == "Subraces and letiants") {
+            if (race[index].name == "Subraces and Variants") {
                 let subrace = race[index].content;
                 for (let index2 = 0; index2 < subrace.length; index2++) {
                     if (subrace[index2].name == "Subrace")
