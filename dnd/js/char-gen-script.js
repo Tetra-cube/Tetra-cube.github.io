@@ -502,9 +502,15 @@ var Names = {
                 return this.FirstnameLastname(names.Dragonborn, "Clan", gender);
 
             case "Dwarf":
+                if (this.GetSubrace() == "Duergar")
+                    return this.GetGendered(names.Dwarf, gender) + " " + Random.Array(names.Dwarf["Clan (Duergar)"]);
                 return this.FirstnameLastname(names.Dwarf, "Clan", gender);
 
             case "Elf":
+                if (this.GetSubrace() == "Drow")
+                    return this.FirstnameLastname(names.Drow, "Family", gender);
+                if (this.GetSubrace() == "Shadar-kai")
+                    return this.GetGendered(names["Shadar-kai"], gender);
                 return character.age < 80 + Random.Num(40) ?
                     Random.Array(names.Elf.Child) + " " + Random.Array(names.Elf.Family) :
                     this.FirstnameLastname(names.Elf, "Family", gender);
@@ -541,11 +547,14 @@ var Names = {
                 return this.FirstnameLastname(names.Halfling, "Family", gender);
 
             case "Half-Elf":
-                let hElfRand = Random.Num(6)
-                return hElfRand < 2 ? this.HumanFirst(this.GetHumanEthnicity(), gender) + " " + Random.Array(names.Elf.Family) :
-                    hElfRand < 4 ? this.GetGendered(names.Elf, gender) + this.HumanLast(this.GetHumanEthnicity()) :
-                    hElfRand < 5 ? this.GetHuman(this.GetHumanEthnicity(), gender) :
-                    this.FirstnameLastname(names.Elf, "Family", gender);
+                let hElfRand = Random.Num(6),
+                    elfSubrace = this.GetSubrace(),
+                    elfNameArray =
+                    elfSubrace == "Drow" ? names.Drow : names.Elf;
+                if (hElfRand < 2) return this.HumanFirst(this.GetHumanEthnicity(), gender) + " " + Random.Array(elfNameArray.Family); // Human First, Elf Last
+                if (hElfRand < 4) return this.GetGendered(elfNameArray, gender) + this.HumanLast(this.GetHumanEthnicity()); // Elf first, Human Last
+                if (hElfRand < 5) return this.GetHuman(this.GetHumanEthnicity(), gender); // Both Human
+                return this.FirstnameLastname(elfNameArray, "Family", gender); // Both Elf
 
             case "Half-Orc":
                 let hOrcRand = Random.Num(4);
@@ -1040,6 +1049,6 @@ $(function() {
     GetJSON("races");
 
     defaultRaceSectionClass = $("#race-section").prop("class");
-	
-	InitCardScript();
+
+    InitCardScript();
 });
