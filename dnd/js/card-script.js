@@ -24,33 +24,22 @@ const padding = 20,
         "Blood Hunter": "Blood Hunter Order"
     };
 
+var backgroundImage, characterImage, bgDrawn = false, charReady = false;
+
 // For making the character card
 var Card = {
     Make: function() {
-        let canvas = $("#canvas")[0],
-            ctx = canvas.getContext("2d");
+        bgDrawn = false;
+        charReady = false;
 
         // Background
-        let backgroundImage = new Image(),
-            characterImage,
-            raceName = this.RaceForImage(character.Race.name),
+        let raceName = this.RaceForImage(character.Race.name),
             fileName = this.ImageFileName(raceName);
-        backgroundImage.src = "./dndimages/cardimages/cardbackgrounds/" + this.FileNameFormat(character.Class.name) + ".jpg";
+
+        backgroundImage.src = "dndimages/cardimages/cardbackgrounds/" + this.FileNameFormat(character.Class.name) + ".jpg";
+        characterImage.src = "dndimages/cardimages/characters/" + raceName + "/" + fileName + ".jpg";
+
         $("#sourcelink").attr("href", cardsources[raceName][fileName]);
-
-        backgroundImage.onload = function() {
-            ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-            characterImage = new Image();
-            characterImage.src = "./dndimages/cardimages/characters/" + raceName + "/" + fileName + ".jpg";
-
-            characterImage.onload = function() {
-                ctx.drawImage(characterImage, padding, padding, canvas.width - paddingx2, canvas.height / 2 - paddingx2); // 572 x 356
-                ctx.lineWidth = 1;
-                ctx.rect(padding, padding, canvas.width - paddingx2, canvas.height / 2 - paddingx2);
-                ctx.stroke();
-            }
-            Card.MakeCardText(canvas, ctx);
-        }
     },
 
     // The name of the race to use in the filepath
@@ -146,12 +135,10 @@ var Card = {
     // Get and print the text on the card
     MakeCardText: function(canvas, ctx) {
         ctx.lineWidth = 10;
-        ctx.fillStyle = "black";
         ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
         // Name
         ctx.textAlign = "center";
-        ctx.fillStyle = "black";
 
         let text = this.CharacterName(),
             fontSize = 40;
@@ -529,4 +516,38 @@ var CardType = {
             stringBuffer.push(this.PlainTextNext(itemContent[index], depthString + "-"));
         return depthString + item.name + ": " + stringBuffer.join("");
     },
+}
+
+function TryDraw(canvas, ctx, img) {
+    if (img == "bg") {
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+        Card.MakeCardText(canvas, ctx);
+        bgDrawn = true;
+    } else if (img == "char")
+        charReady = true;
+
+    if (bgDrawn && charReady) {
+        ctx.drawImage(characterImage, padding, padding, canvas.width - paddingx2, canvas.height / 2 - paddingx2); // 572 x 356
+        ctx.lineWidth = 1;
+        ctx.rect(padding, padding, canvas.width - paddingx2, canvas.height / 2 - paddingx2);
+        ctx.stroke();
+    }
+
+}
+
+function InitCardScript() {
+    let canvas = $("#canvas")[0],
+        ctx = canvas.getContext("2d");
+    ctx.fillStyle = "black";
+
+    backgroundImage = new Image();
+    characterImage = new Image();
+
+    backgroundImage.onload = function() {
+        TryDraw(canvas, ctx, "bg");
+    }
+
+    characterImage.onload = function() {
+        TryDraw(canvas, ctx, "char");
+    }
 }
