@@ -1040,4 +1040,6 @@ $(function() {
     GetJSON("races");
 
     defaultRaceSectionClass = $("#race-section").prop("class");
+	
+	InitCardScript();
 });
