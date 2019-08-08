@@ -3,85 +3,50 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>D&D 5e Random Magic Items</title>
-	<link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="dnd-style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145234284-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+    <title>D&amp;D 5e Magic Item Generator</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dnd-style.css">
+    <link rel="stylesheet" type="text/css" href="css/dnd-rwd.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/magic-item-script.js"></script>
 
-	  gtag('config', 'UA-145234284-1');
-	</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145234284-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-145234284-1');
+    </script>
 
 </head>
 
-<body style="background-image: url('./dndimages/statblockbkg.jpg')">
-    <div id="kofiheader" style="text-align: center;">
-        <br>
-        <script src='https://ko-fi.com/widgets/widget_2.js'></script>
-        <script>
-            kofiwidget2.init('Support Me on Ko-fi', '#46b798', 'Q5Q8MRF6');
-            kofiwidget2.draw();
-        </script>
-    </div>
-    <div class="content">
-        <div class="centeredcontainer"><a href="dnd-reference.html">PC Options Reference</a> - <a href="dnd-char-gen.html">Character Generator</a> - <a href="dnd-statblock.html">Statblock Generator</a></div>
-        <h1 class="dnd-header">D&D 5e Random Magic Items</h1>
-        <br><br>
-        <table style="margin-left: auto; margin-right: auto; width: 60%;">
-            <tr>
-                <th>Minor Items</th>
-                <th>Major Items</th>
-            </tr>
-            <tr>
-                <td><input id="common-minor-radio" type="checkbox" name="show-button"> <label for="common-minor-radio">Common</label></td>
-                <td><input id="common-major-radio" type="checkbox" name="show-button"> <label for="common-major-radio">Common (XGtE)</label></td>
-            </tr>
-            <tr>
-                <td><input id="uncommon-minor-radio" type="checkbox" name="show-button"> <label for="uncommon-minor-radio">Uncommon</label></td>
-                <td><input id="uncommon-major-radio" type="checkbox" name="show-button"> <label for="uncommon-major-radio">Uncommon</label></td>
-            </tr>
-            <tr>
-                <td><input id="rare-minor-radio" type="checkbox" name="show-button"> <label for="rare-minor-radio">Rare</label></td>
-                <td><input id="rare-major-radio" type="checkbox" name="show-button"> <label for="rare-major-radio">Rare</label></td>
-            </tr>
-            <tr>
-                <td><input id="very-rare-minor-radio" type="checkbox" name="show-button"> <label for="very-rare-minor-radio">Very Rare</label></td>
-                <td><input id="very-rare-major-radio" type="checkbox" name="show-button"> <label for="very-rare-major-radio">Very Rare</label></td>
-            </tr>
-            <tr>
-                <td><input id="legendary-minor-radio" type="checkbox" name="show-button"> <label for="legendary-minor-radio">Legendary</label></td>
-                <td><input id="legendary-major-radio" type="checkbox" name="show-button"> <label for="legendary-major-radio">Legendary</label></td>
-            </tr>
-        </table>
-        <br><br><br>
-        <table style="margin-left: auto; margin-right: auto; width: 60%;">
-            <tr>
-                <th>Name</th>
-                <th>Cost</th>
-                <th>Type</th>
-            </tr>
-			<tr>
-				<td>Item 1</td>
-				<td>Cost</td>
-				<td>Type</td>
-			</tr>
-			<tr>
-				<td>Item 2</td>
-				<td>Cost</td>
-				<td>Type</td>
-			</tr>
-			<tr>
-				<td>Item 3</td>
-				<td>Cost</td>
-				<td>Type</td>
-			</tr>
-        </table>
+<body id="magic-items-body">
+    <div class="container">
+        <div id="kofiheader" style="text-align: center;">
+            <br>
+            <script src='https://ko-fi.com/widgets/widget_2.js'></script>
+            <script>
+                kofiwidget2.init('Support Me on Ko-fi', '#46b798', 'Q5Q8MRF6');
+                kofiwidget2.draw();
+            </script>
+        </div>
+        <div class="content">
+            <div style="text-align: center;"><a href="dnd-reference.html">PC Options Reference</a> - <a href="dnd-char-gen.html">Character Generator</a> - <b>Magic Item Generator</b> - <a href="dnd-statblock.html">Statblock Generator</a></div><br>
+            <h1>D&amp;D 5e Random Magic Item Generator</h1>
+            <br>
+			<div>For now, this just generates items using the DMG tables, but I may add more functionality to it later (once I think of something...).</div>
+            <br>
+            <div style="text-align: center;">Number of items: <input id="num-items" type="number" min="1" max="99" value="1"><br><br><button onclick="Generate()">Generate</button></div>
+            <br>
+            <div id="magic-items-list" style="min-height: 25rem;"></div>
+            <div class="footer"><a href="https://github.com/Tetra-cube/Tetra-cube.github.io">GitHub Repo</a></div>
+        </div>
     </div>
 </body>
 
