@@ -1,0 +1,248 @@
+{
+	"creator": [{
+			"name": "Aberration",
+			"desc": "The item was created by aberrations in ancient times, possibly for the use of favored humanoid thralls. When seen from the corner of the eye, the item seems to be moving."
+		},
+		{
+			"name": "Human",
+			"desc": "The item was created during the heyday of a fallen human kingdom, or it is tied to a human of legend. It might hold writing in a forgotten tongue or symbols whose significance is lost to the ages."
+		},
+		{
+			"name": "Human",
+			"desc": "The item was created during the heyday of a fallen human kingdom, or it is tied to a human of legend. It might hold writing in a forgotten tongue or symbols whose significance is lost to the ages."
+		},
+		{
+			"name": "Human",
+			"desc": "The item was created during the heyday of a fallen human kingdom, or it is tied to a human of legend. It might hold writing in a forgotten tongue or symbols whose significance is lost to the ages."
+		},
+		{
+			"name": "Celestial",
+			"desc": "The weapon is half the normal weight and inscribed with feathered wings, suns, and other symbols of good. Fiends find the item’s presence repulsive."
+		},
+		{
+			"name": "Dragon",
+			"desc": "This item is made from scales and talons shed by a dragon. Perhaps it incorporates precious metals and gems from the dragon’s hoard. It grows slightly warm when within 120 feet of a dragon."
+		},
+		{
+			"name": "Drow",
+			"desc": "The item is half the normal weight. It is black and inscribed with spiders and webs in honor of Lolth. It might function poorly, or disintegrate, if exposed to sunlight for 1 minute or more."
+		},
+		{
+			"name": "Dwarf",
+			"desc": "The item is durable and has Dwarven runes worked into its design. It might be associated with a clan that would like to see it returned to their ancestral halls."
+		},
+		{
+			"name": "Dwarf",
+			"desc": "The item is durable and has Dwarven runes worked into its design. It might be associated with a clan that would like to see it returned to their ancestral halls."
+		},
+		{
+			"name": "Elemental Air",
+			"desc": "The item is half the normal weight and feels hollow. If it’s made of fabric, it is diaphanous."
+		},
+		{
+			"name": "Elemental Earth",
+			"desc": "This item might be crafted from stone. Any cloth or leather elements are studded with finely polished rock."
+		},
+		{
+			"name": "Elemental Fire",
+			"desc": "This item is warm to the touch, and any metal parts are crafted from black iron. Sigils of flames cover its surface. Shades of red and orange are the prominent colors."
+		},
+		{
+			"name": "Elemental Water",
+			"desc": "Lustrous fish scales replace leather or cloth on this item, and metal portions are instead crafted from seashells and worked coral as hard as any metal."
+		},
+		{
+			"name": "Elf",
+			"desc": "The item is half the normal weight. It is adorned with symbols of nature: leaves, vines, stars, and the like."
+		},
+		{
+			"name": "Elf",
+			"desc": "The item is half the normal weight. It is adorned with symbols of nature: leaves, vines, stars, and the like."
+		},
+		{
+			"name": "Fey",
+			"desc": "The item is exquisitely crafted from the finest materials and glows with a pale radiance in moonlight, shedding dim light in a 5-foot radius. Any metal in the item is silver or mithral, rather than iron or steel."
+		},
+		{
+			"name": "Fiend",
+			"desc": "The item is made of black iron or horn inscribed with runes, and any cloth or leather components are crafted from the hide of fiends. It is warm to the touch and features leering faces or vile runes engraved on its surface. Celestials find the item’s presence repulsive."
+		},
+		{
+			"name": "Giant",
+			"desc": "The item is larger than normal and was crafted by giants for use by their smaller allies."
+		},
+		{
+			"name": "Gnome",
+			"desc": "The item is crafted to appear ordinary, and it might look worn. It could also incorporate gears and mechanical components, even if these aren’t essential to the item’s function."
+		},
+		{
+			"name": "Undead",
+			"desc": "The item incorporates imagery of death, such as bones and skulls, and it might be crafted from parts of corpses. It feels cold to the touch."
+		}
+	],
+
+	"history": [{
+			"name": "Arcane",
+			"desc": "This item was created for an ancient order of spellcasters and bears the order’s symbol."
+		},
+		{
+			"name": "Bane",
+			"desc": "This item was created by the foes of a particular culture or kind of creature. If the culture or creatures are still around, they might recognize the item and single out the bearer as an enemy."
+		},
+		{
+			"name": "Heroic",
+			"desc": "A great hero once wielded this item. Anyone who’s familiar with the item’s history expects great deeds from the new owner."
+		},
+		{
+			"name": "Ornament",
+			"desc": "The item was created to honor a special occasion. Inset gemstones, gold or platinum inlays, and gold or silver filigree adorn its surface."
+		},
+		{
+			"name": "Prophecy",
+			"desc": "The item features in a prophecy: its bearer is destined to play a key role in future events. Someone else who wants to play that role might try to steal the item, or someone who wants to prevent the prophecy from being fulfilled might try to kill the item’s bearer."
+		},
+		{
+			"name": "Religious",
+			"desc": "This item was used in religious ceremonies dedicated to a particular deity. It has holy symbols worked into it. The god’s followers might try to persuade its owner to donate it to a temple, steal the item for themselves, or celebrate its use by a cleric or paladin of the same deity."
+		},
+		{
+			"name": "Sinister",
+			"desc": "This item is linked to a deed of great evil, such as a massacre or an assassination. It might have a name or be closely associated with a villain who used it. Anyone familiar with the item’s history is likely to treat it and its owner with suspicion."
+		},
+		{
+			"name": "Symbol of Power",
+			"desc": "This item was once used as part of royal regalia or as a badge of high office. Its former owner or that person’s descendants might desire it, or someone might mistakenly assume its new owner is the item’s legitimate inheritor."
+		}
+	],
+
+	"property": [{
+			"name": "Beacon",
+			"desc": "The bearer can use a bonus action to cause the item to shed bright light in a 10-foot radius and dim light for an additional 10 feet, or to extinguish the light."
+		},
+		{
+			"name": "Compass",
+			"desc": "The wielder can use an action to learn which way is north."
+		},
+		{
+			"name": "Conscientious",
+			"desc": "When the bearer of this item contemplates or undertakes a malevolent act, the item enhances pangs of conscience."
+		},
+		{
+			"name": "Delver",
+			"desc": "While underground, the bearer of this item always knows the item’s depth below the surface and the direction to the nearest staircase, ramp, or other path leading upward."
+		},
+		{
+			"name": "Gleaming",
+			"desc": "This item never gets dirty."
+		},
+		{
+			"name": "Guardian",
+			"desc": "The item whispers warnings to its bearer, granting a +2 bonus to initiative if the bearer isn’t incapacitated."
+		},
+		{
+			"name": "Harmonious",
+			"desc": "Attuning to this item takes only 1 minute."
+		},
+		{
+			"name": "Hidden Message",
+			"desc": "A message is hidden somewhere on the item. It might be visible only at a certain time of the year, under the light of one phase of the moon, or in a specific location."
+		},
+		{
+			"name": "Key",
+			"desc": "The item is used to unlock a container, chamber, vault, or other entryway."
+		},
+		{
+			"name": "Language",
+			"desc": "The bearer can speak and understand a language of the DM’s choice while the item is on the bearer’s person."
+		},
+		{
+			"name": "Sentinel",
+			"desc": "Choose a kind of creature that is an enemy of the item’s creator. This item glows faintly when such creatures are within 120 feet of it."
+		},
+		{
+			"name": "Song Craft",
+			"desc": "Whenever this item is struck or is used to strike a foe, its bearer hears a fragment of an ancient song."
+		},
+		{
+			"name": "Strange Material",
+			"desc": "The item was created from a material that is bizarre given its purpose. Its durability is unaffected."
+		},
+		{
+			"name": "Temperate",
+			"desc": "The bearer suffers no harm in temperatures as cold as −20 degrees Fahrenheit or as warm as 120 degrees Fahrenheit."
+		},
+		{
+			"name": "Unbreakable",
+			"desc": "The item can’t be broken. Special means must be used to destroy it."
+		},
+		{
+			"name": "War Leader",
+			"desc": "The bearer can use an action to cause his or her voice to carry clearly for up to 300 feet until the end of the bearer’s next turn."
+		},
+		{
+			"name": "Waterborne",
+			"desc": "This item floats on water and other liquids. Its bearer has advantage on Strength (Athletics) checks to swim."
+		},
+		{
+			"name": "Wicked",
+			"desc": "When the bearer is presented with an opportunity to act in a selfish or malevolent way, the item heightens the bearer’s urge to do so."
+		},
+		{
+			"name": "Illusion",
+			"desc": "The item is imbued with illusion magic, allowing its bearer to alter the item’s appearance in minor ways. Such alterations don’t change how the item is worn, carried, or wielded, and they have no effect on its other magical properties. For example, the wearer could make a red robe appear blue, or make a gold ring look like it’s made of ivory. The item reverts to its true appearance when no one is carrying or wearing it."
+		},
+		{
+			"name": "reroll"
+		}
+	],
+
+	"quirk": [{
+			"name": "Blissful",
+			"desc": "While in possession of the item, the bearer feels fortunate and optimistic about what the future holds. Butterflies and other harmless creatures might frolic in the item’s presence."
+		},
+		{
+			"name": "Confident",
+			"desc": "The item helps its bearer feel self-assured."
+		},
+		{
+			"name": "Covetous",
+			"desc": "The item’s bearer becomes obsessed with material wealth."
+		},
+		{
+			"name": "Frail",
+			"desc": "The item crumbles, frays, chips, or cracks slightly when wielded, worn, or activated. This quirk has no effect on its properties, but if the item has seen much use, it looks decrepit."
+		},
+		{
+			"name": "Hungry",
+			"desc": "This item’s magical properties function only if fresh blood from a humanoid has been applied to it within the past 24 hours. It needs only a drop to activate."
+		},
+		{
+			"name": "Loud",
+			"desc": "The item makes a loud noise—such as a clang, a shout, or a resonating gong—when used."
+		},
+		{
+			"name": "Metamorphic",
+			"desc": "The item periodically and randomly alters its appearance in slight ways. The bearer has no control over these minor alterations, which have no effect on the item’s use."
+		},
+		{
+			"name": "Muttering",
+			"desc": "The item grumbles and mutters. A creature who listens carefully to the item might learn something useful."
+		},
+		{
+			"name": "Painful",
+			"desc": "The bearer experiences a harmless flash of pain when using the item."
+		},
+		{
+			"name": "Possessive",
+			"desc": "The item demands attunement when first wielded or worn, and it doesn’t allow its bearer to attune to other items. (Other items already attuned to the bearer remain so until their attunement ends.)"
+		},
+		{
+			"name": "Repulsive",
+			"desc": "The bearer feels a sense of distaste when in contact with the item, and continues to sense discomfort while bearing it."
+		},
+		{
+			"name": "Slothful",
+			"desc": "The bearer of this item feels slothful and lethargic. While attuned to the item, the bearer requires 10 hours to finish a long rest."
+		}
+	]
+}

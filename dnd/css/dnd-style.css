@@ -268,4 +268,8 @@ label {
     #char-gen-body {
         background-image: url("../dndimages/chargenbkg.jpg");
     }
+	
+    #magic-items-body {
+        background-image: url("../dndimages/magicitemsbkg.jpg");
+    }
 }
