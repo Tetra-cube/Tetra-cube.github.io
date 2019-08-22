@@ -238,10 +238,7 @@
 	},
 	"Kalashtar": ["Coratash", "Dalavash", "Dolishara", "Halakosh", "Khoratari", "Koratana", "Lanhareth", "Molavakri", "Nevitash", "Sorashana", "Torashtai", "Valakhad", "Vishara"],
 	"Kenku": ["Smasher", "Clanger", "Slicer", "Basher", "Rat Scratch", "Whistler", "Mouser", "Growler", "Sail Snap", "Hammerer", "Cutter"],
-	"Kobold": {
-		"Female": ["Adriaak", "Harkail", "Neeral", "Ozula", "Poro", "Saassraa", "Tarka"],
-		"Male": ["Draahzin", "Eadoo", "Ipmeerk", "Jamada", "Kib", "Makroo", "Olp", "Yraalik", "Zornesk"]
-	},
+	"Kobold": ["Arix", "Eks", "Ett", "Galax", "Garu", "Hagnar", "Hox", "Irtos", "Kashak", "Meepo", "Molo", "Ohsoss", "Rotom", "Sagin", "Sik", "Sniv", "Taklak", "Tes", "Urak", "Varn"],
 	"Lizardfolk": ["Achuak (Green)", "Aryte (War)", "Bae-shra (Animal)", "Darastrix (Dragon)", "Garurt (Axe)", "Irhtos (Secret)", "Jhank (Hammer)", "Kepesk (Storm)", "Kethend (Gem)", "Korth (Danger)", "Kosj (Small)", "Kothar (Demon)", "Li-trix (Armor)", "Mirik (Song)", "Othokent (Smart)", "Sauriv (Eye)", "Throden (Many)", "Thurkear (Night)", "Usk (Iron)", "Valignat (Burn)", "Vargach (Battle)", "Verthica (Mountain)", "Vutha (Black)", "Vyth (Steel)"],
 	"Loxodon": {
 		"Female": ["Ajj", "Boja", "Dancu", "Dooja", "Elyuja", "Fanoor", "Irij", "Jasoo", "Katrun", "Lyooda", "Mayja", "Radu", "Shuja", "Soofya", "Totoor", "Verij", "Vesmova", "Yoolna", "Zarij", "Zoorja"],
