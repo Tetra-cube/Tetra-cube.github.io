@@ -478,6 +478,7 @@ var Names = {
             case "Changeling":
             case "Grung":
             case "Kenku":
+            case "Kobold":
             case "Lizardfolk":
             case "Shifter":
             case "Tortle":
@@ -487,7 +488,6 @@ var Names = {
             case "Bugbear":
             case "Centaur":
             case "Goblin":
-            case "Kobold":
             case "Minotaur":
             case "Orc":
             case "Loxodon":
