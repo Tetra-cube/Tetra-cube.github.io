@@ -9,7 +9,8 @@
 			"_special": "booksort",
 			"PHB": ["Path of the Berserker", "Path of the Totem Warrior"],
 			"SCAG": ["Path of the Battlerager"],
-			"XGtE": ["Path of the Ancestral Guardian", "Path of the Storm Herald", "Path of the Zealot"]
+			"XGtE": ["Path of the Ancestral Guardian", "Path of the Storm Herald", "Path of the Zealot"],
+			"UA" : ["Path of the Wild Soul"]
 		},
 		"Personality": {
 			"Personal Totem": [
@@ -280,7 +281,7 @@
 			"SCAG": ["Way of the Long Death"],
 			"XGtE": ["Way of the Drunken Master", "Way of the Kensei"],
 			"SCAG/XGtE": ["Way of the Sun Soul"],
-			"UA": ["Way of Tranquility"]
+			"UA": ["Way of Tranquility", "Way of the Astral Self"]
 		},
 		"Personality": {
 			"Monastery": [

@@ -31,6 +31,11 @@
 			"link": "http://dnd.wizards.com/articles/features/unearthed-arcana-ranger-revised"
 		},
 		{
+			"name": "Barbarian: Path of the Wild Soul",
+			"source": "Barbarian and Monk",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/barbarian-and-monk"
+		},
+		{
 			"name": "Bard: College of Satire, Fighter: Scout",
 			"source": "Kits of Old",
 			"link": "http://dnd.wizards.com/articles/unearthed-arcana/kits-old"
@@ -64,6 +69,11 @@
 			"name": "Monk: Way of Tranquility",
 			"source": "Monk: Monastic Traditions",
 			"link": "http://dnd.wizards.com/articles/unearthed-arcana/monk-monastic-traditions"
+		},
+		{
+			"name": "Monk: Way of the Astral Self",
+			"source": "Barbarian and Monk",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/barbarian-and-monk"
 		},
 		{
 			"name": "Paladin: Oath of Treachery",
@@ -145,6 +155,11 @@
 			"name": "Skill Feats",
 			"source": "Feats for Skills",
 			"link": "http://dnd.wizards.com/articles/unearthed-arcana/feats-skills"
+		},
+		{
+			"name": "Sidekicks",
+			"source": "Sidekicks",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/sidekicks"
 		}
 	]
 }
