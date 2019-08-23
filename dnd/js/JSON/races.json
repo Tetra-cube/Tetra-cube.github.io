@@ -823,7 +823,7 @@
 			"weightmod": "1",
 			"_other": {
 				"Eyes": ["Burnt Orange", "Red"],
-				"Skin": ["Red", "Reddish-brown"]
+				"Scales": ["Black", "Blue", "Brown", "Gray", "Green", "Orange", "Orange-brown", "Red", "Red-brown", "Tan", "White", "Multicolored", "Multicolored"]
 			}
 		},
 		"Monstrous Origin": {
@@ -842,7 +842,7 @@
 			"weightmod": "2d6",
 			"_other": {
 				"Eyes": ["Yellow"],
-				"Skin/Scales": ["Green", "Black", "Gray", "Brown"]
+				"Scales": ["Green", "Black", "Gray", "Brown"]
 			}
 		},
 		"Lizardfolk Quirk": [
