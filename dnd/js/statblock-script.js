@@ -1136,8 +1136,10 @@ var GetVariablesFunctions = {
 
     AddAbilityPreset: function(arrName, ability) {
         let abilityName = ability.name.trim(),
-            abilityDesc = ability.desc.trim();
-
+            abilityDesc = ability.desc;
+		if(Array.isArray(abilityDesc))
+			abilityDesc = abilityDesc.join("\n");
+		
         // In case of spellcasting
         if (arrName == "abilities" && abilityName.toLowerCase().includes("spellcasting") && abilityDesc.includes("\n")) {
             abilityDesc = abilityDesc.split("\u2022").join(""), // Remove bullet points
