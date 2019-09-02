@@ -161,5 +161,36 @@
 			"source": "Sidekicks",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/sidekicks"
 		}
+	],
+	"planeshift": [{
+			"name": "Dominaria",
+			"source": "Plane Shift: Dominaria",
+			"link": "https://magic.wizards.com/en/articles/archive/feature/plane-shift-dominaria-2018-07-31"
+		},
+		{
+			"name": "Ixalan",
+			"source": "Plane Shift: Ixalan",
+			"link": "https://magic.wizards.com/en/articles/archive/feature/plane-shift-ixalan-2018-01-09"
+		},
+		{
+			"name": "Amonkhet",
+			"source": "Plane Shift: Amonkhet",
+			"link": "https://magic.wizards.com/en/articles/archive/feature/plane-shift-amonkhet-2017-07-05"
+		},
+		{
+			"name": "Kaladesh",
+			"source": "Plane Shift: Kaladesh",
+			"link": "https://magic.wizards.com/en/articles/archive/feature/plane-shift-kaladesh-2017-02-16"
+		},
+		{
+			"name": "Innistrad",
+			"source": "Announcing Plane Shift: Innistrad",
+			"link": "http://www.dragonmag.com/5.0/#!/article/106375/102161027"
+		},
+		{
+			"name": "Zendikar",
+			"source": "Plane Shift: Zendikar",
+			"link": "https://magic.wizards.com/en/articles/archive/feature/plane-shift-zendikar-2016-04-27"
+		}
 	]
 }

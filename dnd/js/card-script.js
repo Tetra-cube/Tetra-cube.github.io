@@ -189,15 +189,7 @@ var Card = {
 
     // Show a shorter name on the card if the character is part of a race with long names
     CharacterName: function() {
-        if (character.Race.name == "Gnome" && this.FindTraitByName(this.FindTraitByName(character.Race.content, "Subraces and Variants"), "Subrace") != "Deep Gnome") {
-            let nameArr = character.Name.split(" "),
-                firstName = nameArr[Random.Num(nameArr.length - 2)];
-            return firstName + " " + nameArr[nameArr.length - 2] + " " + nameArr[nameArr.length - 1];
-        } else if (character.Race.name == "Tabaxi") {
-            let nicknameIndex = character.Name.indexOf("\"");
-            return character.Name.substring(nicknameIndex);
-        }
-        return character.Name;
+		return character.ShortName;
     },
 
     RaceName: function() {
