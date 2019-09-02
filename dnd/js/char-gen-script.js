@@ -1,5 +1,5 @@
 var backgrounds, books, cardsources, classes, life, names, npcs, other, races,
-    character = {},
+    character = {}, prevCharacters = [],
     characterType = "either",
     usedBooks = [],
     mcEthnicity = "",
@@ -9,7 +9,6 @@ var backgrounds, books, cardsources, classes, life, names, npcs, other, races,
         "name": false,
         "traits": false,
         "occupation": false,
-        "gender": false,
         "race": false,
         "class": false,
         "background": false,
@@ -102,14 +101,13 @@ var Generate = {
 
         this.Race();
         this.Gender();
-        this.Name();
         this.Class();
         this.Background();
         this.Occupation();
         this.NPCTraits();
         this.Life();
 
-        CardType.Set();
+		this.FinishGenerate();
     },
 
     Race: function() {
@@ -122,51 +120,44 @@ var Generate = {
         // Determine race weight
         let raceVal = $("#racemenu").val();
         character.Race = Content.GetRandom(races, raceVal == "Random" ?
-            $("#weighted-radio").prop("checked") ? RaceWeighted.Get() : "Random" :
-            raceVal);
-
-        $("#race, #raceheader").html(character.Race.name);
-        $("#racesection").html(HTMLStrings.Get(character.Race));
-
-        $("#gender, #genderheader").html(character.Race.name == "Warforged" ? "Genderless" : character.Gender);
+            $("#weighted-radio").prop("checked") ? RaceWeighted.Get() :
+            $("#15x-weighted-radio").prop("checked") ? RaceWeighted.Get(1.5) :
+            $("#20x-weighted-radio").prop("checked") ? RaceWeighted.Get(2) :
+			"Random" : raceVal);
     },
 
     Gender: function() {
-        if (lock.gender) return;
         let genderVal = $("#gendermenu").val();
         character.Gender = (genderVal == "Random" ? Random.Array(other.genders) : genderVal);
-
-        $("#gender, #genderheader").html(character.Race.name == "Warforged" ? "Genderless" : character.Gender);
 
         this.Name();
     },
 
     Name: function() {
-        if (lock.name) return;
-        character.Name = Names.Get(character.Race.name, character.Gender);
-        $("#name").html(character.Name);
+        let nameVal = $("#name-input").val();
+		if(nameVal.length == 0) {
+			character.Name = Names.Get(character.Race.name, character.Gender);
+			character.ShortName = Names.Shortened();
+		}
+		else {
+			character.Name = nameVal;
+			character.ShortName = nameVal;
+		}
     },
 
     Class: function() {
         if (lock.class) return;
         character.Class = Content.GetRandom(classes, $("#classmenu").val());
-
-        $("#class, #classheader").html(character.Class.name);
-        $("#classsection").html(HTMLStrings.Get(character.Class));
     },
 
     Background: function() {
         if (lock.background) return;
         character.Background = Content.GetRandom(backgrounds, $("#backgroundmenu").val());
-
-        $("#background, #backgroundheader").html(character.Background.name);
-        $("#backgroundsection").html(HTMLStrings.Get(character.Background));
     },
 
     Occupation: function() {
         if (lock.occupation) return;
         character.Occupation = Occupation.Get();
-        $("#occupation").html(character.Occupation);
     },
 
     NPCTraits: function() {
@@ -175,7 +166,6 @@ var Generate = {
             "name": "NPCTraits",
             "content": Content.Get(NPCTraits.Get())
         };
-        $("#npc-traits-section").html(HTMLStrings.Get(character.NPCTraits));
     },
 
     Life: function() {
@@ -184,7 +174,6 @@ var Generate = {
             "name": "Life",
             "content": Content.Get(Life.Get())
         };
-        $("#lifesection").html(HTMLStrings.Get(character.Life));
     },
 
     // Functions for when a specific button is pressed
@@ -195,41 +184,78 @@ var Generate = {
         this.Name();
         this.Life();
         CardType.Set();
+		this.FinishGenerate();
     },
 
     GenderInput: function() {
         this.Gender();
+		this.FinishGenerate();
     },
 
     NameInput: function() {
         BookFunctions.Get();
         this.Name();
-        CardType.Set();
+		this.FinishGenerate();
     },
 
     ClassInput: function() {
         BookFunctions.Get();
         this.Class();
-        CardType.Set();
+		this.FinishGenerate();
     },
 
     BackgroundInput: function() {
         BookFunctions.Get();
         this.Background();
-        CardType.Set();
+		this.FinishGenerate();
+    },
+
+    OccupationInput: function() {
+        BookFunctions.Get();
+        this.Occupation();
+		this.FinishGenerate();
     },
 
     NPCTraitsInput: function() {
         BookFunctions.Get();
         this.NPCTraits();
-        CardType.Set();
+		this.FinishGenerate();
     },
 
     LifeInput: function() {
         BookFunctions.Get();
         this.Life();
-        CardType.Set();
+		this.FinishGenerate();
     },
+	
+	FinishGenerate: function() {
+        CardType.Set();
+		Characters.SaveCharacter();
+		Characters.SaveToStorage();
+		SetHTML();
+	}
+}
+
+function SetHTML() {
+		
+	$("#name").html(character.Name);
+
+	$("#race, #raceheader").html(character.Race.name);
+	$("#racesection").html(HTMLStrings.Get(character.Race));
+
+	$("#gender, #genderheader").html(character.Race.name == "Warforged" ? "Genderless" : character.Gender);
+
+	$("#class, #classheader").html(character.Class.name);
+	$("#classsection").html(HTMLStrings.Get(character.Class));
+
+	$("#background, #backgroundheader").html(character.Background.name);
+	$("#backgroundsection").html(HTMLStrings.Get(character.Background));
+	
+	$("#occupation").html(character.Occupation);
+	
+	$("#npc-traits-section").html(HTMLStrings.Get(character.NPCTraits));
+	
+	$("#lifesection").html(HTMLStrings.Get(character.Life));
 }
 
 // Gets content from dnd-data and puts it into a format more readable to the generator (also filters out things that should be inaccessible)
@@ -594,6 +620,19 @@ var Names = {
                 return Random.Array(names["Yuan-Ti"]);
         }
     },
+	
+	Shortened: function()
+	{
+        if (character.Race.name == "Gnome" && character.Race.content[0].content[0].content != "Deep Gnome") {
+            let nameArr = character.Name.split(" "),
+                firstName = nameArr[Random.Num(nameArr.length - 2)];
+            return firstName + " " + nameArr[nameArr.length - 2] + " " + nameArr[nameArr.length - 1];
+        } else if (character.Race.name == "Tabaxi") {
+            let nicknameIndex = character.Name.indexOf("\"");
+            return character.Name.substring(nicknameIndex);
+        }
+        return character.Name;
+	},
 
     RandomGender: () => Random.Array(["Male", "Female"]),
 
@@ -645,9 +684,13 @@ var Names = {
 
 // Determine race based on weighted probabilities (ie. more common races are more likely to come up)
 var RaceWeighted = {
-    Get: function() {
-        let raceWeightList = Object.assign({}, other.raceWeights),
-            totalWeight = 57;
+    Get: function(pow = 1) {
+        let raceWeightList = [], totalWeight = 0;
+		for (let raceName in other.raceWeights) {
+			let weight = Math.pow(other.raceWeights[raceName], pow);
+			raceWeightList[raceName] = weight;
+			totalWeight += weight;
+		}
         for (let raceName in races) {
             let race = races[raceName];
             if (race._special.includes("PHB") || !BookFunctions.CheckSpecial(race._special)) continue;
@@ -1025,7 +1068,7 @@ var LockFunctions = {
 
 // When the page loads
 $(function() {
-    let calls = 9;
+    let calls = 9, generateNew = false;
     const GetJSON = function(name) {
         $.getJSON("js/JSON/" + name + ".json", function(data) {
             window[name] = data;
@@ -1033,10 +1076,22 @@ $(function() {
             if (calls <= 0) {
                 CharacterType.GetNoCard();
                 Dropdowns.Update();
-                Generate.All();
+				if(generateNew)
+					Generate.All();
+				else
+				{
+					Characters.LoadCharacter(character);
+					Characters.SaveCharacter();
+				}
             }
         });
     }
+	
+	let savedData = localStorage.getItem("SavedCharacterData");
+	if (savedData == undefined)
+		generateNew = true;
+	else
+		character = JSON.parse(savedData);
 
     GetJSON("backgrounds");
     GetJSON("books");
@@ -1052,3 +1107,37 @@ $(function() {
 
     InitCardScript();
 });
+
+let Characters = {
+	SaveCharacter: function() {
+		prevCharacters.unshift(Object.assign({}, character));
+		if(prevCharacters.length > 25)
+			prevCharacters.pop();
+		this.SetDropdown();
+	},
+	SaveToStorage: function() {
+		localStorage.setItem("SavedCharacterData", JSON.stringify(character));
+	},
+	LoadCharacter: function(loadedCharacter) {
+		character = Object.assign({}, loadedCharacter);
+		Content.Get();
+		CardType.Set();
+		SetHTML();
+		this.SaveToStorage();
+	},
+	SetDropdown: function() {
+		if(prevCharacters.length < 2) return;
+		let options = ["<option value=''>-Select-</option>"];
+        for (let index = 0; index < prevCharacters.length; index++) {
+			let prevCharacter = prevCharacters[index];
+			options.push("<option value='" + index + "'>" + prevCharacter.ShortName + ", " + prevCharacter.Race.name + " " + (prevCharacter.type == "npc" ? prevCharacter.Occupation : prevCharacter.Class.name) + "</option>");
+		}
+		$("#recent-characters-dropdown").html(options.join(""));
+		$("#recent-characters").show();
+	},
+	LoadFromDropdown: function() {
+		let num = $("#recent-characters-dropdown").val();
+		if(num != "")
+			this.LoadCharacter(prevCharacters[num]);
+	}
+}

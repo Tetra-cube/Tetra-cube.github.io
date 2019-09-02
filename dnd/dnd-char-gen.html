@@ -44,21 +44,21 @@
             <br>
             <div class="booklist row">
                 <div class="col-12 col-md-6">
-                    <div><label for="PHBbox"><b><input id="PHBbox" type="checkbox" disabled checked> Player's Handbook</b></label></div>
-                    <div><label for="EEbox"><b><input id="EEbox" type="checkbox" onclick="Dropdowns.Update()" checked> Elemental Evil Player's Companion</b></label></div>
-                    <div><label for="SCAGbox"><b><input id="SCAGbox" type="checkbox" onclick="Dropdowns.Update()" checked> Sword Coast Adventurer's Guide</b></label></div>
-                    <div><label for="VGtMbox"><b><input id="VGtMbox" type="checkbox" onclick="Dropdowns.Update()" checked> Volo's Guide to Monsters</b></label></div>
-                    <div><label for="MRbox"><b><input id="MRbox" type="checkbox" onclick="Dropdowns.Update()" checked> Volo's Guide (Monstrous Races)</b></label></div>
-                    <div><label for="XGtEbox"><b><input id="XGtEbox" type="checkbox" onclick="Dropdowns.Update()" checked> Xanathar's Guide to Everything</b></label></div>
-                    <div><label for="MToFbox"><b><input id="MToFbox" type="checkbox" onclick="Dropdowns.Update()" checked> Mordenkainen's Tome of Foes</b></label></div>
+                    <div><label><b><input id="PHBbox" type="checkbox" disabled checked> Player's Handbook</b></label></div>
+                    <div><label><b><input id="EEbox" type="checkbox" onclick="Dropdowns.Update()" checked> Elemental Evil Player's Companion</b></label></div>
+                    <div><label><b><input id="SCAGbox" type="checkbox" onclick="Dropdowns.Update()" checked> Sword Coast Adventurer's Guide</b></label></div>
+                    <div><label><b><input id="VGtMbox" type="checkbox" onclick="Dropdowns.Update()" checked> Volo's Guide to Monsters</b></label></div>
+                    <div><label><b><input id="MRbox" type="checkbox" onclick="Dropdowns.Update()" checked> Volo's Guide (Monstrous Races)</b></label></div>
+                    <div><label><b><input id="XGtEbox" type="checkbox" onclick="Dropdowns.Update()" checked> Xanathar's Guide to Everything</b></label></div>
+                    <div><label><b><input id="MToFbox" type="checkbox" onclick="Dropdowns.Update()" checked> Mordenkainen's Tome of Foes</b></label></div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div><label for="GGtRbox"><b><input id="GGtRbox" type="checkbox" onclick="Dropdowns.Update()" checked> Guildmaster's Guide to Ravnica</b></label></div>
-                    <div><label for="Otherbox"><b><input id="Otherbox" type="checkbox" onclick="Dropdowns.Update()" checked> Other Content</b></label></div>
-                    <div><label for="DMGbox"><b><input id="DMGbox" type="checkbox" onclick="Dropdowns.Update()"> Dungeon Master's Guide</b></label></div>
-                    <div><label for="WGtEbox"><b><input id="WGtEbox" type="checkbox" onclick="Dropdowns.Update()"> Wayfinder's Guide to Eberron</b></label></div>
-                    <div><label for="UAbox"><b><input id="UAbox" type="checkbox" onclick="Dropdowns.Update()"> Unearthed Arcana</b></label></div>
-                    <div><label for="Unofficialbox"><b><input id="Unofficialbox" type="checkbox" onclick="Dropdowns.Update()"> Notable Unofficial Content</b></label></div>
+                    <div><label><b><input id="GGtRbox" type="checkbox" onclick="Dropdowns.Update()" checked> Guildmaster's Guide to Ravnica</b></label></div>
+                    <div><label><b><input id="Otherbox" type="checkbox" onclick="Dropdowns.Update()" checked> Other Content</b></label></div>
+                    <div><label><b><input id="DMGbox" type="checkbox" onclick="Dropdowns.Update()"> Dungeon Master's Guide</b></label></div>
+                    <div><label><b><input id="WGtEbox" type="checkbox" onclick="Dropdowns.Update()"> Wayfinder's Guide to Eberron</b></label></div>
+                    <div><label><b><input id="UAbox" type="checkbox" onclick="Dropdowns.Update()"> Unearthed Arcana</b></label></div>
+                    <div><label><b><input id="Unofficialbox" type="checkbox" onclick="Dropdowns.Update()"> Notable Unofficial Content</b></label></div>
                 </div>
             </div>
 
@@ -66,6 +66,7 @@
 
             <div style="text-align: center;">
                 <button type="button" onclick="Generate.All()">Generate Character</button>
+                <button type="button" onclick="CardType.Set()">Randomize Card</button>
                 <br><br>
                 <div id="cardcontainer">
                     <canvas id="canvas" width="612" height="792"></canvas>
@@ -75,8 +76,15 @@
                     <textarea rows="50" cols="40" id="textarea" readonly></textarea>
                 </div>
                 <br>
-                <div id="card-type-radio-buttons" style="width: 80%; margin: auto;">
-                </div>
+				<div id="recent-characters" style="display: none;">
+					<label>
+						Recent Characters:
+						<select class="dropdown" id="recent-characters-dropdown" style="width: 20rem;">
+							<option value="">-Select-</option>
+						</select>
+					</label>
+					<button type="button" onclick="Characters.LoadFromDropdown()">Load</button>
+				</div>
             </div>
 
             <hr>
@@ -84,30 +92,32 @@
             <div class="row radio-row">
                 <div class="col-12 col-sm-6 col-lg-3">
                     <b>Show:</b>
-                    <div><label for="personality-radio"><input id="personality-radio" type="radio" name="show-button" onclick="CardType.Set()" checked> Personality </label></div>
-                    <div><label for="characteristics-radio"><input id="characteristics-radio" type="radio" name="show-button" onclick="CardType.Set()"> Characteristics </label></div>
-                    <div><label for="empty-radio"><input id="empty-radio" type="radio" name="show-button" onclick="CardType.Set()"> Empty Card </label></div>
-                    <div><label for="plaintext-radio"><input id="plaintext-radio" type="radio" name="show-button" onclick="CardType.Set()"> Plain Text </label></div>
+                    <div><label><input id="personality-radio" type="radio" name="show-button" onclick="CardType.Set()" checked> Personality </label></div>
+                    <div><label><input id="characteristics-radio" type="radio" name="show-button" onclick="CardType.Set()"> Characteristics </label></div>
+                    <div><label><input id="empty-radio" type="radio" name="show-button" onclick="CardType.Set()"> Empty Card </label></div>
+                    <div><label><input id="plaintext-radio" type="radio" name="show-button" onclick="CardType.Set()"> Plain Text </label></div>
                     <br>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3">
                     <b>Character Type:</b>
-                    <div><label for="either-radio"><input id="either-radio" type="radio" name="character-type-button" onclick="CharacterType.Get()" checked> Either </label></div>
-                    <div><label for="pc-radio"><input id="pc-radio" type="radio" name="character-type-button" onclick="CharacterType.Get()"> Adventurer </label></div>
-                    <div><label for="npc-radio"><input id="npc-radio" type="radio" name="character-type-button" onclick="CharacterType.Get()"> Civilian </label></div>
+                    <div><label><input id="either-radio" type="radio" name="character-type-button" onclick="CharacterType.Get()" checked> Either </label></div>
+                    <div><label><input id="pc-radio" type="radio" name="character-type-button" onclick="CharacterType.Get()"> Adventurer </label></div>
+                    <div><label><input id="npc-radio" type="radio" name="character-type-button" onclick="CharacterType.Get()"> Civilian </label></div>
                     <br>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3">
                     <b>Race Randomizer:</b>
-                    <div><label for="normal-radio"><input id="normal-radio" type="radio" name="race-randomizer-button" checked> Normal </label></div>
-                    <div><label for="weighted-radio"><input id="weighted-radio" type="radio" name="race-randomizer-button"> Weighted </label></div>
+                    <div><label><input id="normal-radio" type="radio" name="race-randomizer-button" checked> Normal </label></div>
+                    <div><label><input id="weighted-radio" type="radio" name="race-randomizer-button"> Weighted </label></div>
+                    <div><label><input id="15x-weighted-radio" type="radio" name="race-randomizer-button"> Weighted x1.5 </label></div>
+                    <div><label><input id="20x-weighted-radio" type="radio" name="race-randomizer-button"> Weighted x2 </label></div>
                     <br>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-3">
                     <b>Human Ethnicities:</b>
-                    <div><label for="standard-radio"><input id="standard-radio" type="radio" name="ethnicity-button" checked> Standard </label></div>
-                    <div><label for="real-radio"><input id="real-radio" type="radio" name="ethnicity-button"> Real </label></div>
-                    <div><label for="both-radio"><input id="both-radio" type="radio" name="ethnicity-button"> Both </label></div>
+                    <div><label><input id="standard-radio" type="radio" name="ethnicity-button" checked> Standard </label></div>
+                    <div><label><input id="real-radio" type="radio" name="ethnicity-button"> Real </label></div>
+                    <div><label><input id="both-radio" type="radio" name="ethnicity-button"> Both </label></div>
                     <br>
                 </div>
             </div>
@@ -132,40 +142,48 @@
                     <ul id="npc-traits-section"></ul>
                 </li>
             </ul>
+			
             <br>
-            <div class="row" style="text-align: center;">
-                <div id="name-lock-div" class="col-12 col-lg-4">
-                    <button class="lock-button" id="name-lock-button" onclick="LockFunctions.TryLock('name')"><i class="fas fa-lock-open"></i></button>
-                    <button type="button" onclick="Generate.NameInput()">Generate Name</button>
-                </div>
-                <div class="col-12 col-lg-4 npc-show">
-                    <button class="lock-button" id="traits-lock-button" onclick="LockFunctions.TryLock('traits')"><i class="fas fa-lock-open"></i></button>
-                    <button type="button" onclick="Generate.NPCTraitsInput()">Generate Description</button>
-                </div>
-                <div class="col-12 col-lg-4 npc-show">
-                    <button class="lock-button" id="occupation-lock-button" onclick="LockFunctions.TryLock('occupation')"><i class="fas fa-lock-open"></i></button>
-                    <button type="button" onclick="Generate.Occupation()">Generate Occupation</button>
-                </div>
-            </div>
-
             <hr>
+			
 
             <div style="text-align: center;">
+			
+				<div class="npc-show row" style=" max-width: 30rem; margin: auto;">
+					<div class="col-12 col-sm-6">
+						<button class="lock-button" id="traits-lock-button" onclick="LockFunctions.TryLock('traits')"><i class="fas fa-lock-open"></i></button>
+						<button type="button" onclick="Generate.NPCTraitsInput()">Generate Description</button>
+					</div>
+					<div class="col-12 col-sm-6">
+						<button class="lock-button" id="occupation-lock-button" onclick="LockFunctions.TryLock('occupation')"><i class="fas fa-lock-open"></i></button>
+						<button type="button" onclick="Generate.OccupationInput()">Generate Occupation</button>
+					</div>
+				</div>
+				
                 <div>
-                    <label for="gendermenu"><b>Gender: </b></label>
-                    <button class="lock-button" id="gender-lock-button" onclick="LockFunctions.TryLock('gender')"><i class="fas fa-lock-open"></i></button>
-                    <br class="small-only-br">
-                    <select class="dropdown" id="gendermenu">
-                        <option value="Random">Random</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Nonbinary or Unknown">Nonbinary or Unknown</option>
-                    </select>
-                    <button type="button" onclick="Generate.Gender()">Generate</button>
+					<br class="small-only-br">
+					<div style="width: 100%">
+						<label for="name-input"><b>Name: </b></label><input id="name-input" type="text" placeholder="Random" style="max-width: 20rem;">
+						<button type="button" onclick="Generate.NameInput()">Generate</button>
+					</div>
+					<br class="small-only-br">
+					<div>
+						<label for="gendermenu"><b>Gender: </b></label>
+						<br class="small-only-br">
+						<select class="dropdown" id="gendermenu">
+							<option value="Random">Random</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+							<option value="Nonbinary or Unknown">Nonbinary or Unknown</option>
+						</select>
+						<button type="button" onclick="Generate.GenderInput()">Generate</button>
+					</div>
                 </div>
+				<br>
                 <h3>Gender: <span id="genderheader"></span></h3>
+				
             </div>
-            <br>
+			
             <div id="character-columns" class="row">
                 <div class="col-12 col-lg-4 pc-show" id="class-section">
                     <div style="text-align: center;">

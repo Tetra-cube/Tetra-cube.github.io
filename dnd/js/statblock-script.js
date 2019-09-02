@@ -1139,6 +1139,7 @@ var GetVariablesFunctions = {
             abilityDesc = ability.desc;
 		if(Array.isArray(abilityDesc))
 			abilityDesc = abilityDesc.join("\n");
+        abilityDesc = abilityDesc.trim();
 		
         // In case of spellcasting
         if (arrName == "abilities" && abilityName.toLowerCase().includes("spellcasting") && abilityDesc.includes("\n")) {

@@ -28,6 +28,7 @@ function UpdateList() {
     $("#uaraces").html(UAStuff.Get(ua.races));
     $("#uaclasses").html(UAStuff.Get(ua.classes));
     $("#uaother").html(UAStuff.Get(ua.other));
+    $("#uaplaneshift").html(UAStuff.Get(ua.planeshift));
 
     Collapsibles.RetractAll("races");
     Collapsibles.RetractAll("classes");
