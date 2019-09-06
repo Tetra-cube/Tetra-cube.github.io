@@ -70,16 +70,6 @@
 			"desc": "This item was created by a powerful devil (or rakshasa) from the Nine Hells, for itself, a cultist or warlock, a mortal soul who signed a contract with it, or a being it seeks to corrupt. It may have also been created by a devil cultist or warlock. It is most likely made of black iron, but may also be forged from horn, obsidian, or unmelting ice. It is a solid item, likely made for war, and may be able to inflict immense pain or even function as an instrument of torture. If made for a mortal, it attempts to corrupt its user and drive them to evil acts. It may also be capable of conjuring devils. If its creator made the item for itself or another yugoloth, it might be designed for fighting demons or other fiends. Celestials find the item repulsive.",
 			"weight": 5
 		},
-		{
-			"name": "Lich",
-			"desc": "This item was crafted by a lich, for itself or for a thrall. It is made bones, flesh, and other corpse parts, and its appearance incorporates imagery of death. It most likely has necromancy powers, but may have any power suited for a wizard. It may also be the phylactery of its creator.",
-			"weight": 5
-		},
-		{
-			"name": "Vampire",
-			"desc": "This item was crafted by a vampire, for itself or for a thrall. It is an immaculate and flawlessly crafted item, black, red, or silver in color, and incorporates imagery of blood, bats, wolves, death, or the symbol of the vampire who created it. It likely has blood-based powers, and may also have necromancy, darkness, regeneration, teleportation, mind control, flight, immortality, or shapechanging powers. The item may grow weaker in the sunlight, or stronger in the darkness, and it may require blood from its user or from slain enemies. The vampire may still exert some control over the item.",
-			"weight": 5
-		},
 
 
 		{
@@ -88,13 +78,18 @@
 			"weight": 4
 		},
 		{
-			"name": "Nature Celestial",
-			"desc": "This item was created by a celestial from the upper planes of Elysium, Arborea, or the Beastlands. Its appearance is gold and white, and it incorporates symbols of animals and nature. Its powers might relate to nature, or they might relate to celebration, dancing, feasting, and other such things. Fiends find the item repulsive.",
+			"name": "Lich",
+			"desc": "This item was crafted by a lich, for itself or for a thrall. The creator might be a humanoid lich or a more monstrous variety of lich, such a dracolich or alhoon. It is made bones, flesh, and other corpse parts, and its appearance incorporates imagery of death. It most likely has necromancy powers, but may have any power suited for a wizard. It may also be the phylactery of its creator.",
 			"weight": 4
 		},
 		{
 			"name": "Storm Giant",
 			"desc": "This item was created by a storm giant, for itself or a humanoid ally. It is made of steel, gemstones, or precious metals. If made for humanoids, it might be relatively light for a giant weapon, allowing smaller creatures to use it at its full size. It most likely has lightning, thunder, storm, or weather powers, and might have powers related to air, water, flight, swimming, or divination.",
+			"weight": 4
+		},
+		{
+			"name": "Vampire",
+			"desc": "This item was crafted by a vampire, for itself or for a thrall. It is an immaculate and flawlessly crafted item, black, red, or silver in color, and incorporates imagery of blood, bats, wolves, death, or the symbol of the vampire who created it. It likely has blood-based powers, and may also have necromancy, darkness, regeneration, teleportation, mind control, flight, immortality, or shapechanging powers. The item may grow weaker in the sunlight, or stronger in the darkness, and it may require blood from its user or from slain enemies. The vampire may still exert some control over the item.",
 			"weight": 4
 		},
 		{
@@ -291,6 +286,16 @@
 			"weight": 1
 		},
 		{
+			"name": "Couatl",
+			"desc": "This item was created by a couatl, a celestial winged snake. It bears magnificent red, orange, and white, and is likely made of wood, mithral, or precious metals. It is decorated with bird, snake, or celestial imagery, and it may be lightweight or radiate light. Its powers might relate to healing, divination (specifically future sight), protection, or shapechanging, and it might protect its user from scrying or mind reading. This item was undoubtedly made to carry out the couatl's purpose, whatever that may be.",
+			"weight": 1
+		},
+		{
+			"name": "Death Knight",
+			"desc": "This item was created by a death knight, an undead fallen paladin. It might also have been a normal item that was corrupted alongside the paladin when they fell to darkness. It is a dark item, made from steel or bone. Its powers involve decay, curses, death, or undeath",
+			"weight": 1
+		},
+		{
 			"name": "Dragon Turtle",
 			"desc": "This item was created by a dragon turtle, for itself, for a minion, or as a gift. It may be made from parts of the dragon turtle's shell or claws, precious metals and gems from its hoard, or materials found under the sea, such as fish scale, coral, or whalebone. Its powers might be based on water, steam, or the dragon turtle's protective shell. If made for a non-aquatic creature, it has swimming or water breathing powers.",
 			"weight": 1
@@ -306,6 +311,11 @@
 			"weight": 1
 		},
 		{
+			"name": "Ki-rin",
+			"desc": "This item was created by a Ki-rin, an enormous and magical celestial stag. It bears magnificent orange, white, and golden colors. It might be made from the Ki-rin's scales, mane, tail, or horn, or precious metals and gemstones from its lair, and it may be lightweight or radiate light. Its powers might relate to radiance, healing, divination, protection, weather, nature, teleportation, survival, flight, or any of many other things. Its might also respond to questions the user asks it. Regardless of its powers, it is an item of pure good.",
+			"weight": 1
+		},
+		{
 			"name": "Minotaur",
 			"desc": "This item was created by a powerful minotaur or minotaur cultist. It is crude but functional, being made of wood, stone, iron, bone, horn, or fur. The item has power relating to either labyrinths and navigation, or muderous rampages.",
 			"weight": 1
@@ -313,6 +323,11 @@
 		{
 			"name": "Naga",
 			"desc": "This item was created by a naga. It is green and white (if created by a guardian naga) or black and red (if created by a spirit naga) and bears imagery of snakes, but otherwise resembles a mundane item. The item has poison, rejuvenation, or snake-based powers.",
+			"weight": 1
+		},
+		{
+			"name": "Nature Celestial",
+			"desc": "This item was created by a celestial from the chaos-aligned upper planes of Elysium, Arborea, or the Beastlands. Its appearance is gold and white, and it incorporates symbols of animals and nature. Its powers might relate to nature, or they might relate to celebration, dancing, feasting, and other such things. Fiends find the item repulsive.",
 			"weight": 1
 		},
 		{
@@ -363,6 +378,16 @@
 		{
 			"name": "Stone Giant",
 			"desc": "This item was created by a stone giant, for itself or a humanoid ally. It is made of stone and immensely heavy. It is crude but functional, and whatever its purpose, it is an item of great physical force.",
+			"weight": 1
+		},
+		{
+			"name": "Unicorn",
+			"desc": "This item was created by a celestial unicorn. It may be lightweight or radiate light. Its appearance is gold and white, and it incorporates nature, forest, and equine imagery. Its powers might relate to healing, protection, animals, radiance, or teleportation. An especially powerful item of this type might contain the unicorn's actual horn.",
+			"weight": 1
+		},
+		{
+			"name": "Wraith",
+			"desc": "This item was created by a wraith, an undead incarnation of pure evil. It is solid black and may even be made of pure darkness, and its powers relate to darkness or undeath. This item is dripping with malice, and it might be weakened or even destroyed in the sunlight.",
 			"weight": 1
 		},
 		{
