@@ -1,0 +1,1066 @@
+{
+	"origin": [{
+			"name": "Human",
+			"desc": "This item was created by a powerful human. It appears similar to a mundane item with one or two distinctive ornaments, such as writing, gemstones, or precious metals, and it may also incorporate imagery from real life civilizations. Human items are made for practicality- the item has few powers, but it excels at them. Its powers are very straightforward, as well. These items often outlive the civilizations that created them, leaving their histories mysterious and unknowable.",
+			"weight": 24
+		},
+
+
+		{
+			"name": "Dwarf",
+			"desc": "This item was created by a dwarven master crafter or smith. It is made from the finest material available, potentially even silver, gold, platinum, mithral, or adamantine. It might be expertly decorated with the imagery of one particular clan, and possess great significance to them, or it might be a technological marvel. It is most likely created for a singular purpose, and serves that purpose well.",
+			"weight": 16
+		},
+		{
+			"name": "Elf",
+			"desc": "This item was crafted by the elves of the surface world. It is a beautiful object adorned with symbols of nature such as flowers, leaves, vines, or stars. It is built for form as much as function, and it most likely has several powers, which might relate to nature, dreams, healing, light, or destroying evil.",
+			"weight": 16
+		},
+
+
+		{
+			"name": "Drow",
+			"desc": "This item was crafted by the dark elves. It may be solid black and crafted from metal or obsidian, or adorned with imagery such as webs and spider legs. It might have powers relating to spiders, darkness, mind control, or demons, and it might be weakened or even destroyed in direct sunlight.",
+			"weight": 8
+		},
+		{
+			"name": "Elemental Air",
+			"desc": "The item was forged through the power of elemental air by an aarakocra, djinn, air genasi, powerful air elemental, one of the Wind Dukes of Aaqa, or another resident of the plane of air. It is light blue or white colored and weighs very little, and may incorporate bird imagery. It might have wind, cold, lightning, thunder, storm, or flight-based powers, or be able to summon creatures of elemental air.",
+			"weight": 8
+		},
+		{
+			"name": "Elemental Earth",
+			"desc": "The item was forged through the power of elemental earth by a dao, earth genasi, powerful earth elemental, or another resident of the plane of earth. It is made of stone, metal, or gemstones, and may be unusually heavy. It might have stone, metal or weight-based powers, conjure fissures or earthquakes, or be able to summon creatures of elemental earth.",
+			"weight": 8
+		},
+		{
+			"name": "Elemental Fire",
+			"desc": "The item was forged through the power of elemental fire by an azer, efreeti, fire genasi, powerful fire elemental, or another resident of the plane of fire. It is hot to the touch, likely red or orange, and may be made of brass or black iron. It has heat or fire-based powers, and may be able to summon creatures of elemental fire.",
+			"weight": 8
+		},
+		{
+			"name": "Elemental Water",
+			"desc": "The item was forged through the power of elemental water by a merfolk, sea elf, marid, water genasi, triton, powerful water elemental, or another resident of the plane of water. It is made of worked fish scales, shells, coral, or anything else that might be found under the sea. Its powers are based on water, liquid, mist, or rain, and may be able to summon creatures of elemental water.",
+			"weight": 8
+		},
+		{
+			"name": "Gnome",
+			"desc": "This item was crafted by the diminutive gnomes. It is not especially powerful and prone to breaking, but might just be useful enough to save the life of its user in their moment of need. It is small and looks like a steampunk contraption, complete with unnecessary mechanical parts. The plane of Bytopia produces many such items.",
+			"weight": 8
+		},
+
+
+		{
+			"name": "Abyssal",
+			"desc": "This item was created by a powerful demon or demon lord from the depths of the Abyss, or a demon cultist or warlock, for itself or to send out into the world and curse whatever poor soul finds it. It is an asymmetrical item made of black iron, flesh, bone, or some unidentifiable Abyssal material, and it bears screaming faces or dark runes. Its powers may cause madness, undeath, deformation or maiming, disease, pain, decay, or something else horrible. It may also be capable of conjuring demons. This item causes any non-demon immense discomfort, and will inflict madness, disease, pain, death, or abyssal corruption on its user.",
+			"weight": 5
+		},
+		{
+			"name": "Angel",
+			"desc": "This item was created by an angel from the upper planes, possibly Arcadia, Bytopia, or Elysium, but usually Mount Celestia. It may be lightweight or radiate light. Its appearance is gold and white, and it incorporates wings, halos, and celestial bodies. It may also include eyes, rings, animal heads, or fire. Its powers might relate to truth, radiance, healing, or destroying evil. Fiends find the item repulsive.",
+			"weight": 5
+		},
+		{
+			"name": "Divine",
+			"desc": "This item was created by a god, a demigod (such as an empyrean), or a mortal with divine assistance. Its appearance and powers depend entirely on the particular deity associated with it.",
+			"weight": 5
+		},
+		{
+			"name": "Infernal",
+			"desc": "This item was created by a powerful devil (or rakshasa) from the Nine Hells, for itself, a cultist or warlock, a mortal soul who signed a contract with it, or a being it seeks to corrupt. It may have also been created by a devil cultist or warlock. It is most likely made of black iron, but may also be forged from horn, obsidian, or unmelting ice. It is a solid item, likely made for war, and may be able to inflict immense pain or even function as an instrument of torture. If made for a mortal, it attempts to corrupt its user and drive them to evil acts. It may also be capable of conjuring devils. If its creator made the item for itself or another yugoloth, it might be designed for fighting demons or other fiends. Celestials find the item repulsive.",
+			"weight": 5
+		},
+		{
+			"name": "Lich",
+			"desc": "This item was crafted by a lich, for itself or for a thrall. It is made bones, flesh, and other corpse parts, and its appearance incorporates imagery of death. It most likely has necromancy powers, but may have any power suited for a wizard. It may also be the phylactery of its creator.",
+			"weight": 5
+		},
+		{
+			"name": "Vampire",
+			"desc": "This item was crafted by a vampire, for itself or for a thrall. It is an immaculate and flawlessly crafted item, black, red, or silver in color, and incorporates imagery of blood, bats, wolves, death, or the symbol of the vampire who created it. It likely has blood-based powers, and may also have necromancy, darkness, regeneration, teleportation, mind control, flight, immortality, or shapechanging powers. The item may grow weaker in the sunlight, or stronger in the darkness, and it may require blood from its user or from slain enemies. The vampire may still exert some control over the item.",
+			"weight": 5
+		},
+
+
+		{
+			"name": "Fairy",
+			"desc": "This item was crafted by small fey creatures such as pixies, sprites, or faerie dragons, likely as a gift. It is likely to be a small item made from leaves, sticks, baubles, or perhaps silver or mithral. Its powers might be based on stealth, trickery, the feywild, or the magic of the specific creatures that created it. It also might play tricks on its user or cause surges of wild magic.",
+			"weight": 4
+		},
+		{
+			"name": "Nature Celestial",
+			"desc": "This item was created by a celestial from the upper planes of Elysium, Arborea, or the Beastlands. Its appearance is gold and white, and it incorporates symbols of animals and nature. Its powers might relate to nature, or they might relate to celebration, dancing, feasting, and other such things. Fiends find the item repulsive.",
+			"weight": 4
+		},
+		{
+			"name": "Storm Giant",
+			"desc": "This item was created by a storm giant, for itself or a humanoid ally. It is made of steel, gemstones, or precious metals. If made for humanoids, it might be relatively light for a giant weapon, allowing smaller creatures to use it at its full size. It most likely has lightning, thunder, storm, or weather powers, and might have powers related to air, water, flight, swimming, or divination.",
+			"weight": 4
+		},
+		{
+			"name": "Yuan-Ti",
+			"desc": "This item was created by the snake-like Yuan-Ti. It is made of steel, stone, gemstones, or precious metals, and invariably incorporates imagery of snakes or serpent gods. It might have powers relating to snake conjuring or manipulation, shapechanging, mind control, or poison. The item's user might cease to feel emotions, or become tempted to indulge in cannibalism.",
+			"weight": 4
+		},
+		{
+			"name": "Yugoloth",
+			"desc": "This item was created by a powerful yugoloth from the plane of Gehenna, for itself or for a client that paid well. It is a warped and twisted metal instrument. It might have heat, cold, acid, poison, disease, darkness, invisibility, teleportation, or extraplanar powers. If its creator made the item for itself or another yugoloth, it might be designed for fighting other fiends. Celestials find the item repulsive.",
+			"weight": 4
+		},
+
+
+		{
+			"name": "Cloud Giant",
+			"desc": "This item was created by a cloud giant, for itself or a humanoid ally. It is made of steel, gemstones, or precious metals. If made for humanoids, it might be relatively light for a giant weapon, allowing smaller creatures to use it at its full size. It might have powers related to lightness or flight, or weather powers, including wind, rain, snow, heat, cold, thunder, lightning, or fog.",
+			"weight": 3
+		},
+		{
+			"name": "Duergar",
+			"desc": "This item was created by a duergar master crafter or smith. It is as high quality as a dwarven weapon, but it looks very plain, lacking decoration of any kind, as if such items were mass-produced. Its powers might be psychic, or involve invisibility or temporary size-changing. It might be designed to inflict terrible pain, and it may be weakened in direct sunlight.",
+			"weight": 3
+		},
+		{
+			"name": "Fire Giant",
+			"desc": "This item was created by a fire giant, for itself or a humanoid ally. It is made of stone, iron, or steel. It might be immensely heavy and hot to the touch. It is an item of great physical force, made for war. It might have heat or fire-based powers, or it might be made just for raw strength.",
+			"weight": 3
+		},
+		{
+			"name": "Ghost",
+			"desc": "This item was crafted by a ghost or other incorporeal undead. It is either translucent and partially incorporeal, or it is a physical item haunted by its own creator. It can touch incorporeal things, and its powers may relate to incorporeality, seeing invisibility, or speaking to or summoning the souls of the dead. Like its creator, it is likely to disappear when its purpose has been fulfilled.",
+			"weight": 3
+		},
+		{
+			"name": "Githyanki",
+			"desc": "This item was crafted by the githyanki of the astral plane. It always appears new, regardless of its actual age, though it may be unfinished if its githyanki creator abandoned it in a fit of boredom. Its powers might be psychic, telekinetic, or relate to the astral plane in some way. It might also be effective against githzerai or mind flayers.",
+			"weight": 3
+		},
+		{
+			"name": "Githzerai",
+			"desc": "This item was crafted by the githzerai of the plane of Limbo. It is, more than likely, forged of the chaos-stuff of Limbo, and only the sharpest of minds can use it- but those who can use it can shape it to their will using the power of their mind alone. It might also be effective against githyanki or mind flayers. Such items are often created for monks, but can just as easily be made for others.",
+			"weight": 3
+		},
+		{
+			"name": "Halfling",
+			"desc": "This item was crafted by the diminutive halflings. It is just as likely to be made for party tricks as it is for anything practical. Halfling items with practical uses are not significantly powerful, and usually relate to stealth or luck.",
+			"weight": 3
+		},
+		{
+			"name": "Kraken",
+			"desc": "This item was created by a kraken or kraken cultist. It is made of rusty metal, driftwood, or worked coral and shells, and it either has a green-blue tint or is covered in algae or seaweed. Its appearance incorporates cephalopod imagery, especially tentacles. Its powers might involve water (especially destructive watery forces such as tidal waves), thunder and lightning, or the kraken's poisonous ink. It may also have tentacles attached to it that can move on command to perform some function, such as grappling an enemy.",
+			"weight": 3
+		},
+		{
+			"name": "Mechanus",
+			"desc": "This item was created on Mechanus, the clockwork plane of ultimate order. It was likely forged by a modron heirarch. Its appearance is bronze or copper-colored, and it may incorporate perfect geometric shapes, or gears and other mechanical parts. Its powers are extremely predictable and reliable (often not requiring a roll for abilities that normally do), and might relate to constructs or creating order.",
+			"weight": 3
+		},
+		{
+			"name": "Mummy Lord",
+			"desc": "This item was crafted by a mummy lord, for itself or for a thrall. It is made of iron, steel, precious metals, or gemstones, but it appears old, worn, dusty, or wrapped in bandages, and it may have runes written on its surface or incorporate egyptian imagery. It might have necromancy, rejuvenation, sand, fear, or immortality powers, and might inflict curses or mummy rot on its victims or even its unfortunate user.",
+			"weight": 3
+		},
+
+
+		{
+			"name": "Aboleth",
+			"desc": "This item was created by an aboleth or aboleth cultist, for the aboleth, for a thrall, or to send out into the world and ensnare whatever poor soul finds it. It is slimy, fleshy, and disgusting. It might have water, telepathy, or mind control powers, or it may contain a fraction of the aboleths' ancient memories. The user risks contracting a disease, or worse.",
+			"weight": 2
+		},
+		{
+			"name": "Beholder",
+			"desc": "This item was created by a beholder, for itself or a thrall. Its appearance incorporates beholder eyes and eye stalks, or imagery relating to the specific beholder who made it. It might have powers relating to the beholder's eye rays or antimagic cone, or powers to ensure the beholder's safety, such as the ability to detect certain types of creatures. Attuning to or sleeping near this item causes its wielder to experience intense paranoia, or strange dreams that may even affect the waking world.",
+			"weight": 2
+		},
+		{
+			"name": "Dryad",
+			"desc": "This item was crafted by a dryad, likely as a gift. It is invariably made of wood and has plant, animal, or water manipulation powers.",
+			"weight": 2
+		},
+		{
+			"name": "Eladrin",
+			"desc": "This item was crafted by the eladrin of the feywild. It is a beautiful object adorned with symbols of nature such as flowers, leaves, vines, or stars. It might have charm, sleep, healing, teleportation, mind control, weather, wind, or cold powers, or its powers might relate to the feywild or the four seasons.",
+			"weight": 2
+		},
+		{
+			"name": "Goblinoid",
+			"desc": "This item was crafted by a goblinoid, almost certainly a hobgoblin. It is a tool of warfare and is barely distinguishable from a mundane goblinoid item, if at all. It has one use, which is most likely for combat, and always straightforward. It may have come from the plane of Acheron, where the goblinoids are locked in an endless battle against the orcs.",
+			"weight": 2
+		},
+		{
+			"name": "Great Old One",
+			"desc": "This item was created by an eldritch abomination from the cosmos or ocean depths, or a cultist or warlock of such a being. Its appearance incorporates eyes, tentacles, mouths, and beaks, some of which might move on their own or whisper horrible gibbering sounds. Whatever its powers, they are great and terrible. Anyone using this item risks losing their mind, and few are brave or foolish enough to do so.",
+			"weight": 2
+		},
+		{
+			"name": "Mind Flayer",
+			"desc": "This item was created by the illithids, for themselves or their humanoid thralls. Its appearance incorporates brains, mollusk imagery, eyes, or tentacles. It might have mind reading, mind control, or extraplanar powers, or be capable of psychic attacks, and may be more effective in the hands of a user with high intelligence. Mind flayers personalize their magic items, so it may be connected to a specific individual, or require magical modifications to attune to it.",
+			"weight": 2
+		},
+		{
+			"name": "Negative Energy",
+			"desc": "The item was forged with energy from the negative energy plane. It is cloaked in shadow, even while in sunlight, and it has powers relating to darkness, rot, decay, death, or undeath.",
+			"weight": 2
+		},
+		{
+			"name": "Orc",
+			"desc": "This item was crafted by an orc, most likely a cleric. It is a tool of warfare and is only distinguishable from a mundane orcish item by one unusual decoration, such as fur or teeth from a beast. It has one use, which is most likely for combat, and always straightforward. It may have come from the plane of Acheron, where the orcs are locked in an endless battle against the goblinoids.",
+			"weight": 2
+		},
+		{
+			"name": "Positive Energy",
+			"desc": "The item was forged with energy from the positive energy plane. It glows brightly, and it has powers relating to healing, radiance, or creating life.",
+			"weight": 2
+		},
+		{
+			"name": "Sigil",
+			"desc": "This item was created in Sigil, the city of doors at the center of the multiverse. It is most likely fashioned from the stone, iron, or bronze that makes up most of Sigil's architecture. The item's powers could be anything, but it likely has extraplanar or otherwise obscure powers of some sort. Undoubtedly, the item is also a key to a portal somewhere in the city of doors.",
+			"weight": 2
+		},
+		{
+			"name": "Sphinx",
+			"desc": "This item was created by a sphinx. It resembles a mundane item, but jewel-encrusted, parts of it have the color and texture of sand, and it may incorporate egyptian imagery. It is made for one specific purpose, might have sand-based or extraplanar powers, and is typically tied to the sphinx that created it in some way. These items are difficult to acquire without being given them by the sphinx itself, and knowingly taking one that rightfully belongs to someone else may incur the sphinx's wrath.",
+			"weight": 2
+		},
+
+
+		{
+			"name": "Black Dragon",
+			"desc": "This item was created by a black dragon, for itself or a minion. It may be made from the dragon's scales and talons, precious metals and gems from its hoard, treasures looted from ruins and fallen civilizations, or bone and other remains. It might have powers based on acid, insects, or rot and decay, or powers that are especially brutal and painful.",
+			"weight": 2
+		},
+		{
+			"name": "Blue Dragon",
+			"desc": "This item was created by a blue dragon, for itself or a minion. It may be made from the dragon's scales and talons, precious metals and gems (especially sapphires) from its hoard, or reinforced glass. Its powers might be based on lightning and thunder, or sand.",
+			"weight": 2
+		},
+		{
+			"name": "Brass Dragon",
+			"desc": "This item was created by a brass dragon, for itself, for a minion, or as a gift. It may be made from the dragon's scales and talons, precious metals (especially brass) and gems from its hoard, or reinforced glass. Its powers might be based on fire, sand, or the dragon's sleep breath, and it may be hot to the touch. Brass dragon items are likely to be sentient, or contain bound creatures, to sate the dragon's desire for small talk.",
+			"weight": 2
+		},
+		{
+			"name": "Bronze Dragon",
+			"desc": "This item was created by a bronze dragon, for itself, for a minion, or as a gift. It may be made from the dragon's scales and talons, precious metals (especially bronze) and gems (especially pearls) from its hoard, or materials found under the sea, such as fish scale, coral, or whalebone. Its powers might be based on lightning, thunder, water, or the dragon's repulsion breath. Bronze dragon items are most likely forged for warfare.",
+			"weight": 2
+		},
+		{
+			"name": "Copper Dragon",
+			"desc": "This item was created by a copper dragon, for itself, for a minion, or as a gift. It may be made from the dragon's scales and talons, precious metals (especially copper) and gems from its hoard, or solid stone. Its powers might be based on acid, stone, mud, secrecy, or the dragon's slowing breath. An item made by a copper dragon is likely to incorporate music, stories, riddles, or pranks in some way, possibly at the expense of its user. Copper dragon items are often made for bards, as well.",
+			"weight": 2
+		},
+		{
+			"name": "Green Dragon",
+			"desc": "This item was created by a green dragon, for itself or a minion. It may be made from the dragon's scales and talons, or precious metals and gems (especially emeralds) from its hoard, and may be adorned with carvings or sculptures made by its captives. Its powers might be based on poison, plant manipulation, or thick fog.",
+			"weight": 2
+		},
+		{
+			"name": "Gold Dragon",
+			"desc": "This item was created by a gold dragon, for itself, for a minion, or as a gift. It may be made from the dragon's scales and talons, and it inevitably incorporates precious metals (especially gold) and gems (especially pearls) from its hoard. Its powers might be based on fire, divination, dreams, wealth, or the dragon's weakening breath, and it may be hot to the touch. Gold dragon items are visibily expensive and may even require gold or items of value to be fed to them to work. Gold dragons can make more powerful items than any other dragon are well worth the cost.",
+			"weight": 2
+		},
+		{
+			"name": "Red Dragon",
+			"desc": "This item was created by a red dragon, for itself or a minion. It may be made from the dragon's scales and talons, or precious metals and gems (especially rubies) from its hoard. It is most likely hot to the touch, and its powers are based on fire, magma, or heat, and it may be able to cause fissures or quakes in the earth.",
+			"weight": 2
+		},
+		{
+			"name": "Silver Dragon",
+			"desc": "This item was created by a silver dragon, for itself, for a minion, or as a gift. It may be made from the dragon's scales and talons, precious metals (especially silver) and gems from its hoard, or relics from humanoid civilizations. Its powers might be based on cold, fog, clouds, weather, or the dragon's paralyzing breath, and it may be cold to the touch. Silver dragon items are often made for humans or other short-lived races.",
+			"weight": 2
+		},
+		{
+			"name": "White Dragon",
+			"desc": "This item was created by a white dragon, for itself or a minion. It may be made from the dragon's scales and talons, precious metals and gems (especially diamonds) from its hoard, ivory, whalebone, rare furs, unmelting ice, or anything else the dragon can find in its arctic domain. It is most likely cold to the touch, and its powers are based on snow, ice, frigid water or fog, or cold.",
+			"weight": 2
+		},
+
+
+		{
+			"name": "Annis Hag",
+			"desc": "This item was created by a powerful annis hag or hag coven. It is disgusting and incorporates fungi or the flesh and bone of dead creatures. It might be made of iron or wood and be large and heavy. Its powers are bizarre and likely cause physical damage or fear. Its user may be corrupted, or afflicted by fear or despair, and it's likely that the hag sent the item out into the world to cause misery.",
+			"weight": 1
+		},
+		{
+			"name": "Bheur Hag",
+			"desc": "This item was created by a cruel bheur hag or hag coven. It is cold to the touch, and may incorporate the flesh and bone of creatures who froze to death. Its powers are bizarre and involve fear or the frigid cold. Its user may be corrupted, or afflicted by fear or despair, and it's likely that the hag sent the item out into the world to cause misery.",
+			"weight": 1
+		},
+		{
+			"name": "Carceri",
+			"desc": "This item was created by a fiend or prisoner of the prison plane of Carceri, or a cultist or warlock of such a being. It is an instrument made of twisted flesh or warped metal, and its power is to capture or restrain. An especially powerful item may banish victims to the prison plane itself- or point to a way out of it. Celestials find the item repulsive.",
+			"weight": 1
+		},
+		{
+			"name": "Dragon Turtle",
+			"desc": "This item was created by a dragon turtle, for itself, for a minion, or as a gift. It may be made from parts of the dragon turtle's shell or claws, precious metals and gems from its hoard, or materials found under the sea, such as fish scale, coral, or whalebone. Its powers might be based on water, steam, or the dragon turtle's protective shell. If made for a non-aquatic creature, it has swimming or water breathing powers.",
+			"weight": 1
+		},
+		{
+			"name": "Frost Giant",
+			"desc": "This item was created by a frost giant, for itself or a humanoid ally. It is made of stone, iron, bone, or unmelting ice. It might be immensely heavy and cold to the touch. It is crude but functional, and whatever its purpose, it is an item of great physical force.",
+			"weight": 1
+		},
+		{
+			"name": "Green Hag",
+			"desc": "This item was created by a vile green hag or hag coven. It may be slimy, disgusting, glassy, and might incorporate seaweed, barnacles, or the flesh and bone of dead creatures. Its powers are bizarre, and if it has water powers, the water is foul and polluted. Its user may be corrupted, or afflicted by fear or despair, and it's likely that the hag sent the item out into the world to cause misery.",
+			"weight": 1
+		},
+		{
+			"name": "Minotaur",
+			"desc": "This item was created by a powerful minotaur or minotaur cultist. It is crude but functional, being made of wood, stone, iron, bone, horn, or fur. The item has power relating to either labyrinths and navigation, or muderous rampages.",
+			"weight": 1
+		},
+		{
+			"name": "Naga",
+			"desc": "This item was created by a naga. It is green and white (if created by a guardian naga) or black and red (if created by a spirit naga) and bears imagery of snakes, but otherwise resembles a mundane item. The item has poison, rejuvenation, or snake-based powers.",
+			"weight": 1
+		},
+		{
+			"name": "Neogi",
+			"desc": "The item was created by the alien neogi, possibly for humanoid thralls. It has a distinctly spider-like appearance to it, and may even have disturbing, moving spider legs attached to it. It might have mind control, poison, or extraplanar powers, or borrow power from an eldritch entity much greater than the neogi. It is possible that the item exerts some form of mind control over its user.",
+			"weight": 1
+		},
+		{
+			"name": "Night Hag",
+			"desc": "This item was created by a fiendish night hag or hag coven. It is dark and colorless, and may incorporate the flesh of humanoids or larvae picked from Hades, or the remains of other unfortunate creatures. Its powers are bizarre, and might involve dreams, etherealness, or disease. Its user may be corrupted, or afflicted by fear or despair, and it's likely that the hag sent the item out into the world to cause misery. Celestials find the item repulsive.",
+			"weight": 1
+		},
+		{
+			"name": "Oni",
+			"desc": "This item was created by an oni. It may be dark, blue-tinted, or surrounded by a visible magic aura. It is large, but may scale to a size appropriate for its wielder. Its powers are designed to be used by the oni to stalk its victims, and might involve shapechanging, mind control, invisibility, darkness, or stealth.",
+			"weight": 1
+		},
+		{
+			"name": "Pandemonium",
+			"desc": "This item was created by a fiend or lost soul from Pandemonium, the plane of madness, or a cultist or warlock of such a being. It is an object made of stone, and it causes madness and exhaustion to its victims, its user, or both. It likely invokes the howling winds of Pandemonium.",
+			"weight": 1
+		},
+		{
+			"name": "Sea Hag",
+			"desc": "This item was created by a hideous sea hag or hag coven. It may be slimy, disgusting, diseased, or incorporate the flesh and bone of dead creatures. Its powers are bizarre, and might include illusion, invisibility, or mimicry. Its user may be corrupted, or afflicted by fear or despair, and it's likely that the hag sent the item out into the world to cause misery.",
+			"weight": 1
+		},
+		{
+			"name": "Shadar-kai",
+			"desc": "This item was crafted by the elves of the shadowfell. It may be solid black, adorned with raven imagery, or crafted from metal, obsidian, bone, or solid shadow. It might have powers relating to ravens, darkness, death, memories, or teleportation, and it may gain power in the dark or lose it in the light. The item's user might cease to feel emotions, or be affected by shadowfell despair.",
+			"weight": 1
+		},
+		{
+			"name": "Shadow Dragon",
+			"desc": "This item was created by a shadow dragon, for itself, for a minion, or as a gift. It may be made from the dragon's scales and talons, precious metals and gems from its hoard, bones or flesh from dead creatures, or solid darkness. Its powers are based on darkness, stealth, the dragon's breath weapon, or the shadowfell itself. A shadow dragon item may gain power in the dark, or lose it in the light, and its user risks falling victim to shadowfell despair or worse.",
+			"weight": 1
+		},
+		{
+			"name": "Shapeshifter",
+			"desc": "This item was created by a doppelganger, lycanthrope, changeling, or other shapechanger. Its appearance might incorporate fur or skin from another creature, and it might have stealth, illusion, or shapeshifting powers.",
+			"weight": 1
+		},
+		{
+			"name": "Slaad",
+			"desc": "This item was created by a slaad from the chaotic plane of Limbo. Its appearance is chaotic, nonsensical, and may constantly alter itself. It might also contain a slaad control gem. Its powers are invariably random and unpredictable, often to the point of unreliability, but they might include shapechanging or regenerative powers.",
+			"weight": 1
+		},
+		{
+			"name": "Stone Giant",
+			"desc": "This item was created by a stone giant, for itself or a humanoid ally. It is made of stone and immensely heavy. It is crude but functional, and whatever its purpose, it is an item of great physical force.",
+			"weight": 1
+		},
+		{
+			"name": "Ysgardian",
+			"desc": "This item was created by an inhabitant of the plane of Ysgard, usually a heroic soul who died and ascended to the plane. It is invariably a powerful weapon or armor designed for combat with great monsters or powerful evils. It is made from the finest materials available, decorated with the spoils of battle, and may incorporate norse imagery. The item might be designed to fight a particular type of enemy (usually evil monsters or fiends), and grow more powerful the more battles against such foes are won by its user. It might also have a limited ability to resurrect its user, should they fall in battle.",
+			"weight": 1
+		}
+	],
+
+
+
+	"majorprop": [{
+			"name": "Greater Spellcasting",
+			"desc": "This item can be used to cast one or two spells, or many spells if created for a spellcaster. Using it to cast spells expends charges, and the item regains charges at dawn.",
+			"weight": 6
+		},
+
+
+		{
+			"name": "Healing",
+			"desc": "This item can restore hit points to creatures, cure them of curses, diseases, or poisons, regrow their lost body parts, or resurrect them.",
+			"weight": 4
+		},
+		{
+			"name": "Magic Attack",
+			"desc": "This item has a magical attack unique to itself.",
+			"weight": 4
+		},
+
+
+		{
+			"name": "Blessing",
+			"desc": "The user of this item can use it to grants some temporary boon to their allies, such as temporary hit points, additional damage with attacks, bonuses to rolls, or advantage on certain checks or saves.",
+			"weight": 3
+		},
+		{
+			"name": "Conditions",
+			"desc": "This item inflicts a condition upon enemies (blinded, charmed, deafened, frightened, incapacitated, paralyzed, petrified, poisoned, prone, restrained, stunned, or asleep, diseased, insane, etc).",
+			"weight": 3
+		},
+		{
+			"name": "Damaging",
+			"desc": "This item can be used to deal extra damage of some type to foes, such as fire, cold, lightning, thunder, acid, or poison.",
+			"weight": 3
+		},
+		{
+			"name": "Elemental",
+			"desc": "This item can be used to conjure or manipulate air, earth, fire, water, lightning, heat, cold, acid, or another element.",
+			"weight": 3
+		},
+		{
+			"name": "Foe",
+			"desc": "This item is designed to fight monsters of a certain type. It may warn its user when such enemies are near, be extra effective against them in combat, weaken them when they are nearby, prevent them from approaching its user, or banish them to their plane of origin.",
+			"weight": 3
+		},
+		{
+			"name": "Protective",
+			"desc": "This item grants a boost to its user's AC, saves, or maximum hit points, or grants them temporary hit points, protection against a certain type of attack (such as projectile weapons), advantage on saving throws on spells. It might make its user take half damage when failing certain save-for-half rolls or no damage on a success. It might also have the ability to temporarily grant advanced protection.",
+			"weight": 3
+		},
+		{
+			"name": "Stealth",
+			"desc": "This item is made for stealth or disguise. It might mask its user's appearance, prevent them from making noise, or turn them invisible.",
+			"weight": 3
+		},
+		{
+			"name": "Transforming",
+			"desc": "This item can transform into a different type of item with a different function, or many different types of item. For instance, a sword that can transform into a bladed whip, or hide itself by transforming into a cane.",
+			"weight": 3
+		},
+
+
+		{
+			"name": "Athletic",
+			"desc": "This item enables its user to climb or swim better, increases their jump distance, allows them to walk on walls, removes penalties from difficult terrain, reduces fall damage, or has some other similar ability.",
+			"weight": 2
+		},
+		{
+			"name": "Aquatic",
+			"desc": "This item grants its user a swim speed, water breathing, or both, or it grants some other underwater-appropriate power.",
+			"weight": 2
+		},
+		{
+			"name": "Charged",
+			"desc": "This item allows its user to deal damage to objects or enemies by expending health, spell slots, or another resource.",
+			"weight": 2
+		},
+		{
+			"name": "Communication",
+			"desc": "This item allows its user to speak (normally or telepathically) with creatures far away, creatures they do not share a language with, or things that cannot normally speak such as plants and animals.",
+			"weight": 2
+		},
+		{
+			"name": "Conjuring",
+			"desc": "This item can conjure one or more types of creature. The creatures may be loyal, reluctant, or hostile, depending on their nature.",
+			"weight": 2
+		},
+		{
+			"name": "Container",
+			"desc": "This item magically stores a multitude of non-magical items (such as rope, arrows, or oil), or disposable magic items (such as healing potions or magic beans), which can be removed when needed. The items it contains do not increase its weight.",
+			"weight": 2
+		},
+		{
+			"name": "Cursing",
+			"desc": "This item inflicts a curse upon foes. It may prevent them from taking certain actions, reduce their maximum hit points, or render them unable to be healed.",
+			"weight": 2
+		},
+		{
+			"name": "Demiplane",
+			"desc": "This item is linked to a demiplane which can contain items or creatures. It may be used for storage, or for something else. A weaker item might have a small, empty demiplane, but a stronger item may have a larger demiplane with its own native environment or even permanent inhabitants.",
+			"weight": 2
+		},
+		{
+			"name": "Ethereal",
+			"desc": "This item can transport its user, enemies struck with it, items, or something else to and from the Border Ethereal.",
+			"weight": 2
+		},
+		{
+			"name": "Explosive",
+			"desc": "This item can be used to cause massive damage to all creatures, items, and terrain within a specific radius. It can likely be thrown, as its user is not immune.",
+			"weight": 2
+		},
+		{
+			"name": "Flight",
+			"desc": "This item grants its user the power of flight or levitation.",
+			"weight": 2
+		},
+		{
+			"name": "Illusory",
+			"desc": "This item conjures up specific illusions, which may disguise itself or its user, or be able to move and act independently for a short time.",
+			"weight": 2
+		},
+		{
+			"name": "Light/Darkness",
+			"desc": "This item glows brightly when its user wills it, and its light may even be sunlight. If evil, it might instead cloak the area around it in magical darkness.",
+			"weight": 2
+		},
+		{
+			"name": "Limited Spells",
+			"desc": "Parts of this item can be torn off and expended to cast powerful spells.",
+			"weight": 2
+		},
+		{
+			"name": "Lucky",
+			"desc": "If this item's user rolls poorly on certain saves or checks, it may allow them a reroll or an automatic success.",
+			"weight": 2
+		},
+		{
+			"name": "Magic Shield",
+			"desc": "This item immunizes its user against scrying, mind reading, fear, charm, or some other undesirable magical effect.",
+			"weight": 2
+		},
+		{
+			"name": "Mind Control",
+			"desc": "This item allows its user to attempt to mind control other creatures.",
+			"weight": 2
+		},
+		{
+			"name": "Resistant",
+			"desc": "This item grants resistance to a certain type of damage, or immunity to poison or psychic damage.",
+			"weight": 2
+		},
+		{
+			"name": "Safe Zone",
+			"desc": "This item temporarily protects its user and their allies within a small area. Creatures in the area may be protected from attacks from outside, regain hit points at the start of their turn, or some similar effect.",
+			"weight": 2
+		},
+		{
+			"name": "Sensory",
+			"desc": "This item grants its user specific senses, such as darkvision, blindsight, tremorsense, truesight (if it's especially powerful), a bonus to perception, or the ability to sense magic. It may be an item that must be used, such as a lens that gives the user darksight while looking through it or a torch that reveals invisible creatures and objects touched by its light, or it might simply impart these senses upon its user.",
+			"weight": 2
+		},
+		{
+			"name": "Shapeshifting",
+			"desc": "This item can polymorph its user into a different type of creature.",
+			"weight": 2
+		},
+		{
+			"name": "Speedy",
+			"desc": "This item enables its user to move or take certain actions more quickly. It most likely enables them to do something that normally requires a full action as a bonus action.",
+			"weight": 2
+		},
+		{
+			"name": "Survival",
+			"desc": "This item allows its user to survive without food or water, without air, in places of extreme heat or cold, or in planes hostile to life itself.",
+			"weight": 2
+		},
+		{
+			"name": "Teleportation",
+			"desc": "This item can teleport creatures or items, either short range (such as a place the user can see) or long range (such as another place on the same plane).",
+			"weight": 2
+		},
+		{
+			"name": "Unfolding",
+			"desc": "This item can transform into a large item, such as a boat, cabin, or fortress.",
+			"weight": 2
+		},
+
+
+		{
+			"name": "Animal",
+			"desc": "This item is made for a non-sentient companion, such as a horse, or it has the power to manipulate certain animals.",
+			"weight": 1
+		},
+		{
+			"name": "Antimagic",
+			"desc": "This item cancels or dispels certain types of magic, such as necromancy spells, teleportation magic, healing magic, psychic powers, or spells cast below 4th level.",
+			"weight": 1
+		},
+		{
+			"name": "Animate",
+			"desc": "This item acts on its own when its user wills it.",
+			"weight": 1
+		},
+		{
+			"name": "Animating",
+			"desc": "This item can create temporary or permanent constructs to serve its user.",
+			"weight": 1
+		},
+		{
+			"name": "Astral",
+			"desc": "This item has some connection to the astral plane, such as enabling its user to astrally project.",
+			"weight": 1
+		},
+		{
+			"name": "Attractive/Repulsive",
+			"desc": "This item can be used to push, pull, grab, or grapple items or creatures.",
+			"weight": 1
+		},
+		{
+			"name": "Bulwark",
+			"desc": "The user of this item has advantage on saving throws made to maintain concentration.",
+			"weight": 1
+		},
+		{
+			"name": "Concealing",
+			"desc": "This item can conjure sand, fog, magical darkness, or some other means of concealing its user.",
+			"weight": 1
+		},
+		{
+			"name": "Deadly",
+			"desc": "This item can be used to wound a creature, sever its limbs or head, or kill it instantly.",
+			"weight": 1
+		},
+		{
+			"name": "Destructive",
+			"desc": "This item can obliterate certain types of matter (or just anything).",
+			"weight": 1
+		},
+		{
+			"name": "Divination",
+			"desc": "This item has a very limited ability to see or predict the future.",
+			"weight": 1
+		},
+		{
+			"name": "Immovable",
+			"desc": "This item can be stuck to a creature or object, or affixed to a particular point, and is extremely difficult to remove.",
+			"weight": 1
+		},
+		{
+			"name": "Locator",
+			"desc": "This item knows the direction to the nearest object or location of a certain type, such as food, running water, temples to a specific god, or interplanar portals.",
+			"weight": 1
+		},
+		{
+			"name": "Magic Absorption",
+			"desc": "This item can absorb spells of a certain level or below, cancelling them or turning them into hit points or spell slots for its user. An especially powerful item might be able to redirect spells at their caster.",
+			"weight": 1
+		},
+		{
+			"name": "Magic Detection",
+			"desc": "This item can detect nearby magic, and may be able to identify it to some degree.",
+			"weight": 1
+		},
+		{
+			"name": "Magic Storing",
+			"desc": "This item can be used to restore spell slots or some other resource expended by its user, or it can store spells cast into it.",
+			"weight": 1
+		},
+		{
+			"name": "Observer",
+			"desc": "This item can impart its user with some knowledge of the surrounding area, such as a map, the locations of traps, or the types of creature nearby.",
+			"weight": 1
+		},
+		{
+			"name": "Planar Travel",
+			"desc": "This item can transport the user or a group of people to another plane of existence, temporary or permanently, or banish enemies there.",
+			"weight": 1
+		},
+		{
+			"name": "Polymorphic",
+			"desc": "This item can transform into a particular type of creature or other living thing, usually a non-sentient or semi-sentient creature.",
+			"weight": 1
+		},
+		{
+			"name": "Random",
+			"desc": "When used, this item causes a random effect. It has a mix of harmful and helpful effects.",
+			"weight": 1
+		},
+		{
+			"name": "Restraining",
+			"desc": "This item can prevent creatures from moving, taking certain actions, or teleporting, or it can imprison them.",
+			"weight": 1
+		},
+		{
+			"name": "Safeguard",
+			"desc": "This item protects its user against death. It might allow them to drop to 1 hit point instead of falling unconscious, automatically stabilize them when knocked out, or allow their soul to remain on the plane for resurrection after they die.",
+			"weight": 1
+		},
+		{
+			"name": "Scanner",
+			"desc": "This item can impart its user with some knowledge of nearby creatures, such as their thoughts, alignment, weaknesses, or if they are shapeshifted.",
+			"weight": 1
+		},
+		{
+			"name": "Size-changing",
+			"desc": "This item can change the size of itself, its user, or something else.",
+			"weight": 1
+		},
+		{
+			"name": "Stat Boost",
+			"desc": "This item increases one of its user's ability scores to a certain number, or has no effect if their ability score is higher than that number. It likely increases a stat that its intended user would be poor at (for instance, intelligence for a barbarian).",
+			"weight": 1
+		},
+		{
+			"name": "Terrain-altering",
+			"desc": "This item can alter the nearby terrain. It turns normal terrain into difficult terrain, grow trees, conjure stone spikes or walls, or dig holes in the ground, or it has some other similar effect.",
+			"weight": 1
+		},
+		{
+			"name": "Transmuting",
+			"desc": "This item can transmute one type of item or substance into another, or create inexpensive items or substances out of nothing (such as food, water, or rope).",
+			"weight": 1
+		},
+		{
+			"name": "Vampiric",
+			"desc": "This item can steal hit points from creatures and use them to empower itself or its user.",
+			"weight": 1
+		},
+		{
+			"name": "Weather Control",
+			"desc": "This item can control the local weather or climate. It is a rare and valuable item.",
+			"weight": 1
+		},
+		{
+			"name": "Wish-granting",
+			"desc": "This item can grant its user wishes. It is an extremely rare and valuable item.",
+			"weight": 1
+		}
+	],
+
+
+
+	"minorprop": [{
+			"name": "Ability",
+			"desc": "The user of this item has proficiency, advantage, or some other bonus on a particular ability.",
+			"weight": 1
+		},
+		{
+			"name": "Aligned",
+			"desc": "This item is good or evil and gains a boost to its powers when its user commits an act of that alignment.",
+			"weight": 1
+		},
+		{
+			"name": "Altar",
+			"desc": "The user of this items can make offerings or sacrifices to it or a powerful entity it is associated with. If the item or entity is pleased, the item or user gains a temporary boost.",
+			"weight": 1
+		},
+		{
+			"name": "Bloodthirsty",
+			"desc": "This grants itself or its user a temporary boost when its user kills an enemy or reduces it to 0 hit points.",
+			"weight": 1
+		},
+		{
+			"name": "Bond",
+			"desc": "This item is magically bonded to its user, and allows them to conjure it if it is not on their person. If already bonded to another, the bond may be difficult to break.",
+			"weight": 1
+		},
+		{
+			"name": "Compass",
+			"desc": "This item points directly to a known place in the world, regardless of distance, or just straight north.",
+			"weight": 1
+		},
+		{
+			"name": "Critical Hitter",
+			"desc": "This item has some special effect when its user scores a critical hit.",
+			"weight": 1
+		},
+		{
+			"name": "Decoy",
+			"desc": "When the user of this item takes damage, the item instead takes some or all of the damage. It can only absorb a limited amount of damage before breaking or becoming temporarily unusable.",
+			"weight": 1
+		},
+		{
+			"name": "Distant",
+			"desc": "This item works at a much longer range than similar items of its type.",
+			"weight": 1
+		},
+		{
+			"name": "Edible",
+			"desc": "This item can be eaten.",
+			"weight": 1
+		},
+		{
+			"name": "Eye",
+			"desc": "This item allows its user to see or hear through it. This property may not work if the item is too far away, on a different plane of existence, or protected by abjuration magic or solid lead.",
+			"weight": 1
+		},
+		{
+			"name": "Friend",
+			"desc": "This grants advantage on charisma checks made to interact with creatures of a certain type.",
+			"weight": 1
+		},
+		{
+			"name": "Illusory Appearance",
+			"desc": "Illusions mask this item's true form. Its user might be able to manipulate these illusions.",
+			"weight": 1
+		},
+		{
+			"name": "Indestructible",
+			"desc": "This item is immune to all damage except one specific type, or it can only be destroyed through special means.",
+			"weight": 1
+		},
+		{
+			"name": "Invisibile",
+			"desc": "This item can be made invisible while worn or carried.",
+			"weight": 1
+		},
+		{
+			"name": "Item Destroyer",
+			"desc": "This item is extra effective at destroying inanimate objects.",
+			"weight": 1
+		},
+		{
+			"name": "Lie Detector",
+			"desc": "This item grants a bonus or advantage on checks to determine if a creature is lying.",
+			"weight": 1
+		},
+		{
+			"name": "Lightweight",
+			"desc": "This item weighs very little.",
+			"weight": 1
+		},
+		{
+			"name": "Lingual",
+			"desc": "This item allows its user to read, write, speak, and understand a certain language, usually one associated with its creator.",
+			"weight": 1
+		},
+		{
+			"name": "Lesser Spellcasting",
+			"desc": "This item can be used to cast a particular cantrip or low-level spell when its user wills it.",
+			"weight": 1
+		},
+		{
+			"name": "Lunar/Solar",
+			"desc": "In the sunlight or moonlight, this gains a boost to its abilities. A lunar item might instead gain powers under the full moon.",
+			"weight": 1
+		},
+		{
+			"name": "Multipurpose",
+			"desc": "In addition to its main purpose, this item can also be used as a weapon, shield, or spellcasting implement.",
+			"weight": 1
+		},
+		{
+			"name": "Nondetection",
+			"desc": "This item makes no sound and leaves no trace of its presence.",
+			"weight": 1
+		},
+		{
+			"name": "Planar",
+			"desc": "This item is attuned to a particular plane of existence other than the material plane, and has some special effect while on that plane. For instance, an item attuned to the shadowfell might make its user immune to shadowfell despair.",
+			"weight": 1
+		},
+		{
+			"name": "Predictive",
+			"desc": "This item can accurately predict the weather up to a few days into the future.",
+			"weight": 1
+		},
+		{
+			"name": "Reactive",
+			"desc": "When the user of this item sees an ally be attacked, take damage, or some other trigger, they can use their reaction to grant them a boon of some kind.",
+			"weight": 1
+		},
+		{
+			"name": "Self Destruct",
+			"desc": "This item has some powerful magical effect that activates when it is destroyed.",
+			"weight": 1
+		},
+		{
+			"name": "Telepathic",
+			"desc": "This item grants its user telepathy, either short-range or only under certain conditions.",
+			"weight": 1
+		},
+		{
+			"name": "Tracker",
+			"desc": "This item can track down nearby creatures given a tiny amount of their flesh, blood, or scent, or one of their possessions.",
+			"weight": 1
+		},
+		{
+			"name": "Traceable",
+			"desc": "The user of this item knows its location when it is not on their person, or they can follow the path it has traveled since they last had it. This property may not work if the item is too far away, on a different plane of existence, or protected by abjuration magic or solid lead.",
+			"weight": 1
+		},
+		{
+			"name": "Unmoving",
+			"desc": "This item prevents its user from being moved against their will.",
+			"weight": 1
+		},
+		{
+			"name": "Watcher",
+			"desc": "This item might warn its user of approaching danger, making them unable to be surprised and granting a small initiative bonus.",
+			"weight": 1
+		}
+	],
+	"specialprop": [{
+			"name": "Aging/Ageless",
+			"desc": "This item causes its user to age quickly, or slow or cease aging.",
+			"weight": 1
+		},
+		{
+			"name": "Alive",
+			"desc": "This item moves about on its own when not in use. It might mysteriously reappear in its user's possession if they lose or discard it.",
+			"weight": 1
+		},
+		{
+			"name": "Attracting",
+			"desc": "This item tends to attract certain types of animals or supernatural creatures.",
+			"weight": 1
+		},
+		{
+			"name": "Bound Creature",
+			"desc": "This item contains a supernatural creature that powers its abilities. It may be resting in the item to recover, imprisoned in the item against its will, or haunting the item. If it gets out of the item, it might be grateful for the user's help, or attack them in a rage.",
+			"weight": 1
+		},
+		{
+			"name": "Ceremonial",
+			"desc": "This item was created to be used in a special magical ritual.",
+			"weight": 1
+		},
+		{
+			"name": "Contact",
+			"desc": "This item allows its user to contact some powerful entity (most likely the item's creator)- or for the entity to contact them.",
+			"weight": 1
+		},
+		{
+			"name": "Coveted",
+			"desc": "This item is highly sought after. Others may offer to buy the item from its user at a high price, or more likely attempt to kill them and take it.",
+			"weight": 1
+		},
+		{
+			"name": "Cursed",
+			"desc": "This item has a curse placed on it that causes its wielder some negative effect. It might also make it difficult for its user to get rid of it.",
+			"weight": 1
+		},
+		{
+			"name": "Damaged",
+			"desc": "This item is a broken shadow of its former self. It may be possible to repair it.",
+			"weight": 1
+		},
+		{
+			"name": "Difficult",
+			"desc": "This item is poisonous, acidic, spiked, extremely hot or cold, or some other trait that makes it difficult or impossible to use without special gear or magic.",
+			"weight": 1
+		},
+		{
+			"name": "Emotional",
+			"desc": "This item enhances or suppresses the emotions of its user.",
+			"weight": 1
+		},
+		{
+			"name": "Esoteric",
+			"desc": "This item has secret properties that can be unlocked, though doing so will prove difficult.",
+			"weight": 1
+		},
+		{
+			"name": "Exhausting",
+			"desc": "The user of this item risks becoming exhausted, diseased, or injured when they use it.",
+			"weight": 1
+		},
+		{
+			"name": "Haunted",
+			"desc": "The spirit of this item's creator, one of its former users, or a victim still lingers around it, and will not depart until its purpose has been fulfilled.",
+			"weight": 1
+		},
+		{
+			"name": "Hidden Secret",
+			"desc": "This item contains a hidden message or other secret that only appears under certain conditions.",
+			"weight": 1
+		},
+		{
+			"name": "Historic",
+			"desc": "This item was used to perform a deed of great goodness or great evil. Many people will recognize it and react accordingly.",
+			"weight": 1
+		},
+		{
+			"name": "Hungry",
+			"desc": "This item requires \"food\" of some kind (most likely blood), and will not function if not fed.",
+			"weight": 1
+		},
+		{
+			"name": "Key",
+			"desc": "This item is the key to a lock or portal sealed with powerful magic.",
+			"weight": 1
+		},
+		{
+			"name": "Life-granter/Life-stealer",
+			"desc": "Small life forms such as grass, flowers, or insects grow or wither in this item's presence.",
+			"weight": 1
+		},
+		{
+			"name": "Lost",
+			"desc": "This item bears some special significance to a person or group, who have lost it and would like to see it returned.",
+			"weight": 1
+		},
+		{
+			"name": "Madness",
+			"desc": "The user of this item risks going mad.",
+			"weight": 1
+		},
+		{
+			"name": "Manipulative",
+			"desc": "This item will try to drive its user to commit certain acts, or prevent them from committing such acts (for instance, acts of good or evil).",
+			"weight": 1
+		},
+		{
+			"name": "Mark",
+			"desc": "When used, this item leaves a visible and recognizable mark on its target or the surrounding terrain.",
+			"weight": 1
+		},
+		{
+			"name": "Memories",
+			"desc": "This item contains fragments of memory from its creator or previous user(s). While using it, attuned to it, or sleeping near it, its user might be able to access these memories, or they might see them in brief flashes.",
+			"weight": 1
+		},
+		{
+			"name": "Musical",
+			"desc": "When used, this item plays a song or song fragment.",
+			"weight": 1
+		},
+		{
+			"name": "Mysterious",
+			"desc": "This item has a mysterious and unknown history. It contains some clue to its background, such as inscriptions of text, runes, or a symbol, or speaking a certain phase.",
+			"weight": 1
+		},
+		{
+			"name": "Noisy",
+			"desc": "This item makes a loud noise when used.",
+			"weight": 1
+		},
+		{
+			"name": "Obsession",
+			"desc": "The user of this item risks becoming obsessed with it and unwilling to part with it.",
+			"weight": 1
+		},
+		{
+			"name": "Possessive",
+			"desc": "Once this item has an owner, it is very difficult for another to claim it. It may require its owner to relinquish it, or for the new user to kill them.",
+			"weight": 1
+		},
+		{
+			"name": "Sentient",
+			"desc": "This item is alive and can speak to its user or others. It has some amount of control over how it is used and may be able to reject users it deems unfit.",
+			"weight": 1
+		},
+		{
+			"name": "Set",
+			"desc": "This item is part of a set. The other item(s) in the set have similar abilities, and combining them might produce an more powerful item.",
+			"weight": 1
+		},
+		{
+			"name": "Symbolic",
+			"desc": "This item is symbolic of holding a high position or of owning something significant, such as a lost treasure or a far-away fortress. People might mistakenly assume its user is the legitimate owner, or merely having the item might be enough to grant its user legitimate ownership.",
+			"weight": 1
+		},
+		{
+			"name": "Testing",
+			"desc": "This item will test any potential user to determine if they are worthy of it.",
+			"weight": 1
+		},
+		{
+			"name": "Timepiece",
+			"desc": "This item displays the current date, time, or phase of the moon, or it displays a countdown until a certain event.",
+			"weight": 1
+		},
+		{
+			"name": "Trap",
+			"desc": "This item was secretly created to kill, capture, or manipulate its user.",
+			"weight": 1
+		},
+		{
+			"name": "Vengeful Creator",
+			"desc": "The creator of this item wants it back or disapproves of its current user, and seeks to destroy them or steal back the item. It might learn the item's location whenever the item is used.",
+			"weight": 1
+		},
+		{
+			"name": "Worn",
+			"desc": "This item is worn from lack of use, but will regain its power the more it is used.",
+			"weight": 1
+		}
+	]
+}
