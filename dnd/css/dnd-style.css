@@ -5,6 +5,7 @@ html {
 body {
     background-attachment: fixed;
     background-size: cover;
+	background-position: center; 
     margin: 0;
 	height: 100%;
 }
