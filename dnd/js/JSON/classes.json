@@ -10,7 +10,7 @@
 			"PHB": ["Path of the Berserker", "Path of the Totem Warrior"],
 			"SCAG": ["Path of the Battlerager"],
 			"XGtE": ["Path of the Ancestral Guardian", "Path of the Storm Herald", "Path of the Zealot"],
-			"UA" : ["Path of the Wild Soul"]
+			"UA": ["Path of the Wild Soul"]
 		},
 		"Personality": {
 			"Personal Totem": [
@@ -507,7 +507,7 @@
 			"PHB": ["Draconic Bloodline", "Wild Magic"],
 			"XGtE": ["Divine Soul", "Shadow Magic"],
 			"SCAG/XGtE": ["Storm Sorcery"],
-			"UA": ["Phoenix Sorcery", "Sea Sorcery", "Stone Sorcery", "Giant Soul"]
+			"UA": ["Aberrant Mind", "Giant Soul", "Phoenix Sorcery", "Sea Sorcery", "Stone Sorcery"]
 		},
 		"Personality": {
 			"Arcane Origins": [
@@ -571,7 +571,7 @@
 			"PHB": ["The Archfey", "The Fiend", "The Great Old One"],
 			"SCAG": ["The Undying"],
 			"XGtE": ["The Celestial", "The Hexblade"],
-			"UA": ["The Seeker", "The Raven Queen"]
+			"UA": ["The Lurker in the Deep", "The Seeker", "The Raven Queen"]
 		},
 		"Personality": {
 			"Patron Attitudes": [
