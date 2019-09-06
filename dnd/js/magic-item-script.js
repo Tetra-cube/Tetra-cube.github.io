@@ -51,7 +51,7 @@ function GetItemType() {
     if (type == "weapon")
         return "<b>Weapon (" + RandomFromArray(weaponTypes) + ")</b>";
     if (type == "other")
-        return "<b>Weapon (" + RandomFromArray(otherTypes) + ")</b>";
+        return "<b>" + RandomFromArray(otherTypes) + "</b>";
     return "<b>Wondrous Item</b>";
 }
 
@@ -106,4 +106,4 @@ function GetTable(arr) {
 const itemTypes = ["armor", "weapon", "weapon", "wondrous item", "wondrous item", "other"],
     armorTypes = ["studded leather", "breastplate", "half plate", "chain mail", "splint", "plate"],
     weaponTypes = ["dagger", "greatclub", "handaxe", "javelin", "light hammer", "mace", "quarterstaff", "sickle", "spear", "light crossbow", "shortbow", "battleaxe", "flail", "glaive", "greataxe", "greatsword", "halberd", "lance", "longsword", "maul", "morningstar", "pike", "rapier", "scimitar", "trident", "war pick", "warhammer", "whip", "hand crossbow", "heavy crossbow", "longbow", "net"],
-    otherTypes = ["instrument", "ring", "rod", "staff", "wand"]
+    otherTypes = ["Instrument", "Ring", "Rod", "Staff", "Wand"]
