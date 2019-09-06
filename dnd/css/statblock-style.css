@@ -6,6 +6,9 @@
     vertical-align: top;
     width: 400px;
     background: #FDF1DC;
+    background-size: cover;
+	background-position: center; 
+    background-image: url('../dndimages/statblockparch.jpg');
     padding: 10px 10px 20px;
     box-sizing: border-box;
     font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
@@ -51,6 +54,9 @@
 .orange-border {
     display: block;
     background: #E69A28;
+    background-size: cover;
+	background-position: center; 
+    background-image: url('../dndimages/statblockbar.jpg');
     border: 1px solid #000;
     height: 5px;
     padding: 0 10px 0;
