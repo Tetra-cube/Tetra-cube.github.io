@@ -62,7 +62,7 @@
 			"_special": "booksort",
 			"PHB": ["College of Lore", "College of Valor"],
 			"XGtE": ["College of Glamour", "College of Swords", "College of Whispers"],
-			"UA": ["College of Satire"]
+			"UA": ["College of Eloquence", "College of Satire"]
 		},
 		"Personality": {
 			"Defining Works": [
@@ -339,7 +339,7 @@
 			"DMG": ["Oathbreaker"],
 			"SCAG": ["Oath of the Crown"],
 			"XGtE": ["Oath of Conquest", "Oath of Redemption"],
-			"UA": ["Oath of Treachery"]
+			"UA": ["Oath of Heroism", "Oath of Treachery"]
 		},
 		"Personality": {
 			"Personal Goal": [

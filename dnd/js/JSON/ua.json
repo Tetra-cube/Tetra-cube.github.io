@@ -36,6 +36,11 @@
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/barbarian-and-monk"
 		},
 		{
+			"name": "Bard: College of Eloquence",
+			"source": "Bard and Paladin",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/bard-paladin"
+		},
+		{
 			"name": "Bard: College of Satire",
 			"source": "Kits of Old",
 			"link": "http://dnd.wizards.com/articles/unearthed-arcana/kits-old"
@@ -79,6 +84,11 @@
 			"name": "Monk: Way of the Astral Self",
 			"source": "Barbarian and Monk",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/barbarian-and-monk"
+		},
+		{
+			"name": "Paladin: Oath of Heroism",
+			"source": "Bard and Paladin",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/bard-paladin"
 		},
 		{
 			"name": "Paladin: Oath of Treachery",
