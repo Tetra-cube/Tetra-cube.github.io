@@ -62,7 +62,8 @@
 			"_special": "booksort",
 			"PHB": ["College of Lore", "College of Valor"],
 			"XGtE": ["College of Glamour", "College of Swords", "College of Whispers"],
-			"UA": ["College of Eloquence", "College of Satire"]
+			"UA": ["College of Eloquence", "College of Satire"],
+			"Unofficial": ["College of the Maestro"]
 		},
 		"Personality": {
 			"Defining Works": [
@@ -110,7 +111,7 @@
 	},
 	"Blood Hunter": {
 		"_special": "book-Unofficial",
-		"Blood Hunter Order": ["Order of the Ghostslayer", "Order of the Profane Soul", "Order of the Mutant"]
+		"Blood Hunter Order": ["Order of the Ghostslayer", "Order of the Lycan", "Order of the Profane Soul", "Order of the Mutant"]
 	},
 	"Cleric": {
 		"_special": "book-PHB",
@@ -227,7 +228,8 @@
 			"PHB": ["Champion", "Battle Master", "Eldritch Knight"],
 			"SCAG": ["Banneret/Purple Dragon Knight"],
 			"XGtE": ["Arcane Archer", "Cavalier", "Samurai"],
-			"UA": ["Scout", "Monster Hunter", "Sharpshooter", "Brute"]
+			"UA": ["Scout", "Monster Hunter", "Sharpshooter", "Brute"],
+			"Unofficial": ["Gunslinger"]
 		},
 		"Personality": {
 			"Heraldic Sign": [
