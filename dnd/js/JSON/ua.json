@@ -2,17 +2,17 @@
 	"races": [{
 			"name": "Abyssal Tiefling",
 			"source": "That Old Black Magic",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/old-black-magic"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/old-black-magic"
 		},
 		{
 			"name": "Revenant Subrace",
 			"source": "Gothic Heroes",
-			"link": "http://dnd.wizards.com/articles/features/gothic-heroes"
+			"link": "https://dnd.wizards.com/articles/features/gothic-heroes"
 		},
 		{
 			"name": "Elf Subraces: Avariel and Grugach",
 			"source": "Elf Subraces",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/elf-subraces"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/elf-subraces"
 		}
 	],
 	"classes": [{
@@ -23,12 +23,12 @@
 		{
 			"name": "Mystic Class",
 			"source": "Unearthed Arcana Update",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update"
 		},
 		{
 			"name": "Alternative Ranger Class",
 			"source": "The Ranger, Revised",
-			"link": "http://dnd.wizards.com/articles/features/unearthed-arcana-ranger-revised"
+			"link": "https://dnd.wizards.com/articles/features/unearthed-arcana-ranger-revised"
 		},
 		{
 			"name": "Barbarian: Path of the Wild Soul",
@@ -43,42 +43,52 @@
 		{
 			"name": "Bard: College of Satire",
 			"source": "Kits of Old",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/kits-old"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/kits-old"
 		},
 		{
 			"name": "Cleric: Protection Domain",
 			"source": "Cleric: Divine Domains",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/cleric-divine-domains"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/cleric-divine-domains"
+		},
+		{
+			"name": "Cleric: Twilight Domain",
+			"source": "Cleric, Druid, and Wizard",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/cleric-druid-wizard"
 		},
 		{
 			"name": "Druid: Circle of Twilight",
 			"source": "Druid Circles and Wild Shape",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/druid-circles-and-wild-shape"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/druid-circles-and-wild-shape"
+		},
+		{
+			"name": "Druid: Circle of Wildfire",
+			"source": "Cleric, Druid, and Wizard",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/cleric-druid-wizard"
 		},
 		{
 			"name": "Fighter: Brute",
 			"source": "Three Subclasses",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/three-subclasses"
 		},
 		{
 			"name": "Fighter: Monster Hunter",
 			"source": "Gothic Heroes",
-			"link": "http://dnd.wizards.com/articles/features/gothic-heroes"
+			"link": "https://dnd.wizards.com/articles/features/gothic-heroes"
 		},
 		{
 			"name": "Fighter: Scout",
 			"source": "Kits of Old",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/kits-old"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/kits-old"
 		},
 		{
 			"name": "Fighter: Sharpshooter",
 			"source": "Fighter: Martial Archetypes",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/fighter"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/fighter"
 		},
 		{
 			"name": "Monk: Way of Tranquility",
 			"source": "Monk: Monastic Traditions",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/monk-monastic-traditions"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/monk-monastic-traditions"
 		},
 		{
 			"name": "Monk: Way of the Astral Self",
@@ -93,17 +103,17 @@
 		{
 			"name": "Paladin: Oath of Treachery",
 			"source": "Paladin: Sacred Oaths",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/paladin-sacred-oaths"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/paladin-sacred-oaths"
 		},
 		{
 			"name": "Ranger: Primeval Guardian",
 			"source": "Ranger and Rogue",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/ranger-and-rogue"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/ranger-and-rogue"
 		},
 		{
 			"name": "Rogue: Inquisitive",
 			"source": "Gothic Heroes",
-			"link": "http://dnd.wizards.com/articles/features/gothic-heroes"
+			"link": "https://dnd.wizards.com/articles/features/gothic-heroes"
 		},
 		{
 			"name": "Sorcerer: Aberrant Mind",
@@ -113,12 +123,12 @@
 		{
 			"name": "Sorcerer: Phoenix Sorcery, Sea Sorcery, Stone Sorcery",
 			"source": "Sorcerer",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/sorcerer"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/sorcerer"
 		},
 		{
 			"name": "Sorcerer: Giant Soul",
 			"source": "Giant Soul Sorcerer",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/giant-soul-sorcerer"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/giant-soul-sorcerer"
 		},
 		{
 			"name": "Warlock: The Lurker in the Deep",
@@ -128,73 +138,78 @@
 		{
 			"name": "Warlock: The Raven Queen",
 			"source": "Warlock and Wizard",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard"
 		},
 		{
 			"name": "Warlock: Seeker",
 			"source": "The Faithful",
-			"link": "http://dnd.wizards.com/articles/features/faithful"
+			"link": "https://dnd.wizards.com/articles/features/faithful"
 		},
 		{
 			"name": "Warlock: The Raven Queen",
 			"source": "Warlock and Wizard",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard"
+		},
+		{
+			"name": "Wizard: Onomancy",
+			"source": "Cleric, Druid, and Wizard",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/cleric-druid-wizard"
 		},
 		{
 			"name": "Wizard: School of Invention",
 			"source": "Three Subclasses",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/three-subclasses"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/three-subclasses"
 		},
 		{
 			"name": "Wizard: Theurgy",
 			"source": "Wizard Revisited",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/wizard-revisited"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/wizard-revisited"
 		}
 	],
 	"other": [{
 			"name": "Fighting Style: Mariner",
 			"source": "Waterborne Adventures",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-waterborne-adventures"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-waterborne-adventures"
 		},
 		{
 			"name": "Modern Campaign Content",
 			"source": "Modern Magic",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/modern-magic"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/modern-magic"
 		},
 		{
 			"name": "Prestige Classes and Rune Magic",
 			"source": "Prestige Classes and Rune Magic",
-			"link": "http://dnd.wizards.com/articles/features/prestige-classes-and-rune-magic"
+			"link": "https://dnd.wizards.com/articles/features/prestige-classes-and-rune-magic"
 		},
 		{
 			"name": "Fighting Styles: Close Quarters Shooter, Tunnel Fighter",
 			"source": "Unearthed Arcana: Light, Dark, Underdark!",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/light-dark-underdark"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/light-dark-underdark"
 		},
 		{
 			"name": "Demon Conjuring Spells",
 			"source": "That Old Black Magic",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/old-black-magic"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/old-black-magic"
 		},
 		{
 			"name": "Weapon Mastery & Tool Feats",
 			"source": "Feats",
-			"link": "http://dnd.wizards.com/articles/features/feats"
+			"link": "https://dnd.wizards.com/articles/features/feats"
 		},
 		{
 			"name": "Eldritch Inovcations",
 			"source": "Warlock and Wizard",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard"
 		},
 		{
 			"name": "Cantrips & 1st Level Spells",
 			"source": "Starter Spells",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/starter-spells"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/starter-spells"
 		},
 		{
 			"name": "Skill Feats",
 			"source": "Feats for Skills",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/feats-skills"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/feats-skills"
 		},
 		{
 			"name": "Sidekicks",
@@ -204,7 +219,7 @@
 		{
 			"name": "Mind Sliver Cantrip",
 			"source": "Warlock and Wizard",
-			"link": "http://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard"
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/warlock-and-wizard"
 		}
 	],
 	"planeshift": [{
@@ -230,7 +245,7 @@
 		{
 			"name": "Innistrad",
 			"source": "Announcing Plane Shift: Innistrad",
-			"link": "http://www.dragonmag.com/5.0/#!/article/106375/102161027"
+			"link": "https://www.dragonmag.com/5.0/#!/article/106375/102161027"
 		},
 		{
 			"name": "Zendikar",
