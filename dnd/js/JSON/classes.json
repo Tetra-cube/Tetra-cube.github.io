@@ -122,7 +122,7 @@
 			"SCAG": ["Arcane Domain"],
 			"XGtE": ["Forge Domain", "Grave Domain"],
 			"GGtR": ["Order Domain"],
-			"UA": ["Protection Domain"]
+			"UA": ["Protection Domain", "Twilight Domain"]
 		},
 		"Personality": {
 			"Temple": [
@@ -175,7 +175,7 @@
 			"PHB": ["Circle of the Land", "Circle of the Moon"],
 			"XGtE": ["Circle of Dreams", "Circle of the Shepherd"],
 			"GGtR": ["Circle of Spores"],
-			"UA": ["Circle of Twilight"]
+			"UA": ["Circle of Twilight", "Circle of Wildfire"]
 		},
 		"Personality": {
 			"Treasured Item": [
@@ -626,7 +626,7 @@
 			"PHB": ["School of Abjuration", "School of Conjuration", "School of Divination", "School of Enchantment", "School of Evocation", "School of Illusion", "School of Necromancy", "School of Transmutation"],
 			"SCAG": ["Bladesinging"],
 			"XGtE": ["War Magic"],
-			"UA": ["Theurgy", "School of Invention"]
+			"UA": ["Onomancy", "School of Invention", "Theurgy"]
 		},
 		"Personality": {
 			"Spellbook": [
