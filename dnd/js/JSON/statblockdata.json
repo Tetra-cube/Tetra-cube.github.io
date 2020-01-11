@@ -414,6 +414,10 @@
 		"reactions": "",
 		"legendary_actions": "",
 		"legendary_desc": "",
+		"lair_actions": "",
+		"lair_desc": "",
+		"region_actions": "",
+		"region_desc": "",
 		"special_abilities": "",
 		"document_slug": "systems-reference-document"
 	},

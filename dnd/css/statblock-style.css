@@ -189,6 +189,19 @@
     padding-top: 10px;
 }
 
+.lairregion {
+    padding-top: 0;
+}
+
+.lairregion p {
+    font-style: normal;
+}
+
+#traits-list-right> :first-child.property-block.lairregion {
+    /* for a rare edge case where a lair action is the first item in the second column */
+    padding-top: 10px;
+}
+
 .actions h3 {
     border-bottom: 2px solid #7A200D;
     color: #7A200D;
