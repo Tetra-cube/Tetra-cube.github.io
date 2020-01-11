@@ -38,11 +38,17 @@ var mon = {
     customProf: 2,
     isLegendary: false,
     legendariesDescription: "",
+    isLair: false,
+    lairDescription: "",
+    isRegion: false,
+    regionDescription: "",
     properties: [],
     abilities: [],
     actions: [],
     reactions: [],
     legendaries: [],
+    lairs: [],
+    regions: [],
     sthrows: [],
     skills: [],
     damagetypes: [],
@@ -131,6 +137,12 @@ function UpdateStatblock(moveSeparationPoint) {
     if (mon.isLegendary)
         separationMax += (mon.legendaries.length == 0 ? 1 : mon.legendaries.length);
 
+    if (mon.isLair)
+        separationMax += (mon.lairs.length == 0 ? 1 : mon.lairs.length);
+    
+    if (mon.isRegion)
+        separationMax += (mon.regions.length == 0 ? 1 : mon.regions.length);
+
     if (mon.separationPoint == undefined)
         mon.separationPoint = Math.floor(separationMax / 2);
 
@@ -194,7 +206,11 @@ function UpdateStatblock(moveSeparationPoint) {
     if (mon.reactions.length > 0) AddToTraitList(traitsHTML, mon.reactions, "<h3>Reactions</h3>");
     if (mon.isLegendary)
         AddToTraitList(traitsHTML, mon.legendaries, mon.legendariesDescription == "" ? "<h3>Legendary Actions</h3>" : ["<h3>Legendary Actions</h3><div class='property-block'>", mon.legendariesDescription, "</div></br>"], true);
-
+    if (mon.isLair && mon.isLegendary)
+        AddToTraitList(traitsHTML, mon.lairs, mon.lairDescription == "" ? "<h3>Lair Actions</h3>" : ["<h3>Lair Actions</h3><div class='property-block'>", mon.lairDescription, "</div></br>"], false, true);
+    if (mon.isRegion && mon.isLegendary)    
+        AddToTraitList(traitsHTML, mon.regions, mon.regionDescription == "" ? "<h3>Region Effects</h3>" : ["<h3>Region Effects</h3><div class='property-block'>", mon.regionDescription, "</div></br>"], false, true);
+    
     // Add traits, taking into account the width of the block (one column or two columns)
     let leftTraitsArr = [],
         rightTraitsArr = [],
@@ -218,7 +234,7 @@ function UpdateStatblock(moveSeparationPoint) {
 }
 
 // Function used by UpdateStatblock for abilities
-function AddToTraitList(traitsHTML, traitsArr, addElements, isLegendary = false) {
+function AddToTraitList(traitsHTML, traitsArr, addElements, isLegendary = false, isLairRegion = false) {
 
     // Add specific elements to the beginning of the array, usually a header
     if (addElements != undefined) {
@@ -229,9 +245,16 @@ function AddToTraitList(traitsHTML, traitsArr, addElements, isLegendary = false)
             traitsHTML.push("*" + addElements);
     }
 
-    // There's a small difference in formatting for legendary actions
-    for (let index = 0; index < traitsArr.length; index++)
-        traitsHTML.push(StringFunctions[isLegendary ? "MakeTraitHTMLLegendary" : "MakeTraitHTML"](traitsArr[index].name, ReplaceTraitTags(traitsArr[index].desc)));
+    // There's a small difference in formatting for legendary actions and lair/region actions
+    for (let index = 0; index < traitsArr.length; index++){
+        if(isLegendary){
+            traitsHTML.push(StringFunctions.MakeTraitHTMLLegendary(traitsArr[index].name, ReplaceTraitTags(traitsArr[index].desc)));
+	    } else if (isLairRegion) {
+            traitsHTML.push(StringFunctions.MakeTraitHTMLLairRegion(traitsArr[index].name, ReplaceTraitTags(traitsArr[index].desc)));
+	    } else {
+            traitsHTML.push(StringFunctions.MakeTraitHTML(traitsArr[index].name, ReplaceTraitTags(traitsArr[index].desc)));
+	    }
+    }
 }
 
 function ReplaceTraitTags(desc) {
@@ -375,13 +398,21 @@ function TryMarkdown() {
         markdown.push("<br>> ### Legendary Actions<br>> ", mon.legendariesDescription);
         if (mon.legendaries.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.legendaries, true));
     }
+    if (mon.isLair && mon.isLegendary) {
+        markdown.push("<br>> ### Lair Actions<br>> ", mon.lairDescription);
+        if (mon.lairs.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.lairs, false, true));
+    }
+    if (mon.isRegion && mon.isLegendary) {
+        markdown.push("<br>><br>> ### Region Effects<br>> ", mon.regionDescription);
+        if (mon.regions.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.regions, false, true));
+    }
 
     markdown.push("</code></body></html>")
 
     markdownWindow.document.write(markdown.join(""));
 }
 
-function GetTraitMarkdown(traitArr, legendary) {
+function GetTraitMarkdown(traitArr, legendary = false, lairOrRegion = false) {
     let markdown = [];
     for (let index = 0; index < traitArr.length; index++) {
         let desc = ReplaceTraitTags(traitArr[index].desc)
@@ -389,9 +420,9 @@ function GetTraitMarkdown(traitArr, legendary) {
             .replace(/(\r\n|\r|\n)>/g, '\&lt;br&gt;<br>>')
             .replace(/(\r\n|\r|\n)/g, '\&lt;br&gt;<br>> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;');
         markdown.push("> " +
-            (legendary ? "**" : "***") +
-            traitArr[index].name +
-            (legendary ? ".** " : ".*** ") +
+            (legendary ? "**" : (lairOrRegion ? "* " : "***")) +
+            (lairOrRegion ? "" : traitArr[index].name) +
+            (legendary ? ".** " : lairOrRegion ? "" : (".*** ")) +
             desc);
     }
     return markdown.join("<br>><br>");
@@ -475,10 +506,20 @@ var FormFunctions = {
         this.MakeDisplayList("actions", false, true);
         this.MakeDisplayList("reactions", false, true);
         this.MakeDisplayList("legendaries", false, true);
+        this.MakeDisplayList("lairs", false, true);
+        this.MakeDisplayList("regions", false, true);
 
         // Is Legendary?	
         $("#is-legendary-input").prop("checked", mon.isLegendary);
         this.ShowHideLegendaryCreature();
+
+        // Is Lair?	
+        $("#has-lair-input").prop("checked", mon.isLair);
+        this.ShowHideLair();
+
+        // Is Region?	
+        $("#has-region-input").prop("checked", mon.isRegion);
+        this.ShowHideRegion();
 
         // Challenge Rating
         $("#cr-input").val(mon.cr);
@@ -543,9 +584,28 @@ var FormFunctions = {
     },
 
     ShowHideLegendaryCreature: function () {
-        $("#is-legendary-input:checked").val() ?
-            $("#add-legendary-button, #legendary-actions-form").show() :
+        if($("#is-legendary-input:checked").val()){
+            $("#add-legendary-button, #legendary-actions-form").show();
+            if($("#has-lair-input:checked").val())
+                $("#add-lair-button, #lair-actions-form").show();
+            if($("#has-region-input:checked").val())
+                $("#add-region-button, #region-actions-form").show();           
+    } else {
             $("#add-legendary-button, #legendary-actions-form").hide();
+            $("#add-lair-button, #add-region-button, #lair-actions-form, #region-actions-form").hide();
+    }
+    },
+
+    ShowHideLair: function() {
+        $("#has-lair-input:checked").val() ?
+            $("#add-lair-button, #lair-actions-form").show() :
+            $("#add-lair-button, #lair-actions-form").hide();
+    },
+
+    ShowHideRegion: function() {
+        $("#has-region-input:checked").val() ?
+            $("#add-region-button, #region-actions-form").show() :
+            $("#add-region-button, #region-actions-form").hide();
     },
 
     ShowHideFormatHelper: function () {
@@ -583,6 +643,16 @@ var FormFunctions = {
         $("#legendaries-descsection-input").val(mon.legendariesDescription);
     },
 
+    // For setting the lair action description
+    SetLairDescriptionForm: function() {
+        $("#lair-descsection-input").val(mon.lairDescription);
+    },
+
+    // For setting the region effect description
+    SetRegionDescriptionForm: function() {
+        $("#region-descsection-input").val(mon.regionDescription);
+    },
+
     SetCommonAbilitiesDropdown: function () {
         $("#common-ability-input").html("");
         for (let index = 0; index < data.commonAbilities.length; index++)
@@ -597,6 +667,8 @@ var FormFunctions = {
 
     // Make a list of removable items and add it to the editor
     MakeDisplayList: function (arrName, capitalize, isBlock = false) {
+    if (typeof mon[arrName] == 'undefined')
+        mon[arrName] = [];
         let arr = (arrName == "damage" ? mon.damagetypes.concat(mon.specialdamage) : mon[arrName]),
             displayArr = [],
             content = "",
@@ -771,6 +843,18 @@ var InputFunctions = {
         FormFunctions.SetLegendaryDescriptionForm();
     },
 
+    // Reset lair description to default
+    LairDescriptionDefaultInput: function() {
+        GetVariablesFunctions.LairDescriptionDefault();
+        FormFunctions.SetLairDescriptionForm();
+    },
+
+    // Reset region description to default
+    RegionDescriptionDefaultInput: function() {
+        GetVariablesFunctions.RegionDescriptionDefault();
+        FormFunctions.SetRegionDescriptionForm();
+    },
+
     AddCommonAbilityInput: function () {
         let commonAbility = data.commonAbilities[$("#common-ability-input").val()];
         if (commonAbility.desc) {
@@ -846,6 +930,18 @@ var GetVariablesFunctions = {
         mon.isLegendary = $("#is-legendary-input").prop("checked");
         if (mon.isLegendary)
             mon.legendariesDescription = $("#legendaries-descsection-input").val().trim();
+
+        // Lair
+        mon.isLair = $("#has-lair-input").prop("checked");
+        if (mon.isLair){
+            mon.lairDescription = $("#lair-descsection-input").val().trim();
+        }
+
+        // Region
+        mon.isRegion = $("#has-region-input").prop("checked");
+        if (mon.isRegion){
+            mon.regionDescription = $("#region-descsection-input").val().trim();
+        }
 
         // One or two columns ?
         mon.doubleColumns = $("#2col-input").prop("checked");
@@ -1072,15 +1168,35 @@ var GetVariablesFunctions = {
             mon.legendariesDescription = preset.legendary_desc;
         FormFunctions.SetLegendaryDescriptionForm();
 
+        // Lair?
+        mon.isLair = Array.isArray(preset.lair_actions);
+        if (preset.lair_desc == null || preset.lair_desc.length == 0)
+            this.LairDescriptionDefault();
+        else
+            mon.lairDescription = preset.lair_desc;
+        FormFunctions.SetLairDescriptionForm();
+
+        // Region Effects?
+        mon.isRegion = Array.isArray(preset.region_actions);
+        if (preset.region_desc == null || preset.region_desc.length == 0)
+            this.RegionDescriptionDefault();
+        else
+            mon.regionDescription = preset.region_desc;
+        FormFunctions.SetRegionDescriptionForm();
+
         // Abilities
         mon.abilities = [];
         mon.actions = [];
         mon.reactions = [];
         mon.legendaries = [];
+        mon.lairs = [];
+        mon.regions = [];
         let abilitiesPresetArr = preset.special_abilities,
             actionsPresetArr = preset.actions,
             reactionsPresetArr = preset.reactions,
-            legendariesPresetArr = preset.legendary_actions;
+            legendariesPresetArr = preset.legendary_actions,
+            lairsPresetArr = preset.lair_actions,
+            regionsPresetArr = preset.region_actions;
 
         let self = this,
             AbilityPresetLoop = function (arr, name) {
@@ -1095,6 +1211,10 @@ var GetVariablesFunctions = {
         AbilityPresetLoop(reactionsPresetArr, "reactions");
         if (mon.isLegendary)
             AbilityPresetLoop(legendariesPresetArr, "legendaries");
+        if (mon.isLair)
+            AbilityPresetLoop(lairsPresetArr, "lairs");
+        if (mon.isRegion)
+            AbilityPresetLoop(regionsPresetArr, "regions");
 
         mon.separationPoint = undefined; // This will make the separation point be automatically calculated in UpdateStatblock
     },
@@ -1277,6 +1397,18 @@ var GetVariablesFunctions = {
     LegendaryDescriptionDefault: function () {
         let monsterName = name.toLowerCase();
         mon.legendariesDescription = "The " + mon.name.toLowerCase() + " can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The " + mon.name.toLowerCase() + " regains spent legendary actions at the start of its turn.";
+    },
+
+    // Return the default lair description
+    LairDescriptionDefault: function() {
+        let monsterName = name.toLowerCase();
+        mon.lairDescription = "When fighting inside it's lair, the " + mon.name.toLowerCase() + " can invoke the ambient magic to take lair actions. On initiative count 20 (losing initiative ties), the " + mon.name.toLowerCase() + " takes a lair action to cause one of the following effects:";
+    },
+
+    // Return the default region description
+    RegionDescriptionDefault: function() {
+        let monsterName = name.toLowerCase();
+        mon.regionDescription = "The region containing the " + mon.name.toLowerCase() + "'s lair is warped by the creature's presence, which creates one or more of the following effects:";
     }
 }
 
@@ -1508,6 +1640,10 @@ var StringFunctions = {
         return "<div class=\"property-block reverse-indent legendary\"><div><h4>" + name + ".</h4><p> " + this.FormatString(description, true) + "</p></div></div> <!-- property block -->";
     },
 
+    MakeTraitHTMLLairRegion: function(name, description) {
+        return "<div class=\"property-block lairregion\"><div><ul><li>" + this.FormatString(description, true) + "</li></ul></div></div> <!-- property block -->";
+    },
+
     // General string operations
 
     ConcatUnlessEmpty(item1, item2, joinString = ", ") {
@@ -1645,6 +1781,8 @@ $(function () {
 
 function Populate() {
     FormFunctions.SetLegendaryDescriptionForm();
+    FormFunctions.SetLairDescriptionForm();
+    FormFunctions.SetRegionDescriptionForm();
     FormFunctions.SetCommonAbilitiesDropdown();
 
     // Populate the stat block
