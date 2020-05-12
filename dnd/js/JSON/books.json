@@ -1,18 +1,35 @@
 {
-	"availableBooks": ["EE", "SCAG", "VGtM", "MR", "XGtE", "MToF", "GGtR", "DMG", "Other", "WGtE", "Unofficial", "UA"],
+	"availableBooks": [
+		"AI",
+		"DMG",
+		"EBR",
+		"EE",
+		"EGtW",
+		"GGtR",
+		"Mod",
+		"MR",
+		"MToF",
+		"Other",
+		"SCAG",
+		"UA",
+		"VGtM",
+		"XGtE"
+	],
 	"bookNames": {
-		"PHB": "Player\"s Handbook",
-		"EE": "Elemental Evil Player\"s Companion",
-		"SCAG": "Sword Coast Adventurer\"s Guide",
-		"VGtM": "Volo\"s Guide to Monsters",
-		"MR": "Volo\"s Guide (Monstrous Races)",
-		"XGtE": "Xanathar\"s Guide to Everything",
-		"MToF": "Mordenkainen\"s Tome of Foes",
-		"GGtR": "Guildmaster\"s Guide to Ravnica",
-		"DMG": "Dungeon Master\"s Guide",
+		"AI": "Acquisitions Incorporated",
+		"DMG": "Dungeon Master's Guide",
+		"EBR": "Eberron: Rising from the Last War",
+		"EE": "Elemental Evil Player's Companion",
+		"EGtW": "Explorer's Guide to Wildemount",
+		"GGtR": "Guildmaster's Guide to Ravnica",
+		"Mod": "Adventure Modules",
+		"MR": "Volo's Guide (Monstrous Races)",
+		"MToF": "Mordenkainen's Tome of Foes",
 		"Other": "Other Content",
-		"WGtE": "Wayfinder\"s Guide to Eberron",
+		"PHB": "Player's Handbook",
+		"SCAG": "Sword Coast Adventurer's Guide",
 		"UA": "Unearthed Arcana",
-		"Unofficial": "Unofficial Content"
+		"VGtM": "Volo's Guide to Monsters",
+		"XGtE": "Xanathar's Guide to Everything"
 	}
 }

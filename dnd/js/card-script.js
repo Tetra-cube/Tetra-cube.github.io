@@ -28,7 +28,7 @@ var backgroundImage, characterImage, bgDrawn = false, charReady = false;
 
 // For making the character card
 var Card = {
-    Make: function() {
+    Make: function () {
         bgDrawn = false;
         charReady = false;
 
@@ -43,7 +43,7 @@ var Card = {
     },
 
     // The name of the race to use in the filepath
-    RaceForImage: function(raceName) {
+    RaceForImage: function (raceName) {
         let newRaceName = this.FileNameFormat(raceName);
         switch (newRaceName) {
             case "gnome":
@@ -59,12 +59,12 @@ var Card = {
     },
 
     // Change strings to file/folder name format
-    FileNameFormat: function(name) {
+    FileNameFormat: function (name) {
         return name.toLowerCase().split(" ").join("-");
     },
 
     // Get the name of the file to use for the character image, depending on race
-    ImageFileName: function(raceName) {
+    ImageFileName: function (raceName) {
         let classNm = this.FileNameFormat(character.Class.name);
         let gender = character.Gender;
         if (gender == "Nonbinary or Unknown")
@@ -105,12 +105,12 @@ var Card = {
             case "shifter":
                 return gender;
         }
-        // grung, loxodon, simic hybrid, vedalken
+        // grung, locathah, loxodon, simic hybrid, vedalken, verdan
         return raceName;
     },
 
     // Divides characters into 5 different types to determine the card image to use
-    FileNameByType: function(classNm) {
+    FileNameByType: function (classNm) {
         switch (classNm) {
             case "bard":
             case "rogue":
@@ -133,7 +133,7 @@ var Card = {
     },
 
     // Get and print the text on the card
-    MakeCardText: function(canvas, ctx) {
+    MakeCardText: function (canvas, ctx) {
         ctx.lineWidth = 10;
         ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
@@ -188,35 +188,45 @@ var Card = {
     },
 
     // Show a shorter name on the card if the character is part of a race with long names
-    CharacterName: function() {
-		return character.ShortName;
+    CharacterName: function () {
+        return character.ShortName;
     },
 
-    RaceName: function() {
+    RaceName: function () {
         let subvar = this.FindTraitByName(character.Race.content, "Subraces and Variants");
         if (subvar != null) {
             let subrace = this.FindTraitByName(subvar, "Subrace");
             if (subrace != null) {
-                if (character.Race.name == "Tiefling") {
-                    if (subrace == "Asmodeous Tiefling")
-                        return "Tiefling";
-                } else if (character.Race.name == "Shifter")
-                    return subrace + " Shifter";
+                switch (character.Race.name) {
+                    case "Tiefling":
+                        if (subrace == "Asmodeous Tiefling")
+                            return "Tiefling";
+                        else break;
+                    case "Shifter":
+                        return subrace + " Shifter";
+                    case "Warforged":
+                        return "Warforged " + subrace;
+                }
                 return subrace;
+            }
+            if (character.Race.name == "Dragonborn" && usedBooks.includes("EGtW")) {     // Technically a variant but it's more of a subrace
+                let variant = this.FindTraitByName(subvar, "Variant");
+                if (variant != null)
+                    return variant + " Dragonborn";
             }
         }
         return character.Race.name;
     },
 
-    Occupation: function() {
+    Occupation: function () {
         return character.Occupation;
     },
 
-    ClassName: function() {
+    ClassName: function () {
         return character.Class.name + " (" + this.FindTraitByName(character.Class.content, subclassesCard[character.Class.name]) + ")";
     },
 
-    BackgroundName: function() {
+    BackgroundName: function () {
         let variant = this.FindTraitByName(character.Background.content, "Optional Variant");
         if (variant != null && Random.Num(2) == 1)
             return character.Background.name + " (" + variant + ")";
@@ -224,7 +234,7 @@ var Card = {
     },
 
     // Add racial traits for certain special races
-    VariantTraits: function() {
+    VariantTraits: function () {
         const variantRaces = ["Dragonborn", "Half-Elf", "Human", "Tiefling"];
         if (variantRaces.includes(character.Race.name)) {
             let subvar = this.FindTraitByName(character.Race.content, "Subraces and Variants");
@@ -232,7 +242,7 @@ var Card = {
                 case "Dragonborn":
                     return this.FindTraitByName(subvar, "Draconic Ancestry") + " Dragon Ancestry - ";
                 case "Half-Elf":
-                    if (usedBooks.indexOf("SCAG") < 0)
+                    if (!usedBooks.includes("SCAG"))
                         return "";
                     return this.FindTraitByName(subvar, "Elven Ancestry") + " Ancestry - ";
                 case "Human":
@@ -250,7 +260,7 @@ var Card = {
         return "";
     },
 
-    SetPersonalityCard: function(ctx, yPos) {
+    SetPersonalityCard: function (ctx, yPos) {
         // Get the data we need
         let traitArr = this.TraitsArray(ctx, this.PersonalityCardData()).slice(0);
         if (characterType == "either")
@@ -275,7 +285,7 @@ var Card = {
                 }
             }
         }
-        usedTraitIndices.sort(function(item1, item2) {
+        usedTraitIndices.sort(function (item1, item2) {
             return item1 - item2
         });
         for (let index = 0; index < usedTraitIndices.length; index++)
@@ -289,7 +299,7 @@ var Card = {
     },
 
     // Get the data we need for a personality-type card
-    PersonalityCardData: function() {
+    PersonalityCardData: function () {
         let allTraits = [],
             backgroundArr = character.Background.content,
             raceArr = character.Race.content,
@@ -300,7 +310,13 @@ var Card = {
                 let trait = backgroundArr[index];
                 // if(trait.name[0] == "_")
                 // continue;
-                allTraits.push(trait);
+                if(Array.isArray(trait.content)) {
+                    let contentArr = trait.content;
+                    for (let subIndex = 0; subIndex < contentArr.length; subIndex++)
+                        allTraits.push(contentArr[subIndex]);
+                }
+                else
+                    allTraits.push(trait);
             }
         }
         if (character.Race.name == "Aasimar") {
@@ -340,12 +356,12 @@ var Card = {
     },
 
 
-    SetCharacteristicsCard: function(ctx, yPos) {
+    SetCharacteristicsCard: function (ctx, yPos) {
         this.PrintDescription(ctx, this.TraitsArray(ctx, this.CharacteristicsCardData()), yPos + lineHeight);
     },
 
     // Get the data we need for a characteristics-type card
-    CharacteristicsCardData: function() {
+    CharacteristicsCardData: function () {
         let allTraits = [];
         let physChar = this.FindTraitByName(character.Race.content, "Physical Characteristics");
         for (let index = 0; index < physChar.length; index++) {
@@ -357,19 +373,19 @@ var Card = {
     },
 
     // Return an array of all traits
-    TraitsArray: function(ctx, source) {
+    TraitsArray: function (ctx, source) {
         let traitArr = [];
         for (let index = 0; index < source.length; index++)
             traitArr.push(this.TraitsArrayObject(ctx, source[index]));
         return traitArr;
     },
 
-    TraitsArrayObject: function(ctx, sourceItem) {
+    TraitsArrayObject: function (ctx, sourceItem) {
         // Get info on the label
         ctx.font = labelFont;
         let labelText = sourceItem.name + ": ",
-            labelWidth = ctx.measureText(labelText).width,
-            lineWidth = labelWidth;
+            labelWidth = ctx.measureText(labelText).width;
+            // lineWidth = labelWidth;
 
         // Get info on the description
         ctx.font = descriptionFont;
@@ -382,7 +398,7 @@ var Card = {
     },
 
     // Return a string split into multiple lines if necessary
-    MultilineStringArray: function(ctx, string, labelWidth) {
+    MultilineStringArray: function (ctx, string, labelWidth) {
         let descriptionArr = string.split(" "),
             currentLine = "";
         let lineArr = [],
@@ -405,7 +421,7 @@ var Card = {
     },
 
     // Write the description to the card
-    PrintDescription: function(ctx, traits, yPos) {
+    PrintDescription: function (ctx, traits, yPos) {
         // Write out the text
         for (let index = 0; index < traits.length; index++) {
             let trait = traits[index];
@@ -426,7 +442,7 @@ var Card = {
         }
     },
 
-    FindTraitByName: function(arr, name) {
+    FindTraitByName: function (arr, name) {
         for (let index = 0; index < arr.length; index++) {
             if (arr[index].name == name)
                 return arr[index].content;
@@ -438,7 +454,7 @@ var Card = {
 // For when the user clicks one of the four card type radio buttons (or when the page is loaded with one checked already)
 var CardType = {
     // Whenever the user clicks one of the buttons
-    Set: function() {
+    Set: function () {
         if ($("#plaintext-radio").prop("checked")) {
             $("#plaintext").show();
             $("#cardcontainer").hide();
@@ -451,7 +467,7 @@ var CardType = {
     },
 
     // Make plaintext instead of a card and put it in the textarea
-    PlainText: function() {
+    PlainText: function () {
         let stringBuffer = [],
             description = [];
         description.push({
@@ -488,7 +504,7 @@ var CardType = {
         $("#textarea").html(stringBuffer.join(""));
     },
 
-    PlainTextFirst: function(item) {
+    PlainTextFirst: function (item) {
         if (typeof item != "object")
             return item;
         let itemContent = item.content,
@@ -535,11 +551,11 @@ function InitCardScript() {
     backgroundImage = new Image();
     characterImage = new Image();
 
-    backgroundImage.onload = function() {
+    backgroundImage.onload = function () {
         TryDraw(canvas, ctx, "bg");
     }
 
-    characterImage.onload = function() {
+    characterImage.onload = function () {
         TryDraw(canvas, ctx, "char");
     }
 }

@@ -1,11 +1,10 @@
 {
-	"origin": [{
+	"origin": [
+		{
 			"name": "Human",
 			"desc": "This item was created by a powerful human. It appears similar to a mundane item with one or two distinctive ornaments, such as writing, gemstones, or precious metals, and it may also incorporate imagery from real life civilizations. Human items are made for practicality- the item has few powers, but it excels at them. Its powers are very straightforward, as well. These items often outlive the civilizations that created them, leaving their histories mysterious and unknowable.",
 			"weight": 24
 		},
-
-
 		{
 			"name": "Dwarf",
 			"desc": "This item was created by a dwarven master crafter or smith. It is made from the finest material available, potentially even silver, gold, platinum, mithral, or adamantine. It might be expertly decorated with the imagery of one particular clan, and possess great significance to them, or it might be a technological marvel. It is most likely created for a singular purpose, and serves that purpose well.",
@@ -16,8 +15,6 @@
 			"desc": "This item was crafted by the elves of the surface world. It is a beautiful object adorned with symbols of nature such as flowers, leaves, vines, or stars. It is built for form as much as function, and it most likely has several powers, which might relate to nature, dreams, healing, light, or destroying evil.",
 			"weight": 16
 		},
-
-
 		{
 			"name": "Drow",
 			"desc": "This item was crafted by the dark elves. It may be solid black and crafted from metal or obsidian, or adorned with imagery such as webs and spider legs. It might have powers relating to spiders, darkness, mind control, or demons, and it might be weakened or even destroyed in direct sunlight.",
@@ -48,8 +45,6 @@
 			"desc": "This item was crafted by the diminutive gnomes. It is not especially powerful and prone to breaking, but might just be useful enough to save the life of its user in their moment of need. It is small and looks like a steampunk contraption, complete with unnecessary mechanical parts. The plane of Bytopia produces many such items.",
 			"weight": 8
 		},
-
-
 		{
 			"name": "Abyssal",
 			"desc": "This item was created by a powerful demon or demon lord from the depths of the Abyss, or a demon cultist or warlock, for itself or to send out into the world and curse whatever poor soul finds it. It is an asymmetrical item made of black iron, flesh, bone, or some unidentifiable Abyssal material, and it bears screaming faces or dark runes. Its powers may cause madness, undeath, deformation or maiming, disease, pain, decay, or something else horrible. It may also be capable of conjuring demons. This item causes any non-demon immense discomfort, and will inflict madness, disease, pain, death, or abyssal corruption on its user.",
@@ -70,8 +65,6 @@
 			"desc": "This item was created by a powerful devil (or rakshasa) from the Nine Hells, for itself, a cultist or warlock, a mortal soul who signed a contract with it, or a being it seeks to corrupt. It may have also been created by a devil cultist or warlock. It is most likely made of black iron, but may also be forged from horn, obsidian, or unmelting ice. It is a solid item, likely made for war, and may be able to inflict immense pain or even function as an instrument of torture. If made for a mortal, it attempts to corrupt its user and drive them to evil acts. It may also be capable of conjuring devils. If its creator made the item for itself or another yugoloth, it might be designed for fighting demons or other fiends. Celestials find the item repulsive.",
 			"weight": 5
 		},
-
-
 		{
 			"name": "Fairy",
 			"desc": "This item was crafted by small fey creatures such as pixies, sprites, or faerie dragons, likely as a gift. It is likely to be a small item made from leaves, sticks, baubles, or perhaps silver or mithral. Its powers might be based on stealth, trickery, the feywild, or the magic of the specific creatures that created it. It also might play tricks on its user or cause surges of wild magic.",
@@ -102,8 +95,6 @@
 			"desc": "This item was created by a powerful yugoloth from the plane of Gehenna, for itself or for a client that paid well. It is a warped and twisted metal instrument. It might have heat, cold, acid, poison, disease, darkness, invisibility, teleportation, or extraplanar powers. If its creator made the item for itself or another yugoloth, it might be designed for fighting other fiends. Celestials find the item repulsive.",
 			"weight": 4
 		},
-
-
 		{
 			"name": "Cloud Giant",
 			"desc": "This item was created by a cloud giant, for itself or a humanoid ally. It is made of steel, gemstones, or precious metals. If made for humanoids, it might be relatively light for a giant weapon, allowing smaller creatures to use it at its full size. It might have powers related to lightness or flight, or weather powers, including wind, rain, snow, heat, cold, thunder, lightning, or fog.",
@@ -154,8 +145,6 @@
 			"desc": "This item was crafted by a mummy lord, for itself or for a thrall. It is made of iron, steel, precious metals, or gemstones, but it appears old, worn, dusty, or wrapped in bandages, and it may have runes written on its surface or incorporate egyptian imagery. It might have necromancy, rejuvenation, sand, fear, or immortality powers, and might inflict curses or mummy rot on its victims or even its unfortunate user.",
 			"weight": 3
 		},
-
-
 		{
 			"name": "Aboleth",
 			"desc": "This item was created by an aboleth or aboleth cultist, for the aboleth, for a thrall, or to send out into the world and ensnare whatever poor soul finds it. It is slimy, fleshy, and disgusting. It might have water, telepathy, or mind control powers, or it may contain a fraction of the aboleths' ancient memories. The user risks contracting a disease, or worse.",
@@ -216,8 +205,6 @@
 			"desc": "This item was created by a sphinx. It resembles a mundane item, but jewel-encrusted, parts of it have the color and texture of sand, and it may incorporate egyptian imagery. It is made for one specific purpose, might have sand-based or extraplanar powers, and is typically tied to the sphinx that created it in some way. These items are difficult to acquire without being given them by the sphinx itself, and knowingly taking one that rightfully belongs to someone else may incur the sphinx's wrath.",
 			"weight": 2
 		},
-
-
 		{
 			"name": "Black Dragon",
 			"desc": "This item was created by a black dragon, for itself or a minion. It may be made from the dragon's scales and talons, precious metals and gems from its hoard, treasures looted from ruins and fallen civilizations, or bone and other remains. It might have powers based on acid, insects, or rot and decay, or powers that are especially brutal and painful.",
@@ -268,8 +255,6 @@
 			"desc": "This item was created by a white dragon, for itself or a minion. It may be made from the dragon's scales and talons, precious metals and gems (especially diamonds) from its hoard, ivory, whalebone, rare furs, unmelting ice, or anything else the dragon can find in its arctic domain. It is most likely cold to the touch, and its powers are based on snow, ice, frigid water or fog, or cold.",
 			"weight": 2
 		},
-
-
 		{
 			"name": "Annis Hag",
 			"desc": "This item was created by a powerful annis hag or hag coven. It is disgusting and incorporates fungi or the flesh and bone of dead creatures. It might be made of iron or wood and be large and heavy. Its powers are bizarre and likely cause physical damage or fear. Its user may be corrupted, or afflicted by fear or despair, and it's likely that the hag sent the item out into the world to cause misery.",
@@ -396,16 +381,12 @@
 			"weight": 1
 		}
 	],
-
-
-
-	"majorprop": [{
+	"majorprop": [
+		{
 			"name": "Greater Spellcasting",
 			"desc": "This item can be used to cast one or two spells, or many spells if created for a spellcaster. Using it to cast spells expends charges, and the item regains charges at dawn.",
 			"weight": 6
 		},
-
-
 		{
 			"name": "Healing",
 			"desc": "This item can restore hit points to creatures, cure them of curses, diseases, or poisons, regrow their lost body parts, or resurrect them.",
@@ -416,8 +397,6 @@
 			"desc": "This item has a magical attack unique to itself.",
 			"weight": 4
 		},
-
-
 		{
 			"name": "Blessing",
 			"desc": "The user of this item can use it to grants some temporary boon to their allies, such as temporary hit points, additional damage with attacks, bonuses to rolls, or advantage on certain checks or saves.",
@@ -458,8 +437,6 @@
 			"desc": "This item can transform into a different type of item with a different function, or many different types of item. For instance, a sword that can transform into a bladed whip, or hide itself by transforming into a cane.",
 			"weight": 3
 		},
-
-
 		{
 			"name": "Athletic",
 			"desc": "This item enables its user to climb or swim better, increases their jump distance, allows them to walk on walls, removes penalties from difficult terrain, reduces fall damage, or has some other similar ability.",
@@ -585,8 +562,6 @@
 			"desc": "This item can transform into a large item, such as a boat, cabin, or fortress.",
 			"weight": 2
 		},
-
-
 		{
 			"name": "Animal",
 			"desc": "This item is made for a non-sentient companion, such as a horse, or it has the power to manipulate certain animals.",
@@ -738,10 +713,8 @@
 			"weight": 1
 		}
 	],
-
-
-
-	"minorprop": [{
+	"minorprop": [
+		{
 			"name": "Ability",
 			"desc": "The user of this item has proficiency, advantage, or some other bonus on a particular ability.",
 			"weight": 1
@@ -902,7 +875,8 @@
 			"weight": 1
 		}
 	],
-	"specialprop": [{
+	"specialprop": [
+		{
 			"name": "Aging/Ageless",
 			"desc": "This item causes its user to age quickly, or slow or cease aging.",
 			"weight": 1

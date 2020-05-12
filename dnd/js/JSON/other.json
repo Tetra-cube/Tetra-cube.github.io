@@ -1,5 +1,17 @@
 {
-	"genders": ["Male", "Male", "Male", "Male", "Male", "Female", "Female", "Female", "Female", "Female", "Nonbinary or Unknown"],
+	"genders": [
+		"Male",
+		"Male",
+		"Male",
+		"Male",
+		"Male",
+		"Female",
+		"Female",
+		"Female",
+		"Female",
+		"Female",
+		"Nonbinary or Unknown"
+	],
 	"raceWeights": {
 		"Dragonborn": 3,
 		"Dwarf": 6,
