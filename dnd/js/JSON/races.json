@@ -1,28 +1,38 @@
 {
 	"Aarakocra": {
-		"_special": "book-EE",
+		"_special": "book-EE/EGtW",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 3,
 			"maxage": 20,
-			"baseheight": 48,
-			"heightmod": "2d10",
-			"baseweight": 65,
+			"baseheight": 51,
+			"heightmod": "2d8",
+			"baseweight": 70,
 			"weightmod": "1d4",
 			"_other": {
-				"Eyes": ["Black"],
 				"Plumage": {
 					"_special": "gendersort",
-					"Male": ["Red", "Orange", "Yellow"],
-					"Female": ["Brown", "Gray"]
+					"Male": [
+						"Red",
+						"Orange",
+						"Yellow"
+					],
+					"Female": [
+						"Brown",
+						"Gray"
+					]
 				}
 			}
 		}
 	},
 	"Aasimar": {
-		"_special": "book-VGtM",
+		"_special": "book-DMG/EGtW/VGtM",
 		"Subraces and Variants": {
-			"Subrace": ["Protector Aasimar", "Scourge Aasimar", "Fallen Aasimar"],
+			"Subrace": [
+				"Protector Aasimar",
+				"Scourge Aasimar",
+				"Fallen Aasimar"
+			],
 			"Human Heritage": {
 				"_special": "halfethnicity"
 			}
@@ -36,16 +46,54 @@
 			"baseweight": 110,
 			"weightmod": "2d4",
 			"_other": {
-				"Eyes": ["White", "Gold", "Gray", "Topaz"],
-				"Skin": ["Pale", "Fair", "Tan", "Light Brown", "Brown", "Dark Brown", "Emerald", "Gold", "Silver", "Emerald", "Gold", "Silver"],
-				"Hair": ["Black", "Brown", "Blond", "Silver", "Red"]
+				"Eyes": [
+					"White",
+					"Gold",
+					"Gray",
+					"Topaz"
+				],
+				"Skin": [
+					"Pale",
+					"Fair",
+					"Tan",
+					"Light Brown",
+					"Brown",
+					"Dark Brown",
+					"Emerald",
+					"Gold",
+					"Silver",
+					"Emerald",
+					"Gold",
+					"Silver"
+				],
+				"Hair": [
+					"Black",
+					"Brown",
+					"Blond",
+					"Silver",
+					"Red"
+				]
 			}
 		},
-		"Guide Name": ["Tadriel", "Myllandra", "Seraphina", "Galladia", "Mykiel", "Valandras"],
-		"Guide Nature": ["Bookish and lecturing", "Compassionate and hopeful", "Practical and lighthearted", "Fierce and vengeful", "Stern and judgmental", "Kind and parental"]
+		"Guide Name": [
+			"Tadriel",
+			"Myllandra",
+			"Seraphina",
+			"Galladia",
+			"Mykiel",
+			"Valandras"
+		],
+		"Guide Nature": [
+			"Bookish and lecturing",
+			"Compassionate and hopeful",
+			"Practical and lighthearted",
+			"Fierce and vengeful",
+			"Stern and judgmental",
+			"Kind and parental"
+		]
 	},
 	"Bugbear": {
-		"_special": "book-MR",
+		"_special": "book-EBR/EGtW/MR",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 12,
@@ -55,9 +103,21 @@
 			"baseweight": 200,
 			"weightmod": "2d6",
 			"_other": {
-				"Eyes": ["Yellow", "Orange", "Red", "Brown", "Greenish-white"],
-				"Skin": ["Yellow", "Reddish-brown"],
-				"Hair": ["Brown", "Red"]
+				"Eyes": [
+					"Yellow",
+					"Orange",
+					"Red",
+					"Brown",
+					"Greenish-white"
+				],
+				"Skin": [
+					"Yellow",
+					"Reddish-brown"
+				],
+				"Hair": [
+					"Brown",
+					"Red"
+				]
 			}
 		},
 		"Monstrous Origin": {
@@ -75,33 +135,78 @@
 			"baseweight": 1500,
 			"weightmod": "2d10",
 			"_other": {
-				"Eyes": ["Brown", "Hazel", "Green", "Blue", "Gray"],
-				"Skin": ["Pale", "Fair", "Tan", "Light Brown", "Brown", "Dark Brown"],
-				"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Gray/White"]
+				"Eyes": [
+					"Brown",
+					"Hazel",
+					"Green",
+					"Blue",
+					"Gray"
+				],
+				"Skin": [
+					"Pale",
+					"Fair",
+					"Tan",
+					"Light Brown",
+					"Brown",
+					"Dark Brown"
+				],
+				"Hair": [
+					"Black",
+					"Brown",
+					"Blond",
+					"Auburn",
+					"Red",
+					"Gray/White"
+				]
 			}
 		}
 	},
 	"Changeling": {
-		"_special": "book-WGtE",
+		"_special": "book-EBR",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 11,
 			"maxage": 60,
-			"baseheight": 58,
-			"heightmod": "2d8",
-			"baseweight": 120,
-			"weightmod": "1d4",
+			"baseheight": 61,
+			"heightmod": "2d4",
+			"baseweight": 115,
+			"weightmod": "2d4",
 			"_other": {
-				"Eyes": ["White"],
-				"Skin": ["Pale", "Light Gray"],
-				"Hair": ["Silver", "Platinum", "Blonde"]
+				"Skin": [
+					"Pale",
+					"Light Gray"
+				],
+				"Hair": [
+					"Silver",
+					"Platinum",
+					"Blonde"
+				]
 			}
 		}
 	},
 	"Dragonborn": {
 		"_special": "book-PHB",
 		"Subraces and Variants": {
-			"Draconic Ancestry": ["Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White"]
+			"Draconic Ancestry": [
+				"Black",
+				"Blue",
+				"Brass",
+				"Bronze",
+				"Copper",
+				"Gold",
+				"Green",
+				"Red",
+				"Silver",
+				"White"
+			],
+			"Variant": {
+				"_special": "book-EGtW dragonbornvarianttype",
+				"_array": [
+					null,
+					"Draconblood",
+					"Ravenite"
+				]
+			}
 		},
 		"Physical Characteristics": {
 			"_special": "characteristics",
@@ -112,19 +217,40 @@
 			"baseweight": 175,
 			"weightmod": "2d6",
 			"_other": {
-				"Eyes": ["Red", "Gold"],
+				"Eyes": [
+					"Red",
+					"Gold"
+				],
 				"Scales": "See Ancestry"
 			}
 		},
-		"Childhood Nickname": ["Climber", "Earbender", "Leaper", "Pious", "Shieldbiter", "Zealous"]
+		"Childhood Nickname": [
+			"Climber",
+			"Earbender",
+			"Leaper",
+			"Pious",
+			"Shieldbiter",
+			"Zealous"
+		]
 	},
 	"Dwarf": {
 		"_special": "book-PHB subracesort",
 		"Subraces and Variants": {
 			"Subrace": {
 				"_special": "booksort",
-				"PHB": ["Hill Dwarf", "Mountain Dwarf"],
-				"SCAG/MToF": ["Duergar"]
+				"PHB": [
+					"Hill Dwarf",
+					"Mountain Dwarf"
+				],
+				"MToF/SCAG": [
+					"Duergar"
+				]
+			},
+			"Dragonmark Variant": {
+				"_special": "book-EBR dragonmarkvariant",
+				"_array": [
+					"Mark of Warding"
+				]
 			}
 		},
 		"Physical Characteristics": {
@@ -138,9 +264,23 @@
 				"baseweight": 115,
 				"weightmod": "2d6",
 				"_other": {
-					"Eyes": ["Brown", "Hazel"],
-					"Skin": ["Pale (red-tinged)", "Fair (red-tinged)", "Light Brown", "Brown", "Dark Brown"],
-					"Hair": ["Black", "Brown", "Red", "Reddish-brown"]
+					"Eyes": [
+						"Brown",
+						"Hazel"
+					],
+					"Skin": [
+						"Pale (red-tinged)",
+						"Fair (red-tinged)",
+						"Light Brown",
+						"Brown",
+						"Dark Brown"
+					],
+					"Hair": [
+						"Black",
+						"Brown",
+						"Red",
+						"Reddish-brown"
+					]
 				}
 			},
 			"Mountain Dwarf": {
@@ -152,13 +292,27 @@
 				"baseweight": 130,
 				"weightmod": "2d6",
 				"_other": {
-					"Eyes": ["Brown", "Hazel"],
-					"Skin": ["Pale (red-tinged)", "Fair (red-tinged)", "Light Brown", "Brown", "Dark Brown"],
-					"Hair": ["Black", "Brown", "Red", "Reddish-brown"]
+					"Eyes": [
+						"Brown",
+						"Hazel"
+					],
+					"Skin": [
+						"Pale (red-tinged)",
+						"Fair (red-tinged)",
+						"Light Brown",
+						"Brown",
+						"Dark Brown"
+					],
+					"Hair": [
+						"Black",
+						"Brown",
+						"Red",
+						"Reddish-brown"
+					]
 				}
 			},
 			"Duergar": {
-				"_special": "book-SCAG/MToF characteristics",
+				"_special": "book-MToF/SCAG characteristics",
 				"minage": 13,
 				"maxage": 200,
 				"baseheight": 46,
@@ -166,9 +320,12 @@
 				"baseweight": 130,
 				"weightmod": "2d4",
 				"_other": {
-					"Eyes": ["Black"],
-					"Skin": ["Gray"],
-					"Hair": ["Bald", "Bald", "Bald", "Gray"]
+					"Hair": [
+						"Bald",
+						"Bald",
+						"Bald",
+						"Gray"
+					]
 				}
 			}
 		}
@@ -178,10 +335,34 @@
 		"Subraces and Variants": {
 			"Subrace": {
 				"_special": "booksort",
-				"PHB": ["High Elf", "Wood Elf", "Drow"],
-				"MToF": ["Eladrin", "Sea Elf", "Shadar-kai"],
-				"WGtE": ["Aereni High Elf", "Aereni Wood Elf", "Valenar High Elf", "Valenar Wood Elf"],
-				"UA": ["Avariel", "Grugach"]
+				"PHB": [
+					"High Elf",
+					"Wood Elf",
+					"Drow"
+				],
+				"EGtW": [
+					"Pallid Elf"
+				],
+				"MToF": [
+					"Sea Elf",
+					"Shadar-kai"
+				],
+				"DMG/MToF": [
+					"Eladrin"
+				],
+				"EGtW/MToF": [
+					"Sea Elf"
+				],
+				"UA": [
+					"Avariel",
+					"Grugach"
+				]
+			},
+			"Dragonmark Variant": {
+				"_special": "book-EBR dragonmarkvariant",
+				"_array": [
+					"Mark of Shadow"
+				]
 			}
 		},
 		"Physical Characteristics": {
@@ -195,9 +376,28 @@
 				"baseweight": 90,
 				"weightmod": "1d4",
 				"_other": {
-					"Eyes": ["Silver", "Gold", "Black", "Gold-flecked Blue", "Gold-flecked Green"],
-					"Skin": ["Bronze", "Alabaster", "Blue-Tinged Alabaster"],
-					"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Silver-white", "Blue", "Copper"]
+					"Eyes": [
+						"Silver",
+						"Gold",
+						"Black",
+						"Gold-flecked Blue",
+						"Gold-flecked Green"
+					],
+					"Skin": [
+						"Bronze",
+						"Alabaster",
+						"Blue-Tinged Alabaster"
+					],
+					"Hair": [
+						"Black",
+						"Brown",
+						"Blond",
+						"Auburn",
+						"Red",
+						"Silver-white",
+						"Blue",
+						"Copper"
+					]
 				}
 			},
 			"Wood Elf": {
@@ -209,9 +409,23 @@
 				"baseweight": 100,
 				"weightmod": "1d4",
 				"_other": {
-					"Eyes": ["Brown", "Green", "Hazel"],
-					"Skin": ["Light Copper", "Copper", "Dark Copper", "Greenish-copper"],
-					"Hair": ["Black", "Brown", "Blond", "Copper"]
+					"Eyes": [
+						"Brown",
+						"Green",
+						"Hazel"
+					],
+					"Skin": [
+						"Light Copper",
+						"Copper",
+						"Dark Copper",
+						"Greenish-copper"
+					],
+					"Hair": [
+						"Black",
+						"Brown",
+						"Blond",
+						"Copper"
+					]
 				}
 			},
 			"Drow": {
@@ -223,13 +437,21 @@
 				"baseweight": 75,
 				"weightmod": "1d6",
 				"_other": {
-					"Eyes": ["Pale Lilac", "Pale Silver", "Pale Pink", "Pale Red", "Pale Blue"],
-					"Skin": ["Obsidian Black"],
-					"Hair": ["White", "Pale Yellow"]
+					"Eyes": [
+						"Pale Lilac",
+						"Pale Silver",
+						"Pale Pink",
+						"Pale Red",
+						"Pale Blue"
+					],
+					"Hair": [
+						"White",
+						"Pale Yellow"
+					]
 				}
 			},
 			"Eladrin": {
-				"_special": "book-MToF characteristics",
+				"_special": "book-DMG/MToF characteristics",
 				"minage": 13,
 				"maxage": 600,
 				"baseheight": 54,
@@ -237,13 +459,28 @@
 				"baseweight": 90,
 				"weightmod": "1d4",
 				"_other": {
-					"Eyes": ["Blue", "Violet", "Green"],
-					"Skin": ["Pale", "Fair", "Tan", "Light Brown", "Brown", "Dark Brown"],
-					"Hair": ["White", "Silver", "Pale Gold"]
+					"Eyes": [
+						"Blue",
+						"Violet",
+						"Green"
+					],
+					"Skin": [
+						"Pale",
+						"Fair",
+						"Tan",
+						"Light Brown",
+						"Brown",
+						"Dark Brown"
+					],
+					"Hair": [
+						"White",
+						"Silver",
+						"Pale Gold"
+					]
 				}
 			},
 			"Sea Elf": {
-				"_special": "book-MToF characteristics",
+				"_special": "book-EGtW/MToF characteristics",
 				"minage": 13,
 				"maxage": 500,
 				"baseheight": 54,
@@ -251,9 +488,21 @@
 				"baseweight": 90,
 				"weightmod": "1d4",
 				"_other": {
-					"Eyes": ["Blue", "Gold", "White-Silver"],
-					"Skin": ["Deep Green with brown stripes", "Blue with white stripes"],
-					"Hair": ["Blue", "Black", "Silver", "Red"]
+					"Eyes": [
+						"Blue",
+						"Gold",
+						"White-Silver"
+					],
+					"Skin": [
+						"Deep Green with brown stripes",
+						"Blue with white stripes"
+					],
+					"Hair": [
+						"Blue",
+						"Black",
+						"Silver",
+						"Red"
+					]
 				}
 			},
 			"Shadar-kai": {
@@ -265,27 +514,20 @@
 				"baseweight": 90,
 				"weightmod": "1d4",
 				"_other": {
-					"Eyes": ["Black"],
-					"Skin": ["Alabaster", "Light Gray", "Gray", "Dark Gray"],
-					"Hair": ["Gray", "Black"]
+					"Skin": [
+						"Alabaster",
+						"Light Gray",
+						"Gray",
+						"Dark Gray"
+					],
+					"Hair": [
+						"Gray",
+						"Black"
+					]
 				}
 			},
-			"Aereni High Elf": {
-				"_special": "book-WGtE characteristics",
-				"minage": 13,
-				"maxage": 500,
-				"baseheight": 54,
-				"heightmod": "2d10",
-				"baseweight": 90,
-				"weightmod": "1d4",
-				"_other": {
-					"Eyes": ["Silver", "Gold", "Black", "Gold-flecked Blue", "Gold-flecked Green"],
-					"Skin": ["Bronze", "Alabaster", "Blue-Tinged Alabaster"],
-					"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Silver-white", "Blue", "Copper"]
-				}
-			},
-			"Aereni Wood Elf": {
-				"_special": "book-WGtE characteristics",
+			"Pallid Elf": {
+				"_special": "book-EGtW characteristics",
 				"minage": 13,
 				"maxage": 500,
 				"baseheight": 54,
@@ -293,37 +535,17 @@
 				"baseweight": 100,
 				"weightmod": "1d4",
 				"_other": {
-					"Eyes": ["Brown", "Green", "Hazel"],
-					"Skin": ["Light Copper", "Copper", "Dark Copper", "Greenish-copper"],
-					"Hair": ["Black", "Brown", "Blond", "Copper"]
-				}
-			},
-			"Valenar High Elf": {
-				"_special": "book-WGtE characteristics",
-				"minage": 13,
-				"maxage": 500,
-				"baseheight": 54,
-				"heightmod": "2d10",
-				"baseweight": 90,
-				"weightmod": "1d4",
-				"_other": {
-					"Eyes": ["Silver", "Gold", "Black", "Gold-flecked Blue", "Gold-flecked Green"],
-					"Skin": ["Bronze", "Alabaster", "Blue-Tinged Alabaster"],
-					"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Silver-white", "Blue", "Copper"]
-				}
-			},
-			"Valenar Wood Elf": {
-				"_special": "book-WGtE characteristics",
-				"minage": 13,
-				"maxage": 500,
-				"baseheight": 54,
-				"heightmod": "2d10",
-				"baseweight": 100,
-				"weightmod": "1d4",
-				"_other": {
-					"Eyes": ["Brown", "Green", "Hazel"],
-					"Skin": ["Light Copper", "Copper", "Dark Copper", "Greenish-copper"],
-					"Hair": ["Black", "Brown", "Blond", "Copper"]
+					"Eyes": [
+						"Brown",
+						"Green",
+						"Hazel"
+					],
+					"Hair": [
+						"Black",
+						"Brown",
+						"Blond",
+						"Copper"
+					]
 				}
 			},
 			"Avariel": {
@@ -335,10 +557,27 @@
 				"baseweight": 90,
 				"weightmod": "1d4",
 				"_other": {
-					"Eyes": ["Blue", "Green", "Purple"],
-					"Skin": ["White", "Pale"],
-					"Hair": ["Silver-white", "Black"],
-					"Wing Color": ["White", "White", "White", "Black", "Brown", "Speckled"]
+					"Eyes": [
+						"Blue",
+						"Green",
+						"Purple"
+					],
+					"Skin": [
+						"White",
+						"Pale"
+					],
+					"Hair": [
+						"Silver-white",
+						"Black"
+					],
+					"Wing Color": [
+						"White",
+						"White",
+						"White",
+						"Black",
+						"Brown",
+						"Speckled"
+					]
 				}
 			},
 			"Grugach": {
@@ -350,15 +589,29 @@
 				"baseweight": 75,
 				"weightmod": "1d6",
 				"_other": {
-					"Eyes": ["Brown", "Green", "Hazel"],
-					"Skin": ["Light Copper", "Copper", "Dark Copper", "Greenish-copper"],
-					"Hair": ["Black", "Brown", "Blond", "Copper"]
+					"Eyes": [
+						"Brown",
+						"Green",
+						"Hazel"
+					],
+					"Skin": [
+						"Light Copper",
+						"Copper",
+						"Dark Copper",
+						"Greenish-copper"
+					],
+					"Hair": [
+						"Black",
+						"Brown",
+						"Blond",
+						"Copper"
+					]
 				}
 			}
 		}
 	},
 	"Firbolg": {
-		"_special": "book-VGtM",
+		"_special": "book-EGtW/VGtM",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 20,
@@ -368,9 +621,10 @@
 			"baseweight": 175,
 			"weightmod": "2d6",
 			"_other": {
-				"Eyes": ["White"],
-				"Skin": ["Fleshy Pink"],
-				"Hair": ["Blonde", "Red"]
+				"Hair": [
+					"Blonde",
+					"Red"
+				]
 			}
 		},
 		"Reason for Adventuring": [
@@ -385,9 +639,14 @@
 		]
 	},
 	"Genasi": {
-		"_special": "book-EE subracesort",
+		"_special": "book-EE/EGtW subracesort",
 		"Subraces and Variants": {
-			"Subrace": ["Air Genasi", "Earth Genasi", "Fire Genasi", "Water Genasi"],
+			"Subrace": [
+				"Air Genasi",
+				"Earth Genasi",
+				"Fire Genasi",
+				"Water Genasi"
+			],
 			"Human Heritage": {
 				"_special": "halfethnicity"
 			}
@@ -398,64 +657,122 @@
 				"_special": "characteristics",
 				"minage": 13,
 				"maxage": 100,
-				"baseheight": 58,
+				"baseheight": 56,
 				"heightmod": "2d10",
-				"baseweight": 120,
+				"baseweight": 110,
 				"weightmod": "2d4",
 				"_other": {
-					"Eyes": ["Light Blue"],
-					"Skin": ["Light Blue"],
-					"Hair": ["Light Blue"],
-					"Voice": ["Normal", "Breathy, with a faint echo"],
-					"Other Traits": [null, null, null, null, "Odd patterns on flesh", "Crystals growing from scalp"]
+					"Voice": [
+						null,
+						"Breathy, with a faint echo"
+					],
+					"Other Traits": [
+						null,
+						null,
+						null,
+						null,
+						"Odd patterns on flesh",
+						"Crystals growing from scalp"
+					]
 				}
 			},
 			"Earth Genasi": {
 				"_special": "characteristics",
 				"minage": 13,
 				"maxage": 100,
-				"baseheight": 58,
+				"baseheight": 56,
 				"heightmod": "2d10",
-				"baseweight": 120,
+				"baseweight": 110,
 				"weightmod": "2d4",
 				"_other": {
-					"Eyes": ["Brown", "Hazel", "Orange", "Blue", "Earthlike"],
-					"Skin Color": ["Brown", "Deep Brown", "Black"],
-					"Skin Type": ["Normal", "Dirty", "Polished", "Metallic", "Rusty iron", "Rough hide", "Covered in crystal", "Fissures in flesh"],
-					"Hair": ["Black", "Brown", "Earthlike"],
-					"Voice": ["Normal", "Low and gravelly"]
+					"Eyes": [
+						"Brown",
+						"Hazel",
+						"Orange",
+						"Blue",
+						"Earthlike"
+					],
+					"Skin Color": [
+						"Brown",
+						"Deep Brown",
+						"Black"
+					],
+					"Skin Type": [
+						"Normal",
+						"Dirty",
+						"Polished",
+						"Metallic",
+						"Rusty iron",
+						"Rough hide",
+						"Covered in crystal",
+						"Fissures in flesh"
+					],
+					"Hair": [
+						"Black",
+						"Brown",
+						"Earthlike"
+					],
+					"Voice": [
+						"Normal",
+						"Low and gravelly"
+					]
 				}
 			},
 			"Fire Genasi": {
 				"_special": "characteristics",
 				"minage": 13,
 				"maxage": 100,
-				"baseheight": 58,
+				"baseheight": 56,
 				"heightmod": "2d10",
-				"baseweight": 120,
+				"baseweight": 110,
 				"weightmod": "2d4",
 				"_other": {
-					"Eyes": ["Fiery"],
-					"Skin": ["Flaming Red", "Coal-black", "Ash-gray"],
-					"Hair": ["Red", "Fire"],
-					"Voice": ["Normal", "Crackling flames"],
-					"Other Traits": [null, "Brimstone smell"]
+					"Skin": [
+						"Flaming Red",
+						"Coal-black",
+						"Ash-gray"
+					],
+					"Hair": [
+						"Red",
+						"Fire"
+					],
+					"Voice": [
+						null,
+						"Crackling flames"
+					],
+					"Other Traits": [
+						null,
+						"Brimstone smell"
+					]
 				}
 			},
 			"Water Genasi": {
 				"_special": "characteristics",
 				"minage": 13,
 				"maxage": 100,
-				"baseheight": 58,
+				"baseheight": 56,
 				"heightmod": "2d10",
-				"baseweight": 120,
+				"baseweight": 110,
 				"weightmod": "2d4",
 				"_other": {
-					"Eyes": ["Blue", "Black", "Blue-black"],
-					"Skin": ["Blue", "Green"],
-					"Hair": ["Bald"],
-					"Voice": ["Normal", "Whalesong undertones", "Trickling stream undertones"],
-					"Other Traits": [null, "Floating Hair"]
+					"Eyes": [
+						"Blue",
+						"Black",
+						"Blue-black"
+					],
+					"Skin": [
+						"Blue",
+						"Green"
+					],
+					"Voice": [
+						null,
+						"Whalesong undertones",
+						"Trickling stream undertones"
+					],
+					"Other Traits": [
+						null,
+						"Floating Hair"
+					]
 				}
 			}
 		}
@@ -463,7 +780,10 @@
 	"Gith": {
 		"_special": "book-MToF subracesort",
 		"Subraces and Variants": {
-			"Subrace": ["Githyanki", "Githzerai"]
+			"Subrace": [
+				"Githyanki",
+				"Githzerai"
+			]
 		},
 		"Physical Characteristics": {
 			"_special": "subracephyssort",
@@ -476,10 +796,15 @@
 				"baseweight": 100,
 				"weightmod": "2d4",
 				"_other": {
-					"Eyes": ["Yellow"],
-					"Skin": ["Green", "Yellow", "Orange", "Spotted brown"],
-					"Hair": ["Brown"],
-					"Note on age": ["While githyanki bodies live for about a century, they are ageless while on the astral plane."]
+					"Skin": [
+						"Green",
+						"Yellow",
+						"Orange",
+						"Spotted brown"
+					],
+					"Note on age": [
+						"While githyanki bodies live for about a century, they are ageless while on the astral plane."
+					]
 				}
 			},
 			"Githzerai": {
@@ -491,9 +816,12 @@
 				"baseweight": 90,
 				"weightmod": "1d4",
 				"_other": {
-					"Eyes": ["Yellow"],
-					"Skin": ["Green", "Yellow", "Orange", "Spotted brown"],
-					"Hair": ["Brown"]
+					"Skin": [
+						"Green",
+						"Yellow",
+						"Orange",
+						"Spotted brown"
+					]
 				}
 			}
 		}
@@ -503,8 +831,19 @@
 		"Subraces and Variants": {
 			"Subrace": {
 				"_special": "booksort",
-				"PHB": ["Forest Gnome", "Rock Gnome"],
-				"EE/SCAG/MToF": ["Deep Gnome"]
+				"PHB": [
+					"Forest Gnome",
+					"Rock Gnome"
+				],
+				"EE/MToF/SCAG": [
+					"Deep Gnome"
+				],
+				"Dragonmark Variant": {
+					"_special": "book-EBR dragonmarkvariant",
+					"_array": [
+						"Mark of Scribing"
+					]
+				}
 			}
 		},
 		"Physical Characteristics": {
@@ -518,9 +857,23 @@
 				"baseweight": 35,
 				"weightmod": "1",
 				"_other": {
-					"Eyes": ["Glittering Black", "Glittering Blue"],
-					"Skin": ["Ruddy Tan", "Woody Brown", "Rocky Gray"],
-					"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Gray/White"]
+					"Eyes": [
+						"Glittering Black",
+						"Glittering Blue"
+					],
+					"Skin": [
+						"Ruddy Tan",
+						"Woody Brown",
+						"Rocky Gray"
+					],
+					"Hair": [
+						"Black",
+						"Brown",
+						"Blond",
+						"Auburn",
+						"Red",
+						"Gray/White"
+					]
 				}
 			},
 			"Rock Gnome": {
@@ -532,13 +885,27 @@
 				"baseweight": 35,
 				"weightmod": "1",
 				"_other": {
-					"Eyes": ["Glittering Black", "Glittering Blue"],
-					"Skin": ["Ruddy Tan", "Woody Brown", "Rocky Gray"],
-					"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Gray/White"]
+					"Eyes": [
+						"Glittering Black",
+						"Glittering Blue"
+					],
+					"Skin": [
+						"Ruddy Tan",
+						"Woody Brown",
+						"Rocky Gray"
+					],
+					"Hair": [
+						"Black",
+						"Brown",
+						"Blond",
+						"Auburn",
+						"Red",
+						"Gray/White"
+					]
 				}
 			},
 			"Deep Gnome": {
-				"_special": "book-EE/SCAG/MToF characteristics",
+				"_special": "book-EE/MToF/SCAG characteristics",
 				"minage": 13,
 				"maxage": 150,
 				"baseheight": 35,
@@ -546,19 +913,30 @@
 				"baseweight": 90,
 				"weightmod": "1d6",
 				"_other": {
-					"Eyes": ["Gray", "Black"],
-					"Skin": ["Gray", "Brown", "Dun"],
+					"Eyes": [
+						"Gray",
+						"Black"
+					],
+					"Skin": [
+						"Gray",
+						"Brown",
+						"Dun"
+					],
 					"Hair": {
 						"_special": "gendersort",
-						"Male": ["Bald"],
-						"Female": ["Gray"]
+						"Male": [
+							"Bald"
+						],
+						"Female": [
+							"Gray"
+						]
 					}
 				}
 			}
 		}
 	},
 	"Goblin": {
-		"_special": "book-MR/GGtR",
+		"_special": "book-EBR/EGtW/GGtR/MR",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 6,
@@ -568,8 +946,16 @@
 			"baseweight": 35,
 			"weightmod": "1",
 			"_other": {
-				"Eyes": ["Yellow", "Orange", "Red"],
-				"Skin": ["Yellow", "Orange", "Red"]
+				"Eyes": [
+					"Yellow",
+					"Orange",
+					"Red"
+				],
+				"Skin": [
+					"Yellow",
+					"Orange",
+					"Red"
+				]
 			}
 		},
 		"Monstrous Origin": {
@@ -577,28 +963,40 @@
 		}
 	},
 	"Goliath": {
-		"_special": "book-EE/VGtM",
+		"_special": "book-EE/EGtW/VGtM",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 13,
 			"maxage": 60,
-			"baseheight": 65,
-			"heightmod": "2d4",
-			"baseweight": 130,
-			"weightmod": "1d8",
+			"baseheight": 74,
+			"heightmod": "2d10",
+			"baseweight": 200,
+			"weightmod": "2d6",
 			"_other": {
-				"Eyes": ["Blue", "Green"],
-				"Skin": ["Gray", "Brown"],
+				"Eyes": [
+					"Blue",
+					"Green"
+				],
+				"Skin": [
+					"Gray",
+					"Brown"
+				],
 				"Hair": {
 					"_special": "gendersort",
-					"Male": ["Bald"],
-					"Female": ["Black", "Dark Brown", "Dark Gray"]
+					"Male": [
+						"Bald"
+					],
+					"Female": [
+						"Black",
+						"Dark Brown",
+						"Dark Gray"
+					]
 				}
 			}
 		}
 	},
 	"Grung": {
-		"_special": "book-Unofficial",
+		"_special": "book-Other",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 1,
@@ -608,7 +1006,14 @@
 			"baseweight": 35,
 			"weightmod": "1",
 			"_other": {
-				"Skin": ["Green", "Blue", "Purple", "Red", "Orange", "Gold"]
+				"Skin": [
+					"Green",
+					"Blue",
+					"Purple",
+					"Red",
+					"Orange",
+					"Gold"
+				]
 			}
 		},
 		"Monstrous Origin": {
@@ -620,8 +1025,23 @@
 		"Subraces and Variants": {
 			"Subrace": {
 				"_special": "booksort",
-				"PHB": ["Lightfoot Halfling", "Stout Halfling"],
-				"SCAG": ["Ghostwise Halfling"]
+				"PHB": [
+					"Lightfoot Halfling",
+					"Stout Halfling"
+				],
+				"EGtW": [
+					"Lotusden Halfling"
+				],
+				"SCAG": [
+					"Ghostwise Halfling"
+				]
+			},
+			"Dragonmark Variant": {
+				"_special": "book-EBR dragonmarkvariant",
+				"_array": [
+					"Mark of Healing",
+					"Mark of Hospitality"
+				]
 			}
 		},
 		"Physical Characteristics": {
@@ -633,16 +1053,38 @@
 			"baseweight": 35,
 			"weightmod": "1",
 			"_other": {
-				"Eyes": ["Brown", "Hazel"],
-				"Skin": ["Ruddy-cast pale", "Ruddy-cast fair", "Tan"],
-				"Hair": ["Brown", "Sandy Brown"]
+				"Eyes": [
+					"Brown",
+					"Hazel"
+				],
+				"Skin": [
+					"Ruddy-cast pale",
+					"Ruddy-cast fair",
+					"Tan"
+				],
+				"Hair": [
+					"Brown",
+					"Sandy Brown"
+				]
 			}
 		}
 	},
 	"Half-Elf": {
 		"_special": "book-PHB subracesort-Elven_Ancestry",
 		"Subraces and Variants": {
-			"Elven Ancestry": ["Wood Elf", "High Elf", "Drow", "Aquatic Elf"],
+			"Elven Ancestry": [
+				"Wood Elf",
+				"High Elf",
+				"Drow",
+				"Aquatic Elf"
+			],
+			"Dragonmark Variant": {
+				"_special": "book-EBR dragonmarkvariant",
+				"_array": [
+					"Mark of Detection",
+					"Mark of Storm"
+				]
+			},
 			"Human Heritage": {
 				"_special": "halfethnicity"
 			}
@@ -658,9 +1100,34 @@
 				"baseweight": 110,
 				"weightmod": "2d4",
 				"_other": {
-					"Eyes": ["Brown", "Hazel", "Green", "Blue", "Gray"],
-					"Skin": ["Pale", "Fair", "Tan", "Light Brown", "Brown", "Dark Brown", "Light Copper", "Copper", "Dark Copper", "Greenish-copper"],
-					"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Gray/White", "Copper"]
+					"Eyes": [
+						"Brown",
+						"Hazel",
+						"Green",
+						"Blue",
+						"Gray"
+					],
+					"Skin": [
+						"Pale",
+						"Fair",
+						"Tan",
+						"Light Brown",
+						"Brown",
+						"Dark Brown",
+						"Light Copper",
+						"Copper",
+						"Dark Copper",
+						"Greenish-copper"
+					],
+					"Hair": [
+						"Black",
+						"Brown",
+						"Blond",
+						"Auburn",
+						"Red",
+						"Gray/White",
+						"Copper"
+					]
 				}
 			},
 			"High Elf": {
@@ -672,9 +1139,37 @@
 				"baseweight": 110,
 				"weightmod": "2d4",
 				"_other": {
-					"Eyes": ["Brown", "Hazel", "Green", "Blue", "Gray", "Silver", "Gold", "Black", "Gold-flecked Blue", "Gold-flecked Green"],
-					"Skin": ["Pale", "Fair", "Tan", "Light Brown", "Brown", "Dark Brown", "Bronze", "Alabaster", "Blue-Tinged Alabaster"],
-					"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Gray/White"]
+					"Eyes": [
+						"Brown",
+						"Hazel",
+						"Green",
+						"Blue",
+						"Gray",
+						"Silver",
+						"Gold",
+						"Black",
+						"Gold-flecked Blue",
+						"Gold-flecked Green"
+					],
+					"Skin": [
+						"Pale",
+						"Fair",
+						"Tan",
+						"Light Brown",
+						"Brown",
+						"Dark Brown",
+						"Bronze",
+						"Alabaster",
+						"Blue-Tinged Alabaster"
+					],
+					"Hair": [
+						"Black",
+						"Brown",
+						"Blond",
+						"Auburn",
+						"Red",
+						"Gray/White"
+					]
 				}
 			},
 			"Drow": {
@@ -686,9 +1181,37 @@
 				"baseweight": 110,
 				"weightmod": "2d4",
 				"_other": {
-					"Eyes": ["Brown", "Hazel", "Green", "Blue", "Gray", "Pale Lilac", "Pale Silver", "Pale Pink", "Pale Red", "Pale Blue"],
-					"Skin": ["Pale", "Fair", "Tan", "Light Brown", "Brown", "Dark Brown", "Obsidian Black"],
-					"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Gray", "White", "Pale Yellow"]
+					"Eyes": [
+						"Brown",
+						"Hazel",
+						"Green",
+						"Blue",
+						"Gray",
+						"Pale Lilac",
+						"Pale Silver",
+						"Pale Pink",
+						"Pale Red",
+						"Pale Blue"
+					],
+					"Skin": [
+						"Pale",
+						"Fair",
+						"Tan",
+						"Light Brown",
+						"Brown",
+						"Dark Brown",
+						"Obsidian Black"
+					],
+					"Hair": [
+						"Black",
+						"Brown",
+						"Blond",
+						"Auburn",
+						"Red",
+						"Gray",
+						"White",
+						"Pale Yellow"
+					]
 				}
 			},
 			"Aquatic Elf": {
@@ -700,9 +1223,35 @@
 				"baseweight": 110,
 				"weightmod": "2d4",
 				"_other": {
-					"Eyes": ["Brown", "Hazel", "Green", "Blue", "Gray", "Gold", "White-Silver"],
-					"Skin": ["Pale", "Fair", "Tan", "Light Brown", "Brown", "Dark Brown", "Deep Green with brown stripes", "Blue with white stripes"],
-					"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Gray/White", "Blue", "Silver"]
+					"Eyes": [
+						"Brown",
+						"Hazel",
+						"Green",
+						"Blue",
+						"Gray",
+						"Gold",
+						"White-Silver"
+					],
+					"Skin": [
+						"Pale",
+						"Fair",
+						"Tan",
+						"Light Brown",
+						"Brown",
+						"Dark Brown",
+						"Deep Green with brown stripes",
+						"Blue with white stripes"
+					],
+					"Hair": [
+						"Black",
+						"Brown",
+						"Blond",
+						"Auburn",
+						"Red",
+						"Gray/White",
+						"Blue",
+						"Silver"
+					]
 				}
 			}
 		}
@@ -712,6 +1261,12 @@
 		"Subraces and Variants": {
 			"Human Heritage": {
 				"_special": "halfethnicity"
+			},
+			"Dragonmark Variant": {
+				"_special": "book-EBR dragonmarkvariant",
+				"_array": [
+					"Mark of Finding"
+				]
 			}
 		},
 		"Physical Characteristics": {
@@ -723,14 +1278,26 @@
 			"baseweight": 140,
 			"weightmod": "2d6",
 			"_other": {
-				"Eyes": ["Red", "Gray"],
-				"Skin": ["Gray", "Greenish-gray", "Purplish-gray", "Bluish-gray"],
-				"Hair": ["Black", "Dark Brown", "Gray/White"]
+				"Eyes": [
+					"Red",
+					"Gray"
+				],
+				"Skin": [
+					"Gray",
+					"Greenish-gray",
+					"Purplish-gray",
+					"Bluish-gray"
+				],
+				"Hair": [
+					"Black",
+					"Dark Brown",
+					"Gray/White"
+				]
 			}
 		}
 	},
 	"Hobgoblin": {
-		"_special": "book-MR",
+		"_special": "book-EBR/EGtW/MR",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 13,
@@ -740,9 +1307,21 @@
 			"baseweight": 110,
 			"weightmod": "2d4",
 			"_other": {
-				"Eyes": ["Yellow", "Orange", "Red"],
-				"Skin": ["Orange", "Reddish-brown"],
-				"Hair": ["Dark Brown", "Dark Gray", "Orange", "Red"]
+				"Eyes": [
+					"Yellow",
+					"Orange",
+					"Red"
+				],
+				"Skin": [
+					"Orange",
+					"Reddish-brown"
+				],
+				"Hair": [
+					"Dark Brown",
+					"Dark Gray",
+					"Orange",
+					"Red"
+				]
 			}
 		},
 		"Monstrous Origin": {
@@ -754,9 +1333,58 @@
 		"Subraces and Variants": {
 			"Ethnicity": {
 				"_special": "humanethnicity",
-				"PHB": ["Calishite", "Chondathan", "Damaran", "Illuskan", "Mulan", "Rashemi", "Shou", "Tethyrian", "Turami"],
-				"SCAG": ["Arkaiun", "Bedine", "Ffolk", "Gur", "Halruaan", "Imaskari", "Nar", "Shaaran", "Tuigan", "Ulutiun"],
-				"Real": ["Arabic", "Celtic", "Chinese", "Egyptian", "English", "French", "German", "Greek", "Indian", "Japanese", "Mesoamerican", "Niger-Congo", "Norse", "Polynesian", "Roman", "Slavic", "Spanish"]
+				"PHB": [
+					"Calishite",
+					"Chondathan",
+					"Damaran",
+					"Illuskan",
+					"Mulan",
+					"Rashemi",
+					"Shou",
+					"Tethyrian",
+					"Turami"
+				],
+				"Real": [
+					"Arabic",
+					"Celtic",
+					"Chinese",
+					"Egyptian",
+					"English",
+					"French",
+					"German",
+					"Greek",
+					"Indian",
+					"Japanese",
+					"Mesoamerican",
+					"Niger-Congo",
+					"Norse",
+					"Polynesian",
+					"Roman",
+					"Slavic",
+					"Spanish"
+				],
+				"SCAG": [
+					"Arkaiun",
+					"Bedine",
+					"Ffolk",
+					"Gur",
+					"Halruaan",
+					"Imaskari",
+					"Nar",
+					"Shaaran",
+					"Tuigan",
+					"Ulutiun"
+				]
+			},
+			"Dragonmark Variant": {
+				"_special": "book-EBR dragonmarkvariant",
+				"_array": [
+					"Mark of Finding",
+					"Mark of Handling",
+					"Mark of Making",
+					"Mark of Passage",
+					"Mark of Sentinel"
+				]
 			}
 		},
 		"Physical Characteristics": {
@@ -768,14 +1396,34 @@
 			"baseweight": 110,
 			"weightmod": "2d4",
 			"_other": {
-				"Eyes": ["Brown", "Hazel", "Green", "Blue", "Gray"],
-				"Skin": ["Pale", "Fair", "Tan", "Light Brown", "Brown", "Dark Brown"],
-				"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Gray/White"]
+				"Eyes": [
+					"Brown",
+					"Hazel",
+					"Green",
+					"Blue",
+					"Gray"
+				],
+				"Skin": [
+					"Pale",
+					"Fair",
+					"Tan",
+					"Light Brown",
+					"Brown",
+					"Dark Brown"
+				],
+				"Hair": [
+					"Black",
+					"Brown",
+					"Blond",
+					"Auburn",
+					"Red",
+					"Gray/White"
+				]
 			}
 		}
 	},
 	"Kalashtar": {
-		"_special": "book-WGtE",
+		"_special": "book-EBR",
 		"Subraces and Variants": {
 			"Human Heritage": {
 				"_special": "halfethnicity"
@@ -790,14 +1438,46 @@
 			"baseweight": 110,
 			"weightmod": "2d4",
 			"_other": {
-				"Eyes": ["Brown", "Hazel", "Green", "Blue", "Gray"],
-				"Skin": ["Pale", "Fair", "Tan", "Light Brown", "Brown", "Dark Brown"],
-				"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Gray/White"]
+				"Eyes": [
+					"Brown",
+					"Hazel",
+					"Green",
+					"Blue",
+					"Gray"
+				],
+				"Skin": [
+					"Pale",
+					"Fair",
+					"Tan",
+					"Light Brown",
+					"Brown",
+					"Dark Brown"
+				],
+				"Hair": [
+					"Black",
+					"Brown",
+					"Blond",
+					"Auburn",
+					"Red",
+					"Gray/White"
+				]
 			}
-		}
+		},
+		"Kalashtar Quirk": [
+			"You try to understand the motives and feelings of your enemies.",
+			"You prefer using telepathy over speaking aloud.",
+			"You feel a strong drive to protect the innocent.",
+			"You apply dream logic to mundane situations.",
+			"You discuss thi ngs out loud with your quori spirit.",
+			"You suppress your emotions and rely on logic.",
+			"You are strongly influenced by the emotions of those around you.",
+			"You prefer to find nonviolent solutions to problems whenever possible.",
+			"You are driven by a warrior spirit and will fight for any noble cause.",
+			"You are obsessed with Dreaming Dark conspiracies."
+		]
 	},
 	"Kenku": {
-		"_special": "book-VGtM",
+		"_special": "book-EGtW/VGtM",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 9,
@@ -806,9 +1486,7 @@
 			"heightmod": "2d8",
 			"baseweight": 50,
 			"weightmod": "1d6",
-			"_other": {
-				"Eyes": ["Black"]
-			}
+			"_other": {}
 		}
 	},
 	"Kobold": {
@@ -822,8 +1500,25 @@
 			"baseweight": 25,
 			"weightmod": "1",
 			"_other": {
-				"Eyes": ["Burnt Orange", "Red"],
-				"Scales": ["Black", "Blue", "Brown", "Gray", "Green", "Orange", "Orange-brown", "Red", "Red-brown", "Tan", "White", "Multicolored", "Multicolored"]
+				"Eyes": [
+					"Burnt Orange",
+					"Red"
+				],
+				"Scales": [
+					"Black",
+					"Blue",
+					"Brown",
+					"Gray",
+					"Green",
+					"Orange",
+					"Orange-brown",
+					"Red",
+					"Red-brown",
+					"Tan",
+					"White",
+					"Multicolored",
+					"Multicolored"
+				]
 			}
 		},
 		"Monstrous Origin": {
@@ -841,8 +1536,12 @@
 			"baseweight": 120,
 			"weightmod": "2d6",
 			"_other": {
-				"Eyes": ["Yellow"],
-				"Scales": ["Green", "Black", "Gray", "Brown"]
+				"Scales": [
+					"Green",
+					"Black",
+					"Gray",
+					"Brown"
+				]
 			}
 		},
 		"Lizardfolk Quirk": [
@@ -855,6 +1554,32 @@
 			"You appreciate the soft humanoids who realize they need chain mail and swords to match the gifts you were born with.",
 			"You enjoy eating your food while it's still wriggling."
 		]
+	},
+	"Locathah": {
+		"_special": "book-Other",
+		"Physical Characteristics": {
+			"_special": "characteristics",
+			"minage": 7,
+			"maxage": 70,
+			"baseheight": 58,
+			"heightmod": "2d8",
+			"baseweight": 130,
+			"weightmod": "1d4",
+			"_other": {
+				"Eyes": [
+					"Black",
+					"White"
+				],
+				"Skin": [
+					"Kelp Green",
+					"Mud Brown",
+					"Mud Green",
+					"Olive Green",
+					"Seaweed Green",
+					"Venom Green"
+				]
+			}
+		}
 	},
 	"Loxodon": {
 		"_special": "book-GGtR",
@@ -880,14 +1605,26 @@
 			"baseweight": 310,
 			"weightmod": "1d6",
 			"_other": {
-				"Eyes": ["Black", "Dark Yellow"],
-				"Skin": ["Black", "Brown", "White"],
-				"Hair": ["Black", "Brown", "White", "Red"]
+				"Eyes": [
+					"Black",
+					"Dark Yellow"
+				],
+				"Skin": [
+					"Black",
+					"Brown",
+					"White"
+				],
+				"Hair": [
+					"Black",
+					"Brown",
+					"White",
+					"Red"
+				]
 			}
 		}
 	},
 	"Orc": {
-		"_special": "book-MR",
+		"_special": "book-EBR/EGtW/MR",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 9,
@@ -897,9 +1634,15 @@
 			"baseweight": 175,
 			"weightmod": "2d6",
 			"_other": {
-				"Eyes": ["Red", "Gray"],
-				"Skin": ["Gray", "Purplish-Gray", "Bluish-Gray"],
-				"Hair": ["Black"]
+				"Eyes": [
+					"Red",
+					"Gray"
+				],
+				"Skin": [
+					"Gray",
+					"Purplish-Gray",
+					"Bluish-Gray"
+				]
 			}
 		},
 		"Monstrous Origin": {
@@ -907,22 +1650,47 @@
 		}
 	},
 	"Shifter": {
-		"_special": "book-WGtE",
+		"_special": "book-EBR",
 		"Subraces and Variants": {
-			"Subrace": ["Beasthide", "Longtooth", "Swiftstride", "Wildhunt"]
+			"Subrace": [
+				"Beasthide",
+				"Longtooth",
+				"Swiftstride",
+				"Wildhunt"
+			]
 		},
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 7,
 			"maxage": 50,
-			"baseheight": 60,
-			"heightmod": "2d10",
-			"baseweight": 130,
-			"weightmod": "1d8",
+			"baseheight": 54,
+			"heightmod": "2d8",
+			"baseweight": 90,
+			"weightmod": "2d4",
 			"_other": {
-				"Eyes": ["Brown", "Hazel", "Green", "Blue", "Gray"],
-				"Skin": ["Pale", "Fair", "Tan", "Light Brown", "Brown", "Dark Brown"],
-				"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Gray/White"]
+				"Eyes": [
+					"Brown",
+					"Hazel",
+					"Green",
+					"Blue",
+					"Gray"
+				],
+				"Skin": [
+					"Pale",
+					"Fair",
+					"Tan",
+					"Light Brown",
+					"Brown",
+					"Dark Brown"
+				],
+				"Hair": [
+					"Black",
+					"Brown",
+					"Blond",
+					"Auburn",
+					"Red",
+					"Gray/White"
+				]
 			}
 		}
 	},
@@ -938,11 +1706,19 @@
 			"weightmod": "2d4",
 			"_other": {}
 		},
-		"Animal Enhancement": ["Manta Glide", "Nimble Climber", "Underwater Adaptation"],
-		"Advanced Animal Enhancement": ["Acid Spit", "Carapace", "Grappling Appendages"]
+		"Animal Enhancement": [
+			"Manta Glide",
+			"Nimble Climber",
+			"Underwater Adaptation"
+		],
+		"Advanced Animal Enhancement": [
+			"Acid Spit",
+			"Carapace",
+			"Grappling Appendages"
+		]
 	},
 	"Tabaxi": {
-		"_special": "book-VGtM",
+		"_special": "book-EGtW/VGtM",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 13,
@@ -952,8 +1728,15 @@
 			"baseweight": 90,
 			"weightmod": "2d4",
 			"_other": {
-				"Eyes": ["Green", "Yellow"],
-				"Hair": ["Yellow", "Orange", "Red"]
+				"Eyes": [
+					"Green",
+					"Yellow"
+				],
+				"Hair": [
+					"Yellow",
+					"Orange",
+					"Red"
+				]
 			}
 		},
 		"Tabaxi Obsession": [
@@ -984,13 +1767,35 @@
 		"Subraces and Variants": {
 			"Subrace": {
 				"_special": "booksort",
-				"PHB": ["Asmodeous Tiefling"],
-				"MToF": ["Baalzebul Tiefling", "Dispater Tiefling", "Fierna Tiefling", "Glasya Tiefling", "Levistus Tiefling", "Mammon Tiefling", "Mephistopheles Tiefling", "Zariel Tiefling"],
-				"UA": ["Abyssal Tiefling"]
+				"PHB": [
+					"Asmodeous Tiefling"
+				],
+				"MToF": [
+					"Baalzebul Tiefling",
+					"Dispater Tiefling",
+					"Fierna Tiefling",
+					"Glasya Tiefling",
+					"Levistus Tiefling",
+					"Mammon Tiefling",
+					"Mephistopheles Tiefling",
+					"Zariel Tiefling"
+				],
+				"UA": [
+					"Abyssal Tiefling"
+				]
 			},
 			"Variant": {
 				"_special": "book-SCAG tieflingvarianttype",
-				"_array": [null, "Devil's Tongue", "Hellfire", "Winged", "Feral", "Feral, Devil's Tongue", "Feral, Hellfire", "Feral, Winged"]
+				"_array": [
+					null,
+					"Devil's Tongue",
+					"Hellfire",
+					"Winged",
+					"Feral",
+					"Feral, Devil's Tongue",
+					"Feral, Hellfire",
+					"Feral, Winged"
+				]
 			},
 			"Human Heritage": {
 				"_special": "halfethnicity"
@@ -1005,30 +1810,85 @@
 			"baseweight": 110,
 			"weightmod": "2d4",
 			"_other": {
-				"Eyes": ["Black", "Red", "White", "Silver", "Gold"],
-				"Skin": ["Pale", "Fair", "Tan", "Light Brown", "Brown", "Dark Brown", "Light Red", "Red", "Dark Red", "Light Red", "Red", "Dark Red"],
-				"Hair": ["Black", "Brown", "Dark Red", "Dark Blue", "Dark Purple"],
-				"Horns": ["Ram", "Gazelle", "Antelope", "Bull", "Ibex", "Bison", "One Broken"],
+				"Eyes": [
+					"Black",
+					"Red",
+					"White",
+					"Silver",
+					"Gold"
+				],
+				"Skin": [
+					"Pale",
+					"Fair",
+					"Tan",
+					"Light Brown",
+					"Brown",
+					"Dark Brown",
+					"Light Red",
+					"Red",
+					"Dark Red",
+					"Light Red",
+					"Red",
+					"Dark Red"
+				],
+				"Hair": [
+					"Black",
+					"Brown",
+					"Dark Red",
+					"Dark Blue",
+					"Dark Purple"
+				],
+				"Horns": [
+					"Ram",
+					"Gazelle",
+					"Antelope",
+					"Bull",
+					"Ibex",
+					"Bison",
+					"One Broken"
+				],
 				"Other Traits": {
 					"_special": "tieflingappearance",
-					"_array": ["Small horns", "Fangs or sharp teeth", "Forked tongue", "Catlike eyes", "Six fingers on each hand", "Goat-like legs", "Cloven hooves", "Forked tail", "Leathery or scaly skin", "Red or dark blue skin", "Cast no shadow or reflection", "Exude a smell of brimstone"]
+					"_array": [
+						"Small horns",
+						"Fangs or sharp teeth",
+						"Forked tongue",
+						"Catlike eyes",
+						"Six fingers on each hand",
+						"Goat-like legs",
+						"Cloven hooves",
+						"Forked tail",
+						"Leathery or scaly skin",
+						"Red or dark blue skin",
+						"Cast no shadow or reflection",
+						"Exude a smell of brimstone"
+					]
 				}
 			}
 		}
 	},
 	"Tortle": {
-		"_special": "book-Other",
+		"_special": "book-EGtW/Other",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 11,
 			"maxage": 40,
-			"baseheight": 60,
-			"heightmod": "2d4",
-			"baseweight": 355,
-			"weightmod": "2d8",
+			"baseheight": 58,
+			"heightmod": "2d8",
+			"baseweight": 400,
+			"weightmod": "2d4",
 			"_other": {
-				"Eyes": ["Green", "Blue", "Brown", "Black"],
-				"Skin/Shell": ["Olive-Green", "Blue-Green", "Brown"]
+				"Eyes": [
+					"Green",
+					"Blue",
+					"Brown",
+					"Black"
+				],
+				"Skin/Shell": [
+					"Olive-Green",
+					"Blue-Green",
+					"Brown"
+				]
 			}
 		}
 	},
@@ -1043,9 +1903,20 @@
 			"baseweight": 90,
 			"weightmod": "2d4",
 			"_other": {
-				"Eyes": ["Black", "White", "Green", "Blue"],
-				"Skin": ["Silver", "Silver-Blue"],
-				"Hair": ["Deep Blue", "Green-Blue"]
+				"Eyes": [
+					"Black",
+					"White",
+					"Green",
+					"Blue"
+				],
+				"Skin": [
+					"Silver",
+					"Silver-Blue"
+				],
+				"Hair": [
+					"Deep Blue",
+					"Green-Blue"
+				]
 			}
 		},
 		"Triton Quirk": [
@@ -1070,23 +1941,54 @@
 			"_other": {}
 		}
 	},
+	"Verdan": {
+		"_special": "book-AI",
+		"Physical Characteristics": {
+			"_special": "characteristics",
+			"minage": 16,
+			"maxage": 150,
+			"baseheight": 31,
+			"heightmod": "2d8",
+			"baseweight": 45,
+			"weightmod": "2d4",
+			"_other": {}
+		}
+	},
 	"Warforged": {
-		"_special": "book-WGtE",
+		"_special": "book-EBR",
 		"Subraces and Variants": {
-			"Subrace": ["Envoy", "Juggernaut", "Skirmisher"]
+			"Subrace": [
+				"Envoy",
+				"Juggernaut",
+				"Skirmisher"
+			]
 		},
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 2,
 			"maxage": 30,
-			"baseheight": 60,
-			"heightmod": "2d8",
+			"baseheight": 70,
+			"heightmod": "2d6",
 			"baseweight": 270,
-			"weightmod": "2d4",
+			"weightmod": "4",
 			"_other": {
-				"Composition": ["Stone", "Metal", "Wood"]
+				"Composition": [
+					"Stone",
+					"Metal",
+					"Wood"
+				]
 			}
-		}
+		},
+		"Warforged Quirk": [
+			"You analyze-out loud-the potential threat posed by every creature you meet.",
+			"You often misread emotional cues.",
+			"You are fiercely protective of your friends.",
+			"You try to apply wartime discipline to every situation.",
+			"You don't know how to filter your feelings and are prone to dramatic emotional outbursts.",
+			"You don't understand clothing beyond its utility and assume it denotes a person's function.",
+			"You are obsessed with your appearance and constantly polish and buff yourself.",
+			"War is the only thing that makes sense to you, and you're always looking for a fight."
+		]
 	},
 	"Yuan-Ti Pureblood": {
 		"_special": "book-MR",
@@ -1099,9 +2001,22 @@
 			"baseweight": 110,
 			"weightmod": "2d4",
 			"_other": {
-				"Eyes": ["Green"],
-				"Skin": ["Pale", "Fair", "Tan", "Light Brown", "Brown", "Dark Brown"],
-				"Hair": ["Black", "Brown", "Blond", "Auburn", "Red", "Gray/White"]
+				"Skin": [
+					"Pale",
+					"Fair",
+					"Tan",
+					"Light Brown",
+					"Brown",
+					"Dark Brown"
+				],
+				"Hair": [
+					"Black",
+					"Brown",
+					"Blond",
+					"Auburn",
+					"Red",
+					"Gray/White"
+				]
 			}
 		},
 		"Monstrous Origin": {

@@ -1,5 +1,6 @@
 {
-	"tier1Tables": [{
+	"tier1Tables": [
+		{
 			"table": null,
 			"rolls": "0",
 			"weight": "36"
@@ -30,7 +31,8 @@
 			"weight": "3"
 		}
 	],
-	"tier2Tables": [{
+	"tier2Tables": [
+		{
 			"table": null,
 			"rolls": "0",
 			"weight": "28"
@@ -71,7 +73,8 @@
 			"weight": "2"
 		}
 	],
-	"tier3Tables": [{
+	"tier3Tables": [
+		{
 			"table": null,
 			"rolls": "0",
 			"weight": "15"
@@ -112,7 +115,8 @@
 			"weight": "8"
 		}
 	],
-	"tier4Tables": [{
+	"tier4Tables": [
+		{
 			"table": null,
 			"rolls": "0",
 			"weight": "2"
@@ -148,7 +152,8 @@
 			"weight": "20"
 		}
 	],
-	"tableA": [{
+	"tableA": [
+		{
 			"name": "Potion of healing",
 			"weight": "50"
 		},
@@ -181,7 +186,8 @@
 			"weight": "1"
 		}
 	],
-	"tableB": [{
+	"tableB": [
+		{
 			"name": "Potion of greater healing",
 			"weight": "15"
 		},
@@ -322,7 +328,8 @@
 			"weight": "1"
 		}
 	],
-	"tableC": [{
+	"tableC": [
+		{
 			"name": "Potion of superior healing",
 			"weight": "15"
 		},
@@ -435,7 +442,8 @@
 			"weight": "1"
 		}
 	],
-	"tableD": [{
+	"tableD": [
+		{
 			"name": "Potion of supreme healing",
 			"weight": "20"
 		},
@@ -500,7 +508,8 @@
 			"weight": "1"
 		}
 	],
-	"tableE": [{
+	"tableE": [
+		{
 			"name": "Spell scroll (8th level)",
 			"weight": "30"
 		},
@@ -529,7 +538,8 @@
 			"weight": "2"
 		}
 	],
-	"tableF": [{
+	"tableF": [
+		{
 			"name": "Weapon, +1",
 			"weight": "15"
 		},
@@ -770,7 +780,8 @@
 			"weight": "1"
 		}
 	],
-	"tableG": [{
+	"tableG": [
+		{
 			"name": "Weapon, +2",
 			"weight": "11"
 		},
@@ -1147,7 +1158,8 @@
 			"weight": "1"
 		}
 	],
-	"tableH": [{
+	"tableH": [
+		{
 			"name": "Weapon, +3",
 			"weight": "10"
 		},
@@ -1424,7 +1436,8 @@
 			"weight": "1"
 		}
 	],
-	"tableI": [{
+	"tableI": [
+		{
 			"name": "Defender",
 			"weight": "5"
 		},
@@ -1661,7 +1674,8 @@
 			"weight": "1"
 		}
 	],
-	"tableX": [{
+	"tableX": [
+		{
 			"name": "Armor of gleaming",
 			"weight": "1"
 		},

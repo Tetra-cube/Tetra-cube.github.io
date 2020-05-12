@@ -18,14 +18,14 @@ var backgrounds, books, cardsources, classes, life, names, npcs, other, races,
 
 // Populate the dropdowns with material from the selected books
 var Dropdowns = {
-    Update: function() {
+    Update: function () {
         BookFunctions.Get();
         $("#racemenu").html(this.GetDropdownOptions(races));
         $("#classmenu").html(this.GetDropdownOptions(classes));
         $("#backgroundmenu").html(this.GetDropdownOptions(backgrounds));
     },
 
-    GetDropdownOptions: function(list) {
+    GetDropdownOptions: function (list) {
         let optionsArray = ["<option value=\"Random\">Random</option>"];
         for (let propertyName in list) {
             let item = list[propertyName];
@@ -39,7 +39,7 @@ var Dropdowns = {
 // Get or check what books we have
 var BookFunctions = {
     // Get the books we have from the checkboxes
-    Get: function() {
+    Get: function () {
         usedBooks = ["Real", "PHB"];
         for (let bookNum = 0; bookNum < books.availableBooks.length; bookNum++) {
             let book = books.availableBooks[bookNum];
@@ -49,7 +49,7 @@ var BookFunctions = {
     },
 
     // Check an entire _special string
-    CheckSpecial: function(specialString) {
+    CheckSpecial: function (specialString) {
         let splitSpecial = specialString.split(" ");
         for (let specialIndex = 0; specialIndex < splitSpecial.length; specialIndex++) {
             if (splitSpecial[specialIndex].slice(0, 5) == "book-")
@@ -59,7 +59,7 @@ var BookFunctions = {
     },
 
     // Check a string of only books
-    CheckString: function(bookString) {
+    CheckString: function (bookString) {
         for (let index = 0; index < usedBooks.length; index++) {
             if (bookString.includes(usedBooks[index]))
                 return true;
@@ -69,7 +69,7 @@ var BookFunctions = {
 }
 
 var CharacterType = {
-    GetNoCard: function() {
+    GetNoCard: function () {
         characterType = $("#pc-radio").prop("checked") ? "pc" : $("#npc-radio").prop("checked") ? "npc" : "either";
         if (characterType == "pc") {
             $(".pc-show, .pc-only-show").show();
@@ -88,7 +88,7 @@ var CharacterType = {
             $("#name-lock-div").addClass("col-lg-4");
         }
     },
-    Get: function() {
+    Get: function () {
         this.GetNoCard();
         CardType.Set();
     }
@@ -96,7 +96,7 @@ var CharacterType = {
 
 // For when the user clicks one of the Generate buttons, or when the page loads
 var Generate = {
-    All: function() {
+    All: function () {
         BookFunctions.Get();
 
         this.Race();
@@ -107,60 +107,60 @@ var Generate = {
         this.NPCTraits();
         this.Life();
 
-		this.FinishGenerate();
+        this.FinishGenerate();
     },
 
-    Race: function() {
+    Race: function () {
         if (lock.race) return;
         // Determine human ethnicity
         ethnicityOption = $("#standard-radio").prop("checked") ? "standard" :
             $("#real-radio").prop("checked") ? "real" :
-            Random.Array(["standard", "real"]);
+                Random.Array(["standard", "real"]);
 
         // Determine race weight
         let raceVal = $("#racemenu").val();
         character.Race = Content.GetRandom(races, raceVal == "Random" ?
             $("#weighted-radio").prop("checked") ? RaceWeighted.Get() :
-            $("#15x-weighted-radio").prop("checked") ? RaceWeighted.Get(1.5) :
-            $("#20x-weighted-radio").prop("checked") ? RaceWeighted.Get(2) :
-			"Random" : raceVal);
+                $("#15x-weighted-radio").prop("checked") ? RaceWeighted.Get(1.5) :
+                    $("#20x-weighted-radio").prop("checked") ? RaceWeighted.Get(2) :
+                        "Random" : raceVal);
     },
 
-    Gender: function() {
+    Gender: function () {
         let genderVal = $("#gendermenu").val();
         character.Gender = (genderVal == "Random" ? Random.Array(other.genders) : genderVal);
 
         this.Name();
     },
 
-    Name: function() {
+    Name: function () {
         let nameVal = $("#name-input").val();
-		if(nameVal.length == 0) {
-			character.Name = Names.Get(character.Race.name, character.Gender);
-			character.ShortName = Names.Shortened();
-		}
-		else {
-			character.Name = nameVal;
-			character.ShortName = nameVal;
-		}
+        if (nameVal.length == 0) {
+            character.Name = Names.Get(character.Race.name, character.Gender);
+            character.ShortName = Names.Shortened();
+        }
+        else {
+            character.Name = nameVal;
+            character.ShortName = nameVal;
+        }
     },
 
-    Class: function() {
+    Class: function () {
         if (lock.class) return;
         character.Class = Content.GetRandom(classes, $("#classmenu").val());
     },
 
-    Background: function() {
+    Background: function () {
         if (lock.background) return;
         character.Background = Content.GetRandom(backgrounds, $("#backgroundmenu").val());
     },
 
-    Occupation: function() {
+    Occupation: function () {
         if (lock.occupation) return;
         character.Occupation = Occupation.Get();
     },
 
-    NPCTraits: function() {
+    NPCTraits: function () {
         if (lock.traits) return;
         character.NPCTraits = {
             "name": "NPCTraits",
@@ -168,7 +168,7 @@ var Generate = {
         };
     },
 
-    Life: function() {
+    Life: function () {
         if (lock.life) return;
         character.Life = {
             "name": "Life",
@@ -178,90 +178,90 @@ var Generate = {
 
     // Functions for when a specific button is pressed
 
-    RaceInput: function() {
+    RaceInput: function () {
         BookFunctions.Get();
         this.Race();
         this.Name();
         this.Life();
         CardType.Set();
-		this.FinishGenerate();
+        this.FinishGenerate();
     },
 
-    GenderInput: function() {
+    GenderInput: function () {
         this.Gender();
-		this.FinishGenerate();
+        this.FinishGenerate();
     },
 
-    NameInput: function() {
+    NameInput: function () {
         BookFunctions.Get();
         this.Name();
-		this.FinishGenerate();
+        this.FinishGenerate();
     },
 
-    ClassInput: function() {
+    ClassInput: function () {
         BookFunctions.Get();
         this.Class();
-		this.FinishGenerate();
+        this.FinishGenerate();
     },
 
-    BackgroundInput: function() {
+    BackgroundInput: function () {
         BookFunctions.Get();
         this.Background();
-		this.FinishGenerate();
+        this.FinishGenerate();
     },
 
-    OccupationInput: function() {
+    OccupationInput: function () {
         BookFunctions.Get();
         this.Occupation();
-		this.FinishGenerate();
+        this.FinishGenerate();
     },
 
-    NPCTraitsInput: function() {
+    NPCTraitsInput: function () {
         BookFunctions.Get();
         this.NPCTraits();
-		this.FinishGenerate();
+        this.FinishGenerate();
     },
 
-    LifeInput: function() {
+    LifeInput: function () {
         BookFunctions.Get();
         this.Life();
-		this.FinishGenerate();
+        this.FinishGenerate();
     },
-	
-	FinishGenerate: function() {
+
+    FinishGenerate: function () {
         CardType.Set();
-		Characters.SaveCharacter();
-		Characters.SaveToStorage();
-		SetHTML();
-	}
+        Characters.SaveCharacter();
+        Characters.SaveToStorage();
+        SetHTML();
+    }
 }
 
 function SetHTML() {
-		
-	$("#name").html(character.Name);
 
-	$("#race, #raceheader").html(character.Race.name);
-	$("#racesection").html(HTMLStrings.Get(character.Race));
+    $("#name").html(character.Name);
 
-	$("#gender, #genderheader").html(character.Race.name == "Warforged" ? "Genderless" : character.Gender);
+    $("#race, #raceheader").html(character.Race.name);
+    $("#racesection").html(HTMLStrings.Get(character.Race));
 
-	$("#class, #classheader").html(character.Class.name);
-	$("#classsection").html(HTMLStrings.Get(character.Class));
+    $("#gender, #genderheader").html(character.Race.name == "Warforged" ? "Genderless" : character.Gender);
 
-	$("#background, #backgroundheader").html(character.Background.name);
-	$("#backgroundsection").html(HTMLStrings.Get(character.Background));
-	
-	$("#occupation").html(character.Occupation);
-	
-	$("#npc-traits-section").html(HTMLStrings.Get(character.NPCTraits));
-	
-	$("#lifesection").html(HTMLStrings.Get(character.Life));
+    $("#class, #classheader").html(character.Class.name);
+    $("#classsection").html(HTMLStrings.Get(character.Class));
+
+    $("#background, #backgroundheader").html(character.Background.name);
+    $("#backgroundsection").html(HTMLStrings.Get(character.Background));
+
+    $("#occupation").html(character.Occupation);
+
+    $("#npc-traits-section").html(HTMLStrings.Get(character.NPCTraits));
+
+    $("#lifesection").html(HTMLStrings.Get(character.Life));
 }
 
 // Gets content from dnd-data and puts it into a format more readable to the generator (also filters out things that should be inaccessible)
 var Content = {
     // Set all properties in an object
-    Get: function(item) {
+    Get: function (item) {
         if (item == null) return null;
         if (typeof item == "object") {
             if (Array.isArray(item))
@@ -289,7 +289,7 @@ var Content = {
     },
 
     // Get a random property from an initial object
-    GetRandom: function(item, dropdownVal = "Random") {
+    GetRandom: function (item, dropdownVal = "Random") {
         if (dropdownVal != "Random")
             return {
                 "name": dropdownVal,
@@ -311,7 +311,7 @@ var Content = {
 
     // For dealing with special cases (indicated by the _special keyword)
 
-    Special: function(item) {
+    Special: function (item) {
         // Clone the item, remove special from the clone, and apply every special in order
         let newItem = Object.assign({}, item),
             cases = item._special.split(" ");
@@ -323,7 +323,7 @@ var Content = {
         return this.Get(newItem);
     },
 
-    ApplySpecial: function(special, specialItem) // Apply one special case to an object and return the resulting object
+    ApplySpecial: function (special, specialItem) // Apply one special case to an object and return the resulting object
     {
         if (specialItem == null || typeof specialItem != "object") return specialItem;
         let splitSpecial = special.split("-");
@@ -341,7 +341,7 @@ var Content = {
             case "gendersort": // Get property according to gender
                 return character.Gender == "Male" ? specialItem.Male :
                     character.Gender == "Female" ? specialItem.Female :
-                    Random.Array([specialItem.Male, specialItem.Female]);
+                        Random.Array([specialItem.Male, specialItem.Female]);
 
             case "halfethnicity": // Get human ethnicity for half-humans
                 mcEthnicity = (Random.Num(5) > 0 ? RandomEthnicity.Get() : "Unknown");
@@ -366,10 +366,22 @@ var Content = {
                     } else
                         newSubVar[propertyName] = subracesAndVariants[propertyName];
                 }
-                specialItem["Subraces and Variants"] = newSubVar;
-                specialItem["Physical Characteristics"] = specialItem["Physical Characteristics"][subraceString];
+                // specialItem["Subraces and Variants"] = newSubVar;
+                // specialItem["Physical Characteristics"] = specialItem["Physical Characteristics"][subraceString];
+                return {
+                    "Subraces and Variants": newSubVar,
+                    "Physical Characteristics": specialItem["Physical Characteristics"][subraceString]
+                };
 
-                return specialItem;
+            case "dragonbornvarianttype": // Wildemount dragonborn have weird variants
+                if (!usedBooks.includes("EGtW"))
+                    return null;
+                return Random.Array(specialItem._array);
+
+            case "dragonmarkvariant": // Eberron dragonmarks
+                if (!usedBooks.includes("EBR") || Random.Num(2) == 0)
+                    return null;
+                return Random.Array(specialItem._array);
 
             case "tieflingappearance": // Tieflings have weird appearances
                 if (Random.Num(3) == 0)
@@ -386,17 +398,46 @@ var Content = {
 
             case "backgroundtraits": // For the SCAG backgrounds where the writers were lazy and used personalities from the PHB 
                 let backgroundCopy = backgrounds[splitSpecial[1].split("_").join(" ")];
-                specialItem["Trait"] = backgroundCopy.Trait;
-                specialItem["Ideal"] = backgroundCopy.Ideal;
-                specialItem["Bond"] = backgroundCopy.Bond;
-                specialItem["Flaw"] = backgroundCopy.Flaw;
-                return specialItem;
+                // specialItem["Trait"] = backgroundCopy.Trait;
+                // specialItem["Ideal"] = backgroundCopy.Ideal;
+                // specialItem["Bond"] = backgroundCopy.Bond;
+                // specialItem["Flaw"] = backgroundCopy.Flaw;
+                return {
+                    "Trait": backgroundCopy.Trait,
+                    "Ideal": backgroundCopy.Ideal,
+                    "Bond": backgroundCopy.Bond,
+                    "Flaw": backgroundCopy.Flaw
+                };
+
+            case "ravnicacontacts": // Ravnica Backgrounds
+                let guildName = specialItem["_name"],
+                    ravnicaContacts = {};
+                ravnicaContacts[guildName + " Ally"] = Random.Array(specialItem["_guild"]);
+                ravnicaContacts[guildName + " Rival"] = Random.Array(specialItem["_guild"]);
+                let nonGuildContact = Random.Array(specialItem["_nonguild"]);
+                if (nonGuildContact == "_reroll") {
+                    nonGuildContact = Random.Array(specialItem["_guild"]);
+                    ravnicaContacts["Additional " + guildName + " Contact"] = nonGuildContact
+                }
+                else
+                    ravnicaContacts["Non-" + guildName + " Contact"] = nonGuildContact;
+                return ravnicaContacts;
+
+            case "dimircontacts": // Ravnica Backgrounds, House Dimir is a special case
+                let dimirContacts = {}, secondaryGuild = Random.Array(specialItem._guilds),
+                    otherGuildContacts = backgrounds[secondaryGuild.background]["Contacts"]["_guild"];
+                dimirContacts["Dimir Ally"] = Random.Array(specialItem["_dimircontact"]);
+                dimirContacts["Secondary Guild"] = secondaryGuild.name;
+                dimirContacts["Secondary Guild Ally"] = Random.Array(otherGuildContacts);
+                dimirContacts["Secondary Guild Rival"] = Random.Array(otherGuildContacts);
+                return dimirContacts;
+            //"Roll an additional Azorius contact; you can decide if the contact is an ally or a rival.",
         }
         return specialItem;
     },
 
     // Remove every array that's non-applicable because we don't have the book, then merge the remaining arrays and pick randomly from them
-    BookSort: function(specialItem) {
+    BookSort: function (specialItem) {
         if (specialItem.hasOwnProperty("_special"))
             delete specialItem._special;
         let contentArr = [];
@@ -408,7 +449,7 @@ var Content = {
     },
 
     // Compute age, height, weight, and other physical characteristics
-    GetCharacteristics: function(item) {
+    GetCharacteristics: function (item) {
         let chaObj = {},
             age = Random.Num(item.maxage - item.minage) + item.minage;
         age += (age == "1" ? " year" : " years"); // Extremely rare edge case but it can happen
@@ -431,17 +472,17 @@ var Content = {
 // Functions for random number/content selecting
 var Random = {
     // Generate random number
-    Num: function(max) {
+    Num: function (max) {
         return Math.floor(Math.random() * max);
     },
 
     // Pick a random element from an array
-    Array: function(arr) {
+    Array: function (arr) {
         return arr[this.Num(arr.length)];
     },
 
     // Pick multiple random elements from an array
-    ArrayMultiple: function(arr, num) {
+    ArrayMultiple: function (arr, num) {
         let returnArray = [];
         while (returnArray.length < num) {
             let item = this.Array(arr);
@@ -452,7 +493,7 @@ var Random = {
     },
 
     // Roll dice based on a string (eg. '2d6')
-    DiceRoll: function(roll) {
+    DiceRoll: function (roll) {
         numbers = roll.split("d");
         if (numbers.length == 1)
             return numbers[0];
@@ -465,7 +506,7 @@ var Random = {
 
 // Functions for making content objects into HTML strings to be displayed
 var HTMLStrings = {
-    Get: function(item) {
+    Get: function (item) {
         let itemContent = item.content,
             stringBuffer = [];
         for (let index = 0; index < itemContent.length; index++)
@@ -473,7 +514,7 @@ var HTMLStrings = {
         return stringBuffer.join("");
     },
 
-    GetNext: function(item) {
+    GetNext: function (item) {
         let itemContent = item.content;
         if (typeof itemContent != "object")
             return "<li><b>" + item.name + "</b>: " + itemContent + "</li>";
@@ -484,7 +525,7 @@ var HTMLStrings = {
         return "<li><b> " + item.name + "</b>:<ul>" + stringBuffer.join("") + "</ul></li>";
     },
 
-    Life: function(item) {
+    Life: function (item) {
         if (typeof item == "object") {
             let itemContent = item.content,
                 stringBuffer = [];
@@ -498,7 +539,7 @@ var HTMLStrings = {
 
 // Functions relating to the character's name
 var Names = {
-    Get: function(raceName, gender) {
+    Get: function (raceName, gender) {
         switch (raceName) {
             case "Aarakocra":
             case "Changeling":
@@ -506,14 +547,19 @@ var Names = {
             case "Kenku":
             case "Kobold":
             case "Lizardfolk":
+            case "Locathah":
             case "Shifter":
             case "Tortle":
+            case "Verdan":
             case "Warforged":
                 return Random.Array(names[raceName]);
 
             case "Bugbear":
-            case "Centaur":
             case "Goblin":
+            case "Hobgoblin":
+                return this.GetGendered(names["Goblinoid"], gender);
+
+            case "Centaur":
             case "Minotaur":
             case "Orc":
             case "Loxodon":
@@ -576,7 +622,7 @@ var Names = {
                 let hElfRand = Random.Num(6),
                     elfSubrace = this.GetSubrace(),
                     elfNameArray =
-                    elfSubrace == "Drow" ? names.Drow : names.Elf;
+                        elfSubrace == "Drow" ? names.Drow : names.Elf;
                 if (hElfRand < 2) return this.HumanFirst(this.GetHumanEthnicity(), gender) + " " + Random.Array(elfNameArray.Family); // Human First, Elf Last
                 if (hElfRand < 4) return this.GetGendered(elfNameArray, gender) + this.HumanLast(this.GetHumanEthnicity()); // Elf first, Human Last
                 if (hElfRand < 5) return this.GetHuman(this.GetHumanEthnicity(), gender); // Both Human
@@ -586,17 +632,13 @@ var Names = {
                 let hOrcRand = Random.Num(4);
                 return hOrcRand < 1 ? this.GetGendered(names.Orc, gender) :
                     hOrcRand < 2 ? this.GetGendered(names.Orc, gender) + this.HumanLast(this.GetHumanEthnicity()) :
-                    this.GetHuman(this.GetHumanEthnicity(), gender);
-
-            case "Hobgoblin":
-                return this.FirstnameLastname(names.Hobgoblin, "Clan", gender);
+                        this.GetHuman(this.GetHumanEthnicity(), gender);
 
             case "Human":
                 return this.GetHuman(mcEthnicity, gender);
 
             case "Kalashtar":
-                let kalaRand = Random.Num(2);
-                return Random.Array(names.Kalashtar) + " " + (kalaRand < 1 ? Random.Array(names.Quori.Female) : Random.Array(names.Quori.Male));
+                return Random.Array(names["Kalashtar/Quori"]);
 
             case "Simic Hybrid":
                 let raceNames = Random.Array([names.Human, names.Elf, names.Vedalken]);
@@ -620,9 +662,8 @@ var Names = {
                 return Random.Array(names["Yuan-Ti"]);
         }
     },
-	
-	Shortened: function()
-	{
+
+    Shortened: function () {
         if (character.Race.name == "Gnome" && character.Race.content[0].content[0].content != "Deep Gnome") {
             let nameArr = character.Name.split(" "),
                 firstName = nameArr[Random.Num(nameArr.length - 2)];
@@ -632,11 +673,11 @@ var Names = {
             return character.Name.substring(nicknameIndex);
         }
         return character.Name;
-	},
+    },
 
     RandomGender: () => Random.Array(["Male", "Female"]),
 
-    GetSubrace: function() {
+    GetSubrace: function () {
         let race = character.Race.content
         for (let index = 0; index < race.length; index++) {
             if (race[index].name == "Subraces and Variants") {
@@ -650,32 +691,32 @@ var Names = {
     },
 
     // Return a gendered first name and a last name based on race
-    FirstnameLastname: function(names, lastnameType, gender) {
+    FirstnameLastname: function (names, lastnameType, gender) {
         return this.GetGendered(names, gender) + " " + Random.Array(names[lastnameType]);
     },
 
     // Get the gender or a random generator if the character doesn't have one
-    GetGendered: function(names, gender) {
+    GetGendered: function (names, gender) {
         return Random.Array(names[(gender == "Male" || gender == "Female" ? gender : this.RandomGender())]);
     },
 
     // Get a human name
-    GetHuman: function(ethnicity, gender) {
+    GetHuman: function (ethnicity, gender) {
         let lastName = this.HumanLast(ethnicity);
         return this.HumanFirst(ethnicity, gender) + (lastName != null ? lastName : "");
     },
 
-    HumanFirst: function(ethnicity, gender) {
+    HumanFirst: function (ethnicity, gender) {
         return ethnicityOption == "standard" ?
             this.GetGendered(ethnicity == "Tethyrian" ? names.Human.Chondathan : names.Human[ethnicity], gender) :
             this.GetGendered(names["Human (Real)"][ethnicity], gender);
     },
 
-    HumanLast: function(ethnicity) {
+    HumanLast: function (ethnicity) {
         return ethnicityOption == "standard" ?
             ethnicity == "Bedine" ? " " + Random.Array(names.Human.Bedine.Tribe) :
-            ethnicity == "Tethyrian" ? " " + Random.Array(names.Human.Chondathan.Surname) :
-            (ethnicity == "Tuigan" || ethnicity == "Ulutiun") ? "" : " " + Random.Array(names.Human[ethnicity].Surname) : "";
+                ethnicity == "Tethyrian" ? " " + Random.Array(names.Human.Chondathan.Surname) :
+                    (ethnicity == "Tuigan" || ethnicity == "Ulutiun") ? "" : " " + Random.Array(names.Human[ethnicity].Surname) : "";
     },
 
     // Get character's human heritage - for half-elves, half-orcs, tieflings, aasimar, and genasi
@@ -684,13 +725,13 @@ var Names = {
 
 // Determine race based on weighted probabilities (ie. more common races are more likely to come up)
 var RaceWeighted = {
-    Get: function(pow = 1) {
+    Get: function (pow = 1) {
         let raceWeightList = [], totalWeight = 0;
-		for (let raceName in other.raceWeights) {
-			let weight = Math.pow(other.raceWeights[raceName], pow);
-			raceWeightList[raceName] = weight;
-			totalWeight += weight;
-		}
+        for (let raceName in other.raceWeights) {
+            let weight = Math.pow(other.raceWeights[raceName], pow);
+            raceWeightList[raceName] = weight;
+            totalWeight += weight;
+        }
         for (let raceName in races) {
             let race = races[raceName];
             if (race._special.includes("PHB") || !BookFunctions.CheckSpecial(race._special)) continue;
@@ -708,21 +749,21 @@ var RaceWeighted = {
 
 // Oddball function for returning a random human ethnicity
 var RandomEthnicity = {
-    Get: function() {
+    Get: function () {
         return ethnicityOption == "standard" ?
             usedBooks.includes("SCAG") ?
-            Random.Array(races.Human["Subraces and Variants"].Ethnicity.PHB.concat(races.Human["Subraces and Variants"].Ethnicity.SCAG)) :
-            Random.Array(races.Human["Subraces and Variants"].Ethnicity.PHB) :
+                Random.Array(races.Human["Subraces and Variants"].Ethnicity.PHB.concat(races.Human["Subraces and Variants"].Ethnicity.SCAG)) :
+                Random.Array(races.Human["Subraces and Variants"].Ethnicity.PHB) :
             Random.Array(races.Human["Subraces and Variants"].Ethnicity.Real);
     }
 }
 
 // Return random traits as given in the NPC section of the DMG
 var NPCTraits = {
-    Get: function() {
+    Get: function () {
         let newNPCTraits = {
-                "Appearance": Random.Array(npcs.appearances)
-            },
+            "Appearance": Random.Array(npcs.appearances)
+        },
             highTraitNum = Random.Num(npcs.highAbilities.length),
             lowTraitNum = Random.Num(npcs.lowAbilities.length - 1);
 
@@ -756,30 +797,30 @@ var NPCTraits = {
 }
 
 var Occupation = {
-    Get: function(allowAdventurer) {
+    Get: function (allowAdventurer) {
         let rand = Random.Num(allowAdventurer ? 100 : 99);
         return rand < 5 ? "Academic" :
             rand < 10 ? "Aristocrat" :
-            rand < 25 ? "Artisan or guild member" :
-            rand < 30 ? "Criminal" :
-            rand < 35 ? "Entertainer" :
-            rand < 37 ? "Exile, hermit, or refugee" :
-            rand < 42 ? "Explorer or wanderer" :
-            rand < 54 ? "Farmer or herder" :
-            rand < 59 ? "Hunter or trapper" :
-            rand < 74 ? "Laborer" :
-            rand < 79 ? "Merchant" :
-            rand < 84 ? "Politician or bureaucrat" :
-            rand < 89 ? "Priest" :
-            rand < 94 ? "Sailor" :
-            rand < 99 ? "Soldier" :
-            "Adventurer (" + Life.ClassWeighted() + ")";
+                rand < 25 ? "Artisan or guild member" :
+                    rand < 30 ? "Criminal" :
+                        rand < 35 ? "Entertainer" :
+                            rand < 37 ? "Exile, hermit, or refugee" :
+                                rand < 42 ? "Explorer or wanderer" :
+                                    rand < 54 ? "Farmer or herder" :
+                                        rand < 59 ? "Hunter or trapper" :
+                                            rand < 74 ? "Laborer" :
+                                                rand < 79 ? "Merchant" :
+                                                    rand < 84 ? "Politician or bureaucrat" :
+                                                        rand < 89 ? "Priest" :
+                                                            rand < 94 ? "Sailor" :
+                                                                rand < 99 ? "Soldier" :
+                                                                    "Adventurer (" + Life.ClassWeighted() + ")";
     },
 }
 
 // Return random life events as given in Xanathar's guide
 var Life = {
-    Get: function() {
+    Get: function () {
         let newLife = {};
         newLife.Alignment = Random.Array(life.alignments);
         newLife.Origin = {};
@@ -808,7 +849,7 @@ var Life = {
         return newLife;
     },
 
-    LifeEvents: function() {
+    LifeEvents: function () {
         let lifeEvents = {};
         let numEvents = 3 + Random.Num(3);
         for (let eventNum = 0; eventNum < numEvents; eventNum++) {
@@ -857,7 +898,7 @@ var Life = {
         return lifeEvents;
     },
 
-    Siblings: function(parents) // Determine who our siblings are
+    Siblings: function (parents) // Determine who our siblings are
     {
         let numSiblings = Random.Num(3);
         if (numSiblings == 0) return null;
@@ -893,29 +934,29 @@ var Life = {
         return siblings;
     },
 
-    SiblingRace: function(parents) // If mixed-race, determine races of siblings
+    SiblingRace: function (parents) // If mixed-race, determine races of siblings
     {
         switch (character.Race.name) {
             case "Half-Elf":
                 return parents == "One parent was an elf and the other was a half-elf." ?
                     Random.Array(["Elf", "Half-Elf"]) :
                     parents == "One parent was a human and the other was a half-elf." ?
-                    Random.Array(["Human", "Half-Elf"]) : "Half-Elf";
+                        Random.Array(["Human", "Half-Elf"]) : "Half-Elf";
             case "Half-Orc":
                 return parents == "One parent was an orc and the other was a half-orc." ?
                     Random.Array(["Orc", "Half-Orc"]) :
                     parents == "One parent was an human and the other was a half-orc." ?
-                    Random.Array(["Human", "Half-Orc"]) : "Half-Orc";
+                        Random.Array(["Human", "Half-Orc"]) : "Half-Orc";
             case "Tiefling":
                 return parents == "Both parents were humans, their infernal heritage dormant until you came along." ?
                     Random.Array(["Human", "Human", "Human", "Tiefling"]) :
                     parents == "One parent was a tiefling and the other was a human." ?
-                    Random.Array(["Human", "Tiefling"]) : "Tiefling";
+                        Random.Array(["Human", "Tiefling"]) : "Tiefling";
             case "Genasi":
                 return parents == "One parent was a genasi and the other was a human." ?
                     Random.Array(["Human", "Genasi"]) :
                     parents == "Both parents were humans, their elemental heritage dormant until you came along." ?
-                    Random.Array(["Human", "Human", "Human", "Genasi"]) : "Genasi";
+                        Random.Array(["Human", "Human", "Human", "Genasi"]) : "Genasi";
             case "Aasimar":
                 return parents == "Both parents were humans, their celestial heritage dormant until you came along." ?
                     "Human" : Random.Array(["Human", "Aasimar"]);
@@ -925,141 +966,141 @@ var Life = {
 
     // Random tables
 
-    SiblingName: function(sibling) {
+    SiblingName: function (sibling) {
         let siblingRace = sibling.Race,
             name;
         if (siblingRace == "Tabaxi")
             return Random.Array(names.Tabaxi.Name);
         else
             name = (siblingRace == "Human" && character.Race.name != "Human") ?
-            Names.GetHuman(Names.GetHumanEthnicity(), sibling.Gender) :
-            Names.Get(sibling.Race, sibling.Gender);
+                Names.GetHuman(Names.GetHumanEthnicity(), sibling.Gender) :
+                Names.Get(sibling.Race, sibling.Gender);
         let lastSpace = name.lastIndexOf(" ");
         return lastSpace < 0 ? name : name.substring(0, lastSpace);
     },
 
-    Alignment: function() {
+    Alignment: function () {
         let roll = Random.DiceRoll("3d6");
         return roll < 4 ? Random.Array(["Chaotic Evil", "Chaotic Neutral"]) :
             roll < 6 ? "Lawful Evil" :
-            roll < 9 ? "Neutral Evil" :
-            roll < 13 ? "Neutral" :
-            roll < 16 ? "Neutral Good" :
-            roll < 17 ? "Lawful Good" :
-            roll < 18 ? "Lawful Neutral" :
-            Random.Array(["Chaotic Good", "Chaotic Neutral"]);
+                roll < 9 ? "Neutral Evil" :
+                    roll < 13 ? "Neutral" :
+                        roll < 16 ? "Neutral Good" :
+                            roll < 17 ? "Lawful Good" :
+                                roll < 18 ? "Lawful Neutral" :
+                                    Random.Array(["Chaotic Good", "Chaotic Neutral"]);
     },
 
-    ClassWeighted: function() {
+    ClassWeighted: function () {
         let rand = Random.Num(115);
         return rand < 7 ? "Barbarian" :
             rand < 14 ? "Bard" :
-            rand < 29 ? "Cleric" :
-            rand < 36 ? "Druid" :
-            rand < 52 ? "Fighter" :
-            rand < 58 ? "Monk" :
-            rand < 64 ? "Paladin" :
-            rand < 70 ? "Ranger" :
-            rand < 84 ? "Rogue" :
-            rand < 89 ? "Sorcerer" :
-            rand < 94 ? "Warlock" :
-            rand < 100 ? "Wizard" :
-            rand < 105 ? (usedBooks.includes("Unofficial") ? "Blood Hunter" : this.ClassWeighted()) :
-            rand < 110 ? (usedBooks.includes("UA") ? "Artificer" : this.ClassWeighted()) :
-            (usedBooks.includes("UA") ? "Mystic" : this.ClassWeighted());
+                rand < 29 ? "Cleric" :
+                    rand < 36 ? "Druid" :
+                        rand < 52 ? "Fighter" :
+                            rand < 58 ? "Monk" :
+                                rand < 64 ? "Paladin" :
+                                    rand < 70 ? "Ranger" :
+                                        rand < 84 ? "Rogue" :
+                                            rand < 89 ? "Sorcerer" :
+                                                rand < 94 ? "Warlock" :
+                                                    rand < 100 ? "Wizard" :
+                                                        rand < 105 ? (usedBooks.includes("EBR") ? "Artificer" : this.ClassWeighted()) :
+                                                            rand < 110 ? (usedBooks.includes("Other") ? "Blood Hunter" : this.ClassWeighted()) :
+                                                                (usedBooks.includes("UA") ? "Mystic" : this.ClassWeighted());
     },
 
-    Status: function() {
+    Status: function () {
         let roll = Random.DiceRoll("3d6");
         return roll < 4 ? "Dead (roll on the Cause of Death table)" :
             roll < 6 ? "Missing or unknown" :
-            roll < 9 ? "Alive, but doing poorly due to injury, financial trouble, or relationship difficulties" :
-            roll < 13 ? "Alive and well" :
-            roll < 16 ? "Alive and quite successful" :
-            roll < 18 ? "Alive and infamous" :
-            "Alive and famous";
+                roll < 9 ? "Alive, but doing poorly due to injury, financial trouble, or relationship difficulties" :
+                    roll < 13 ? "Alive and well" :
+                        roll < 16 ? "Alive and quite successful" :
+                            roll < 18 ? "Alive and infamous" :
+                                "Alive and famous";
     },
 
-    RaisedBy: function() {
+    RaisedBy: function () {
         let rand = Random.Num(100);
         return rand < 1 ? "Nobody" :
             rand < 2 ? "Institution, such as an asylum" :
-            rand < 3 ? "Temple" :
-            rand < 5 ? "Orphanage" :
-            rand < 7 ? "Guardian" :
-            rand < 15 ? "Paternal or maternal aunt, uncle, or both : or extended family such as a tribe or clan" :
-            rand < 25 ? "Paternal or maternal grandparent(s)" :
-            rand < 35 ? "Adoptive family (same or different race)" :
-            rand < 55 ? "Single father or stepfather" :
-            rand < 75 ? "Single mother or stepmother" :
-            "Mother and father";
+                rand < 3 ? "Temple" :
+                    rand < 5 ? "Orphanage" :
+                        rand < 7 ? "Guardian" :
+                            rand < 15 ? "Paternal or maternal aunt, uncle, or both : or extended family such as a tribe or clan" :
+                                rand < 25 ? "Paternal or maternal grandparent(s)" :
+                                    rand < 35 ? "Adoptive family (same or different race)" :
+                                        rand < 55 ? "Single father or stepfather" :
+                                            rand < 75 ? "Single mother or stepmother" :
+                                                "Mother and father";
     },
 
-    AbsentParent: function() {
+    AbsentParent: function () {
         let rand = Random.Num(4);
         return rand < 1 ? "Your parent(s) died" :
             rand < 2 ? "Your parent(s) was/were imprisoned, enslaved, or otherwise taken away" :
-            rand < 3 ? "Your parent(s) abandoned you" :
-            "Your parent(s) disappeared to an unknown fate";
+                rand < 3 ? "Your parent(s) abandoned you" :
+                    "Your parent(s) disappeared to an unknown fate";
     },
 
-    Lifestyle: function() {
+    Lifestyle: function () {
         let roll = Random.DiceRoll("3d6");
         return roll < 4 ? ["Wretched", -40] :
             roll < 6 ? ["Squalid", -20] :
-            roll < 9 ? ["Poor", -10] :
-            roll < 13 ? ["Modest", 0] :
-            roll < 16 ? ["Comfortable", 10] :
-            roll < 18 ? ["Wealthy", 20] : ["Aristocratic", 40];
+                roll < 9 ? ["Poor", -10] :
+                    roll < 13 ? ["Modest", 0] :
+                        roll < 16 ? ["Comfortable", 10] :
+                            roll < 18 ? ["Wealthy", 20] : ["Aristocratic", 40];
     },
 
-    Home: function(lifeMod) {
+    Home: function (lifeMod) {
         let rand = Random.Num(100) + lifeMod;
         return rand < 0 ? "On the streets" :
             rand < 20 ? "Rundown shack" :
-            rand < 30 ? "No permanent residence, you moved around a lot" :
-            rand < 40 ? "Encampment of village in the wilderness" :
-            rand < 50 ? "Apartment in a rundown neighborhood" :
-            rand < 70 ? "Small house" :
-            rand < 90 ? "Large house" :
-            rand < 110 ? "Mansion" :
-            "Palace or Castle";
+                rand < 30 ? "No permanent residence, you moved around a lot" :
+                    rand < 40 ? "Encampment of village in the wilderness" :
+                        rand < 50 ? "Apartment in a rundown neighborhood" :
+                            rand < 70 ? "Small house" :
+                                rand < 90 ? "Large house" :
+                                    rand < 110 ? "Mansion" :
+                                        "Palace or Castle";
     },
 
-    Memories: function() {
+    Memories: function () {
         let roll = Random.DiceRoll("3d6") + Random.Num(5) - 1;
         return roll < 4 ? "I am still haunted by my childhood, when I was treated badly by my peers" :
             roll < 6 ? "I spent most of my childhood alone, with no close friends" :
-            roll < 9 ? "Others saw me as being different or strange, and so I had few companions" :
-            roll < 13 ? "I had a few close friends and lived an ordinary childhood." :
-            roll < 16 ? "I had several friends, and my childhood was generally a happy one." :
-            roll < 18 ? "I always found it easy to make friends, and I loved being around people." :
-            "Everyone knew who I was, and I had friends everywhere I went.";
+                roll < 9 ? "Others saw me as being different or strange, and so I had few companions" :
+                    roll < 13 ? "I had a few close friends and lived an ordinary childhood." :
+                        roll < 16 ? "I had several friends, and my childhood was generally a happy one." :
+                            roll < 18 ? "I always found it easy to make friends, and I loved being around people." :
+                                "Everyone knew who I was, and I had friends everywhere I went.";
     },
 
-    Relationship: function() {
+    Relationship: function () {
         let roll = Random.DiceRoll("3d4");
         return roll < 5 ? "Hostile" :
             roll < 11 ? "Friendly" :
-            "Indifferent";
+                "Indifferent";
     },
 }
 
 var LockFunctions = {
-    TryLock: function(id) {
+    TryLock: function (id) {
         let button = $("#" + id + "-lock-button").children(":first"),
             lockThis = !lock[id];
         lock[id] = lockThis;
         button.prop("class", lockThis ? "fa fa-lock" : "fa fa-lock-open");
     },
-    TryLockAll: function(id) {
-        lock.all.forEach(function(id) {
+    TryLockAll: function (id) {
+        lock.all.forEach(function (id) {
             lock[id] = true;
             $("#" + id + "-lock-button").children(":first").prop("class", "fa fa-lock");
         });
     },
-    TryUnlockAll: function(id) {
-        lock.all.forEach(function(id) {
+    TryUnlockAll: function (id) {
+        lock.all.forEach(function (id) {
             lock[id] = false;
             $("#" + id + "-lock-button").children(":first").prop("class", "fa fa-lock-open");
         });
@@ -1067,31 +1108,30 @@ var LockFunctions = {
 }
 
 // When the page loads
-$(function() {
+$(function () {
     let calls = 9, generateNew = false;
-    const GetJSON = function(name) {
-        $.getJSON("js/JSON/" + name + ".json", function(data) {
+    const GetJSON = function (name) {
+        $.getJSON("js/JSON/" + name + ".json", function (data) {
             window[name] = data;
             calls--;
             if (calls <= 0) {
                 CharacterType.GetNoCard();
                 Dropdowns.Update();
-				if(generateNew)
-					Generate.All();
-				else
-				{
-					Characters.LoadCharacter(character);
-					Characters.SaveCharacter();
-				}
+                if (generateNew)
+                    Generate.All();
+                else {
+                    Characters.LoadCharacter(character);
+                    Characters.SaveCharacter();
+                }
             }
         });
     }
-	
-	let savedData = localStorage.getItem("SavedCharacterData");
-	if (savedData == undefined)
-		generateNew = true;
-	else
-		character = JSON.parse(savedData);
+
+    let savedData = localStorage.getItem("SavedCharacterData");
+    if (savedData == undefined)
+        generateNew = true;
+    else
+        character = JSON.parse(savedData);
 
     GetJSON("backgrounds");
     GetJSON("books");
@@ -1109,35 +1149,35 @@ $(function() {
 });
 
 let Characters = {
-	SaveCharacter: function() {
-		prevCharacters.unshift(Object.assign({}, character));
-		if(prevCharacters.length > 25)
-			prevCharacters.pop();
-		this.SetDropdown();
-	},
-	SaveToStorage: function() {
-		localStorage.setItem("SavedCharacterData", JSON.stringify(character));
-	},
-	LoadCharacter: function(loadedCharacter) {
-		character = Object.assign({}, loadedCharacter);
-		Content.Get();
-		CardType.Set();
-		SetHTML();
-		this.SaveToStorage();
-	},
-	SetDropdown: function() {
-		if(prevCharacters.length < 2) return;
-		let options = ["<option value=''>-Select-</option>"];
+    SaveCharacter: function () {
+        prevCharacters.unshift(Object.assign({}, character));
+        if (prevCharacters.length > 25)
+            prevCharacters.pop();
+        this.SetDropdown();
+    },
+    SaveToStorage: function () {
+        localStorage.setItem("SavedCharacterData", JSON.stringify(character));
+    },
+    LoadCharacter: function (loadedCharacter) {
+        character = Object.assign({}, loadedCharacter);
+        Content.Get();
+        CardType.Set();
+        SetHTML();
+        this.SaveToStorage();
+    },
+    SetDropdown: function () {
+        if (prevCharacters.length < 2) return;
+        let options = ["<option value=''>-Select-</option>"];
         for (let index = 0; index < prevCharacters.length; index++) {
-			let prevCharacter = prevCharacters[index];
-			options.push("<option value='" + index + "'>" + prevCharacter.ShortName + ", " + prevCharacter.Race.name + " " + (prevCharacter.type == "npc" ? prevCharacter.Occupation : prevCharacter.Class.name) + "</option>");
-		}
-		$("#recent-characters-dropdown").html(options.join(""));
-		$("#recent-characters").show();
-	},
-	LoadFromDropdown: function() {
-		let num = $("#recent-characters-dropdown").val();
-		if(num != "")
-			this.LoadCharacter(prevCharacters[num]);
-	}
+            let prevCharacter = prevCharacters[index];
+            options.push("<option value='" + index + "'>" + prevCharacter.ShortName + ", " + prevCharacter.Race.name + " " + (prevCharacter.type == "npc" ? prevCharacter.Occupation : prevCharacter.Class.name) + "</option>");
+        }
+        $("#recent-characters-dropdown").html(options.join(""));
+        $("#recent-characters").show();
+    },
+    LoadFromDropdown: function () {
+        let num = $("#recent-characters-dropdown").val();
+        if (num != "")
+            this.LoadCharacter(prevCharacters[num]);
+    }
 }

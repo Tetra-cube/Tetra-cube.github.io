@@ -8,7 +8,6 @@ function UpdateList() {
         usedBooks = ["Real", "PHB"];
         for (let bookNum = 0; bookNum < books.availableBooks.length; bookNum++) {
             let book = books.availableBooks[bookNum];
-            if (book == "MR") continue;
             if (document.getElementById(book + "box").checked)
                 usedBooks.push(book);
         }
@@ -39,7 +38,7 @@ function UpdateList() {
 // Gets content from dnd-data and puts it into a format more readable to the generator (also filters out things that should be inaccessible)
 var Content = {
     // Recursive function to populate the content lists
-    Get: function(item) {
+    Get: function (item) {
         let properties = [];
         for (let propertyName in item) {
             let property = item[propertyName],
@@ -64,7 +63,7 @@ var Content = {
         return properties;
     },
 
-    GetNext: function(item) {
+    GetNext: function (item) {
         if (item == null) return null;
         if (typeof item == "object") {
             if (Array.isArray(item)) // If item is an array
@@ -97,7 +96,7 @@ var Content = {
         return item; // If item is a string or other simple variable
     },
 
-    Special: function(item) {
+    Special: function (item) {
         // Clone the item, remove special from the clone, and apply every special in order
         let newItem = Object.assign({}, item),
             cases = item._special.split(" ");
@@ -107,7 +106,7 @@ var Content = {
         return jQuery.isEmptyObject(newItem) ? null : this.GetNext(newItem);
     },
 
-    ApplySpecial: function(special, specialItem) // Apply one special case to an object and return the resulting object
+    ApplySpecial: function (special, specialItem) // Apply one special case to an object and return the resulting object
     {
         if (specialItem == null) return null;
         let splitSpecial = special.split("-");
@@ -138,23 +137,45 @@ var Content = {
                 return chObj;
 
             case "dragonbornnickname":
-            case "tieflingvarianttype":
+            case "dragonbornvarianttype":
+            case "dragonmarkvariant":
             case "tieflingappearance":
+            case "tieflingvarianttype":
                 return specialItem._array;
 
             case "backgroundtraits": // For the SCAG backgrounds where the writers were lazy and used personalities from the PHB 
                 let backgroundCopy = backgrounds[splitSpecial[1].split("_").join(" ")];
-                specialItem["Trait"] = backgroundCopy.Trait;
-                specialItem["Ideal"] = backgroundCopy.Ideal;
-                specialItem["Bond"] = backgroundCopy.Bond;
-                specialItem["Flaw"] = backgroundCopy.Flaw;
-                return specialItem;
+                // specialItem["Trait"] = backgroundCopy.Trait;
+                // specialItem["Ideal"] = backgroundCopy.Ideal;
+                // specialItem["Bond"] = backgroundCopy.Bond;
+                // specialItem["Flaw"] = backgroundCopy.Flaw;
+                return {
+                    "Trait": backgroundCopy.Trait,
+                    "Ideal": backgroundCopy.Ideal,
+                    "Bond": backgroundCopy.Bond,
+                    "Flaw": backgroundCopy.Flaw
+                };
+
+            case "ravnicacontacts":
+                let guildName = specialItem["_name"],
+                    ravnicaContacts = {};
+                ravnicaContacts[guildName + " Contact"] = specialItem["_guild"];
+                ravnicaContacts["Non-" + guildName + " Contact"] = specialItem["_nonguild"];
+                return ravnicaContacts;
+
+            case "dimircontacts":
+                let dimirContacts = {}, guilds = [];
+                for (let index = 0; index < specialItem._guilds.length; index++)
+                    guilds.push(specialItem._guilds[index].name);
+                dimirContacts["Dimir Contact"] = specialItem["_dimircontact"];
+                dimirContacts["Secondary Guild"] = guilds;
+                return dimirContacts;
         }
 
         return specialItem;
     },
 
-    CheckForBook: function(booksString) // Check if any of the books in a given string are enabled
+    CheckForBook: function (booksString) // Check if any of the books in a given string are enabled
     {
         for (let index in usedBooks) {
             if (booksString.includes(usedBooks[index]))
@@ -166,7 +187,7 @@ var Content = {
 
 // Functions for making content objects into HTML strings to be displayed
 var HTMLStrings = {
-    Make: function(arr) {
+    Make: function (arr) {
         let stringBuffer = [];
         for (let index = 0; index < arr.length; index++) {
             let item = arr[index];
@@ -175,7 +196,7 @@ var HTMLStrings = {
         return stringBuffer.join("");
     },
 
-    MakeNext: function(item, noBulletPoints = false) {
+    MakeNext: function (item, noBulletPoints = false) {
         if (typeof item == "object") {
             if (Array.isArray(item)) // If item is an array
             {
@@ -226,7 +247,7 @@ var HTMLStrings = {
         return item;
     },
 
-    MakeNames: function(item) {
+    MakeNames: function (item) {
         let stringBuffer = [];
         stringBuffer.push("<ul>")
         for (let index = 0; index < item.length; index++)
@@ -235,7 +256,7 @@ var HTMLStrings = {
         return stringBuffer.join("");
     },
 
-    MakeNamesNext: function(item) {
+    MakeNamesNext: function (item) {
         if (typeof item == "object") {
             if (Array.isArray(item)) {
                 let stringBuffer = [];
@@ -254,11 +275,11 @@ var HTMLStrings = {
 // Deal with collapsible buttons, collapse/expand content
 var Collapsibles = {
 
-    New: function() {
+    New: function () {
         return "<span class=\"collapsiblebutton\" onclick=\"Collapsibles.CollapseExpand(this)\">[+] </span>"
     },
 
-    CollapseExpand: function(button) {
+    CollapseExpand: function (button) {
         let item = $(button).parent().next();
 
         while (item[0].tagName != "UL")
@@ -274,17 +295,17 @@ var Collapsibles = {
         }
     },
 
-    ExpandAll: function(listName) {
+    ExpandAll: function (listName) {
         let buttons = $("#" + listName).find(".collapsiblebutton");
-        $.each(buttons, function() {
+        $.each(buttons, function () {
             $(this).html("[-] ");
             $(this).parent().next().show();
         });
     },
 
-    RetractAll: function(listName) {
+    RetractAll: function (listName) {
         let buttons = $("#" + listName).find(".collapsiblebutton");
-        $.each(buttons, function() {
+        $.each(buttons, function () {
             $(this).html("[+] ");
             $(this).parent().next().hide();
         });
@@ -293,7 +314,7 @@ var Collapsibles = {
 
 // Populate the UA lists at the bottom
 var UAStuff = {
-    Get: function(arr) {
+    Get: function (arr) {
         let stringBuffer = []
         for (let index = 0; index < arr.length; index++) {
             let item = arr[index];
@@ -303,10 +324,10 @@ var UAStuff = {
     }
 }
 
-$(function() {
+$(function () {
     let calls = 7;
-    const GetJSON = function(name) {
-        $.getJSON("js/JSON/" + name + ".json", function(data) {
+    const GetJSON = function (name) {
+        $.getJSON("js/JSON/" + name + ".json", function (data) {
             window[name] = data;
             calls--;
             if (calls <= 0)

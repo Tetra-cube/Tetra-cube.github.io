@@ -1,16 +1,38 @@
 {
 	"Artificer": {
-		"_special": "book-UA",
-		"Artificer Specialty": ["Alchemist", "Archivist", "Artillerist", "Battle Smith"]
+		"_special": "book-EBR",
+		"Artificer Specialty": {
+			"_special": "booksort",
+			"EBR": [
+				"Alchemist",
+				"Artillerist",
+				"Battle Smith"
+			],
+			"UA": [
+				"Armorer"
+			]
+		}
 	},
 	"Barbarian": {
 		"_special": "book-PHB",
 		"Primal Path": {
 			"_special": "booksort",
-			"PHB": ["Path of the Berserker", "Path of the Totem Warrior"],
-			"SCAG": ["Path of the Battlerager"],
-			"XGtE": ["Path of the Ancestral Guardian", "Path of the Storm Herald", "Path of the Zealot"],
-			"UA": ["Path of the Wild Soul"]
+			"PHB": [
+				"Path of the Berserker",
+				"Path of the Totem Warrior"
+			],
+			"SCAG": [
+				"Path of the Battlerager"
+			],
+			"XGtE": [
+				"Path of the Ancestral Guardian",
+				"Path of the Storm Herald",
+				"Path of the Zealot"
+			],
+			"UA": [
+				"Path of the Beast",
+				"Path of the Wild Soul"
+			]
 		},
 		"Personality": {
 			"Personal Totem": [
@@ -60,10 +82,21 @@
 		"_special": "book-PHB",
 		"Bard College": {
 			"_special": "booksort",
-			"PHB": ["College of Lore", "College of Valor"],
-			"XGtE": ["College of Glamour", "College of Swords", "College of Whispers"],
-			"UA": ["College of Eloquence", "College of Satire"],
-			"Unofficial": ["College of the Maestro"]
+			"PHB": [
+				"College of Lore",
+				"College of Valor"
+			],
+			"XGtE": [
+				"College of Glamour",
+				"College of Swords",
+				"College of Whispers"
+			],
+			"UA": [
+				"College of Creation",
+				"College of Eloquence",
+				"College of the Maestro",
+				"College of Satire"
+			]
 		},
 		"Personality": {
 			"Defining Works": [
@@ -110,19 +143,46 @@
 		}
 	},
 	"Blood Hunter": {
-		"_special": "book-Unofficial",
-		"Blood Hunter Order": ["Order of the Ghostslayer", "Order of the Lycan", "Order of the Profane Soul", "Order of the Mutant"]
+		"_special": "book-Other",
+		"Blood Hunter Order": [
+			"Order of the Ghostslayer",
+			"Order of the Lycan",
+			"Order of the Profane Soul",
+			"Order of the Mutant"
+		]
 	},
 	"Cleric": {
 		"_special": "book-PHB",
 		"Divine Domain": {
 			"_special": "booksort",
-			"PHB": ["Knowledge Domain", "Life Domain", "Light Domain", "Nature Domain", "Tempest Domain", "Trickery Domain", "War Domain"],
-			"DMG": ["Death Domain"],
-			"SCAG": ["Arcane Domain"],
-			"XGtE": ["Forge Domain", "Grave Domain"],
-			"GGtR": ["Order Domain"],
-			"UA": ["Protection Domain", "Twilight Domain"]
+			"PHB": [
+				"Knowledge Domain",
+				"Life Domain",
+				"Light Domain",
+				"Nature Domain",
+				"Tempest Domain",
+				"Trickery Domain",
+				"War Domain"
+			],
+			"DMG": [
+				"Death Domain"
+			],
+			"SCAG": [
+				"Arcane Domain"
+			],
+			"XGtE": [
+				"Forge Domain",
+				"Grave Domain"
+			],
+			"GGtR": [
+				"Order Domain"
+			],
+			"UA": [
+				"City Domain",
+				"Protection Domain",
+				"Twilight Domain",
+				"Unity Domain"
+			]
 		},
 		"Personality": {
 			"Temple": [
@@ -172,10 +232,22 @@
 		"_special": "book-PHB",
 		"Druid Circle": {
 			"_special": "booksort",
-			"PHB": ["Circle of the Land", "Circle of the Moon"],
-			"XGtE": ["Circle of Dreams", "Circle of the Shepherd"],
-			"GGtR": ["Circle of Spores"],
-			"UA": ["Circle of Twilight", "Circle of Wildfire"]
+			"PHB": [
+				"Circle of the Land",
+				"Circle of the Moon"
+			],
+			"XGtE": [
+				"Circle of Dreams",
+				"Circle of the Shepherd"
+			],
+			"GGtR": [
+				"Circle of Spores"
+			],
+			"UA": [
+				"Circle of Stars",
+				"Circle of Twilight",
+				"Circle of Wildfire"
+			]
 		},
 		"Personality": {
 			"Treasured Item": [
@@ -225,11 +297,33 @@
 		"_special": "book-PHB",
 		"Martial Archetype": {
 			"_special": "booksort",
-			"PHB": ["Champion", "Battle Master", "Eldritch Knight"],
-			"SCAG": ["Banneret/Purple Dragon Knight"],
-			"XGtE": ["Arcane Archer", "Cavalier", "Samurai"],
-			"UA": ["Scout", "Monster Hunter", "Sharpshooter", "Brute"],
-			"Unofficial": ["Gunslinger"]
+			"PHB": [
+				"Champion",
+				"Battle Master",
+				"Eldritch Knight"
+			],
+			"SCAG": [
+				"Banneret/Purple Dragon Knight"
+			],
+			"XGtE": [
+				"Arcane Archer",
+				"Cavalier",
+				"Samurai"
+			],
+			"EGtW": [
+				"Echo Knight"
+			],
+			"Other": [
+				"Gunslinger"
+			],
+			"UA": [
+				"Brute",
+				"Monster Hunter",
+				"Psi Knight",
+				"Rune Knight",
+				"Scout",
+				"Sharpshooter"
+			]
 		},
 		"Personality": {
 			"Heraldic Sign": [
@@ -279,11 +373,26 @@
 		"_special": "book-PHB",
 		"Monastic Tradition": {
 			"_special": "booksort",
-			"PHB": ["Way of the Open Hand", "Way of Shadow", "Way of the Four Elements"],
-			"SCAG": ["Way of the Long Death"],
-			"XGtE": ["Way of the Drunken Master", "Way of the Kensei"],
-			"SCAG/XGtE": ["Way of the Sun Soul"],
-			"UA": ["Way of Tranquility", "Way of the Astral Self"]
+			"PHB": [
+				"Way of the Open Hand",
+				"Way of Shadow",
+				"Way of the Four Elements"
+			],
+			"SCAG": [
+				"Way of the Long Death"
+			],
+			"XGtE": [
+				"Way of the Drunken Master",
+				"Way of the Kensei"
+			],
+			"SCAG/XGtE": [
+				"Way of the Sun Soul"
+			],
+			"UA": [
+				"Way of the Astral Self",
+				"Way of Mercy",
+				"Way of Tranquility"
+			]
 		},
 		"Personality": {
 			"Monastery": [
@@ -331,17 +440,39 @@
 	},
 	"Mystic": {
 		"_special": "book-UA",
-		"Mystic Order": ["Order of the Avatar", "Order of the Awakened", "Order of the Immortal", "Order of the Nomad", "Order of the Soul Knife", "Order of the Wu Jen"]
+		"Mystic Order": [
+			"Order of the Avatar",
+			"Order of the Awakened",
+			"Order of the Immortal",
+			"Order of the Nomad",
+			"Order of the Soul Knife",
+			"Order of the Wu Jen"
+		]
 	},
 	"Paladin": {
 		"_special": "book-PHB",
 		"Sacred Oath": {
 			"_special": "booksort",
-			"PHB": ["Oath of Devotion", "Oath of the Ancients", "Oath of Vengeance"],
-			"DMG": ["Oathbreaker"],
-			"SCAG": ["Oath of the Crown"],
-			"XGtE": ["Oath of Conquest", "Oath of Redemption"],
-			"UA": ["Oath of Heroism", "Oath of Treachery"]
+			"PHB": [
+				"Oath of the Ancients",
+				"Oath of Devotion",
+				"Oath of Vengeance"
+			],
+			"DMG": [
+				"Oathbreaker"
+			],
+			"SCAG": [
+				"Oath of the Crown"
+			],
+			"XGtE": [
+				"Oath of Conquest",
+				"Oath of Redemption"
+			],
+			"UA": [
+				"Oath of Heroism",
+				"Oath of Treachery",
+				"Oath of the Watchers"
+			]
 		},
 		"Personality": {
 			"Personal Goal": [
@@ -402,9 +533,20 @@
 		"_special": "book-PHB",
 		"Ranger Archetype": {
 			"_special": "booksort",
-			"PHB": ["Hunter", "Beast Master"],
-			"XGtE": ["Gloom Stalker", "Horizon Walker", "Monster Slayer"],
-			"UA": ["Primeval Guardian"]
+			"PHB": [
+				"Beast Master",
+				"Hunter"
+			],
+			"XGtE": [
+				"Gloom Stalker",
+				"Horizon Walker",
+				"Monster Slayer"
+			],
+			"UA": [
+				"Fey Wanderer",
+				"Primeval Guardian",
+				"Swarmkeeper"
+			]
 		},
 		"Personality": {
 			"View of the World": [
@@ -454,9 +596,23 @@
 		"_special": "book-PHB",
 		"Roguish Archetype": {
 			"_special": "booksort",
-			"PHB": ["Thief", "Assassin", "Arcane Trickster"],
-			"XGtE": ["Inquisitive", "Scout"],
-			"SCAG/XGtE": ["Mastermind", "Swashbuckler"]
+			"PHB": [
+				"Thief",
+				"Assassin",
+				"Arcane Trickster"
+			],
+			"XGtE": [
+				"Inquisitive",
+				"Scout"
+			],
+			"SCAG/XGtE": [
+				"Mastermind",
+				"Swashbuckler"
+			],
+			"UA": [
+				"The Revived",
+				"Soulknife"
+			]
 		},
 		"Personality": {
 			"Guilty Pleasure": [
@@ -506,10 +662,25 @@
 		"_special": "book-PHB",
 		"Sorcerous Origin": {
 			"_special": "booksort",
-			"PHB": ["Draconic Bloodline", "Wild Magic"],
-			"XGtE": ["Divine Soul", "Shadow Magic"],
-			"SCAG/XGtE": ["Storm Sorcery"],
-			"UA": ["Aberrant Mind", "Giant Soul", "Phoenix Sorcery", "Sea Sorcery", "Stone Sorcery"]
+			"PHB": [
+				"Draconic Bloodline",
+				"Wild Magic"
+			],
+			"XGtE": [
+				"Divine Soul",
+				"Shadow Magic"
+			],
+			"SCAG/XGtE": [
+				"Storm Sorcery"
+			],
+			"UA": [
+				"Clockwork Soul",
+				"Giant Soul",
+				"Phoenix Sorcery",
+				"Psionic soul",
+				"Sea Sorcery",
+				"Stone Sorcery"
+			]
 		},
 		"Personality": {
 			"Arcane Origins": [
@@ -570,10 +741,25 @@
 		"_special": "book-PHB",
 		"Otherworldly Patron": {
 			"_special": "booksort",
-			"PHB": ["The Archfey", "The Fiend", "The Great Old One"],
-			"SCAG": ["The Undying"],
-			"XGtE": ["The Celestial", "The Hexblade"],
-			"UA": ["The Lurker in the Deep", "The Seeker", "The Raven Queen"]
+			"PHB": [
+				"The Archfey",
+				"The Fiend",
+				"The Great Old One"
+			],
+			"SCAG": [
+				"The Undying"
+			],
+			"XGtE": [
+				"The Celestial",
+				"The Hexblade"
+			],
+			"UA": [
+				"Ghost in the Machine",
+				"The Lurker in the Deep",
+				"The Noble Genie",
+				"The Raven Queen",
+				"The Seeker"
+			]
 		},
 		"Personality": {
 			"Patron Attitudes": [
@@ -623,10 +809,33 @@
 		"_special": "book-PHB",
 		"Arcane Tradition": {
 			"_special": "booksort",
-			"PHB": ["School of Abjuration", "School of Conjuration", "School of Divination", "School of Enchantment", "School of Evocation", "School of Illusion", "School of Necromancy", "School of Transmutation"],
-			"SCAG": ["Bladesinging"],
-			"XGtE": ["War Magic"],
-			"UA": ["Onomancy", "School of Invention", "Theurgy"]
+			"PHB": [
+				"School of Abjuration",
+				"School of Conjuration",
+				"School of Divination",
+				"School of Enchantment",
+				"School of Evocation",
+				"School of Illusion",
+				"School of Necromancy",
+				"School of Transmutation"
+			],
+			"SCAG": [
+				"Bladesinging"
+			],
+			"XGtE": [
+				"War Magic"
+			],
+			"EGtW": [
+				"Chronurgy Magic",
+				"Graviturgy Magic"
+			],
+			"UA": [
+				"Onomancy",
+				"Psionics",
+				"School of Invention",
+				"Technomancy",
+				"Theurgy"
+			]
 		},
 		"Personality": {
 			"Spellbook": [

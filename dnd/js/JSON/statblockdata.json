@@ -1,5 +1,6 @@
 {
-	"stats": [{
+	"stats": [
+		{
 			"name": "str",
 			"order": 0
 		},
@@ -24,8 +25,16 @@
 			"order": 5
 		}
 	],
-	"statNames": ["str", "dex", "con", "int", "wis", "cha"],
-	"allSkills": [{
+	"statNames": [
+		"str",
+		"dex",
+		"con",
+		"int",
+		"wis",
+		"cha"
+	],
+	"allSkills": [
+		{
 			"name": "acrobatics",
 			"stat": "dex"
 		},
@@ -98,11 +107,38 @@
 			"stat": "wis"
 		}
 	],
-
-	"allNormalDamageTypes": ["acid", "bludgeoning", "cold", "fire", "force", "lightning", "necrotic", "piercing", "poison", "psychic", "radiant", "slashing", "thunder"],
-
-	"allConditions": ["blinded", "charmed", "deafened", "exhaustion", "frightened", "grappled", "incapacitated", "invisible", "paralyzed", "petrified", "poisoned", "prone", "restrained", "stunned", "unconscious"],
-
+	"allNormalDamageTypes": [
+		"acid",
+		"bludgeoning",
+		"cold",
+		"fire",
+		"force",
+		"lightning",
+		"necrotic",
+		"piercing",
+		"poison",
+		"psychic",
+		"radiant",
+		"slashing",
+		"thunder"
+	],
+	"allConditions": [
+		"blinded",
+		"charmed",
+		"deafened",
+		"exhaustion",
+		"frightened",
+		"grappled",
+		"incapacitated",
+		"invisible",
+		"paralyzed",
+		"petrified",
+		"poisoned",
+		"prone",
+		"restrained",
+		"stunned",
+		"unconscious"
+	],
 	"sizes": {
 		"tiny": {
 			"hitDie": 4
@@ -123,9 +159,22 @@
 			"hitDie": 20
 		}
 	},
-
-	"types": ["aberration", "beast", "celestial", "construct", "dragon", "elemental", "fey", "fiend", "giant", "humanoid", "monstrosity", "ooze", "plant", "undead"],
-
+	"types": [
+		"aberration",
+		"beast",
+		"celestial",
+		"construct",
+		"dragon",
+		"elemental",
+		"fey",
+		"fiend",
+		"giant",
+		"humanoid",
+		"monstrosity",
+		"ooze",
+		"plant",
+		"undead"
+	],
 	"crs": {
 		"0": {
 			"xp": "10",
@@ -540,7 +589,6 @@
 			"prof": 26
 		}
 	},
-
 	"armors": {
 		"none": {
 			"type": "special"
@@ -603,7 +651,6 @@
 			"type": "special"
 		}
 	},
-
 	"defaultPreset": {
 		"slug": "",
 		"name": "Monster",
@@ -646,10 +693,16 @@
 		"special_abilities": "",
 		"document_slug": "systems-reference-document"
 	},
-
-	"attackTypes": ["melee or ranged weapon attack:", "melee or ranged spell attack:", "melee weapon attack:", "melee spell attack:", "ranged weapon attack:", "ranged spell attack:"],
-
-	"commonAbilities": [{
+	"attackTypes": [
+		"melee or ranged weapon attack:",
+		"melee or ranged spell attack:",
+		"melee weapon attack:",
+		"melee spell attack:",
+		"ranged weapon attack:",
+		"ranged spell attack:"
+	],
+	"commonAbilities": [
+		{
 			"name": "Select Preset",
 			"desc": null
 		},
@@ -657,7 +710,6 @@
 			"name": "",
 			"desc": null
 		},
-
 		{
 			"name": "Melee Weapon Attack (STR)",
 			"realname": "",
@@ -718,12 +770,10 @@
 			"realname": "",
 			"desc": "_Melee or Ranged Weapon Attack:_ [DEX ATK] to hit, reach ??? ft. or range ???/??? ft., one target. _Hit:_ [DEX ???D???] ??? damage."
 		},
-
 		{
 			"name": "",
 			"desc": null
 		},
-
 		{
 			"name": "Multiattack (Action)",
 			"realname": "Multiattack",
@@ -764,12 +814,10 @@
 			"realname": "Innate Spellcasting",
 			"desc": "The [MON]'s innate spellcasting ability is Charisma (spell save DC [CHA SAVE], [CHA ATK] to hit with spell attacks). It can innately cast the following spells, requiring no material components:\n\n> At will: _spell, spell, spell_\n> 3/day each: _spell, spell, spell_\n> 1/day each: _spell, spell_"
 		},
-
 		{
 			"name": "",
 			"desc": null
 		},
-
 		{
 			"name": "Aggressive",
 			"desc": "As a bonus action, the [MON] can move up to its speed toward a hostile creature that it can see."
@@ -1285,12 +1333,10 @@
 			"realname": "Wing Attack (Costs 2 Actions)",
 			"desc": "The [MON] beats its wings. Each creature within ??? ft. of the [MON] must succeed on a DC ??? Dexterity saving throw or take [STR ???D???] bludgeoning damage and be knocked prone. The [MON] can then fly up to half its flying speed."
 		},
-
 		{
 			"name": "",
 			"desc": null
 		},
-
 		{
 			"name": "Battleaxe",
 			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft., one target. _Hit:_ [STR 1D8] slashing damage, or [STR 1D10] slashing damage if used with two hands."

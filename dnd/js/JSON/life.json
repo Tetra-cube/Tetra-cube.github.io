@@ -1,5 +1,15 @@
 {
-	"alignments": ["Lawful Good", "Neutral Good", "Chaotic Good", "Lawful Neutral", "True Neutral", "Chaotic Neutral", "Lawful Evil", "Neutral Evil", "Chaotic Evil"],
+	"alignments": [
+		"Lawful Good",
+		"Neutral Good",
+		"Chaotic Good",
+		"Lawful Neutral",
+		"True Neutral",
+		"Chaotic Neutral",
+		"Lawful Evil",
+		"Neutral Evil",
+		"Chaotic Evil"
+	],
 	"origins": {
 		"Birthplace": [
 			"Home of a family friend",
@@ -107,7 +117,28 @@
 		}
 	},
 	"eventTables": {
-		"Life Events": ["Tragedy", "Tragedy", "Boon", "Boon", "Marriage", "Marriage", "Enemy", "Enemy", "Friend", "Friend", "Job", "Job", "Job", "Job", "Someone Important", "Adventure", "Supernatural Event", "War", "Crime", "Arcane Matter"],
+		"Life Events": [
+			"Tragedy",
+			"Tragedy",
+			"Boon",
+			"Boon",
+			"Marriage",
+			"Marriage",
+			"Enemy",
+			"Enemy",
+			"Friend",
+			"Friend",
+			"Job",
+			"Job",
+			"Job",
+			"Job",
+			"Someone Important",
+			"Adventure",
+			"Supernatural Event",
+			"War",
+			"Crime",
+			"Arcane Matter"
+		],
 		"Adventure": [
 			"You nearly died. You have nasty scars on your body, and you are missing an ear, 1d3 fingers, or 1d4 toes.",
 			"You suffered a grievous injury. Although the wound healed, it still pains you from time to time.",

@@ -1,5 +1,6 @@
 {
-	"creator": [{
+	"creator": [
+		{
 			"name": "Aberration",
 			"desc": "The item was created by aberrations in ancient times, possibly for the use of favored humanoid thralls. When seen from the corner of the eye, the item seems to be moving.",
 			"weight": 1
@@ -80,8 +81,8 @@
 			"weight": 1
 		}
 	],
-
-	"history": [{
+	"history": [
+		{
 			"name": "Arcane",
 			"desc": "This item was created for an ancient order of spellcasters and bears the order’s symbol.",
 			"weight": 1
@@ -122,8 +123,8 @@
 			"weight": 1
 		}
 	],
-
-	"property": [{
+	"property": [
+		{
 			"name": "Beacon",
 			"desc": "The bearer can use a bonus action to cause the item to shed bright light in a 10-foot radius and dim light for an additional 10 feet, or to extinguish the light.",
 			"weight": 1
@@ -219,8 +220,8 @@
 			"weight": 1
 		}
 	],
-
-	"quirk": [{
+	"quirk": [
+		{
 			"name": "Blissful",
 			"desc": "While in possession of the item, the bearer feels fortunate and optimistic about what the future holds. Butterflies and other harmless creatures might frolic in the item’s presence.",
 			"weight": 1
