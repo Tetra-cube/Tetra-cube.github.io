@@ -253,7 +253,7 @@
 			],
 			"_nonguild": [
 				"One of my siblings is an Azorius arrester.",
-				"Roll an additional Boros contact; you can decide if the contact is an ally or a rival.",
+				"_reroll",
 				"I showed mercy to an injured, now-grateful Dimir spy.",
 				"I suspect someone I know is a Golgari assassin, but I can't prove it.",
 				"An adolescent relative ran off to join the Gruul in an act of rebellion and has not yet returned.",
@@ -915,7 +915,7 @@
 				"An Azorius arrester I literally pulled out of the gutter will do anything for me.",
 				"Someone joined the Gruul in a battle against the Boros once, and the sergeant of that Boros squad would love to prove that it was me.",
 				"I had a romance with a Dimir agent whom I still feed secrets to.",
-				"Roll an additional Golgari contact; you can decide if the contact is an ally or a rival.",
+				"_reroll",
 				"I joined the Gruul in a battle against the Boros once, and the chief of that small clan thanks me for turning the tide.",
 				"An Izzet scientist resents that I sold a scrapped invention I found in the sewer.",
 				"My undercity explorations led me into an Orzhov vault, and a spirit thinks I stole something valuable.",
@@ -1024,7 +1024,7 @@
 				"A Boros soldier gives me gifts in exchange for information about other clans' movements.",
 				"I once caught and released a Dimir spy.",
 				"I consult with a Golgari shaman for spiritual guidance at times.",
-				"Roll an additional Gruul contact; you can decide if the contact is an ally or a rival.",
+				"_reroll",
 				"An Izzet scientist blames the Gruul for the destruction of his life's work in a raid, but seems to think that I'm not like other Gruul.",
 				"I foolishly borrowed money from an Orzhov syndic to indulge a shameful vice.",
 				"A close friend left our clan and joined the Cult of Rakdos.",
@@ -1338,7 +1338,7 @@
 				"One of my former assistants turned out to be a Dimir spy. We're not on friendly terms anymore, but we have a habit of running into each other.",
 				"A Golgari assassin killed a bitter rival of mine, leaving me with conflicted feelings.",
 				"I helped a minor Gruul chieftain acquire an Izzet weapon.",
-				"Roll an additional Izzet contact; you can decide if the contact is an ally or a rival.",
+				"_reroll",
 				"An Orzhov banker financed my laboratory's current work and expects great returns.",
 				"I have a cousin in the Cult of Rakdos, and we get along quite well.",
 				"A former attendant from the same laboratory ran off to join the Selesnya, and we get into a big argument every time we run into each other.",
@@ -1507,7 +1507,7 @@
 				"I'm fascinated by the culture of the Golgari kraul, and I have formed a friendship with one of their death priests.",
 				"A Gruul druid hates me but would never dare to touch me.",
 				"I know an Izzet engineer who is desperate to pay off a debt accrued by a deceased relative.",
-				"Roll an additional Orzhov contact; you can decide if the contact is an ally or a rival.",
+				"_reroll",
 				"My childhood friend is now a Rakdos torturer. We still meet for drinks occasionally.",
 				"I have the key to a vault where a Selesnya druid is hiding an item of secret shame.",
 				"I was married to a Simic bioengineer."
@@ -1677,7 +1677,7 @@
 				"I came from the Gruul and still have relatives there.",
 				"An Izzet technician provides pyrotechnics for my performances.",
 				"An Orzhov oligarch has taken an interest in my career, like a patron of the arts.",
-				"Roll an additional Rakdos contact; you can decide if the contact is an ally or a rival.",
+				"_reroll",
 				"A Selesnya healer attends my performances regularly.",
 				"A Simic biomancer provides mutant monsters to add a taste of the bizarre to our shows."
 			]
@@ -1881,7 +1881,7 @@
 				"I once had a heated public argument with an Izzet chemister, and neither of us is allowed back into that restaurant.",
 				"I paid off my debt to the Orzhov Syndicate, but my good friend was not so lucky and remains indebted to that guild.",
 				"At a time of terrible grief in my life, a Rakdos performer made a mockery of my pain, leaving me with mixed feelings of sadness and humor.",
-				"Roll an additional Selesnya contact; you can decide if the contact is an ally or a rival.",
+				"_reroll",
 				"I have a sibling in the Simic Combine, and we argue every time we see each other."
 			]
 		}
@@ -1998,7 +1998,7 @@
 				"I borrowed a lot of money from an Orzhov syndic to help finance my research.",
 				"A Rakdos ringmaster has taken an interest in my research which, come to think of it, might make a nice sideshow act.",
 				"I left the Selesnya-and a lover-behind when I joined the Simic.",
-				"Roll an additional Simic contact; you can decide if the contact is an ally or a rival."
+				"_reroll"
 			]
 		}
 	},
