@@ -158,9 +158,15 @@ var Content = {
 
             case "ravnicacontacts":
                 let guildName = specialItem["_name"],
-                    ravnicaContacts = {};
+                    ravnicaContacts = {}, nonGuildList = [];
+                for (let index = 0; index < specialItem._nonguild.length; index++) {
+                    if (specialItem._nonguild[index] == "_reroll")
+                        nonGuildList[index] = "Roll an additional " + guildName + " contact; you can decide if the contact is an ally or a rivalf."
+                    else
+                        nonGuildList[index] = specialItem._nonguild[index];
+                }
                 ravnicaContacts[guildName + " Contact"] = specialItem["_guild"];
-                ravnicaContacts["Non-" + guildName + " Contact"] = specialItem["_nonguild"];
+                ravnicaContacts["Non-" + guildName + " Contact"] = nonGuildList;
                 return ravnicaContacts;
 
             case "dimircontacts":
