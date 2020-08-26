@@ -42,6 +42,7 @@ var mon = {
     lairDescription: "",
     isRegional: false,
     regionalDescription: "",
+    regionalDescriptionEnd: "",
     properties: [],
     abilities: [],
     actions: [],
@@ -208,8 +209,10 @@ function UpdateStatblock(moveSeparationPoint) {
         AddToTraitList(traitsHTML, mon.legendaries, mon.legendariesDescription == "" ? "<h3>Legendary Actions</h3>" : ["<h3>Legendary Actions</h3><div class='property-block'>", mon.legendariesDescription, "</div></br>"], true);
     if (mon.isLair && mon.isLegendary)
         AddToTraitList(traitsHTML, mon.lairs, mon.lairDescription == "" ? "<h3>Lair Actions</h3>" : ["<h3>Lair Actions</h3><div class='property-block'>", mon.lairDescription, "</div></br>"], false, true);
-    if (mon.isRegional && mon.isLegendary)    
+    if (mon.isRegional && mon.isLegendary){    
         AddToTraitList(traitsHTML, mon.regionals, mon.regionalDescription == "" ? "<h3>Regional Effects</h3>" : ["<h3>Regional Effects</h3><div class='property-block'>", mon.regionalDescription, "</div></br>"], false, true);
+        traitsHTML.push("*"+mon.regionalDescriptionEnd);
+    }
     
     // Add traits, taking into account the width of the block (one column or two columns)
     let leftTraitsArr = [],
@@ -405,6 +408,7 @@ function TryMarkdown() {
     if (mon.isRegional && mon.isLegendary) {
         markdown.push("<br>><br>> ### Regional Effects<br>> ", mon.regionalDescription);
         if (mon.regionals.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.regionals, false, true));
+        markdown.push("<br>><br>>", mon.regionalDescriptionEnd);
     }
 
     markdown.push("</code></body></html>")
@@ -653,6 +657,11 @@ var FormFunctions = {
         $("#regional-descsection-input").val(mon.regionalDescription);
     },
 
+    // For setting the regional effect end description
+    SetRegionalDescriptionEndForm: function() {
+        $("#regional-end-descsection-input").val(mon.regionalDescriptionEnd);
+    },
+
     SetCommonAbilitiesDropdown: function () {
         $("#common-ability-input").html("");
         for (let index = 0; index < data.commonAbilities.length; index++)
@@ -853,6 +862,8 @@ var InputFunctions = {
     RegionalDescriptionDefaultInput: function() {
         GetVariablesFunctions.RegionalDescriptionDefault();
         FormFunctions.SetRegionalDescriptionForm();
+        GetVariablesFunctions.RegionalDescriptionEndDefault();
+        FormFunctions.SetRegionalDescriptionEndForm();
     },
 
     AddCommonAbilityInput: function () {
@@ -941,6 +952,7 @@ var GetVariablesFunctions = {
         mon.isRegional = $("#has-regional-input").prop("checked");
         if (mon.isRegional){
             mon.regionalDescription = $("#regional-descsection-input").val().trim();
+            mon.regionalDescriptionEnd = $("#regional-end-descsection-input").val().trim();
         }
 
         // One or two columns ?
@@ -1178,11 +1190,16 @@ var GetVariablesFunctions = {
 
         // Regional Effects?
         mon.isRegional = Array.isArray(preset.regional_actions);
-        if (preset.regional_desc == null || preset.regional_desc.length == 0)
+        if (preset.regional_desc == null || preset.regional_desc.length == 0){
             this.RegionalDescriptionDefault();
-        else
+            this.RegionalDescriptionEndDefault();
+        }
+        else{
             mon.regionalDescription = preset.regional_desc;
+            mon.regionalDescriptionEnd = preset.regional_desc_end;
+        }
         FormFunctions.SetRegionalDescriptionForm();
+        FormFunctions.SetRegionalDescriptionEndForm();
 
         // Abilities
         mon.abilities = [];
@@ -1409,6 +1426,12 @@ var GetVariablesFunctions = {
     RegionalDescriptionDefault: function() {
         let monsterName = name.toLowerCase();
         mon.regionalDescription = "The region containing the " + mon.name.toLowerCase() + "'s lair is warped by the creature's presence, which creates one or more of the following effects:";
+    },
+
+    // Return the default regional end description
+    RegionalDescriptionEndDefault: function() {
+        let monsterName = name.toLowerCase();
+        mon.regionalDescriptionEnd = "If the " + mon.name.toLowerCase() + " dies, the first two effects fade over the course of 3d10 days.";
     }
 }
 
@@ -1783,6 +1806,7 @@ function Populate() {
     FormFunctions.SetLegendaryDescriptionForm();
     FormFunctions.SetLairDescriptionForm();
     FormFunctions.SetRegionalDescriptionForm();
+    FormFunctions.SetRegionalDescriptionEndForm();
     FormFunctions.SetCommonAbilitiesDropdown();
 
     // Populate the stat block
