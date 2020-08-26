@@ -520,7 +520,7 @@
                 <div id="legendary-actions-form">
                     <br>
                     <label for="has-lair-input"><b>Lair:</b> <input type="checkbox" id="has-lair-input" onclick="FormFunctions.ShowHideLair()"></label>
-                    <label for="has-region-input"><b>Region:</b> <input type="checkbox" id="has-region-input" onclick="FormFunctions.ShowHideRegion()"></label>
+                    <label for="has-regional-input"><b>Regional:</b> <input type="checkbox" id="has-regional-input" onclick="FormFunctions.ShowHideRegional()"></label>
                     <br><br>
                     <b>Legendary Actions Description:</b>
                     <div><label for="legendaries-descsection-input" style="width: 100%"><textarea
@@ -534,11 +534,11 @@
                     <div><label for="lair-descsection-input" style="width: 100%"><textarea id="lair-descsection-input" rows="4"></textarea></label></div>
                     <div><button type="button" onclick="InputFunctions.LairDescriptionDefaultInput()">Reset to Default</button></div>
                 </div>
-                <div id="region-actions-form">
+                <div id="regional-actions-form">
                     <br>
-                    <b>Region Effects Description:</b>
-                    <div><label for="region-descsection-input" style="width: 100%"><textarea id="region-descsection-input" rows="4"></textarea></label></div>
-                    <div><button type="button" onclick="InputFunctions.RegionDescriptionDefaultInput()">Reset to Default</button></div>
+                    <b>Regional Effects Description:</b>
+                    <div><label for="regional-descsection-input" style="width: 100%"><textarea id="regional-descsection-input" rows="4"></textarea></label></div>
+                    <div><button type="button" onclick="InputFunctions.RegionalDescriptionDefaultInput()">Reset to Default</button></div>
                 </div>
                 <br>
                 <b>Abilities:</b>
@@ -555,7 +555,7 @@
                     <button type="button" id="add-legendary-button"
                         onclick="InputFunctions.AddAbilityInput('legendaries')">Add Legendary Action</button>
                     <button type="button" id="add-lair-button" onclick="InputFunctions.AddAbilityInput('lairs')">Add Lair Action</button>
-                    <button type="button" id="add-region-button" onclick="InputFunctions.AddAbilityInput('regions')">Add Region Effect</button>
+                    <button type="button" id="add-regional-button" onclick="InputFunctions.AddAbilityInput('regionals')">Add Regional Effect</button>
                 </div>
                 <div>
                     <select id="common-ability-input"></select>
@@ -597,8 +597,8 @@
                     <div id="lairs-input-section"><b>Lair Actions:</b><br>
                         <ul id="lairs-input-list" class="statblock-list"></ul>
                     </div>
-                    <div id="regions-input-section"><b>Region Effects:</b><br>
-                        <ul id="regions-input-list" class="statblock-list"></ul>
+                    <div id="regionals-input-section"><b>Regional Effects:</b><br>
+                        <ul id="regionals-input-list" class="statblock-list"></ul>
                     </div>
                 </div>
                 <br>
