@@ -310,7 +310,7 @@ var Card = {
                 let trait = backgroundArr[index];
                 // if(trait.name[0] == "_")
                 // continue;
-                if(Array.isArray(trait.content)) {
+                if (Array.isArray(trait.content)) {
                     let contentArr = trait.content;
                     for (let subIndex = 0; subIndex < contentArr.length; subIndex++)
                         allTraits.push(contentArr[subIndex]);
@@ -385,7 +385,7 @@ var Card = {
         ctx.font = labelFont;
         let labelText = sourceItem.name + ": ",
             labelWidth = ctx.measureText(labelText).width;
-            // lineWidth = labelWidth;
+        // lineWidth = labelWidth;
 
         // Get info on the description
         ctx.font = descriptionFont;

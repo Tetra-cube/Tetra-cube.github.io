@@ -137,9 +137,10 @@ label {
 .tooltip {
     position: relative;
     display: inline-block;
-    color: darkred;
-    text-decoration: none;
+    color: black;
+    text-decoration: underline;
     cursor: help;
+    opacity: 1;
 }
 
 .tooltip .tooltiptext {
@@ -157,6 +158,7 @@ label {
     margin-left: -200px;
     border-style: solid;
     border-radius: 5px;
+    text-align: center;
 }
 
 .tooltip:hover .tooltiptext {

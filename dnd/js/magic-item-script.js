@@ -24,23 +24,23 @@ function GenerateHomebrew() {
     let subBuffer = [];
     subBuffer.push(GetItemType());
     AddProp("Origin", RandomFromArray(homebrewTables.origin), subBuffer);
-	
-	
-	let majorprop = RandomFromArray(homebrewTables.majorprop);
+
+
+    let majorprop = RandomFromArray(homebrewTables.majorprop);
     AddProp("Major Property", majorprop, subBuffer);
     if (RandomNum(15) == 0)
-		AddProp("Major Property", GetSecondProperty(homebrewTables.majorprop, majorprop), subBuffer);
+        AddProp("Major Property", GetSecondProperty(homebrewTables.majorprop, majorprop), subBuffer);
 
-	let minorprop = RandomFromArray(homebrewTables.minorprop);
+    let minorprop = RandomFromArray(homebrewTables.minorprop);
     AddProp("Minor Property", RandomFromArray(homebrewTables.minorprop), subBuffer);
     if (RandomNum(15) == 0)
-		AddProp("Minor Property", GetSecondProperty(homebrewTables.minorprop, minorprop), subBuffer);
-	
-	let specialprop = RandomFromArray(homebrewTables.specialprop);
+        AddProp("Minor Property", GetSecondProperty(homebrewTables.minorprop, minorprop), subBuffer);
+
+    let specialprop = RandomFromArray(homebrewTables.specialprop);
     AddProp("Special Property", RandomFromArray(homebrewTables.specialprop), subBuffer);
     if (RandomNum(15) == 0)
-		AddProp("Special Property", GetSecondProperty(homebrewTables.specialprop, specialprop), subBuffer);
-	
+        AddProp("Special Property", GetSecondProperty(homebrewTables.specialprop, specialprop), subBuffer);
+
     AddToItemsList(subBuffer.join("<br>"));
 }
 
@@ -59,7 +59,7 @@ function GetSecondProperty(table, firstprop) {
     let prop = null;
     do prop = table[RandomNum(table.length)];
     while (prop == firstprop);
-	return prop;
+    return prop;
 }
 
 function AddToItemsList(newItem) {
@@ -78,14 +78,14 @@ function RandomFromArray(arr) {
 }
 
 // When the page loads
-$(function() {
-    $.getJSON("js/JSON/magic-item-specials.json", function(data) {
+$(function () {
+    $.getJSON("js/JSON/magic-item-specials.json", function (data) {
         dmgTables.creator = GetTable(data.creator);
         dmgTables.history = GetTable(data.history);
         dmgTables.property = GetTable(data.property);
         dmgTables.quirk = GetTable(data.quirk);
     });
-    $.getJSON("js/JSON/magic-item-homebrews.json", function(data) {
+    $.getJSON("js/JSON/magic-item-homebrews.json", function (data) {
         homebrewTables.origin = GetTable(data.origin);
         homebrewTables.majorprop = GetTable(data.majorprop);
         homebrewTables.minorprop = GetTable(data.minorprop);
