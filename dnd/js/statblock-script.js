@@ -34,6 +34,8 @@ var mon = {
     truesight: 0,
     telepathy: 0,
     cr: 1,
+    customCr: "",
+    customProf: 2,
     isLegendary: false,
     legendariesDescription: "",
     properties: [],
@@ -47,6 +49,8 @@ var mon = {
     specialdamage: [],
     conditions: [],
     languages: [],
+    understandsBut: "",
+    shortName: "",
     doubleColumns: false,
     separationPoint: 1
 };
@@ -77,7 +81,7 @@ function TryPrint() {
 // View as image function
 function TryImage() {
     domtoimage.toBlob(document.getElementById("stat-block"))
-        .then(function(blob) {
+        .then(function (blob) {
             window.saveAs(blob, mon.name.toLowerCase() + ".png");
         });
 }
@@ -100,17 +104,17 @@ var SavedData = {
 
     // Retrieving
 
-    RetrieveFromLocalStorage: function() {
+    RetrieveFromLocalStorage: function () {
         let savedData = localStorage.getItem("SavedData");
         if (savedData != undefined)
             mon = JSON.parse(savedData);
     },
 
-    RetrieveFromFile: function() {
+    RetrieveFromFile: function () {
         let file = $("#file-upload").prop("files")[0],
             reader = new FileReader();
 
-        reader.onload = function(e) {
+        reader.onload = function (e) {
             mon = JSON.parse(reader.result);
             Populate();
         };
@@ -174,7 +178,13 @@ function UpdateStatblock(moveSeparationPoint) {
     $("#properties-list").html(propertiesDisplayList.join(""));
 
     // Challenge Rating
-    $("#challenge-rating").html(mon.cr + " (" + data.crs[mon.cr].xp + " XP)");
+    let crDisplay = CrFunctions.GetString();
+    if (crDisplay && crDisplay.length > 0) {
+        $("#challenge-rating-line").show();
+        $("#challenge-rating").html(crDisplay);
+    }
+    else
+        $("#challenge-rating-line").hide();
 
     // Abilities
     let traitsHTML = [];
@@ -209,7 +219,6 @@ function UpdateStatblock(moveSeparationPoint) {
 
 // Function used by UpdateStatblock for abilities
 function AddToTraitList(traitsHTML, traitsArr, addElements, isLegendary = false) {
-    let traitsDisplayList = [];
 
     // Add specific elements to the beginning of the array, usually a header
     if (addElements != undefined) {
@@ -234,20 +243,22 @@ function ReplaceTraitTags(desc) {
     while ((match = bracketExp.exec(desc)) != null)
         matches.push(match);
 
-    matches.forEach(function(match) {
+    matches.forEach(function (match) {
         const GetPoints = (pts) => data.statNames.includes(pts) ? MathFunctions.PointsToBonus(mon[pts + "Points"]) : null;
         let readString = match[1].toLowerCase().replace(/ +/g, ' ').trim();
 
         if (readString.length > 0) {
             if (readString == "mon")
-                desc = desc.replace(match[0], mon.name.toLowerCase());
+                if (mon.shortName && mon.shortName.length > 0)
+                    desc = desc.replace(match[0], mon.shortName);
+                else
+                    desc = desc.replace(match[0], mon.name);
             else {
                 let readPosition = 0,
                     type = null,
                     statPoints = GetPoints(readString.substring(0, 3)),
                     bonus = 0,
-                    roll = null,
-                    total = 0;
+                    roll = null;
 
                 // Get stat mods
                 if (statPoints != null) {
@@ -256,11 +267,11 @@ function ReplaceTraitTags(desc) {
                     type = "stat";
                     if (readString.length > 3) {
                         if (readString.substring(3, 7) == " atk") {
-                            bonus += data.crs[mon.cr].prof;
+                            bonus += CrFunctions.GetProf();
                             readPosition = 7;
                             type = "atk";
                         } else if (readString.substring(3, 8) == " save") {
-                            bonus += data.crs[mon.cr].prof + 8;
+                            bonus += CrFunctions.GetProf() + 8;
                             readPosition = 8;
                             type = "save";
                         }
@@ -321,7 +332,7 @@ function ReplaceTraitTags(desc) {
                             replaceString = Math.max(Math.floor(multiplier * ((dieSize + 1) / 2) + bonus), 1) + " (" + multiplier + "d" + dieSize;
                             replaceString += bonus > 0 ?
                                 " + " + bonus : bonus < 0 ?
-                                " - " + -bonus : "";
+                                    " - " + -bonus : "";
                             replaceString += ")";
                             break;
                     }
@@ -389,7 +400,7 @@ function GetTraitMarkdown(traitArr, legendary) {
 // Functions for form-setting
 var FormFunctions = {
     // Set the forms
-    SetForms: function() {
+    SetForms: function () {
         // Name and type
         $("#name-input").val(mon.name);
         $("#size-input").val(mon.size);
@@ -454,10 +465,12 @@ var FormFunctions = {
         this.MakeDisplayList("damage", true);
         this.ShowHideDamageOther();
         this.MakeDisplayList("languages", false);
+        $("#understands-but-input").val(mon.understandsBut);
         this.ShowHideLanguageOther();
         $("#telepathy-input").val(mon.telepathy);
 
         // Abilities
+        $("#short-name-input").val(mon.shortName);
         this.MakeDisplayList("abilities", false, true);
         this.MakeDisplayList("actions", false, true);
         this.MakeDisplayList("reactions", false, true);
@@ -469,6 +482,8 @@ var FormFunctions = {
 
         // Challenge Rating
         $("#cr-input").val(mon.cr);
+        $("#custom-cr-input").val(mon.customCr);
+        $("#custom-prof-input").val(mon.customProf);
         this.ChangeCRForm();
 
         // Column Radio Buttons
@@ -476,29 +491,29 @@ var FormFunctions = {
     },
 
     // Show/Hide form options to make it less overwhelming - only call these from SetForms or HTML elements
-    ShowHideHtmlElement: function(element, show) {
+    ShowHideHtmlElement: function (element, show) {
         show ? $(element).show() : $(element).hide();
     },
 
-    ShowHideTypeOther: function() {
+    ShowHideTypeOther: function () {
         this.ShowHideHtmlElement("#other-type-input", $("#type-input").val() == "*");
     },
 
-    ShowHideCustomHP: function() {
+    ShowHideCustomHP: function () {
         $("#hitdice-input-prompt, #hp-text-input-prompt").hide();
         if ($("#custom-hp-input").prop('checked'))
             $("#hp-text-input-prompt").show();
         else
             $("#hitdice-input-prompt").show();
     },
-    ShowHideOtherArmor: function() {
+    ShowHideOtherArmor: function () {
         $("#natarmor-prompt, #otherarmor-prompt").hide();
         if ($("#armor-input").val() == "natural armor")
             $("#natarmor-prompt").show();
         else if ($("#armor-input").val() == "other")
             $("#otherarmor-prompt").show();
     },
-    ShowHideCustomSpeed: function() {
+    ShowHideCustomSpeed: function () {
         $(".normal-speed-col, .custom-speed-col").hide();
         if ($("#custom-speed-input").prop('checked'))
             $(".custom-speed-col").show();
@@ -506,72 +521,82 @@ var FormFunctions = {
             $(".normal-speed-col").show();
     },
 
-    ShowHideDamageOther: function() {
+    ShowHideDamageOther: function () {
         this.ShowHideHtmlElement("#other-damage-input", $("#damagetypes-input").val() == "*");
     },
 
-    ShowHideLanguageOther: function() {
+    ShowHideLanguageOther: function () {
         this.ShowHideHtmlElement("#other-language-input", $("#languages-input").val() == "*");
     },
 
-    ShowHideHoverBox: function() {
+    ShowHideHoverBox: function () {
         this.ShowHideHtmlElement("#hover-box-note", $("#fly-speed-input").val() > 0);
     },
 
-    ShowHideBlindBox: function() {
+    ShowHideBlindBox: function () {
         this.ShowHideHtmlElement("#blind-box-note", $("#blindsight-input").val() > 0);
     },
 
-    ShowHideSeparatorInput: function() {
+    ShowHideSeparatorInput: function () {
         this.ShowHideHtmlElement("#left-separator-button", mon.doubleColumns);
         this.ShowHideHtmlElement("#right-separator-button", mon.doubleColumns);
     },
 
-    ShowHideLegendaryCreature: function() {
+    ShowHideLegendaryCreature: function () {
         $("#is-legendary-input:checked").val() ?
             $("#add-legendary-button, #legendary-actions-form").show() :
             $("#add-legendary-button, #legendary-actions-form").hide();
     },
 
-    ShowHideFormatHelper: function() {
+    ShowHideFormatHelper: function () {
         this.ShowHideHtmlElement("#format-helper", $("#format-helper-checkbox:checked").val())
     },
 
     // Set the ability bonus given ability scores
-    ChangeBonus: function(stat) {
+    ChangeBonus: function (stat) {
         $("#" + stat + "bonus").html(StringFunctions.BonusFormat(MathFunctions.PointsToBonus($("#" + stat + "-input").val())));
     },
 
     // Set the proficiency bonus based on the monster's CR
-    ChangeCRForm: function() {
-        $("#prof-bonus").html("(Proficiency Bonus: +" + data.crs[mon.cr].prof + ")");
+    ChangeCRForm: function () {
+        if (mon.cr == "*") {
+            $("#prof-bonus").hide();
+            $("#custom-cr").show();
+            $("#custom-cr-input").val(mon.customCr);
+            $("#custom-prof-input").val(mon.customProf);
+        }
+        else {
+            $("#prof-bonus").show();
+            $("#prof-bonus").html("(Proficiency Bonus: +" + CrFunctions.GetProf() + ")");
+            $("#custom-cr").hide();
+        }
     },
 
     // For setting the column radio buttons based on saved data
-    ChangeColumnRadioButtons: function() {
+    ChangeColumnRadioButtons: function () {
         $("#1col-input").prop("checked", !mon.doubleColumns);
         $("#2col-input").prop("checked", mon.doubleColumns);
     },
 
     // For setting the legendary action description
-    SetLegendaryDescriptionForm: function() {
+    SetLegendaryDescriptionForm: function () {
         $("#legendaries-descsection-input").val(mon.legendariesDescription);
     },
 
-    SetCommonAbilitiesDropdown: function() {
+    SetCommonAbilitiesDropdown: function () {
         $("#common-ability-input").html("");
         for (let index = 0; index < data.commonAbilities.length; index++)
             $("#common-ability-input").append("<option value='" + index + "'>" + data.commonAbilities[index].name + "</option>");
     },
 
     // Set ability scores and bonuses
-    SetStatForm: function(statName, statPoints) {
+    SetStatForm: function (statName, statPoints) {
         $("#" + statName + "-input").val(statPoints);
         $("#" + statName + "bonus").html(StringFunctions.BonusFormat(MathFunctions.PointsToBonus(statPoints)));
     },
 
     // Make a list of removable items and add it to the editor
-    MakeDisplayList: function(arrName, capitalize, isBlock = false) {
+    MakeDisplayList: function (arrName, capitalize, isBlock = false) {
         let arr = (arrName == "damage" ? mon.damagetypes.concat(mon.specialdamage) : mon[arrName]),
             displayArr = [],
             content = "",
@@ -581,15 +606,19 @@ var FormFunctions = {
                 elementName = capitalize ? StringFunctions.StringCapitalize(element.name) : element.name,
                 note = element.hasOwnProperty("note") ? element.note : "";
 
-            content = "<b>" + StringFunctions.FormatString(elementName + note, false) + (element.hasOwnProperty("desc") ?
-                ":</b> " + StringFunctions.FormatString(element.desc, isBlock) : "</b>");
+            if (arrName == "languages") {
+                content = "<b>" + StringFunctions.FormatString(elementName + note, false) + (element.speaks || element.speaks == undefined ? "" : " (understands)") + "</b>";
+            }
+            else
+                content = "<b>" + StringFunctions.FormatString(elementName + note, false) + (element.hasOwnProperty("desc") ?
+                    ":</b> " + StringFunctions.FormatString(element.desc, isBlock) : "</b>");
 
             let functionArgs = arrName + "\", " + index + ", " + capitalize + ", " + isBlock,
                 imageHTML = "<img class='statblock-image' src='dndimages/x-icon.png' alt='Remove' title='Remove' onclick='FormFunctions.RemoveDisplayListItem(\"" + functionArgs + ")'>";
             if (isBlock)
                 imageHTML += " <img class='statblock-image' src='dndimages/edit-icon.png' alt='Edit' title='Edit' onclick='FormFunctions.EditDisplayListItem(\"" + functionArgs + ")'>" +
-                " <img class='statblock-image' src='dndimages/up-icon.png' alt='Up' title='Up' onclick='FormFunctions.SwapDisplayListItem(\"" + arrName + "\", " + index + ", -1)'>" +
-                " <img class='statblock-image' src='dndimages/down-icon.png' alt='Down' title='Down' onclick='FormFunctions.SwapDisplayListItem(\"" + arrName + "\", " + index + ", 1)'>";
+                    " <img class='statblock-image' src='dndimages/up-icon.png' alt='Up' title='Up' onclick='FormFunctions.SwapDisplayListItem(\"" + arrName + "\", " + index + ", -1)'>" +
+                    " <img class='statblock-image' src='dndimages/down-icon.png' alt='Down' title='Down' onclick='FormFunctions.SwapDisplayListItem(\"" + arrName + "\", " + index + ", 1)'>";
             displayArr.push("<li> " + imageHTML + " " + content + "</li>");
         }
         $(arrElement).html(displayArr.join(""));
@@ -598,7 +627,7 @@ var FormFunctions = {
     },
 
     // Remove an item from a display list and update it
-    RemoveDisplayListItem: function(arrName, index, capitalize, isBlock) {
+    RemoveDisplayListItem: function (arrName, index, capitalize, isBlock) {
         let arr;
         if (arrName == "damage") {
             if (mon.damagetypes.length - index > 0)
@@ -614,14 +643,14 @@ var FormFunctions = {
     },
 
     // Bring an item into the abilities textbox for editing
-    EditDisplayListItem: function(arrName, index, capitalize) {
+    EditDisplayListItem: function (arrName, index, capitalize) {
         let item = mon[arrName][index];
         $("#abilities-name-input").val(item.name);
         $("#abilities-desc-input").val(item.desc);
     },
 
     // Change position
-    SwapDisplayListItem: function(arrName, index, swap) {
+    SwapDisplayListItem: function (arrName, index, swap) {
         arr = mon[arrName];
         if (index + swap < 0 || index + swap >= arr.length) return;
         let temp = arr[index + swap];
@@ -631,14 +660,15 @@ var FormFunctions = {
     },
 
     // Initialize Forms
-    InitForms: function() {
+    InitForms: function () {
         let dropdownBuffer = [
+            "<option value=*>Custom CR</option>",
             "<option value=0>0 (", data.crs["0"].xp, " XP)</option>",
             "<option value=1/8>1/8 (", data.crs["1/8"].xp, " XP)</option>",
             "<option value=1/4>1/4 (", data.crs["1/4"].xp, " XP)</option>",
             "<option value=1/2>1/2 (", data.crs["1/2"].xp, " XP)</option>"
         ];
-        for (let cr = 1; cr < 100; cr++)
+        for (let cr = 1; cr <= 30; cr++)
             dropdownBuffer.push("<option value=", cr, ">", cr, " (", data.crs[cr].xp, " XP)</option>");
         $("#cr-input").html(dropdownBuffer.join(""));
     }
@@ -647,9 +677,8 @@ var FormFunctions = {
 // Input functions to be called only through HTML
 var InputFunctions = {
     // Get all variables from a preset
-    GetPreset: function() {
-        let name = $("#monster-select").val(),
-            creature;
+    GetPreset: function () {
+        let name = $("#monster-select").val();
         if (name == "") return;
         if (name == "default") {
             GetVariablesFunctions.SetPreset(data.defaultPreset);
@@ -657,12 +686,12 @@ var InputFunctions = {
             UpdateStatblock();
             return;
         }
-        $.getJSON("https://api.open5e.com/monsters/" + name, function(jsonArr) {
-                GetVariablesFunctions.SetPreset(jsonArr);
-                FormFunctions.SetForms();
-                UpdateStatblock();
-            })
-            .fail(function() {
+        $.getJSON("https://api.open5e.com/monsters/" + name, function (jsonArr) {
+            GetVariablesFunctions.SetPreset(jsonArr);
+            FormFunctions.SetForms();
+            UpdateStatblock();
+        })
+            .fail(function () {
                 console.error("Failed to load preset.");
                 return;
             })
@@ -670,7 +699,7 @@ var InputFunctions = {
 
     // Adding items to lists
 
-    AddSthrowInput: function() {
+    AddSthrowInput: function () {
         // Insert, complying with standard stat order
         GetVariablesFunctions.AddSthrow($("#sthrows-input").val());
 
@@ -678,7 +707,7 @@ var InputFunctions = {
         FormFunctions.MakeDisplayList("sthrows", true);
     },
 
-    AddSkillInput: function(note) {
+    AddSkillInput: function (note) {
         // Insert Alphabetically
         GetVariablesFunctions.AddSkill($("#skills-input").val(), note);
 
@@ -686,7 +715,7 @@ var InputFunctions = {
         FormFunctions.MakeDisplayList("skills", true);
     },
 
-    AddDamageTypeInput: function(type) {
+    AddDamageTypeInput: function (type) {
         // Insert normal damage alphabetically, then special damage alphabetically
         GetVariablesFunctions.AddDamageType($("#damagetypes-input").val(), type);
 
@@ -694,7 +723,7 @@ var InputFunctions = {
         FormFunctions.MakeDisplayList("damage", true);
     },
 
-    AddConditionInput: function() {
+    AddConditionInput: function () {
         // Insert alphabetically
         GetVariablesFunctions.AddCondition($("#conditions-input").val());
 
@@ -702,21 +731,23 @@ var InputFunctions = {
         FormFunctions.MakeDisplayList("conditions", true);
     },
 
-    AddLanguageInput: function() {
+    AddLanguageInput: function (speaks) {
         // Insert alphabetically
-        GetVariablesFunctions.AddLanguage($("#languages-input").val());
+        GetVariablesFunctions.AddLanguage($("#languages-input").val(), speaks);
 
         // Display
         FormFunctions.MakeDisplayList("languages", false);
     },
 
     // Change CR based on input dropdown
-    InputCR: function() {
+    InputCR: function () {
         mon.cr = $("#cr-input").val();
+        mon.customCr = $("#custom-cr-input").val();
+        mon.customProf = $("#custom-prof-input").val();
         FormFunctions.ChangeCRForm();
     },
 
-    AddAbilityInput: function(arrName) {
+    AddAbilityInput: function (arrName) {
         let abilityName = $("#abilities-name-input").val().trim(),
             abilityDesc = $("#abilities-desc-input").val().trim();
 
@@ -735,12 +766,12 @@ var InputFunctions = {
     },
 
     // Reset legendary description to default
-    LegendaryDescriptionDefaultInput: function() {
+    LegendaryDescriptionDefaultInput: function () {
         GetVariablesFunctions.LegendaryDescriptionDefault();
         FormFunctions.SetLegendaryDescriptionForm();
     },
 
-    AddCommonAbilityInput: function() {
+    AddCommonAbilityInput: function () {
         let commonAbility = data.commonAbilities[$("#common-ability-input").val()];
         if (commonAbility.desc) {
             $("#abilities-name-input").val(commonAbility.hasOwnProperty("realname") ? commonAbility.realname : commonAbility.name);
@@ -753,7 +784,7 @@ var InputFunctions = {
 // Functions to get/set important variables
 var GetVariablesFunctions = {
     // Get all Variables from forms
-    GetAllVariables: function() {
+    GetAllVariables: function () {
         // Name and Type
         mon.name = $("#name-input").val().trim();
         mon.size = $("#size-input").val().toLowerCase();
@@ -799,11 +830,17 @@ var GetVariablesFunctions = {
         mon.tremorsense = $("#tremorsense-input").val();
         mon.truesight = $("#truesight-input").val();
 
-        // Telepathy
+        // Language
+        mon.understandsBut = $("#understands-but-input").val();
         mon.telepathy = parseInt($("#telepathy-input").val());
 
         // Challenge Rating
         mon.cr = $("#cr-input").val();
+        mon.customCr = $("#custom-cr-input").val();
+        mon.customProf = $("#custom-prof-input").val();
+
+        // Shortened Name
+        mon.shortName = $("#short-name-input").val();
 
         // Legendaries
         mon.isLegendary = $("#is-legendary-input").prop("checked");
@@ -815,7 +852,7 @@ var GetVariablesFunctions = {
     },
 
     // Get all variables from preset
-    SetPreset: function(preset) {
+    SetPreset: function (preset) {
         // Name and type
         mon.name = preset.name.trim();
         mon.size = preset.size.trim().toLowerCase();
@@ -833,6 +870,8 @@ var GetVariablesFunctions = {
 
         // CR
         mon.cr = preset.challenge_rating;
+        mon.customCr = CrFunctions.GetString();
+        mon.customProf = CrFunctions.GetProf();
 
         // Armor Class
         let armorAcData = preset.armor_class,
@@ -873,6 +912,10 @@ var GetVariablesFunctions = {
                 else if (data.armors.hasOwnProperty(armorDescData[0].trim()))
                     mon.armorName = armorDescData[0].trim();
 
+                // Is it mage armor?
+                else if (mon.armorName.includes("mage armor"))
+                    mon.armorName = "mage armor";
+
                 // We have no idea what this armor is
                 else
                     mon.armorName = "other";
@@ -884,7 +927,7 @@ var GetVariablesFunctions = {
         if (mon.armorName == "other") {
             if (armorDescData)
                 mon.otherArmorDesc = armorDescData[0].includes("(") ? armorDescData :
-                armorAcData + " (" + armorDescData + ")";
+                    armorAcData + " (" + armorDescData + ")";
             else
                 mon.otherArmorDesc = armorAcData + " (unknown armor type)";
 
@@ -941,7 +984,7 @@ var GetVariablesFunctions = {
                 let currentSkill = data.allSkills[index],
                     skillCheck = StringFunctions.StringReplaceAll(currentSkill.name.toLowerCase(), " ", "_");
                 if (preset.skills[skillCheck]) {
-                    let expectedExpertise = MathFunctions.PointsToBonus(mon[currentSkill.stat + "Points"]) + Math.ceil(data.crs[mon.cr].prof * 1.5),
+                    let expectedExpertise = MathFunctions.PointsToBonus(mon[currentSkill.stat + "Points"]) + Math.ceil(CrFunctions.GetProf() * 1.5),
                         skillVal = preset.skills[skillCheck];
                     this.AddSkill(data.allSkills[index].name, (skillVal >= expectedExpertise ? " (ex)" : null));
                 }
@@ -964,12 +1007,33 @@ var GetVariablesFunctions = {
         // Languages
         mon.languages = [];
         mon.telepathy = 0;
-        let languagesPresetArr = preset.languages.split(",");
-        for (let index = 0; index < languagesPresetArr.length; index++) {
-            let languageName = languagesPresetArr[index].trim();
-            languageName.toLowerCase().includes("telepathy") ?
-                mon.telepathy = parseInt(languageName.replace(/\D/g, '')) :
-                this.AddLanguage(languageName);
+        mon.understandsBut = "";
+        if (preset.languages.includes("understands")) {
+            let speaksUnderstandsArr = preset.languages.split("understands"),
+                speaks = speaksUnderstandsArr[0].length > 0 ? speaksUnderstandsArr[0].trim().split(",") : [],
+                understands = speaksUnderstandsArr[1].split(" but "),
+                understandsLangs = understands[0].replace(", and ", ",").replace(" and ", ",").split(","),
+                understandsBut = understands[1].trim();
+
+            for (let index = 0; index < speaks.length; index++)
+                this.AddLanguage(speaks[index], true);
+            for (let index = 0; index < understandsLangs.length; index++)
+                this.AddLanguage(understandsLangs[index], false);
+
+            if (understandsBut.toLowerCase().includes("telepathy")) {
+                mon.telepathy = parseInt(understandsBut.replace(/\D/g, ''));
+                understandsBut = understandsBut.substr(0, understandsBut.lastIndexOf(","));
+            }
+            mon.understandsBut = understandsBut;
+        }
+        else {
+            let languagesPresetArr = preset.languages.split(",");
+            for (let index = 0; index < languagesPresetArr.length; index++) {
+                let languageName = languagesPresetArr[index].trim();
+                languageName.toLowerCase().includes("telepathy") ?
+                    mon.telepathy = parseInt(languageName.replace(/\D/g, '')) :
+                    this.AddLanguage(languageName, true);
+            }
         }
 
         // Senses
@@ -1019,7 +1083,7 @@ var GetVariablesFunctions = {
             legendariesPresetArr = preset.legendary_actions;
 
         let self = this,
-            AbilityPresetLoop = function(arr, name) {
+            AbilityPresetLoop = function (arr, name) {
                 if (Array.isArray(arr)) {
                     for (let index = 0; index < arr.length; index++)
                         self.AddAbilityPreset(name, arr[index]);
@@ -1037,7 +1101,7 @@ var GetVariablesFunctions = {
 
     // Add stuff to arrays
 
-    AddSthrow: function(sthrowName) {
+    AddSthrow: function (sthrowName) {
         if (!sthrowName) return;
         let sthrowData = ArrayFunctions.FindInList(data.stats, sthrowName),
             inserted = false;
@@ -1056,7 +1120,7 @@ var GetVariablesFunctions = {
             mon.sthrows.push(sthrowData);
     },
 
-    AddSkill: function(skillName, note) {
+    AddSkill: function (skillName, note) {
         let skillData = ArrayFunctions.FindInList(data.allSkills, skillName);
         if (skillData == null) return;
 
@@ -1069,7 +1133,7 @@ var GetVariablesFunctions = {
         ArrayFunctions.ArrayInsert(mon.skills, skill, true);
     },
 
-    AddDamageType: function(damageName, type) {
+    AddDamageType: function (damageName, type) {
         let special = false,
             note;
         if (!data.allNormalDamageTypes.includes(damageName.toLowerCase())) {
@@ -1088,7 +1152,7 @@ var GetVariablesFunctions = {
         }, true);
     },
 
-    AddPresetDamage: function(string, type) {
+    AddPresetDamage: function (string, type) {
         if (string.length == 0) return;
         let arr = string.split(";");
         if (arr[0].toLowerCase().includes("magic"))
@@ -1102,13 +1166,13 @@ var GetVariablesFunctions = {
         }
     },
 
-    AddCondition: function(conditionName) {
+    AddCondition: function (conditionName) {
         ArrayFunctions.ArrayInsert(mon.conditions, {
             "name": conditionName
         }, true);
     },
 
-    AddLanguage: function(languageName) {
+    AddLanguage: function (languageName, speaks) {
         if (languageName == "") return;
         if (languageName == "*") {
             languageName = $("#other-language-input").val().trim();
@@ -1119,14 +1183,15 @@ var GetVariablesFunctions = {
                 mon.languages = [];
         }
         ArrayFunctions.ArrayInsert(mon.languages, {
-            "name": languageName
+            "name": languageName.trim(),
+            "speaks": speaks
         }, true);
     },
 
 
     // Add abilities, actions, reactions, and legendary actions
 
-    AddAbility: function(arrName, abilityName, abilityDesc) {
+    AddAbility: function (arrName, abilityName, abilityDesc) {
         let arr = mon[arrName];
         ArrayFunctions.ArrayInsert(arr, {
             "name": abilityName.trim(),
@@ -1134,20 +1199,20 @@ var GetVariablesFunctions = {
         }, false);
     },
 
-    AddAbilityPreset: function(arrName, ability) {
+    AddAbilityPreset: function (arrName, ability) {
         let abilityName = ability.name.trim(),
             abilityDesc = ability.desc;
-		if(Array.isArray(abilityDesc))
-			abilityDesc = abilityDesc.join("\n");
+        if (Array.isArray(abilityDesc))
+            abilityDesc = abilityDesc.join("\n");
         abilityDesc = abilityDesc.trim();
-		
+
         // In case of spellcasting
         if (arrName == "abilities" && abilityName.toLowerCase().includes("spellcasting") && abilityDesc.includes("\n")) {
             abilityDesc = abilityDesc.split("\u2022").join(""), // Remove bullet points
                 spellcastingAbility =
                 abilityDesc.toLowerCase().includes("intelligence") ? "INT" :
-                abilityDesc.toLowerCase().includes("wisdom") ? "WIS" :
-                abilityDesc.toLowerCase().includes("charisma") ? "CHA" : null;
+                    abilityDesc.toLowerCase().includes("wisdom") ? "WIS" :
+                        abilityDesc.toLowerCase().includes("charisma") ? "CHA" : null;
 
             if (spellcastingAbility != null) {
                 abilityDesc = abilityDesc
@@ -1209,7 +1274,7 @@ var GetVariablesFunctions = {
     },
 
     // Return the default legendary description
-    LegendaryDescriptionDefault: function() {
+    LegendaryDescriptionDefault: function () {
         let monsterName = name.toLowerCase();
         mon.legendariesDescription = "The " + mon.name.toLowerCase() + " can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The " + mon.name.toLowerCase() + " regains spent legendary actions at the start of its turn.";
     }
@@ -1221,7 +1286,7 @@ var StringFunctions = {
     BonusFormat: (stat) => stat >= 0 ? "+" + stat : stat,
 
     // Get the string displayed for the monster's AC
-    GetArmorData: function() {
+    GetArmorData: function () {
         if (mon.armorName == "other")
             return mon.otherArmorDesc;
         if (mon.armorName == "mage armor") {
@@ -1234,14 +1299,14 @@ var StringFunctions = {
     },
 
     // Add a shield to the string if the monster has one
-    GetArmorString: function(name, ac) {
+    GetArmorString: function (name, ac) {
         if (mon.shieldBonus > 0)
             return ac + " (" + name + ", shield)";
         return ac + " (" + name + ")"
     },
 
     // Get the string displayed for the monster's HP
-    GetHP: function() {
+    GetHP: function () {
         if (mon.customHP)
             return mon.hpText;
         let conBonus = MathFunctions.PointsToBonus(mon.conPoints);
@@ -1254,7 +1319,7 @@ var StringFunctions = {
         return Math.max(avgHP, 1) + " (" + mon.hitDice + "d" + hitDieSize + " - " + -(mon.hitDice * conBonus) + ")";
     },
 
-    GetSpeed: function() {
+    GetSpeed: function () {
         if (mon.customSpeed)
             return mon.speedDesc;
         let speedsDisplayArr = [mon.speed + " ft."];
@@ -1265,7 +1330,7 @@ var StringFunctions = {
         return speedsDisplayArr.join(", ")
     },
 
-    GetSenses: function() {
+    GetSenses: function () {
         let sensesDisplayArr = [];
         if (mon.blindsight > 0) sensesDisplayArr.push("blindsight " + mon.blindsight + " ft." + (mon.blind ? " (blind beyond this radius)" : ""));
         if (mon.darkvision > 0) sensesDisplayArr.push("darkvision " + mon.darkvision + " ft.");
@@ -1276,18 +1341,17 @@ var StringFunctions = {
         let ppData = ArrayFunctions.FindInList(mon.skills, "Perception"),
             pp = 10 + MathFunctions.PointsToBonus(mon.wisPoints);
         if (ppData != null)
-            pp += data.crs[mon.cr].prof * (ppData.hasOwnProperty("note") ? 2 : 1);
+            pp += CrFunctions.GetProf() * (ppData.hasOwnProperty("note") ? 2 : 1);
         sensesDisplayArr.push("passive Perception " + pp);
         return sensesDisplayArr.join(", ");
     },
 
-    GetPropertiesDisplayArr: function() {
+    GetPropertiesDisplayArr: function () {
         // Properties
         let propertiesDisplayArr = [],
             sthrowsDisplayArr = [],
             skillsDisplayArr = [],
             conditionsDisplayArr = [],
-            sensesDisplayArr = [],
             languageDisplayArr = [],
             vulnerableDisplayString = "",
             resistantDisplayString = "",
@@ -1296,13 +1360,13 @@ var StringFunctions = {
         // Saving Throws
         for (let index = 0; index < mon.sthrows.length; index++)
             sthrowsDisplayArr.push(StringFunctions.StringCapitalize(mon.sthrows[index].name) + " " +
-                StringFunctions.BonusFormat((MathFunctions.PointsToBonus(mon[mon.sthrows[index].name + "Points"]) + data.crs[mon.cr].prof)));
+                StringFunctions.BonusFormat((MathFunctions.PointsToBonus(mon[mon.sthrows[index].name + "Points"]) + CrFunctions.GetProf())));
 
         // Skills
         for (let index = 0; index < mon.skills.length; index++) {
             let skillData = mon.skills[index];
             skillsDisplayArr.push(StringFunctions.StringCapitalize(skillData.name) + " " +
-                StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon[skillData.stat + "Points"]) + data.crs[mon.cr].prof * (skillData.hasOwnProperty("note") ? 2 : 1)));
+                StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon[skillData.stat + "Points"]) + CrFunctions.GetProf() * (skillData.hasOwnProperty("note") ? 2 : 1)));
         }
 
         // Damage Types (It's not pretty but it does its job)
@@ -1333,8 +1397,34 @@ var StringFunctions = {
         sensesDisplayString = StringFunctions.GetSenses();
 
         // Languages
-        for (let index = 0; index < mon.languages.length; index++)
-            languageDisplayArr.push(mon.languages[index].name);
+        let speaksLanguages = [], understandsLanguages = [];
+        for (let index = 0; index < mon.languages.length; index++) {
+            let language = mon.languages[index];
+            if (language.speaks || language.speaks == undefined)
+                speaksLanguages.push(language);
+            else
+                understandsLanguages.push(language);
+        }
+        for (let index = 0; index < speaksLanguages.length; index++)
+            languageDisplayArr.push(speaksLanguages[index].name);
+
+        if (understandsLanguages.length > 0) {
+            if (understandsLanguages.length > 1) {
+                if (understandsLanguages.length > 2) {
+                    languageDisplayArr.push("understands " + understandsLanguages[0].name);
+                    for (let index = 1; index < understandsLanguages.length; index++)
+                        languageDisplayArr.push(understandsLanguages[index].name);
+                    languageDisplayArr[languageDisplayArr.length - 1] = " and " + languageDisplayArr[languageDisplayArr.length - 1];
+                }
+                else
+                    languageDisplayArr.push("understands " + understandsLanguages[0].name + " and " + understandsLanguages[1].name);
+            }
+            else
+                languageDisplayArr.push("understands " + understandsLanguages[0].name);
+            if (mon.understandsBut && mon.understandsBut.trim().length > 0)
+                languageDisplayArr[languageDisplayArr.length - 1] += " but " + mon.understandsBut.trim();
+        }
+
         if (mon.telepathy > 0)
             languageDisplayArr.push("telepathy " + mon.telepathy + " ft.");
         else if (languageDisplayArr.length == 0)
@@ -1360,7 +1450,7 @@ var StringFunctions = {
     },
 
     // Add italics, indents, and newlines
-    FormatString: function(string, isBlock) {
+    FormatString: function (string, isBlock) {
         if (typeof string != "string")
             return string;
 
@@ -1389,7 +1479,7 @@ var StringFunctions = {
     },
 
     // FormatString helper function
-    FormatStringHelper: function(string, target, startTag, endTag) {
+    FormatStringHelper: function (string, target, startTag, endTag) {
         while (string.includes(target)) {
             let startIndex = string.indexOf(target);
             string = this.StringSplice(string, startIndex, target.length, startTag);
@@ -1403,18 +1493,18 @@ var StringFunctions = {
 
     // HTML strings
 
-    MakePropertyHTML: function(property, firstLine) {
+    MakePropertyHTML: function (property, firstLine) {
         if (property.arr.length == 0) return "";
         let htmlClass = firstLine ? "property-line first" : "property-line",
             arr = Array.isArray(property.arr) ? property.arr.join(", ") : property.arr;
         return "<div class=\"" + htmlClass + "\"><div><h4>" + property.name + "</h4> <p>" + this.FormatString(arr, false) + "</p></div></div><!-- property line -->"
     },
 
-    MakeTraitHTML: function(name, description) {
+    MakeTraitHTML: function (name, description) {
         return "<div class=\"property-block\"><div><h4>" + name + ".</h4><p> " + this.FormatString(description, true) + "</p></div></div> <!-- property block -->";
     },
 
-    MakeTraitHTMLLegendary: function(name, description) {
+    MakeTraitHTMLLegendary: function (name, description) {
         return "<div class=\"property-block reverse-indent legendary\"><div><h4>" + name + ".</h4><p> " + this.FormatString(description, true) + "</p></div></div> <!-- property block -->";
     },
 
@@ -1423,7 +1513,7 @@ var StringFunctions = {
     ConcatUnlessEmpty(item1, item2, joinString = ", ") {
         return item1.length > 0 ?
             item2.length > 0 ? item1 + joinString + item2 :
-            item1 : item2.length > 0 ? item2 : "";
+                item1 : item2.length > 0 ? item2 : "";
     },
 
     StringSplice: (string, index, remove, insert = "") => string.slice(0, index) + insert + string.slice(index + remove),
@@ -1443,7 +1533,7 @@ var MathFunctions = {
     PointsToBonus: (points) => Math.floor(points / 2) - 5,
 
     // Compute armor class
-    GetAC: function(armorNameCheck) {
+    GetAC: function (armorNameCheck) {
         let armor = data.armors[armorNameCheck],
             dexBonus = MathFunctions.PointsToBonus(mon.dexPoints);
         if (armor) {
@@ -1457,9 +1547,24 @@ var MathFunctions = {
     },
 }
 
+// These don't really fit anywhere else
+var CrFunctions = {
+    GetProf: function () {
+        if (mon.cr == "*")
+            return mon.customProf;
+        return data.crs[mon.cr].prof;
+    },
+
+    GetString: function () {
+        if (mon.cr == "*")
+            return mon.customCr.trim();
+        return mon.cr + " (" + data.crs[mon.cr].xp + " XP)"
+    }
+}
+
 // Array functions
 var ArrayFunctions = {
-    ArrayInsert: function(arr, element, alphabetSort) {
+    ArrayInsert: function (arr, element, alphabetSort) {
         let lowercaseElement = element.name.toLowerCase();
         for (let index = 0; index < arr.length; index++) {
             let lowercaseIndex = arr[index].name.toLowerCase();
@@ -1475,7 +1580,7 @@ var ArrayFunctions = {
         arr.push(element);
     },
 
-    FindInList: function(arr, name) {
+    FindInList: function (arr, name) {
         let lowercaseName = name.toLowerCase();
         for (let index = 0; index < arr.length; index++) {
             if (arr[index].name.toLowerCase() == lowercaseName)
@@ -1485,7 +1590,7 @@ var ArrayFunctions = {
     },
 
     // Take a string representing an array from a preset and turn it into a normal array
-    FixPresetArray: function(string) {
+    FixPresetArray: function (string) {
         let arr = string.split(","),
             returnArr = [];
         for (let index = 0; index < arr.length; index++) {
@@ -1498,32 +1603,32 @@ var ArrayFunctions = {
 }
 
 // Document ready function
-$(function() {
+$(function () {
     // Load the preset monster names
-    $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000&document__slug=wotc-srd", function(srdArr) {
-			let monsterSelect = $("#monster-select");
-			monsterSelect.append("<option value=''></option>");
-			monsterSelect.append("<option value=''>-5e SRD-</option>");
-            $.each(srdArr.results, function(index, value) {
+    $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000&document__slug=wotc-srd", function (srdArr) {
+        let monsterSelect = $("#monster-select");
+        monsterSelect.append("<option value=''></option>");
+        monsterSelect.append("<option value=''>-5e SRD-</option>");
+        $.each(srdArr.results, function (index, value) {
+            monsterSelect.append("<option value='" + value.slug + "'>" + value.name + "</option>");
+        })
+        $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000&document__slug=tob", function (tobArr) {
+            monsterSelect.append("<option value=''></option>");
+            monsterSelect.append("<option value=''>-Tome of Beasts (Kobold Press)-</option>");
+            $.each(tobArr.results, function (index, value) {
                 monsterSelect.append("<option value='" + value.slug + "'>" + value.name + "</option>");
             })
-			$.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000&document__slug=tob", function(tobArr) {
-				monsterSelect.append("<option value=''></option>");
-				monsterSelect.append("<option value=''>-Tome of Beasts (Kobold Press)-</option>");
-				$.each(tobArr.results, function(index, value) {
-					monsterSelect.append("<option value='" + value.slug + "'>" + value.name + "</option>");
-				})
-			})
-			.fail(function() {
-				$("#monster-select-form").html("Unable to load Tome of Beasts monster presets.")
-			});
         })
-        .fail(function() {
+            .fail(function () {
+                $("#monster-select-form").html("Unable to load Tome of Beasts monster presets.")
+            });
+    })
+        .fail(function () {
             $("#monster-select-form").html("Unable to load monster presets.")
         });
 
     // Load the json data
-    $.getJSON("js/JSON/statblockdata.json", function(json) {
+    $.getJSON("js/JSON/statblockdata.json", function (json) {
         data = json;
 
         // Set the default monster in case there isn't one saved

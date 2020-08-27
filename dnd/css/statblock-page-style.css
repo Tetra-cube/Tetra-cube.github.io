@@ -31,6 +31,14 @@
     display: inline-block;
 }
 
+#understands-but-input {
+    width: 8rem;
+}
+
+#other-language-input {
+    width: 16rem;
+}
+
 #format-helper {
 	font-style: italic;
 }
