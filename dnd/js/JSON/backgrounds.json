@@ -136,6 +136,53 @@
 			"Whip"
 		]
 	},
+	"Athlete": {
+		"_special": "book-MOoT",
+		"Trait": [
+			"I feel most at peace during physical exertion, be it exercise or battle.",
+			"I don't like to sit idle.",
+			"I have a daily exercise routine that I refuse to break.",
+			"Obstacles exist to be overcome.",
+			"When I see others struggling, I offer to help.",
+			"I love to trade banter and gibes.",
+			"Anything worth doing is worth doing best.",
+			"I get irritated if people praise someone else and not me."
+		],
+		"Ideal": [
+			"Competition. I strive to test myself in all things. (Chaotic)",
+			"Triumph. The best part of winning is seeing my rivals brought low. (Evil)",
+			"Camaraderie. The strongest bonds are forged through struggle. (Good)",
+			"People. I strive to inspire my spectators. (Neutral)",
+			"Tradition. Every game has rules, and the playing field must be level. (Lawful)",
+			"Growth. Lessons hide in victory and defeat. (Any)"
+		],
+		"Bond": [
+			"My teammates are my family.",
+			"I will overcome a rival and prove myself their better.",
+			"My mistake got someone hurt. I'll never make that mistake again.",
+			"I will be the best for the honor and glory of my home.",
+			"The person who trained me is the most important person in my world.",
+			"I strive to live up to a specific hero's example."
+		],
+		"Flaw": [
+			"I indulge in a habit that threatens my reputation or my health.",
+			"I'll do absolutely anything to win.",
+			"I ignore anyone who doesn't compete and anyone who loses to me.",
+			"I have lingering pain from old injuries.",
+			"Any defeat or failure on my part is because my opponent cheated.",
+			"I must be the captain of any group I join."
+		],
+		"Favored Event": [
+			"Marathon",
+			"Long-distance running",
+			"Wrestling",
+			"Boxing",
+			"Chariot or horse race",
+			"Pankration (mixed unarmed combat)",
+			"Hoplite race (racing in full armor with a unit)",
+			"Pentathlon (running, long jump, discus, javelin, wrestling)"
+		]
+	},
 	"Augen Trust": {
 		"_special": "book-EGtW backgroundtraits-Criminal"
 	},

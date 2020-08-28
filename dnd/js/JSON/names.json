@@ -37,7 +37,15 @@
 			"Stasolya",
 			"Tatna",
 			"Zhendoya",
-			"Zoria"
+			"Zoria",
+			"Honotia",
+			"Kelitia",
+			"Lileo",
+			"Meloe",
+			"Bido",
+			"Daxa",
+			"Saya",
+			"Tesia"
 		],
 		"Male": [
 			"Bonmod",
@@ -57,7 +65,15 @@
 			"Trijiro",
 			"Volim",
 			"Vlodim",
-			"Yarog"
+			"Yarog",
+			"Aughus",
+			"Dririos",
+			"Ormasos",
+			"Volien",
+			"Eno",
+			"Roth",
+			"Skelor",
+			"Stihl"
 		]
 	},
 	"Changeling": [
@@ -3875,6 +3891,44 @@
 		"Urak",
 		"Varn"
 	],
+	"Leonin": {
+		"Female": [
+			"Aletha",
+			"Atagone",
+			"Demne",
+			"Doxia",
+			"Ecate",
+			"Eriz",
+			"Gragonde",
+			"Iadma",
+			"Koila",
+			"Oramne",
+			"Seza",
+			"Ziore"
+		],
+		"Male": [
+			"Apto",
+			"Athoz",
+			"Baragon",
+			"Bryguz",
+			"Eremoz",
+			"Gorioz",
+			"Grexes",
+			"Oriz",
+			"Pyxathor",
+			"Teoz",
+			"Xemnon",
+			"Xior"
+		],
+		"Pride": [
+			"Embereye",
+			"Flintclaw",
+			"Goldenfield",
+			"Ironmane",
+			"Starfeller",
+			"Sunguides"
+		]
+	},
 	"Lizardfolk": [
 		"Achuak (Green)",
 		"Aryte (War)",
@@ -3974,7 +4028,17 @@
 			"Veska",
 			"Yelka",
 			"Zarka",
-			"Zoka"
+			"Zoka",
+			"Bozzri",
+			"Dhazdoro",
+			"Erinimachis",
+			"Ghalantzo",
+			"Halafoti",
+			"Kerania",
+			"Mitevra",
+			"Philoprodis",
+			"Tavromiki",
+			"Ypoudoris"
 		],
 		"Male": [
 			"Alovnek",
@@ -3995,7 +4059,17 @@
 			"Svarakov",
 			"Trovik",
 			"Vraslak",
-			"Yarvem"
+			"Yarvem",
+			"Bamvros",
+			"Fotiyinos",
+			"Halafotios",
+			"Keranios",
+			"Menetavro",
+			"Nikavros",
+			"Prodos",
+			"Rhordon",
+			"Tavrostenes",
+			"Thyrogog"
 		]
 	},
 	"Orc": {
@@ -4103,6 +4177,51 @@
 			"Zed"
 		]
 	},
+	"Satyr": {
+		"Female": [
+			"Aliki",
+			"Avra",
+			"Chara",
+			"Dafni",
+			"Eirini",
+			"Elpida",
+			"Irini",
+			"Kaiti",
+			"Lia",
+			"Niki",
+			"Tasia",
+			"Xeni",
+			"Yanna",
+			"Zoi"
+		],
+		"Male": [
+			"Alekos",
+			"Dimi",
+			"Filippos",
+			"Ilias",
+			"Kyriakos",
+			"Neofytos",
+			"Omiros",
+			"Pantelis",
+			"Spyro",
+			"Takis",
+			"Zenon"
+		],
+		"Nicknames": [
+			"Bounder",
+			"Bristlechin",
+			"Clip-Clop",
+			"Dappleback",
+			"Hopper",
+			"Nobblehorn",
+			"Orangebeard",
+			"Quickfoot",
+			"Scrufflebutt",
+			"Sunbeam",
+			"Skiphoof",
+			"Twinkle-Eyes"
+		]
+	},
 	"Shadar-kai": {
 		"Female": [
 			"Afyn",
@@ -4201,7 +4320,18 @@
 			"Otanyn",
 			"Shalryn",
 			"Vlaryn",
-			"Wolyn"
+			"Wolyn",
+			"Amathe",
+			"Gnorcys",
+			"Leurybia",
+			"Margomestra",
+			"Nereones",
+			"Oleia",
+			"Samathe",
+			"Saphiro",
+			"Tethene",
+			"Theaneia",
+			"Thectra"
 		],
 		"Male": [
 			"Corus",
@@ -4211,7 +4341,17 @@
 			"Mo-los",
 			"Nalos",
 			"Vodos",
-			"Zunis"
+			"Zunis",
+			"Bysseus",
+			"Cetos",
+			"Galaukus",
+			"Galiton",
+			"Kenessos",
+			"Odexes",
+			"Palamon",
+			"Pontreus",
+			"Rheteus",
+			"Thrasios"
 		],
 		"Surname": [
 			"Ahlorsath",
