@@ -562,6 +562,7 @@ var Names = {
             case "Centaur":
             case "Minotaur":
             case "Orc":
+            case "Leonin":
             case "Loxodon":
             case "Vedalken":
                 return this.GetGendered(names[raceName], gender);
@@ -639,6 +640,12 @@ var Names = {
 
             case "Kalashtar":
                 return Random.Array(names["Kalashtar/Quori"]);
+
+            case "Leonin":
+                return this.FirstnameLastname(names.Leonin, "Pride", gender);
+
+            case "Satyr":
+                return this.GetGendered(names.Satyr, gender) + " \"" + Random.Array(names.Satyr.Nicknames) + "\"";
 
             case "Simic Hybrid":
                 let raceNames = Random.Array([names.Human, names.Elf, names.Vedalken]);

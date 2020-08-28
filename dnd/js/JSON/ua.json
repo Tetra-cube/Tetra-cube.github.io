@@ -48,6 +48,11 @@
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/kits-old"
 		},
 		{
+			"name": "Bard: College of Spirits",
+			"source": "Subclasses, Part 4",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses-part-4"
+		},
+		{
 			"name": "Cleric: City Domain",
 			"source": "Modern Magic",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/modern-magic"
@@ -168,12 +173,12 @@
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/fighter-ranger-rogue"
 		},
 		{
-			"name": "Rogue: The Revived",
-			"source": "Fighter, Ranger, and Rogue",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/fighter-ranger-rogue"
+			"name": "Rogue: Phantom",
+			"source": "Subclasses Revisited",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses-revisited"
 		},
 		{
-			"name": "Rogue: Soulblade",
+			"name": "Rogue: Soulknife",
 			"source": "Psionic Options Revisited",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/psionic-options-revisited"
 		},
@@ -198,6 +203,11 @@
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/psionic-options-revisited"
 		},
 		{
+			"name": "Warlock: The Genie",
+			"source": "Subclasses Revisited",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses-revisited"
+		},
+		{
 			"name": "Warlock: Ghost in the Machine",
 			"source": "Modern Magic",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/modern-magic"
@@ -206,11 +216,6 @@
 			"name": "Warlock: The Lurker in the Deep",
 			"source": "Sorcerer and Warlock",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/sorcerer-and-warlock"
-		},
-		{
-			"name": "Warlock: The Noble Genie",
-			"source": "Subclasses, Part 1",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses1"
 		},
 		{
 			"name": "Warlock: The Raven Queen",
@@ -223,9 +228,19 @@
 			"link": "https://dnd.wizards.com/articles/features/faithful"
 		},
 		{
+			"name": "Warlock: The Undead",
+			"source": "Subclasses, Part 4",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses-part-4"
+		},
+		{
 			"name": "Wizard: Onomancy",
 			"source": "Cleric, Druid, and Wizard",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/cleric-druid-wizard"
+		},
+		{
+			"name": "Wizard: Order of Scribes",
+			"source": "Subclasses Revisited",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses-revisited"
 		},
 		{
 			"name": "Wizard: Psionics",
@@ -263,6 +278,11 @@
 			"name": "Demon Conjuring Spells",
 			"source": "That Old Black Magic",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/old-black-magic"
+		},
+		{
+			"name": "Feats",
+			"source": "Feats",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/feats"
 		},
 		{
 			"name": "Fighting Style: Mariner",

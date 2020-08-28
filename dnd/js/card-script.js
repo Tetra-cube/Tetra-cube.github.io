@@ -101,7 +101,9 @@ var Card = {
             case "changeling":
             case "gith":
             case "kalashtar":
+            case "leonin":
             case "minotaur":
+            case "satyr":
             case "shifter":
                 return gender;
         }
@@ -128,7 +130,7 @@ var Card = {
             case "mystic":
                 return "mage";
         }
-        // barbarian, fighter, monk, blood-hunter
+        // barbarian, fighter, monk, blood hunter
         return "melee";
     },
 

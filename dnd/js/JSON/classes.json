@@ -91,11 +91,14 @@
 				"College of Swords",
 				"College of Whispers"
 			],
+			"MOoT": [
+				"College of Eloquence"
+			],
 			"UA": [
 				"College of Creation",
-				"College of Eloquence",
 				"College of the Maestro",
-				"College of Satire"
+				"College of Satire",
+				"College of Spirits"
 			]
 		},
 		"Personality": {
@@ -468,6 +471,9 @@
 				"Oath of Conquest",
 				"Oath of Redemption"
 			],
+			"MOoT": [
+				"Oath of Glory"
+			],
 			"UA": [
 				"Oath of Heroism",
 				"Oath of Treachery",
@@ -610,7 +616,7 @@
 				"Swashbuckler"
 			],
 			"UA": [
-				"The Revived",
+				"Phantom",
 				"Soulknife"
 			]
 		},
@@ -754,11 +760,12 @@
 				"The Hexblade"
 			],
 			"UA": [
+				"The Genie",
 				"Ghost in the Machine",
 				"The Lurker in the Deep",
-				"The Noble Genie",
 				"The Raven Queen",
-				"The Seeker"
+				"The Seeker",
+				"The Undead"
 			]
 		},
 		"Personality": {
@@ -831,6 +838,7 @@
 			],
 			"UA": [
 				"Onomancy",
+				"Order of Scribes",
 				"Psionics",
 				"School of Invention",
 				"Technomancy",

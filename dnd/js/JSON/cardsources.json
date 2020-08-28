@@ -432,6 +432,14 @@
 		"wild": "https://www.reddit.com/r/characterdrawing/comments/439x5c/one_of_my_pcs_drew_their_warforged_druid/",
 		"mage": "https://olieart.deviantart.com/art/Sketch-no-332-Warforged-Wizard-665784658"
 	},
+	"leonin": {
+		"female": "https://static2.cbrimages.com/wordpress/wp-content/uploads/2020/07/DD-Leonin.jpg",
+		"male": "https://happygamer.com/wp-content/uploads/2020/06/2cf3d41b068e6c53d77c616a67491323.jpg"
+	},
+	"satyr": {
+		"female": "https://i1.wp.com/nerdarchy.com/wp-content/uploads/2020/08/dnd-satyr-mythic-odysseys-of-theros.jpg?fit=1114%2C746&ssl=1",
+		"male": "https://happygamer.com/wp-content/uploads/2020/06/36fa4a1b997c0210be50d8cb94442022.jpg"
+	},
 	"tortle": {
 		"melee": "https://toshi13go.deviantart.com/art/Uuya-the-tortle-725558319",
 		"holy": "https://blazbaros.deviantart.com/art/Tortle-Cleric-712945883",

@@ -125,15 +125,15 @@
 		}
 	},
 	"Centaur": {
-		"_special": "book-GGtR",
+		"_special": "book-GGtR/MOoT",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 13,
 			"maxage": 60,
-			"baseheight": 80,
-			"heightmod": "2d10",
-			"baseweight": 1500,
-			"weightmod": "2d10",
+			"baseheight": 72,
+			"heightmod": "1d10",
+			"baseweight": 600,
+			"weightmod": "2d12",
 			"_other": {
 				"Eyes": [
 					"Brown",
@@ -1525,6 +1525,19 @@
 			"_special": "monstrousorigin"
 		}
 	},
+	"Leonin": {
+		"_special": "book-MOoT",
+		"Physical Characteristics": {
+			"_special": "characteristics",
+			"minage": 13,
+			"maxage": 60,
+			"baseheight": 66,
+			"heightmod": "2d10",
+			"baseweight": 180,
+			"weightmod": "2d6",
+			"_other": {}
+		}
+	},
 	"Lizardfolk": {
 		"_special": "book-VGtM",
 		"Physical Characteristics": {
@@ -1587,23 +1600,23 @@
 			"_special": "characteristics",
 			"minage": 13,
 			"maxage": 400,
-			"baseheight": 70,
-			"heightmod": "2d8",
-			"baseweight": 280,
+			"baseheight": 79,
+			"heightmod": "2d10",
+			"baseweight": 295,
 			"weightmod": "2d4",
 			"_other": {}
 		}
 	},
 	"Minotaur": {
-		"_special": "book-GGtR",
+		"_special": "book-GGtR/MOoT",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 13,
 			"maxage": 120,
-			"baseheight": 70,
-			"heightmod": "2d4",
-			"baseweight": 310,
-			"weightmod": "1d6",
+			"baseheight": 64,
+			"heightmod": "2d8",
+			"baseweight": 175,
+			"weightmod": "2d6",
 			"_other": {
 				"Eyes": [
 					"Black",
@@ -1647,6 +1660,43 @@
 		},
 		"Monstrous Origin": {
 			"_special": "monstrousorigin"
+		}
+	},
+	"Satyr": {
+		"_special": "book-MOoT",
+		"Physical Characteristics": {
+			"_special": "characteristics",
+			"minage": 13,
+			"maxage": 60,
+			"baseheight": 56,
+			"heightmod": "2d8",
+			"baseweight": 100,
+			"weightmod": "2d4",
+			"_other": {
+				"Eyes": [
+					"Brown",
+					"Hazel",
+					"Green",
+					"Blue",
+					"Gray"
+				],
+				"Skin": [
+					"Pale",
+					"Fair",
+					"Tan",
+					"Light Brown",
+					"Brown",
+					"Dark Brown"
+				],
+				"Hair": [
+					"Black",
+					"Brown",
+					"Blond",
+					"Auburn",
+					"Red",
+					"Gray/White"
+				]
+			}
 		}
 	},
 	"Shifter": {
@@ -1893,7 +1943,7 @@
 		}
 	},
 	"Triton": {
-		"_special": "book-VGtM",
+		"_special": "book-VGtM/MOoT",
 		"Physical Characteristics": {
 			"_special": "characteristics",
 			"minage": 13,
@@ -1935,7 +1985,7 @@
 			"minage": 30,
 			"maxage": 400,
 			"baseheight": 64,
-			"heightmod": "2d4",
+			"heightmod": "2d10",
 			"baseweight": 110,
 			"weightmod": "2d4",
 			"_other": {}
