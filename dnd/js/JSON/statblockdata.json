@@ -1221,11 +1221,11 @@
 		},
 		{
 			"name": "Spear",
-			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft. or range 20/60 ft., one target. _Hit:_ [STR 1D6] piercing damage, or [STR 1D8] piercing damage if used with two hands to make a melee attack."
+			"desc": "_Melee or Ranged Weapon Attack:_ [STR ATK] to hit, reach 5 ft. or range 20/60 ft., one target. _Hit:_ [STR 1D6] piercing damage, or [STR 1D8] piercing damage if used with two hands to make a melee attack."
 		},
 		{
 			"name": "Trident",
-			"desc": "_Melee Weapon Attack:_ [STR ATK] to hit, reach 5 ft. or range 20/60 ft., one target. _Hit:_ [STR 1D6] piercing damage, or [STR 1D8] piercing damage if used with two hands to make a melee attack."
+			"desc": "_Melee or Ranged Weapon Attack:_ [STR ATK] to hit, reach 5 ft. or range 20/60 ft., one target. _Hit:_ [STR 1D6] piercing damage, or [STR 1D8] piercing damage if used with two hands to make a melee attack."
 		},
 		{
 			"name": "Unarmed Strike",
