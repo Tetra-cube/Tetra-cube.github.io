@@ -189,15 +189,15 @@
     padding-top: 10px;
 }
 
-.lairregion {
+.lairregional {
     padding-top: 0;
 }
 
-.lairregion p {
+.lairregional p {
     font-style: normal;
 }
 
-#traits-list-right> :first-child.property-block.lairregion {
+#traits-list-right> :first-child.property-block.lairregional {
     /* for a rare edge case where a lair action is the first item in the second column */
     padding-top: 10px;
 }
