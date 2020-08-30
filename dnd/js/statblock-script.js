@@ -40,6 +40,7 @@ var mon = {
     legendariesDescription: "",
     isLair: false,
     lairDescription: "",
+    lairDescriptionEnd: "",
     isRegional: false,
     regionalDescription: "",
     regionalDescriptionEnd: "",
@@ -207,8 +208,10 @@ function UpdateStatblock(moveSeparationPoint) {
     if (mon.reactions.length > 0) AddToTraitList(traitsHTML, mon.reactions, "<h3>Reactions</h3>");
     if (mon.isLegendary)
         AddToTraitList(traitsHTML, mon.legendaries, mon.legendariesDescription == "" ? "<h3>Legendary Actions</h3>" : ["<h3>Legendary Actions</h3><div class='property-block'>", mon.legendariesDescription, "</div></br>"], true);
-    if (mon.isLair && mon.isLegendary)
+    if (mon.isLair && mon.isLegendary){
         AddToTraitList(traitsHTML, mon.lairs, mon.lairDescription == "" ? "<h3>Lair Actions</h3>" : ["<h3>Lair Actions</h3><div class='property-block'>", mon.lairDescription, "</div></br>"], false, true);
+        traitsHTML.push("*"+mon.lairDescriptionEnd);
+    }
     if (mon.isRegional && mon.isLegendary){    
         AddToTraitList(traitsHTML, mon.regionals, mon.regionalDescription == "" ? "<h3>Regional Effects</h3>" : ["<h3>Regional Effects</h3><div class='property-block'>", mon.regionalDescription, "</div></br>"], false, true);
         traitsHTML.push("*"+mon.regionalDescriptionEnd);
@@ -404,6 +407,7 @@ function TryMarkdown() {
     if (mon.isLair && mon.isLegendary) {
         markdown.push("<br>> ### Lair Actions<br>> ", mon.lairDescription);
         if (mon.lairs.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.lairs, false, true));
+        markdown.push("<br>><br>>", mon.lairDescriptionEnd);
     }
     if (mon.isRegional && mon.isLegendary) {
         markdown.push("<br>><br>> ### Regional Effects<br>> ", mon.regionalDescription);
@@ -652,6 +656,11 @@ var FormFunctions = {
         $("#lair-descsection-input").val(mon.lairDescription);
     },
 
+    // For setting the regional effect end description
+    SetLairDescriptionEndForm: function() {
+        $("#lair-end-descsection-input").val(mon.lairDescriptionEnd);
+    },
+
     // For setting the regional effect description
     SetRegionalDescriptionForm: function() {
         $("#regional-descsection-input").val(mon.regionalDescription);
@@ -856,6 +865,8 @@ var InputFunctions = {
     LairDescriptionDefaultInput: function() {
         GetVariablesFunctions.LairDescriptionDefault();
         FormFunctions.SetLairDescriptionForm();
+        GetVariablesFunctions.LairDescriptionEndDefault();
+        FormFunctions.SetLairDescriptionEndForm();
     },
 
     // Reset regional description to default
@@ -946,6 +957,7 @@ var GetVariablesFunctions = {
         mon.isLair = $("#has-lair-input").prop("checked");
         if (mon.isLair){
             mon.lairDescription = $("#lair-descsection-input").val().trim();
+            mon.lairDescriptionEnd = $("#lair-end-descsection-input").val().trim();
         }
 
         // Regional
@@ -1182,10 +1194,14 @@ var GetVariablesFunctions = {
 
         // Lair?
         mon.isLair = Array.isArray(preset.lair_actions);
-        if (preset.lair_desc == null || preset.lair_desc.length == 0)
+        if (preset.lair_desc == null || preset.lair_desc.length == 0){
             this.LairDescriptionDefault();
-        else
+            this.LairDescriptionEndDefault();
+        }
+        else{
             mon.lairDescription = preset.lair_desc;
+            mon.lairDescriptionEnd = preset.lair_desc_end;
+        }
         FormFunctions.SetLairDescriptionForm();
 
         // Regional Effects?
@@ -1420,6 +1436,12 @@ var GetVariablesFunctions = {
     LairDescriptionDefault: function() {
         let monsterName = name.toLowerCase();
         mon.lairDescription = "When fighting inside it's lair, the " + mon.name.toLowerCase() + " can invoke the ambient magic to take lair actions. On initiative count 20 (losing initiative ties), the " + mon.name.toLowerCase() + " takes a lair action to cause one of the following effects:";
+    },
+
+    // Return the default lair end description
+    LairDescriptionEndDefault: function() {
+        let monsterName = name.toLowerCase();
+        mon.lairDescriptionEnd = "The " + mon.name.toLowerCase() + " can't repeat an effect until they have all been used, and it can't use the same effect two rounds in a row.";
     },
 
     // Return the default regional description
@@ -1805,6 +1827,7 @@ $(function () {
 function Populate() {
     FormFunctions.SetLegendaryDescriptionForm();
     FormFunctions.SetLairDescriptionForm();
+    FormFunctions.SetLairDescriptionEndForm();
     FormFunctions.SetRegionalDescriptionForm();
     FormFunctions.SetRegionalDescriptionEndForm();
     FormFunctions.SetCommonAbilitiesDropdown();
