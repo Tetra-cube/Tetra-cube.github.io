@@ -1435,7 +1435,7 @@ var GetVariablesFunctions = {
     // Return the default lair description
     LairDescriptionDefault: function() {
         let monsterName = name.toLowerCase();
-        mon.lairDescription = "When fighting inside it's lair, the " + mon.name.toLowerCase() + " can invoke the ambient magic to take lair actions. On initiative count 20 (losing initiative ties), the " + mon.name.toLowerCase() + " takes a lair action to cause one of the following effects:";
+        mon.lairDescription = "When fighting inside its lair, the " + mon.name.toLowerCase() + " can invoke the ambient magic to take lair actions. On initiative count 20 (losing initiative ties), the " + mon.name.toLowerCase() + " can take one lair action to cause one of the following effects:";
     },
 
     // Return the default lair end description
