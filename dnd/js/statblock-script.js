@@ -209,12 +209,12 @@ function UpdateStatblock(moveSeparationPoint) {
     if (mon.isLegendary)
         AddToTraitList(traitsHTML, mon.legendaries, mon.legendariesDescription == "" ? "<h3>Legendary Actions</h3>" : ["<h3>Legendary Actions</h3><div class='property-block'>", ReplaceTags(mon.legendariesDescription), "</div></br>"], true);
     if (mon.isLair && mon.isLegendary) {
-        AddToTraitList(traitsHTML, mon.lairs, mon.lairDescription == "" ? "<h3>Lair Actions</h3>" : ["<h3>Lair Actions</h3><div class='property-block'>", ReplaceTags(mon.lairDescription), "</div></br>"], false, true);
-        traitsHTML.push("*" + ReplaceTags(mon.lairDescriptionEnd));
+        AddToTraitList(traitsHTML, mon.lairs, mon.lairDescription == "" ? "<h3>Lair Actions</h3>" : ["<h3>Lair Actions</h3><div class='property-block'>", ReplaceTags(mon.lairDescription), "</div></br><ul>"], false, true);
+        traitsHTML.push("</ul>" + ReplaceTags(mon.lairDescriptionEnd));
     }
     if (mon.isRegional && mon.isLegendary) {
-        AddToTraitList(traitsHTML, mon.regionals, mon.regionalDescription == "" ? "<h3>Regional Effects</h3>" : ["<h3>Regional Effects</h3><div class='property-block'>", ReplaceTags(mon.regionalDescription), "</div></br>"], false, true);
-        traitsHTML.push("*" + ReplaceTags(mon.regionalDescriptionEnd));
+        AddToTraitList(traitsHTML, mon.regionals, mon.regionalDescription == "" ? "<h3>Regional Effects</h3>" : ["<h3>Regional Effects</h3><div class='property-block'>", ReplaceTags(mon.regionalDescription), "</div></br><ul>"], false, true);
+        traitsHTML.push("</ul>" + ReplaceTags(mon.regionalDescriptionEnd));
     }
 
     // Add traits, taking into account the width of the block (one column or two columns)
@@ -1686,7 +1686,7 @@ var StringFunctions = {
     },
 
     MakeTraitHTMLLairRegional: function (name, description) {
-        return "<div class=\"property-block lairregional\"><div><ul><li>" + this.FormatString(description, true) + "</li></ul></div></div> <!-- property block -->";
+        return "<div class=\"property-block lairregional\"><div><li>" + this.FormatString(description, true) + "</li></div></div> <!-- property block -->";
     },
 
     // General string operations
