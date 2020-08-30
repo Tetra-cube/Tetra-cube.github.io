@@ -207,14 +207,14 @@ function UpdateStatblock(moveSeparationPoint) {
     if (mon.actions.length > 0) AddToTraitList(traitsHTML, mon.actions, "<h3>Actions</h3>");
     if (mon.reactions.length > 0) AddToTraitList(traitsHTML, mon.reactions, "<h3>Reactions</h3>");
     if (mon.isLegendary)
-        AddToTraitList(traitsHTML, mon.legendaries, mon.legendariesDescription == "" ? "<h3>Legendary Actions</h3>" : ["<h3>Legendary Actions</h3><div class='property-block'>", mon.legendariesDescription, "</div></br>"], true);
+        AddToTraitList(traitsHTML, mon.legendaries, mon.legendariesDescription == "" ? "<h3>Legendary Actions</h3>" : ["<h3>Legendary Actions</h3><div class='property-block'>", ReplaceTags(mon.legendariesDescription), "</div></br>"], true);
     if (mon.isLair && mon.isLegendary) {
-        AddToTraitList(traitsHTML, mon.lairs, mon.lairDescription == "" ? "<h3>Lair Actions</h3>" : ["<h3>Lair Actions</h3><div class='property-block'>", mon.lairDescription, "</div></br>"], false, true);
-        traitsHTML.push("*" + mon.lairDescriptionEnd);
+        AddToTraitList(traitsHTML, mon.lairs, mon.lairDescription == "" ? "<h3>Lair Actions</h3>" : ["<h3>Lair Actions</h3><div class='property-block'>", ReplaceTags(mon.lairDescription), "</div></br>"], false, true);
+        traitsHTML.push("*" + ReplaceTags(mon.lairDescriptionEnd));
     }
     if (mon.isRegional && mon.isLegendary) {
-        AddToTraitList(traitsHTML, mon.regionals, mon.regionalDescription == "" ? "<h3>Regional Effects</h3>" : ["<h3>Regional Effects</h3><div class='property-block'>", mon.regionalDescription, "</div></br>"], false, true);
-        traitsHTML.push("*" + mon.regionalDescriptionEnd);
+        AddToTraitList(traitsHTML, mon.regionals, mon.regionalDescription == "" ? "<h3>Regional Effects</h3>" : ["<h3>Regional Effects</h3><div class='property-block'>", ReplaceTags(mon.regionalDescription), "</div></br>"], false, true);
+        traitsHTML.push("*" + ReplaceTags(mon.regionalDescriptionEnd));
     }
 
     // Add traits, taking into account the width of the block (one column or two columns)
@@ -254,16 +254,16 @@ function AddToTraitList(traitsHTML, traitsArr, addElements, isLegendary = false,
     // There's a small difference in formatting for legendary actions and lair/regional actions
     for (let index = 0; index < traitsArr.length; index++) {
         if (isLegendary) {
-            traitsHTML.push(StringFunctions.MakeTraitHTMLLegendary(traitsArr[index].name, ReplaceTraitTags(traitsArr[index].desc)));
+            traitsHTML.push(StringFunctions.MakeTraitHTMLLegendary(traitsArr[index].name, ReplaceTags(traitsArr[index].desc)));
         } else if (isLairRegional) {
-            traitsHTML.push(StringFunctions.MakeTraitHTMLLairRegional(traitsArr[index].name, ReplaceTraitTags(traitsArr[index].desc)));
+            traitsHTML.push(StringFunctions.MakeTraitHTMLLairRegional(traitsArr[index].name, ReplaceTags(traitsArr[index].desc)));
         } else {
-            traitsHTML.push(StringFunctions.MakeTraitHTML(traitsArr[index].name, ReplaceTraitTags(traitsArr[index].desc)));
+            traitsHTML.push(StringFunctions.MakeTraitHTML(traitsArr[index].name, ReplaceTags(traitsArr[index].desc)));
         }
     }
 }
 
-function ReplaceTraitTags(desc) {
+function ReplaceTags(desc) {
     const bracketExp = /\[(.*?)\]/g,
         damageExp = /\d*d\d+/,
         bonusExp = /^[+-] ?(\d+)$/;
@@ -401,18 +401,18 @@ function TryMarkdown() {
     if (mon.actions.length > 0) markdown.push("<br>> ### Actions<br>", GetTraitMarkdown(mon.actions, false));
     if (mon.reactions.length > 0) markdown.push("<br>> ### Reactions<br>", GetTraitMarkdown(mon.reactions, false));
     if (mon.isLegendary) {
-        markdown.push("<br>> ### Legendary Actions<br>> ", mon.legendariesDescription);
+        markdown.push("<br>> ### Legendary Actions<br>> ", ReplaceTags(mon.legendariesDescription));
         if (mon.legendaries.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.legendaries, true));
     }
     if (mon.isLair && mon.isLegendary) {
-        markdown.push("<br>> ### Lair Actions<br>> ", mon.lairDescription);
+        markdown.push("<br>> ### Lair Actions<br>> ", ReplaceTags(mon.lairDescription));
         if (mon.lairs.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.lairs, false, true));
-        markdown.push("<br>><br>>", mon.lairDescriptionEnd);
+        markdown.push("<br>><br>>", ReplaceTags(mon.lairDescriptionEnd));
     }
     if (mon.isRegional && mon.isLegendary) {
-        markdown.push("<br>><br>> ### Regional Effects<br>> ", mon.regionalDescription);
+        markdown.push("<br>><br>> ### Regional Effects<br>> ", ReplaceTags(mon.regionalDescription));
         if (mon.regionals.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.regionals, false, true));
-        markdown.push("<br>><br>>", mon.regionalDescriptionEnd);
+        markdown.push("<br>><br>>", ReplaceTags(mon.regionalDescriptionEnd));
     }
 
     markdown.push("</code></body></html>")
@@ -423,7 +423,7 @@ function TryMarkdown() {
 function GetTraitMarkdown(traitArr, legendary = false, lairOrRegional = false) {
     let markdown = [];
     for (let index = 0; index < traitArr.length; index++) {
-        let desc = ReplaceTraitTags(traitArr[index].desc)
+        let desc = ReplaceTags(traitArr[index].desc)
             .replace(/(\r\n|\r|\n)\s*(\r\n|\r|\n)/g, '\n>\n')
             .replace(/(\r\n|\r|\n)>/g, '\&lt;br&gt;<br>>')
             .replace(/(\r\n|\r|\n)/g, '\&lt;br&gt;<br>> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;');
