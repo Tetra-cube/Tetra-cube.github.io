@@ -495,8 +495,8 @@
                     <br>
                     <div id="prof-bonus"></div>
                     <div id="custom-cr">
-                        <label for="custom-cr-input">CR Text: <input id="custom-cr-input" type="text"
-                                value="1 (200 XP)" placeholder="Leave blank to hide" style="width: 16rem;"></label>
+                        <label for="custom-cr-input">CR Text: <input id="custom-cr-input" type="text" value="1 (200 XP)"
+                                placeholder="Leave blank to hide" style="width: 16rem;"></label>
                         <br>
                         <label for="custom-prof-input">Proficiency Bonus: <input type="number" id="custom-prof-input"
                                 min="0" max="99" value="2"></label>
@@ -519,10 +519,37 @@
                 </div>
                 <div id="legendary-actions-form">
                     <br>
+                    <label for="has-lair-input"><b>Lair:</b> <input type="checkbox" id="has-lair-input"
+                            onclick="FormFunctions.ShowHideLair()"></label>
+                    <label for="has-regional-input"><b>Regional:</b> <input type="checkbox" id="has-regional-input"
+                            onclick="FormFunctions.ShowHideRegional()"></label>
+                    <br><br>
                     <b>Legendary Actions Description:</b>
                     <div><label for="legendaries-descsection-input" style="width: 100%"><textarea
                                 id="legendaries-descsection-input" rows="4"></textarea></label></div>
                     <div><button type="button" onclick="InputFunctions.LegendaryDescriptionDefaultInput()">Reset to
+                            Default</button></div>
+                </div>
+                <div id="lair-actions-form">
+                    <br>
+                    <b>Lair Actions Description:</b>
+                    <div><label for="lair-descsection-input" style="width: 100%"><textarea id="lair-descsection-input"
+                                rows="4"></textarea></label></div>
+                    <b>Lair Actions End Note Description:</b>
+                    <div><label for="lair-end-descsection-input" style="width: 100%"><textarea
+                                id="lair-end-descsection-input" rows="4"></textarea></label></div>
+                    <div><button type="button" onclick="InputFunctions.LairDescriptionDefaultInput()">Reset to
+                            Default</button></div>
+                </div>
+                <div id="regional-actions-form">
+                    <br>
+                    <b>Regional Effects Description:</b>
+                    <div><label for="regional-descsection-input" style="width: 100%"><textarea
+                                id="regional-descsection-input" rows="4"></textarea></label></div>
+                    <b>Regional Effects End Note Description:</b>
+                    <div><label for="regional-end-descsection-input" style="width: 100%"><textarea
+                                id="regional-end-descsection-input" rows="4"></textarea></label></div>
+                    <div><button type="button" onclick="InputFunctions.RegionalDescriptionDefaultInput()">Reset to
                             Default</button></div>
                 </div>
                 <br>
@@ -539,6 +566,10 @@
                         onclick="InputFunctions.AddAbilityInput('reactions')">Add Reaction</button>
                     <button type="button" id="add-legendary-button"
                         onclick="InputFunctions.AddAbilityInput('legendaries')">Add Legendary Action</button>
+                    <button type="button" id="add-lair-button" onclick="InputFunctions.AddAbilityInput('lairs')">Add
+                        Lair Action</button>
+                    <button type="button" id="add-regional-button"
+                        onclick="InputFunctions.AddAbilityInput('regionals')">Add Regional Effect</button>
                 </div>
                 <div>
                     <select id="common-ability-input"></select>
@@ -576,6 +607,12 @@
                     </div>
                     <div id="legendaries-input-section"><b>Legendary Actions:</b><br>
                         <ul id="legendaries-input-list" class="statblock-list"></ul>
+                    </div>
+                    <div id="lairs-input-section"><b>Lair Actions:</b><br>
+                        <ul id="lairs-input-list" class="statblock-list"></ul>
+                    </div>
+                    <div id="regionals-input-section"><b>Regional Effects:</b><br>
+                        <ul id="regionals-input-list" class="statblock-list"></ul>
                     </div>
                 </div>
                 <br>
