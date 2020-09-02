@@ -159,22 +159,22 @@ function UpdateStatblock(moveSeparationPoint) {
     mon.doubleColumns ? statBlock.addClass('wide') : statBlock.removeClass('wide');
 
     // Name and type
-    $("#monster-name").html(mon.name);
-    $("#monster-type").html(StringFunctions.StringCapitalize(mon.size) + " " + mon.type +
-        (mon.tag == "" ? ", " : " (" + mon.tag + "), ") + mon.alignment);
+    $("#monster-name").html(StringFunctions.RemoveHtmlTags(mon.name));
+    $("#monster-type").html(StringFunctions.StringCapitalize(StringFunctions.RemoveHtmlTags(mon.size) + " " + mon.type +
+        (mon.tag == "" ? ", " : " (" + mon.tag + "), ") + mon.alignment));
 
     // Armor Class
-    $("#armor-class").html(StringFunctions.FormatString(StringFunctions.GetArmorData()));
+    $("#armor-class").html(StringFunctions.FormatString(StringFunctions.RemoveHtmlTags(StringFunctions.GetArmorData())));
 
     // Hit Points
-    $("#hit-points").html(StringFunctions.GetHP());
+    $("#hit-points").html(StringFunctions.FormatString(StringFunctions.RemoveHtmlTags(StringFunctions.GetHP())));
 
     // Speed
-    $("#speed").html(StringFunctions.GetSpeed());
+    $("#speed").html(StringFunctions.FormatString(StringFunctions.RemoveHtmlTags(StringFunctions.GetSpeed())));
 
     // Stats
     let setPts = (id, pts) =>
-        $(id).html(pts + " (" + StringFunctions.BonusFormat(MathFunctions.PointsToBonus(pts)) + ")");
+        $(id).html(pts + " (" + StringFunctions.RemoveHtmlTags(StringFunctions.BonusFormat(MathFunctions.PointsToBonus(pts))) + ")");
     setPts("#strpts", mon.strPoints);
     setPts("#dexpts", mon.dexPoints);
     setPts("#conpts", mon.conPoints);
@@ -195,7 +195,7 @@ function UpdateStatblock(moveSeparationPoint) {
     let crDisplay = CrFunctions.GetString();
     if (crDisplay && crDisplay.length > 0) {
         $("#challenge-rating-line").show();
-        $("#challenge-rating").html(crDisplay);
+        $("#challenge-rating").html(StringFunctions.FormatString(StringFunctions.RemoveHtmlTags(crDisplay)));
     }
     else
         $("#challenge-rating-line").hide();
@@ -207,16 +207,16 @@ function UpdateStatblock(moveSeparationPoint) {
     if (mon.actions.length > 0) AddToTraitList(traitsHTML, mon.actions, "<h3>Actions</h3>");
     if (mon.reactions.length > 0) AddToTraitList(traitsHTML, mon.reactions, "<h3>Reactions</h3>");
     if (mon.isLegendary)
-        AddToTraitList(traitsHTML, mon.legendaries, mon.legendariesDescription == "" ? "<h3>Legendary Actions</h3>" : ["<h3>Legendary Actions</h3><div class='property-block'>", ReplaceTags(mon.legendariesDescription), "</div></br>"], true);
+        AddToTraitList(traitsHTML, mon.legendaries, mon.legendariesDescription == "" ? "<h3>Legendary Actions</h3>" : ["<h3>Legendary Actions</h3><div class='property-block'>", ReplaceTags(StringFunctions.RemoveHtmlTags(mon.legendariesDescription)), "</div></br>"], true);
     if (mon.isLair && mon.isLegendary) {
-        AddToTraitList(traitsHTML, mon.lairs, mon.lairDescription == "" ? "<h3>Lair Actions</h3>" : ["<h3>Lair Actions</h3><div class='property-block'>", ReplaceTags(mon.lairDescription), "</div></br><ul>"], false, true);
+        AddToTraitList(traitsHTML, mon.lairs, mon.lairDescription == "" ? "<h3>Lair Actions</h3>" : ["<h3>Lair Actions</h3><div class='property-block'>", ReplaceTags(StringFunctions.RemoveHtmlTags(mon.lairDescription)), "</div></br><ul>"], false, true);
         traitsHTML.push("</ul>" + ReplaceTags(mon.lairDescriptionEnd));
     }
     if (mon.isRegional && mon.isLegendary) {
-        AddToTraitList(traitsHTML, mon.regionals, mon.regionalDescription == "" ? "<h3>Regional Effects</h3>" : ["<h3>Regional Effects</h3><div class='property-block'>", ReplaceTags(mon.regionalDescription), "</div></br><ul>"], false, true);
+        AddToTraitList(traitsHTML, mon.regionals, mon.regionalDescription == "" ? "<h3>Regional Effects</h3>" : ["<h3>Regional Effects</h3><div class='property-block'>", ReplaceTags(StringFunctions.RemoveHtmlTags(mon.regionalDescription)), "</div></br><ul>"], false, true);
         traitsHTML.push("</ul>" + ReplaceTags(mon.regionalDescriptionEnd));
     }
-
+    
     // Add traits, taking into account the width of the block (one column or two columns)
     let leftTraitsArr = [],
         rightTraitsArr = [],
@@ -622,7 +622,7 @@ var FormFunctions = {
 
     // Set the ability bonus given ability scores
     ChangeBonus: function (stat) {
-        $("#" + stat + "bonus").html(StringFunctions.BonusFormat(MathFunctions.PointsToBonus($("#" + stat + "-input").val())));
+        $("#" + stat + "bonus").html(StringFunctions.RemoveHtmlTags(StringFunctions.BonusFormat(MathFunctions.PointsToBonus($("#" + stat + "-input").val()))));
     },
 
     // Set the proficiency bonus based on the monster's CR
@@ -635,7 +635,7 @@ var FormFunctions = {
         }
         else {
             $("#prof-bonus").show();
-            $("#prof-bonus").html("(Proficiency Bonus: +" + CrFunctions.GetProf() + ")");
+            $("#prof-bonus").html("(Proficiency Bonus: +" + StringFunctions.RemoveHtmlTags(CrFunctions.GetProf()) + ")");
             $("#custom-cr").hide();
         }
     },
@@ -680,7 +680,7 @@ var FormFunctions = {
     // Set ability scores and bonuses
     SetStatForm: function (statName, statPoints) {
         $("#" + statName + "-input").val(statPoints);
-        $("#" + statName + "bonus").html(StringFunctions.BonusFormat(MathFunctions.PointsToBonus(statPoints)));
+        $("#" + statName + "bonus").html(StringFunctions.RemoveHtmlTags(StringFunctions.BonusFormat(MathFunctions.PointsToBonus(statPoints))));
     },
 
     // Make a list of removable items and add it to the editor
@@ -1674,19 +1674,19 @@ var StringFunctions = {
         if (property.arr.length == 0) return "";
         let htmlClass = firstLine ? "property-line first" : "property-line",
             arr = Array.isArray(property.arr) ? property.arr.join(", ") : property.arr;
-        return "<div class=\"" + htmlClass + "\"><div><h4>" + property.name + "</h4> <p>" + this.FormatString(arr, false) + "</p></div></div><!-- property line -->"
+        return "<div class=\"" + htmlClass + "\"><div><h4>" + StringFunctions.RemoveHtmlTags(property.name) + "</h4> <p>" + StringFunctions.RemoveHtmlTags(this.FormatString(arr, false)) + "</p></div></div><!-- property line -->"
     },
 
     MakeTraitHTML: function (name, description) {
-        return "<div class=\"property-block\"><div><h4>" + name + ".</h4><p> " + this.FormatString(description, true) + "</p></div></div> <!-- property block -->";
+        return "<div class=\"property-block\"><div><h4>" + StringFunctions.RemoveHtmlTags(name) + ".</h4><p> " + this.FormatString(StringFunctions.RemoveHtmlTags(description), true) + "</p></div></div> <!-- property block -->";
     },
 
     MakeTraitHTMLLegendary: function (name, description) {
-        return "<div class=\"property-block reverse-indent legendary\"><div><h4>" + name + ".</h4><p> " + this.FormatString(description, true) + "</p></div></div> <!-- property block -->";
+        return "<div class=\"property-block reverse-indent legendary\"><div><h4>" + StringFunctions.RemoveHtmlTags(name) + ".</h4><p> " + this.FormatString(StringFunctions.RemoveHtmlTags(description), true) + "</p></div></div> <!-- property block -->";
     },
 
     MakeTraitHTMLLairRegional: function (name, description) {
-        return "<div class=\"property-block lairregional\"><div><li>" + this.FormatString(description, true) + "</li></div></div> <!-- property block -->";
+        return "<div class=\"property-block lairregional\"><div><li>" + this.FormatString(StringFunctions.RemoveHtmlTags(description), true) + "</li></div></div> <!-- property block -->";
     },
 
     // General string operations
@@ -1704,6 +1704,12 @@ var StringFunctions = {
     StringCapitalize: (string) => string[0].toUpperCase() + string.substr(1),
 
     GetNumbersOnly: (string) => parseInt(string.replace(/\D/g, '')),
+
+    RemoveHtmlTags(string) {
+        if (typeof (string) != "string")
+            return string;
+        return StringFunctions.StringReplaceAll(string, '<', "&lt;")
+    }
 }
 
 // Math functions
