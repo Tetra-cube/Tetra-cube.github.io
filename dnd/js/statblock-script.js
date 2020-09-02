@@ -833,7 +833,7 @@ var InputFunctions = {
     InputCR: function () {
         mon.cr = $("#cr-input").val();
         mon.customCr = $("#custom-cr-input").val();
-        mon.customProf = $("#custom-prof-input").val();
+        mon.customProf = parseInt($("#custom-prof-input").val());
         FormFunctions.ChangeCRForm();
     },
 
@@ -943,7 +943,7 @@ var GetVariablesFunctions = {
         // Challenge Rating
         mon.cr = $("#cr-input").val();
         mon.customCr = $("#custom-cr-input").val();
-        mon.customProf = $("#custom-prof-input").val();
+        mon.customProf = parseInt($("#custom-prof-input").val());
 
         // Shortened Name
         mon.shortName = $("#short-name-input").val();
