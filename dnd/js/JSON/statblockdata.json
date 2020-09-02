@@ -699,6 +699,10 @@
 			"desc": "The duergar has advantage on saving throws against poison, spells, and illusions, as well as to resist being charmed or paralyzed."
 		},
 		{
+			"name": "Dwarven Resilience",
+			"desc": "The dwarf has advantage on saving throws against poison, spells, and illusions, as well as to resist being charmed or paralyzed."
+		},
+		{
 			"name": "Earth Glide",
 			"desc": "The [MON] can burrow through nonmagical, unworked earth and stone. While doing so, the [MON] doesn't disturb the material it moves through."
 		},
@@ -773,6 +777,10 @@
 			"name": "Healing Touch (Action)",
 			"realname": "Healing Touch (???/day)",
 			"desc": "The [MON] touches another creature. The target magically regains [???D??? + ???] hit points and is freed from any curse, disease, poison, blindness, or deafness."
+		},
+		{
+			"name": "Halfling Nimbleness",
+			"desc": "The halfling can move through the space of any creature that is of a size larger than its own."
 		},
 		{
 			"name": "Heated Body",
@@ -881,6 +889,10 @@
 			"desc": "The [MON] can magically communicate simple ideas, emotions, and images telepathically with any creature within ??? ft. of it."
 		},
 		{
+			"name": "Lucky",
+			"desc": "When the [MON] rolls a 1 on the d20 for an attack roll, ability check, or saving throw, it can reroll the die and must use the new roll."
+		},
+		{
 			"name": "Magic Resistance",
 			"desc": "The [MON] has advantage on saving throws against spells and other magical effects."
 		},
@@ -895,6 +907,10 @@
 		{
 			"name": "Mimicry",
 			"desc": "The [MON] can mimic ??? sounds it has heard. A creature that hears the sounds can tell they are imitations with a successful DC ??? Wisdom (Insight) check."
+		},
+		{
+			"name": "Naturally Stealthy",
+			"desc": "The [MON] can attempt to hide even when it is obscured only by a creature that is at least one size larger than itself."
 		},
 		{
 			"name": "Nimble Escape",
@@ -953,8 +969,8 @@
 			"desc": "Any nonmagical weapon made of metal that hits the [MON] corrodes. After dealing damage, the weapon takes a permanent and cumulative -1 penalty to damage rolls. If its penalty drops to -5, the weapon is destroyed. Non magical ammunition made of metal that hits the [MON] is destroyed after dealing damage."
 		},
 		{
-			"name": "Speak With Plants and Beasts",
-			"desc": "The [MON] can communicate with beasts and plants as if they shared a language."
+			"name": "Savage Attacks",
+			"desc": "When the [MON] scores a critical hit with a melee weapon attack, it can roll one of the weapon’s damage dice one additional time and add it to the extra damage of the critical hit."
 		},
 		{
 			"name": "Sense Magic",
@@ -985,6 +1001,10 @@
 			"name": "Sneak Attack",
 			"realname": "Sneak Attack (1/Turn)",
 			"desc": "The [MON] deals an extra [???D???] damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 ft. of an ally of the [MON] that isn't incapacitated and the [MON] doesn't have disadvantage on the attack roll."
+		},
+		{
+			"name": "Speak With Plants and Beasts",
+			"desc": "The [MON] can communicate with beasts and plants as if they shared a language."
 		},
 		{
 			"name": "Spider Climb",
