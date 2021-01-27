@@ -568,7 +568,10 @@ var Names = {
                 return this.GetGendered(names[raceName], gender);
 
             case "Aasimar":
+            case "Dhampir":
             case "Genasi":
+            case "Hexblood":
+            case "Reborn":
                 return this.GetHuman(this.GetHumanEthnicity(), gender);
 
             case "Dragonborn":

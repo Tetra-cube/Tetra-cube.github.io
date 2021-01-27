@@ -176,8 +176,16 @@ var Card = {
 
         // Description line 2
         stringBuffer = [];
-        let genderText = (character.Race.name == "Warforged" ? "" : character.Gender + " - ")
-        stringBuffer.push(this.VariantTraits(), genderText, this.FindTraitByName(this.FindTraitByName(character.Race.content, "Physical Characteristics"), "Age"));
+        let genderText = (character.Race.name == "Warforged" ? "" : character.Gender),
+            physChar = this.FindTraitByName(character.Race.content, "Physical Characteristics");
+
+        stringBuffer.push(this.VariantTraits(), genderText);
+        if (physChar) {
+            if (genderText.length > 0)
+                stringBuffer.push(" - ");
+            stringBuffer.push(this.FindTraitByName(physChar, "Age"));
+        }
+
         ctx.fillText(stringBuffer.join(""), canvas.width / 2, yPos);
         yPos += lineHeight;
 

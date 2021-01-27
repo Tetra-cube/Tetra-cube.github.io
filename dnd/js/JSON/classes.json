@@ -1,14 +1,14 @@
 {
 	"Artificer": {
-		"_special": "book-EBR",
+		"_special": "book-EBR/TCoE",
 		"Artificer Specialty": {
 			"_special": "booksort",
-			"EBR": [
+			"EBR/TCoE": [
 				"Alchemist",
 				"Artillerist",
 				"Battle Smith"
 			],
-			"UA": [
+			"TCoE": [
 				"Armorer"
 			]
 		}
@@ -29,9 +29,9 @@
 				"Path of the Storm Herald",
 				"Path of the Zealot"
 			],
-			"UA": [
+			"TCoE": [
 				"Path of the Beast",
-				"Path of the Wild Soul"
+				"Path of Wild magic"
 			]
 		},
 		"Personality": {
@@ -91,12 +91,13 @@
 				"College of Swords",
 				"College of Whispers"
 			],
-			"MOoT": [
+			"TCoE": [
+				"College of Creation"
+			],
+			"MOoT/TCoE": [
 				"College of Eloquence"
 			],
 			"UA": [
-				"College of Creation",
-				"College of the Maestro",
 				"College of Satire",
 				"College of Spirits"
 			]
@@ -177,14 +178,16 @@
 				"Forge Domain",
 				"Grave Domain"
 			],
-			"GGtR": [
+			"GGtR/TCoE": [
 				"Order Domain"
+			],
+			"TCoE": [
+				"Peace Domain",
+				"Twilight Domain"
 			],
 			"UA": [
 				"City Domain",
-				"Protection Domain",
-				"Twilight Domain",
-				"Unity Domain"
+				"Protection Domain"
 			]
 		},
 		"Personality": {
@@ -243,13 +246,15 @@
 				"Circle of Dreams",
 				"Circle of the Shepherd"
 			],
-			"GGtR": [
+			"TCoE": [
+				"Circle of Stars",
+				"Circle of Wildfire"
+			],
+			"GGtR/TCoE": [
 				"Circle of Spores"
 			],
 			"UA": [
-				"Circle of Stars",
-				"Circle of Twilight",
-				"Circle of Wildfire"
+				"Circle of Twilight"
 			]
 		},
 		"Personality": {
@@ -313,17 +318,16 @@
 				"Cavalier",
 				"Samurai"
 			],
+			"TCoE": [
+				"Psi Warrior",
+				"Rune Knight"
+			],
 			"EGtW": [
 				"Echo Knight"
-			],
-			"Other": [
-				"Gunslinger"
 			],
 			"UA": [
 				"Brute",
 				"Monster Hunter",
-				"Psi Knight",
-				"Rune Knight",
 				"Scout",
 				"Sharpshooter"
 			]
@@ -391,9 +395,12 @@
 			"SCAG/XGtE": [
 				"Way of the Sun Soul"
 			],
-			"UA": [
-				"Way of the Astral Self",
+			"TCoE": [
 				"Way of Mercy",
+				"Way of the Astral Self"
+			],
+			"UA": [
+				"Way of the Ascendant Dragon",
 				"Way of Tranquility"
 			]
 		},
@@ -471,13 +478,14 @@
 				"Oath of Conquest",
 				"Oath of Redemption"
 			],
-			"MOoT": [
+			"TCoE": [
+				"Oath of the Watchers"
+			],
+			"MOoT/TCoE": [
 				"Oath of Glory"
 			],
 			"UA": [
-				"Oath of Heroism",
-				"Oath of Treachery",
-				"Oath of the Watchers"
+				"Oath of Treachery"
 			]
 		},
 		"Personality": {
@@ -548,10 +556,13 @@
 				"Horizon Walker",
 				"Monster Slayer"
 			],
-			"UA": [
+			"TCoE": [
 				"Fey Wanderer",
-				"Primeval Guardian",
 				"Swarmkeeper"
+			],
+			"UA": [
+				"Drakewarden",
+				"Primeval Guardian"
 			]
 		},
 		"Personality": {
@@ -615,7 +626,7 @@
 				"Mastermind",
 				"Swashbuckler"
 			],
-			"UA": [
+			"TCoE": [
 				"Phantom",
 				"Soulknife"
 			]
@@ -679,11 +690,13 @@
 			"SCAG/XGtE": [
 				"Storm Sorcery"
 			],
+			"TCoE": [
+				"Aberrant Mind",
+				"Clockwork Soul"
+			],
 			"UA": [
-				"Clockwork Soul",
 				"Giant Soul",
 				"Phoenix Sorcery",
-				"Psionic soul",
 				"Sea Sorcery",
 				"Stone Sorcery"
 			]
@@ -759,10 +772,12 @@
 				"The Celestial",
 				"The Hexblade"
 			],
+			"TCoE": [
+				"The Fathomless",
+				"The Genie"
+			],
 			"UA": [
-				"The Genie",
 				"Ghost in the Machine",
-				"The Lurker in the Deep",
 				"The Raven Queen",
 				"The Seeker",
 				"The Undead"
@@ -826,11 +841,14 @@
 				"School of Necromancy",
 				"School of Transmutation"
 			],
-			"SCAG": [
-				"Bladesinging"
-			],
 			"XGtE": [
 				"War Magic"
+			],
+			"SCAG/TCoE": [
+				"Bladesinging"
+			],
+			"TCoE": [
+				"Order of Scribes"
 			],
 			"EGtW": [
 				"Chronurgy Magic",
@@ -838,7 +856,6 @@
 			],
 			"UA": [
 				"Onomancy",
-				"Order of Scribes",
 				"Psionics",
 				"School of Invention",
 				"Technomancy",

@@ -6,6 +6,11 @@
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/old-black-magic"
 		},
 		{
+			"name": "Dhampir, Hexblood, and Reborn",
+			"source": "Gothic Lineages",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/gothic-lineages"
+		},
+		{
 			"name": "Elf Subraces: Avariel and Grugach",
 			"source": "Elf Subraces",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/elf-subraces"
@@ -17,31 +22,6 @@
 		}
 	],
 	"classes": [
-		{
-			"name": "Artificer: Armorer",
-			"source": "Subclasses, Part 3",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses_part3"
-		},
-		{
-			"name": "Barbarian: Path of the Beast",
-			"source": "Subclasses, Part 1",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses1"
-		},
-		{
-			"name": "Barbarian: Path of the Wild Soul",
-			"source": "Barbarian and Monk",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/barbarian-and-monk"
-		},
-		{
-			"name": "Bard: College of Creation",
-			"source": "Subclasses, Part 2",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses_part2"
-		},
-		{
-			"name": "Bard: College of Eloquence",
-			"source": "Bard and Paladin",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/bard-paladin"
-		},
 		{
 			"name": "Bard: College of Satire",
 			"source": "Kits of Old",
@@ -63,29 +43,9 @@
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/cleric-divine-domains"
 		},
 		{
-			"name": "Cleric: Twilight Domain",
-			"source": "Cleric, Druid, and Wizard",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/cleric-druid-wizard"
-		},
-		{
-			"name": "Cleric: Unity Domain",
-			"source": "Subclasses, Part 2",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses_part2"
-		},
-		{
-			"name": "Druid: Circle of the Stars",
-			"source": "Subclasses, Part 3",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses_part3"
-		},
-		{
 			"name": "Druid: Circle of Twilight",
 			"source": "Druid Circles and Wild Shape",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/druid-circles-and-wild-shape"
-		},
-		{
-			"name": "Druid: Circle of Wildfire",
-			"source": "Cleric, Druid, and Wizard",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/cleric-druid-wizard"
 		},
 		{
 			"name": "Fighter: Brute",
@@ -98,16 +58,6 @@
 			"link": "https://dnd.wizards.com/articles/features/gothic-heroes"
 		},
 		{
-			"name": "Fighter: Psi Knight",
-			"source": "Psionic Options Revisited",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/psionic-options-revisited"
-		},
-		{
-			"name": "Fighter: Rune Knight",
-			"source": "Fighter, Ranger, and Rogue",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/fighter-ranger-rogue"
-		},
-		{
 			"name": "Fighter: Scout",
 			"source": "Kits of Old",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/kits-old"
@@ -118,14 +68,9 @@
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/fighter"
 		},
 		{
-			"name": "Monk: Way of the Astral Self",
-			"source": "Barbarian and Monk",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/barbarian-and-monk"
-		},
-		{
-			"name": "Monk: Way of Mercy",
-			"source": "Subclasses, Part 1",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses1"
+			"name": "Monk: Way of the Ascendant Dragon",
+			"source": "Subclasses, Part 5",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses5"
 		},
 		{
 			"name": "Monk: Way of Tranquility",
@@ -138,19 +83,9 @@
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/unearthed-arcana-update"
 		},
 		{
-			"name": "Paladin: Oath of Heroism",
-			"source": "Bard and Paladin",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/bard-paladin"
-		},
-		{
 			"name": "Paladin: Oath of Treachery",
 			"source": "Paladin: Sacred Oaths",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/paladin-sacred-oaths"
-		},
-		{
-			"name": "Paladin: Oath of the Watchers",
-			"source": "Subclasses, Part 1",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses1"
 		},
 		{
 			"name": "Alternative Ranger Class",
@@ -158,34 +93,14 @@
 			"link": "https://dnd.wizards.com/articles/features/unearthed-arcana-ranger-revised"
 		},
 		{
-			"name": "Ranger: Fey Wanderer",
-			"source": "Subclasses, Part 3",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses_part3"
+			"name": "Ranger: Drakewarden",
+			"source": "Subclasses, Part 5",
+			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses5"
 		},
 		{
 			"name": "Ranger: Primeval Guardian",
 			"source": "Ranger and Rogue",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/ranger-and-rogue"
-		},
-		{
-			"name": "Ranger: Swarmkeeper",
-			"source": "Fighter, Ranger, and Rogue",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/fighter-ranger-rogue"
-		},
-		{
-			"name": "Rogue: Phantom",
-			"source": "Subclasses Revisited",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses-revisited"
-		},
-		{
-			"name": "Rogue: Soulknife",
-			"source": "Psionic Options Revisited",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/psionic-options-revisited"
-		},
-		{
-			"name": "Sorcerer: Clockwork Soul",
-			"source": "Subclasses, Part 2",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses_part2"
 		},
 		{
 			"name": "Sorcerer: Giant Soul",
@@ -198,24 +113,9 @@
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/sorcerer"
 		},
 		{
-			"name": "Sorcerer: Psionic Soul",
-			"source": "Psionic Options Revisited",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/psionic-options-revisited"
-		},
-		{
-			"name": "Warlock: The Genie",
-			"source": "Subclasses Revisited",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses-revisited"
-		},
-		{
 			"name": "Warlock: Ghost in the Machine",
 			"source": "Modern Magic",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/modern-magic"
-		},
-		{
-			"name": "Warlock: The Lurker in the Deep",
-			"source": "Sorcerer and Warlock",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/sorcerer-and-warlock"
 		},
 		{
 			"name": "Warlock: The Raven Queen",
@@ -236,11 +136,6 @@
 			"name": "Wizard: Onomancy",
 			"source": "Cleric, Druid, and Wizard",
 			"link": "https://dnd.wizards.com/articles/unearthed-arcana/cleric-druid-wizard"
-		},
-		{
-			"name": "Wizard: Order of Scribes",
-			"source": "Subclasses Revisited",
-			"link": "https://dnd.wizards.com/articles/unearthed-arcana/subclasses-revisited"
 		},
 		{
 			"name": "Wizard: Psionics",

@@ -12,6 +12,7 @@
 		"MToF",
 		"Other",
 		"SCAG",
+		"TCoE",
 		"UA",
 		"VGtM",
 		"XGtE"
@@ -30,6 +31,7 @@
 		"Other": "Other Content",
 		"PHB": "Player's Handbook",
 		"SCAG": "Sword Coast Adventurer's Guide",
+		"TCoE": "Tasha's Cauldron of Everything",
 		"UA": "Unearthed Arcana",
 		"VGtM": "Volo's Guide to Monsters",
 		"XGtE": "Xanathar's Guide to Everything"
