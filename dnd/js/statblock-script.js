@@ -206,17 +206,23 @@ function UpdateStatblock(moveSeparationPoint) {
     if (mon.abilities.length > 0) AddToTraitList(traitsHTML, mon.abilities);
     if (mon.actions.length > 0) AddToTraitList(traitsHTML, mon.actions, "<h3>Actions</h3>");
     if (mon.reactions.length > 0) AddToTraitList(traitsHTML, mon.reactions, "<h3>Reactions</h3>");
-    if (mon.isLegendary)
-        AddToTraitList(traitsHTML, mon.legendaries, mon.legendariesDescription == "" ? "<h3>Legendary Actions</h3>" : ["<h3>Legendary Actions</h3><div class='property-block'>", ReplaceTags(StringFunctions.RemoveHtmlTags(mon.legendariesDescription)), "</div></br>"], true);
-    if (mon.isLair && mon.isLegendary) {
-        AddToTraitList(traitsHTML, mon.lairs, mon.lairDescription == "" ? "<h3>Lair Actions</h3>" : ["<h3>Lair Actions</h3><div class='property-block'>", ReplaceTags(StringFunctions.RemoveHtmlTags(mon.lairDescription)), "</div></br><ul>"], false, true);
-        traitsHTML.push("</ul>" + ReplaceTags(mon.lairDescriptionEnd));
+    if (mon.isLegendary && (mon.legendaries.length > 0 || mon.legendariesDescription.length > 0))
+        AddToTraitList(traitsHTML, mon.legendaries, mon.legendariesDescription == "" ?
+            "<h3>Legendary Actions</h3><div class='property-block'></div>" :
+            ["<h3>Legendary Actions</h3><div class='property-block'>", StringFunctions.FormatString(ReplaceTags(StringFunctions.RemoveHtmlTags(mon.legendariesDescription))), "</div></br>"], true);
+    if (mon.isLair && mon.isLegendary && (mon.lairs.length > 0 || mon.lairDescription.length > 0 || mon.lairDescriptionEnd.length > 0)) {
+        AddToTraitList(traitsHTML, mon.lairs, mon.lairDescription == "" ?
+            "<h3>Lair Actions</h3><div class='property-block'></div>" :
+            ["<h3>Lair Actions</h3><div class='property-block'>", StringFunctions.FormatString(ReplaceTags(StringFunctions.RemoveHtmlTags(mon.lairDescription))), "</div></br><ul>"], false, true);
+        traitsHTML.push("</ul>" + StringFunctions.FormatString(ReplaceTags(StringFunctions.RemoveHtmlTags(mon.lairDescriptionEnd))));
     }
-    if (mon.isRegional && mon.isLegendary) {
-        AddToTraitList(traitsHTML, mon.regionals, mon.regionalDescription == "" ? "<h3>Regional Effects</h3>" : ["<h3>Regional Effects</h3><div class='property-block'>", ReplaceTags(StringFunctions.RemoveHtmlTags(mon.regionalDescription)), "</div></br><ul>"], false, true);
-        traitsHTML.push("</ul>" + ReplaceTags(mon.regionalDescriptionEnd));
+    if (mon.isRegional && mon.isLegendary && (mon.regionals.length > 0 || mon.regionalDescription.length > 0 || mon.regionalDescriptionEnd.length > 0)) {
+        AddToTraitList(traitsHTML, mon.regionals, mon.regionalDescription == "" ?
+            "<h3>Regional Effects</h3><div class='property-block'></div>" :
+            ["<h3>Regional Effects</h3><div class='property-block'>", StringFunctions.FormatString(ReplaceTags(StringFunctions.RemoveHtmlTags(mon.regionalDescription))), "</div></br><ul>"], false, true);
+        traitsHTML.push("</ul>" + StringFunctions.FormatString(ReplaceTags(StringFunctions.RemoveHtmlTags(mon.regionalDescriptionEnd))));
     }
-    
+
     // Add traits, taking into account the width of the block (one column or two columns)
     let leftTraitsArr = [],
         rightTraitsArr = [],
@@ -395,7 +401,11 @@ function TryMarkdown() {
             (Array.isArray(propertiesDisplayArr[index].arr) ? propertiesDisplayArr[index].arr.join(", ") : propertiesDisplayArr[index].arr),
             "<br>");
     }
-    markdown.push("> - **Challenge** ", mon.cr, " (", data.crs[mon.cr].xp, " XP)<br>>___");
+
+    if (mon.cr == "*")
+        markdown.push("> - **Challenge** ", mon.customCr, "<br>>___");
+    else
+        markdown.push("> - **Challenge** ", mon.cr, " (", data.crs[mon.cr].xp, " XP)<br>>___");
 
     if (mon.abilities.length > 0) markdown.push("<br>", GetTraitMarkdown(mon.abilities, false));
     if (mon.actions.length > 0) markdown.push("<br>> ### Actions<br>", GetTraitMarkdown(mon.actions, false));
