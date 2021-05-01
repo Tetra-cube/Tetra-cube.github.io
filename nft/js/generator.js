@@ -43,7 +43,7 @@ function generate() {
 			$("#your-nft").css("display", "block");
 			$("#nft-value-number").html(getNftValue(paramsString));
 			isGeneratingValue = false;
-		}, 300);
+		}, 3000);
 	}
 	else {
 		$("#generating-value").css("display", "none");
