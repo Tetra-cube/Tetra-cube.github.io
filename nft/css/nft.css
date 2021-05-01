@@ -1,0 +1,66 @@
+html {
+	height: 100%;
+}
+
+body {
+    background-attachment: fixed;
+    background-size: cover;
+	background-position: center;
+    background-image: url('../images/background.jpg');
+    margin: 0;
+	height: 100%;
+}
+
+.container {
+    /* font-family: Georgia, Arial, sans-serif; */
+    text-align: left;
+    max-width: 1000px;
+    margin: 0 auto;
+    line-height: 125%;
+    border-style: none;
+	min-height: 100%;
+	background-color: #FFFFFFE6;
+	border-left: 2px solid gray;
+	border-right: 2px solid gray;
+}
+
+.content {
+    padding: 25px 50px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.input-label {
+	display: inline-block;
+	width: 12rem;
+}
+
+label, input {
+	width: 100%
+}
+
+.centered-element {
+	text-align: center;
+}
+
+.error-text {
+	color: red;
+}
+
+#generate-button {
+	text-align: center;
+	font-size: 24pt;
+}
+
+#generating-value {
+	text-align: center;
+}
+
+#nft-value {
+	text-align: center;
+	color: green;
+	font-size: 36pt;
+}

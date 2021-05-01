@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title id="title">NFT</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/nft.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/nft.js"></script>
+	<script src="js/value.js"></script>
+    <script src="js/urlregex.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145234284-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-145234284-1');
+    </script>
+
+</head>
+
+<body id="nft-gen-body">
+    <div class="container">
+        <div id="kofiheader" style="text-align: center;">
+            <br>
+            <script src='https://ko-fi.com/widgets/widget_2.js'></script>
+            <script>
+                try {
+                    kofiwidget2.init('Support Me on Ko-fi', '#46b798', 'Q5Q8MRF6');
+                    kofiwidget2.draw();
+                }
+                catch {
+                    console.error("Kofi widget display error")
+                    document.writeln('<a id="kofi-button" href="https://ko-fi.com/Q5Q8MRF6" target="_blank"><b>Support me on Ko-Fi!</b></a>');
+                }
+            </script>
+        </div>
+
+        <div class="content">
+            <br><br><br>
+            <h1 class="centered-element" id="header"></h1>
+            <br><br><br>
+            <div id="nft">
+                <div class="centered-element">
+                    <a id="link" target="_blank" rel="noopener noreferrer" href="">Click here to view the digital asset represented by this NFT</a>
+                </div>
+                <br><br><br>
+				<div>
+					<div><b>The estimated value of this NFT is:</b></div>
+					<br>
+					<div id="nft-value">$<span id="nft-value-number"></span> million dollars</div>
+				</div>
+            </div>
+			<br><br><br>
+        </div>
+    </div>
+</body>
+
+</html>
