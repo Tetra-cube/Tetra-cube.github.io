@@ -59,6 +59,7 @@ var mon = {
     languages: [],
     understandsBut: "",
     shortName: "",
+    pluralName: "",
     doubleColumns: false,
     separationPoint: 1
 };
@@ -283,11 +284,18 @@ function ReplaceTags(desc) {
         let readString = match[1].toLowerCase().replace(/ +/g, ' ').trim();
 
         if (readString.length > 0) {
-            if (readString == "mon")
+            if (readString == "mon") {
                 if (mon.shortName && mon.shortName.length > 0)
                     desc = desc.replace(match[0], mon.shortName);
                 else
                     desc = desc.replace(match[0], mon.name);
+            }
+            else if (readString == "mons") {
+                if (mon.pluralName && mon.pluralName.length > 0)
+                    desc = desc.replace(match[0], mon.pluralName);
+                else
+                    desc = desc.replace(match[0], mon.name);
+            }
             else {
                 let readPosition = 0,
                     type = null,
@@ -520,6 +528,7 @@ var FormFunctions = {
 
         // Abilities
         $("#short-name-input").val(mon.shortName);
+        $("#plural-name-input").val(mon.pluralName);
         this.MakeDisplayList("abilities", false, true);
         this.MakeDisplayList("actions", false, true);
         this.MakeDisplayList("reactions", false, true);
@@ -957,6 +966,7 @@ var GetVariablesFunctions = {
 
         // Shortened Name
         mon.shortName = $("#short-name-input").val();
+        mon.pluralName = $("#plural-name-input").val();
 
         // Legendaries
         mon.isLegendary = $("#is-legendary-input").prop("checked");
@@ -1143,7 +1153,7 @@ var GetVariablesFunctions = {
                 speaks = speaksUnderstandsArr[0].length > 0 ? speaksUnderstandsArr[0].trim().split(",") : [],
                 understands = speaksUnderstandsArr[1].split(" but "),
                 understandsLangs = understands[0].replace(", and ", ",").replace(" and ", ",").split(","),
-                understandsBut = understands[1].trim();
+                understandsBut = understands.length > 1 ? understands[1].trim() : "";
 
             for (let index = 0; index < speaks.length; index++)
                 this.AddLanguage(speaks[index], true);

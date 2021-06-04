@@ -504,14 +504,33 @@
                     <br>
                 </div>
                 <hr>
-                <div>
-                    <label for="short-name-input" style="width: 100%;">Shortened Name:
-                        <input id="short-name-input" type="text" value="" placeholder="None" style="width: 30%;">
-                        <div class="tooltip">?<span class="tooltiptext">This will replace [MON] in ability text, unless
-                                left blank.</span>
-                        </div>
-                    </label>
-                </div>
+                <table>
+                    <tr>
+
+                        <td>
+                            <label for="short-name-input" style="width: 100%; text-align: right;">Shortened
+                                Name:</label>
+                        </td>
+                        <td>
+                            <input id="short-name-input" type="text" value="" placeholder="None" style="width: 30%;">
+                            <div class="tooltip">?<span class="tooltiptext">This will replace [MON] in ability text,
+                                    unless left blank.</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="plural-name-input" style="text-align: right; width: 100%;">Shortened Plural:</label>
+                        </td>
+                        <td>
+                            <input id="plural-name-input" type="text" value="" placeholder="None" style="width: 30%;">
+                            <div class="tooltip">?<span class="tooltiptext">This will replace [MONS] in ability
+                                    text, unless left blank.</span>
+                            </div>
+                        </td>
+                        </label>
+                    </tr>
+                </table>
                 <br>
                 <div>
                     <label for="is-legendary-input"><b>Legendary Creature:</b> <input type="checkbox"
