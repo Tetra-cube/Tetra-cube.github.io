@@ -525,11 +525,13 @@ function AddMarkdownTraitSection(markdownLines, isV3Markdown, sectionTitle, trai
                 .replace(/(\r\n|\r|\n)\s*(\r\n|\r|\n)/g, '\n>\n')
                 .replace(/(\r\n|\r|\n)>/g, `\&lt;br&gt;<br>`)
                 .replace(/(\r\n|\r|\n)/g, `\&lt;br&gt;<br> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;`);
-            markdownLines.push(
-                (legendary ? "**" : (lairOrRegional ? "* " : "***")) +
-                (lairOrRegional ? "" : traitArr[index].name) +
-                (legendary ? ".** " : lairOrRegional ? "" : (".*** ")) +
-                desc);
+            
+            let traitString = (legendary ? "**" : (lairOrRegional ? "* " : "***")) +
+            (lairOrRegional ? "" : traitArr[index].name) +
+            (legendary ? ".** " : lairOrRegional ? "" : (".*** ")) +
+            desc;
+
+            traitString.split("<br>").forEach(line => markdownLines.push(line))
             if (index + 1 < traitArr.length)
             {
                 markdownLines.push(sectionDiv);
