@@ -402,7 +402,7 @@ function TryMarkdown() {
     markdown.push(
         "<h2>Homebrewery (Legacy)/GM Binder Markdown</h2>",
         buildMarkdown(LEGACY_MARKDOWN),
-        "<h2>Homebrewery v3.0</h2>",
+        "<h2>Homebrewery V3</h2>",
         buildMarkdown(V3_MARKDOWN))
 
     markdown.push("</body></html>")
