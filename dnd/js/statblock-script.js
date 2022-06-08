@@ -64,6 +64,12 @@ var mon = {
     separationPoint: 1
 };
 
+const LEGACY_MARKDOWN = false
+const V3_MARKDOWN = true
+const LEGENDARY = "LEGENDARY"
+const REGIONAL = "REGIONAL"
+const LAIR = "LAIR"
+
 // Save function
 var TrySaveFile = () => {
     SavedData.SaveToFile();
@@ -391,67 +397,172 @@ function ReplaceTags(desc) {
 // Homebrewery/GM Binder markdown
 function TryMarkdown() {
     let markdownWindow = window.open();
-    let markdown = ['<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>', mon.name, '</title><link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" /></head><body><h2>Homebrewery/GM Binder Markdown</h2><code>', mon.doubleColumns ? "___<br>___<br>" : "___<br>", '> ## ', mon.name, '<br>>*', StringFunctions.StringCapitalize(mon.size), ' ', mon.type];
-    if (mon.tag != "")
-        markdown.push(' (', mon.tag, ')');
-    markdown.push(', ', mon.alignment, '*<br>>___<br>> - **Armor Class** ', StringFunctions.FormatString(StringFunctions.GetArmorData()), '<br>> - **Hit Points** ', StringFunctions.GetHP(), '<br>> - **Speed** ', StringFunctions.GetSpeed(), "<br>>___<br>>|STR|DEX|CON|INT|WIS|CHA|<br>>|:---:|:---:|:---:|:---:|:---:|:---:|<br>>|",
-        mon.strPoints, " (", StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.strPoints)), ")|",
-        mon.dexPoints, " (", StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.dexPoints)), ")|",
-        mon.conPoints, " (", StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.conPoints)), ")|",
-        mon.intPoints, " (", StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.intPoints)), ")|",
-        mon.wisPoints, " (", StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.wisPoints)), ")|",
-        mon.chaPoints, " (", StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.chaPoints)), ")|<br>>___<br>");
+    let markdown = ['<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>', mon.name, '</title><link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" /></head><body>'];
+    
+    markdown.push(
+        "<h2>Homebrewery (Legacy)/GM Binder Markdown</h2>",
+        buildMarkdown(LEGACY_MARKDOWN),
+        "<h2>Homebrewery v3.0</h2>",
+        buildMarkdown(V3_MARKDOWN))
 
-    let propertiesDisplayArr = StringFunctions.GetPropertiesDisplayArr();
-
-    for (let index = 0; index < propertiesDisplayArr.length; index++) {
-        markdown.push('> - **', propertiesDisplayArr[index].name, "** ",
-            (Array.isArray(propertiesDisplayArr[index].arr) ? propertiesDisplayArr[index].arr.join(", ") : propertiesDisplayArr[index].arr),
-            "<br>");
-    }
-
-    if (mon.cr == "*")
-        markdown.push("> - **Challenge** ", mon.customCr, "<br>>___");
-    else
-        markdown.push("> - **Challenge** ", mon.cr, " (", data.crs[mon.cr].xp, " XP)<br>>___");
-
-    if (mon.abilities.length > 0) markdown.push("<br>", GetTraitMarkdown(mon.abilities, false));
-    if (mon.actions.length > 0) markdown.push("<br>> ### Actions<br>", GetTraitMarkdown(mon.actions, false));
-    if (mon.reactions.length > 0) markdown.push("<br>> ### Reactions<br>", GetTraitMarkdown(mon.reactions, false));
-    if (mon.isLegendary) {
-        markdown.push("<br>> ### Legendary Actions<br>> ", ReplaceTags(mon.legendariesDescription));
-        if (mon.legendaries.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.legendaries, true));
-    }
-    if (mon.isLair && mon.isLegendary) {
-        markdown.push("<br>> ### Lair Actions<br>> ", ReplaceTags(mon.lairDescription));
-        if (mon.lairs.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.lairs, false, true));
-        markdown.push("<br>><br>>", ReplaceTags(mon.lairDescriptionEnd));
-    }
-    if (mon.isRegional && mon.isLegendary) {
-        markdown.push("<br>><br>> ### Regional Effects<br>> ", ReplaceTags(mon.regionalDescription));
-        if (mon.regionals.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.regionals, false, true));
-        markdown.push("<br>><br>>", ReplaceTags(mon.regionalDescriptionEnd));
-    }
-
-    markdown.push("</code></body></html>")
+    markdown.push("</body></html>")
 
     markdownWindow.document.write(markdown.join(""));
 }
 
+function buildMarkdown(isV3Markdown) {
+    let markdownLines = [];
+
+    if (isV3Markdown) {
+        markdownLines.push(`{{monster,frame${mon.doubleColumns ? ",wide" : ""}`);
+    }
+    else {
+        if (mon.doubleColumns) {
+            markdownLines.push("___");  
+        }
+        markdownLines.push("___");
+    }
+
+    markdownLines.push(
+        `## ${mon.name}`,
+        `*${StringFunctions.StringCapitalize(mon.size)} ${mon.type}${mon.tag != "" ? ` (${mon.tag})`  : ""}, ${mon.alignment}*`,
+        `___`,
+        PrintMarkdownProperty(isV3Markdown, "Armor Class", StringFunctions.FormatString(StringFunctions.GetArmorData())),
+        PrintMarkdownProperty(isV3Markdown, "Hit Points", StringFunctions.GetHP()), 
+        PrintMarkdownProperty(isV3Markdown, "Speed", StringFunctions.GetSpeed()),
+        `___`);
+    AddMarkdownAttributesTable(markdownLines);
+    markdownLines.push("___");
+
+    let propertiesDisplayArr = StringFunctions.GetPropertiesDisplayArr();
+
+    for (let index = 0; index < propertiesDisplayArr.length; index++) {
+        markdownLines.push(
+            PrintMarkdownProperty(isV3Markdown, 
+            propertiesDisplayArr[index].name, 
+            Array.isArray(propertiesDisplayArr[index].arr) ? propertiesDisplayArr[index].arr.join(", ") : propertiesDisplayArr[index].arr));
+    }
+
+    markdownLines.push(
+        PrintMarkdownProperty(isV3Markdown, "Challenge", mon.cr == "*" ? mon.customCr : `${mon.cr} (${data.crs[mon.cr].xp} XP)`),
+        "___");
+
+    AddMarkdownTraitSection(markdownLines, isV3Markdown, null, mon.abilities);
+    AddMarkdownTraitSection(markdownLines, isV3Markdown, "Actions", mon.actions);
+    AddMarkdownTraitSection(markdownLines, isV3Markdown, "Reactions", mon.reactions);
+
+    if (mon.isLegendary) {
+        AddMarkdownTraitSection(markdownLines, isV3Markdown, "Legendary Actions", mon.legendaries, mon.legendariesDescription, null, LEGENDARY);
+        if (mon.isLair) AddMarkdownTraitSection(markdownLines, isV3Markdown, "Lair Actions", mon.lairs, mon.lairDescription, mon.lairDescriptionEnd, LAIR);
+        if (mon.isRegional) AddMarkdownTraitSection(markdownLines, isV3Markdown, "Regional Effects", mon.regionals, mon.regionalDescription, mon.regionalDescriptionEnd, REGIONAL);
+    }
+
+    if (isV3Markdown) {
+        markdownLines.push("}}");
+    }
+    else 
+    {
+        LegacyMarkdownFormating(markdownLines);
+    }
+
+    return ConvertMarkdownToHtmlString(markdownLines);
+}
+
+function PrintMarkdownProperty(isV3Markdown, name, value) {
+    if (isV3Markdown) {
+        return `**${name}** :: ${value}`;
+    }
+    else {
+        return `- **${name}** ${value}`;
+    }
+}
+
+function AddMarkdownAttributesTable(markdown) {
+    markdown.push(
+        `|STR|DEX|CON|INT|WIS|CHA|`,
+        `|:---:|:---:|:---:|:---:|:---:|:---:|`,
+        `|${mon.strPoints} (${StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.strPoints))})|` +
+        `${mon.dexPoints} (${StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.dexPoints))})|` +
+        `${mon.conPoints} (${StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.conPoints))})|` +
+        `${mon.intPoints} (${StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.intPoints))})|` +
+        `${mon.wisPoints} (${StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.wisPoints))})|` +
+        `${mon.chaPoints} (${StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.chaPoints))})|`);
+}
+
 function GetTraitMarkdown(traitArr, legendary = false, lairOrRegional = false) {
     let markdown = [];
+
     for (let index = 0; index < traitArr.length; index++) {
         let desc = ReplaceTags(traitArr[index].desc)
             .replace(/(\r\n|\r|\n)\s*(\r\n|\r|\n)/g, '\n>\n')
-            .replace(/(\r\n|\r|\n)>/g, '\&lt;br&gt;<br>>')
-            .replace(/(\r\n|\r|\n)/g, '\&lt;br&gt;<br>> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;');
-        markdown.push("> " +
+            .replace(/(\r\n|\r|\n)>/g, `\&lt;br&gt;<br>`)
+            .replace(/(\r\n|\r|\n)/g, `\&lt;br&gt;<br> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;`);
+        markdown.push(
             (legendary ? "**" : (lairOrRegional ? "* " : "***")) +
             (lairOrRegional ? "" : traitArr[index].name) +
             (legendary ? ".** " : lairOrRegional ? "" : (".*** ")) +
             desc);
     }
-    return markdown.join("<br>><br>");
+    return markdown.join("<br>:<br>");
+}
+
+function AddMarkdownTraitSection(markdownLines, isV3Markdown, sectionTitle, traitArr, sectionHeader = null, sectionEnd = null, formatOptions = "") {
+    if (traitArr.length == 0 && !sectionHeader && !sectionEnd)
+    {
+        return;
+    }
+    
+    let sectionDiv = isV3Markdown ? ":" : "";
+    let legendary = formatOptions === LEGENDARY;
+    let lairOrRegional = formatOptions === LAIR || formatOptions === REGIONAL;
+
+    if (sectionTitle) markdownLines.push(`### ${sectionTitle}`);
+    if (sectionHeader) markdownLines.push(ReplaceTags(sectionHeader), sectionDiv);
+
+    if (traitArr.length != 0) {
+        for (let index = 0; index < traitArr.length; index++) {
+            let desc = ReplaceTags(traitArr[index].desc)
+                .replace(/(\r\n|\r|\n)\s*(\r\n|\r|\n)/g, '\n>\n')
+                .replace(/(\r\n|\r|\n)>/g, `\&lt;br&gt;<br>`)
+                .replace(/(\r\n|\r|\n)/g, `\&lt;br&gt;<br> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;`);
+            markdownLines.push(
+                (legendary ? "**" : (lairOrRegional ? "* " : "***")) +
+                (lairOrRegional ? "" : traitArr[index].name) +
+                (legendary ? ".** " : lairOrRegional ? "" : (".*** ")) +
+                desc);
+            if (index + 1 < traitArr.length)
+            {
+                markdownLines.push(sectionDiv);
+            }
+        }
+    }
+
+    if (sectionEnd && traitArr.length != 0) markdownLines.push(sectionDiv);
+    if (sectionEnd) markdownLines.push(ReplaceTags(sectionEnd));
+}
+
+function LegacyMarkdownFormating(markdownLines) {
+    // Append each line with a >
+    // Skip first 1 or 2 lines depending if its wide frame or not
+    let startingIndex = mon.doubleColumns ? 2 : 1; 
+
+    for (let index = startingIndex; index < markdownLines.length; index++)
+    {
+        markdownLines[index] = `> ${markdownLines[index]}`;
+    }
+}
+
+function ConvertMarkdownToHtmlString(markdownLines) {
+    // Add line breaks and code tags
+    let builtLines = [];
+    
+    markdownLines.forEach(line => {
+        line.split("<br>").forEach(subLine => {
+            builtLines.push(`${subLine}<br>`);
+        });
+    });
+
+    return `<code>${builtLines.join("")}</code>`
 }
 
 // Functions for form-setting
