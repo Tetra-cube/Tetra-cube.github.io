@@ -401,16 +401,16 @@ function TryMarkdown() {
     
     markdown.push(
         "<h2>Homebrewery (Legacy)/GM Binder Markdown</h2>",
-        buildMarkdown(LEGACY_MARKDOWN),
+        BuildMarkdown(LEGACY_MARKDOWN),
         "<h2>Homebrewery V3</h2>",
-        buildMarkdown(V3_MARKDOWN))
+        BuildMarkdown(V3_MARKDOWN));
 
-    markdown.push("</body></html>")
+    markdown.push("</body></html>");
 
     markdownWindow.document.write(markdown.join(""));
 }
 
-function buildMarkdown(isV3Markdown) {
+function BuildMarkdown(isV3Markdown) {
     let markdownLines = [];
 
     if (isV3Markdown) {
@@ -489,35 +489,18 @@ function AddMarkdownAttributesTable(markdown) {
         `${mon.chaPoints} (${StringFunctions.BonusFormat(MathFunctions.PointsToBonus(mon.chaPoints))})|`);
 }
 
-function GetTraitMarkdown(traitArr, legendary = false, lairOrRegional = false) {
-    let markdown = [];
-
-    for (let index = 0; index < traitArr.length; index++) {
-        let desc = ReplaceTags(traitArr[index].desc)
-            .replace(/(\r\n|\r|\n)\s*(\r\n|\r|\n)/g, '\n>\n')
-            .replace(/(\r\n|\r|\n)>/g, `\&lt;br&gt;<br>`)
-            .replace(/(\r\n|\r|\n)/g, `\&lt;br&gt;<br> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;`);
-        markdown.push(
-            (legendary ? "**" : (lairOrRegional ? "* " : "***")) +
-            (lairOrRegional ? "" : traitArr[index].name) +
-            (legendary ? ".** " : lairOrRegional ? "" : (".*** ")) +
-            desc);
-    }
-    return markdown.join("<br>:<br>");
-}
-
 function AddMarkdownTraitSection(markdownLines, isV3Markdown, sectionTitle, traitArr, sectionHeader = null, sectionEnd = null, formatOptions = "") {
     if (traitArr.length == 0 && !sectionHeader && !sectionEnd)
     {
         return;
     }
     
-    let sectionDiv = isV3Markdown ? ":" : "";
+    let traitDiv = isV3Markdown ? ":" : "";
     let legendary = formatOptions === LEGENDARY;
     let lairOrRegional = formatOptions === LAIR || formatOptions === REGIONAL;
 
     if (sectionTitle) markdownLines.push(`### ${sectionTitle}`);
-    if (sectionHeader) markdownLines.push(ReplaceTags(sectionHeader), sectionDiv);
+    if (sectionHeader) markdownLines.push(ReplaceTags(sectionHeader), traitDiv);
 
     if (traitArr.length != 0) {
         for (let index = 0; index < traitArr.length; index++) {
@@ -534,12 +517,12 @@ function AddMarkdownTraitSection(markdownLines, isV3Markdown, sectionTitle, trai
             traitString.split("<br>").forEach(line => markdownLines.push(line))
             if (index + 1 < traitArr.length)
             {
-                markdownLines.push(sectionDiv);
+                markdownLines.push(traitDiv);
             }
         }
     }
 
-    if (sectionEnd && traitArr.length != 0) markdownLines.push(sectionDiv);
+    if (sectionEnd && traitArr.length != 0) markdownLines.push(traitDiv);
     if (sectionEnd) markdownLines.push(ReplaceTags(sectionEnd));
 }
 
