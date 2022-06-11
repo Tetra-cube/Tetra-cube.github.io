@@ -47,6 +47,7 @@ var mon = {
     properties: [],
     abilities: [],
     actions: [],
+    bonus: [],
     reactions: [],
     legendaries: [],
     lairs: [],
@@ -206,6 +207,7 @@ function UpdateStatblock(moveSeparationPoint) {
 
     if (mon.abilities.length > 0) AddToTraitList(traitsHTML, mon.abilities);
     if (mon.actions.length > 0) AddToTraitList(traitsHTML, mon.actions, "<h3>Actions</h3>");
+    if (mon.bonus.length > 0) AddToTraitList(traitsHTML, mon.bonus, "<h3>Bonus Actions</h3>");
     if (mon.reactions.length > 0) AddToTraitList(traitsHTML, mon.reactions, "<h3>Reactions</h3>");
     if (mon.isLegendary && (mon.legendaries.length > 0 || mon.legendariesDescription.length > 0))
         AddToTraitList(traitsHTML, mon.legendaries, mon.legendariesDescription == "" ?
@@ -531,6 +533,7 @@ var FormFunctions = {
         $("#plural-name-input").val(mon.pluralName);
         this.MakeDisplayList("abilities", false, true);
         this.MakeDisplayList("actions", false, true);
+        this.MakeDisplayList("bonus", false, true);
         this.MakeDisplayList("reactions", false, true);
         this.MakeDisplayList("legendaries", false, true);
         this.MakeDisplayList("lairs", false, true);
@@ -1049,7 +1052,7 @@ var GetVariablesFunctions = {
                 }
 
                 // Is it another type of armor we know?
-                else if (data.armors.hasOwnProperty(armorDescData[0].trim()))
+                else if (rsmors.hasOwnProperty(armorDescData[0].trim()))
                     mon.armorName = armorDescData[0].trim();
 
                 // Is it mage armor?
@@ -1240,12 +1243,14 @@ var GetVariablesFunctions = {
         // Abilities
         mon.abilities = [];
         mon.actions = [];
+        mon.bonus = [];
         mon.reactions = [];
         mon.legendaries = [];
         mon.lairs = [];
         mon.regionals = [];
         let abilitiesPresetArr = preset.special_abilities,
             actionsPresetArr = preset.actions,
+            bonusPresetArr = preset.bonus,
             reactionsPresetArr = preset.reactions,
             legendariesPresetArr = preset.legendary_actions,
             lairsPresetArr = preset.lair_actions,
@@ -1261,6 +1266,7 @@ var GetVariablesFunctions = {
 
         AbilityPresetLoop(abilitiesPresetArr, "abilities");
         AbilityPresetLoop(actionsPresetArr, "actions");
+        AbilityPresetLoop(bonusPresetArr, "bonus actions");
         AbilityPresetLoop(reactionsPresetArr, "reactions");
         if (mon.isLegendary)
             AbilityPresetLoop(legendariesPresetArr, "legendaries");
@@ -1757,13 +1763,13 @@ var MathFunctions = {
 // These don't really fit anywhere else
 var CrFunctions = {
     GetProf: function () {
-        if (mon.cr == "*")
+        if (mon.cr == "*" || mon.cr == null)
             return mon.customProf;
         return data.crs[mon.cr].prof;
     },
 
     GetString: function () {
-        if (mon.cr == "*")
+        if (mon.cr == "*" || mon.cr == null)
             return mon.customCr.trim();
         return mon.cr + " (" + data.crs[mon.cr].xp + " XP)"
     }
@@ -1810,7 +1816,7 @@ var ArrayFunctions = {
 }
 
 // Document ready function
-$(function () {
+$(function () {  
     // Load the preset monster names
     $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000&document__slug=wotc-srd", function (srdArr) {
         let monsterSelect = $("#monster-select");
@@ -1835,7 +1841,7 @@ $(function () {
         });
 
     // Load the json data
-    $.getJSON("js/JSON/statblockdata.json", function (json) {
+    $.getJSON("https://raw.githubusercontent.com/Tetra-cube/Tetra-cube.github.io/master/dnd/js/JSON/statblockdata.json", function (json) {
         data = json;
 
         // Set the default monster in case there isn't one saved
