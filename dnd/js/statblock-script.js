@@ -1841,7 +1841,7 @@ $(function () {
         });
 
     // Load the json data
-    $.getJSON("https://raw.githubusercontent.com/Tetra-cube/Tetra-cube.github.io/master/dnd/js/JSON/statblockdata.json", function (json) {
+    $.getJSON("js/JSON/statblockdata.json", function (json) {
         data = json;
 
         // Set the default monster in case there isn't one saved
