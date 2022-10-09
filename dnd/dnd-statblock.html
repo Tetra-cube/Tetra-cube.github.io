@@ -538,6 +538,8 @@
                 </div>
                 <div id="legendary-actions-form">
                     <br>
+                    <label for="is-mythic-input"><b>Mythic:</b> <input type="checkbox" id="is-mythic-input"
+                            onclick="FormFunctions.ShowHideMythicCreature()"></label>
                     <label for="has-lair-input"><b>Lair:</b> <input type="checkbox" id="has-lair-input"
                             onclick="FormFunctions.ShowHideLair()"></label>
                     <label for="has-regional-input"><b>Regional:</b> <input type="checkbox" id="has-regional-input"
@@ -547,6 +549,14 @@
                     <div><label for="legendaries-descsection-input" style="width: 100%"><textarea
                                 id="legendaries-descsection-input" rows="4"></textarea></label></div>
                     <div><button type="button" onclick="InputFunctions.LegendaryDescriptionDefaultInput()">Reset to
+                            Default</button></div>
+                </div>
+                <div id="mythic-actions-form">
+                    <br>
+                    <b>Mythic Actions Description:</b>
+                    <div><label for="mythic-descsection-input" style="width: 100%"><textarea
+                                id="mythic-descsection-input" rows="4"></textarea></label></div>
+                    <div><button type="button" onclick="InputFunctions.MythicDescriptionDefaultInput()">Reset to
                             Default</button></div>
                 </div>
                 <div id="lair-actions-form">
@@ -579,14 +589,18 @@
                 <div>
                     <button type="button" id="add-ability-button"
                         onclick="InputFunctions.AddAbilityInput('abilities')">Add Ability</button>
-                    <button type="button" id="add-action-button" onclick="InputFunctions.AddAbilityInput('actions')">Add
-                        Action</button>
+                    <button type="button" id="add-action-button"
+                        onclick="InputFunctions.AddAbilityInput('actions')">Add Action</button>
+                    <button type="button" id="add-bonus-action-button"
+                        onclick="InputFunctions.AddAbilityInput('bonusActions')">Add Bonus Action</button>
                     <button type="button" id="add-reaction-button"
                         onclick="InputFunctions.AddAbilityInput('reactions')">Add Reaction</button>
                     <button type="button" id="add-legendary-button"
                         onclick="InputFunctions.AddAbilityInput('legendaries')">Add Legendary Action</button>
-                    <button type="button" id="add-lair-button" onclick="InputFunctions.AddAbilityInput('lairs')">Add
-                        Lair Action</button>
+                    <button type="button" id="add-mythic-button"
+                        onclick="InputFunctions.AddAbilityInput('mythics')">Add Mythic Action</button>
+                    <button type="button" id="add-lair-button"
+                        onclick="InputFunctions.AddAbilityInput('lairs')">Add Lair Action</button>
                     <button type="button" id="add-regional-button"
                         onclick="InputFunctions.AddAbilityInput('regionals')">Add Regional Effect</button>
                 </div>
@@ -621,11 +635,17 @@
                     <div id="actions-input-section"><b>Actions:</b><br>
                         <ul id="actions-input-list" class="statblock-list"></ul>
                     </div>
+                    <div id="bonusActions-input-section"><b>Bonus Actions:</b><br>
+                        <ul id="bonusActions-input-list" class="statblock-list"></ul>
+                    </div>
                     <div id="reactions-input-section"><b>Reactions:</b><br>
                         <ul id="reactions-input-list" class="statblock-list"></ul>
                     </div>
                     <div id="legendaries-input-section"><b>Legendary Actions:</b><br>
                         <ul id="legendaries-input-list" class="statblock-list"></ul>
+                    </div>
+                    <div id="mythic-input-section"><b>Mythic Actions:</b><br>
+                        <ul id="mythics-input-list" class="statblock-list"></ul>
                     </div>
                     <div id="lairs-input-section"><b>Lair Actions:</b><br>
                         <ul id="lairs-input-list" class="statblock-list"></ul>

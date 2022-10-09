@@ -41,14 +41,18 @@ var mon = {
     isLair: false,
     lairDescription: "",
     lairDescriptionEnd: "",
+    isMythic: false,
+    mythicDescription: "",
     isRegional: false,
     regionalDescription: "",
     regionalDescriptionEnd: "",
     properties: [],
     abilities: [],
     actions: [],
+    bonusActions: [],
     reactions: [],
     legendaries: [],
+    mythics: [],
     lairs: [],
     regionals: [],
     sthrows: [],
@@ -135,10 +139,13 @@ var SavedData = {
 // Update the main stat block
 function UpdateStatblock(moveSeparationPoint) {
     // Set Separation Point
-    let separationMax = mon.abilities.length + mon.actions.length + mon.reactions.length - 1;
+    let separationMax = mon.abilities.length + mon.actions.length + mon.bonusActions.length + mon.reactions.length - 1;
 
     if (mon.isLegendary)
         separationMax += (mon.legendaries.length == 0 ? 1 : mon.legendaries.length);
+
+    if (mon.isMythic)
+        separationMax += (mon.mythics.length == 0 ? 1 : mon.mythics.length);
 
     if (mon.isLair)
         separationMax += (mon.lairs.length == 0 ? 1 : mon.lairs.length);
@@ -206,11 +213,16 @@ function UpdateStatblock(moveSeparationPoint) {
 
     if (mon.abilities.length > 0) AddToTraitList(traitsHTML, mon.abilities);
     if (mon.actions.length > 0) AddToTraitList(traitsHTML, mon.actions, "<h3>Actions</h3>");
+    if (mon.bonusActions.length > 0) AddToTraitList(traitsHTML, mon.bonusActions, "<h3>Bonus Actions</h3>");
     if (mon.reactions.length > 0) AddToTraitList(traitsHTML, mon.reactions, "<h3>Reactions</h3>");
     if (mon.isLegendary && (mon.legendaries.length > 0 || mon.legendariesDescription.length > 0))
         AddToTraitList(traitsHTML, mon.legendaries, mon.legendariesDescription == "" ?
             "<h3>Legendary Actions</h3><div class='property-block'></div>" :
             ["<h3>Legendary Actions</h3><div class='property-block'>", StringFunctions.FormatString(ReplaceTags(StringFunctions.RemoveHtmlTags(mon.legendariesDescription))), "</div></br>"], true);
+    if (mon.isMythic && mon.isLegendary && (mon.mythics.length > 0 || mon.mythicDescription.length > 0))
+        AddToTraitList(traitsHTML, mon.mythics, mon.mythicDescription == "" ?
+            "<h3>Mythic Actions</h3><div class='property-block'></div>" :
+            ["<h3>Mythic Actions</h3><div class='property-block'>", StringFunctions.FormatString(ReplaceTags(StringFunctions.RemoveHtmlTags(mon.mythicDescription))), "</div></br>"], true);    
     if (mon.isLair && mon.isLegendary && (mon.lairs.length > 0 || mon.lairDescription.length > 0 || mon.lairDescriptionEnd.length > 0)) {
         AddToTraitList(traitsHTML, mon.lairs, mon.lairDescription == "" ?
             "<h3>Lair Actions</h3><div class='property-block'></div>" :
@@ -417,10 +429,15 @@ function TryMarkdown() {
 
     if (mon.abilities.length > 0) markdown.push("<br>", GetTraitMarkdown(mon.abilities, false));
     if (mon.actions.length > 0) markdown.push("<br>> ### Actions<br>", GetTraitMarkdown(mon.actions, false));
+    if (mon.bonusActions.length > 0) markdown.push("<br>> ### Bonus Actions<br>", GetTraitMarkdown(mon.bonusActions, false));
     if (mon.reactions.length > 0) markdown.push("<br>> ### Reactions<br>", GetTraitMarkdown(mon.reactions, false));
     if (mon.isLegendary) {
         markdown.push("<br>> ### Legendary Actions<br>> ", ReplaceTags(mon.legendariesDescription));
         if (mon.legendaries.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.legendaries, true));
+    }
+    if (mon.isMythic) {
+        markdown.push("<br>> ### Mythic Actions<br>> ", ReplaceTags(mon.mythicDescription));
+        if (mon.mythics.length > 0) markdown.push("<br>><br>", GetTraitMarkdown(mon.mythics, true));
     }
     if (mon.isLair && mon.isLegendary) {
         markdown.push("<br>> ### Lair Actions<br>> ", ReplaceTags(mon.lairDescription));
@@ -531,14 +548,20 @@ var FormFunctions = {
         $("#plural-name-input").val(mon.pluralName);
         this.MakeDisplayList("abilities", false, true);
         this.MakeDisplayList("actions", false, true);
+        this.MakeDisplayList("bonusActions", false, true);
         this.MakeDisplayList("reactions", false, true);
         this.MakeDisplayList("legendaries", false, true);
+        this.MakeDisplayList("mythics", false, true);
         this.MakeDisplayList("lairs", false, true);
         this.MakeDisplayList("regionals", false, true);
 
         // Is Legendary?	
         $("#is-legendary-input").prop("checked", mon.isLegendary);
         this.ShowHideLegendaryCreature();
+
+        // Is Mythic?	
+        $("#is-mythic-input").prop("checked", mon.isMythic);
+        this.ShowHideMythicCreature();
 
         // Is Lair?	
         $("#has-lair-input").prop("checked", mon.isLair);
@@ -613,14 +636,23 @@ var FormFunctions = {
     ShowHideLegendaryCreature: function () {
         if ($("#is-legendary-input:checked").val()) {
             $("#add-legendary-button, #legendary-actions-form").show();
+            if ($("#is-mythic-input:checked").val())
+                $("#add-mythic-button, #mythic-actions-form").show();
             if ($("#has-lair-input:checked").val())
                 $("#add-lair-button, #lair-actions-form").show();
             if ($("#has-regional-input:checked").val())
                 $("#add-regional-button, #regional-actions-form").show();
         } else {
             $("#add-legendary-button, #legendary-actions-form").hide();
+            $("#add-mythic-button, #mythic-actions-form").hide();
             $("#add-lair-button, #add-regional-button, #lair-actions-form, #regional-actions-form").hide();
         }
+    },
+
+    ShowHideMythicCreature: function () {
+        $("#is-mythic-input:checked").val() ?
+            $("#add-mythic-button, #mythic-actions-form").show() :
+            $("#add-mythic-button, #mythic-actions-form").hide();
     },
 
     ShowHideLair: function () {
@@ -668,6 +700,11 @@ var FormFunctions = {
     // For setting the legendary action description
     SetLegendaryDescriptionForm: function () {
         $("#legendaries-descsection-input").val(mon.legendariesDescription);
+    },
+
+    // For setting the mythic action description
+    SetMythicDescriptionForm: function () {
+        $("#mythic-descsection-input").val(mon.mythicDescription);
     },
 
     // For setting the lair action description
@@ -880,6 +917,12 @@ var InputFunctions = {
         FormFunctions.SetLegendaryDescriptionForm();
     },
 
+    // Reset mythic description to default
+    MythicDescriptionDefaultInput: function () {
+        GetVariablesFunctions.MythicDescriptionDefault();
+        FormFunctions.SetMythicDescriptionForm();
+    },
+
     // Reset lair description to default
     LairDescriptionDefaultInput: function () {
         GetVariablesFunctions.LairDescriptionDefault();
@@ -972,6 +1015,11 @@ var GetVariablesFunctions = {
         mon.isLegendary = $("#is-legendary-input").prop("checked");
         if (mon.isLegendary)
             mon.legendariesDescription = $("#legendaries-descsection-input").val().trim();
+
+        // Mythics
+        mon.isMythic = $("#is-mythic-input").prop("checked");
+        if (mon.isMythic)
+            mon.mythicDescription = $("#mythic-descsection-input").val().trim();
 
         // Lair
         mon.isLair = $("#has-lair-input").prop("checked");
@@ -1204,6 +1252,10 @@ var GetVariablesFunctions = {
             }
         }
 
+        // This
+        mon.shortName = "";
+        mon.pluralName = "";
+
         // Legendary?
         mon.isLegendary = Array.isArray(preset.legendary_actions);
         if (preset.legendary_desc == null || preset.legendary_desc.length == 0)
@@ -1211,6 +1263,14 @@ var GetVariablesFunctions = {
         else
             mon.legendariesDescription = preset.legendary_desc;
         FormFunctions.SetLegendaryDescriptionForm();
+
+        // Mythic?
+        mon.isMythic = Array.isArray(preset.mythic_actions);
+        if (preset.mythicy_desc == null || preset.mythic_desc.length == 0)
+            this.MythicDescriptionDefault();
+        else
+            mon.legendariesDescription = preset.mythic_desc;
+        FormFunctions.SetMythicDescriptionForm();
 
         // Lair?
         mon.isLair = Array.isArray(preset.lair_actions);
@@ -1240,14 +1300,18 @@ var GetVariablesFunctions = {
         // Abilities
         mon.abilities = [];
         mon.actions = [];
+        mon.bonusActions = [];
         mon.reactions = [];
         mon.legendaries = [];
+        mon.mythics = []
         mon.lairs = [];
         mon.regionals = [];
         let abilitiesPresetArr = preset.special_abilities,
             actionsPresetArr = preset.actions,
+            bonusActionsPresetArr = preset.bonusActions,
             reactionsPresetArr = preset.reactions,
             legendariesPresetArr = preset.legendary_actions,
+            mythicPresetArr = preset.mythic_actions,
             lairsPresetArr = preset.lair_actions,
             regionalsPresetArr = preset.regional_actions;
 
@@ -1261,9 +1325,12 @@ var GetVariablesFunctions = {
 
         AbilityPresetLoop(abilitiesPresetArr, "abilities");
         AbilityPresetLoop(actionsPresetArr, "actions");
+        AbilityPresetLoop(bonusActionsPresetArr, "bonusActions");
         AbilityPresetLoop(reactionsPresetArr, "reactions");
         if (mon.isLegendary)
             AbilityPresetLoop(legendariesPresetArr, "legendaries");
+        if (mon.isMythic)
+            AbilityPresetLoop(mythicPresetArr, "mythics");
         if (mon.isLair)
             AbilityPresetLoop(lairsPresetArr, "lairs");
         if (mon.isRegional)
@@ -1362,7 +1429,7 @@ var GetVariablesFunctions = {
     },
 
 
-    // Add abilities, actions, reactions, and legendary actions
+    // Add abilities, actions, bonus actions, reactions, legendary actions, etc
 
     AddAbility: function (arrName, abilityName, abilityDesc) {
         let arr = mon[arrName];
@@ -1448,31 +1515,31 @@ var GetVariablesFunctions = {
 
     // Return the default legendary description
     LegendaryDescriptionDefault: function () {
-        let monsterName = name.toLowerCase();
         mon.legendariesDescription = "The " + mon.name.toLowerCase() + " can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The " + mon.name.toLowerCase() + " regains spent legendary actions at the start of its turn.";
+    },
+
+    // Return the default mythic description
+    MythicDescriptionDefault: function () {
+        mon.mythicDescription = "If the " + mon.name.toLowerCase() + "'s mythic trait is active, it can use the options below as legendary actions for 1 hour after using {Some Ability}.";
     },
 
     // Return the default lair description
     LairDescriptionDefault: function () {
-        let monsterName = name.toLowerCase();
         mon.lairDescription = "When fighting inside its lair, the " + mon.name.toLowerCase() + " can invoke the ambient magic to take lair actions. On initiative count 20 (losing initiative ties), the " + mon.name.toLowerCase() + " can take one lair action to cause one of the following effects:";
     },
 
     // Return the default lair end description
     LairDescriptionEndDefault: function () {
-        let monsterName = name.toLowerCase();
         mon.lairDescriptionEnd = "The " + mon.name.toLowerCase() + " can't repeat an effect until they have all been used, and it can't use the same effect two rounds in a row.";
     },
 
     // Return the default regional description
     RegionalDescriptionDefault: function () {
-        let monsterName = name.toLowerCase();
         mon.regionalDescription = "The region containing the " + mon.name.toLowerCase() + "'s lair is warped by the creature's presence, which creates one or more of the following effects:";
     },
 
     // Return the default regional end description
     RegionalDescriptionEndDefault: function () {
-        let monsterName = name.toLowerCase();
         mon.regionalDescriptionEnd = "If the " + mon.name.toLowerCase() + " dies, the first two effects fade over the course of 3d10 days.";
     }
 }
@@ -1852,6 +1919,7 @@ $(function () {
 
 function Populate() {
     FormFunctions.SetLegendaryDescriptionForm();
+    FormFunctions.SetMythicDescriptionForm();
     FormFunctions.SetLairDescriptionForm();
     FormFunctions.SetLairDescriptionEndForm();
     FormFunctions.SetRegionalDescriptionForm();
