@@ -414,9 +414,9 @@ function TryMarkdown() {
     
     markdown.push(
         "<h2>Homebrewery V3</h2>",
-        BuildMarkdown(V3_MARKDOWN));
+        BuildMarkdown(V3_MARKDOWN),
         "<h2>Homebrewery (Legacy)/GM Binder Markdown</h2>",
-        BuildMarkdown(LEGACY_MARKDOWN),
+        BuildMarkdown(LEGACY_MARKDOWN));
 
 
     markdown.push("</body></html>");
