@@ -9,8 +9,33 @@
     <script src="generator-book-data.js"></script>
     <script src="generator-tetras-data.js"></script>
     <script src="generator.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145234284-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-145234284-1');
+    </script>
 </head>
 <body>
+    <div id="kofiheader" style="text-align: center;">
+    <br>
+    <script src='https://ko-fi.com/widgets/widget_2.js'></script>
+    <script>
+        try {
+            kofiwidget2.init('Support Me on Ko-fi', '#46b798', 'Q5Q8MRF6');
+            kofiwidget2.draw();
+        }
+        catch {
+            console.error("Kofi widget display error")
+            document.writeln('<a id="kofi-button" href="https://ko-fi.com/Q5Q8MRF6" target="_blank"><b>Support me on Ko-Fi!</b></a>');
+        }
+    </script>
+    <br>
+</div>
     <h1>Numenera Generator</h1>
     <br>
     <div id="options">

@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    margin: 20px auto;
+    margin: 0px auto 20px auto;
     max-width: 1000px;
     color: white;
     font-size: 15pt;
