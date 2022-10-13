@@ -1,0 +1,4819 @@
+{
+	"Cypher": {
+		"Discovery": [
+			{
+				"name": "Adhesion clamps",
+				"page": 276,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Antivenom",
+				"page": 276,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Attractor",
+				"page": 276,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Banishing nodule",
+				"page": 276,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Blinking nodule",
+				"page": 276,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Catholicon",
+				"page": 276,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Catseye",
+				"page": 276,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Chemical factory",
+				"page": 276,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Comprehension graft",
+				"page": 277,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Controlled blinking nodule",
+				"page": 277,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Datasphere siphon",
+				"page": 277,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Density nodule",
+				"page": 277,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Detonation",
+				"page": 277,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Detonation (desiccating)",
+				"page": 277,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Detonation (flash)",
+				"page": 277,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Detonation (gravity)",
+				"page": 277,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Detonation (massive)",
+				"page": 278,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Detonation (matter disruption)",
+				"page": 278,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Detonation (pressure)",
+				"page": 278,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Detonation (singularity)",
+				"page": 278,
+				"weight": 1,
+				"levelDie": 0,
+				"levelBonus": 10,
+				"minimumCraftingLevel": 10
+			},
+			{
+				"name": "Detonation (sonic)",
+				"page": 278,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Detonation (spawn)",
+				"page": 278,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Detonation (web)",
+				"page": 278,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Disrupting nodule",
+				"page": 279,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Eagleseye",
+				"page": 279,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Fireproofing spray",
+				"page": 279,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Flame-retardant wall",
+				"page": 279,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Force cube projector",
+				"page": 279,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Force nodule",
+				"page": 279,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Force screen projector",
+				"page": 279,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Force shield projector",
+				"page": 279,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Friction-reducing gel",
+				"page": 279,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Frigid wall projector",
+				"page": 279,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Gas bomb",
+				"page": 280,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Gravity nullifier",
+				"page": 280,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Gravity-nullifying spray",
+				"page": 280,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Heat nodule",
+				"page": 280,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Hunter/seeker",
+				"page": 280,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Image projector",
+				"page": 281,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Inferno wall projector",
+				"page": 281,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Infiltrator",
+				"page": 281,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Instant servant",
+				"page": 281,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Instant shelter",
+				"page": 281,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Intellect enhancement",
+				"page": 281,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Invisibility nodule",
+				"page": 281,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Knowledge enhancement",
+				"page": 282,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Lightning wall projector",
+				"page": 282,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Living solvent",
+				"page": 282,
+				"weight": 1,
+				"levelDie": 10,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Machine control implant",
+				"page": 282,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Magnetic attack drill",
+				"page": 282,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Magnetic master",
+				"page": 282,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Magnetic shield",
+				"page": 282,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Memory lenses",
+				"page": 283,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Mental scrambler",
+				"page": 283,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Metal death",
+				"page": 283,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Monoblade",
+				"page": 283,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Motion sensor",
+				"page": 283,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Personal environment field",
+				"page": 283,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Phase changer",
+				"page": 284,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Phase disruptor",
+				"page": 284,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Poison (emotion)",
+				"page": 284,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Poison (explosive)",
+				"page": 284,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Poison (mind-controlling)",
+				"page": 284,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Poison (mind-disrupting)",
+				"page": 285,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Psychic communique",
+				"page": 285,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Ray emitter",
+				"page": 285,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Ray emitter (numbing)",
+				"page": 285,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Ray emitter (paralysis)",
+				"page": 285,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Reality spike",
+				"page": 285,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Rejuvenator",
+				"page": 286,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Remote viewer",
+				"page": 286,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Repair unit",
+				"page": 286,
+				"weight": 1,
+				"levelDie": 10,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Retaliation nodule",
+				"page": 286,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Sheen",
+				"page": 286,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Shock nodule",
+				"page": 286,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Shocker",
+				"page": 286,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Skill boost",
+				"page": 286,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Sleep inducer",
+				"page": 287,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 6,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Sonic hole",
+				"page": 287,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Sound dampener",
+				"page": 287,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Spatial warp",
+				"page": 287,
+				"weight": 1,
+				"levelDie": 0,
+				"levelBonus": 5,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Speed boost",
+				"page": 287,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Stim",
+				"page": 287,
+				"weight": 2,
+				"levelDie": 0,
+				"levelBonus": 6,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Strength boost",
+				"page": 287,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Subdual field",
+				"page": 287,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Telepathy implant",
+				"page": 287,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Teleporter (bounder)",
+				"page": 287,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Teleporter (traveler)",
+				"page": 288,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Temporal viewer",
+				"page": 288,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Time dilation nodule (defensive)",
+				"page": 288,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Time dilation nodule (offensive)",
+				"page": 288,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Tracer",
+				"page": 288,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Visage changer",
+				"page": 288,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Visual displacement device",
+				"page": 288,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Vocal translator",
+				"page": 288,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Warmth projector",
+				"page": 288,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Water breather",
+				"page": 288,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "X-ray viewer",
+				"page": 288,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 5
+			}
+		],
+		"Destiny" : [
+			{
+				"name": "Ablative thrower",
+				"page": 180,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Acidic resonator",
+				"page": 181,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Community beacon",
+				"page": 181,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Crafter's eyes",
+				"page": 181,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Deception filter",
+				"page": 181,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Destiny nodule",
+				"page": 181,
+				"weight": 4,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Detonation (horde suppressor)",
+				"page": 181,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Effort enhancement",
+				"page": 181,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Emotion smoother",
+				"page": 182,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Farspeaker",
+				"page": 182,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Gravity changer",
+				"page": 182,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Harmony lamp",
+				"page": 182,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Health resonator",
+				"page": 182,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Hiding alarm nodule",
+				"page": 182,
+				"weight": 3,
+				"levelDie": 0,
+				"levelBonus": 7,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Immobilizer",
+				"page": 182,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Infrastructure drill",
+				"page": 182,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Installation enhancer",
+				"page": 182,
+				"weight": 4,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Installation mover",
+				"page": 183,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Instant item",
+				"page": 183,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Instant wall",
+				"page": 183,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Instant workshop",
+				"page": 183,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Iotum stabilizer",
+				"page": 183,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Iotum upgrader",
+				"page": 183,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Iron wind resistance",
+				"page": 183,
+				"weight": 2,
+				"levelDie": 0,
+				"levelBonus": 7,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Mechanical wright",
+				"page": 183,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Object replicator",
+				"page": 184,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Organ factory",
+				"page": 184,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Phasing gloves",
+				"page": 184,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Psychic defense nodule",
+				"page": 184,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Rage thrower",
+				"page": 184,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Retriever",
+				"page": 184,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Salvage graft",
+				"page": 185,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Shapemetal",
+				"page": 185,
+				"weight": 3,
+				"levelDie": 0,
+				"levelBonus": 6,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Slash-retardant spray",
+				"page": 185,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Stealth thrower",
+				"page": 185,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Summoning alarm nodule",
+				"page": 185,
+				"weight": 3,
+				"levelDie": 0,
+				"levelBonus": 6
+			},
+			{
+				"name": "Sustenance implant",
+				"page": 185,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Trail blazer",
+				"page": 185,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Transdimensional sense",
+				"page": 185,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Travel bubble",
+				"page": 185,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 7
+			}
+		],
+		"Building Tomorrow": [
+			{
+				"name": "Amber amplifier",
+				"page": 91,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Astute weapon nodule",
+				"page": 91,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Beast lure",
+				"page": 91,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Bridge builder",
+				"page": 91,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Calm center",
+				"page": 92,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Chiurgeon orb",
+				"page": 92,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "City shroud",
+				"page": 92,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Clean bright",
+				"page": 92,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Cognitive defender",
+				"page": 92,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Colossal form",
+				"page": 93,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Corpse likeness",
+				"page": 93,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Death protector",
+				"page": 93,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Deception bud",
+				"page": 93,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Detonation (peace)",
+				"page": 93,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Detonation (tracer)",
+				"page": 93,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Eclipse projector",
+				"page": 94,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Exploration graft",
+				"page": 94,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Extroversion revealer",
+				"page": 94,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Follower seed",
+				"page": 95,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Horde horn (confusion)",
+				"page": 95,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Horde horn (enervation)",
+				"page": 95,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Horde horn (inspiration)",
+				"page": 95,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Infrastructure mender",
+				"page": 96,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Instant bioreactor",
+				"page": 96,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Instant flood",
+				"page": 96,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Iron tamer",
+				"page": 96,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 10
+			},
+			{
+				"name": "Kaon preserver",
+				"page": 96,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Leadership bud",
+				"page": 96,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Matter evaporator",
+				"page": 97,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Mimetic replicator",
+				"page": 97,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Morale trauma",
+				"page": 97,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Null orb",
+				"page": 97,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Otherspace weapon nodule",
+				"page": 97,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Quantium backtracker",
+				"page": 97,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Quantium boost",
+				"page": 98,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Rally beacon",
+				"page": 98,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Rampaging form",
+				"page": 98,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Road builder",
+				"page": 98,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Rodule of branding",
+				"page": 98,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Rodule of inquisition",
+				"page": 98,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Salvage assistant",
+				"page": 99,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Stealth coating",
+				"page": 99,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Structural reinforcer",
+				"page": 99,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Sustenance graft",
+				"page": 99,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			}
+		]
+	},
+	"Artifact": {
+		"Discovery": [
+			{
+				"name": "Amber casement",
+				"page": 292,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Amulet of safety",
+				"page": 292,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Analyzing shield",
+				"page": 292,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Armored flesh",
+				"page": 292,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Automated cook",
+				"page": 292,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Battle armor",
+				"page": 292,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Battlesuit",
+				"page": 293,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Bounding boots",
+				"page": 293,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Brain bud",
+				"page": 293,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Carryall",
+				"page": 293,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Cellular disruptor",
+				"page": 293,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Chameleon cloak",
+				"page": 293,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Chiurgeon sphere",
+				"page": 294,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Cohesion stabilizer",
+				"page": 294,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Cypher bag",
+				"page": 294,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Dimensional armor",
+				"page": 294,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Disruption blade",
+				"page": 294,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Drill spear",
+				"page": 294,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Ecstasy paralyzer",
+				"page": 295,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Exploding arrow",
+				"page": 295,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Fearmaker",
+				"page": 295,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Fiery hellmaker",
+				"page": 296,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Filtration straw",
+				"page": 296,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Food scanner",
+				"page": 296,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Food tube",
+				"page": 296,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Force dome",
+				"page": 296,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Healing sword",
+				"page": 296,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Hoop staff",
+				"page": 297,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Hover belt",
+				"page": 297,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Hover square",
+				"page": 297,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Imager",
+				"page": 297,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Instant bridge",
+				"page": 297,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Kinetic shield",
+				"page": 297,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Launcher",
+				"page": 297,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Light spike",
+				"page": 297,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Liquid armor",
+				"page": 298,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Liquid sword",
+				"page": 298,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Living armor sheath",
+				"page": 298,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Mephitic staff",
+				"page": 298,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Metabolism bud",
+				"page": 298,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Mind imager",
+				"page": 298,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Molecular bonder",
+				"page": 298,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Multidimensional blade",
+				"page": 298,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Murder globe",
+				"page": 299,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Nano-needler",
+				"page": 299,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Needler",
+				"page": 299,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Nightvision goggles",
+				"page": 299,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Phasing piton",
+				"page": 299,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Plant jar",
+				"page": 299,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Poison brain implant",
+				"page": 299,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Psychic helmet",
+				"page": 299,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Psychic whistle",
+				"page": 300,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Recorder headband",
+				"page": 300,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Redlight clip",
+				"page": 300,
+				"weight": 2,
+				"levelDie": 0,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Remote clamp",
+				"page": 300,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Repair sphere",
+				"page": 300,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Safe corridor",
+				"page": 301,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Second skin",
+				"page": 301,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Shatter wand",
+				"page": 301,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Shock manacles",
+				"page": 301,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Skill bud",
+				"page": 301,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Skull blaster",
+				"page": 301,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Slugspitter",
+				"page": 301,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Snipewand",
+				"page": 302,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Stunner",
+				"page": 302,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Suspensor belt",
+				"page": 302,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Telltale glass",
+				"page": 302,
+				"weight": 1,
+				"levelDie": 0,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Tendril graft",
+				"page": 302,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Thunder cannon",
+				"page": 302,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Transdimensional ray projector",
+				"page": 302,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Trigger trap",
+				"page": 303,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Vuechi",
+				"page": 303,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Weapon graft",
+				"page": 303,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Windrider",
+				"page": 303,
+				"weight": 1,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Windslice blade",
+				"page": 303,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 2
+			}
+		],
+		"Destiny": [
+			{
+				"name": "Abhuman lure",
+				"page": 186,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Amulet of operation",
+				"page": 187,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Automated bath",
+				"page": 187,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Boring lance",
+				"page": 187,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Brain fogger",
+				"page": 187,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Breathing field spinner",
+				"page": 187,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Cellular annealer",
+				"page": 187,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Cloak of finery",
+				"page": 188,
+				"weight": 4,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Cognition tester",
+				"page": 188,
+				"weight": 4,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Dead timeline viewer",
+				"page": 188,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Empty field generator",
+				"page": 188,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Energy nullifier",
+				"page": 188,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Explorer's gloves",
+				"page": 189,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Explorer's lenses",
+				"page": 189,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Febrifuge",
+				"page": 189,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Field destabilizer",
+				"page": 189,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Fingent brace",
+				"page": 189,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Flame suppressor",
+				"page": 189,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Instant refuge",
+				"page": 189,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Iotum scanner",
+				"page": 190,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Liquid transfer orb",
+				"page": 190,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Multidimensional projector",
+				"page": 190,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Multi-opener",
+				"page": 190,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Natalitial",
+				"page": 190,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Pacifying needler",
+				"page": 190,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Psychic eradicator",
+				"page": 191,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Rumbler",
+				"page": 191,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Salvage pack",
+				"page": 191,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Stability spike",
+				"page": 191,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Stasis pod",
+				"page": 191,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Structural extruder",
+				"page": 192,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Telepathic wire",
+				"page": 192,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Temporary wing",
+				"page": 192,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Toxic fogger",
+				"page": 192,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Wearable workshop, basic",
+				"page": 192,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Wearable workshop, smart",
+				"page": 192,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 6
+			}
+		],
+		"Building Tomorrow": [
+			{
+				"name": "Augmentation heptagon",
+				"page": 101,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Backpack guardian",
+				"page": 102,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Blurred vista",
+				"page": 102,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Cloak of unrest",
+				"page": 102,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Detextilizer",
+				"page": 102,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Devitilizer",
+				"page": 102,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Empath's lenses",
+				"page": 103,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Exequy",
+				"page": 103,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Eye-eating loop",
+				"page": 103,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Eyepiece of understanding",
+				"page": 103,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Flood ward",
+				"page": 104,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Force impaler",
+				"page": 104,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Golden aura",
+				"page": 104,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Gourmand's lenses",
+				"page": 104,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Gravitevator",
+				"page": 104,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Horde replicator",
+				"page": 105,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Illusory vista",
+				"page": 105,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Image projector",
+				"page": 105,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Instability inducer",
+				"page": 106,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Machine stimulator",
+				"page": 106,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Margr repulsor",
+				"page": 106,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Melding projector",
+				"page": 106,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Memory extractor",
+				"page": 107,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Operon reservoir",
+				"page": 107,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Perception extender",
+				"page": 107,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Portable feast",
+				"page": 107,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Portable trebuchet",
+				"page": 107,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Prevarication exponent",
+				"page": 108,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Sacrilock",
+				"page": 108,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Shadowpath blade",
+				"page": 108,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Soothing perimeter",
+				"page": 108,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Stellar loop",
+				"page": 109,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Tectonic emitter",
+				"page": 109,
+				"weight": 2,
+				"levelDie": 6,
+				"levelBonus": 4,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Teeth of the horde",
+				"page": 109,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Temporal quickener",
+				"page": 109,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Timeslip duplicator",
+				"page": 110,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Transposing visor",
+				"page": 110,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 0,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Viscous fogger",
+				"page": 110,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Water adapter",
+				"page": 110,
+				"weight": 3,
+				"levelDie": 6,
+				"levelBonus": 3,
+				"minimumCraftingLevel": 6
+			}
+		]
+	},
+	"Oddity": {
+		"Discovery": [
+			"Crystal that shatters easily but then instantly reforms",
+			"Egg-shaped metallic bauble that occasionally spins and speaks in a language no one knows",
+			"Aerosol can that sprays sparkling paint that hangs in the air",
+			"Device that emits a projection of a human face that changes expression depending on the direction in which it’s looking",
+			"Unknown musical instrument that plays only soft, unpleasant sounds",
+			"Circular stone plate with a human face that occasionally changes expression or appears to speak (but has no voice)",
+			"Box with a tiny group of musicians in it who play when it is opened and look horrified when it is closed",
+			"Remote-controlled dragonfly with a tiny, handheld controller",
+			"Pants that fit perfectly and never seem to get dirty but are always chilly",
+			"Blob of clay that takes on various mysterious shapes when left alone",
+			"Crystal that hums",
+			"Necklace made of gears and other machine parts",
+			"Flute with buttons rather than holes so you can play music without blowing into it",
+			"Lightning bug in a glass globe",
+			"Plastic disk that displays ever-changing but meaningless symbols",
+			"Small rod that emits a voice saying the same thing in an unknown language every time a button is pushed",
+			"Glass plate that shows what seems to be a live image of the moon, but from a closer vantage",
+			"Comb that glows when used",
+			"Small square cage that puts whatever single creature is inside it into stasis",
+			"Plastic bottle containing a spray that cleans any stain and never runs out",
+			"Metallic device that creates one sheet of new paper each day",
+			"Pen that writes in invisible ink revealed only at a very low temperature",
+			"Tiny toy ornithopter made of a solid piece of material that seems indestructible",
+			"Fuzzy stuffed ravage bear that makes growling noises when you squeeze it",
+			"Goggles that tint everything green",
+			"Series of thin plastic cards that show all kinds of unknown creatures",
+			"Candle that never runs down",
+			"Bag of sixteen rubber balloons",
+			"Three silken gloves with six fingers each",
+			"Metallic jar that maintains the temperature of liquid inside indefinitely",
+			"Blue crystal that glows as bright as a candle when held",
+			"Small coin pouch that holds twice as much as it appears it should",
+			"Small wand-like device that keeps away normal insects in a 5-foot (1.5 m) radius",
+			"Unknown plastic device with lights that occasionally blink",
+			"Powerful magnifying glass",
+			"Bag that contains dice, each with a different number of sides",
+			"Small mirrored cube",
+			"Piece of extremely strong and thin cable 8 feet (2.5 m) long",
+			"Feathered hat that occasionally makes bird noises",
+			"Wooden rod that increases in length by about 1 inch (2.5 cm) a month",
+			"Brass device with nested circular plates that rotate and click",
+			"Cape that billows as if blown by the wind when worn, even in still air",
+			"Glass cube that shows what seems to be a live aerial view of an unknown, ruined city",
+			"Armband that tightens slightly when within 100 feet (30 m) of abhumans",
+			"Small jar of black paint that refills itself each day",
+			"Metallic mask that fits perfectly on your face and changes expression when you do",
+			"Five metallic plates that orbit around your head and display ever-changing, unknown symbols",
+			"Green glass sphere that floats next to you and whistles when you are angry",
+			"Metal canister that fills with 4 quarts (3.8 liters) of water at the same time each day",
+			"Metal and glass disk that, when pressed against flesh, instantly etches a tattoo of a black scorpion",
+			"Small mirror that shows someone other than you when you gaze into it",
+			"Canister that produces an extremely foul odor and a puff of dark red smoke when opened",
+			"Goggles that allow you to see perfectly through steam or smoke",
+			"Box that produces a 3-inch (7.5 cm) cube of a firm but gelatinous substance at the same time each day",
+			"Shirt that displays your muscles, bones, and internal organs when you wear it",
+			"Small leather case of cosmetics that never seem to run out",
+			"Amulet that, when worn, projects holographic images of fish swimming around you",
+			"Bracelet with a tiny bell charm that rings like a massive bell when intentionally rung",
+			"Metallic, pointed-toe boots designed to fit an aneen or a similar creature",
+			"Cup that instantly boils any liquid poured into it",
+			"Spectacles that project strange images on the lenses so the wearer sees things that are not there",
+			"Box of a dozen matchsticks that, when burned, release puffs of lingering smoke that take on the shapes of faces, creatures, or other things",
+			"Blanket that makes a pleasant, soft humming noise while covering a living creature",
+			"Semicircular device of metal and glass that projects a harmless, thin red beam up to 50 feet (15 m) when activated",
+			"Two 5-inch (12.7 cm) metal and glass disks that hover around your wrists",
+			"Six small, clear synth bags that can be sealed and are very durable",
+			"Glass orb that always drips perfumed water very slowly",
+			"Jar of sixteen seeds; when planted, each seed grows into a daffodil made of gold in six months",
+			"Rose made of nigh-indestructible glass",
+			"Octagon-shaped amulet that is black during the day and sky blue at night",
+			"Mummified fish with feathered wings in a wooden box",
+			"Two-headed animal fetus in a glass jar",
+			"Saddle sized for a very small animal, such as a squirrel or a small cat",
+			"Small rectangular device that makes a chirping sound at the same time each day",
+			"Pair of tiny metal rods that, when brought within 1 inch (2.5 cm) of each other, vibrate exactly fifteen minutes before the sun rises on any given day",
+			"Ceramic ring that makes you feel as though gentle hands are caressing your body",
+			"Bottle of twenty-four pills that make you vividly dream about your favorite memory when you next sleep",
+			"Cylinder that clears the air of smoke, foul smells, and the like in an enclosed room in one minute’s time",
+			"A pair of small, floating cubes that keep a small, enclosed room at the temperature at which water freezes",
+			"Bracelet that renders you unable to reproduce while worn",
+			"Chair that can be stored in an extradimensional space when activated",
+			"Synth disk that will restore a rotten vegetable or piece of fruit",
+			"Cylinder that, if you speak through it, makes your voice sound wavering and strange",
+			"Scarf that appears to be made of silk but is virtually indestructible and cannot be dirtied or stained",
+			"Egg-shaped device that temporarily negates all odor within 3 feet (1 m)",
+			"Short metal rod that is insubstantial to all matter except the special synth glove that goes with it",
+			"Cube that, when activated, disappears for one minute and then reappears in the same spot",
+			"Wristband that buzzes when in complete darkness",
+			"Plate of glass that, when you view the night sky through it, reveals ten times as many stars",
+			"Ceramic pot that produces a tiny puff of colored smoke once every hour and a half",
+			"Hoop that sharpens any blade passed through it",
+			"Sphere that produces vigorous bubbles when placed in water",
+			"Tiny awl that inflicts no pain when it pierces flesh",
+			"Contact lenses that make your eyes seem completely white with no pupils",
+			"Silken string 3 feet (1 m) long that coils around whatever it touches",
+			"Large, clear synth bag that keeps food inside it fresh indefinitely",
+			"Stockings that are always warm",
+			"Single rubber glove that is extremely durable and resistant",
+			"Box filled with two dozen spherical magnets, each about the size of a pea",
+			"Pair of clear drinking glasses that change color depending on the contents"
+		]
+	},
+	"Installation": {
+		"Destiny": [
+			{
+				"name": "Alarm tower",
+				"page": 154,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Automender",
+				"page": 154,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Automender, enhanced",
+				"page": 154,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Automender, ultimate",
+				"page": 154,
+				"weight": 1,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Birthing vat",
+				"page": 155,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Body toughener",
+				"page": 155,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Cleansing arch",
+				"page": 155,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Cooling obelisk",
+				"page": 155,
+				"weight": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Compactor",
+				"page": 156,
+				"weight": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Datasphere obelisk",
+				"page": 156,
+				"weight": 1,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Dimensional abode",
+				"page": 156,
+				"weight": 1,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Earthquake carillon",
+				"page": 156,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Envirosphere",
+				"page": 157,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Everflowing fountain",
+				"page": 157,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Everflowing nectar",
+				"page": 157,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Express tube",
+				"page": 158,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Fabricator",
+				"page": 158,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Farspeaking pylon",
+				"page": 158,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Farspeaking pylon, advanced",
+				"page": 158,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Farspeaking pylon, ultimate",
+				"page": 159,
+				"weight": 1,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Floatstone",
+				"page": 159,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Force dome",
+				"page": 159,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Force gate",
+				"page": 159,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Force sphere",
+				"page": 159,
+				"weight": 1,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Force wall",
+				"page": 159,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Hovering slab",
+				"page": 160,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Keepsafe bin",
+				"page": 160,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Keepsafe bin, advanced",
+				"page": 160,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Keepsafe capsule",
+				"page": 160,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Language translator",
+				"page": 160,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Library obelisk",
+				"page": 161,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Lightning tower",
+				"page": 161,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Luminous dynamo",
+				"page": 161,
+				"weight": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Luminous dynamo, improved",
+				"page": 161,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Luminous dynamo tower",
+				"page": 161,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Materials extruder",
+				"page": 161,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Monorail",
+				"page": 162,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Music box",
+				"page": 162,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Oblivion tower",
+				"page": 162,
+				"weight": 1,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Pabulum extruder",
+				"page": 163,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Pain taker",
+				"page": 163,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Phase dome",
+				"page": 163,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Portal mouth",
+				"page": 163,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Rain caller",
+				"page": 164,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Restorative dispenser",
+				"page": 164,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Seminarium",
+				"page": 164,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Sensorium",
+				"page": 164,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Shield wall, basic",
+				"page": 164,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Shrink pad",
+				"page": 165,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Space elevator",
+				"page": 165,
+				"weight": 1,
+				"minimumCraftingLevel": 0
+			},
+			{
+				"name": "Spire of a thousand rooms",
+				"page": 165,
+				"weight": 1,
+				"minimumCraftingLevel": 0
+			},
+			{
+				"name": "Structural booster",
+				"page": 166,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Structural booster, improved",
+				"page": 166,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Sustenance synthesizer",
+				"page": 166,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Taming tower",
+				"page": 166,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Temporal chime",
+				"page": 167,
+				"weight": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Truthbox",
+				"page": 167,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Turret, basic",
+				"page": 167,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Turret, gravity",
+				"page": 167,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Turret, improved",
+				"page": 168,
+				"weight": 1,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Turret, lightning",
+				"page": 168,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Turret, mechanized",
+				"page": 168,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Vanisher",
+				"page": 168,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Vermin ward",
+				"page": 168,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Vitalium",
+				"page": 168,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Warming obelisk",
+				"page": 169,
+				"weight": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Water excitation engine",
+				"page": 169,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Water purifier, basic",
+				"page": 169,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Water purifier, enhanced",
+				"page": 169,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Water purification station",
+				"page": 170,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Water signal (destruction) emitter",
+				"page": 170,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			}
+		],
+		"Building Tomorrow": [
+			{
+				"name": "Adjustable watchtower",
+				"page": 50,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Air signaler (destruction)",
+				"page": 50,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Bioreactor",
+				"page": 50,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Bioreactor, grand",
+				"page": 50,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Body preserver",
+				"page": 50,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Body shunt",
+				"page": 51,
+				"weight": 1,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Casting pads",
+				"page": 52,
+				"weight": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Champion forger",
+				"page": 52,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Community obelisk",
+				"page": 52,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Community projector",
+				"page": 53,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Community translator",
+				"page": 53,
+				"weight": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Control arch",
+				"page": 53,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Crystal mind",
+				"page": 53,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Deferment gate",
+				"page": 54,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Dread banner",
+				"page": 54,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Drink dispenser",
+				"page": 54,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Earth signaler (destruction)",
+				"page": 54,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Fire signaler (suppression)",
+				"page": 54,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Force cage",
+				"page": 55,
+				"weight": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Force crane",
+				"page": 55,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Force orb",
+				"page": 55,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Gallen caller",
+				"page": 56,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Glamor dispenser",
+				"page": 56,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Gravity transducer",
+				"page": 56,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Hunting lure",
+				"page": 56,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Interrogation tower",
+				"page": 57,
+				"weight": 1,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Keepsafe case",
+				"page": 57,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Launching ring",
+				"page": 58,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Machine calmer",
+				"page": 58,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Machine overrider",
+				"page": 58,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Memorial obelisk",
+				"page": 58,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Memory tailor",
+				"page": 59,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Mind exciter",
+				"page": 59,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Mind expander",
+				"page": 59,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Mind suppressor",
+				"page": 60,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Mindchanger",
+				"page": 60,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Mindwiper",
+				"page": 60,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Mirrorbright arch",
+				"page": 61,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Missile battery",
+				"page": 61,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Moment maker",
+				"page": 61,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Musical obelisk",
+				"page": 61,
+				"weight": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Nectar of life",
+				"page": 62,
+				"weight": 1,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Null field generator",
+				"page": 62,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Organifact",
+				"page": 62,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Penal arch",
+				"page": 63,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Phase changer",
+				"page": 63,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Power support",
+				"page": 63,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Prison simulator",
+				"page": 64,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Prosthetifact",
+				"page": 64,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Rally banner",
+				"page": 64,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Reflector orb",
+				"page": 65,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Reservoir purifier",
+				"page": 65,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Sleepwell emitter",
+				"page": 65,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Sonic wall",
+				"page": 65,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Sound suppressor",
+				"page": 66,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Summoner",
+				"page": 66,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Supernumerary watchtower",
+				"page": 66,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Teaching monolith",
+				"page": 66,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Time suppressor",
+				"page": 67,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Tracking arch",
+				"page": 67,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Tranquility tower",
+				"page": 68,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Transdimensional fence",
+				"page": 68,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Water signaler (calming)",
+				"page": 68,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Weathersmith",
+				"page": 69,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Weatherspear",
+				"page": 69,
+				"weight": 1,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Wind coaxer",
+				"page": 69,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			}
+		]
+	},
+	"Automaton": {
+		"Destiny": [
+			{
+				"name": "Alarm mech",
+				"page": 148,
+				"weight": 6,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Assistant",
+				"page": 148,
+				"weight": 7,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Buildnought",
+				"page": 148,
+				"weight": 2,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Cleaning mech",
+				"page": 149,
+				"weight": 6,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Companion",
+				"page": 149,
+				"weight": 4,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Exploring aventron",
+				"page": 149,
+				"weight": 2,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Extractor",
+				"page": 150,
+				"weight": 6,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Garden mech",
+				"page": 150,
+				"weight": 6,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Gazer swarm",
+				"page": 150,
+				"weight": 6,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Lifting aventron",
+				"page": 151,
+				"weight": 6,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Mech soldier, basic",
+				"page": 151,
+				"weight": 6,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Salvister",
+				"page": 151,
+				"weight": 17,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Salvister, advanced",
+				"page": 151,
+				"weight": 4,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Servitor, basic",
+				"page": 151,
+				"weight": 7,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Servitor, biocoat",
+				"page": 152,
+				"weight": 5,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Servitor, shifting",
+				"page": 152,
+				"weight": 4,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Storyteller",
+				"page": 152,
+				"weight": 6,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Warstriker",
+				"page": 153,
+				"weight": 2,
+				"minimumCraftingLevel": 10
+			}
+		],
+		"Building Tomorrow": [
+			{
+				"name": "Accumulator",
+				"page": 25,
+				"weight": 5,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Accumulator, zealous",
+				"page": 25,
+				"weight": 2,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Aerial eye",
+				"page": 26,
+				"weight": 5,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Ambusher",
+				"page": 26,
+				"weight": 5,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Armor escort",
+				"page": 27,
+				"weight": 6,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Bibelot",
+				"page": 27,
+				"weight": 5,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Chrononome",
+				"page": 27,
+				"weight": 5,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Cultivator",
+				"page": 27,
+				"weight": 5,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Detonating scuttler",
+				"page": 28,
+				"weight": 4,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Gatebreaker",
+				"page": 28,
+				"weight": 5,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Handy appliance",
+				"page": 28,
+				"weight": 5,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Instigator",
+				"page": 29,
+				"weight": 5,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Labyrinth runner",
+				"page": 29,
+				"weight": 4,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Machineen",
+				"page": 29,
+				"weight": 3,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Messenger",
+				"page": 30,
+				"weight": 5,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Peacebringer",
+				"page": 30,
+				"weight": 2,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Refuse collector",
+				"page": 30,
+				"weight": 5,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Scanner",
+				"page": 30,
+				"weight": 5,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Soaring watcher",
+				"page": 31,
+				"weight": 3,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Spirit aide",
+				"page": 31,
+				"weight": 5,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Synthetic body",
+				"page": 31,
+				"weight": 2,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Vigilant eye",
+				"page": 32,
+				"weight": 5,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Zhev",
+				"page": 32,
+				"weight": 4,
+				"minimumCraftingLevel": 5
+			}
+		]
+	},
+	"Vehicle": {
+		"Destiny": [
+			{
+				"name": "Battle cart",
+				"page": 170,
+				"weight": 2,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Battle flyer",
+				"page": 170,
+				"weight": 2,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Burrower",
+				"page": 171,
+				"weight": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Chainpod",
+				"page": 171,
+				"weight": 3,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Chrono engine",
+				"page": 172,
+				"weight": 2,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Deep diver",
+				"page": 172,
+				"weight": 4,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Deep swimmer",
+				"page": 172,
+				"weight": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Dimensional treader",
+				"page": 172,
+				"weight": 2,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Dimensional wing",
+				"page": 173,
+				"weight": 2,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Dynamic frame",
+				"page": 173,
+				"weight": 5,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Fiery ascender",
+				"page": 173,
+				"weight": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Flyer",
+				"page": 174,
+				"weight": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Galloping gambado",
+				"page": 174,
+				"weight": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Hover disc",
+				"page": 174,
+				"weight": 5,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Hover frame",
+				"page": 175,
+				"weight": 5,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Jet frame",
+				"page": 175,
+				"weight": 3,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Jumper",
+				"page": 175,
+				"weight": 3,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Junkwing",
+				"page": 176,
+				"weight": 5,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Lava eel",
+				"page": 176,
+				"weight": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Mud roller",
+				"page": 176,
+				"weight": 5,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Planetary escape pod",
+				"page": 176,
+				"weight": 3,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Scream wheeler",
+				"page": 177,
+				"weight": 5,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Sliver",
+				"page": 177,
+				"weight": 3,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Snowskimmer",
+				"page": 177,
+				"weight": 4,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Swimming mount",
+				"page": 177,
+				"weight": 4,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Terapede",
+				"page": 177,
+				"weight": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Thunder harness",
+				"page": 178,
+				"weight": 4,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Transport cart",
+				"page": 178,
+				"weight": 3,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Voidglider",
+				"page": 178,
+				"weight": 1,
+				"minimumCraftingLevel": 10
+			},
+			{
+				"name": "Voidstrider",
+				"page": 179,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "War chariot",
+				"page": 179,
+				"weight": 2,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Waterskimmer",
+				"page": 179,
+				"weight": 4,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Windrider",
+				"page": 179,
+				"weight": 3,
+				"minimumCraftingLevel": 4
+			}
+		],
+		"Building Tomorrow": [
+			{
+				"name": "Blue voyager",
+				"page": 83,
+				"weight": 5,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Chronoboard",
+				"page": 83,
+				"weight": 5,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Chronolapse",
+				"page": 83,
+				"weight": 4,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Dynamic roller",
+				"page": 83,
+				"weight": 10,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Ectopic rover",
+				"page": 84,
+				"weight": 5,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Ectopic wing",
+				"page": 84,
+				"weight": 3,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Fiery traverser",
+				"page": 84,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Flitting board",
+				"page": 85,
+				"weight": 5,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Glide wing",
+				"page": 85,
+				"weight": 10,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Growling wing",
+				"page": 85,
+				"weight": 5,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Homecoming vector",
+				"page": 86,
+				"weight": 5,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Land wheeler",
+				"page": 86,
+				"weight": 5,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Moving fortress",
+				"page": 86,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Pico wheel",
+				"page": 87,
+				"weight": 5,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Powered boots",
+				"page": 87,
+				"weight": 5,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Powered exoskeleton",
+				"page": 88,
+				"weight": 5,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Roving abode",
+				"page": 88,
+				"weight": 5,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Sailing abode",
+				"page": 88,
+				"weight": 5,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Solo submersible",
+				"page": 88,
+				"weight": 5,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Tendril crawler",
+				"page": 88,
+				"weight": 5,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Touring city",
+				"page": 89,
+				"weight": 1,
+				"minimumCraftingLevel": 9
+			}
+		]
+	},
+	"Biological": {
+		"Building Tomorrow": [
+			{
+				"name": "Advisor",
+				"page": 33,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Breadpod tree",
+				"page": 33,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Claw wings",
+				"page": 33,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Clawed extremity",
+				"page": 33,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Commensural",
+				"page": 34,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Conveyer",
+				"page": 34,
+				"weight": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Crawling eye",
+				"page": 34,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Cypher burster",
+				"page": 35,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Cypher sniffer",
+				"page": 35,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Defender",
+				"page": 35,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Digester",
+				"page": 35,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Dissembling crown",
+				"page": 36,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Enthraller",
+				"page": 36,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Envisager",
+				"page": 36,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Eradicator",
+				"page": 37,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Evermore tree",
+				"page": 37,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Fangdomen",
+				"page": 37,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Fluttering lamps",
+				"page": 38,
+				"weight": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Gestation pod",
+				"page": 38,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Guardian dyad",
+				"page": 38,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Harmonizer",
+				"page": 39,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Hypnogogic mantle",
+				"page": 39,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Ingresser",
+				"page": 39,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Inhalasome",
+				"page": 40,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Inveiglator",
+				"page": 40,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Living abode",
+				"page": 40,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Living tower",
+				"page": 41,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Loping husk",
+				"page": 41,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Mind shard",
+				"page": 41,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Mindspeaking implant",
+				"page": 41,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Mulch slugs",
+				"page": 42,
+				"weight": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Philebrid",
+				"page": 42,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Portable hive",
+				"page": 42,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Prim",
+				"page": 43,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Prudence tree",
+				"page": 43,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Psychosome",
+				"page": 43,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Reprisasome",
+				"page": 44,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Reproduction pod",
+				"page": 44,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Scullion",
+				"page": 44,
+				"weight": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Sentinel",
+				"page": 45,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Skin, blending",
+				"page": 45,
+				"weight": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Skin, plate",
+				"page": 45,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Skin, protective",
+				"page": 46,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Skin, robust",
+				"page": 46,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Synth excreter",
+				"page": 46,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Tentacle injector",
+				"page": 46,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Tentacle inquirer",
+				"page": 47,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Thicket, obscuring",
+				"page": 47,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Thicket, trapping",
+				"page": 47,
+				"weight": 1,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Titanomock",
+				"page": 47,
+				"weight": 1,
+				"minimumCraftingLevel": 10
+			},
+			{
+				"name": "Torridisome",
+				"page": 48,
+				"weight": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Traumasome",
+				"page": 48,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Trilling cuddler",
+				"page": 48,
+				"weight": 2,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Vigisome",
+				"page": 48,
+				"weight": 2,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Vital sword",
+				"page": 49,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Vital sword, blood drinking",
+				"page": 49,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Watchful crown",
+				"page": 49,
+				"weight": 2,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Whisperer",
+				"page": 49,
+				"weight": 2,
+				"minimumCraftingLevel": 1
+			}
+		]
+	},
+	"Otherspace": {
+		"Building Tomorrow": [
+			{
+				"name": "Accumulator",
+				"page": 25,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Accumulator, zealous",
+				"page": 25,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Big pocket",
+				"page": 70,
+				"weight": 5,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Book of doors",
+				"page": 70,
+				"weight": 1,
+				"minimumCraftingLevel": 8
+			},
+			{
+				"name": "Crossroads vestibule",
+				"page": 71,
+				"weight": 1,
+				"minimumCraftingLevel": 9
+			},
+			{
+				"name": "Death monocle",
+				"page": 71,
+				"weight": 5,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Deathspeaking orb",
+				"page": 71,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Dimensional collapser",
+				"page": 72,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Dimensional detector",
+				"page": 72,
+				"weight": 4,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Dimensional expander",
+				"page": 72,
+				"weight": 3,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Dimensional mixer",
+				"page": 72,
+				"weight": 1,
+				"minimumCraftingLevel": 10
+			},
+			{
+				"name": "Ectopic armor",
+				"page": 72,
+				"weight": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Ectopic rover",
+				"page": 84,
+				"weight": 2,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Ectopic wing",
+				"page": 84,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Empty hand",
+				"page": 73,
+				"weight": 5,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Endless coil",
+				"page": 73,
+				"weight": 3,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Endless stomach",
+				"page": 74,
+				"weight": 3,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Extensile bracer",
+				"page": 74,
+				"weight": 3,
+				"minimumCraftingLevel": 3
+			},
+			{
+				"name": "Fathomless pit",
+				"page": 74,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Ghost tracker",
+				"page": 74,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Headroom helmet",
+				"page": 75,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Ingresser",
+				"page": 39,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Isonomic hall",
+				"page": 75,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Otherfall armor",
+				"page": 75,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Otherspace anchor",
+				"page": 76,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Otherspace field",
+				"page": 76,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Otherspace lure",
+				"page": 76,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Otherspace thief",
+				"page": 76,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Otherwhere lens",
+				"page": 77,
+				"weight": 4,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Pack bracer",
+				"page": 77,
+				"weight": 5,
+				"minimumCraftingLevel": 2
+			},
+			{
+				"name": "Personal pocket",
+				"page": 78,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Phantom interrogator",
+				"page": 78,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Phantom prison",
+				"page": 78,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Phase cloak",
+				"page": 78,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Pocket lodge",
+				"page": 79,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Pocketed object",
+				"page": 79,
+				"weight": 5,
+				"minimumCraftingLevel": 1
+			},
+			{
+				"name": "Portal door",
+				"page": 79,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Psychic atheneum",
+				"page": 80,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Psychic refuge",
+				"page": 80,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Smoothing knife",
+				"page": 80,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Swiftlocator",
+				"page": 80,
+				"weight": 2,
+				"minimumCraftingLevel": 4
+			},
+			{
+				"name": "Timeline divination nodule",
+				"page": 81,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			},
+			{
+				"name": "Transdimensional body",
+				"page": 81,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Transdimensional fence",
+				"page": 68,
+				"weight": 1,
+				"minimumCraftingLevel": 6
+			},
+			{
+				"name": "Ultraterrestrial beacon",
+				"page": 81,
+				"weight": 1,
+				"minimumCraftingLevel": 7
+			},
+			{
+				"name": "Weaponized stomach",
+				"page": 82,
+				"weight": 2,
+				"minimumCraftingLevel": 5
+			}
+		]
+	}
+}

@@ -1,0 +1,592 @@
+{
+    "appearance": [
+        {
+            "name": "Alien",
+            "weight": 2
+        },
+        {
+            "name": "Amorphous",
+            "weight": 3
+        },
+        {
+            "name": "Biological (Aquatic)",
+            "weight": 1
+        },
+        {
+            "name": "Biological (Feathered)",
+            "weight": 1
+        },
+        {
+            "name": "Biological (Fungus)",
+            "weight": 1
+        },
+        {
+            "name": "Biological (Furry)",
+            "weight": 1
+        },
+        {
+            "name": "Biological (Human)",
+            "weight": 1
+        },
+        {
+            "name": "Biological (Insect)",
+            "weight": 1
+        },
+        {
+            "name": "Biological (Plant)",
+            "weight": 1
+        },
+        {
+            "name": "Biological (Reptilian)",
+            "weight": 1
+        },
+        {
+            "name": "Biomechanical",
+            "weight": 3
+        },
+        {
+            "name": "Crystalline",
+            "weight": 6
+        },
+        {
+            "name": "Composite",
+            "weight": 10
+        },
+        {
+            "name": "Cosmic",
+            "weight": 1
+        },
+        {
+            "name": "Fuzzy",
+            "weight": 2
+        },
+        {
+            "name": "Leathery",
+            "weight": 1
+        },
+        {
+            "name": "Metallic",
+            "weight": 15
+        },
+        {
+            "name": "Mechanical",
+            "weight": 15
+        },
+        {
+            "name": "New World",
+            "weight": 4
+        },
+        {
+            "name": "Stone",
+            "weight": 5
+        },
+        {
+            "name": "Synth",
+            "weight": 15
+        },
+        {
+            "name": "Translucent",
+            "weight": 5
+        },
+        {
+            "name": "Unidentifiable Matter",
+            "weight": 3
+        }
+    ],
+    "aspect": [
+        {
+            "name": "Acid/Corrosion",
+            "weight": 4
+        },
+        {
+            "name": "Adhesive",
+            "weight": 2
+        },
+        {
+            "name": "Air",
+            "weight": 8
+        },
+        {
+            "name": "Animal",
+            "weight": 2
+        },
+        {
+            "name": "Armor",
+            "weight": 2
+        },
+        {
+            "name": "Automaton",
+            "weight": 1
+        },
+        {
+            "name": "Body",
+            "weight": 1
+        },
+        {
+            "name": "Bio-matter",
+            "weight": 2
+        },
+        {
+            "name": "Communication",
+            "weight": 2
+        },
+        {
+            "name": "Cosmos",
+            "weight": 1
+        },
+        {
+            "name": "Darkness",
+            "weight": 2
+        },
+        {
+            "name": "Earth",
+            "weight": 8
+        },
+        {
+            "name": "Electricity",
+            "weight": 8
+        },
+        {
+            "name": "Emotion",
+            "weight": 2
+        },
+        {
+            "name": "Energy",
+            "weight": 4
+        },
+        {
+            "name": "Explosion",
+            "weight": 4
+        },
+        {
+            "name": "Extradimesional",
+            "weight": 1
+        },
+        {
+            "name": "Fire",
+            "weight": 8
+        },
+        {
+            "name": "Flight",
+            "weight": 4
+        },
+        {
+            "name": "Food",
+            "weight": 1
+        },
+        {
+            "name": "Force",
+            "weight": 4
+        },
+        {
+            "name": "Friction",
+            "weight": 2
+        },
+        {
+            "name": "Gas",
+            "weight": 4
+        },
+        {
+            "name": "Gravity",
+            "weight": 8
+        },
+        {
+            "name": "Healing",
+            "weight": 1
+        },
+        {
+            "name": "Information",
+            "weight": 4
+        },
+        {
+            "name": "Intellect (stat)",
+            "weight": 2
+        },
+        {
+            "name": "Invisibility",
+            "weight": 2
+        },
+        {
+            "name": "Iotum",
+            "weight": 1
+        },
+        {
+            "name": "Item",
+            "weight": 4
+        },
+        {
+            "name": "Life",
+            "weight": 2
+        },
+        {
+            "name": "Light",
+            "weight": 4
+        },
+        {
+            "name": "Liquid",
+            "weight": 4
+        },
+        {
+            "name": "Machine",
+            "weight": 2
+        },
+        {
+            "name": "Magnet",
+            "weight": 4
+        },
+        {
+            "name": "Matter",
+            "weight": 2
+        },
+        {
+            "name": "Metal",
+            "weight": 4
+        },
+        {
+            "name": "Might (stat)",
+            "weight": 2
+        },
+        {
+            "name": "Mind",
+            "weight": 4
+        },
+        {
+            "name": "Mutation",
+            "weight": 1
+        },
+        {
+            "name": "Numenera",
+            "weight": 4
+        },
+        {
+            "name": "Plan",
+            "weight": 1
+        },
+        {
+            "name": "Plant/Fungi",
+            "weight": 4
+        },
+        {
+            "name": "Projectile",
+            "weight": 4
+        },
+        {
+            "name": "Poison/Disease",
+            "weight": 2
+        },
+        {
+            "name": "Quantum",
+            "weight": 2
+        },
+        {
+            "name": "Senses/Illusion",
+            "weight": 4
+        },
+        {
+            "name": "Solid",
+            "weight": 4
+        },
+        {
+            "name": "Structure/Building",
+            "weight": 2
+        },
+        {
+            "name": "Sound",
+            "weight": 4
+        },
+        {
+            "name": "Spatial",
+            "weight": 4
+        },
+        {
+            "name": "Speed/Motion",
+            "weight": 4
+        },
+        {
+            "name": "Speed (stat)",
+            "weight": 2
+        },
+        {
+            "name": "Subdimensional",
+            "weight": 2
+        },
+        {
+            "name": "Teleportation",
+            "weight": 4
+        },
+        {
+            "name": "Temperature",
+            "weight": 8
+        },
+        {
+            "name": "Terrain",
+            "weight": 4
+        },
+        {
+            "name": "Time",
+            "weight": 4
+        },
+        {
+            "name": "Vision",
+            "weight": 2
+        },
+        {
+            "name": "Water",
+            "weight": 4
+        },
+        {
+            "name": "Weapon",
+            "weight": 4
+        },
+        {
+            "name": "Weather",
+            "weight": 2
+        }
+    ],
+    "quirk": [
+        {
+            "name": "Beeps",
+            "weight": 1
+        },
+        {
+            "name": "Blinks",
+            "weight": 1
+        },
+        {
+            "name": "Breaks into Equally Sized Parts",
+            "weight": 1
+        },
+        {
+            "name": "Catches Fire",
+            "weight": 1
+        },
+        {
+            "name": "Crumbles",
+            "weight": 1
+        },
+        {
+            "name": "Flashes",
+            "weight": 1
+        },
+        {
+            "name": "Freezes",
+            "weight": 1
+        },
+        {
+            "name": "Manifests a Face",
+            "weight": 1
+        },
+        {
+            "name": "Expels Goop",
+            "weight": 1
+        },
+        {
+            "name": "Produces Holograph",
+            "weight": 1 
+        },
+        {
+            "name": "Makes a Loud Noise",
+            "weight": 1
+        },
+        {
+            "name": "Melts",
+            "weight": 1
+        },
+        {
+            "name": "Produces Music",
+            "weight": 1
+        },
+        {
+            "name": "Mind-affecting (Negative)",
+            "weight": 1
+        },
+        {
+            "name": "Mind-affecting (Neutral)",
+            "weight": 1
+        },
+        {
+            "name": "Mind-affecting (Positive)",
+            "weight": 1
+        },
+        {
+            "name": "Mutters (in a language you don't understand)",
+            "weight": 1
+        },
+        {
+            "name": "Prints a Paper (written with unknown symbols)",
+            "weight": 1
+        },
+        {
+            "name": "Disappears into a Singularity",
+            "weight": 1
+        },
+        {
+            "name": "Smells of Burnt Toast",
+            "weight": 1
+        },
+        {
+            "name": "Spins",
+            "weight": 2
+        },
+        {
+            "name": "Static Electricity Discharge",
+            "weight": 1
+        },
+        {
+            "name": "Transforms",
+            "weight": 1
+        },
+        {
+            "name": "Vanishes in a Flash of Light",
+            "weight": 1
+        },
+        {
+            "name": "Vibrates Intensely",
+            "weight": 1
+        },
+        {
+            "name": "Walks, Rolls, or Flies Away",
+            "weight": 1
+        },
+        {
+            "name": "Weight Decreases",
+            "weight": 1
+        },
+        {
+            "name": "Weight Increases",
+            "weight": 1
+        },
+        {
+            "name": "Becomes Wet and Slippery",
+            "weight": 1
+        }
+    ],
+    "usedBy": [
+        {
+            "name": "Activated (button, lever, etc)",
+            "weight": 3
+        },
+        {
+            "name": "Automatic",
+            "weight": 1
+        },
+        {
+            "name": "Broken",
+            "weight": 3
+        },
+        {
+            "name": "Ingested",
+            "weight": 1
+        },
+        {
+            "name": "Injected",
+            "weight": 1
+        },
+        {
+            "name": "Installed",
+            "weight": 1
+        },
+        {
+            "name": "Key Phrase",
+            "weight": 1
+        },
+        {
+            "name": "By Thought",
+            "weight": 1
+        },
+        {
+            "name": "Thrown",
+            "weight": 3
+        },
+        {
+            "name": "Worn",
+            "weight": 1
+        }
+    ],
+    "utility": [
+        {
+            "name": "Analyzes Something",
+            "weight": 1
+        },
+        {
+            "name": "Animates Something",
+            "weight": 1
+        },
+        {
+            "name": "Attacks Something",
+            "weight": 4
+        },
+        {
+            "name": "Blocks Something",
+            "weight": 4
+        },
+        {
+            "name": "Conceals Something",
+            "weight": 2
+        },
+        {
+            "name": "Conjures and/or Stores Something",
+            "weight": 2
+        },
+        {
+            "name": "Destroys Something",
+            "weight": 1
+        },
+        {
+            "name": "Enhances Something",
+            "weight": 4
+        },
+        {
+            "name": "Grapples Something",
+            "weight": 1
+        },
+        {
+            "name": "Moves Something",
+            "weight": 4
+        },
+        {
+            "name": "Produces Something",
+            "weight": 2
+        },
+        {
+            "name": "Programs Something",
+            "weight": 1
+        },
+        {
+            "name": "Protects Something",
+            "weight": 4
+        },
+        {
+            "name": "Repairs Something",
+            "weight": 1
+        },
+        {
+            "name": "Replaces Something",
+            "weight": 2
+        },
+        {
+            "name": "Replicates Something",
+            "weight": 1
+        },
+        {
+            "name": "Reverses Something",
+            "weight": 1
+        },
+        {
+            "name": "Shapes Something",
+            "weight": 4
+        },
+        {
+            "name": "Simulates Something",
+            "weight": 1
+        },
+        {
+            "name": "Tracks or Maps Something",
+            "weight": 2
+        },
+        {
+            "name": "Weakens Something",
+            "weight": 2
+        }
+    ]
+}

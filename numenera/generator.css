@@ -1,0 +1,51 @@
+html {
+    background: black;
+    background-attachment: fixed;
+    background-size: cover;
+	background-position: center;
+    background-image: url('background.jpg');
+}
+
+body {
+    margin: 20px auto;
+    max-width: 1000px;
+    color: white;
+    font-size: 15pt;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+button {
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: #8e6394;
+    padding: 2px 6px;
+    border-radius: 5px;
+    border: 2px solid purple;
+    margin: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ab62b4;
+}
+
+button:disabled {
+    border: 2px solid rgb(119, 119, 119);
+    background: #adadad;
+    cursor: no-drop;
+}
+
+label {
+    margin-left: 20px;
+}
+
+h1, #options {
+    text-align: center;
+}
+
+hr, #items-list {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+}
