@@ -1,0 +1,27 @@
+.fa {
+    cursor: pointer;
+    transition: .1s
+}
+
+.fa:not(.disabled):hover {
+    color: darkred;
+}
+
+.fa.disabled {
+    opacity: .5;
+    cursor: default;
+}
+
+#print-options {
+    text-align: left;
+    left: 25%;
+}
+
+#print-preview {
+    background-color: white;
+    box-shadow: 0 0 1.5rem #867453;
+    margin-top: 1.5rem;
+    overflow-y: auto;
+    /* demo only */
+    height: 200px;
+}

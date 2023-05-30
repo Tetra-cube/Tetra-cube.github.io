@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Statblock printer</title>
+    <link rel="shortcut icon" type="image/x-icon" href="dndimages/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/statblock-style.css">
+    <link rel="stylesheet" type="text/css" href="css/statblock-page-style.css">
+    <link rel="stylesheet" type="text/css" href="css/dnd-style.css">
+    <link rel="stylesheet" type="text/css" href="css/libre-baskerville.css">
+    <link rel="stylesheet" type="text/css" href="css/noto-sans.css">
+    <link rel="stylesheet" type="text/css" href="css/statblock-print-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/FileSaver.min.js"></script>
+    <script src="js/dom-to-image.min.js"></script>
+    <script src="js/statblock-script.js"></script>
+</head>
+
+<body id="stat-block-body" style="min-width: 1000px;">
+    <div class="container" style="text-align: center;">
+        <div class="content">
+            <a href="dnd-statblock.html"><img class="statblock-image" src="dndimages/edit-icon.png">&nbsp;Back to the
+                Statblock editor</a>
+            <h1>Statblock printer</h1>
+            <p>Print multiple statblocks on one sheet of paper.</p>
+
+            <div style="text-align: left; padding: 25px 0px;">
+                <h3>Included statblocks
+                    <button onclick="addStatblock()">Load...</button>
+                </h3>
+                <ul id="statblocks-list">
+                    <!-- Sample Data -->
+                    <li>
+                        <i class="fa fa-arrow-up disabled" title="Up" onclick=""></i>
+                        <i class="fa fa-arrow-down" title="Down" onclick=""></i>
+                        <i class="fa fa-trash-o" title="Remove" onclick=""></i>
+                        <i class="fa fa-clone" title="Clone" onclick=""></i>
+                        <i class="fa fa-download" title="Download" onclick=""></i>
+                        <b>Drakeling</b> <i>Small dragon, unaligned</i>
+                    </li>
+                    <li>
+                        <i class="fa fa-arrow-up" title="Up" onclick=""></i>
+                        <i class="fa fa-arrow-down" title="Down" onclick=""></i>
+                        <i class="fa fa-trash-o" title="Remove" onclick=""></i>
+                        <i class="fa fa-clone" title="Clone" onclick=""></i>
+                        <i class="fa fa-download" title="Download" onclick=""></i>
+                        <b>Fox</b> <i>Small beast, unaligned</i>
+                    </li>
+                    <li>
+                        <i class="fa fa-arrow-up" title="Up" onclick=""></i>
+                        <i class="fa fa-arrow-down disabled" title="Down" onclick=""></i>
+                        <i class="fa fa-trash-o" title="Remove" onclick=""></i>
+                        <i class="fa fa-clone" title="Clone" onclick=""></i>
+                        <i class="fa fa-download" title="Download" onclick=""></i>
+                        <b>Albert</b> <i>Medium monstrosity (shapechanger), chaotic neutral</i>
+                    </li>
+            </div>
+            <h3>Preview</h3>
+            <p><b><i>Note:</i></b> This preview doesn't depict the scale or page layout of the actual print result. Use the
+                scale option of your browser's print dialog after pressing "Print".</p>
+            <p><b><i>Hint:</i></b> You can toggle the background graphics of the statblocks in your browser's print dialog.
+            </p>
+            <div id="print-options">
+                <input id="monochrome-print" type="checkbox" onchange="updatePrintOptions()">
+                <label for="monochrome-print">Monochrome statblocks</label>
+                <br>
+                <input id="save-paper" type="checkbox" onchange="updatePrintOptions()">
+                <label for="save-paper">Align two adjacent single-column statblocks next to each other</label>
+                <br>
+                <label for="print-margin">Margin between the statblocks: </label>
+                <input id="print-margin" type="number" onchange="updatePrintOptions()"> px
+                <br>
+                <button onclick="printBlocks()">Print</button>
+            </div>
+            <div id="print-preview">
+    
+            </div>
+        </div>
+        <div class="footer"><a href="https://github.com/Tetra-cube/Tetra-cube.github.io">GitHub Repo</a></div>
+    </div>
+    </div>
+</body>
+
+</html>
