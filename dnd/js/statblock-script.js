@@ -99,6 +99,12 @@ function TryPrint() {
     printWindow.document.write('</div></body></html>');
 }
 
+// Print multiple function
+
+function PrintMultiple() {
+    window.location = "dnd-statblock-print.html";
+}
+
 // View as image function
 function TryImage() {
     domtoimage.toBlob(document.getElementById("stat-block"))
@@ -1974,6 +1980,7 @@ var ArrayFunctions = {
 
 // Document ready function
 $(function () {
+    if(window.location.toString().slice(-19) != "/dnd-statblock.html") return; // This script is also used by other pages -> execute this function only for the statblock generator page
     // Load the preset monster names
     $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000&document__slug=wotc-srd", function (srdArr) {
         let monsterSelect = $("#monster-select");

@@ -1,6 +1,6 @@
 .fa {
     cursor: pointer;
-    transition: .1s
+    transition: .5s
 }
 
 .fa:not(.disabled):hover {
