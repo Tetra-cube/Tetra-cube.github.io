@@ -67,14 +67,14 @@
             <p><b><i>Hint:</i></b> You can toggle the background graphics of the statblocks in your browser's print dialog.
             </p>
             <div id="print-options">
-                <input id="monochrome-print" type="checkbox" onchange="updatePrintOptions()">
-                <label for="monochrome-print">Monochrome statblocks</label>
+                <input id="monochrome-print-input" type="checkbox" onchange="updatePrintOptions()">
+                <label for="monochrome-print-input">Monochrome statblocks</label>
                 <br>
-                <input id="save-paper" type="checkbox" onchange="updatePrintOptions()">
-                <label for="save-paper">Align two adjacent single-column statblocks next to each other</label>
+                <input id="save-paper-input" type="checkbox" onchange="updatePrintOptions()">
+                <label for="save-paper-input">Align two adjacent single-column statblocks next to each other</label>
                 <br>
-                <label for="print-margin">Margin between the statblocks: </label>
-                <input id="print-margin" type="number" onchange="updatePrintOptions()"> px
+                <label for="print-margin-input">Margin between the statblocks: </label>
+                <input id="print-margin-input" type="number" onchange="updatePrintOptions()"> px
                 <br>
                 <button onclick="printBlocks()">Print</button>
             </div>

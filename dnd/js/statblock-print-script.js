@@ -1,6 +1,7 @@
+// var data;
 let statblocks = [];
 
-const BLOCKTEMPLATE = `<div id="stat-block-wrapper">
+const BLOCKTEMPLATE = `<div> <!-- id="stat-block-wrapper" class="content" -->
 <div id="stat-block" class="stat-block">
     <hr class="orange-border" />
     <div class="section-left">
@@ -87,8 +88,6 @@ let blockList = {
     },
     down: (elem) => {
         let i = elem.index();
-        console.log(elem);
-        console.log(i);
         [statblocks[i+1], statblocks[i]] = [statblocks[i], statblocks[i+1]];
         refresh();
     },
@@ -120,12 +119,25 @@ function addStatblock() { // read every selected file and push it to the statblo
     });
 }
 
-function refresh() {
-    // Refresh statblock list
-    $("#statblocks-list").empty();
+function updatePrintOptions() {
+    // monochrome print
+    if($("#monochrome-print-input").prop("checked")) {
+        $("#print-preview > div").attr("id", "print-block")
+    } else {
+        $("#print-preview > div").removeAttr("id")
+    }
+}
 
+
+function refresh() {
+    let statblocksList = $("#statblocks-list");
+    let printPreview = $("#print-preview");
+    statblocksList.empty();
+    printPreview.empty();
+    
     $.each(statblocks, (index, mon) => {
-        $("#statblocks-list").append(
+        // Refresh statblock list
+        statblocksList.append(
             `<li>
                 <i class="fa fa-arrow-up ${index == 0 ? 'disabled' : ''}" title="Up" onclick="${index>0 ? 'blockList.up($(this).parent())' : ''}"></i>
                 <i class="fa fa-arrow-down ${index + 1 == statblocks.length ? 'disabled' : ''}" title="Down" onclick="${index + 1 == statblocks.length ? '' : 'blockList.down($(this).parent())'}"></i>
@@ -134,9 +146,21 @@ function refresh() {
                 <i class="fa fa-download" title="Download" onclick="blockList.download($(this).parent())"></i>
                 <b>${StringFunctions.RemoveHtmlTags(mon.name)}</b> <i>${StringFunctions.StringCapitalize(StringFunctions.RemoveHtmlTags(mon.size) + " " + mon.type + (mon.tag == "" ? ", " : " (" + mon.tag + "), ") + mon.alignment)}</i>
             </li>`
-        )
+        );
+
+        // Refresh print preview
+        printPreview.append(BLOCKTEMPLATE);
+        var currentStatblock = $("#print-preview > div:last-child");
+        UpdateStatblock(undefined, mon);
+        // delete all IDs so this statblock will be preserved
+        currentStatblock.removeAttr("id");
+        /* var inner = currentStatblock.html();
+        inner = inner.replaceAll(/id=".*?"/g, '');
+        currentStatblock.html(inner); */
+
+        currentStatblock.html(currentStatblock.html().replaceAll(/id=".*?"/g, ''));
+
     })
-    // Refresh print preview
     // UpdateStatblock()
 }
 
@@ -146,5 +170,8 @@ $(() => {
     let savedData = localStorage.getItem("SavedData");
     if (savedData != undefined)
         statblocks.push(JSON.parse(savedData));
-    refresh();
+    $.getJSON("js/JSON/statblockdata.json", json => {
+        data = json
+        refresh();
+    });
 })

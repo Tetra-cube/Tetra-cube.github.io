@@ -151,7 +151,8 @@ var SavedData = {
 }
 
 // Update the main stat block
-function UpdateStatblock(moveSeparationPoint) {
+function UpdateStatblock(moveSeparationPoint, monOverride) {
+    if(monOverride != undefined) mon = monOverride; // used by the printer; within the generator, monOverride is always undefined
     // Set Separation Point
     let separationMax = mon.abilities.length + mon.actions.length + mon.bonusActions.length + mon.reactions.length - 1;
 
