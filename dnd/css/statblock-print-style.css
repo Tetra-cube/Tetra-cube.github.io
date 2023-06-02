@@ -1,13 +1,13 @@
-.fa {
+i.fa {
     cursor: pointer;
     transition: .5s
 }
 
-.fa:not(.disabled):hover {
+i.fa:not(.disabled):hover {
     color: darkred;
 }
 
-.fa.disabled {
+i.fa.disabled {
     opacity: .5;
     cursor: default;
 }
@@ -23,7 +23,14 @@
     margin-top: 1.5rem;
     padding: 5px;
     text-align: left;
-    /* overflow-y: auto; */
-    /* demo only */
-    /* height: 200px; */
+    overflow-x: auto;
+}
+
+#statblocks-list {
+    list-style-type: none;
+}
+
+#print-margin-input {
+    height: unset;
+    width: unset;
 }

@@ -1,7 +1,8 @@
 // var data;
 let statblocks = [];
+let printMargin;
 
-const BLOCKTEMPLATE = `<div> <!-- id="stat-block-wrapper" class="content" -->
+const BLOCKTEMPLATE = `<div class="stat-block-container"> <!-- id="stat-block-wrapper" class="content" -->
 <div id="stat-block" class="stat-block">
     <hr class="orange-border" />
     <div class="section-left">
@@ -77,7 +78,7 @@ const BLOCKTEMPLATE = `<div> <!-- id="stat-block-wrapper" class="content" -->
     </div> <!-- section right -->
     <hr class="orange-border bottom" />
 </div>
-</div> <!-- stat block -->`
+</div>`
 
 // Methods for the statblock list entries's buttons
 let blockList = {
@@ -119,13 +120,21 @@ function addStatblock() { // read every selected file and push it to the statblo
     });
 }
 
-function updatePrintOptions() {
-    // monochrome print
-    if($("#monochrome-print-input").prop("checked")) {
-        $("#print-preview > div").attr("id", "print-block")
-    } else {
-        $("#print-preview > div").removeAttr("id")
-    }
+function printBlocks() {
+    let printWindow = window.open();
+    printWindow.document.write(`<html>
+        <head>
+            <meta charset="utf-8"/>
+            <title>Statblock printer - RESULT</title>
+            <link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" />
+            <link rel="stylesheet" type="text/css" href="css/statblock-style.css">
+            <link rel="stylesheet" type="text/css" href="css/libre-baskerville.css">
+            <link rel="stylesheet" type="text/css" href="css/noto-sans.css">
+        </head>
+        <body>`);
+    printWindow.document.write($("#print-preview").html());
+    printWindow.document.write('</body></html>');
+    printWindow.print();
 }
 
 
@@ -134,6 +143,18 @@ function refresh() {
     let printPreview = $("#print-preview");
     statblocksList.empty();
     printPreview.empty();
+
+    // determine margin values
+    if($("#print-margin-check-input").prop("checked")) {
+        $("#print-margin-input").prop("disabled", false)
+        printMargin = $("#print-margin-input").val();
+    } else {
+        $("#print-margin-input").prop("disabled", true)
+        printMargin = "0px";
+    }
+
+    var savePaper = $("#save-paper-input").prop("checked");
+    var isAlreadyHori = false; // whether the current statblock is planned to be placed on the left side
     
     $.each(statblocks, (index, mon) => {
         // Refresh statblock list
@@ -141,7 +162,7 @@ function refresh() {
             `<li>
                 <i class="fa fa-arrow-up ${index == 0 ? 'disabled' : ''}" title="Up" onclick="${index>0 ? 'blockList.up($(this).parent())' : ''}"></i>
                 <i class="fa fa-arrow-down ${index + 1 == statblocks.length ? 'disabled' : ''}" title="Down" onclick="${index + 1 == statblocks.length ? '' : 'blockList.down($(this).parent())'}"></i>
-                <i class="fa fa-trash-o" title="Remove" onclick="blockList.remove($(this).parent())"></i>
+                <i class="fa fa-trash" title="Remove" onclick="blockList.remove($(this).parent())"></i>
                 <i class="fa fa-clone" title="Clone" onclick="blockList.clone($(this).parent())"></i>
                 <i class="fa fa-download" title="Download" onclick="blockList.download($(this).parent())"></i>
                 <b>${StringFunctions.RemoveHtmlTags(mon.name)}</b> <i>${StringFunctions.StringCapitalize(StringFunctions.RemoveHtmlTags(mon.size) + " " + mon.type + (mon.tag == "" ? ", " : " (" + mon.tag + "), ") + mon.alignment)}</i>
@@ -149,19 +170,43 @@ function refresh() {
         );
 
         // Refresh print preview
-        printPreview.append(BLOCKTEMPLATE);
-        var currentStatblock = $("#print-preview > div:last-child");
+        var insertStatblockInto;
+
+        if(isAlreadyHori) {
+            // End of side-by-side (this statblock: right)
+            insertStatblockInto = $("#print-preview > div.side-by-side:last-child");
+            isAlreadyHori = false;
+        } else if(savePaper && !mon.doubleColumns && index != statblocks.length-1 && !statblocks[index+1].doubleColumns) {
+            // Start of side-by-side (this statblock: left)
+            printPreview.append('<div class="side-by-side"></div>')
+            insertStatblockInto = $("#print-preview > div.side-by-side:last-child").css("width", "calc(800px + " + printMargin + ")");
+            isAlreadyHori = true;
+        } else {
+            // normal
+            insertStatblockInto = printPreview;
+        }
+
+        insertStatblockInto.append(BLOCKTEMPLATE);
+        var currentStatblockContainer = insertStatblockInto.children().last();
         UpdateStatblock(undefined, mon);
-        // delete all IDs so this statblock will be preserved
-        currentStatblock.removeAttr("id");
-        /* var inner = currentStatblock.html();
-        inner = inner.replaceAll(/id=".*?"/g, '');
-        currentStatblock.html(inner); */
+        if(isAlreadyHori) currentStatblockContainer.css("float", "left"); // first block (left)
 
-        currentStatblock.html(currentStatblock.html().replaceAll(/id=".*?"/g, ''));
+        // delete all IDs so this statblock won't be affected by later calls of UpdateStatblock()
+        currentStatblockContainer.removeAttr("id");
+        currentStatblockContainer.html(currentStatblockContainer.html().replaceAll(/id=".*?"/g, ''));
 
-    })
-    // UpdateStatblock()
+        // add CSS
+        // monochrome print
+        if($("#monochrome-print-input").prop("checked")) {
+            $(".stat-block-container").attr("id", "print-block")
+        } else {
+            $(".stat-block-container").removeAttr("id")
+        }
+
+        // margins
+        $(".stat-block-container:not(:last-child)").css("margin", "0px " + printMargin + " " + printMargin + " 0px"); // right and bottom
+        $(".side-by-side > :last-child").css("margin-bottom", printMargin);
+    });
 }
 
 // Document ready function
@@ -170,6 +215,7 @@ $(() => {
     let savedData = localStorage.getItem("SavedData");
     if (savedData != undefined)
         statblocks.push(JSON.parse(savedData));
+        
     $.getJSON("js/JSON/statblockdata.json", json => {
         data = json
         refresh();

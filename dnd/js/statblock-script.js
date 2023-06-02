@@ -174,8 +174,8 @@ function UpdateStatblock(moveSeparationPoint, monOverride) {
     if (moveSeparationPoint != undefined)
         mon.separationPoint = MathFunctions.Clamp(mon.separationPoint + moveSeparationPoint, 0, separationMax);
 
-    // Save Before Continuing
-    SavedData.SaveToLocalStorage();
+    // Save Before Continuing - generator only
+    if(monOverride == undefined) SavedData.SaveToLocalStorage();
 
     // One column or two columns
     let statBlock = $("#stat-block");
