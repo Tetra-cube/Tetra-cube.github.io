@@ -21,6 +21,12 @@
 </head>
 
 <body id="stat-block-body" style="min-width: 1000px;">
+    <div id="dragndrop-overlay" class="hidden">
+        <div>
+            <span class="fa fa-sign-in-alt fa-rotate-90"></span><br>
+            Drop here
+        </div>
+    </div>
     <div class="container" style="text-align: center;">
         <div class="content">
             <a href="dnd-statblock.html"><img class="statblock-image" src="dndimages/edit-icon.png">&nbsp;Back to the
@@ -28,7 +34,7 @@
             <h1>Statblock printer</h1>
             <p>Print multiple statblocks on one sheet of paper.</p>
 
-            <button onclick="$('#file-upload').click()">Load Statblock(s)...</button>
+            <button onclick="$('#file-upload').click()">Load Statblock(s)...</button> or drag & drop
             <input id="file-upload" type="file" onChange="addStatblock()" hidden multiple/>
             <div id="monster-select-form">SRD/Tome of Beasts statblocks: 
                 <select id="monster-select">

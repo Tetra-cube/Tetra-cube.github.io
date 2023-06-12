@@ -240,4 +240,27 @@ $(() => {
         data = json
         refresh();
     });
+
+    // initialise drag&drop
+    let b = $("body")[0];
+    let overlay = $("#dragndrop-overlay");
+    /* b.ondragover = b.ondragenter = evt => {
+        evt.preventDefault();
+    }; */
+    b.ondragover = evt => {
+        evt.preventDefault();
+    }
+    b.ondragenter = evt => {
+        evt.preventDefault();
+        overlay.removeClass("hidden");
+    }
+    overlay[0].ondragleave = evt => {
+        overlay.addClass("hidden");
+    }
+    b.ondrop = evt => {
+        evt.preventDefault();
+        $('#file-upload')[0].files = evt.dataTransfer.files;
+        overlay.addClass("hidden");
+        addStatblock();
+    }
 })
