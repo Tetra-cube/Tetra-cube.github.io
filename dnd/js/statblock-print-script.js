@@ -120,6 +120,19 @@ function addStatblock() { // read every selected file and push it to the statblo
     });
 }
 
+function loadPreset() {
+    let name = $("#monster-select").val();
+    if (name == "") return;
+    $.getJSON("https://api.open5e.com/monsters/" + name + "/", (jsonArr) => {
+        statblocks.push(structuredClone(GetVariablesFunctions.SetPreset(jsonArr)));
+        refresh()
+    })
+        .fail(function () {
+            console.error("Failed to load preset.");
+            return;
+        })
+}
+
 function printBlocks() {
     let printWindow = window.open();
     printWindow.document.write(`<html>
@@ -171,57 +184,49 @@ function refresh() {
         );
 
         // Refresh print preview
-        // var insertStatblockInto;
         var style;
 
         if(isAlreadyHori) {
             // End of side-by-side (this statblock: right)
-            // insertStatblockInto = $("#print-preview > div.side-by-side:last-child");
             isAlreadyHori = false;
             style = "margin-bottom: " + printMargin;
             if(index != statblocks.length-1) style += "; float: right";
         } else if(savePaper && !mon.doubleColumns && index != statblocks.length-1 && !statblocks[index+1].doubleColumns) {
             // Start of side-by-side (this statblock: left)
             // printPreview.append('<div class="side-by-side"></div>')
-            // insertStatblockInto = $("#print-preview > div.side-by-side:last-child").css("width", "calc(800px + " + printMargin + ")");
             isAlreadyHori = true;
             savePaperApplied = true;
             style = `float: inline-start; margin: 0px ${printMargin} ${printMargin} 0px`;
         } else {
             // normal
-            // insertStatblockInto = printPreview;
             style = `margin: 0px ${printMargin} ${printMargin} 0px`;
         }
 
         printPreview.append(BLOCKTEMPLATE);
         var currentStatblockContainer = printPreview.children().last();
-        UpdateStatblock(undefined, mon);
-        // if(isAlreadyHori) currentStatblockContainer.css("float", "left"); // first block (left)
+        UpdateStatblock(undefined, structuredClone(mon));
 
         // delete all IDs so this statblock won't be affected by later calls of UpdateStatblock()
         currentStatblockContainer.removeAttr("id");
         currentStatblockContainer.html(currentStatblockContainer.html().replaceAll(/id=".*?"/g, ''));
 
         // add CSS
-        console.log(index, style);
         currentStatblockContainer[0].style = style;
-        // monochrome print
-        if($("#monochrome-print-input").prop("checked")) {
-            $(".stat-block-container").attr("id", "print-block")
-        } else {
-            $(".stat-block-container").removeAttr("id")
-        }
-
-        // margins
-        // $(".stat-block-container:not(:last-child)").css("margin", "0px " + printMargin + " " + printMargin + " 0px"); // right and bottom
-        // $(".side-by-side > :last-child").css("margin-bottom", printMargin);
     });
-
+    
     // determine width of #print-preview
     let width = "400px" // one-column statblocks, vertically aligned
     if($("#print-preview .stat-block.wide").length) width = "800px" // at least one two-column statblock exists
     if(savePaperApplied) width = `calc(800px + ${printMargin})`
+
     $("#print-preview").css("width", width)
+
+    // monochrome print
+    if($("#monochrome-print-input").prop("checked")) {
+        $(".stat-block-container").attr("id", "print-block")
+    } else {
+        $(".stat-block-container").removeAttr("id")
+    }
 }
 
 // Document ready function

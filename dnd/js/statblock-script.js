@@ -1440,6 +1440,7 @@ var GetVariablesFunctions = {
             AbilityPresetLoop(regionalsPresetArr, "regionals");
 
         mon.separationPoint = undefined; // This will make the separation point be automatically calculated in UpdateStatblock
+        return mon; // for statblock-print
     },
 
     // Add stuff to arrays
@@ -1981,7 +1982,6 @@ var ArrayFunctions = {
 
 // Document ready function
 $(function () {
-    if(window.location.toString().slice(-19) != "/dnd-statblock.html") return; // This script is also used by other pages -> execute this function only for the statblock generator page
     // Load the preset monster names
     $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000&document__slug=wotc-srd", function (srdArr) {
         let monsterSelect = $("#monster-select");
@@ -2004,7 +2004,8 @@ $(function () {
         .fail(function () {
             $("#monster-select-form").html("Unable to load monster presets.")
         });
-
+        
+    if(window.location.toString().slice(-25) == "/dnd-statblock-print.html") return; // This script is also used by other pages -> execute the following only for the statblock generator page
     // Load the json data
     $.getJSON("js/JSON/statblockdata.json", function (json) {
         data = json;

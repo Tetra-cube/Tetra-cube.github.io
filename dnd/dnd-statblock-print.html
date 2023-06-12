@@ -28,11 +28,16 @@
             <h1>Statblock printer</h1>
             <p>Print multiple statblocks on one sheet of paper.</p>
 
-            <div style="text-align: left; padding: 25px 0px;">
-                <h3>Included statblocks
-                    <button onclick="$('#file-upload').click()">Load Statblock(s)</button>
-                    <input id="file-upload" type="file" onChange="addStatblock()" hidden multiple/>
-                </h3>
+            <button onclick="$('#file-upload').click()">Load Statblock(s)...</button>
+            <input id="file-upload" type="file" onChange="addStatblock()" hidden multiple/>
+            <div id="monster-select-form">SRD/Tome of Beasts statblocks: 
+                <select id="monster-select">
+                    <option value="">-Select-</option>
+                </select> 
+                <button type="button" id="monster-select-button" onclick="loadPreset()">Add</button>
+            </div>
+            <div style="text-align: left; padding-bottom: 25px;">
+                <h3>Included statblocks:</h3>
                 <ul id="statblocks-list"></ul>
             </div>
             <h3>Preview</h3>
