@@ -92,10 +92,17 @@ var TryLoadFile = () => {
 
 // Print function
 function TryPrint() {
+    let colorMode = $("#print-color-mode").is(":checked");
     let printWindow = window.open();
-    printWindow.document.write('<html><head><meta charset="utf-8"/><title>' + mon.name + '</title><link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" /><link rel="stylesheet" type="text/css" href="css/statblock-style.css"><link rel="stylesheet" type="text/css" href="css/libre-baskerville.css"><link rel="stylesheet" type="text/css" href="css/noto-sans.css"></head><body><div id="print-block" class="content">');
+    printWindow.document.write('<html><head><meta charset="utf-8"/><title>' + mon.name + '</title><link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" /><link rel="stylesheet" type="text/css" href="css/statblock-style.css"><link rel="stylesheet" type="text/css" href="css/libre-baskerville.css"><link rel="stylesheet" type="text/css" href="css/noto-sans.css"></head><body><div id="' + (colorMode?'stat-block-wrapper':'print-block') + '" class="content">');
     printWindow.document.write($("#stat-block-wrapper").html());
     printWindow.document.write('</div></body></html>');
+}
+
+// Print multiple function
+
+function PrintMultiple() {
+    window.location = "dnd-statblock-print.html";
 }
 
 // View as image function
@@ -144,7 +151,8 @@ var SavedData = {
 }
 
 // Update the main stat block
-function UpdateStatblock(moveSeparationPoint) {
+function UpdateStatblock(moveSeparationPoint, monOverride) {
+    if(monOverride != undefined) mon = monOverride; // used by the printer; within the generator, monOverride is always undefined
     // Set Separation Point
     let separationMax = mon.abilities.length + mon.actions.length + mon.bonusActions.length + mon.reactions.length - 1;
 
@@ -166,8 +174,8 @@ function UpdateStatblock(moveSeparationPoint) {
     if (moveSeparationPoint != undefined)
         mon.separationPoint = MathFunctions.Clamp(mon.separationPoint + moveSeparationPoint, 0, separationMax);
 
-    // Save Before Continuing
-    SavedData.SaveToLocalStorage();
+    // Save Before Continuing - generator only
+    if(monOverride == undefined) SavedData.SaveToLocalStorage();
 
     // One column or two columns
     let statBlock = $("#stat-block");
@@ -1432,6 +1440,7 @@ var GetVariablesFunctions = {
             AbilityPresetLoop(regionalsPresetArr, "regionals");
 
         mon.separationPoint = undefined; // This will make the separation point be automatically calculated in UpdateStatblock
+        return mon; // for statblock-print
     },
 
     // Add stuff to arrays
@@ -1995,7 +2004,8 @@ $(function () {
         .fail(function () {
             $("#monster-select-form").html("Unable to load monster presets.")
         });
-
+        
+    if(window.location.toString().slice(-25) == "/dnd-statblock-print.html") return; // This script is also used by other pages -> execute the following only for the statblock generator page
     // Load the json data
     $.getJSON("js/JSON/statblockdata.json", function (json) {
         data = json;

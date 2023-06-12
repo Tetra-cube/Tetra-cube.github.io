@@ -57,7 +57,13 @@
             <br>
             <button onclick="TrySaveFile()">Save Statblock</button>
             <button onclick="LoadFilePrompt()">Load Statblock</button>
-            <button onclick="TryPrint()">Printable Block</button>
+            <span style="display: inline-table;">
+                <button onclick="TryPrint()">Printable Block</button>
+                <br>
+                <input id="print-color-mode" type="checkbox">
+                <label for="print-color-mode" title="Print the statblock shown below if checked, or a black-and-white version if not.">Color mode</label>
+            </span>
+            <button onclick="PrintMultiple()">Print Multiple...</button>
             <button onclick="TryImage()">View Image</button>
             <button onclick="TryMarkdown()">View Markdown</button>
             <input id="file-upload" type="file" onChange="TryLoadFile();" hidden />

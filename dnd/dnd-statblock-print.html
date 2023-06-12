@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Statblock printer</title>
+    <link rel="shortcut icon" type="image/x-icon" href="dndimages/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/statblock-style.css">
+    <link rel="stylesheet" type="text/css" href="css/statblock-page-style.css">
+    <link rel="stylesheet" type="text/css" href="css/statblock-print-style.css">
+    <link rel="stylesheet" type="text/css" href="css/dnd-style.css">
+    <link rel="stylesheet" type="text/css" href="css/libre-baskerville.css">
+    <link rel="stylesheet" type="text/css" href="css/noto-sans.css">
+    <link rel="stylesheet" type="text/css" href="css/all.min.css"> <!-- Font Awesome 5.9.0 -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/FileSaver.min.js"></script>
+    <script src="js/statblock-script.js"></script>
+    <script src="js/statblock-print-script.js"></script>
+</head>
+
+<body id="stat-block-body" style="min-width: 1000px;">
+    <div id="dragndrop-overlay" class="hidden">
+        <div>
+            <span class="fa fa-sign-in-alt fa-rotate-90"></span><br>
+            Drop here
+        </div>
+    </div>
+    <div class="container" style="text-align: center;">
+        <div class="content">
+            <a href="dnd-statblock.html"><img class="statblock-image" src="dndimages/edit-icon.png">&nbsp;Back to the
+                Statblock editor</a>
+            <h1>Statblock printer</h1>
+            <p>Print multiple statblocks on one sheet of paper.</p>
+
+            <button onclick="$('#file-upload').click()">Load Statblock(s)...</button> or drag & drop
+            <input id="file-upload" type="file" onChange="addStatblock()" hidden multiple/>
+            <div id="monster-select-form">SRD/Tome of Beasts statblocks: 
+                <select id="monster-select">
+                    <option value="">-Select-</option>
+                </select> 
+                <button type="button" id="monster-select-button" onclick="loadPreset()">Add</button>
+            </div>
+            <div style="text-align: left; padding-bottom: 25px;">
+                <h3>Included statblocks:</h3>
+                <ul id="statblocks-list"></ul>
+            </div>
+            <h3>Preview</h3>
+            <p><b><i>Note:</i></b> This preview doesn't depict the scale or page layout of the actual print result. Use the
+                scale option of your browser's print dialog after pressing "Print".</p>
+            <p><b><i>Hint:</i></b> You can toggle the background graphics of the statblocks in your browser's print dialog.
+            </p>
+            <div id="print-options">
+                <input id="monochrome-print-input" type="checkbox" onchange="refresh()">
+                <label for="monochrome-print-input">Monochrome statblocks</label>
+                <br>
+                <input id="save-paper-input" type="checkbox" checked onchange="refresh()">
+                <label for="save-paper-input">Align two adjacent single-column statblocks next to each other</label>
+                <br>
+                <input id="print-margin-check-input" type="checkbox" checked onchange="refresh()">
+                <label for="print-margin-check-input">Margin between the statblocks: </label>
+                <input id="print-margin-input" type="text" value="0.2in" onchange="refresh()">
+                <span class="tooltip">?<span class="tooltiptext">All CSS units like "cm", "mm", "in", "pt", "px"... are supported.<br>See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length#absolute_length_units" target="_blank">mdn web docs <span class="fa fa-external-link-alt fa-sm"></span></a> for full reference.</span></span>
+                <br>
+                <button onclick="printBlocks()">Print</button>
+            </div>
+            <div id="print-preview-page">
+                <div id="print-preview">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="footer"><a href="https://github.com/Tetra-cube/Tetra-cube.github.io">GitHub Repo</a></div>
+    </div>
+    </div>
+</body>
+
+</html>
