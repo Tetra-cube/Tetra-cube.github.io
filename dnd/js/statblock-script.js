@@ -211,6 +211,7 @@ function UpdateStatblock(moveSeparationPoint) {
     if (crDisplay && crDisplay.length > 0) {
         $("#challenge-rating-line").show();
         $("#challenge-rating").html(StringFunctions.FormatString(StringFunctions.RemoveHtmlTags(crDisplay)));
+        $("#custom-prof-value").text(StringFunctions.RemoveHtmlTags(CrFunctions.GetProf()));
     }
     else
         $("#challenge-rating-line").hide();
