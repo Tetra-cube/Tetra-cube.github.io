@@ -17,6 +17,9 @@
     <script src="js/dom-to-image.min.js"></script>
     <script src="js/statblock-script.js"></script>
 
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145234284-1"></script>
     <script>
@@ -62,11 +65,12 @@
             <button onclick="TryMarkdown()">View Markdown</button>
             <input id="file-upload" type="file" onChange="TryLoadFile();" hidden />
             <br><br>
-            <div id="monster-select-form">Monster Presets: <select id="monster-select">
-                    <option value="">-Select-</option>
-                    <option value="default">Restore Default</option>
-                </select> <button type="button" id="monster-select-button" onclick="InputFunctions.GetPreset()">Use
-                    Preset</button></div>
+            <div id="monster-select-form"> 
+				Monster Search:<select id="monster-select" style="width: 550px">
+                    <option value="">--- Loading ---</option>
+                </select>
+                <button type="button" id="monster-select-button"
+                        onclick="InputFunctions.GetPreset()">Use Preset</button></div>
             <br>
 
             <!-- The Actual Stat Block -->

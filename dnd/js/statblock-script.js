@@ -2000,28 +2000,80 @@ var ArrayFunctions = {
 
 // Document ready function
 $(function () {
-    // Load the preset monster names
-    $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000&document__slug=wotc-srd", function (srdArr) {
-        let monsterSelect = $("#monster-select");
-        monsterSelect.append("<option value=''></option>");
-        monsterSelect.append("<option value=''>-5e SRD-</option>");
-        $.each(srdArr.results, function (index, value) {
-            monsterSelect.append("<option value='" + value.slug + "'>" + value.name + "</option>");
-        })
-        $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000&document__slug=tob", function (tobArr) {
-            monsterSelect.append("<option value=''></option>");
-            monsterSelect.append("<option value=''>-Tome of Beasts (Kobold Press)-</option>");
-            $.each(tobArr.results, function (index, value) {
-                monsterSelect.append("<option value='" + value.slug + "'>" + value.name + "</option>");
-            })
-        })
-            .fail(function () {
-                $("#monster-select-form").html("Unable to load Tome of Beasts monster presets.")
-            });
-    })
-        .fail(function () {
-            $("#monster-select-form").html("Unable to load monster presets.")
+    const keyNames = new Map([
+		['wotc-srd',  '5e Core Rules'],
+		['tob',       'Tome of Beasts (Kobold Press)'],
+		['tob2',      'Tome of Beasts 2 (Kobold Press)'],
+		['tob3',      'Tome of Beasts 3 (Kobold Press)'],
+		['cc',        'Creature Codex'],
+		['menagerie', 'Advanced 5e Monstrous Menagerie (Level Up)'],
+		['taldorei',  'Tal’Dorei Campaign (Critical Role)'],
+		]);
+		
+    // Initialize a structure to hold the monsters categorized by document__slug
+    let monstersBySource = new Map([...keyNames.keys()].map(key => [key, []]));
+    let monsterSourceById = new Map();
+
+	// Load the preset monster names
+    $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name,document__slug&limit=5000", function (srdArr) {
+
+		srdArr.results.forEach(monster => {
+			monsterSourceById.set(monster.slug, monster.document__slug);
+            let group = monstersBySource.get(monster.document__slug);
+            if (group) {
+                group.push({id: monster.slug, text: monster.name});
+            } else {
+                // Handle the case where a monster's document__slug is not in keyNames
+                if (!monstersBySource.has(monster.document__slug)) {
+                    monstersBySource.set(monster.document__slug, [
+						{id: monster.slug,
+						 text: monster.name
+						 }]);
+                    keyNames.set(monster.document__slug, monster.document__slug); // Optionally map slug to itself for unknown groups
+                }
+            }
         });
+		
+
+        // Convert monstersBySource to the format expected by Select2, using keyNames for group labels
+        const formattedData = Array.from(keyNames, ([key, name]) => ({
+            text: keyNames.get(name) || name, // Use human-readable name or fallback to document_slug
+            children: monstersBySource.get(key) || []
+        }));
+
+        
+		formattedData.unshift({text: '', children: [{id: 'default', text: 'Restore Default'}]})
+
+		// Customize how options and selected items are rendered
+		const formatState = function (state) {
+		    if (!state.id) {
+		        return state.text;
+		    }
+		    var $state = $('<span>' + state.text + '</span>');
+		    return $state;
+		}
+		
+		const formatStateSelection = function (state) {
+			const source = monsterSourceById.get(state.id);
+			if (source)
+			    return state.text + ' (' + (keyNames.get(source) || source) + ')';
+			return state.text;
+		}
+
+        // Initialize Select2
+        $("#monster-select").select2({
+            data: formattedData,
+            placeholder: "Select a monster",
+            allowClear: true,
+            theme: "default",
+            width: 'resolve',
+            templateResult: formatState, // Optional: for custom rendering
+            templateSelection: formatStateSelection // Optional: for custom rendering
+        });
+    })
+    .fail(function () {
+        $("#monster-select-form").html("Unable to load monster presets.")
+    });
 
     // Load the json data
     $.getJSON("js/JSON/statblockdata.json", function (json) {

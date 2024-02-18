@@ -22,6 +22,9 @@ input[type="number"] {
     text-align: right;
 }
 
+.select2-container--default .select2-results>.select2-results__options {
+    max-height: 400px !important;
+}
 
 .stat-block.wide .section-left,
 .stat-block.wide .section-right {
