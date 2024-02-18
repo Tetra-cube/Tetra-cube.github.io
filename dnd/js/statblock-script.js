@@ -2000,44 +2000,63 @@ var ArrayFunctions = {
 
 // Document ready function
 $(function () {
-    const keyNames = new Map([
-		['wotc-srd',  '5e Core Rules'],
-		['tob',       'Tome of Beasts (Kobold Press)'],
-		['tob2',      'Tome of Beasts 2 (Kobold Press)'],
-		['tob3',      'Tome of Beasts 3 (Kobold Press)'],
-		['cc',        'Creature Codex'],
-		['menagerie', 'Advanced 5e Monstrous Menagerie (Level Up)'],
-		['taldorei',  'Tal’Dorei Campaign (Critical Role)'],
-		]);
+	// load the documents
+    $.getJSON("https://api.open5e.com/documents/?format=json&fields=slug,title", async function (srdArr) {
+		// This defines the initial order for some of the known documents:
+	    const sourcesBySlug = new Map([
+			['wotc-srd', ''],
+			['tob',      ''],
+			['tob2',     ''],
+			['tob3',     ''],
+			]);
+		// Set the name correctly for all of them, and add any one we didn't know about
+		// in the order in which they come.
+		srdArr.results.forEach(document => {
+			sourcesBySlug.set(document.slug, document.title);
+		 });
+	    // Initialize a structure to hold the monsters categorized by document__slug
+	    let monstersBySource = new Map([...sourcesBySlug.keys()].map(key => [key, []]));
+	    let monsterSourceById = new Map();
 		
-    // Initialize a structure to hold the monsters categorized by document__slug
-    let monstersBySource = new Map([...keyNames.keys()].map(key => [key, []]));
-    let monsterSourceById = new Map();
+		// Load the preset monster names, one book at a time
+		for (const slug of sourcesBySlug.keys()) { 
+			// Set new value and text for the existing single option
+			const loadString = '--- Loading monsters from source book: ' + sourcesBySlug.get(slug) + ' ---';
+			$("#monster-select option").first().text(loadString);
+		    const data = await $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&document__slug="+slug)
+		    					.fail(function () {
+									$("#monster-select-form").html("Unable to load monsters from doc " + slug);
+								});
+		    const monsters = data.results;
+		    monsters.sort((m1, m2) => {
+				if (m1.text < m2.text) return -1;
+				if (m1.text > m2.text) return 1;
+				return 0;
+			})
 
-	// Load the preset monster names
-    $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name,document__slug&limit=5000", function (srdArr) {
-
-		srdArr.results.forEach(monster => {
-			monsterSourceById.set(monster.slug, monster.document__slug);
-            let group = monstersBySource.get(monster.document__slug);
-            if (group) {
+	        monsters.forEach(monster => {
+				monsterSourceById.set(monster.slug, slug);
+	            let group = monstersBySource.get(slug);
+	            if (!group) {
+					group = [];
+	                monstersBySource.set(slug, group);
+	            }
                 group.push({id: monster.slug, text: monster.name});
-            } else {
-                // Handle the case where a monster's document__slug is not in keyNames
-                if (!monstersBySource.has(monster.document__slug)) {
-                    monstersBySource.set(monster.document__slug, [
-						{id: monster.slug,
-						 text: monster.name
-						 }]);
-                    keyNames.set(monster.document__slug, monster.document__slug); // Optionally map slug to itself for unknown groups
-                }
-            }
-        });
-		
+		    });
+		}
 
-        // Convert monstersBySource to the format expected by Select2, using keyNames for group labels
-        const formattedData = Array.from(keyNames, ([key, name]) => ({
-            text: keyNames.get(name) || name, // Use human-readable name or fallback to document_slug
+		// Remove any documents that didn't contain any monsters:
+		for (let key of sourcesBySlug.keys()) {
+			const monsters = monstersBySource.get(key)
+			if (!monsters || monsters.length === 0) {
+		        monstersBySource.delete(key);
+		        sourcesBySlug.delete(key);
+		    }
+		}
+
+        // Convert monstersBySource to the format expected by Select2, using sourcesBySlug for group labels
+        const formattedData = Array.from(sourcesBySlug, ([key, name]) => ({
+            text: sourcesBySlug.get(name) || name, // Use human-readable name or fallback to document_slug
             children: monstersBySource.get(key) || []
         }));
 
@@ -2054,9 +2073,9 @@ $(function () {
 		}
 		
 		const formatStateSelection = function (state) {
-			const source = monsterSourceById.get(state.id);
-			if (source)
-			    return state.text + ' (' + (keyNames.get(source) || source) + ')';
+			const monsterSourceSlug = monsterSourceById.get(state.id);
+			if (monsterSourceSlug)
+			    return state.text + ' (' + (sourcesBySlug.get(monsterSourceSlug) || monsterSourceSlug) + ')';
 			return state.text;
 		}
 
@@ -2070,9 +2089,8 @@ $(function () {
             templateResult: formatState, // Optional: for custom rendering
             templateSelection: formatStateSelection // Optional: for custom rendering
         });
-    })
-    .fail(function () {
-        $("#monster-select-form").html("Unable to load monster presets.")
+	}).fail(function () {
+        $("#monster-select-form").html("Unable to load documents.")
     });
 
     // Load the json data
