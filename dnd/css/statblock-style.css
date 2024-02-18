@@ -18,6 +18,10 @@
     width: 800px;
     text-align: center;
 }
+input[type="number"] {
+    text-align: right;
+}
+
 
 .stat-block.wide .section-left,
 .stat-block.wide .section-right {

@@ -7,6 +7,7 @@ var mon = {
     tag: "",
     alignment: "any alignment",
     hitDice: 5,
+    hitDieType: 8,
     armorName: "none",
     shieldBonus: 0,
     natArmorBonus: 3,
@@ -598,6 +599,7 @@ var FormFunctions = {
         $("#hitdice-input").val(mon.hitDice);
         $("#hp-text-input").val(StringFunctions.GetHP());
         $("#custom-hp-input").prop("checked", mon.customHP);
+        $("#dietype-input").val(mon.hitDieType);
         this.ShowHideCustomHP();
 
         // Speeds
@@ -771,19 +773,33 @@ var FormFunctions = {
     ChangeBonus: function (stat) {
         $("#" + stat + "bonus").html(StringFunctions.RemoveHtmlTags(StringFunctions.BonusFormat(MathFunctions.PointsToBonus($("#" + stat + "-input").val()))));
     },
+    
+    // Set the hit die based on the monster size
+    ChangeSize: function () {
+		mon.size = $("#size-input").val();
+		mon.hitDieType = data.sizes[mon.size].hitDie;
+        $("#dietype-input").val(mon.hitDieType);
+    },
 
     // Set the proficiency bonus based on the monster's CR
     ChangeCRForm: function () {
         if (mon.cr == "*") {
             $("#prof-bonus").hide();
             $("#custom-cr").show();
-            $("#custom-cr-input").val(mon.customCr);
-            $("#custom-prof-input").val(mon.customProf);
+	        $("#custom-cr-input").val(mon.customCr);
+	        $("#custom-prof-input").val(mon.customProf);
         }
         else {
             $("#prof-bonus").show();
             $("#prof-bonus").html("(Proficiency Bonus: +" + StringFunctions.RemoveHtmlTags(CrFunctions.GetProf()) + ")");
             $("#custom-cr").hide();
+            // If they specify a non-custom CR, set the custom CR fields to match the
+            // values from the dropdown, so if they re-select a custom CR it defaults
+            // to the non-custom values.
+            mon.customCr = CrFunctions.GetString();
+            mon.customProf = data.crs[mon.cr].prof;
+	        $("#custom-cr-input").val(mon.customCr);
+	        $("#custom-prof-input").val(mon.customProf);
         }
     },
 
@@ -1068,6 +1084,7 @@ var GetVariablesFunctions = {
         mon.hitDice = $("#hitdice-input").val();
         mon.hpText = $("#hp-text-input").val();
         mon.customHP = $("#custom-hp-input").prop("checked");
+        mon.hitDieType = parseInt($("#dietype-input").val());
 
         // Speeds
         mon.speed = $("#speed-input").val();
@@ -1140,6 +1157,7 @@ var GetVariablesFunctions = {
         // Name and type
         mon.name = preset.name.trim();
         mon.size = preset.size.trim().toLowerCase();
+        mon.hitDieType = data.sizes[mon.size].hitDie;
         mon.type = preset.type.trim();
         mon.tag = preset.subtype.trim();
         mon.alignment = preset.alignment.trim();
@@ -1224,7 +1242,9 @@ var GetVariablesFunctions = {
             mon.otherArmorDesc = armorAcData + (preset.armor_desc ? " (" + preset.armor_desc + ")" : "");
 
         // Hit Dice
-        mon.hitDice = parseInt(preset.hit_dice.split("d")[0]);
+        const hd = preset.hit_dice.split("d");
+        mon.hitDice = parseInt(hd[0]);
+        mon.hitDieType = parseInt(hd[1]);
         mon.hpText = mon.hitDice.toString();
         mon.customHP = false;
 
@@ -1670,13 +1690,19 @@ var StringFunctions = {
         if (mon.customHP)
             return mon.hpText;
         let conBonus = MathFunctions.PointsToBonus(mon.conPoints);
-        hitDieSize = data.sizes[mon.size].hitDie,
-            avgHP = Math.floor(mon.hitDice * ((hitDieSize + 1) / 2)) + (mon.hitDice * conBonus);
+        if (!mon.hitDieType) {
+			mon.hitDieType = data.sizes[mon.size].hitDie;
+		}
+        const avgHP = Math.floor(mon.hitDice * ((mon.hitDieType + 1) / 2)) + (mon.hitDice * conBonus);
+        let conBonusStr = "";
         if (conBonus > 0)
-            return avgHP + " (" + mon.hitDice + "d" + hitDieSize + " + " + (mon.hitDice * conBonus) + ")";
-        if (conBonus == 0)
-            return avgHP + " (" + mon.hitDice + "d" + hitDieSize + ")";
-        return Math.max(avgHP, 1) + " (" + mon.hitDice + "d" + hitDieSize + " - " + -(mon.hitDice * conBonus) + ")";
+            conBonusStr = " + " + (mon.hitDice * conBonus);
+        else if (conBonus < 0)
+	        conBonusStr = " - " + -(mon.hitDice * conBonus);
+        mon.hpText = Math.max(avgHP, 1) + " (" + mon.hitDice + "d" + mon.hitDieType + conBonusStr + ")";
+
+        $("#hp-text-input").val(mon.hpText);
+        return mon.hpText;
     },
 
     GetSpeed: function () {

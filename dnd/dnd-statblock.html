@@ -169,7 +169,7 @@
                         </td>
                         <td>
                             <label for="size-input">Size: <br>
-                                <select id="size-input">
+                                <select id="size-input" onchange="FormFunctions.ChangeSize()">
                                     <option value="tiny">Tiny</option>
                                     <option value="small">Small</option>
                                     <option value="medium" selected="selected">Medium</option>
@@ -216,8 +216,19 @@
                     <tr>
                         <td></td>
                         <td>
-                            <div id="hitdice-input-prompt"><label for="hitdice-input">Hit Dice: <br><input type="number"
-                                        id="hitdice-input" min="1" max="99" value="5"></label></div>
+                            <div id="hitdice-input-prompt">
+								<label for="hitdice-input">Hit Dice: <br>
+								<input type="number" id="hitdice-input" min="1" max="99" value="5">
+								<select id="dietype-input">
+									<option value="4">d4</option>
+									<option value="6">d6</option>
+									<option value="8">d8</option>
+									<option value="10">d10</option>
+									<option value="12">d12</option>
+									<option value="20">d20</option>
+								</select>
+								</label>
+							</div>
                             <div id="hp-text-input-prompt"><label for="hp-text-input">Hit Points:<br><input
                                         id="hp-text-input" value="4 (1d8)"></label></div>
                             <div id="custom-hp-box-prompt" class="box-note"><label for="custom-hp-input">(Custom HP:
