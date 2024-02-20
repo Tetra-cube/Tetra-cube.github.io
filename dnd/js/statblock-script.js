@@ -66,7 +66,8 @@ var mon = {
     shortName: "",
     pluralName: "",
     doubleColumns: false,
-    separationPoint: 1
+    separationPoint: 1,
+    extraWhitespace: 0
 };
 
 const LEGACY_MARKDOWN = false
@@ -113,6 +114,18 @@ function UpdateBlockFromVariables(moveSeparationPoint) {
     UpdateStatblock(moveSeparationPoint);
 }
 
+function alterWhitespace(direction) {
+	if (!mon.extraWhitespace) {
+		mon.extraWhitespace = 0;
+	}
+	mon.extraWhitespace += direction;
+	if (mon.extraWhitespace < 0) {
+		mon.extraWhitespace = 0;
+	}
+	const topMargin = 15 + mon.extraWhitespace * 20;
+	$('#bottomBorder').css('margin-top', topMargin + 'px');
+}
+
 // Functions for saving/loading data
 var SavedData = {
     // Saving
@@ -138,6 +151,7 @@ var SavedData = {
         reader.onload = function (e) {
             mon = JSON.parse(reader.result);
             Populate();
+            alterWhitespace(0); // reset the style of the bottom <HR> based on new whitespace.
         };
 
         reader.readAsText(file);
@@ -265,6 +279,8 @@ function UpdateStatblock(moveSeparationPoint) {
 
     // Show or hide the separator input depending on how many columns there are
     FormFunctions.ShowHideSeparatorInput();
+    
+    alterWhitespace(0);
 }
 
 // Function used by UpdateStatblock for abilities
@@ -942,6 +958,7 @@ var InputFunctions = {
             GetVariablesFunctions.SetPreset(data.defaultPreset);
             FormFunctions.SetForms();
             UpdateStatblock();
+            alterWhitespace(0);
             return;
         }
         $.getJSON("https://api.open5e.com/monsters/" + name, function (jsonArr) {
@@ -1453,6 +1470,7 @@ var GetVariablesFunctions = {
             AbilityPresetLoop(regionalsPresetArr, "regionals");
 
         mon.separationPoint = undefined; // This will make the separation point be automatically calculated in UpdateStatblock
+        mon.extraWhitespace = 0;
     },
 
     // Add stuff to arrays
