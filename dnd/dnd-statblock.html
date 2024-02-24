@@ -64,6 +64,7 @@
             <button onclick="TryImage()">View Image</button>
             <button onclick="TryMarkdown()">View Markdown</button>
             <input id="file-upload" type="file" onChange="TryLoadFile();" hidden />
+            <input id="image-upload" type="file" onChange="TryLoadImage();" hidden />
             <br><br>
             <div id="monster-select-form"> 
                 Monster Search:<select id="monster-select" style="width: 550px">
@@ -75,85 +76,86 @@
 
             <!-- The Actual Stat Block -->
             <div id="stat-block-wrapper">
-                <div id="stat-block" class="stat-block">
-                    <hr class="orange-border" />
-                    <div class="section-left">
-                        <div class="creature-heading">
-                            <h1 id="monster-name">Monster</h1>
-                            <h2 id="monster-type">Size, type, alignment</h2>
-                        </div> <!-- creature heading -->
-                        <svg height="5" width="100%" class="tapered-rule">
-                            <polyline points="0,0 400,2.5 0,5"></polyline>
-                        </svg>
-                        <div class="top-stats">
-                            <div class="property-line first">
-                                <h4>Armor Class</h4>
-                                <p id="armor-class"></p>
-                            </div> <!-- property line -->
-                            <div class="property-line">
-                                <h4>Hit Points</h4>
-                                <p id="hit-points"></p>
-                            </div> <!-- property line -->
-                            <div class="property-line last">
-                                <h4>Speed</h4>
-                                <p id="speed"></p>
-                            </div> <!-- property line -->
+                <div id="stat-block" class="stat-block" style="position: relative;">
+                    <!-- stat-block has the parchment background -->
+                    <div style="position: relative; z-index: 2;">
+                        <hr class="orange-border" />
+                        <div class="section-left">
+                            <div class="creature-heading">
+                                <h1 id="monster-name">Monster</h1>
+                                <h2 id="monster-type">Size, type, alignment</h2>
+                            </div> <!-- creature heading -->
                             <svg height="5" width="100%" class="tapered-rule">
                                 <polyline points="0,0 400,2.5 0,5"></polyline>
                             </svg>
-                            <div class="scores">
-                                <div class="scores-strength">
-                                    <h4>STR</h4>
-                                    <p id="strpts"></p>
-                                </div> <!-- scores strength -->
-                                <div class="scores-dexterity">
-                                    <h4>DEX</h4>
-                                    <p id="dexpts"></p>
-                                </div> <!-- scores dexterity -->
-                                <div class="scores-constitution">
-                                    <h4>CON</h4>
-                                    <p id="conpts"></p>
-                                </div> <!-- scores constitution -->
-                                <div class="scores-intelligence">
-                                    <h4>INT</h4>
-                                    <p id="intpts"></p>
-                                </div> <!-- scores intelligence -->
-                                <div class="scores-wisdom">
-                                    <h4>WIS</h4>
-                                    <p id="wispts"></p>
-                                </div> <!-- scores wisdom -->
-                                <div class="scores-charisma">
-                                    <h4>CHA</h4>
-                                    <p id="chapts"></p>
-                                </div> <!-- scores charisma -->
-                            </div> <!-- scores -->
+                            <div class="top-stats">
+                                <div class="property-line first">
+                                    <h4>Armor Class</h4>
+                                    <p id="armor-class"></p>
+                                </div> <!-- property line -->
+                                <div class="property-line">
+                                    <h4>Hit Points</h4>
+                                    <p id="hit-points"></p>
+                                </div> <!-- property line -->
+                                <div class="property-line last">
+                                    <h4>Speed</h4>
+                                    <p id="speed"></p>
+                                </div> <!-- property line -->
+                                <svg height="5" width="100%" class="tapered-rule">
+                                    <polyline points="0,0 400,2.5 0,5"></polyline>
+                                </svg>
+                                <div class="scores">
+                                    <div class="scores-strength"><h4>STR</h4><p id="strpts"></p></div> <!-- scores strength -->
+                                    <div class="scores-dexterity"><h4>DEX</h4><p id="dexpts"></p></div> <!-- scores dexterity -->
+                                    <div class="scores-constitution"><h4>CON</h4><p id="conpts"></p></div> <!-- scores constitution -->
+                                    <div class="scores-intelligence"><h4>INT</h4><p id="intpts"></p></div> <!-- scores intelligence -->
+                                    <div class="scores-wisdom"><h4>WIS</h4><p id="wispts"></p></div> <!-- scores wisdom -->
+                                    <div class="scores-charisma"><h4>CHA</h4><p id="chapts"></p></div> <!-- scores charisma -->
+                                </div> <!-- scores -->
+                                <svg height="5" width="100%" class="tapered-rule">
+                                    <polyline points="0,0 400,2.5 0,5"></polyline>
+                                </svg>
+                                <div id="properties-list"></div>
+                                <div id="challenge-rating-line" class="property-line last">
+                                    <h4>Challenge</h4>
+                                    <p id="challenge-rating"></p>
+                                    <h4 style="margin-left: 60px">Proficiency Bonus</h4>
+                                    <span class="scores">+<span id="custom-prof-value"></span></span>
+                                </div> <!-- property line -->
+                            </div> <!-- top stats -->
                             <svg height="5" width="100%" class="tapered-rule">
                                 <polyline points="0,0 400,2.5 0,5"></polyline>
                             </svg>
-                            <div id="properties-list"></div>
-                            <div id="challenge-rating-line" class="property-line last">
-                                <h4>Challenge</h4>
-                                <p id="challenge-rating"></p>
-                                <h4 style="margin-left: 60px">Proficiency Bonus</h4>
-                                <span class="scores">+<span id="custom-prof-value"></span></span>
-                            </div> <!-- property line -->
-                        </div> <!-- top stats -->
-                        <svg height="5" width="100%" class="tapered-rule">
-                            <polyline points="0,0 400,2.5 0,5"></polyline>
-                        </svg>
-                        <div class="actions">
-                            <div id="traits-list-left"></div>
-                        </div> <!-- actions -->
-                    </div> <!-- section left -->
-                    <div class="section-right">
-                        <div class="actions">
-                            <div id="traits-list-right"></div>
-                        </div> <!-- actions -->
-                    </div> <!-- section right -->
-                    <hr class="orange-border bottom" />
+                            <div class="actions">
+                                <div id="traits-list-left"></div>
+                            </div> <!-- actions -->
+                        </div> <!-- section left -->
+                        <div class="section-right">
+                            <div class="actions">
+                                <div id="traits-list-right"></div>
+                            </div> <!-- actions -->
+                        </div> <!-- section right -->
+                        <img id="monster-image" src=""
+                             style="position: absolute; width: 300px; bottom: 0; left: 0; z-index: 2; object-position: center;">
+                        <hr class="orange-border bottom" id="bottomBorder" />
+                    </div>
                 </div>
             </div> <!-- stat block -->
-
+            <div>
+                <button id="image-button" onclick="onImage()">Pick Image</button>
+                <div id="image-controls" style="display: none">
+                    <div style="width: 800px;">
+                        Size: <input type="range" min="1" max="800" value="400" style="width: 60%"
+                                           id="image-width-input" oninput="UpdateImage(true)">
+                        <label for="image-horizontal-flip-input">
+                            <input id="image-horizontal-flip-input" type="checkbox" onchange="UpdateImage(true)">Horizontal flip</label>
+                        <label for="image-behind-input">
+                            <input id="image-behind-input" type="checkbox" onchange="UpdateImage(true)">Behind</label>
+                        <button onclick="RotateImage(-1)">↶</button>
+                        <button onclick="RotateImage(1)">↷</button>
+                   </div>
+                </div>
+            </div>
             <div class="options">
                 <form>
                     <label for="1col-input"><input id="1col-input" type="radio" name="columns-input" value="1col"

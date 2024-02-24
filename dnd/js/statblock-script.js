@@ -67,7 +67,14 @@ var mon = {
     pluralName: "",
     doubleColumns: false,
     separationPoint: 1,
-    extraWhitespace: 0
+    extraWhitespace: 0,
+    imageSrc: "",
+    imageWidth: 400,
+    imagePositionRight: 0,
+    imagePositionBottom: 0,
+    imageRotation: 0,
+    imageHorizontalFlip: false,
+    imageBehind: false
 };
 
 const LEGACY_MARKDOWN = false
@@ -92,12 +99,55 @@ var TryLoadFile = () => {
     SavedData.RetrieveFromFile();
 }
 
+// Upload image function
+var onImage = () => {
+    if ($("#image-button").text() == 'Pick Image') {
+        $("#image-upload").click();
+    } else {
+        mon.imageSrc = "";
+        UpdateImage(true);
+    }
+}
+var clearImage = () => {
+    $("#image-upload").click();
+}
+// Load Image function
+var TryLoadImage = () => {
+    // Use jQuery to get the file
+    var file = $('#image-upload')[0].files[0];
+    if (file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            const base64String = e.target.result;
+            mon.imageSrc = base64String;
+            UpdateImage(true);
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
 // Print function
 function TryPrint() {
-    let printWindow = window.open();
-    printWindow.document.write('<html><head><meta charset="utf-8"/><title>' + mon.name + '</title><link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" /><link rel="stylesheet" type="text/css" href="css/statblock-style.css"><link rel="stylesheet" type="text/css" href="css/libre-baskerville.css"><link rel="stylesheet" type="text/css" href="css/noto-sans.css"></head><body><div id="print-block" class="content">');
-    printWindow.document.write($("#stat-block-wrapper").html());
-    printWindow.document.write('</div></body></html>');
+    // make a clone and remove all <img> elements from the clone
+    var contentClone = $("#stat-block-wrapper").clone();
+    contentClone.find("img").remove();
+    // now place that imageless clone into a new document:
+    // Start document with DOCTYPE to ensure standards mode
+    const docContent = '<!DOCTYPE html>' +
+                       '<html><head><meta charset="utf-8"/>' +
+                       '<title>' + mon.name + '</title>' +
+                       '<link rel="shortcut icon" type="image/x-icon" href="./dndimages/favicon.ico" />' +
+                       '<link rel="stylesheet" type="text/css" href="css/statblock-style.css">' +
+                       '<link rel="stylesheet" type="text/css" href="css/libre-baskerville.css">' +
+                       '<link rel="stylesheet" type="text/css" href="css/noto-sans.css">' +
+                       '</head><body>' +
+                       '<div id="print-block" class="content">' + contentClone.html() +
+                       '</div></body></html>';
+
+    // Open a new window
+    let printWindow = window.open('', '_blank');
+    printWindow.document.write(docContent);
+    printWindow.document.close();
 }
 
 // View as image function
@@ -115,15 +165,67 @@ function UpdateBlockFromVariables(moveSeparationPoint) {
 }
 
 function alterWhitespace(direction) {
-	if (!mon.extraWhitespace) {
-		mon.extraWhitespace = 0;
-	}
-	mon.extraWhitespace += direction;
-	if (mon.extraWhitespace < 0) {
-		mon.extraWhitespace = 0;
-	}
-	const topMargin = 15 + mon.extraWhitespace * 20;
-	$('#bottomBorder').css('margin-top', topMargin + 'px');
+    if (!mon.extraWhitespace) {
+        mon.extraWhitespace = 0;
+    }
+    mon.extraWhitespace += direction;
+    if (mon.extraWhitespace < 0) {
+        mon.extraWhitespace = 0;
+    }
+    const topMargin = 15 + mon.extraWhitespace * 20;
+    $('#bottomBorder').css('margin-top', topMargin + 'px');
+}
+
+function RotateImage(dir) {
+    if (!mon.imageRotation) { mon.imageRotation = 0;}
+    mon.imageRotation += dir/2;
+    UpdateImage(true);
+}
+function UpdateImage(save) {
+    $("#monster-image").attr("src", mon.imageSrc || '');
+    if (mon.imageSrc) {
+        if (!mon.imagePositionRight) { mon.imagePositionRight = 0;}
+        if (!mon.imagePositionBottom) { mon.imagePositionBottom = 0;}
+        if (!mon.imageRotation) { mon.imageRotation = 0;}
+        const newWidth = $("#image-width-input").val();
+        const widthChange = newWidth - mon.imageWidth;
+        mon.imagePositionRight -= widthChange;
+        mon.imageWidth = newWidth;
+        mon.imageHorizontalFlip = $("#image-horizontal-flip-input").prop("checked");
+        mon.imageBehind = $("#image-behind-input").prop("checked");
+
+        if (!mon.imageWidth)  { mon.imageWidth = 400; $("#image-width-input").val(mon.imageWidth);}
+
+        const zIndex = mon.imageBehind ? -1 : 1;
+        let style = "position: absolute; z-index: " + zIndex + "; object-position: center;";
+        style += " width: " + mon.imageWidth + "px;";
+        
+        style += " bottom: " + mon.imagePositionBottom + "px;";
+        style += " right: " + mon.imagePositionRight + "px;";
+        
+        if (mon.imageHorizontalFlip || mon.imageRotation != 0) {
+            style += " transform:";
+            if (mon.imageRotation != 0) {
+                style += " rotate(" + mon.imageRotation + "deg)";
+            }
+            if (mon.imageHorizontalFlip) {
+                style += " scaleX(-1)";
+            }
+            style += ";";
+        }
+        
+        $("#image-button").text("Clear Image");
+        $("#monster-image").attr("style", style);
+        $("#image-controls").show();
+    } else {
+        $("#image-button").text("Pick Image");
+        $("#image-controls").hide();
+    }
+    if (save) {
+        // Since changes to the image appear to on the final markup, we save all new position and size
+        // information to the local storage, to keep it in synch with the final display block.
+        SavedData.SaveToLocalStorage();
+    }
 }
 
 // Functions for saving/loading data
@@ -669,19 +771,19 @@ var FormFunctions = {
         this.MakeDisplayList("lairs", false, true);
         this.MakeDisplayList("regionals", false, true);
 
-        // Is Legendary?	
+        // Is Legendary?
         $("#is-legendary-input").prop("checked", mon.isLegendary);
         this.ShowHideLegendaryCreature();
 
-        // Is Mythic?	
+        // Is Mythic?
         $("#is-mythic-input").prop("checked", mon.isMythic);
         this.ShowHideMythicCreature();
 
-        // Is Lair?	
+        // Is Lair?
         $("#has-lair-input").prop("checked", mon.isLair);
         this.ShowHideLair();
 
-        // Is Regional?	
+        // Is Regional?
         $("#has-regional-input").prop("checked", mon.isRegional);
         this.ShowHideRegional();
 
@@ -693,6 +795,12 @@ var FormFunctions = {
 
         // Column Radio Buttons
         this.ChangeColumnRadioButtons();
+
+        // Image stuff
+        $("#image-width-input").val(mon.imageWidth);
+        $("#image-horizontal-flip-input").prop("checked", mon.imageHorizontalFlip);
+        $("#image-behind-input").prop("checked", mon.imageBehind);
+        UpdateImage(false);
     },
 
     // Show/Hide form options to make it less overwhelming - only call these from SetForms or HTML elements
@@ -792,8 +900,8 @@ var FormFunctions = {
     
     // Set the hit die based on the monster size
     ChangeSize: function () {
-		mon.size = $("#size-input").val();
-		mon.hitDieType = data.sizes[mon.size].hitDie;
+        mon.size = $("#size-input").val();
+        mon.hitDieType = data.sizes[mon.size].hitDie;
         $("#dietype-input").val(mon.hitDieType);
     },
 
@@ -802,8 +910,8 @@ var FormFunctions = {
         if (mon.cr == "*") {
             $("#prof-bonus").hide();
             $("#custom-cr").show();
-	        $("#custom-cr-input").val(mon.customCr);
-	        $("#custom-prof-input").val(mon.customProf);
+            $("#custom-cr-input").val(mon.customCr);
+            $("#custom-prof-input").val(mon.customProf);
         }
         else {
             $("#prof-bonus").show();
@@ -814,8 +922,8 @@ var FormFunctions = {
             // to the non-custom values.
             mon.customCr = CrFunctions.GetString();
             mon.customProf = data.crs[mon.cr].prof;
-	        $("#custom-cr-input").val(mon.customCr);
-	        $("#custom-prof-input").val(mon.customProf);
+            $("#custom-cr-input").val(mon.customCr);
+            $("#custom-prof-input").val(mon.customProf);
         }
     },
 
@@ -1113,7 +1221,7 @@ var GetVariablesFunctions = {
         mon.speedDesc = $("#custom-speed-prompt").val();
         mon.customSpeed = $("#custom-speed-input").prop("checked");
 
-        // Stats	
+        // Stats
         mon.strPoints = $("#str-input").val();
         mon.dexPoints = $("#dex-input").val();
         mon.conPoints = $("#con-input").val();
@@ -1166,7 +1274,23 @@ var GetVariablesFunctions = {
         }
 
         // One or two columns ?
-        mon.doubleColumns = $("#2col-input").prop("checked");
+        const newDoubleColumns = $("#2col-input").prop("checked");
+        if (mon.doubleColumns !== newDoubleColumns) {
+            if (!newDoubleColumns) {
+                // We are switching from 2 columns to one, check if the image should be moved
+                const leftPadding = mon.imagePositionRight - mon.imageWidth;
+                if (leftPadding < mon.imagePositionRight) {
+                    mon.imagePositionRight = leftPadding;
+                }
+            }
+        }
+        mon.doubleColumns = newDoubleColumns;
+        
+        mon.imageSrc = $("#monster-image").attr("src");
+        mon.imageWidth = $("#image-width-input").val();
+        mon.imageHorizontalFlip = $("#image-horizontal-flip-input").prop("checked");
+        mon.imageBehind = $("#image-behind-input").prop("checked");
+        UpdateImage(true);
     },
 
     // Get all variables from preset
@@ -1471,6 +1595,14 @@ var GetVariablesFunctions = {
 
         mon.separationPoint = undefined; // This will make the separation point be automatically calculated in UpdateStatblock
         mon.extraWhitespace = 0;
+        mon.imageSrc = '';
+        mon.imageWidth = 400;
+        mon.imagePositionBottom = 0;
+        mon.imagePositionRight = 0;
+        mon.imageRotation = 0;
+        mon.imageHorizontalFlip = false;
+        mon.imageBehind = false;
+        UpdateImage(false);
     },
 
     // Add stuff to arrays
@@ -1709,14 +1841,14 @@ var StringFunctions = {
             return mon.hpText;
         let conBonus = MathFunctions.PointsToBonus(mon.conPoints);
         if (!mon.hitDieType) {
-			mon.hitDieType = data.sizes[mon.size].hitDie;
-		}
+            mon.hitDieType = data.sizes[mon.size].hitDie;
+        }
         const avgHP = Math.floor(mon.hitDice * ((mon.hitDieType + 1) / 2)) + (mon.hitDice * conBonus);
         let conBonusStr = "";
         if (conBonus > 0)
             conBonusStr = " + " + (mon.hitDice * conBonus);
         else if (conBonus < 0)
-	        conBonusStr = " - " + -(mon.hitDice * conBonus);
+            conBonusStr = " - " + -(mon.hitDice * conBonus);
         mon.hpText = Math.max(avgHP, 1) + " (" + mon.hitDice + "d" + mon.hitDieType + conBonusStr + ")";
 
         $("#hp-text-input").val(mon.hpText);
@@ -2018,59 +2150,59 @@ var ArrayFunctions = {
 
 // Document ready function
 $(function () {
-	// load the documents
+    // load the documents
     $.getJSON("https://api.open5e.com/documents/?format=json&fields=slug,title", async function (srdArr) {
-		// This defines the initial order for some of the known documents:
-	    const sourcesBySlug = new Map([
-			['wotc-srd', ''],
-			['tob',      ''],
-			['tob2',     ''],
-			['tob3',     ''],
-			]);
-		// Set the name correctly for all of them, and add any one we didn't know about
-		// in the order in which they come.
-		srdArr.results.forEach(document => {
-			sourcesBySlug.set(document.slug, document.title);
-		 });
-	    // Initialize a structure to hold the monsters categorized by document__slug
-	    let monstersBySource = new Map([...sourcesBySlug.keys()].map(key => [key, []]));
-	    let monsterSourceById = new Map();
-		
-		// Load the preset monster names, one book at a time
-		for (const slug of sourcesBySlug.keys()) { 
-			// Set new value and text for the existing single option
-			const loadString = '--- Loading monsters from source book: ' + sourcesBySlug.get(slug) + ' ---';
-			$("#monster-select option").first().text(loadString);
-		    const data = await $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&document__slug="+slug)
-		    					.fail(function () {
-									$("#monster-select-form").html("Unable to load monsters from doc " + slug);
-								});
-		    const monsters = data.results;
-		    monsters.sort((m1, m2) => {
-				if (m1.text < m2.text) return -1;
-				if (m1.text > m2.text) return 1;
-				return 0;
-			})
+        // This defines the initial order for some of the known documents:
+        const sourcesBySlug = new Map([
+            ['wotc-srd', ''],
+            ['tob',      ''],
+            ['tob2',     ''],
+            ['tob3',     ''],
+            ]);
+        // Set the name correctly for all of them, and add any one we didn't know about
+        // in the order in which they come.
+        srdArr.results.forEach(document => {
+            sourcesBySlug.set(document.slug, document.title);
+         });
+        // Initialize a structure to hold the monsters categorized by document__slug
+        let monstersBySource = new Map([...sourcesBySlug.keys()].map(key => [key, []]));
+        let monsterSourceById = new Map();
+        
+        // Load the preset monster names, one book at a time
+        for (const slug of sourcesBySlug.keys()) { 
+            // Set new value and text for the existing single option
+            const loadString = '--- Loading monsters from source book: ' + sourcesBySlug.get(slug) + ' ---';
+            $("#monster-select option").first().text(loadString);
+            const data = await $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&document__slug="+slug)
+                                .fail(function () {
+                                    $("#monster-select-form").html("Unable to load monsters from doc " + slug);
+                                });
+            const monsters = data.results;
+            monsters.sort((m1, m2) => {
+                if (m1.text < m2.text) return -1;
+                if (m1.text > m2.text) return 1;
+                return 0;
+            })
 
-	        monsters.forEach(monster => {
-				monsterSourceById.set(monster.slug, slug);
-	            let group = monstersBySource.get(slug);
-	            if (!group) {
-					group = [];
-	                monstersBySource.set(slug, group);
-	            }
+            monsters.forEach(monster => {
+                monsterSourceById.set(monster.slug, slug);
+                let group = monstersBySource.get(slug);
+                if (!group) {
+                    group = [];
+                    monstersBySource.set(slug, group);
+                }
                 group.push({id: monster.slug, text: monster.name});
-		    });
-		}
+            });
+        }
 
-		// Remove any documents that didn't contain any monsters:
-		for (let key of sourcesBySlug.keys()) {
-			const monsters = monstersBySource.get(key)
-			if (!monsters || monsters.length === 0) {
-		        monstersBySource.delete(key);
-		        sourcesBySlug.delete(key);
-		    }
-		}
+        // Remove any documents that didn't contain any monsters:
+        for (let key of sourcesBySlug.keys()) {
+            const monsters = monstersBySource.get(key)
+            if (!monsters || monsters.length === 0) {
+                monstersBySource.delete(key);
+                sourcesBySlug.delete(key);
+            }
+        }
 
         // Convert monstersBySource to the format expected by Select2, using sourcesBySlug for group labels
         const formattedData = Array.from(sourcesBySlug, ([key, name]) => ({
@@ -2107,7 +2239,7 @@ $(function () {
             templateResult: formatState, // Optional: for custom rendering
             templateSelection: formatStateSelection // Optional: for custom rendering
         });
-	}).fail(function () {
+    }).fail(function () {
         $("#monster-select-form").html("Unable to load documents.")
     });
 
@@ -2125,7 +2257,45 @@ $(function () {
     });
 
     FormFunctions.ShowHideFormatHelper();
+
+    let isDragging = false;
+    let mouseDownX = 0;
+    let mouseDownY = 0;
+    
+    $('#monster-image').on('mousedown', function(e) {
+        isDragging = true;
+        const imgRect = $(this).offset();
+        // Calculate the offset
+        mouseDownX = e.pageX;
+        mouseDownY = e.pageY;
+        
+        // Prevent default action (avoid text selection)
+        e.preventDefault();
+    });
+    
+    $(document).on('mousemove', function(e) {
+        if (isDragging) {
+            const mouseX = e.pageX;
+            const mouseY = e.pageY;
+            // Update the image's new position
+            mon.imagePositionBottom += (mouseDownY - mouseY);
+            mon.imagePositionRight += (mouseDownX - mouseX);
+            mouseDownX = e.pageX;
+            mouseDownY = e.pageY;
+
+            $('#monster-image').css({
+                right: mon.imagePositionRight + 'px',
+                bottom: mon.imagePositionBottom + 'px'
+            });
+        }
+    });
+    
+    $(document).on('mouseup', function() {
+        isDragging = false;
+        UpdateImage(true);
+    });
 });
+
 
 function Populate() {
     FormFunctions.SetLegendaryDescriptionForm();
@@ -2140,4 +2310,5 @@ function Populate() {
     FormFunctions.InitForms();
     FormFunctions.SetForms();
     UpdateStatblock();
+    UpdateImage(false);
 }

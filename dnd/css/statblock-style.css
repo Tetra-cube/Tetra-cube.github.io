@@ -7,11 +7,16 @@
     width: 400px;
     background: #FDF1DC;
     background-size: cover;
-	background-position: center; 
+    background-position: center; 
     background-image: url('../dndimages/statblockparch.jpg');
     padding: 10px 10px 20px;
     box-sizing: border-box;
     font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+}
+
+#stat-block-wrapper {
+    background: #FDF1DC;
+    z-index: -2;
 }
 
 .stat-block.wide {
