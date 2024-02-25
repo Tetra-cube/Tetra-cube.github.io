@@ -2173,7 +2173,7 @@ $(function () {
             // Set new value and text for the existing single option
             const loadString = '--- Loading monsters from source book: ' + sourcesBySlug.get(slug) + ' ---';
             $("#monster-select option").first().text(loadString);
-            const data = await $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&document__slug="+slug)
+            const data = await $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&document__slug="+slug+"&limit=1000")
                                 .fail(function () {
                                     $("#monster-select-form").html("Unable to load monsters from doc " + slug);
                                 });
@@ -2211,23 +2211,23 @@ $(function () {
         }));
 
         
-		formattedData.unshift({text: '', children: [{id: 'default', text: 'Restore Default'}]})
+        formattedData.unshift({text: '', children: [{id: 'default', text: 'Restore Default'}]})
 
-		// Customize how options and selected items are rendered
-		const formatState = function (state) {
-		    if (!state.id) {
-		        return state.text;
-		    }
-		    var $state = $('<span>' + state.text + '</span>');
-		    return $state;
-		}
-		
-		const formatStateSelection = function (state) {
-			const monsterSourceSlug = monsterSourceById.get(state.id);
-			if (monsterSourceSlug)
-			    return state.text + ' (' + (sourcesBySlug.get(monsterSourceSlug) || monsterSourceSlug) + ')';
-			return state.text;
-		}
+        // Customize how options and selected items are rendered
+        const formatState = function (state) {
+            if (!state.id) {
+                return state.text;
+            }
+            var $state = $('<span>' + state.text + '</span>');
+            return $state;
+        }
+        
+        const formatStateSelection = function (state) {
+            const monsterSourceSlug = monsterSourceById.get(state.id);
+            if (monsterSourceSlug)
+                return state.text + ' (' + (sourcesBySlug.get(monsterSourceSlug) || monsterSourceSlug) + ')';
+            return state.text;
+        }
 
         // Initialize Select2
         $("#monster-select").select2({
