@@ -93,7 +93,6 @@ var TrySaveFile = () => {
 var LoadFilePrompt = () => {
     $("#file-upload").click();
 }
-
 // Load function
 var TryLoadFile = () => {
     SavedData.RetrieveFromFile();
@@ -181,8 +180,9 @@ function RotateImage(dir) {
     mon.imageRotation += dir/2;
     UpdateImage(true);
 }
+const emptyImage = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAANSURBVBhXY2BgYGAAAAAFAAGKM+MAAAAAAElFTkSuQmCC";
 function UpdateImage(save) {
-    $("#monster-image").attr("src", mon.imageSrc || '');
+    $("#monster-image").attr("src", mon.imageSrc || emptyImage);
     if (mon.imageSrc) {
         if (!mon.imagePositionRight) { mon.imagePositionRight = 0;}
         if (!mon.imagePositionBottom) { mon.imagePositionBottom = 0;}
@@ -191,6 +191,10 @@ function UpdateImage(save) {
         const widthChange = newWidth - mon.imageWidth;
         mon.imagePositionRight -= widthChange;
         mon.imageWidth = newWidth;
+        
+        if (mon.imagePositionRight < 10-mon.imageWidth) {
+            mon.imagePositionRight = 10-mon.imageWidth;
+        }
         mon.imageHorizontalFlip = $("#image-horizontal-flip-input").prop("checked");
         mon.imageBehind = $("#image-behind-input").prop("checked");
 
@@ -218,6 +222,9 @@ function UpdateImage(save) {
         $("#monster-image").attr("style", style);
         $("#image-controls").show();
     } else {
+        let style = "position: absolute; z-index: 1; object-position: center;" +
+                    " width: 1px; bottom: 1px; right: 1px;";
+        $("#monster-image").attr("style", style);
         $("#image-button").text("Pick Image");
         $("#image-controls").hide();
     }
@@ -718,6 +725,7 @@ var FormFunctions = {
         $("#hp-text-input").val(StringFunctions.GetHP());
         $("#custom-hp-input").prop("checked", mon.customHP);
         $("#dietype-input").val(mon.hitDieType);
+
         this.ShowHideCustomHP();
 
         // Speeds
@@ -1286,7 +1294,6 @@ var GetVariablesFunctions = {
         }
         mon.doubleColumns = newDoubleColumns;
         
-        mon.imageSrc = $("#monster-image").attr("src");
         mon.imageWidth = $("#image-width-input").val();
         mon.imageHorizontalFlip = $("#image-horizontal-flip-input").prop("checked");
         mon.imageBehind = $("#image-behind-input").prop("checked");
@@ -2291,8 +2298,10 @@ $(function () {
     });
     
     $(document).on('mouseup', function() {
-        isDragging = false;
-        UpdateImage(true);
+        if (isDragging) {
+            isDragging = false;
+            UpdateImage(true);
+        }
     });
 });
 
