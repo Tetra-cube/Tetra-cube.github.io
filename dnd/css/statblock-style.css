@@ -5,14 +5,21 @@
     line-height: 1.2em;
     display: inline-block;
     vertical-align: top;
-    width: 400px;
+    width: 400px; /* or 800px for .stat-block.wide */
     background: #FDF1DC;
     background-size: cover;
     background-position: center; 
     background-image: url('../dndimages/statblockparch.jpg');
-    padding: 10px 10px 20px;
+    padding: 1px 1px 2px;
     box-sizing: border-box;
     font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+}
+#insideBorders {
+    padding: 10px 10px 20px;
+    overflow: hidden; /* This prevents the image from extending beyond the main div */
+}
+#insideBorders.no-clip {
+    overflow: visible; /* This allows the image to extending beyond the main div */
 }
 
 #stat-block-wrapper {
@@ -67,19 +74,17 @@ input[type="number"] {
 .orange-border {
     display: block;
     background: #E69A28;
-    background-size: cover;
-	background-position: center; 
     background-image: url('../dndimages/statblockbar.jpg');
     border: 1px solid #000;
     height: 5px;
-    padding: 0 10px 0;
-    margin: -10px -10px 0;
+    margin: -1px -1px -5px -1px;
+    padding: 0px 1px 1px 0px;
     box-sizing: initial;
     opacity: 100%;
 }
 
 .orange-border.bottom {
-    margin: 15px -10px -20px;
+    margin: 0px -1px -2px -1px;
 }
 
 .tapered-rule {
@@ -274,3 +279,6 @@ input[type="number"] {
     display: none;
 }
 
+ .rotate_button {
+    border-radius: 50%;
+ }

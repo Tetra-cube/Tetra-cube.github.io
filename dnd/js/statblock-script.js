@@ -74,7 +74,8 @@ var mon = {
     imagePositionBottom: 0,
     imageRotation: 0,
     imageHorizontalFlip: false,
-    imageBehind: false
+    imageBehind: false,
+    imageClip: true
 };
 
 const LEGACY_MARKDOWN = false
@@ -171,8 +172,7 @@ function alterWhitespace(direction) {
     if (mon.extraWhitespace < 0) {
         mon.extraWhitespace = 0;
     }
-    const topMargin = 15 + mon.extraWhitespace * 20;
-    $('#bottomBorder').css('margin-top', topMargin + 'px');
+    $('#image-padding').css('margin-top', (mon.extraWhitespace * 20) + 'px');
 }
 
 function RotateImage(dir) {
@@ -197,6 +197,7 @@ function UpdateImage(save) {
         }
         mon.imageHorizontalFlip = $("#image-horizontal-flip-input").prop("checked");
         mon.imageBehind = $("#image-behind-input").prop("checked");
+        mon.imageClip = $("#image-clip-input").prop("checked");
 
         if (!mon.imageWidth)  { mon.imageWidth = 400; $("#image-width-input").val(mon.imageWidth);}
 
@@ -228,6 +229,7 @@ function UpdateImage(save) {
         $("#image-button").text("Pick Image");
         $("#image-controls").hide();
     }
+    $("#insideBorders").toggleClass('no-clip', !mon.imageClip);
     if (save) {
         // Since changes to the image appear to on the final markup, we save all new position and size
         // information to the local storage, to keep it in synch with the final display block.
@@ -325,9 +327,8 @@ function UpdateStatblock(moveSeparationPoint) {
 
     // Display All Properties (except CR)
     let propertiesDisplayList = [];
-    propertiesDisplayList.push(StringFunctions.MakePropertyHTML(propertiesDisplayArr[0], true));
-    for (let index = 1; index < propertiesDisplayArr.length; index++)
-        propertiesDisplayList.push(StringFunctions.MakePropertyHTML(propertiesDisplayArr[index]));
+    for (let index = 0; index < propertiesDisplayArr.length; index++)
+        propertiesDisplayList.push(StringFunctions.MakePropertyHTML(propertiesDisplayArr[index], index === 0));
     $("#properties-list").html(propertiesDisplayList.join(""));
 
     // Challenge Rating
@@ -808,6 +809,7 @@ var FormFunctions = {
         $("#image-width-input").val(mon.imageWidth);
         $("#image-horizontal-flip-input").prop("checked", mon.imageHorizontalFlip);
         $("#image-behind-input").prop("checked", mon.imageBehind);
+        $("#image-clip-input").prop("checked", mon.imageClip);
         UpdateImage(false);
     },
 
@@ -1297,6 +1299,7 @@ var GetVariablesFunctions = {
         mon.imageWidth = $("#image-width-input").val();
         mon.imageHorizontalFlip = $("#image-horizontal-flip-input").prop("checked");
         mon.imageBehind = $("#image-behind-input").prop("checked");
+        mon.imageClip = $("#image-clip-input").prop("checked");
         UpdateImage(true);
     },
 
@@ -1609,6 +1612,7 @@ var GetVariablesFunctions = {
         mon.imageRotation = 0;
         mon.imageHorizontalFlip = false;
         mon.imageBehind = false;
+        mon.imageClip = true;
         UpdateImage(false);
     },
 
@@ -2038,13 +2042,24 @@ var StringFunctions = {
 
     MakePropertyHTML: function (property, firstLine) {
         if (property.arr.length == 0) return "";
-        let htmlClass = firstLine ? "property-line first" : "property-line",
-            arr = Array.isArray(property.arr) ? property.arr.join(", ") : property.arr;
-        return "<div class=\"" + htmlClass + "\"><div><h4>" + StringFunctions.RemoveHtmlTags(property.name) + "</h4> <p>" + StringFunctions.RemoveHtmlTags(this.FormatString(arr, false)) + "</p></div></div><!-- property line -->"
+        let htmlClass = firstLine ? "property-line first" : "property-line";
+        let arr = property.arr;
+        if (Array.isArray(arr)) {
+           arr = arr.map(function(element) {
+               return element.replace(/ /g, '&nbsp;');
+           }).join(", ");
+        }
+        return "<div class=\"" + htmlClass + "\"><div><h4>" + 
+                StringFunctions.RemoveHtmlTags(property.name) + "</h4> <p>" + 
+                StringFunctions.RemoveHtmlTags(this.FormatString(arr, false)) +
+                "</p></div></div><!-- property line -->"
     },
 
     MakeTraitHTML: function (name, description) {
-        return "<div class=\"property-block\"><div><h4>" + StringFunctions.RemoveHtmlTags(name) + ".</h4><p> " + this.FormatString(StringFunctions.RemoveHtmlTags(description), true) + "</p></div></div> <!-- property block -->";
+        return "<div class=\"property-block\"><div><h4>" + 
+                StringFunctions.RemoveHtmlTags(name) + ".</h4><p> " +
+                this.FormatString(StringFunctions.RemoveHtmlTags(description), true) +
+                "</p></div></div> <!-- property block -->";
     },
 
     MakeTraitHTMLLegendary: function (name, description) {

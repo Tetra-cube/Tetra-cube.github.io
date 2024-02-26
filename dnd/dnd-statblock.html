@@ -77,8 +77,8 @@
             <div id="stat-block-wrapper">
                 <div id="stat-block" class="stat-block" style="position: relative;">
                     <!-- stat-block has the parchment background -->
-                    <div style="position: relative; z-index: 2;">
-                        <hr class="orange-border" />
+                    <hr class="orange-border" />
+                    <div id="insideBorders" style="position: relative; z-index: 2;">
                         <div class="section-left">
                             <div class="creature-heading">
                                 <h1 id="monster-name">Monster</h1>
@@ -134,24 +134,27 @@
                                 <div id="traits-list-right"></div>
                             </div> <!-- actions -->
                         </div> <!-- section right -->
+                        <div id="image-padding" style="margin-top: 0px; height: 1px"></div>
                         <img id="monster-image" src=""
                              style="position: absolute; width: 300px; bottom: 0; left: 0; z-index: 2; object-position: center;">
-                        <hr class="orange-border bottom" id="bottomBorder" />
                     </div>
+                    <hr class="orange-border bottom" id="bottomBorder" />
                 </div>
             </div> <!-- stat block -->
             <div>
                 <button id="image-button" onclick="onImage()">Pick Image</button>
                 <div id="image-controls" style="display: none">
                     <div style="width: 800px;">
-                        Size: <input type="range" min="1" max="800" value="400" style="width: 60%"
+                        Size: <input type="range" min="1" max="800" value="400" style="width: 50%"
                                            id="image-width-input" oninput="UpdateImage(true)">
                         <label for="image-horizontal-flip-input">
                             <input id="image-horizontal-flip-input" type="checkbox" onchange="UpdateImage(true)">Horizontal flip</label>
                         <label for="image-behind-input">
                             <input id="image-behind-input" type="checkbox" onchange="UpdateImage(true)">Behind</label>
-                        <button onclick="RotateImage(-1)">↶</button>
-                        <button onclick="RotateImage(1)">↷</button>
+                        <label for="image-clip-input">
+                            <input id="image-clip-input" type="checkbox" onchange="UpdateImage(true)">Clip</label>
+                        <button onclick="RotateImage(-1)" class="rotate_button">↶</button>
+                        <button onclick="RotateImage(1)" class="rotate_button">↷</button>
                    </div>
                 </div>
             </div>
