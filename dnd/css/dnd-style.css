@@ -275,4 +275,8 @@ label {
     #magic-items-body {
         background-image: url("../dndimages/magicitemsbkg.jpg");
     }
+	
+    #ultimate-edition-body {
+        background-image: url("../dndimages/ultimateedbkg.jpg");
+    }
 }
