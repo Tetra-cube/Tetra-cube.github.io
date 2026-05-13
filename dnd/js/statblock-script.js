@@ -927,7 +927,7 @@ var InputFunctions = {
             UpdateStatblock();
             return;
         }
-        $.getJSON("https://api.open5e.com/monsters/" + name, function (jsonArr) {
+        $.getJSON("https://api.open5e.com/v1/monsters/" + name, function (jsonArr) {
             GetVariablesFunctions.SetPreset(jsonArr);
             FormFunctions.SetForms();
             UpdateStatblock();
@@ -1974,14 +1974,14 @@ var ArrayFunctions = {
 // Document ready function
 $(function () {
     // Load the preset monster names
-    $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000&document__slug=wotc-srd", function (srdArr) {
+    $.getJSON("https://api.open5e.com/v1/monsters/?format=json&fields=slug,name&limit=1000&document__slug=wotc-srd", function (srdArr) {
         let monsterSelect = $("#monster-select");
         monsterSelect.append("<option value=''></option>");
         monsterSelect.append("<option value=''>-5e SRD-</option>");
         $.each(srdArr.results, function (index, value) {
             monsterSelect.append("<option value='" + value.slug + "'>" + value.name + "</option>");
         })
-        $.getJSON("https://api.open5e.com/monsters/?format=json&fields=slug,name&limit=1000&document__slug=tob", function (tobArr) {
+        $.getJSON("https://api.open5e.com/v1/monsters/?format=json&fields=slug,name&limit=1000&document__slug=tob", function (tobArr) {
             monsterSelect.append("<option value=''></option>");
             monsterSelect.append("<option value=''>-Tome of Beasts (Kobold Press)-</option>");
             $.each(tobArr.results, function (index, value) {
