@@ -1,0 +1,62 @@
+i.fa {
+    cursor: pointer;
+    transition: .5s
+}
+
+i.fa:not(.disabled):hover {
+    color: darkred;
+}
+
+i.fa.disabled {
+    opacity: .5;
+    cursor: default;
+}
+
+#print-options {
+    text-align: left;
+    left: 25%;
+}
+
+#print-preview-page {
+    background-color: white;
+    box-shadow: 0 0 1.5rem #867453;
+    margin-top: 1.5rem;
+    padding: 5px;
+    text-align: left;
+    overflow-x: auto;
+}
+
+#statblocks-list {
+    list-style-type: none;
+}
+
+#print-margin-input {
+    height: unset;
+    width: unset;
+}
+
+#dragndrop-overlay {
+    background-color: rgba(255,255,255,0.5);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+#dragndrop-overlay > div {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#dragndrop-overlay .fa {
+    font-size: 10rem;
+}
+
+.hidden {
+    display: none;
+}
