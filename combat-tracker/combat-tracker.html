@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TTRPG Combat Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" type="text/css" href="combat-tracker.css">
+    <script src="jquery-4.0.0.min.js"></script>
+    <script src="combat-tracker.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145234284-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-145234284-1');
+    </script>
+</head>
+<body>
+    <div>
+        <h1>TTRPG Combat Tracker</h1>
+        <div class="buttons">
+            <button id="undo" onclick="Undo()">Undo</button><button id="redo" onclick="Redo()">Redo</button><button id="clear" onclick="ClearAll()">Clear All</button>
+        </div>
+        <div id="notifications"></div>
+        <h3 id="ally-turn" onclick="ChangeTurnManual()">Ally Turn</h3>
+        <h3 id="enemy-turn" onclick="ChangeTurnManual()">Enemy Turn</h3>
+        <table id="combatant-list">
+            <thead>
+                <th class="center-align" title="Team">T</th>
+                <th class="center-align" title="Turn Status">S</th>
+                <th class="left-align">Name</th>
+                <th class="center-align">HP</th>
+                <th class="center-align">Def</th>
+                <th class="center-align" title="Armor Class">AC</th>
+                <th class="left-align">Conditions</th>
+                <!-- <th></th> -->
+                <th></th>
+            </thead>
+            <tbody></tbody>
+            <div id="no-combatants" class="center-align">No combatants entered.</div>
+        </table>
+        <div class="buttons">
+            <button id="add-combatant" onclick="AddCharacter(0)">Add Ally</button><button id="add-combatant" onclick="AddCharacter(1)">Add Enemy</button>
+        </div>
+    </div>
+</body>
+</html>

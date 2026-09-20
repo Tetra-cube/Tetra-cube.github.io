@@ -1,0 +1,197 @@
+html {
+    background: black;
+    /* background-attachment: fixed;
+    background-size: cover;
+	background-position: center;
+    background-image: url('background.jpg'); */
+}
+
+body {
+    color: white;
+    margin: 0px auto 20px auto;
+    max-width: 1000px;
+    font-size: large;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+h1 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.buttons {
+    margin: 1rem;
+    text-align: center;
+}
+
+button {
+    background: royalblue;
+    color: white;
+    border-radius: 5px;
+    border: 2px solid rgb(66, 53, 182);
+    font-size: large;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 5px;
+    padding: 2px 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(110, 146, 255);
+}
+
+button:disabled {
+    border: 2px solid rgb(119, 119, 119);
+    background: #adadad;
+    cursor: no-drop;
+}
+
+#notifications {
+    height: 2.5rem;
+}
+
+.notification {
+    border-radius: 5px;
+    text-align: center;
+}
+
+.notification.notification-t0 {
+    background-color: green;
+    border: 2px solid darkgreen;
+}
+
+.notification.notification-t1 {
+    background-color: red;
+    border: 2px solid darkred;
+}
+
+#ally-turn, #enemy-turn {
+    text-align: center;
+    cursor: pointer;
+    margin: 1rem auto;
+    width: fit-content;
+}
+
+#ally-turn {
+    color: green;
+}
+
+#enemy-turn {
+    color: red;
+}
+
+input {
+    background-color: black;
+    border-style: none;
+    border-bottom: 1px solid gray;
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+}
+
+td, th {
+    border: 1px solid gray;
+    vertical-align: top;
+    width: 1rem;
+    padding: 5px;
+    text-align: center;
+}
+
+.green {
+    color: #00af00;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.red {
+    color: red;
+}
+
+.team-icon i, .status-icon i {
+    margin-top: 4px;
+}
+
+.name-input{
+    width: 10rem;
+}
+
+.hp-input {
+    width: 3.5rem;
+}
+
+.def-input {
+    width: 2.5rem;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.info-box {
+    width: 100%;
+    font-size: medium;
+}
+
+.info-box .conditions-list {
+    white-space: nowrap;
+}
+
+.info-box .list-label {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.info-box .list-label button {
+    float: right;
+    margin: 0;
+    padding: 0;
+    width: 26px;
+    background: green;
+    border-color: rgb(0, 82, 0);
+}
+
+.info-box .list-label button:hover {
+    background: rgb(0, 180, 0)
+}
+
+.info-box ul {
+    display: inline-block;
+    list-style: none;
+    margin: 2px;
+    padding-left: 0;
+    width: calc(100% - 2rem);
+}
+
+.info-box ul li {
+    white-space: nowrap;
+}
+
+.info-box input[type="text"] {
+    width: calc(100% - 1.5rem);
+    min-width: 12rem;
+}
+
+.move-character-icons {
+    font-size: x-small;
+}
+
+.move-character-icons .disabled-icon {
+    visibility: hidden;
+}
