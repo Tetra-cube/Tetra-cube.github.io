@@ -35,7 +35,7 @@
                 <th class="center-align">Def</th>
                 <th class="center-align" title="Armor Class">AC</th>
                 <th class="left-align">Conditions</th>
-                <!-- <th></th> -->
+                <th></th>
                 <th></th>
             </thead>
             <tbody></tbody>
@@ -43,6 +43,10 @@
         </table>
         <div class="buttons">
             <button id="add-combatant" onclick="AddCharacter(0)">Add Ally</button><button id="add-combatant" onclick="AddCharacter(1)">Add Enemy</button>
+        </div>
+        <div>
+            <div id="notes-label">Notes:</div>
+            <textarea id="notes-textarea" onchange="EditNotes()"></textarea>
         </div>
     </div>
 </body>

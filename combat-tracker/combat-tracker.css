@@ -82,7 +82,7 @@ button:disabled {
     color: red;
 }
 
-input {
+input, textarea {
     background-color: black;
     border-style: none;
     border-bottom: 1px solid gray;
@@ -144,21 +144,21 @@ td, th {
     cursor: pointer;
 }
 
-.info-box {
+.conditions-box {
     width: 100%;
     font-size: medium;
 }
 
-.info-box .conditions-list {
+.conditions-box .conditions-list {
     white-space: nowrap;
 }
 
-.info-box .list-label {
+.conditions-box .list-label {
     display: inline-block;
     vertical-align: top;
 }
 
-.info-box .list-label button {
+.conditions-box .list-label button {
     float: right;
     margin: 0;
     padding: 0;
@@ -167,11 +167,11 @@ td, th {
     border-color: rgb(0, 82, 0);
 }
 
-.info-box .list-label button:hover {
+.conditions-box .list-label button:hover {
     background: rgb(0, 180, 0)
 }
 
-.info-box ul {
+.conditions-box ul {
     display: inline-block;
     list-style: none;
     margin: 2px;
@@ -179,11 +179,11 @@ td, th {
     width: calc(100% - 2rem);
 }
 
-.info-box ul li {
+.conditions-box ul li {
     white-space: nowrap;
 }
 
-.info-box input[type="text"] {
+.conditions-box input[type="text"] {
     width: calc(100% - 1.5rem);
     min-width: 12rem;
 }
@@ -194,4 +194,13 @@ td, th {
 
 .move-character-icons .disabled-icon {
     visibility: hidden;
+}
+
+#notes-label {
+    color:gray;
+}
+
+#notes-textarea {
+    width: 100%;
+    resize: vertical;
 }

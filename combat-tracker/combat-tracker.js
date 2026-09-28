@@ -10,9 +10,9 @@ var tracker = [{
         hp: 0,
         def: 0,
         conditions: []
-    }
-]}
-];
+    }],
+    notes: ""
+}];
 
 $(function () {
     var savedData = localStorage.getItem("combatTrackerData");
@@ -69,7 +69,7 @@ function SetTrackerDisplay(resetDisplay) {
                     `<td class="center-align"><input type="number" id="character-${ci}-hp" class="hp-input" value="${c.hp}" max="9999" min="-9999" onchange="EditHp(${ci})" /></td>` +
                     `<td class="center-align"><input type="number" id="character-${ci}-def" class="def-input" value="${c.def}" max="99" min="-99" onchange="EditDef(${ci})" /></td>` +
                     `<td class="center-align" id="character-${ci}-ac">${Number(c.def) + 11}</td>` +
-                    `<td class="left-align info-box">` +
+                    `<td class="left-align conditions-box">` +
                         `<div class="conditions-list">` +
                             `<div class="list-label">` +
                                 `<button title="Add New Condition" onClick="AddCondition(${ci})">+</button>` +
@@ -77,18 +77,18 @@ function SetTrackerDisplay(resetDisplay) {
                             `<ul>${Conditions(c, ci)}</ul>` +
                         `</div>` +
                     `</td>` +
-                    // `<td class="move-character-icons">` +
-                    //     (
-                    //         ci > 0 ?
-                    //             `<span class="pointer" title="Move Character Up" onClick="MoveCharacter(${ci}, ${ci - 1})"><i class="fa-solid fa-chevron-up"></i></span>` : 
-                    //             `<span><i class="fa-solid fa-chevron-up disabled-icon"></i></span>`
-                    //     ) +
-                    //     (
-                    //         ci < currentTracker.characters.length - 1 ?
-                    //             `<span class="pointer" title="Move Character Down" onClick="MoveCharacter(${ci}, ${ci + 1})"><i class="fa-solid fa-chevron-down"></i></span>` :
-                    //             `<span><i class="fa-solid fa-chevron-down disabled-icon"></i></span>`
-                    //     ) +
-                    // `</td>` +
+                    `<td class="move-character-icons">` +
+                        (
+                            ci > 0 ?
+                                `<span class="pointer" title="Move Character Up" onClick="MoveCharacter(${ci}, ${ci - 1})"><i class="fa-solid fa-chevron-up"></i></span>` : 
+                                `<span><i class="fa-solid fa-chevron-up disabled-icon"></i></span>`
+                        ) +
+                        (
+                            ci < currentTracker.characters.length - 1 ?
+                                `<span class="pointer" title="Move Character Down" onClick="MoveCharacter(${ci}, ${ci + 1})"><i class="fa-solid fa-chevron-down"></i></span>` :
+                                `<span><i class="fa-solid fa-chevron-down disabled-icon"></i></span>`
+                        ) +
+                    `</td>` +
                     `<td><span title="Delete Character" onClick="DeleteCharacter(${ci})" class="pointer">❌</span></td>` +
                 `</tr>`
             ).join(""));
@@ -97,6 +97,7 @@ function SetTrackerDisplay(resetDisplay) {
             $("#combatant-list").hide();
             $("#no-combatants").show();
         }
+        $("#notes-textarea").val(currentTracker.notes);
     }
     $("#undo").prop("disabled", trackerIndex <= 0);
     $("#redo").prop("disabled", trackerIndex >= tracker.length - 1);
@@ -163,15 +164,15 @@ function UpdateTurnOrder(tracker) {
             }
         }
     }
-    tracker.characters.sort((a, b) => GetSortOrder(a) - GetSortOrder(b));
+    // tracker.characters.sort((a, b) => GetSortOrder(a) - GetSortOrder(b));
 
-    function GetSortOrder(c) {
-        switch (c.status) {
-            case 0: return c.team == tracker.turn ? 1 : 2;
-            case 1: return 0;
-            case 2: return c.team == tracker.turn ? 3 : 4;
-        }
-    }
+    // function GetSortOrder(c) {
+    //     switch (c.status) {
+    //         case 0: return c.team == tracker.turn ? 1 : 2;
+    //         case 1: return 0;
+    //         case 2: return c.team == tracker.turn ? 3 : 4;
+    //     }
+    // }
 }
 
 function Undo() {
@@ -199,7 +200,8 @@ function ChangeTurnManual() {
 
 function AddCharacter(team) {
     if (tracker[trackerIndex].characters.length < 100) {
-        ChangeTracker(t => t.characters.push({
+        var newIndex = lastIndexOfFunction(tracker[trackerIndex].characters, c => c.team == team) + 1;
+        ChangeTracker(t => t.characters.splice(newIndex, 0, {
             team: team,
             status: 0,
             name: "",
@@ -211,6 +213,12 @@ function AddCharacter(team) {
             case 0: AddNotification("Ally added.", 0); break;
             case 1: AddNotification("Enemy added.", 1); break;
         }
+    }
+
+    function lastIndexOfFunction(arr, func) {
+        for (var i = arr.length - 1; i >= 0; i--)
+            if (func(arr[i]))
+                return i;
     }
 }
 
@@ -275,10 +283,15 @@ function DeleteCondition(ci, ni) {
     ChangeTracker(t => t.characters[ci].conditions.splice(ni, 1), true);
 }
 
+function EditNotes() {
+    ChangeTracker(t => t.notes = $(`#notes-textarea`).val(), false);
+}
+
 function ClearAll() {
     ChangeTracker(t => {
-        t.characters = [];
         t.turn = 0;
+        t.characters = [];
+        t.notes = "";
     }, true);
     AddNotification("Tracker data cleared.", 1);
 }
