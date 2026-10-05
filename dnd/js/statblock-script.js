@@ -1675,9 +1675,9 @@ var StringFunctions = {
 
     // Get the string displayed for the monster's HP
     GetHP: function () {
-        if (mon.customHP)
-            return mon.hpText;
         let conBonus = MathFunctions.PointsToBonus(mon.conPoints);
+        if (mon.customHP)
+            return CalculateAverageCustomHP(mon.hpText, conBonus);
         hitDieSize = data.sizes[mon.size].hitDie,
             avgHP = Math.floor(mon.hitDice * ((hitDieSize + 1) / 2)) + (mon.hitDice * conBonus);
         if (conBonus > 0)
